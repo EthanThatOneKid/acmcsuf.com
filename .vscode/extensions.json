@@ -1,1 +1,1 @@
-{"recommendations": ["svelte.svelte-vscode"]}
+{ "recommendations": ["svelte.svelte-vscode", "esbenp.prettier-vscode"] }

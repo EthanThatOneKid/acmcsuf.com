@@ -1,6 +1,13 @@
 {
-  "name": "TODO",
-  "description": "TODO",
+  "name": "acmcsuf.com",
+  "homepage": "https://acmcsuf.com/",
+  "author": {
+    "name": "EthanThatOneKid",
+    "url": "https://github.com/EthanThatOneKid/"
+  },
+  "repository": {
+    "url": "https://github.com/EthanThatOneKid/acmcsuf.com.git/"
+  },
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
@@ -12,6 +19,7 @@
   "dependencies": {
     "compression": "^1.7.1",
     "polka": "next",
+    "sass": "^1.32.4",
     "sirv": "^1.0.0"
   },
   "devDependencies": {
