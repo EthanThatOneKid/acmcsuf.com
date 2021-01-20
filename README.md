@@ -11,7 +11,7 @@ Then, run `npm run dev` to spin up the [development server][dev_server].
 
 ## Deployment 🚀
 
-Whenever a release is cut (by creating a tag), a [GitHub action][github_action_deploy] is invoked. It builds the site, tests it, and if there are no errors, it will deploy to [Vercel][netlify_dashboard].
+Whenever a release is cut (by creating a tag), a [GitHub action][github_action_deploy] is invoked. It builds the site, tests it, and if there are no errors, it will deploy to [Vercel][vercel_dashboard].
 
 ---
 

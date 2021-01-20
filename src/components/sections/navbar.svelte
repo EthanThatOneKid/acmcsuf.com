@@ -23,8 +23,12 @@
   <nav>
     <ul>
       {#each menuItems as { title, slug } (slug)}
-        <li aria-current={segment === slug}>
-          <a href={`/${slug}`} class={`navitem navitem-${slug}`}>{title}</a>
+        <li>
+          <a
+            href={`/${slug}`}
+            class={`navitem navitem-${slug}`}
+            aria-current={segment === slug}>{title}</a
+          >
         </li>{/each}
     </ul>
   </nav>
@@ -84,11 +88,12 @@
               transition: color 0.33s;
               color: $acmPink;
             }
-          }
 
-          &[aria-current="true"] {
-            text-decoration: line-through;
-            color: grey !important;
+            &[aria-current="true"] {
+              text-decoration: line-through;
+              color: grey;
+              pointer-events: none;
+            }
           }
         }
       }

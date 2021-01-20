@@ -40,6 +40,7 @@ export const officers: {
   {
     name: "Shaleen Mathur 🏀",
     title: "Workshop Manager",
+    picture: "shaleen-mathur.jpg",
   },
   {
     name: "Nicola Renteria",
@@ -77,6 +78,7 @@ export const officers: {
   {
     name: "Parth Sharma",
     title: "Algo Officer",
+    picture: "parth-sharma.jpeg",
   },
   {
     name: "Armanul Ambia",
@@ -86,17 +88,5 @@ export const officers: {
     name: "Lisa Hong",
     title: "Product Officer",
     picture: "lisa-hong.png",
-  },
-  {
-    name: "Kevin Sierras",
-    title: "Intern",
-  },
-  {
-    name: "Danny Ng",
-    title: "Intern",
-  },
-  {
-    name: "Mathias Nguyen",
-    title: "Intern",
   },
 ];
