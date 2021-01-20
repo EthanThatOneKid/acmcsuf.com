@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let link: string = "#";
+  export let link: string = "https://tinyurl.com/acm-csuf-discord";
   export let text: string = "";
 </script>
 

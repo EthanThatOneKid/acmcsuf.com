@@ -30,6 +30,10 @@
 </section>
 
 <section class="about-screen-who-are-we">
+  <h2 class="brand-em">
+    who is acm<span class="brand-blue">CSUF</span>
+    <!-- center this -->
+  </h2>
   <div class="officers-2020-2021-container">
     {#each officers as { name, title, picture, url }, i (name)}
       <div class="officer-container">
