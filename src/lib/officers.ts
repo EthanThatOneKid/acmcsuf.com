@@ -6,7 +6,7 @@ export const officers: {
 }[] = [
   {
     name: "Jacob Nguyen",
-    title: "Create Director",
+    title: "President/Create Director",
     picture: "jacob-nguyen.jpg",
   },
   {
@@ -17,17 +17,10 @@ export const officers: {
     name: "Samuel Sandoval",
     title: "Dev Director",
     picture: "samuel-sandoval.jpg",
-    url: "https://samuelsandoval.me/",
   },
   {
     name: "Ethan Davidson",
-    title: "Webmaster 😎",
-    url: "http://github.com/ethanthatonekid",
-  },
-  {
-    name: "Mike Ploythai",
-    title: "Create Officer",
-    picture: "mike-ploythai.jpeg",
+    title: "Webmaster",
   },
   {
     name: "Nicole Traboulsi",
@@ -36,6 +29,7 @@ export const officers: {
   {
     name: "Jason Anthony",
     title: "Secretary",
+    picture: "jason-anthony.jpg",
   },
   {
     name: "Shaleen Mathur 🏀",
@@ -51,7 +45,7 @@ export const officers: {
     title: "ICC Representative",
   },
   {
-    name: "Samuel Valls 🎮",
+    name: "Samuel Valls",
     title: "Community Manager",
     picture: "samuel-valls.jpg",
   },
@@ -60,12 +54,12 @@ export const officers: {
     title: "Intern Program Manager",
   },
   {
-    name: "Wesley Chou",
-    title: "Dev Officer",
+    name: "Shaleen Mathur",
+    title: "Co-Workshop Manager",
   },
   {
     name: "Johnson Tong",
-    title: "Workshop Manager",
+    title: "Co-Workshop Manager",
   },
   {
     name: "Kavit Sanghavi",
@@ -78,11 +72,21 @@ export const officers: {
   {
     name: "Parth Sharma",
     title: "Algo Officer",
-    picture: "parth-sharma.jpeg",
+    picture: "parth-sharma.jpg",
+  },
+  {
+    name: "Wesley Chou",
+    title: "Dev Officer",
+    picture: "wesley-chou.png",
   },
   {
     name: "Armanul Ambia",
     title: "Dev Officer",
+  },
+  {
+    name: "Mike Ploythai",
+    title: "Create Officer",
+    picture: "mike-ploythai.jpeg",
   },
   {
     name: "Lisa Hong",
