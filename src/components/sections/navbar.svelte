@@ -88,7 +88,7 @@
 
           &[aria-current="true"] {
             text-decoration: line-through;
-            color: gray;
+            color: grey !important;
           }
         }
       }
