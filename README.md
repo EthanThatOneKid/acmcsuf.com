@@ -11,7 +11,7 @@ Then, run `npm run dev` to spin up the [development server][dev_server].
 
 ## Deployment 🚀
 
-Whenever a release is cut (by creating a tag), a [GitHub action][github_action_deploy] is invoked. It builds the site, tests it, and if there are no errors, it will deploy to [Netlify][netlify_dashboard].
+Whenever a release is cut (by creating a tag), a [GitHub action][github_action_deploy] is invoked. It builds the site, tests it, and if there are no errors, it will deploy to [Vercel][netlify_dashboard].
 
 ---
 
@@ -24,4 +24,4 @@ Maintained with 💖 by [Ethan Davidson][webmaster_url] (`EthanThatOneKid#3456`)
 [webmaster_url]: https://github.com/EthanThatOneKid/
 [figma_design]: https://www.figma.com/file/9cvuO69WgNGuCjf2JGDPfq/ACM-Website-Mockup---Mike-Ploythai?node-id=1%3A26
 [dev_server]: http://localhost:3000/
-[netlify_dashboard]: http://netlify.com/
+[vercel_dashboard]: https://vercel.com/ethanthatonekid/acm-csuf-site
