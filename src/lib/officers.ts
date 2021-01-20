@@ -21,6 +21,7 @@ export const officers: {
   {
     name: "Ethan Davidson",
     title: "Webmaster",
+    url: "https://github.com/EthanThatOneKid",
   },
   {
     name: "Nicole Traboulsi",
