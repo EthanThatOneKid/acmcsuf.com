@@ -92,7 +92,7 @@
           }
         }
       }
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: $breakpoint) {
         ul {
           flex-direction: column;
         }

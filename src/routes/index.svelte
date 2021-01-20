@@ -114,8 +114,11 @@
   }
 
   .screen-paths {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     .paths-intro {
       padding-top: 333px;
@@ -142,7 +145,6 @@
       }
     }
     .paths-display {
-      width: 100%;
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
@@ -159,6 +161,14 @@
         }
         span {
           @include fluidSize(18, 36);
+        }
+      }
+    }
+    @media screen and (max-width: $breakpoint) {
+      .paths-display {
+        flex-direction: column;
+        .path-item {
+          padding-top: 1em;
         }
       }
     }
