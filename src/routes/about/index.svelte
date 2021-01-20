@@ -1,6 +1,6 @@
 <script lang="ts">
   import WhatAreYouWaitingFor from "../../components/sections/what-are-you-waiting-for.svelte";
-  import { officers } from "./_officers";
+  import { officers } from "../../lib/officers";
   import { styleProps } from "../../actions/use-style-props";
 </script>
 
@@ -36,7 +36,9 @@
         <div
           class="officer-image"
           use:styleProps={{
-            "officer-image-url": `url(../assets/authors/${picture})`,
+            "officer-image-url": `url(../assets/authors/${
+              picture || "placeholder.png"
+            })`,
           }}
         />
         <h3>

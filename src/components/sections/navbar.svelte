@@ -23,12 +23,8 @@
   <nav>
     <ul>
       {#each menuItems as { title, slug } (slug)}
-        <li>
-          <a
-            href={`/${slug}`}
-            class={`navitem navitem-${slug}`}
-            aria-current={segment === slug}>{title}</a
-          >
+        <li aria-current={segment === slug}>
+          <a href={`/${slug}`} class={`navitem navitem-${slug}`}>{title}</a>
         </li>{/each}
     </ul>
   </nav>
@@ -90,10 +86,15 @@
             }
           }
 
-          &[aria-current] {
-            border: 2px solid $acmDark;
-            border-radius: 10px;
+          &[aria-current="true"] {
+            text-decoration: line-through;
+            color: gray;
           }
+        }
+      }
+      @media screen and (max-width: 768px) {
+        ul {
+          flex-direction: column;
         }
       }
     }
