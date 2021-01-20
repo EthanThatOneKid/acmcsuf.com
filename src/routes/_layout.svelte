@@ -2,6 +2,7 @@
   import Navbar from "../components/sections/navbar.svelte";
   import Footer from "../components/sections/footer.svelte";
   export let segment: string;
+  const pageTitle = segment === undefined ? "home" : segment;
 </script>
 
 <Navbar {segment} />
@@ -11,7 +12,7 @@
 <svelte:head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>acmcsuf.com | home</title>
+  <title>{`acmcsuf.com | ${pageTitle}`}</title>
   <link
     rel="apple-touch-icon"
     sizes="180x180"

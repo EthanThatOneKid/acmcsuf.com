@@ -8,6 +8,11 @@ export const officers: {
     name: "Jacob Nguyen",
     title: "Create Director",
     picture: "samuel-sandoval.jpg",
+  },
+  {
+    name: "Samuel Sandoval",
+    title: "This Foo",
+    picture: "samuel-sandoval.jpg",
     url: "https://samuelsandoval.me/",
   },
 ];
