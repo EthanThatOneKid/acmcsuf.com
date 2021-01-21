@@ -11,11 +11,15 @@ import typescript from "@rollup/plugin-typescript";
 import config from "sapper/config/rollup.js";
 import markdown from "@jackfranklin/rollup-plugin-markdown";
 import glob from "rollup-plugin-glob";
+import alias from "@rollup/plugin-alias";
 import pkg from "./package.json";
 
 const mode = process.env.NODE_ENV;
 const dev = mode === "development";
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
+const aliases = {
+  "@": path.resolve(__dirname, "src"),
+};
 
 const onwarn = (warning, onwarn) =>
   (warning.code === "MISSING_EXPORT" && /'preload'/.test(warning.message)) ||
@@ -31,6 +35,7 @@ export default {
     plugins: [
       markdown(),
       glob(),
+      alias({ entries: aliases }),
       replace({
         "process.browser": true,
         "process.env.NODE_ENV": JSON.stringify(mode),
@@ -50,6 +55,7 @@ export default {
         browser: true,
         dedupe: ["svelte"],
       }),
+
       commonjs(),
       typescript({ sourceMap: dev }),
 
@@ -93,6 +99,7 @@ export default {
     plugins: [
       markdown(),
       glob(),
+      alias({ entries: aliases }),
       replace({
         "process.browser": false,
         "process.env.NODE_ENV": JSON.stringify(mode),
