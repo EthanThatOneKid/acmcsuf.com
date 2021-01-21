@@ -20,7 +20,7 @@ export const officers: {
   },
   {
     name: "Ethan Davidson",
-    title: "Webmaster",
+    title: "Webmaster 😎",
     url: "https://github.com/EthanThatOneKid",
   },
   {

@@ -1,18 +1,12 @@
 <script lang="ts">
+  import Headline from "../../components/sections/headline.svelte";
   import WhatAreYouWaitingFor from "../../components/sections/what-are-you-waiting-for.svelte";
   import { officers } from "../../lib/officers";
 </script>
 
 <section class="about-screen-hero">
   <div>
-    <div class="about-title-container">
-      <object
-        type="image/png"
-        data="../assets/badges/PNG/acm-csuf-badge.png"
-        title="acm-csuf-logo"
-      />
-      <h1 class="about-intro-header brand-em">about</h1>
-    </div>
+    <Headline>about</Headline>
     <div class="about-description-container">
       <h2 class="brand-em">
         what is acm<span class="brand-blue">CSUF</span>
@@ -76,22 +70,6 @@
     div {
       display: flex;
       flex-direction: column;
-
-      .about-title-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-
-        object {
-          @include fluidSize(25, 250, $propName: "width");
-          @include fluidSize(25, 250, $propName: "height");
-        }
-        h1 {
-          @include fluidSize($minHFontSize, $maxHFontSize);
-          @include fluidSize(18, 48, $propName: "padding-left");
-        }
-      }
 
       .about-description-container {
         display: flex;
