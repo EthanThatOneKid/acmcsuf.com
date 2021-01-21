@@ -1,9 +1,8 @@
 ## Contributing Information
 
 Fork this repo to your personal repository.
-Check out into a branch. 
+Check out into a branch.
 Push to that branch and open a Pull Request
-
 
 ## Mirroring to the Production Repo 😎
 

@@ -1,5 +1,6 @@
 <script lang="ts">
-  export let link: string = "#";
+  import { links } from "../../lib/links";
+  export let link: string = links.discord;
   export let text: string = "";
 </script>
 
