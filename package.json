@@ -22,8 +22,7 @@
     "highlight.js": "^10.5.0",
     "polka": "next",
     "sass": "^1.32.4",
-    "sirv": "^1.0.0",
-    "svelte-typewriter": "^2.4.5"
+    "sirv": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
