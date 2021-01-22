@@ -38,30 +38,31 @@
       </p>
     </div>
     <div class="paths-display">
-      <div class="path-item">
+      <a class="path-item" href="/paths#acm-algo">
         <object
           type="image/svg+xml"
           data="assets/badges/with-shadow/acm-algo-badge-s.svg"
           title="acm-algo-logo"
         />
-        <span class="brand-em">acm<span class="brand-purple">Algo</span> </span>
-      </div>
-      <div class="path-item">
+        <span class="brand-em">acm<span class="brand-purple">Algo</span>
+        </span></a
+      >
+      <a class="path-item" href="/paths#acm-create">
         <object
           type="image/svg+xml"
           data="assets/badges/with-shadow/acm-create-badge-s.svg"
           title="acm-create-logo"
         />
         <span class="brand-em">acm<span class="brand-pink">Create</span> </span>
-      </div>
-      <div class="path-item">
+      </a>
+      <a class="path-item" href="/paths#acm-dev">
         <object
           type="image/svg+xml"
           data="assets/badges/with-shadow/acm-dev-badge-s.svg"
           title="acm-dev-logo"
         />
         <span class="brand-em">acm<span class="brand-bluer">Dev</span> </span>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -155,6 +156,9 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        color: $acmDark;
+        text-decoration: none;
+
         object {
           @include fluidSize(36, 250, $propName: "width");
           @include fluidSize(36, 250, $propName: "height");

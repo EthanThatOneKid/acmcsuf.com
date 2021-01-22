@@ -3,7 +3,7 @@
   import WhatAreYouWaitingFor from "../../components/sections/what-are-you-waiting-for.svelte";
 </script>
 
-<section class="about-screen-hero">
+<section class="paths-screen-hero">
   <div>
     <Headline>paths</Headline>
     <div class="about-description-container">
@@ -22,12 +22,72 @@
   </div>
 </section>
 
+<section class="paths-screen-info turnback">
+  <div id="acm-algo">
+    <object
+      type="image/png"
+      data="../assets/badges/PNG/acm-algo-badge.png"
+      title="acm-algo-logo"
+    />
+    <div>
+      <h2>
+        <span class="brand-em">acm<span class="brand-purple">Algo</span></span>
+      </h2>
+      <p>
+        <span class="brand-em">acm<span class="brand-purple">Algo</span></span> is
+        our committee dedicated to building the programming proficiency of students.
+        This committee focuses on increasing knowledge and understanding of data
+        structures/algorithms, enhancing problem-solving abilities, and exploring
+        competitve programing.
+      </p>
+    </div>
+  </div>
+  <div id="acm-create">
+    <object
+      type="image/png"
+      data="../assets/badges/PNG/acm-create-badge.png"
+      title="acm-create-logo"
+    />
+    <div>
+      <h2>
+        <span class="brand-em">acm<span class="brand-pink">Create</span></span>
+      </h2>
+      <p>
+        <span class="brand-em">acm<span class="brand-pink">Create</span></span> is
+        our committee dedicated to emphasizing the importance of product design.
+        This committee focuses on designing the products of acmCSUF, educating students
+        about the princples of UI/UX design, and exposing people to both technical
+        and non-technical roles in the industry.
+      </p>
+    </div>
+  </div>
+  <div id="acm-dev">
+    <object
+      type="image/png"
+      data="../assets/badges/PNG/acm-dev-badge.png"
+      title="acm-dev-logo"
+    />
+    <div>
+      <h2>
+        <span class="brand-em">acm<span class="brand-blue">Dev</span></span>
+      </h2>
+      <p>
+        <span class="brand-em">acm<span class="brand-blue">Dev</span></span> is our
+        committee dedicated to bringing students of all skill-levels together through
+        the use of hands-on projects and activities. This committee introduces students
+        to the software development process, to the different types of technologies
+        used by industry, and enhances people’s passion in STEM.
+      </p>
+    </div>
+  </div>
+</section>
+
 <WhatAreYouWaitingFor />
 
 <style lang="scss">
   @import "../../style/theme.scss";
 
-  .about-screen-hero {
+  .paths-screen-hero {
     padding-top: 100px;
     div {
       display: flex;
@@ -46,6 +106,63 @@
           @include fluidSize($minPFontSize, $maxPFontSize);
           @include fluidSize(220, 1500, $propName: "width");
           text-align: center;
+        }
+      }
+    }
+  }
+
+  .turnback {
+    div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      padding-top: 100px;
+
+      &:nth-child(even) {
+        flex-flow: row-reverse;
+        div {
+          align-items: flex-start;
+          p {
+            text-align: left;
+          }
+        }
+      }
+
+      @media screen and (max-width: $breakpoint) {
+        flex-direction: column;
+        align-items: center;
+        flex-flow: column !important;
+        div {
+          justify-content: center;
+          align-items: center;
+          p,
+          h2 {
+            width: 100%;
+            text-align: center !important;
+          }
+        }
+      }
+
+      object {
+        @include fluidSize(80, 480, $propName: "width");
+        @include fluidSize(80, 480, $propName: "height");
+      }
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        flex-flow: column !important;
+        h2 {
+          @include fluidSize($minHFontSize, $maxHFontSizeMed);
+          text-align: center;
+          font-weight: bold;
+        }
+        p {
+          @include fluidSize($minPFontSize, $maxPFontSize);
+          @include fluidSize(150, 1010, $propName: "width");
+          text-align: right;
         }
       }
     }

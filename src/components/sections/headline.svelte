@@ -1,9 +1,9 @@
+<script lang="ts">
+  export let src: string = "../assets/badges/PNG/acm-csuf-badge.png";
+</script>
+
 <div class="subpage-title-container">
-  <object
-    type="image/png"
-    data="../assets/badges/PNG/acm-csuf-badge.png"
-    title="acm-csuf-logo"
-  />
+  <object type="image/png" data={src} title="acm-csuf-logo" />
   <h1 class="brand-em"><slot /></h1>
 </div>
 
