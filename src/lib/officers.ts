@@ -5,8 +5,6 @@ interface Officer {
   url?: string;
 }
 
-export const latestSchoolYear = "2020-2021";
-
 export const officers: Record<string, Officer[]> = {
   "2021-2022": [
     {
