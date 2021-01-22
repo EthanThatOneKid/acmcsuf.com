@@ -1,6 +1,6 @@
 <script>
-  import WhatAreYouWaitingFor from "../components/sections/what-are-you-waiting-for.svelte";
-  import CallToAction from "../components/ui/call-to-action.svelte";
+  import WhatAreYouWaitingFor from "@/components/sections/what-are-you-waiting-for.svelte";
+  import CallToAction from "@/components/ui/call-to-action.svelte";
 </script>
 
 <section class="info-screen screen-hero">

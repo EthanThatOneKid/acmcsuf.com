@@ -89,6 +89,12 @@
   }
 
   .about-screen-who-are-we {
+    margin-top: 200px;
+    h2 {
+      @include fluidSize($minHFontSize, $maxHFontSizeMed);
+      text-align: center;
+      font-weight: bold;
+    }
     .officers-2020-2021-container {
       display: flex;
       flex-flow: row wrap;
