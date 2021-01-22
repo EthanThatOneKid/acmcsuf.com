@@ -27,9 +27,12 @@
           <a
             href={`/${slug}`}
             class={`navitem navitem-${slug}`}
-            aria-current={segment === slug}>{title}</a
-          >
-        </li>{/each}
+            rel="prefetch"
+            aria-current={segment === slug}>
+            {title}
+          </a>
+        </li>
+      {/each}
     </ul>
   </nav>
 </header>
@@ -90,7 +93,6 @@
             }
 
             &[aria-current="true"] {
-              text-decoration: line-through;
               color: grey;
               pointer-events: none;
             }

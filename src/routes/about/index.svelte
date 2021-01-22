@@ -2,6 +2,7 @@
   import Headline from "@/components/sections/headline.svelte";
   import WhatAreYouWaitingFor from "@/components/sections/what-are-you-waiting-for.svelte";
   import { officers } from "../../lib/officers";
+  let currentSchoolYear = "2020-2021";
 </script>
 
 <section class="about-screen-hero">
@@ -26,8 +27,15 @@
   <h2 class="brand-em">
     who are <span class="brand-blue">we</span>
   </h2>
+  <div class="school-year-input-container">
+    <select name="school-year" bind:value={currentSchoolYear}>
+      {#each Object.keys(officers) as schoolYear (schoolYear)}
+        <option value={schoolYear}>{schoolYear}</option>
+      {/each}
+    </select>
+  </div>
   <div class="officers-2020-2021-container">
-    {#each officers as { name, title, picture, url }, i (name)}
+    {#each officers[currentSchoolYear] as { name, title, picture, url }, i (name)}
       <div class="officer-container">
         <svg class="officer-image" viewBox="1 1 8 8">
           <pattern
@@ -94,6 +102,25 @@
       @include fluidSize($minHFontSize, $maxHFontSizeMed);
       text-align: center;
       font-weight: bold;
+    }
+    .school-year-input-container {
+      min-width: 100px;
+      text-align: center;
+
+      select {
+        background-color: $acmDark;
+        padding: 1em;
+        color: $acmLight;
+        font-family: "Poppins", sans-serif;
+        font-weight: bold;
+        border-radius: 25px;
+
+        option {
+          background-color: $acmDark;
+          color: $acmLight;
+          border-radius: 25px;
+        }
+      }
     }
     .officers-2020-2021-container {
       display: flex;

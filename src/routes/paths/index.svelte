@@ -69,13 +69,13 @@
     />
     <div>
       <h2>
-        <span class="brand-em">acm<span class="brand-blue">Dev</span></span>
+        <span class="brand-em">acm<span class="brand-bluer">Dev</span></span>
       </h2>
       <p>
-        <span class="brand-em">acm<span class="brand-blue">Dev</span></span> is our
-        committee dedicated to bringing students of all skill-levels together through
-        the use of hands-on projects and activities. This committee introduces students
-        to the software development process, to the different types of technologies
+        <span class="brand-em">acm<span class="brand-bluer">Dev</span></span> is
+        our committee dedicated to bringing students of all skill-levels together
+        through the use of hands-on projects and activities. This committee introduces
+        students to the software development process, to the different types of technologies
         used by industry, and enhances people’s passion in STEM.
       </p>
     </div>

@@ -20,7 +20,7 @@
     <h2>why should students join acm?</h2>
     <p>
       <span class="brand-em">acm<span class="brand-blue">CSUF</span></span>
-      strives to be a communit that encourages growth, friendship, and personal/technical
+      strives to be a community that encourages growth, friendship, and personal/technical
       development to prepare people for challenges in their personal lives, school
       lives, and industry lives.
     </p>
