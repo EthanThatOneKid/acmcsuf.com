@@ -18,6 +18,7 @@
 
   .screen-wyd {
     background: 90% 50% no-repeat url(../assets/badges/acm-blank.svg);
+    padding-bottom: 333px;
 
     div {
       @include fluidSize(10, 128, $propName: "padding-left");
