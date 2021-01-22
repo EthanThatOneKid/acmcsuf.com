@@ -49,7 +49,7 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      margin-left: 0.25em;
+      margin-left: 0.15em;
       text-decoration: none;
       color: $acmDark;
 
@@ -67,7 +67,7 @@
     }
 
     nav {
-      margin-right: 0.25em;
+      margin-right: 0.15em;
 
       ul {
         list-style-type: none;
