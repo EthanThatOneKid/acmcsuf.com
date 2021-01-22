@@ -6,21 +6,22 @@ export const officers: {
 }[] = [
   {
     name: "Jacob Nguyen",
-    title: "President/Create Director",
+    title: "President/Create Director 🎨",
     picture: "jacob-nguyen.jpg",
   },
   {
     name: "Aaron Lieberman",
-    title: "Internal Vice President",
+    title: "Internal Vice President 😎",
+    picture: "aaron-lieberman.jpg",
   },
   {
     name: "Samuel Sandoval",
-    title: "Dev Director",
+    title: "Dev Director 🧠",
     picture: "samuel-sandoval.jpg",
   },
   {
     name: "Ethan Davidson",
-    title: "Webmaster 😎",
+    title: "Webmaster 👨‍💻",
     url: "https://github.com/EthanThatOneKid",
   },
   {
@@ -39,7 +40,7 @@ export const officers: {
     picture: "shaleen-mathur.jpg",
   },
   {
-    name: "Nicola Renteria",
+    name: "Nicolas Renteria",
     title: "Marketing Chair",
   },
   {
@@ -54,10 +55,6 @@ export const officers: {
   {
     name: "Wilbert Rodriguez",
     title: "Intern Program Manager",
-  },
-  {
-    name: "Shaleen Mathur",
-    title: "Co-Workshop Manager",
   },
   {
     name: "Johnson Tong",
