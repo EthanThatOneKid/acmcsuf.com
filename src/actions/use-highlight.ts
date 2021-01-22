@@ -1,5 +1,4 @@
-import hljs from "highlight.js";
+import { highlightBlock } from "highlight.js";
 
-export default function highlight(element) {
-  element.querySelectorAll("pre code").forEach(hljs.highlightBlock);
-}
+export const highlight = (node) =>
+  node.querySelectorAll("pre code").forEach(highlightBlock);

@@ -6,6 +6,10 @@ export interface BlogPostMeta {
   date?: string;
   tags?: string[];
   slug?: string;
+  author?: {
+    name: string;
+    picture?: string;
+  };
 }
 
 export interface BlogPost {
@@ -23,10 +27,21 @@ export const getPosts = () => {
   });
 };
 
-export const getPostBySlug = (slug: string) => {
-  return (posts as BlogPost[]).find(({ filename }) => {
+export const getPostBySlug = (slug: string) =>
+  (posts as BlogPost[]).find(({ filename }) => {
     if (getSlugFromFilename(filename) === slug) {
       return true;
     }
-  });
-};
+  }) || {
+    html: "",
+    filename: slug,
+    metadata: {
+      slug,
+      title: `"${slug}"`,
+      description: `we do not have a blog post called "${slug}"`,
+      author: {
+        name: "ACM Officers",
+        picture: "placeholder.png",
+      },
+    },
+  };

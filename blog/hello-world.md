@@ -1,7 +1,29 @@
 ---
+title: Hello World
+description: Hello, world!
 author: EthanThatOneKid
 ---
 
 # Hello World
 
 > Hello, world.
+
+```ts
+export interface BlogPostMeta {
+  title?: string;
+  description?: string;
+  date?: string;
+  tags?: string[];
+  slug?: string;
+  author?: {
+    name: string;
+    picture?: string;
+  };
+}
+
+export interface BlogPost {
+  html: string;
+  filename: string;
+  metadata: BlogPostMeta;
+}
+```

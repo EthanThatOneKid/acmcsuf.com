@@ -26,6 +26,7 @@ export const officers: {
   {
     name: "Nicole Traboulsi",
     title: "Ex-Treasurer",
+    picture: "nicole-traboulsi.jpeg",
   },
   {
     name: "Jason Anthony",
