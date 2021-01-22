@@ -34,6 +34,11 @@ export const officers: Record<string, Officer[]> = {
       url: "https://github.com/EthanThatOneKid",
     },
     {
+      name: "Mike Ploythai",
+      title: "Create Officer",
+      picture: "mike-ploythai.jpeg",
+    },
+    {
       name: "Nicole Traboulsi",
       title: "Ex-Treasurer",
       picture: "nicole-traboulsi.jpeg",
@@ -91,11 +96,7 @@ export const officers: Record<string, Officer[]> = {
       name: "Armanul Ambia",
       title: "Dev Officer",
     },
-    {
-      name: "Mike Ploythai",
-      title: "Create Officer",
-      picture: "mike-ploythai.jpeg",
-    },
+
     {
       name: "Lisa Hong",
       title: "Product Officer",
