@@ -31,6 +31,7 @@ export const officers: Record<string, Officer[]> = {
     {
       name: "Ethan Davidson",
       title: "Webmaster 👨‍💻",
+      picture: "ethan-davidson.jpg",
       url: "https://github.com/EthanThatOneKid",
     },
     {
@@ -81,6 +82,7 @@ export const officers: Record<string, Officer[]> = {
     {
       name: "Kevin Dillon",
       title: "Algo Officer",
+      picture: "kevin-dillon.png",
     },
     {
       name: "Parth Sharma",
