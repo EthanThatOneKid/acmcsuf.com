@@ -13,6 +13,17 @@ Then, run `npm run dev` to spin up the [development server][dev_server].
 
 Whenever a release is cut (by creating a tag), a [GitHub action][github_action_deploy] is invoked. It builds the site, tests it, and if there are no errors, it will deploy to [Vercel][vercel_dashboard].
 
+## Contributors 👷‍♀️
+
+Credit | Contributions
+---|---
+Jacob Nguyen | Design
+Lisa Hong | Design
+Mike Ploythai | Design, Development
+Mathias Nguyen | Design
+Ethan Davidson | Development, Webmaster
+Samuel Sandoval | Development
+
 ---
 
 Maintained with 💖 by [Ethan Davidson][webmaster_url] (`EthanThatOneKid#3456`) and [ACM CSUF][acm_officers]
