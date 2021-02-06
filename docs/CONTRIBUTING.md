@@ -12,7 +12,7 @@ This project was created using a library called [Sapper][sapper_home] which uses
 #### `routes`
 
 The website's pages are located under the [`routes` directory](../src/routes).
-In that directory, every file represents one page of the website.
+In that directory, each file represents one page of the website.
 
 | Path of File                     | Production URL               |
 | -------------------------------- | ---------------------------- |
@@ -29,7 +29,7 @@ For example, the [`sections/navbar.svelte`](../src/components/sections/navbar.sv
 #### Svelte File Structure
 
 Svelte files can be written as if it were an HTML file.
-Writing only `<h1>Hello, world!</h1>` in a Svelte file is valid, however, Svelte gives you access to some handy built-in superpowers that simplifies development tremendously (See the [Svelte docs][svelte_docs] for further information).
+Writing only `<h1>Hello, world!</h1>` in a Svelte file is valid, however, Svelte gives you access to some handy built-in superpowers that simplify development tremendously (See the [Svelte docs][svelte_docs] for further information).
 
 In addition to HTML markup, Svelte files consist of two other sections: _script_ and _styles_.
 
