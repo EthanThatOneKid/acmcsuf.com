@@ -29,7 +29,7 @@ For example, the [`sections/navbar.svelte`](../src/components/sections/navbar.sv
 #### Svelte File Structure
 
 Svelte files can be written as if it were an HTML file.
-Writing only `<h1>Hello, world!</h1>` in a Svelte file is valid, however, Svelte gives you access to some handy built-in superpowers that simplifies development tremendously.
+Writing only `<h1>Hello, world!</h1>` in a Svelte file is valid, however, Svelte gives you access to some handy built-in superpowers that simplifies development tremendously (See the [Svelte docs][svelte_docs] for further information).
 
 In addition to HTML markup, Svelte files consist of two other sections: _script_ and _styles_.
 
@@ -53,3 +53,4 @@ The time spent reading this deserves a pat on the back and even a hydration/stre
 [ddl]: https://github.com/EthanThatOneKid/acmcsuf.com/archive/main.zip
 [sapper_home]: https://sapper.svelte.dev/
 [svelte_home]: https://svelte.dev/
+[svelte_docs]: https://svelte.dev/docs/
