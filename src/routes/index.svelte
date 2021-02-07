@@ -6,9 +6,11 @@
 <section class="info-screen screen-hero">
   <div>
     <h1 class="intro-header">
-      we are the largest tech
-      <br />
-      community at
+      <span class="headers">
+        we are the largest tech
+        <br />
+        community at
+      </span>
       <span class="brand-em brand-blue">CSUF</span>
     </h1>
     <CallToAction text="join us today!" />
@@ -17,9 +19,9 @@
 
 <section class="info-screen screen-why-join">
   <div>
-    <h2>why should students join acm?</h2>
+    <h2><span class="headers">why should students join acm?</span></h2>
     <p>
-      <span class="brand-em">acm<span class="brand-blue">CSUF</span></span>
+      <span class="headers">acm</span><span class="brand-blue brand-em">CSUF</span>
       strives to be a community that encourages growth, friendship, and personal/technical
       development to prepare people for challenges in their personal lives, school
       lives, and industry lives.
@@ -30,9 +32,9 @@
 <section class="info-screen screen-paths">
   <div>
     <div class="paths-intro">
-      <h2>get involved with our paths!</h2>
+      <h2><span class="headers">get involved with our paths!</span></h2>
       <p>
-        want to specialize somewhere specific in tech? our paths were designed
+        Want to specialize somewhere specific in tech? Our paths were designed
         to give students a head start in their own tech journeys, making them
         prepared for the industry.
       </p>
@@ -44,7 +46,7 @@
           data="assets/badges/with-shadow/acm-algo-badge-s.svg"
           title="acm-algo-logo"
         />
-        <span class="brand-em">acm<span class="brand-purple">Algo</span>
+        <span class="headers">acm<span class="brand-purple brand-em">Algo</span>
         </span></a
       >
       <a class="path-item" href="/paths#acm-create">
@@ -53,7 +55,7 @@
           data="assets/badges/with-shadow/acm-create-badge-s.svg"
           title="acm-create-logo"
         />
-        <span class="brand-em">acm<span class="brand-pink">Create</span> </span>
+        <span class="headers">acm<span class="brand-pink brand-em">Create</span> </span>
       </a>
       <a class="path-item" href="/paths#acm-dev">
         <object
@@ -61,7 +63,7 @@
           data="assets/badges/with-shadow/acm-dev-badge-s.svg"
           title="acm-dev-logo"
         />
-        <span class="brand-em">acm<span class="brand-bluer">Dev</span> </span>
+        <span class="headers">acm<span class="brand-bluer brand-em">Dev</span> </span>
       </a>
     </div>
   </div>

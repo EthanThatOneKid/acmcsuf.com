@@ -4,31 +4,37 @@
     { title: "about", slug: "about" },
     { title: "events", slug: "events" },
     { title: "paths", slug: "paths" },
-    { title: "node buds", slug: "node-buds" },
+    { title: "nodeBuds", slug: "node-buds" },
     { title: "connect", slug: "connect" },
   ];
 </script>
 
 <header>
-  <a class="header-logo" href="/">
+  <a href="/" class="header-logo">
+    <img src="assets/badges/acm-csuf-badge.svg" width="48" class="acm-logo" />
+    <span class="brand-em">CSUF</span>
+  </a>
+
+  <!--   <a class="header-logo" href="/">
     <object
-      width="40"
-      height="40"
+      width="48"
+      height="48"
       type="image/svg+xml"
       data="assets/badges/acm-csuf-badge.svg"
       title="acm-csuf-logo"
     />
     <span class="brand-em">CSUF</span>
-  </a>
+  </a> -->
   <nav>
-    <ul>
+    <ul class="headers">
       {#each menuItems as { title, slug } (slug)}
         <li>
           <a
             href={`/${slug}`}
             class={`navitem navitem-${slug}`}
             rel="prefetch"
-            aria-current={segment === slug}>
+            aria-current={segment === slug}
+          >
             {title}
           </a>
         </li>
@@ -45,32 +51,38 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 32px;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    height: 112px;
+    width: 100%;
+    box-shadow: 0 3px 6px rgba(33, 33, 33, 0.1);
 
     .header-logo {
       display: flex;
       flex-direction: row;
       align-items: center;
-      margin-left: 0.15em;
       text-decoration: none;
+      margin-left: 128px;
       color: $acmDark;
 
-      object {
-        width: 48px;
+      .acm-logo {
+        filter: drop-shadow(0 2px 3px rgba(55, 146, 193, 0.5));
       }
+
+      /* object {
+        width: 48px;
+      } */
+
       span {
         font-size: 24px;
-        margin-left: 0.25em;
+        margin-left: 12px;
+        transition: color 0.25s ease-in-out;
       }
       &:hover {
-        transition: color 0.33s;
         color: $acmBlue;
       }
     }
 
     nav {
-      margin-right: 0.15em;
+      font-size: 24px;
 
       ul {
         list-style-type: none;
@@ -78,18 +90,18 @@
         padding: 0;
         display: flex;
         flex-direction: row;
+        margin-right: 128px;
 
         li {
-          padding: 10px;
-
           a {
             color: $acmDark;
             text-decoration: none;
-            padding: 5px 10px 5px 10px;
+            margin-left: 64px;
+
+            transition: color 0.25s ease;
 
             &:hover {
-              transition: color 0.33s;
-              color: $acmPink;
+              color: $acmBlue;
             }
 
             &[aria-current="true"] {
