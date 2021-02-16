@@ -1,7 +1,7 @@
 ---
 title: Hello World
 description: Hello, world!
-author: EthanThatOneKid
+author: Ethan Davidson
 ---
 
 # Hello World

@@ -115,3 +115,8 @@ export const officers: Record<string, Officer[]> = {
     },
   ],
 };
+
+export const allOfficers = Object.entries(officers).reduce(
+  (result, [year, officers]) => [...result, ...officers],
+  [] as Officer[]
+);

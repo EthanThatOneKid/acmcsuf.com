@@ -1,4 +1,5 @@
 import { posts } from "./post-data";
+import { allOfficers, officers } from "./officers";
 
 export interface BlogPostMeta {
   title?: string;
@@ -18,13 +19,8 @@ export interface BlogPost {
   metadata: BlogPostMeta;
 }
 
-const getSlugFromFilename = (filename: string) => filename.replace(/\.md$/, "");
-
 export const getPosts = () => {
-  return [...(posts as BlogPost[])].map((post) => {
-    post.metadata.slug = getSlugFromFilename(post.filename);
-    return post;
-  });
+  return (posts as BlogPost[]).map(getMetadataFromFrontmatter);
 };
 
 export const getPostBySlug = (slug: string) =>
@@ -45,3 +41,27 @@ export const getPostBySlug = (slug: string) =>
       },
     },
   };
+
+const getSlugFromFilename = (filename: string) => filename.replace(/\.md$/, "");
+
+const getMetadataFromFrontmatter = (frontmatter: any): BlogPostMeta => {
+  const slug = getSlugFromFilename(frontmatter.filename);
+  const title = (frontmatter.metadata.title as string | undefined) ?? slug;
+  const description = frontmatter.metadata.description as string | undefined;
+  const authorName = frontmatter.metadata.author as string | undefined;
+  const author =
+    authorName === undefined
+      ? undefined
+      : {
+          name: authorName,
+          picture: allOfficers.find(
+            ({ name }) => name === frontmatter.metadata.author
+          )?.picture as string | undefined,
+        };
+  return {
+    slug,
+    title,
+    description,
+    author,
+  };
+};

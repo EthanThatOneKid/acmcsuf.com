@@ -9,8 +9,9 @@
 
 <style>
   article {
-    padding: 0 69px 0 69px;
     border-radius: 10px;
+    border: 1px solid black;
+    width: min(1024px, 100%);
   }
 
   /* https://github.com/sindresorhus/github-markdown-css */
