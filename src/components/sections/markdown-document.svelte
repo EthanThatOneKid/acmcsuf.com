@@ -3,11 +3,16 @@
   export let html: string = "";
 </script>
 
-<div class="markdown-body" use:highlight>
+<article class="markdown-body" use:highlight>
   {@html html}
-</div>
+</article>
 
 <style>
+  article {
+    padding: 0 69px 0 69px;
+    border-radius: 10px;
+  }
+
   /* https://github.com/sindresorhus/github-markdown-css */
   .markdown-body .octicon {
     display: inline-block;
