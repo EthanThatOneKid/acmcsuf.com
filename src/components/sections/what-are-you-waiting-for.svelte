@@ -6,8 +6,10 @@
   <div>
     <h2>so what you are waiting for?</h2>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima animi iure
-      cupiditate? Vel quisquam ratione, voluptate ex neque eaque inventore.
+      We invite you to become a part of our chapter consisting of
+      <b>350<span class="plus">+</span> members</b>, and rising!
+      All of our coding workshops, info sessions, and community events were
+      designed to start off your tech journey on the right foot.
     </p>
     <CallToAction text="join us today!" />
   </div>
@@ -17,19 +19,23 @@
   @import "../../style/theme.scss";
 
   .screen-wyd {
-    background: 90% 50% no-repeat url(../assets/badges/acm-blank.svg);
+    background: none;
     padding-bottom: 333px;
 
     div {
-      @include fluidSize(10, 128, $propName: "padding-left");
+      @include fluidSize(10, 150, $propName: "padding-left");
+      @include fluidSize(10, 150, $propName: "padding-right");
       @include fluidSize(
         $minPFontSize,
         $maxPFontSize,
         $propName: "padding-bottom"
       );
+
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      text-align: center;
+
       padding-top: 333px;
 
       h2 {
@@ -44,13 +50,16 @@
       }
       p {
         @include fluidSize($minPFontSize, $maxPFontSize);
-        @include fluidSize(150, 1014, $propName: "width");
         @include fluidSize(
           $minPFontSize,
           $maxPFontSize,
           $propName: "padding-bottom"
         );
         margin: 0;
+
+        span.plus {
+          color: $acmBlue;
+        }
       }
     }
   }
