@@ -26,6 +26,8 @@ const onwarn = (warning, onwarn) =>
   (warning.code === "CIRCULAR_DEPENDENCY" &&
     /[/\\]@sapper[/\\]/.test(warning.message)) ||
   warning.code === "THIS_IS_UNDEFINED" ||
+  warning.code === "CSS_UNUSED_SELECTOR" ||
+  true ||
   onwarn(warning);
 
 export default {
