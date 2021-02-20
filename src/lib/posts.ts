@@ -20,7 +20,9 @@ export interface BlogPost {
 }
 
 export const getPosts = () => {
-  return (posts as BlogPost[]).map(getMetadataFromFrontmatter);
+  return (posts as BlogPost[])
+  .filter(({filename}) => !filename.startsWith("_"))
+  .map(getMetadataFromFrontmatter);
 };
 
 export const getPostBySlug = (slug: string) =>

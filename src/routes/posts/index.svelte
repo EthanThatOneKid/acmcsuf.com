@@ -7,7 +7,7 @@
   <title>acmCSUF | newsletters</title>
 </svelte:head>
 
-<div class="container">
+<div class="container info-screen">
   <h1>Newsletters</h1>
   <div class="article-container">
     {#if posts.length === 0}
@@ -40,6 +40,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
 
       article {
         color: black;

@@ -6,7 +6,7 @@
     { title: "paths", slug: "paths" },
     // { title: "nodeBuds", slug: "node-buds" },
     // { title: "connect", slug: "connect" },
-    { title: "newsletters", slug: "posts" },
+    // { title: "newsletters", slug: "posts" },
   ];
 </script>
 
