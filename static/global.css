@@ -11,3 +11,7 @@ body,
   display: block;
   height: 100vh;
 }
+
+/** TODO
+* Make a :root { } block for all of the colors of the website.
+*/
