@@ -2,6 +2,10 @@
 
 This website was created with Svelte.
 
+## Resources
+
+- Vercel Dashboard: https://vercel.com/ethanthatonekid/acm-csuf-site
+
 ## Todo
 
 - SEO
