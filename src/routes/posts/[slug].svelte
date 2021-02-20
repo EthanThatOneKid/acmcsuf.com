@@ -19,8 +19,8 @@
       <p class="document-author">
         {#if post.metadata.author.picture !== undefined}
           <img
-            src={post.metadata.author.picture}
-            alt={`Picture of ${post.metadata.author.name}.`}
+            src="{post.metadata.author.picture}"
+            alt="{`Picture of ${post.metadata.author.name}.`}"
           />
         {/if}
         <span>{post.metadata.author.name}</span>
@@ -31,11 +31,11 @@
     {/if}
     {#if post.metadata.tags !== undefined}
       {#each post.metadata.tags as tagItem (tagItem)}
-        <span class={`tag ${tagItem}-tag`}>{tagItem}</span>
+        <span class="{`tag ${tagItem}-tag`}">{tagItem}</span>
       {/each}
     {/if}
   </section>
-  <MarkdownDocument html={post.html} />
+  <MarkdownDocument html="{post.html}" />
 </div>
 
 <style lang="scss">

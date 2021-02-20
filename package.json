@@ -14,7 +14,13 @@
     "build:server": "sapper build --legacy",
     "build": "sapper export --legacy",
     "start": "node __sapper__/build",
-    "validate": "svelte-check --ignore src/node_modules/@sapper"
+    "validate": "svelte-check --ignore src/node_modules/@sapper",
+    "format": "prettier --write ./**/*.{js,svelte,md,html,css,json}",
+    "prelint": "npm run format",
+    "lint": "eslint './**/*.{js,svelte}'",
+    "lint:fix": "eslint --fix './**/*.{js,svelte}'",
+    "pretest": "npm run lint",
+    "test": "echo \"No test script :(\""
   },
   "dependencies": {
     "compression": "^1.7.1",
@@ -42,6 +48,12 @@
     "@types/compression": "^1.7.0",
     "@types/node": "^14.11.1",
     "@types/polka": "^0.5.1",
+    "eslint": "^7.20.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-cypress": "^2.11.2",
+    "eslint-plugin-svelte3": "^3.1.1",
+    "prettier": "^2.2.1",
+    "prettier-plugin-svelte": "^2.1.6",
     "rollup": "^2.3.4",
     "rollup-plugin-glob": "^1.0.2",
     "rollup-plugin-svelte": "^7.0.0",

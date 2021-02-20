@@ -5,7 +5,7 @@
 </script>
 
 <div>
-  <Headline {src}>{title}</Headline>
+  <Headline src="{src}">{title}</Headline>
 </div>
 
 <style lang="scss">

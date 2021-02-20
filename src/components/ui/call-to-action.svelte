@@ -4,7 +4,7 @@
   export let text: string = "";
 </script>
 
-<a class="call-to-action" href={link}>{text}</a>
+<a class="call-to-action" href="{link}">{text}</a>
 
 <style lang="scss">
   @import "../../style/theme.scss";

@@ -21,7 +21,9 @@
   <div>
     <h2><span class="headers">why should students join acm?</span></h2>
     <p>
-      <span class="headers">acm</span><span class="brand-blue brand-em">CSUF</span>
+      <span class="headers">acm</span><span class="brand-blue brand-em"
+        >CSUF</span
+      >
       strives to be a community that encourages growth, friendship, and personal/technical
       development to prepare people for challenges in their personal lives, school
       lives, and industry lives.
@@ -44,26 +46,28 @@
         <object
           type="image/svg+xml"
           data="assets/badges/with-shadow/acm-algo-badge-s.svg"
-          title="acm-algo-logo"
-        />
-        <span class="headers">acm<span class="brand-purple brand-em">Algo</span>
+          title="acm-algo-logo"></object>
+        <span class="headers"
+          >acm<span class="brand-purple brand-em">Algo</span>
         </span></a
       >
       <a class="path-item" href="/paths#acm-create">
         <object
           type="image/svg+xml"
           data="assets/badges/with-shadow/acm-create-badge-s.svg"
-          title="acm-create-logo"
-        />
-        <span class="headers">acm<span class="brand-pink brand-em">Create</span> </span>
+          title="acm-create-logo"></object>
+        <span class="headers"
+          >acm<span class="brand-pink brand-em">Create</span>
+        </span>
       </a>
       <a class="path-item" href="/paths#acm-dev">
         <object
           type="image/svg+xml"
           data="assets/badges/with-shadow/acm-dev-badge-s.svg"
-          title="acm-dev-logo"
-        />
-        <span class="headers">acm<span class="brand-bluer brand-em">Dev</span> </span>
+          title="acm-dev-logo"></object>
+        <span class="headers"
+          >acm<span class="brand-bluer brand-em">Dev</span>
+        </span>
       </a>
     </div>
   </div>

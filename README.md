@@ -15,14 +15,14 @@ Whenever a release is cut (by creating a tag), a [GitHub action][github_action_d
 
 ## Contributors 👷‍♀️
 
-Credit | Contributions
----|---
-Jacob Nguyen | Design
-Lisa Hong | Design
-Mike Ploythai | Design, Development
-Mathias Nguyen | Design
-Ethan Davidson | Development, Webmaster
-Samuel Sandoval | Development
+| Credit          | Contributions          |
+| --------------- | ---------------------- |
+| Jacob Nguyen    | Design                 |
+| Lisa Hong       | Design                 |
+| Mike Ploythai   | Design, Development    |
+| Mathias Nguyen  | Design                 |
+| Ethan Davidson  | Development, Webmaster |
+| Samuel Sandoval | Development            |
 
 ---
 

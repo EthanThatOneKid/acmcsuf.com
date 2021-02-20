@@ -5,7 +5,7 @@
   const pageTitle = segment === undefined ? "home" : segment;
 </script>
 
-<Navbar {segment} />
+<Navbar segment="{segment}" />
 <main><slot /></main>
 <Footer />
 

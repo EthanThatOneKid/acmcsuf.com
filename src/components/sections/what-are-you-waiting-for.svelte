@@ -7,9 +7,9 @@
     <h2>so what you are waiting for?</h2>
     <p>
       We invite you to become a part of our chapter consisting of
-      <b>350<span class="plus">+</span> members</b>, and rising!
-      All of our coding workshops, info sessions, and community events were
-      designed to start off your tech journey on the right foot.
+      <b>350<span class="plus">+</span> members</b>, and rising! All of our
+      coding workshops, info sessions, and community events were designed to
+      start off your tech journey on the right foot.
     </p>
     <CallToAction text="join us today!" />
   </div>

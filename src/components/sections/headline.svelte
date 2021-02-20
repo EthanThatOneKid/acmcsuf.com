@@ -3,7 +3,7 @@
 </script>
 
 <div class="subpage-title-container">
-  <object type="image/png" data={src} title="acm-csuf-logo" />
+  <object type="image/png" data="{src}" title="acm-csuf-logo"></object>
   <h1 class="brand-em"><slot /></h1>
 </div>
 

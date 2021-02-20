@@ -30,10 +30,10 @@
       {#each menuItems as { title, slug } (slug)}
         <li>
           <a
-            href={`/${slug}`}
-            class={`navitem navitem-${slug}`}
+            href="{`/${slug}`}"
+            class="{`navitem navitem-${slug}`}"
             rel="prefetch"
-            aria-current={segment === slug}
+            aria-current="{segment === slug}"
           >
             {title}
           </a>
