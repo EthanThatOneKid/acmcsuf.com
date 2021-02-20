@@ -62,6 +62,7 @@ export const officers: Record<string, Officer[]> = {
     {
       name: "Nicolas Renteria",
       title: "Marketing Chair",
+      picture: "nicolas-renteria.jpg",
     },
     {
       name: "Joshua Hughes",
