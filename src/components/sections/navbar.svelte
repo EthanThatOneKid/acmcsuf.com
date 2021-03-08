@@ -2,10 +2,10 @@
   export let segment: string;
   const menuItems = [
     { title: "about", slug: "about" },
-    { title: "events", slug: "events" },
+    // { title: "events", slug: "events" },
     { title: "paths", slug: "paths" },
-    { title: "nodeBuds", slug: "node-buds" },
-    { title: "connect", slug: "connect" },
+    // { title: "nodeBuds", slug: "node-buds" },
+    // { title: "connect", slug: "connect" },
     // { title: "newsletters", slug: "posts" },
   ];
 </script>
