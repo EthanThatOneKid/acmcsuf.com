@@ -1,9 +1,12 @@
 <script>
+  import Hero from "@/components/sections/hero.svelte";
   import WhatAreYouWaitingFor from "@/components/sections/what-are-you-waiting-for.svelte";
   import CallToAction from "@/components/ui/call-to-action.svelte";
 </script>
 
-<section class="info-screen screen-hero">
+<Hero />
+
+<!-- <section class="info-screen screen-hero">
   <div>
     <h1 class="intro-header">
       <span class="headers">
@@ -15,7 +18,7 @@
     </h1>
     <CallToAction text="join us today!" />
   </div>
-</section>
+</section> -->
 
 <section class="info-screen screen-why-join">
   <div>
@@ -78,24 +81,24 @@
 <style lang="scss">
   @import "../style/theme.scss";
 
-  .screen-hero {
-    background: 90% 50% no-repeat url(../assets/badges/acm-blank.svg);
+  // .screen-hero {
+  //   background: 90% 50% no-repeat url(../assets/badges/acm-blank.svg);
 
-    div {
-      @include fluidSize(10, 128, $propName: "margin-left");
-      padding-top: 221px;
-      min-width: "max-content";
-      h1 {
-        @include fluidSize($minHFontSize, $maxHFontSize);
-        @include fluidSize(
-          $minPFontSize,
-          $maxPFontSize,
-          $propName: "padding-bottom"
-        );
-        font-weight: bold;
-      }
-    }
-  }
+  //   div {
+  //     @include fluidSize(10, 128, $propName: "margin-left");
+  //     padding-top: 221px;
+  //     min-width: "max-content";
+  //     h1 {
+  //       @include fluidSize($minHFontSize, $maxHFontSize);
+  //       @include fluidSize(
+  //         $minPFontSize,
+  //         $maxPFontSize,
+  //         $propName: "padding-bottom"
+  //       );
+  //       font-weight: bold;
+  //     }
+  //   }
+  // }
 
   .screen-why-join {
     background: 10% 50% no-repeat url(../assets/badges/acm-blank.svg);

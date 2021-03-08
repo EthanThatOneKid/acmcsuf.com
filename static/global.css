@@ -12,6 +12,13 @@ body,
   height: 100vh;
 }
 
-/** TODO
-* Make a :root { } block for all of the colors of the website.
-*/
+:root {
+  --acm-blue: #3792c1;
+  --acm-bluer: #1e6cff;
+  --acm-pink: #ff5969;
+  --acm-purple: #5f52d1;
+  --acm-red: #c40042;
+  --acm-dark: #212121;
+  --acm-light: #ffffff;
+  --desktop-breakpoint: 768px;
+}
