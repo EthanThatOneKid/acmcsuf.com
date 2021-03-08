@@ -1,14 +1,12 @@
 <script>
-  import CallToAction from "../ui/_call-to-action.svelte";
+  import CallToAction from "../ui/call-to-action.svelte";
 </script>
 
-<!-- TODO(Ethan): Add image and more CSS!!! -->
-
 <section>
-  <div>
-    <h1>
+  <div class="main-text-container">
+    <h1 class="main-text">
       <span>we are the largest tech<br />community at</span>
-      <span as="em">CSUF</span>
+      <span class="text-emphasis">CSUF</span>
     </h1>
     <CallToAction text="Join us today!" />
   </div>
@@ -25,39 +23,68 @@
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+    padding-top: 100px; /* Gap left for navbar. */
   }
 
-  section div {
+  section .main-text-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
   }
 
-  section div h1 {
+  section .main-text-container .main-text {
     font-weight: bold;
     font-size: 1.5rem;
+    text-align: center;
   }
 
-  section div h1 span[as="em"] {
+  section .main-text-container .main-text .text-emphasis {
     color: var(--acm-blue);
   }
 
   section figure {
     display: flex;
+    margin: 0 auto;
+    margin-inline-start: 0; /* Reset default styling */
+    margin-inline-end: 0; /* Reset default styling */
   }
 
   section figure img {
-    width: 370px;
+    width: 270px;
+    margin-left: -2rem;
   }
 
   @media (min-width: 768px) {
+    section .main-text-container .main-text {
+      font-size: 32pt;
+    }
+
+    section figure img {
+      width: 420px;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
     section {
       flex-direction: row;
+      margin: 0 180px 0 180px;
+      padding-top: 200px;
     }
-    section div h1 {
-      font-size: 3rem;
+
+    section .main-text-container {
+      align-items: flex-start;
+    }
+
+    section .main-text-container .main-text {
+      font-size: 35pt;
+      text-align: left;
+    }
+
+    section figure img {
+      width: 540px;
+      margin-left: -2rem;
     }
   }
 </style>
