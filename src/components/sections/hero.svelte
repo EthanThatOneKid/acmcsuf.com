@@ -2,11 +2,13 @@
   import CallToAction from "../ui/_call-to-action.svelte";
 </script>
 
+<!-- TODO(Ethan): Add image and more CSS!!! -->
+
 <section>
-  <div class="main-text-container">
-    <h1 class="main-text">
+  <div>
+    <h1>
       <span>we are the largest tech<br />community at</span>
-      <span class="text-emphasis">CSUF</span>
+      <span as="em">CSUF</span>
     </h1>
     <CallToAction text="Join us today!" />
   </div>
@@ -23,68 +25,39 @@
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
-    justify-content: space-evenly;
-    padding-top: 100px; /* Gap left for navbar. */
-  }
-
-  section .main-text-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
   }
 
-  section .main-text-container .main-text {
-    font-weight: bold;
-    font-size: 1.5rem;
-    text-align: center;
+  section div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
   }
 
-  section .main-text-container .main-text .text-emphasis {
+  section div h1 {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  section div h1 span[as="em"] {
     color: var(--acm-blue);
   }
 
   section figure {
     display: flex;
-    margin: 0 auto;
-    margin-inline-start: 0; /* Reset default styling */
-    margin-inline-end: 0; /* Reset default styling */
   }
 
   section figure img {
-    width: 270px;
-    margin-left: -2rem;
+    width: 370px;
   }
 
   @media (min-width: 768px) {
-    section .main-text-container .main-text {
-      font-size: 32pt;
-    }
-
-    section figure img {
-      width: 420px;
-    }
-  }
-
-  @media screen and (min-width: 1440px) {
     section {
       flex-direction: row;
-      margin: 0 180px 0 180px;
-      padding-top: 200px;
     }
-
-    section .main-text-container {
-      align-items: flex-start;
-    }
-
-    section .main-text-container .main-text {
-      font-size: 35pt;
-      text-align: left;
-    }
-
-    section figure img {
-      width: 540px;
-      margin-left: -2rem;
+    section div h1 {
+      font-size: 3rem;
     }
   }
 </style>
