@@ -1,122 +1,196 @@
 <script lang="ts">
   export let segment: string;
-  const menuItems: { title: string; slug: string }[] = [
+  const menuItems = [
     { title: "about", slug: "about" },
-    // { title: "events", slug: "events" },
+    { title: "events", slug: "events" },
     { title: "paths", slug: "paths" },
-    // { title: "nodeBuds", slug: "node-buds" },
-    // { title: "connect", slug: "connect" },
+    { title: "nodeBuds", slug: "node-buds" },
+    { title: "connect", slug: "connect" },
     // { title: "newsletters", slug: "posts" },
   ];
 </script>
 
-<header>
-  <a href="/" class="header-logo">
-    <img src="assets/badges/acm-csuf-badge.svg" width="48" class="acm-logo" />
-    <span class="brand-em">CSUF</span>
+<nav>
+  <input type="checkbox" id="navToggle" />
+
+  <a href="index.html" class="logo">
+    <img
+      src="assets/png/acm-csuf-badge.png"
+      width="48"
+      class="logoBadge"
+      alt="ACM CSUF logo with a transparent background."
+    />
+    <span class="logoText">CSUF</span>
   </a>
 
-  <!--   <a class="header-logo" href="/">
-    <object
-      width="48"
-      height="48"
-      type="image/svg+xml"
-      data="assets/badges/acm-csuf-badge.svg"
-      title="acm-csuf-logo"
-    />
-    <span class="brand-em">CSUF</span>
-  </a> -->
-  <nav>
-    <ul class="headers">
-      {#each menuItems as { title, slug } (slug)}
-        <li>
-          <a
-            href="{`/${slug}`}"
-            class="{`navitem navitem-${slug}`}"
-            rel="prefetch"
-            aria-current="{segment === slug}"
-          >
-            {title}
-          </a>
-        </li>
-      {/each}
-    </ul>
-  </nav>
-</header>
+  <ul class="pages">
+    {#each menuItems as { title, slug } (slug)}
+      <li>
+        <a
+          href="{`/${slug}`}"
+          class="{`page page-${slug}`}"
+          rel="prefetch"
+          aria-current="{segment === slug}"
+        >
+          {title}
+        </a>
+      </li>
+    {/each}
+  </ul>
 
-<style lang="scss">
-  @import "../../style/theme.scss";
+  <label for="navToggle" class="menu">
+    <div class="menuLine"></div>
+    <div class="menuLine"></div>
+    <div class="menuLine"></div>
+  </label>
+</nav>
 
-  header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: 112px;
+<style>
+  nav {
+    position: fixed;
     width: 100%;
+    z-index: 3;
+    height: 112px;
+    background-color: var(--acm-light);
     box-shadow: 0 3px 6px rgba(33, 33, 33, 0.1);
+    overflow: visible;
+  }
 
-    .header-logo {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      text-decoration: none;
-      margin-left: 128px;
-      color: $acmDark;
+  nav .logo {
+    float: left;
+    display: flex;
+    align-items: center;
+    overflow: visible;
+    margin-left: 128px;
+    height: 100%;
+    text-decoration: none;
+  }
 
-      .acm-logo {
-        filter: drop-shadow(0 2px 3px rgba(55, 146, 193, 0.5));
-      }
+  nav .logo .logoText {
+    padding-left: 12px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--acm-dark);
+    text-decoration: none;
+  }
 
-      /* object {
-        width: 48px;
-      } */
+  nav .pages {
+    float: right;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    margin-right: 128px;
+    height: 100%;
+    font-weight: 600;
+    list-style: none;
+  }
 
-      span {
-        font-size: 24px;
-        margin-left: 12px;
-        transition: color 0.25s ease-in-out;
-      }
-      &:hover {
-        color: $acmBlue;
-      }
+  nav .pages a {
+    margin-left: 64px;
+    font-size: 24px;
+    color: var(--acm-dark);
+    text-decoration: none;
+  }
+
+  nav .pages .page[aria-current="true"] {
+    color: #3792c1;
+  }
+
+  nav .pages .page-node-buds[aria-current="true"] {
+    font-weight: 700;
+    color: #c40042;
+  }
+
+  #navToggle {
+    display: none;
+  }
+
+  nav .menu {
+    display: none;
+    position: absolute;
+    right: 64px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  nav .menu .menuLine {
+    width: 30px;
+    height: 2px;
+    margin: 6px;
+    border-radius: 3px;
+    background-color: var(--acm-dark);
+    transition: all 0.25s ease;
+  }
+
+  @media screen and (max-width: 1300px) {
+    nav {
+      height: 82px;
     }
 
-    nav {
+    nav .logo {
+      margin-left: 88px;
+    }
+
+    nav .pages {
+      margin-right: 88px;
+    }
+  }
+
+  @media screen and (max-width: 1100px) {
+    nav .logo {
+      margin-left: 48px;
+    }
+
+    nav .pages {
+      position: fixed;
+      z-index: 2;
+      top: 82px;
+      bottom: 100%;
+      width: 100vw;
+      height: auto;
+      flex-direction: column;
+      justify-content: space-evenly;
+      overflow: hidden;
+      background-color: rgb(255, 255, 255);
+      transition: all 0.25s ease;
+    }
+
+    nav .pages a {
+      margin: 0;
       font-size: 24px;
+    }
 
-      ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: row;
-        margin-right: 128px;
+    nav .menu {
+      display: block;
+      right: 48px;
+    }
 
-        li {
-          a {
-            color: $acmDark;
-            text-decoration: none;
-            margin-left: 64px;
+    nav :checked ~ .pages {
+      bottom: 0;
+    }
 
-            transition: color 0.25s ease;
+    nav :checked ~ .menu .menuLine:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
 
-            &:hover {
-              color: $acmBlue;
-            }
+    nav :checked ~ .menu .menuLine:nth-child(2) {
+      opacity: 0;
+    }
 
-            &[aria-current="true"] {
-              color: grey;
-              pointer-events: none;
-            }
-          }
-        }
-      }
-      @media screen and (max-width: $breakpoint) {
-        ul {
-          flex-direction: column;
-        }
-      }
+    nav :checked ~ .menu .menuLine:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    nav .logo {
+      margin-left: 48px;
+    }
+
+    nav .menu {
+      right: 48px;
     }
   }
 </style>
