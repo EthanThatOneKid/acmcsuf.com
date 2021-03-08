@@ -1,33 +1,33 @@
 <script lang="ts">
-  export let link: string = "#";
-  export let text: string = "Submit";
+  import { links } from "../../lib/links";
+  export let link: string = links.discord;
+  export let text: string = "";
 </script>
 
 <a class="call-to-action" href="{link}">{text}</a>
 
-<style>
+<style lang="scss">
+  @import "../../style/theme.scss";
+
   .call-to-action {
     cursor: pointer;
     border-radius: 25px;
-    background-color: var(--acm-dark);
+    background-color: $acmDark;
     padding: 16px 8px 16px 8px;
     font-weight: bold;
-    color: var(--acm-light);
+    color: $acmLight;
     text-decoration: none;
-    border: 2px solid var(--acm-dark);
-    font-size: 1rem;
-    padding: 1em;
-  }
+    border: 2px solid $acmDark;
+    @include fluidSize(18, 48, $propName: "font-size");
+    @include fluidSize(12, 32, $propName: "padding-left");
+    @include fluidSize(12, 32, $propName: "padding-right");
+    @include fluidSize(12, 32, $propName: "padding-top");
+    @include fluidSize(12, 32, $propName: "padding-bottom");
 
-  .call-to-action:hover {
-    transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out;
-    color: var(--acm-dark);
-    background-color: var(--acm-light);
-  }
-
-  @media (min-width: 768px) {
-    .call-to-action {
-      font-size: 2rem;
+    &:hover {
+      transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+      color: $acmDark;
+      background-color: $acmLight;
     }
   }
 </style>

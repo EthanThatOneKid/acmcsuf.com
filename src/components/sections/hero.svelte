@@ -1,5 +1,5 @@
 <script>
-  import CallToAction from "../ui/call-to-action.svelte";
+  import CallToAction from "../ui/_call-to-action.svelte";
 </script>
 
 <!-- TODO(Ethan): Add image and more CSS!!! -->
@@ -20,24 +20,6 @@
   </figure>
 </section>
 
-<!-- .screen-hero {
-  background: 90% 50% no-repeat url(../assets/badges/acm-blank.svg);
-
-  div {
-    @include fluidSize(10, 128, $propName: "margin-left");
-    padding-top: 221px;
-    min-width: "max-content";
-    h1 {
-      @include fluidSize($minHFontSize, $maxHFontSize);
-      @include fluidSize(
-        $minPFontSize,
-        $maxPFontSize,
-        $propName: "padding-bottom"
-      );
-      font-weight: bold;
-    }
-  }
-} -->
 <style>
   section {
     display: flex;
