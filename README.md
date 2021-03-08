@@ -23,7 +23,7 @@ Once an admin approves the preview site, it gets promoted to production.
 
 ---
 
-Maintained with 💖 by **acmDev**
+Maintained with 💖 by [**acmDev**][team_page]
 
 [node_download]: https://nodejs.org/en/download/
 [github_action_deploy]: .github/workflows/deploy.yaml
@@ -33,3 +33,4 @@ Maintained with 💖 by **acmDev**
 [figma_design]: https://www.figma.com/file/9cvuO69WgNGuCjf2JGDPfq/ACM-Website-Mockup---Mike-Ploythai?node-id=1%3A26
 [dev_server]: http://localhost:3000/
 [vercel_dashboard]: https://vercel.com/ethanthatonekid/acm-csuf-site
+[team_page]: https://acmcsuf.com/about/
