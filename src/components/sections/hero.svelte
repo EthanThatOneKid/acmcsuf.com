@@ -1,5 +1,5 @@
 <script>
-  import CallToAction from "../ui/_call-to-action.svelte";
+  import CallToAction from "../ui/call-to-action.svelte";
 </script>
 
 <section>
