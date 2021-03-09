@@ -13,7 +13,7 @@
 <nav>
   <input type="checkbox" id="navToggle" />
 
-  <a href="index.html" class="logo">
+  <a href="/" class="logo">
     <img
       src="assets/png/acm-csuf-badge.png"
       width="48"
