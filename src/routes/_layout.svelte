@@ -2,7 +2,7 @@
   import Navbar from "../components/sections/navbar.svelte";
   import Footer from "../components/sections/footer.svelte";
   export let segment: string;
-  const pageTitle = segment === undefined ? "home" : segment;
+  const pageTitle = segment === undefined ? "ACM at CSUF" : segment;
 </script>
 
 <Navbar segment="{segment}" />
