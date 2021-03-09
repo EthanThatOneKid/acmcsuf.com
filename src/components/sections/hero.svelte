@@ -54,6 +54,7 @@
   section figure img {
     width: 270px;
     margin-left: -2rem;
+    object-fit: contain;
   }
 
   @media (min-width: 768px) {

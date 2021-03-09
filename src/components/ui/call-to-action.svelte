@@ -22,7 +22,7 @@
 
   .call-to-action:hover {
     transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out;
-    color: var(--acm-dark);
+    color: var(--acm-blue);
     background-color: var(--acm-light);
   }
 
