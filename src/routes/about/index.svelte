@@ -1,27 +1,24 @@
 <script lang="ts">
   import Headline from "@/components/sections/headline.svelte";
   import WhatAreYouWaitingFor from "@/components/sections/what-are-you-waiting-for.svelte";
+  import CommonHero from "@/components/sections/common-hero.svelte";
   import { officers } from "../../lib/officers";
   let currentSchoolYear = "2020-2021";
 </script>
 
-<section class="about-screen-hero">
-  <div>
-    <Headline>about</Headline>
-    <div class="about-description-container">
-      <h2 class="brand-em">
-        what is acm<span class="brand-blue">CSUF</span>
-      </h2>
-      <p>
-        <span class="brand-em">acm<span class="brand-blue">CSUF</span></span>
-        is a student-ran chapter of the association for computing machinery. we focus
-        on introducing and getting students involved in tech, as well as educating
-        students about the field through workshops, presentations, livestreams, and
-        more. our events are open to any and everyone, so be sure to come by!
-      </p>
-    </div>
-  </div>
-</section>
+<CommonHero>
+  <h1 slot="title">about</h1>
+  <h2 slot="headline">
+    what is acm<span class="brand-blue">CSUF</span>
+  </h2>
+  <p slot="text">
+    <span class="brand-em">acm<span class="brand-blue">CSUF</span></span>
+    is a student-ran chapter of the association for computing machinery. we focus
+    on introducing and getting students involved in tech, as well as educating students
+    about the field through workshops, presentations, livestreams, and more. our
+    events are open to any and everyone, so be sure to come by!
+  </p>
+</CommonHero>
 
 <section class="about-screen-who-are-we">
   <h2 class="brand-em">
