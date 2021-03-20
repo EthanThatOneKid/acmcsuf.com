@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let src: string = "../assets/badges/png/acm-csuf-badge.png";
+  export let src: string = "../assets/png/acm-csuf-badge.png";
   export let alt: string = "ACM CSUF Logo";
 </script>
 
