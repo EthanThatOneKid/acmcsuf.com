@@ -3,6 +3,7 @@
   import WhatAreYouWaitingFor from "@/components/sections/what-are-you-waiting-for.svelte";
   import CommonHero from "@/components/sections/common-hero.svelte";
   import { officers } from "../../lib/officers";
+  import OfficerProfile from "@/components/sections/officer-profile.svelte";
   let currentSchoolYear = "2020-2021";
 </script>
 
@@ -33,33 +34,12 @@
   </div>
   <div class="officers-2020-2021-container">
     {#each officers[currentSchoolYear] as { name, title, picture, url }, i (name)}
-      <div class="officer-container">
-        <svg class="officer-image" viewBox="1 1 8 8">
-          <pattern
-            id="{`officer-image-${i}`}"
-            patternUnits="userSpaceOnUse"
-            width="{10}"
-            height="{10}"
-          >
-            <image
-              width="{10}"
-              height="{10}"
-              xlink:href="{`../assets/authors/${picture || 'placeholder.png'}`}"
-            ></image>
-          </pattern>
-          <path
-            d="M5.5 1.5 L8.5 4.5 Q9 5 8.5 5.5 L5.5 8.5 Q5 9 4.5 8.5 L 1.5 5.5 Q1 5 1.5 4.5 L4.5 1.5 Q 5 1 5.5 1.5z"
-            fill="{`url(#officer-image-${i})`}"></path>
-        </svg>
-        <h3>
-          {#if url !== undefined}
-            <a href="{url}">{name}</a>
-          {:else}
-            {name}
-          {/if}
-        </h3>
-        <p>{title}</p>
-      </div>
+      <OfficerProfile
+        name="{name}"
+        title="{title}"
+        picture="{picture}"
+        key="{picture}"
+      />
     {/each}
   </div>
 </section>
@@ -123,30 +103,30 @@
       display: flex;
       flex-flow: row wrap;
       justify-content: space-around;
-      .officer-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 64px;
-        .officer-image {
-          width: 200px;
-          height: 200px;
-        }
-        h3 {
-          font-size: 24px;
-          color: $acmDark;
+      // .officer-container {
+      //   display: flex;
+      //   flex-direction: column;
+      //   justify-content: center;
+      //   align-items: center;
+      //   padding: 64px;
+      //   .officer-image {
+      //     width: 200px;
+      //     height: 200px;
+      //   }
+      //   h3 {
+      //     font-size: 24px;
+      //     color: $acmDark;
 
-          a {
-            color: $acmDark;
-            text-decoration: none;
-          }
-        }
-        span {
-          font-size: 18px;
-          color: grey;
-        }
-      }
+      //     a {
+      //       color: $acmDark;
+      //       text-decoration: none;
+      //     }
+      //   }
+      //   span {
+      //     font-size: 18px;
+      //     color: grey;
+      //   }
+      // }
     }
   }
 </style>
