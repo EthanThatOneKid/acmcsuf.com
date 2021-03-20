@@ -9,6 +9,8 @@
 To get started, clone this repository to your machine and run `npm i` in the root of this project.
 Then, run `npm run dev` to spin up the [development server][dev_server].
 
+For more information, check out the [`CONTRIBUTING.md`](docs/CONTRIBUTING.md) document.
+
 ## Deployment 🚀
 
 Whenever a push is made to the main branch, Vercel builds the site, tests it, and if there are no errors, it will deploy a preview site.
