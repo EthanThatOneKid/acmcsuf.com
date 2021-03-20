@@ -5,7 +5,7 @@
 
 <section>
   <header>
-    <object type="image/png" data="{src}" title="{alt}"></object>
+    <img src="{src}" alt="{alt}" />
     <slot name="title" tag="h1" class="title" />
   </header>
   <div>
@@ -29,8 +29,9 @@
     align-items: center;
   }
 
-  section header object {
-    width: 100px;
+  section header img {
+    width: 200px;
+    padding-bottom: 1.5rem;
   }
 
   section header :global(h1) {
@@ -59,9 +60,10 @@
       flex-direction: row;
     }
 
-    section header object {
+    section header img {
       width: 150px;
       padding-right: 3rem;
+      padding-bottom: 0;
     }
 
     section header :global(h1) {
@@ -72,9 +74,5 @@
       text-align: center;
       max-width: 64rem;
     }
-
-    /* section div :global(h2) {
-      font-size: 3rem;
-    } */
   }
 </style>
