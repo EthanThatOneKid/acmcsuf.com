@@ -26,7 +26,7 @@ Writing only `<h1>Hello, world!</h1>` in a Svelte file is valid, however, Svelte
 
 In addition to HTML markup, Svelte files consist of two other sections: _script_ and _styles_.
 
-> 💡 Note: It is convention to order your sections like so: `script-markup-styles`.
+> 💡 Note: It is convention to [order your sections][svelte_sort_order] like so: `script-markup-styles`.
 
 ### `<script>` 👨‍💻
 
@@ -54,3 +54,4 @@ Really, the situation may affect your choice of breakpoint value, but the goal i
 [svelte_home]: https://svelte.dev
 [svelte_docs]: https://svelte.dev/docs/
 [mobile_first_info]: https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Responsive/Mobile_first
+[svelte_sort_order]: https://github.com/sveltejs/prettier-plugin-svelte#svelte-sort-order
