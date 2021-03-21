@@ -10,7 +10,7 @@ In that directory, each file represents one page of the website.
 | Path of File                     | Production URL               |
 | -------------------------------- | ---------------------------- |
 | `/src/routes/index.svelte`       | `https://acmcsuf.com/`       |
-| `/src/routes/about/index.svelte` | `https://acmcsuf.com/about/` |
+| `/src/routes/about.svelte`       | `https://acmcsuf.com/about/` |
 | `/src/routes/paths/index.svelte` | `https://acmcsuf.com/paths/` |
 
 ## `components` 📁
