@@ -2,10 +2,10 @@
   export let segment: string;
   const menuItems = [
     { title: "about", slug: "about" },
-    { title: "events", slug: "events" },
+    // { title: "events", slug: "events" },
     { title: "paths", slug: "paths" },
-    { title: "nodeBuds", slug: "node-buds" },
-    { title: "connect", slug: "connect" },
+    // { title: "nodeBuds", slug: "node-buds" },
+    // { title: "connect", slug: "connect" },
     // { title: "newsletters", slug: "posts" },
   ];
 </script>
@@ -13,7 +13,7 @@
 <nav>
   <input type="checkbox" id="navToggle" />
 
-  <a href="index.html" class="logo">
+  <a href="/" class="logo">
     <img
       src="assets/png/acm-csuf-badge.png"
       width="48"

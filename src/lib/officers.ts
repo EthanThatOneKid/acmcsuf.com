@@ -16,28 +16,28 @@ export const officers: Record<string, Officer[]> = {
     {
       name: "Jacob Nguyen",
       title: "President/Create Director 🎨",
-      picture: "jacob-nguyen.jpg",
+      picture: "jacob-nguyen.png",
     },
     {
       name: "Aaron Lieberman",
       title: "Internal Vice President 😎",
-      picture: "aaron-lieberman.jpg",
+      picture: "aaron-lieberman.png",
     },
     {
       name: "Samuel Sandoval",
       title: "Dev Director 🧠",
-      picture: "samuel-sandoval.jpg",
+      picture: "samuel-sandoval.png",
     },
     {
       name: "Ethan Davidson",
       title: "Webmaster 👨‍💻",
-      picture: "ethan-davidson.jpg",
+      picture: "ethan-davidson.png",
       url: "https://github.com/EthanThatOneKid",
     },
     {
       name: "Mike Ploythai",
       title: "Create Officer",
-      picture: "mike-ploythai.jpeg",
+      picture: "mike-ploythai.png",
     },
     {
       name: "Andrew Lau",
@@ -52,12 +52,12 @@ export const officers: Record<string, Officer[]> = {
     {
       name: "Jason Anthony",
       title: "Secretary",
-      picture: "jason-anthony.jpg",
+      picture: "jason-anthony.png",
     },
     {
       name: "Shaleen Mathur",
       title: "Workshop Manager",
-      picture: "shaleen-mathur.jpg",
+      picture: "shaleen-mathur.png",
     },
     {
       name: "Nicolas Renteria",
@@ -72,7 +72,7 @@ export const officers: Record<string, Officer[]> = {
     {
       name: "Samuel Valls",
       title: "Community Manager",
-      picture: "samuel-valls.jpg",
+      picture: "samuel-valls.png",
     },
     {
       name: "Wilbert Rodriguez",
@@ -82,12 +82,12 @@ export const officers: Record<string, Officer[]> = {
     {
       name: "Johnson Tong",
       title: "Co-Workshop Manager",
-      picture: "johnson-tong.jpg",
+      picture: "johnson-tong.png",
     },
     {
       name: "Kavit Sanghavi",
       title: "Algo Director",
-      picture: "kavit-sanghavi.jpg",
+      picture: "kavit-sanghavi.png",
     },
     {
       name: "Kevin Dillon",
@@ -107,9 +107,8 @@ export const officers: Record<string, Officer[]> = {
     {
       name: "Armanul Ambia",
       title: "Dev Officer",
-      picture: "armanul-ambia.jpg",
+      picture: "armanul-ambia.png",
     },
-
     {
       name: "Lisa Hong",
       title: "Product Officer",
