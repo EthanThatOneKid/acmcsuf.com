@@ -1,25 +1,13 @@
 <script>
   import Hero from "@/components/sections/hero.svelte";
+  import WhyJoin from "@/components/sections/why-join.svelte";
   import WhatAreYouWaitingFor from "@/components/sections/what-are-you-waiting-for.svelte";
 </script>
 
 <Hero />
+<WhyJoin />
 
-<!-- <section class="info-screen screen-hero">
-  <div>
-    <h1 class="intro-header">
-      <span class="headers">
-        we are the largest tech
-        <br />
-        community at
-      </span>
-      <span class="brand-em brand-blue">CSUF</span>
-    </h1>
-    <CallToAction text="join us today!" />
-  </div>
-</section> -->
-
-<section class="info-screen screen-why-join">
+<!-- <section class="info-screen screen-why-join">
   <div>
     <h2><span class="headers">why should students join acm?</span></h2>
     <p>
@@ -31,7 +19,7 @@
       lives, and industry lives.
     </p>
   </div>
-</section>
+</section> -->
 
 <section class="info-screen screen-paths">
   <div>
@@ -99,28 +87,28 @@
   //   }
   // }
 
-  .screen-why-join {
-    background: 10% 50% no-repeat url(../assets/badges/acm-blank.svg);
+  // .screen-why-join {
+  //   background: 10% 50% no-repeat url(../assets/badges/acm-blank.svg);
 
-    div {
-      @include fluidSize(10, 128, $propName: "padding-right");
-      padding-top: 333px;
-      h2 {
-        @include fluidSize($minHFontSize, $maxHFontSizeMed);
-        @include fluidSize(10, 32, $propName: "padding-bottom");
-        font-weight: bold;
-        text-align: right;
-        margin: 0;
-      }
-      p {
-        @include fluidSize($minPFontSize, $maxPFontSize);
-        @include fluidSize(150, 1014, $propName: "width");
-        text-align: right;
-        float: right;
-        margin: 0;
-      }
-    }
-  }
+  //   div {
+  //     @include fluidSize(10, 128, $propName: "padding-right");
+  //     padding-top: 333px;
+  //     h2 {
+  //       @include fluidSize($minHFontSize, $maxHFontSizeMed);
+  //       @include fluidSize(10, 32, $propName: "padding-bottom");
+  //       font-weight: bold;
+  //       text-align: right;
+  //       margin: 0;
+  //     }
+  //     p {
+  //       @include fluidSize($minPFontSize, $maxPFontSize);
+  //       @include fluidSize(150, 1014, $propName: "width");
+  //       text-align: right;
+  //       float: right;
+  //       margin: 0;
+  //     }
+  //   }
+  // }
 
   .screen-paths {
     width: 100%;

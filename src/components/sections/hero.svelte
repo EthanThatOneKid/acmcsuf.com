@@ -78,7 +78,7 @@
     }
 
     section .main-text-container .main-text {
-      font-size: 35pt;
+      font-size: 3rem;
       text-align: left;
     }
 
