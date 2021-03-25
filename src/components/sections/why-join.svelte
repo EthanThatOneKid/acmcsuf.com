@@ -1,5 +1,4 @@
 <script lang="ts">
-  // import CallToAction from "../../components/ui/call-to-action.svelte";
 </script>
 
 <section>

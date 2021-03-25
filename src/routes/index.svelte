@@ -7,20 +7,6 @@
 <Hero />
 <WhyJoin />
 
-<!-- <section class="info-screen screen-why-join">
-  <div>
-    <h2><span class="headers">why should students join acm?</span></h2>
-    <p>
-      <span class="headers">acm</span><span class="brand-blue brand-em"
-        >CSUF</span
-      >
-      strives to be a community that encourages growth, friendship, and personal/technical
-      development to prepare people for challenges in their personal lives, school
-      lives, and industry lives.
-    </p>
-  </div>
-</section> -->
-
 <section class="info-screen screen-paths">
   <div>
     <div class="paths-intro">
@@ -67,48 +53,6 @@
 
 <style lang="scss">
   @import "../style/theme.scss";
-
-  // .screen-hero {
-  //   background: 90% 50% no-repeat url(../assets/badges/acm-blank.svg);
-
-  //   div {
-  //     @include fluidSize(10, 128, $propName: "margin-left");
-  //     padding-top: 221px;
-  //     min-width: "max-content";
-  //     h1 {
-  //       @include fluidSize($minHFontSize, $maxHFontSize);
-  //       @include fluidSize(
-  //         $minPFontSize,
-  //         $maxPFontSize,
-  //         $propName: "padding-bottom"
-  //       );
-  //       font-weight: bold;
-  //     }
-  //   }
-  // }
-
-  // .screen-why-join {
-  //   background: 10% 50% no-repeat url(../assets/badges/acm-blank.svg);
-
-  //   div {
-  //     @include fluidSize(10, 128, $propName: "padding-right");
-  //     padding-top: 333px;
-  //     h2 {
-  //       @include fluidSize($minHFontSize, $maxHFontSizeMed);
-  //       @include fluidSize(10, 32, $propName: "padding-bottom");
-  //       font-weight: bold;
-  //       text-align: right;
-  //       margin: 0;
-  //     }
-  //     p {
-  //       @include fluidSize($minPFontSize, $maxPFontSize);
-  //       @include fluidSize(150, 1014, $propName: "width");
-  //       text-align: right;
-  //       float: right;
-  //       margin: 0;
-  //     }
-  //   }
-  // }
 
   .screen-paths {
     width: 100%;
