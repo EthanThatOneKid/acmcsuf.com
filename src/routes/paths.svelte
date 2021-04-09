@@ -1,6 +1,6 @@
 <script lang="ts">
-  import CommonHero from "../../components/sections/common-hero.svelte";
-  import WhatAreYouWaitingFor from "../../components/sections/what-are-you-waiting-for.svelte";
+  import CommonHero from "@/components/sections/common-hero.svelte";
+  import WhatAreYouWaitingFor from "@/components/sections/what-are-you-waiting-for.svelte";
 </script>
 
 <CommonHero>

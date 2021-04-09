@@ -4,7 +4,7 @@
   import WhyJoinNodeBuds from "@/components/sections/why-join-nodebuds.svelte";
   // import WhatAreYouWaitingFor from "@/components/sections/what-are-you-waiting-for.svelte";
   import HowCanIGetInvoved from "@/components/sections/how-can-i-get-involved.svelte";
-  import WhyJoinNodebuds from "../../components/sections/why-join-nodebuds.svelte";
+  import WhyJoinNodebuds from "@/components/sections/why-join-nodebuds.svelte";
 </script>
 
 <!-- <ComingSoon title="node buds" src="../assets/badges/PNG/node-buds-badge.png" /> -->

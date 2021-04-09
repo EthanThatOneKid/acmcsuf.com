@@ -1,7 +1,7 @@
 <script lang="ts">
   import WhatAreYouWaitingFor from "@/components/sections/what-are-you-waiting-for.svelte";
   import CommonHero from "@/components/sections/common-hero.svelte";
-  import OfficerProfileList from "../../components/sections/officer-profile-list.svelte";
+  import OfficerProfileList from "@/components/sections/officer-profile-list.svelte";
   import Spacing from "@/components/sections/spacing.svelte";
 </script>
 
