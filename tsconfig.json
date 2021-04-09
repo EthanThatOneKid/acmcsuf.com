@@ -6,6 +6,8 @@
   "include": ["src/**/*", "src/node_modules/**/*"],
   "exclude": ["node_modules/*", "__sapper__/*", "static/*"],
   "paths": {
-    "@components": "./src/components/"
+    "@/components*": "./src/components/",
+    "@/lib*": "./src/lib/",
+    "@/actions*": "./src/actions/"
   }
 }

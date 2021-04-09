@@ -1,143 +1,17 @@
 <script>
   import Hero from "@/components/sections/hero.svelte";
   import WhyJoin from "@/components/sections/why-join.svelte";
+  import AcmPaths from "@/components/sections/acm-paths.svelte";
   import WhatAreYouWaitingFor from "@/components/sections/what-are-you-waiting-for.svelte";
+  import Spacing from "@/components/sections/spacing.svelte";
 </script>
 
+<Spacing />
 <Hero />
+<Spacing />
 <WhyJoin />
-
-<section class="info-screen screen-paths">
-  <div>
-    <div class="paths-intro">
-      <h2><span class="headers">get involved with our paths!</span></h2>
-      <p>
-        Want to specialize somewhere specific in tech? Our paths were designed
-        to give students a head start in their own tech journeys, making them
-        prepared for the industry.
-      </p>
-    </div>
-    <div class="paths-display">
-      <a class="path-item" href="/paths#acm-algo">
-        <object
-          type="image/svg+xml"
-          data="assets/badges/with-shadow/acm-algo-badge-s.svg"
-          title="acm-algo-logo"></object>
-        <span class="headers"
-          >acm<span class="brand-purple brand-em">Algo</span>
-        </span></a
-      >
-      <a class="path-item" href="/paths#acm-create">
-        <object
-          type="image/svg+xml"
-          data="assets/badges/with-shadow/acm-create-badge-s.svg"
-          title="acm-create-logo"></object>
-        <span class="headers"
-          >acm<span class="brand-pink brand-em">Create</span>
-        </span>
-      </a>
-      <a class="path-item" href="/paths#acm-dev">
-        <object
-          type="image/svg+xml"
-          data="assets/badges/with-shadow/acm-dev-badge-s.svg"
-          title="acm-dev-logo"></object>
-        <span class="headers"
-          >acm<span class="brand-bluer brand-em">Dev</span>
-        </span>
-      </a>
-    </div>
-  </div>
-</section>
-
+<Spacing />
+<AcmPaths />
+<Spacing />
 <WhatAreYouWaitingFor />
-
-<style lang="scss">
-  @import "../style/theme.scss";
-
-  .screen-paths {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    .paths-intro {
-      padding-top: 333px;
-      padding-bottom: 64px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      h2 {
-        margin: 0;
-        @include fluidSize($minHFontSize, $maxHFontSizeMed);
-        @include fluidSize(10, 32, $propName: "padding-bottom");
-        text-align: center;
-        font-weight: bold;
-      }
-      p {
-        @include fluidSize($minPFontSize, $maxPFontSize);
-        @include fluidSize(190, 1310, $propName: "width");
-        @include fluidSize(18, 54, $propName: "line-height");
-        margin: 0;
-        align-content: center;
-        text-align: center;
-      }
-    }
-    .paths-display {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      align-items: center;
-
-      .path-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: $acmDark;
-        text-decoration: none;
-
-        object {
-          @include fluidSize(36, 250, $propName: "width");
-          @include fluidSize(36, 250, $propName: "height");
-        }
-        span {
-          @include fluidSize(18, 36);
-        }
-      }
-    }
-    @media screen and (max-width: $breakpoint) {
-      .paths-display {
-        flex-direction: column;
-        .path-item {
-          padding-top: 1em;
-        }
-      }
-    }
-  }
-
-  .screen-node-buds {
-    background: 10% 50% no-repeat url(../assets/badges/acm-blank.svg);
-
-    div {
-      @include fluidSize(10, 128, $propName: "padding-right");
-      padding-top: 333px;
-      h2 {
-        @include fluidSize($minHFontSize, $maxHFontSizeMed);
-        @include fluidSize(10, 32, $propName: "padding-bottom");
-        font-weight: bold;
-        text-align: right;
-        margin: 0;
-      }
-      p {
-        @include fluidSize($minPFontSize, $maxPFontSize);
-        @include fluidSize(150, 1014, $propName: "width");
-        text-align: right;
-        float: right;
-        margin: 0;
-      }
-    }
-  }
-</style>
+<Spacing />

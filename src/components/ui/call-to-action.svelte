@@ -10,13 +10,13 @@
     cursor: pointer;
     border-radius: 25px;
     background-color: var(--acm-dark);
-    padding: 16px 8px 16px 8px;
+    padding: 8px 16px 8px 16px;
+    margin-top: 24px;
     font-weight: bold;
     color: var(--acm-light);
     text-decoration: none;
     border: 2px solid var(--acm-dark);
     font-size: 1rem;
-    padding: 1em;
     text-transform: lowercase;
   }
 

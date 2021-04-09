@@ -23,5 +23,12 @@ body,
   --acm-red: #c40042;
   --acm-dark: #212121;
   --acm-light: #ffffff;
+
   --desktop-breakpoint: 768px;
+
+  --min-p-font-size: 18px;
+  --max-p-font-size: 36px;
+  --min-h-font-size: 22px;
+  --max-h-font-size: 86px;
+  --max-h-font-size-med: 64px;
 }
