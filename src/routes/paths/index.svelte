@@ -1,26 +1,19 @@
 <script lang="ts">
-  import Headline from "../../components/sections/headline.svelte";
+  import CommonHero from "../../components/sections/common-hero.svelte";
   import WhatAreYouWaitingFor from "../../components/sections/what-are-you-waiting-for.svelte";
 </script>
 
-<section class="paths-screen-hero">
-  <div>
-    <Headline>paths</Headline>
-    <div class="about-description-container">
-      <h2 class="brand-em">
-        <span class="brand-em">what are paths?</span>
-      </h2>
-      <p>
-        <span class="brand-em">paths</span> are committees that focus on certain
-        areas related to the industry. students can discover new interests,
-        enhance current skillsets, and specialize in specific fields through
-        these committees. <span class="brand-em">paths</span> were designed to encourage
-        teamwork and communication to prepare people for real-world opportunities
-        in tech.
-      </p>
-    </div>
-  </div>
-</section>
+<CommonHero>
+  <h1 slot="title">paths</h1>
+  <h2 slot="headline">what are paths?</h2>
+  <p slot="text">
+    <span class="brand-em">paths</span> are committees that focus on certain
+    areas related to the industry. students can discover new interests, enhance
+    current skillsets, and specialize in specific fields through these
+    committees. <span class="brand-em">paths</span> were designed to encourage teamwork
+    and communication to prepare people for real-world opportunities in tech.
+  </p>
+</CommonHero>
 
 <section class="paths-screen-info turnback">
   <div id="acm-algo">
@@ -98,6 +91,7 @@
           @include fluidSize($minHFontSize, $maxHFontSizeMed);
           text-align: center;
           font-weight: bold;
+          padding-bottom: 48px;
         }
         p {
           @include fluidSize($minPFontSize, $maxPFontSize);
@@ -115,6 +109,9 @@
       justify-content: space-around;
       align-items: center;
       padding-top: 100px;
+      h2 {
+        padding-bottom: 48px;
+      }
 
       &:nth-child(even) {
         flex-flow: row-reverse;
