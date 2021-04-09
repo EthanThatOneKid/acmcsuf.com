@@ -9,11 +9,12 @@
     <div>
       <h2>why join node<span class="brand-red">buds</span>?</h2>
       <p>
-        <span class="brand-em">node<span class="brand-red">Buds</span></span> was
-        designed to provide underclassmen and transfer students assistance as they
-        start their fresh journey through CSUF, and through the tech industry. We
-        provide the knowledge and resources that’ll help students start on the right
-        foot.
+        <span class="brand-em">node<span class="brand-red">Buds</span></span>
+        was designed to provide underclassmen and transfer students assistance as
+        they start their fresh journey through
+        <span class="brand-blue brand-em">CSUF</span>, and through the tech
+        industry. We provide the knowledge and resources that’ll help students
+        start on the right foot.
       </p>
     </div>
   </div>
@@ -40,7 +41,7 @@
         }
       }
 
-      @media screen and (max-width: $breakpoint) {
+      @media screen and (max-width: 1440px) {
         flex-direction: column;
         align-items: center;
         flex-flow: column !important;

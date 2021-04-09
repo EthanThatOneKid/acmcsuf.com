@@ -5,51 +5,49 @@
   // import WhatAreYouWaitingFor from "@/components/sections/what-are-you-waiting-for.svelte";
   import HowCanIGetInvoved from "@/components/sections/how-can-i-get-involved.svelte";
   import WhyJoinNodebuds from "@/components/sections/why-join-nodebuds.svelte";
+  import Spacing from "@/components/sections/spacing.svelte";
+  import CommonHero from "@/components/sections/common-hero.svelte";
+  import NodeBudsTestimonial from "../components/sections/nodebuds-testimonial.svelte";
 </script>
 
-<!-- <ComingSoon title="node buds" src="../assets/badges/PNG/node-buds-badge.png" /> -->
-<section class="nodebuds-screen-hero">
-  <div>
-    <Headline src="../assets/badges/PNG/node-buds-badge.png"
-      >node<span class="brand-red">Buds</span>
-    </Headline>
-    <div class="about-description-container">
-      <h2 class="brand-em">what is node<span class="brand-red">Buds</span>?</h2>
-      <p>
-        <span class="brand-em">node<span class="brand-red">Buds</span></span> is
-        a mentorship program that aims to help underclassmen adjust to university
-        life, and to prepate them for the tech industry. We achieve this by having
-        upper an underclassman form strong connection with each other which allows
-        them to exchange advice, skills, and more, all in order to start student
-        off successfully.
-      </p>
-    </div>
-  </div>
-</section>
-
+<CommonHero src="../assets/png/node-buds-badge.png" alt="CSUF NodeBuds Logo">
+  <h1 slot="title">node<span class="brand-nodebuds">Buds</span></h1>
+  <h2 slot="headline">what is node<span class="brand-nodebuds">Buds</span>?</h2>
+  <p slot="text">
+    <span class="brand-bold">node<span class="brand-nodebuds">Buds</span></span>
+    is a mentorship program that aims to help underclassmen adjust to university
+    life, and to prepate them for the tech industry. We achieve this by having upper
+    an underclassman form strong connection with each other which allows them to
+    exchange advice, skills, and more, all in order to start student off successfully.
+  </p>
+</CommonHero>
+<Spacing />
 <WhyJoinNodebuds />
+<Spacing />
+<NodeBudsTestimonial
+  src="../assets/png/node-buds-testimonial-illustration.png"
+  alt="Mentory Samuel Sandoval and trainee Johnson Tong"
+>
+  <span slot="semester">fall <span class="brand-nodebuds">2020</span></span>
+  <p slot="content">
+    <span class="brand-bold">node<span class="brand-nodebuds">Buds</span></span>
+    is a great way to get ahold of how you can move forward in your computer science
+    journey! If you feel lost, or don’t have much idea of what to do,
+    <span class="brand-bold">node<span class="brand-nodebuds">Buds</span></span>
+    is a great way to learn and gain insight from a mentor who has more experience,
+    and is further along than you are.
+    <br />
+    <span class="brand-bold">By Johnson Tong</span>
+  </p>
+</NodeBudsTestimonial>
+<Spacing />
 <HowCanIGetInvoved />
 
-<style lang="scss">
-  @import "../style/theme.scss";
-  .nodebuds-screen-hero {
-    padding-top: 100px;
-    div {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
-      h2 {
-        @include fluidSize($minHFontSize, $maxHFontSizeMed);
-        text-align: center;
-        font-weight: bold;
-        padding: 1em 0;
-      }
-      p {
-        @include fluidSize($minPFontSize, $maxPFontSize);
-        @include fluidSize(220, 1500, $propName: "width");
-        text-align: center;
-      }
-    }
+<style>
+  .brand-nodebuds {
+    color: var(--acm-red);
+  }
+  .brand-bold {
+    font-weight: bold;
   }
 </style>
