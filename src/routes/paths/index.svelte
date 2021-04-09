@@ -26,7 +26,7 @@
   <div id="acm-algo">
     <object
       type="image/png"
-      data="../assets/badges/PNG/acm-algo-badge.png"
+      data="../assets/png/acm-algo-badge.png"
       title="acm-algo-logo"></object>
     <div>
       <h2>
@@ -44,7 +44,7 @@
   <div id="acm-create">
     <object
       type="image/png"
-      data="../assets/badges/PNG/acm-create-badge.png"
+      data="../assets/png/acm-create-badge.png"
       title="acm-create-logo"></object>
     <div>
       <h2>
@@ -62,7 +62,7 @@
   <div id="acm-dev">
     <object
       type="image/png"
-      data="../assets/badges/PNG/acm-dev-badge.png"
+      data="../assets/png/acm-dev-badge.png"
       title="acm-dev-logo"></object>
     <div>
       <h2>
