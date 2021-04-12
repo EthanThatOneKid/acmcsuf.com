@@ -26,7 +26,7 @@
     justify-content: space-around;
 
     margin: auto; /* center */
-    padding: 4em 2em;
+    padding: 0 2em;
   }
 
   /* Make the image take over a bit more than half at full size. */
@@ -65,7 +65,7 @@
   }
 
   /* Mobile view */
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 768px) {
     #why-join-nodebuds {
       flex-direction: column;
     }

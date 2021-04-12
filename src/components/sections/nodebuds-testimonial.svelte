@@ -1,6 +1,6 @@
 <script lang="ts">
   export let src: string;
-  export let alt: sting;
+  export let alt: string;
 </script>
 
 <section>
@@ -17,27 +17,41 @@
   section {
     display: flex;
     align-items: center;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: center;
-    padding-top: 175px;
   }
 
   .info-container {
-    max-width: 45vw;
+    max-width: 55vw;
     margin-bottom: 2em;
+    font-size: var(--fluid-font-size);
+    text-align: center;
   }
 
   .info-container :global(h2) {
-    font-size: 3rem;
+    font-size: var(--h-font-size-med);
     margin-bottom: 1em;
   }
 
   .info-container :global(p) {
-    font-size: 2rem;
+    font-size: var(--p-font-size);
   }
 
   .image-container img {
-    max-width: 900px;
-    width: 45vw;
+    width: max(55vw, 550px);
+    max-width: 100%;
+  }
+
+  @media screen and (min-width: 768px) {
+    section {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 2em;
+    }
+
+    .info-container {
+      text-align: start;
+    }
   }
 </style>
