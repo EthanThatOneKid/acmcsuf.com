@@ -19,8 +19,7 @@
 
   .screen-wyd {
     background: none;
-    padding-bottom: 333px;
-
+    height: auto;
     div {
       @include fluidSize(10, 150, $propName: "padding-left");
       @include fluidSize(10, 150, $propName: "padding-right");
@@ -34,9 +33,6 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-
-      padding-top: 333px;
-
       h2 {
         @include fluidSize($minHFontSize, $maxHFontSizeMed);
         @include fluidSize(
