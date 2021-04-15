@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700");
 
+html, body {
+  overflow-x: hidden;
+}
+
 *,
 html,
 body,
@@ -25,6 +29,7 @@ body,
   --acm-light: #ffffff;
 
   --desktop-breakpoint: 768px;
+  --navbar-height: 82px;
 
   /* Fluid font size is the magical numbers for fluid font sizing. It should be
    * put into parent containers. */
@@ -38,6 +43,22 @@ body,
   --min-h-font-size: 22px;
   --max-h-font-size: 86px;
   --max-h-font-size-med: 64px;
+
+  --heading-font-size: 48px;
+  --subheading-font-size: 24px;
+  --body-font-size: 18px;
+  --margin-text-font-size: 12px;
+}
+
+/* New CSS Guidelines */
+@media screen and (min-width: 768px) {
+  :root {
+    --title-font-size: 96px;
+    --heading-font-size: 64px;
+    --subheading-font-size: 36px;
+    --body-font-size: 24px;
+    --margin-text-font-size: 16px;
+  }
 }
 
 /* Branding Macros */

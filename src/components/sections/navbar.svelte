@@ -50,7 +50,7 @@
     position: fixed;
     width: 100%;
     z-index: 3;
-    height: 112px;
+    height: var(--navbar-height);
     background-color: var(--acm-light);
     box-shadow: 0 3px 6px rgba(33, 33, 33, 0.1);
     overflow: visible;
@@ -125,10 +125,6 @@
   }
 
   @media screen and (max-width: 1300px) {
-    nav {
-      height: 82px;
-    }
-
     nav .logo {
       margin-left: 88px;
     }

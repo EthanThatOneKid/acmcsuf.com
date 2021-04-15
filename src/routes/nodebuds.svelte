@@ -1,13 +1,9 @@
 <script lang="ts">
-  // import ComingSoon from "@/components/sections/coming-soon.svelte";
-  import Headline from "@/components/sections/headline.svelte";
-  import WhyJoinNodeBuds from "@/components/sections/why-join-nodebuds.svelte";
-  // import WhatAreYouWaitingFor from "@/components/sections/what-are-you-waiting-for.svelte";
   import HowCanIGetInvoved from "@/components/sections/how-can-i-get-involved.svelte";
-  import WhyJoinNodebuds from "@/components/sections/why-join-nodebuds.svelte";
+  import WhyJoinNodebuds from "@/components/nodebuds/why-join-nodebuds.svelte";
   import Spacing from "@/components/sections/spacing.svelte";
   import CommonHero from "@/components/sections/common-hero.svelte";
-  import NodeBudsTestimonial from "../components/sections/nodebuds-testimonial.svelte";
+  import NodeBudsTestimonial from "@/components/nodebuds/nodebuds-testimonial.svelte";
 </script>
 
 <CommonHero src="../assets/png/node-buds-badge.png" alt="CSUF NodeBuds Logo">

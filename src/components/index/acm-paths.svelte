@@ -33,15 +33,15 @@
   }
 
   .paths-intro h2 {
-    font-size: 3rem;
+    font-size: var(--heading-font-size);
     text-align: center;
-    margin: 0 1em 1em 1em;
+    margin: 0 20px 20px 20px;
   }
 
   .paths-intro p {
     text-align: center;
-    font-size: 2rem;
-    max-width: 50vw;
+    font-size: var(--body-font-size);
+    margin: 0 20px;
   }
 
   .paths-list {
@@ -59,17 +59,41 @@
   }
 
   .path-item img {
-    width: 250px;
-    height: 250px;
+    width: 175px;
+    height: 175px;
+    padding-bottom: 20px;
   }
 
   .path-item p {
-    font-size: var(--max-p-font-size);
+    font-size: var(--subheading-font-size);
     font-weight: 700;
     text-decoration: none;
   }
 
   .path-item p span {
     color: var(--brand-color);
+  }
+
+  @media (min-width: 768px) {
+    .paths-intro p {
+      margin: 0 186px;
+    }
+
+    .paths-list {
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+
+    .path-item img {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    .path-item img {
+      width: 250px;
+      height: 250px;
+    }
   }
 </style>

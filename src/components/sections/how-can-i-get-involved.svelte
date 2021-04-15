@@ -1,5 +1,5 @@
 <script lang="ts">
-  import CallToAction from "../../components/ui/call-to-action.svelte";
+  import CallToAction from "@/components/utils/call-to-action.svelte";
 </script>
 
 <section class="info-screen screen-wyd">
