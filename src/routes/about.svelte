@@ -5,6 +5,7 @@
   import Spacing from "@/components/sections/spacing.svelte";
 </script>
 
+<Spacing amount="200px" />
 <CommonHero>
   <h1 slot="title">about</h1>
   <h2 slot="headline">
@@ -18,6 +19,6 @@
     events are open to any and everyone, so be sure to come by!
   </p>
 </CommonHero>
-<Spacing />
+<Spacing amount="200px" />
 <OfficerProfileList />
 <WhatAreYouWaitingFor />

@@ -1,17 +1,17 @@
 <script>
-  import Hero from "@/components/sections/hero.svelte";
-  import WhyJoin from "@/components/sections/why-join.svelte";
-  import AcmPaths from "@/components/sections/acm-paths.svelte";
+  import Hero from "@/components/index/hero.svelte";
+  import WhyJoin from "@/components/index/why-join.svelte";
+  import AcmPaths from "@/components/index/acm-paths.svelte";
   import WhatAreYouWaitingFor from "@/components/sections/what-are-you-waiting-for.svelte";
   import Spacing from "@/components/sections/spacing.svelte";
 </script>
 
-<Spacing />
+<Spacing amount="100px" minAmount="200px" maxAmount="250px" />
 <Hero />
-<Spacing />
+<Spacing amount="200px" />
 <WhyJoin />
-<Spacing />
+<Spacing amount="200px" />
 <AcmPaths />
-<Spacing />
+<Spacing amount="200px" />
 <WhatAreYouWaitingFor />
-<Spacing />
+<Spacing amount="200px" />

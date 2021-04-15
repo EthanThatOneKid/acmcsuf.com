@@ -1,12 +1,12 @@
 <script>
-  import CallToAction from "../ui/call-to-action.svelte";
+  import CallToAction from "@/components/utils/call-to-action.svelte";
 </script>
 
 <section>
   <div class="main-text-container">
     <h1 class="main-text">
-      <span>we are the largest tech<br />community at</span>
-      <span class="text-emphasis">CSUF</span>
+      <span>we are the largest tech community at</span>
+      <span class="brand-blue">CSUF</span>
     </h1>
     <CallToAction text="Join us today!" />
   </div>
@@ -24,7 +24,6 @@
     flex-direction: column-reverse;
     align-items: center;
     justify-content: space-evenly;
-    padding-top: 100px; /* Gap left for navbar. */
   }
 
   section .main-text-container {
@@ -36,12 +35,9 @@
 
   section .main-text-container .main-text {
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: var(--heading-font-size);
     text-align: center;
-  }
-
-  section .main-text-container .main-text .text-emphasis {
-    color: var(--acm-blue);
+    margin: 0 24px;
   }
 
   section figure {
@@ -59,7 +55,7 @@
 
   @media (min-width: 768px) {
     section .main-text-container .main-text {
-      font-size: 32pt;
+      margin: 0 150px;
     }
 
     section figure img {
@@ -70,8 +66,7 @@
   @media screen and (min-width: 1440px) {
     section {
       flex-direction: row;
-      margin: 0 180px 0 180px;
-      padding-top: 200px;
+      margin: 0 128px 0 128px;
     }
 
     section .main-text-container {
@@ -79,8 +74,8 @@
     }
 
     section .main-text-container .main-text {
-      font-size: 3rem;
       text-align: left;
+      margin: 0;
     }
 
     section figure img {

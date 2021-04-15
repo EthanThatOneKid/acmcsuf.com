@@ -2,15 +2,15 @@
   import { styleProps } from "../../actions/use-style-props";
   import { officers } from "../../lib/officers";
   import OfficerProfile from "@/components/sections/officer-profile.svelte";
-  import AcmSelect from "@/components/ui/acm-select.svelte";
+  import AcmSelect from "@/components/utils/acm-select.svelte";
 
   let currentSchoolYear = "2020-2021";
 </script>
 
 <section>
   <h2>
-    who are
-    <span use:styleProps="{{ 'emphasis-color': 'var(--acm-blue)' }}"> we </span>
+    board
+    <span class="brand-em brand-blue">officers</span>
   </h2>
   <div class="school-year-input-container">
     <AcmSelect
@@ -34,15 +34,14 @@
   section h2 {
     text-align: center;
     font-weight: bold;
-    font-size: 3rem;
+    font-size: var(--heading-font-size);
   }
-  span {
-    color: var(--emphasis-color);
-  }
+
   .school-year-input-container {
     min-width: 100px;
     text-align: center;
   }
+
   .officer-profile-list {
     display: flex;
     flex-flow: row wrap;

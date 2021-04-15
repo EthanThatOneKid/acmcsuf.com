@@ -20,7 +20,6 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    padding-top: 175px;
   }
 
   section header {
@@ -36,7 +35,7 @@
 
   section header :global(h1) {
     margin: 0;
-    font-size: 4rem;
+    font-size: var(--heading-font-size);
     font-weight: bold;
   }
 
@@ -46,13 +45,13 @@
   }
 
   section div :global(h2) {
-    font-size: 3rem;
+    font-size: var(--subheading-font-size);
     margin: 48px 0 32px 0;
   }
 
   section div :global(p) {
     margin: 0 3rem;
-    font-size: 2rem;
+    font-size: var(--body-font-size);
   }
 
   @media screen and (min-width: 768px) {
@@ -64,10 +63,6 @@
       width: 150px;
       padding-right: 3rem;
       padding-bottom: 0;
-    }
-
-    section header :global(h1) {
-      font-size: 5.38rem;
     }
 
     section div {
