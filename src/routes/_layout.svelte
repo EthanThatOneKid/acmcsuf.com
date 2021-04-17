@@ -1,11 +1,13 @@
 <script lang="ts">
-  import Navbar from "../components/sections/navbar.svelte";
-  import Footer from "../components/sections/footer.svelte";
+  import Navbar from "@/components/sections/navbar.svelte";
+  import Footer from "@/components/sections/footer.svelte";
+  import SkipNavbarContent from "@/components/utils/skip-navbar-content.svelte";
   export let segment: string;
   const pageTitle = segment === undefined ? "ACM at CSUF" : segment;
 </script>
 
 <Navbar segment="{segment}" />
+<SkipNavbarContent />
 <main><slot /></main>
 <Footer />
 
