@@ -14,14 +14,14 @@ interface AcmEvent {
 
 export const parseIcalData = (icalData: string): AcmEvent[] => {
   const jcalData = ICAL
-  .parse(icalData)[2]
-  .slice(1)
-  .map(([, properties]) => {
-    const startTimestamp = getProperty("dtstart", properties),
-          endTimestamp = getProperty("dtend", properties),
-          location = getProperty("location", properties),
-          summary = getProperty("summary", properties);
-    return { startTimestamp, endTimestamp, location, summary };
-  });
+    .parse(icalData)[2]
+    .slice(1)
+    .map(([, properties]) => {
+      const startTimestamp = getProperty("dtstart", properties),
+            endTimestamp = getProperty("dtend", properties),
+            location = getProperty("location", properties),
+            summary = getProperty("summary", properties);
+      return { startTimestamp, endTimestamp, location, summary };
+    });
   return jcalData;
 };
