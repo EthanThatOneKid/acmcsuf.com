@@ -1,11 +1,8 @@
-<script>
-</script>
-
 <section class="social-media-links-section">
   <a
     href=" https://www.instagram.com/acmcsuf/"
     class="social-link"
-    target="”_blank”"
+    target="_blank"
   >
     <svg
       width="56"
@@ -25,7 +22,7 @@
   <a
     href=" https://tinyurl.com/acm-csuf-discord/"
     class="social-link"
-    target="”_blank”"
+    target="_blank"
   >
     <svg
       width="52"
@@ -46,7 +43,7 @@
   <a
     href=" https://www.linkedin.com/company/acm-at-csuf/"
     class="social-link"
-    target="”_blank”"
+    target="_blank"
   >
     <svg
       width="56"
@@ -65,7 +62,7 @@
   <a
     href=" https://www.youtube.com/channel/UCDMBj0o4V8Cpt0jgsZLNVVg"
     class="social-link"
-    target="”_blank”"
+    target="_blank"
   >
     <svg
       width="64"
@@ -98,7 +95,7 @@
     color: var(--acm-light);
     text-decoration: none;
     border: 2px solid var(--acm-dark);
-    font-size: 1em;
+    font-size: var(--body-font-size);
     text-transform: lowercase;
     text-align: right;
     display: flex;
@@ -130,8 +127,8 @@
     }
     .social-link {
       width: 40%;
-      font-size: 1.5em;
       margin: 1em;
+      font-size: var(--body-font-size);
     }
   }
 </style>

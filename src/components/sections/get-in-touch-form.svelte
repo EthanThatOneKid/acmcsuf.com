@@ -8,7 +8,7 @@
   </p>
   <form id="Contact-Form" action="#">
     <formfield>
-      <lable for="form-name"></lable>
+      <label for="form-name"></label>
       <input
         type="text"
         id="form-name"
@@ -16,7 +16,7 @@
         placeholder="name*"
         required
       />
-      <lable for="form-email"></lable>
+      <label for="form-email"></label>
       <input
         type="text"
         id="form-email"
@@ -25,7 +25,7 @@
         required
       />
     </formfield>
-    <lable for="form-topic"></lable>
+    <label for="form-topic"></label>
     <input
       type="text"
       id="form-topic"
@@ -33,7 +33,7 @@
       placeholder="topic*"
       required
     />
-    <lable for="form-message"></lable>
+    <label for="form-message"></label>
     <textarea
       type="text"
       id="form-topic"
