@@ -22,19 +22,19 @@
   }
 
   .info-container {
-    max-width: 55vw;
-    margin-bottom: 2em;
+    max-width: 55vw; /* Here, max-width is being used to keep the text from overtaking the image's visual hierarchy. */
     font-size: var(--fluid-font-size);
     text-align: center;
   }
 
   .info-container :global(h2) {
-    font-size: var(--h-font-size-med);
-    margin-bottom: 1em;
+    font-size: var(--heading-font-size);
+    margin-bottom: 20px;
+    hyphens: auto; /* Read: https://css-tricks.com/almanac/properties/h/hyphenate/ */
   }
 
   .info-container :global(p) {
-    font-size: var(--p-font-size);
+    font-size: var(--body-font-size);
   }
 
   .image-container img {
@@ -47,7 +47,7 @@
       flex-direction: row;
       align-items: center;
       justify-content: space-around;
-      padding: 0 2em;
+      padding: 0 20px;
     }
 
     .info-container {
