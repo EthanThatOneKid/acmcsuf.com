@@ -1,6 +1,7 @@
 <script lang="ts">
   import CommonHero from "@/components/sections/common-hero.svelte";
   import WhatAreYouWaitingFor from "@/components/sections/what-are-you-waiting-for.svelte";
+  import Spacing from "@/components/sections/spacing.svelte";
 </script>
 
 <CommonHero>
@@ -14,6 +15,8 @@
     and communication to prepare people for real-world opportunities in tech.
   </p>
 </CommonHero>
+
+<Spacing />
 
 <section class="paths-screen-info turnback">
   <div id="acm-algo">
@@ -72,7 +75,11 @@
   </div>
 </section>
 
+<Spacing amount="175px" />
+
 <WhatAreYouWaitingFor />
+
+<Spacing amount="175px" />
 
 <style lang="scss">
   @import "../style/theme.scss";
