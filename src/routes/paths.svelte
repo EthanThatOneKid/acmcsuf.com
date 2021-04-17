@@ -16,7 +16,7 @@
 </CommonHero>
 
 <section class="paths-screen-info turnback">
-  <div id="acm-algo">
+  <div id="acmalgo">
     <object
       type="image/png"
       data="../assets/png/acm-algo-badge.png"
@@ -34,7 +34,7 @@
       </p>
     </div>
   </div>
-  <div id="acm-create">
+  <div id="acmcreate">
     <object
       type="image/png"
       data="../assets/png/acm-create-badge.png"
@@ -52,7 +52,7 @@
       </p>
     </div>
   </div>
-  <div id="acm-dev">
+  <div id="acmdev">
     <object
       type="image/png"
       data="../assets/png/acm-dev-badge.png"
