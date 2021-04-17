@@ -3,13 +3,8 @@
 </script>
 
 <section>
-  <h2>so what you are waiting for?</h2>
-  <p>
-    We invite you to become a part of our chapter consisting of
-    <b>350<span class="brand-blue">+</span> members</b>, and rising! All of our
-    coding workshops, info sessions, and community events were designed to start
-    off your tech journey on the right foot.
-  </p>
+  <slot name="headline" tag="h2" />
+  <slot name="text" tag="p" />
   <CallToAction text="join us today!" />
 </section>
 
@@ -22,12 +17,12 @@
     text-align: center;
   }
 
-  section h2 {
+  section :global(h2) {
     font-size: var(--subheading-font-size);
     padding-bottom: 20px;
   }
 
-  section p {
+  section :global(p) {
     font-size: var(--body-font-size);
   }
 
