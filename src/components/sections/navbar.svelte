@@ -4,7 +4,7 @@
     { title: "about", slug: "about" },
     // { title: "events", slug: "events" },
     { title: "paths", slug: "paths" },
-    { title: "nodeBuds", slug: "nodebuds" },
+    { title: `node<span class="brand-red">Buds</span>`, slug: "nodebuds" },
     // { title: "connect", slug: "connect" },
     // { title: "newsletters", slug: "posts" },
   ];
@@ -32,7 +32,7 @@
           rel="prefetch"
           aria-current="{segment === slug}"
         >
-          {title}
+          {@html title}
         </a>
       </li>
     {/each}
