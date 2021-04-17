@@ -4,7 +4,7 @@
     { title: "about", slug: "about" },
     // { title: "events", slug: "events" },
     { title: "paths", slug: "paths" },
-    // { title: "nodeBuds", slug: "node-buds" },
+    { title: "nodeBuds", slug: "nodebuds" },
     // { title: "connect", slug: "connect" },
     // { title: "newsletters", slug: "posts" },
   ];
