@@ -44,7 +44,6 @@
     display: flex;
     flex-direction: column;
 
-    font-size: var(--fluid-font-size);
     padding-left: 2em;
     padding-right: 2em;
 
@@ -57,10 +56,10 @@
   }
 
   .turnback > p {
-    font-size: var(--p-font-size);
+    font-size: var(--body-font-size);
   }
   .turnback > h2 {
-    font-size: var(--h-font-size-med);
+    font-size: var(--heading-font-size);
     font-weight: 600; /* medium, not bold */
   }
 
