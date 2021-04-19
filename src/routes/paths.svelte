@@ -79,7 +79,7 @@
 
 <CallToActionSection>
   <h2 slot="headline">how can i get involved?</h2>
-  <p>
+  <p slot="text">
     Our paths host their own events all the time! Follow us on social media to
     get notified for when they happen. Until then, we invite you to become a
     part of our chapter to start off your tech journey on the right foot.
