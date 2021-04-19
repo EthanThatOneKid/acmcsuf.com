@@ -1,5 +1,5 @@
 <script>
-  import CallToAction from "@/components/utils/call-to-action.svelte";
+  import AcmButton from "@/components/utils/acm-button.svelte";
 </script>
 
 <section>
@@ -8,7 +8,10 @@
       <span>we are the largest tech community at</span>
       <span class="brand-blue">CSUF</span>
     </h1>
-    <CallToAction text="Join us today!" />
+    <AcmButton
+      text="Join us today!"
+      link="https://tinyurl.com/acm-csuf-discord/"
+    />
   </div>
   <figure>
     <img

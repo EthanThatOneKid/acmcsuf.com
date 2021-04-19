@@ -31,7 +31,7 @@
     <span class="brand-bold">we are the largest tech community </span> on campus.
   </p>
 </CallToActionSection>
-<Spacing />
+<Spacing amount="175px" />
 
 <style>
   .brand-bold {

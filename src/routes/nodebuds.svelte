@@ -1,9 +1,9 @@
 <script lang="ts">
-  import HowCanIGetInvoved from "@/components/sections/how-can-i-get-involved.svelte";
   import WhyJoinNodebuds from "@/components/nodebuds/why-join-nodebuds.svelte";
   import Spacing from "@/components/sections/spacing.svelte";
   import CommonHero from "@/components/sections/common-hero.svelte";
   import NodeBudsTestimonial from "@/components/nodebuds/nodebuds-testimonial.svelte";
+  import CallToActionSection from "@/components/sections/call-to-action-section.svelte";
 </script>
 
 <CommonHero src="../assets/png/node-buds-badge.png" alt="CSUF NodeBuds Logo">
@@ -37,7 +37,18 @@
   </p>
 </NodeBudsTestimonial>
 <Spacing />
-<HowCanIGetInvoved />
+<CallToActionSection>
+  <h2 slot="headline">how can i get involved?</h2>
+  <p slot="text">
+    Currently, applications are closed to join the program. Follow us on social
+    media to know when they open up! Until then, we invite you to become a part
+    of
+    <span class="brand-em"
+      >the largest tech community at <span class="brand-blue">CSUF</span></span
+    >
+  </p>
+</CallToActionSection>
+<Spacing />
 
 <style>
   .brand-nodebuds {

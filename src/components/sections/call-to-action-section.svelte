@@ -1,11 +1,14 @@
 <script lang="ts">
-  import CallToAction from "@/components/utils/call-to-action.svelte";
+  import AcmButton from "@/components/utils/acm-button.svelte";
 </script>
 
 <section>
   <slot name="headline" tag="h2" />
   <slot name="text" tag="p" />
-  <CallToAction text="join us today!" />
+  <AcmButton
+    text="join us today!"
+    link="https://tinyurl.com/acm-csuf-discord/"
+  />
 </section>
 
 <style>
