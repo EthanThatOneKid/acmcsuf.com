@@ -1,7 +1,7 @@
 <script lang="ts">
   import CommonHero from "@/components/sections/common-hero.svelte";
-  import WhatAreYouWaitingFor from "@/components/sections/what-are-you-waiting-for.svelte";
   import Spacing from "@/components/sections/spacing.svelte";
+  import CallToActionSection from "@/components/sections/call-to-action-section.svelte";
 </script>
 
 <CommonHero>
@@ -77,7 +77,14 @@
 
 <Spacing amount="175px" />
 
-<WhatAreYouWaitingFor />
+<CallToActionSection>
+  <h2 slot="headline">how can i get involved?</h2>
+  <p>
+    Our paths host their own events all the time! Follow us on social media to
+    get notified for when they happen. Until then, we invite you to become a
+    part of our chapter to start off your tech journey on the right foot.
+  </p>
+</CallToActionSection>
 
 <Spacing amount="175px" />
 
