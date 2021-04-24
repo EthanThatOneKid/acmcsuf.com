@@ -1,5 +1,10 @@
 <script lang="ts">
-  export let googleFormUrl: string | undefined = undefined;
+  export let googleFormId: string | undefined = undefined;
+  let googleFormUrl: string | undefined = undefined;
+
+  if (googleFormId !== undefined) {
+    googleFormUrl = `https://docs.google.com/forms/d/e/${googleFormId}/viewform?embedded=true`;
+  }
 </script>
 
 <section>

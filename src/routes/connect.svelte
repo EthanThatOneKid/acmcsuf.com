@@ -5,7 +5,8 @@
   import GetInTouchForm from "@/components/sections/get-in-touch-form.svelte";
   import CallToActionSection from "@/components/sections/call-to-action-section.svelte";
 
-  const googleFormUrl = `https://docs.google.com/forms/d/e/1FAIpQLSfJanOAaL2mdjpf193tFeCClBzpW_COEO_crAE8hqsJCB_Rwg/viewform?embedded=true`;
+  const googleFormId =
+    "1FAIpQLSfJanOAaL2mdjpf193tFeCClBzpW_COEO_crAE8hqsJCB_Rwg";
 </script>
 
 <CommonHero src="../assets/png/acm-csuf-badge.png" alt="acm-CSUF-Logo">
@@ -20,7 +21,7 @@
 </CommonHero>
 <SocialMediaLinks />
 <Spacing />
-<GetInTouchForm googleFormUrl="{googleFormUrl}" />
+<GetInTouchForm googleFormId="{googleFormId}" />
 <Spacing />
 <CallToActionSection>
   <h2 slot="headline">so what are you waiting for?</h2>
