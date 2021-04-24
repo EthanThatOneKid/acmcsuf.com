@@ -7,8 +7,10 @@
 
 <style>
   .call-to-action {
+    display: block;
+    text-align: center;
     cursor: pointer;
-    border-radius: 25px;
+    border-radius: 15px;
     background-color: var(--acm-dark);
     padding: 8px 16px 8px 16px;
     margin-top: 24px;
@@ -16,7 +18,7 @@
     color: var(--acm-light);
     text-decoration: none;
     border: 2px solid var(--acm-dark);
-    font-size: 1rem;
+    font-size: var(--body-font-size);
     text-transform: lowercase;
   }
 
@@ -24,11 +26,5 @@
     transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out;
     color: var(--acm-blue);
     background-color: var(--acm-light);
-  }
-
-  @media (min-width: 768px) {
-    .call-to-action {
-      font-size: 2rem;
-    }
   }
 </style>
