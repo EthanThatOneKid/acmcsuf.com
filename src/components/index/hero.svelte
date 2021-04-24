@@ -13,12 +13,10 @@
       link="https://tinyurl.com/acm-csuf-discord/"
     />
   </div>
-  <figure>
-    <img
-      src="/assets/png/hero-illustration.png"
-      alt="Frank the shark (ACM CSUF's mascot) is holding a flag that says 'I ♥ ACM'"
-    />
-  </figure>
+  <img
+    src="/assets/png/hero-illustration.png"
+    alt="Frank the shark (ACM CSUF's mascot) is holding a flag that says 'I ♥ ACM'"
+  />
 </section>
 
 <style>
@@ -43,14 +41,7 @@
     margin: 0 24px;
   }
 
-  section figure {
-    display: flex;
-    margin: 0 auto;
-    margin-inline-start: 0; /* Reset default styling */
-    margin-inline-end: 0; /* Reset default styling */
-  }
-
-  section figure img {
+  section img {
     width: 270px;
     margin-left: -2rem;
     object-fit: contain;
@@ -81,9 +72,8 @@
       margin: 0;
     }
 
-    section figure img {
+    section img {
       width: 540px;
-      margin-left: -2rem;
     }
   }
 </style>
