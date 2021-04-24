@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { AcmEvent } from "../../lib/parse-ical-data";
-  import AcmButton from "@/components/utils/call-to-action.svelte";
+  import AcmButton from "@/components/utils/acm-button.svelte";
   export let info: AcmEvent;
 
   const isDiscordEvent = info.location.length === 0;
