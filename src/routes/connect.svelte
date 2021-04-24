@@ -13,7 +13,7 @@
   <h1 slot="title">connect</h1>
   <h2 slot="headline">follow us!</h2>
   <p slot="text">
-    The best wat to keep up with what's going on in the world of
+    The best way to keep up with what's going on in the world of
     <span class="brand-bold">acm<span class="brand-blue">CSUF</span></span>
     is by following us on our social media, and by joining our Discord server! The
     accounts listed below are our only public profiles.
