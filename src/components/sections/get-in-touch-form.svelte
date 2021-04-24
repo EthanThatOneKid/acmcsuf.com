@@ -1,5 +1,10 @@
 <script lang="ts">
-  export let googleFormUrl: string | undefined = undefined;
+  export let googleFormId: string | undefined = undefined;
+  let googleFormUrl: string | undefined = undefined;
+
+  if (googleFormId !== undefined) {
+    googleFormUrl = `https://docs.google.com/forms/d/e/${googleFormId}/viewform?embedded=true`;
+  }
 </script>
 
 <section>
@@ -50,8 +55,8 @@
     <iframe
       src="{googleFormUrl}"
       title="acmCSUF contact form"
-      width="700"
-      height="520"
+      width="100%"
+      height="1024"
       frameborder="0"
       marginheight="0"
       marginwidth="0"
@@ -76,7 +81,7 @@
   section :global(p) {
     font-size: var(--body-font-size);
     text-align: center;
-    margin: 0 3rem;
+    margin: 2rem 3rem;
   }
 
   form {
