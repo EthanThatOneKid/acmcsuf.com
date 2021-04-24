@@ -1,18 +1,25 @@
 import ICAL from "ical.js";
 
+const acmLocale = "en-us";
+
 const getProperty = (property: string, properties: [string, any, string, string][]): string | undefined => {
   const [, , , value] = properties.find(([propertyName]) => property === propertyName);
   return value;
 };
 
-interface AcmEvent {
-  startTimestamp: string;
-  endTimestamp: string;
+export interface AcmEvent {
+  date: Date;
+  endDate: Date;
+  month: string;
+  day: number;
+  time: string;
   location: string;
   summary: string;
+  isHappening: boolean;
 }
 
 export const parseIcalData = (icalData: string): AcmEvent[] => {
+  const now = Date.now();
   const jcalData = ICAL
     .parse(icalData)[2]
     .slice(1)
@@ -21,7 +28,15 @@ export const parseIcalData = (icalData: string): AcmEvent[] => {
             endTimestamp = getProperty("dtend", properties),
             location = getProperty("location", properties),
             summary = getProperty("summary", properties);
-      return { startTimestamp, endTimestamp, location, summary };
-    });
+      const date = new Date(startTimestamp);
+      const endDate = new Date(endTimestamp);
+      const month = date.toLocaleString(acmLocale, { month: "long" });
+      const day = date.getDate();
+      const time = date.toLocaleTimeString(acmLocale, { hour: "numeric", minute: "numeric" });
+      const isHappening = now >= date.valueOf() && now < endDate.valueOf();
+      return { month, day, time, location, summary, date, endDate, isHappening };
+    })
+    .filter(({ endDate }) => endDate.valueOf() > now)
+    .sort(({ date: date1 }, { date: date2 }) => date1.valueOf() > date2.valueOf() ? 1 : -1)
   return jcalData;
 };
