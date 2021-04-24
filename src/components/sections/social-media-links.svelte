@@ -48,6 +48,7 @@
     margin: 0 32px;
     align-items: center;
   }
+
   .social-link {
     cursor: pointer;
     border-radius: 1em;
@@ -65,7 +66,8 @@
     align-items: center;
     width: 75%;
   }
-  .social-link svg {
+
+  .social-link :global(svg) {
     width: 1.5em;
     height: 1.5em;
   }
@@ -76,7 +78,7 @@
     background-color: var(--acm-light);
   }
 
-  .social-link:hover svg path {
+  .social-link:hover :global(path) {
     transition: fill 0.25s ease-in-out;
     fill: var(--acm-blue);
   }
@@ -87,6 +89,7 @@
       flex-wrap: wrap;
       justify-content: space-around;
     }
+
     .social-link {
       width: 40%;
       margin: 1em;

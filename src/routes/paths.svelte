@@ -1,6 +1,7 @@
 <script lang="ts">
   import CommonHero from "@/components/sections/common-hero.svelte";
-  import WhatAreYouWaitingFor from "@/components/sections/what-are-you-waiting-for.svelte";
+  import Spacing from "@/components/sections/spacing.svelte";
+  import CallToActionSection from "@/components/sections/call-to-action-section.svelte";
 </script>
 
 <CommonHero>
@@ -15,8 +16,10 @@
   </p>
 </CommonHero>
 
+<Spacing />
+
 <section class="paths-screen-info turnback">
-  <div id="acm-algo">
+  <div id="acmalgo">
     <object
       type="image/png"
       data="../assets/png/acm-algo-badge.png"
@@ -34,7 +37,7 @@
       </p>
     </div>
   </div>
-  <div id="acm-create">
+  <div id="acmcreate">
     <object
       type="image/png"
       data="../assets/png/acm-create-badge.png"
@@ -52,7 +55,7 @@
       </p>
     </div>
   </div>
-  <div id="acm-dev">
+  <div id="acmdev">
     <object
       type="image/png"
       data="../assets/png/acm-dev-badge.png"
@@ -72,7 +75,18 @@
   </div>
 </section>
 
-<WhatAreYouWaitingFor />
+<Spacing amount="175px" />
+
+<CallToActionSection>
+  <h2 slot="headline">how can i get involved?</h2>
+  <p slot="text">
+    Our paths host their own events all the time! Follow us on social media to
+    get notified for when they happen. Until then, we invite you to become a
+    part of our chapter to start off your tech journey on the right foot.
+  </p>
+</CallToActionSection>
+
+<Spacing amount="175px" />
 
 <style lang="scss">
   @import "../style/theme.scss";

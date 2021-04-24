@@ -5,7 +5,7 @@
     // { title: "events", slug: "events" },
     { title: "paths", slug: "paths" },
     { title: `node<span class="brand-red">Buds</span>`, slug: "nodebuds" },
-    // { title: "connect", slug: "connect" },
+    { title: "connect", slug: "connect" },
     // { title: "newsletters", slug: "posts" },
   ];
 </script>

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import WhatAreYouWaitingFor from "@/components/sections/what-are-you-waiting-for.svelte";
   import CommonHero from "@/components/sections/common-hero.svelte";
   import OfficerProfileList from "@/components/sections/officer-profile-list.svelte";
   import Spacing from "@/components/sections/spacing.svelte";
+  import CallToActionSection from "@/components/sections/call-to-action-section.svelte";
 </script>
 
 <CommonHero>
@@ -20,4 +20,13 @@
 </CommonHero>
 <Spacing amount="200px" />
 <OfficerProfileList />
-<WhatAreYouWaitingFor />
+<Spacing amount="175px" />
+<CallToActionSection>
+  <h2 slot="headline">how can i get involved?</h2>
+  <p slot="text">
+    We current don’t have openings for board positions, but follow us on social
+    media to get notified when we do! Until then, we invite you to become a part
+    of our chapter to start off your tech journey on the right foot.
+  </p>
+</CallToActionSection>
+<Spacing amount="175px" />

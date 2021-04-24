@@ -1,4 +1,13 @@
-<section id="Get-In-Touch-Section">
+<script lang="ts">
+  export let googleFormId: string | undefined = undefined;
+  let googleFormUrl: string | undefined = undefined;
+
+  if (googleFormId !== undefined) {
+    googleFormUrl = `https://docs.google.com/forms/d/e/${googleFormId}/viewform?embedded=true`;
+  }
+</script>
+
+<section>
   <h2>Get in touch</h2>
   <p>
     Have any questions for us? Want to work with us? Just want to say hi?
@@ -6,61 +15,76 @@
     form below, and we’ll have a representative get back to you as soon as
     possible. Don’t worry, we’re friendly! 😊
   </p>
-  <form id="Contact-Form" action="#">
-    <formfield>
-      <label for="form-name"></label>
+  {#if googleFormUrl === undefined}
+    <form action="#">
+      <formfield>
+        <label for="form-name"></label>
+        <input
+          type="text"
+          id="form-name"
+          name="form-name"
+          placeholder="name*"
+          required
+        />
+        <label for="form-email"></label>
+        <input
+          type="text"
+          id="form-email"
+          name="form-email"
+          placeholder="email*"
+          required
+        />
+      </formfield>
+      <label for="form-topic"></label>
       <input
         type="text"
-        id="form-name"
+        id="form-topic"
+        name="form-topic"
+        placeholder="topic*"
+        required
+      />
+      <label for="form-message"></label>
+      <textarea
+        type="text"
+        id="form-topic"
         name="form-name"
-        placeholder="name*"
-        required
-      />
-      <label for="form-email"></label>
-      <input
-        type="text"
-        id="form-email"
-        name="form-email"
-        placeholder="email*"
-        required
-      />
-    </formfield>
-    <label for="form-topic"></label>
-    <input
-      type="text"
-      id="form-topic"
-      name="form-topic"
-      placeholder="topic*"
-      required
-    />
-    <label for="form-message"></label>
-    <textarea
-      type="text"
-      id="form-topic"
-      name="form-name"
-      placeholder="message*"
-      required></textarea>
-  </form>
+        placeholder="message*"
+        required></textarea>
+    </form>
+  {:else}
+    <iframe
+      src="{googleFormUrl}"
+      title="acmCSUF contact form"
+      width="100%"
+      height="1024"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+    >
+      Loading…
+    </iframe>
+  {/if}
 </section>
 
 <style>
-  #Get-In-Touch-Section {
+  section {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
 
-  #Get-In-Touch-Section :global(h2) {
+  section :global(h2) {
     font-size: var(--subheading-font-size);
   }
 
-  #Get-In-Touch-Section :global(p) {
+  section :global(p) {
     font-size: var(--body-font-size);
     text-align: center;
-    margin: 0 3rem;
+    margin: 2rem 3rem;
   }
-  #Contact-Form {
+
+  form {
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -71,8 +95,9 @@
     display: flex;
     flex-direction: column;
   }
-  #Contact-Form input[type="text"],
-  #Contact-Form textarea {
+
+  form input[type="text"],
+  form textarea {
     background-color: var(--acm-light);
     border-radius: 25px;
     font-size: var(--body-font-size);
@@ -81,7 +106,8 @@
     box-shadow: 0 6px 9px rgba(55, 146, 193, 0.5);
     border: none;
   }
-  #Contact-Form textarea {
+
+  form textarea {
     resize: none;
   }
 
@@ -91,6 +117,7 @@
       display: flex;
       flex-direction: row;
     }
+
     formfield input {
       flex-grow: 1;
     }

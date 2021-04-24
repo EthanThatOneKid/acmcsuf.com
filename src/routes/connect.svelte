@@ -4,13 +4,16 @@
   import SocialMediaLinks from "@/components/sections/social-media-links.svelte";
   import GetInTouchForm from "@/components/sections/get-in-touch-form.svelte";
   import CallToActionSection from "@/components/sections/call-to-action-section.svelte";
+
+  const googleFormId =
+    "1FAIpQLSfJanOAaL2mdjpf193tFeCClBzpW_COEO_crAE8hqsJCB_Rwg";
 </script>
 
 <CommonHero src="../assets/png/acm-csuf-badge.png" alt="acm-CSUF-Logo">
   <h1 slot="title">connect</h1>
   <h2 slot="headline">follow us!</h2>
   <p slot="text">
-    The best wat to keep up with what's going on in the world of
+    The best way to keep up with what's going on in the world of
     <span class="brand-bold">acm<span class="brand-blue">CSUF</span></span>
     is by following us on our social media, and by joining our Discord server! The
     accounts listed below are our only public profiles.
@@ -18,7 +21,7 @@
 </CommonHero>
 <SocialMediaLinks />
 <Spacing />
-<GetInTouchForm />
+<GetInTouchForm googleFormId="{googleFormId}" />
 <Spacing />
 <CallToActionSection>
   <h2 slot="headline">so what are you waiting for?</h2>
@@ -31,7 +34,7 @@
     <span class="brand-bold">we are the largest tech community </span> on campus.
   </p>
 </CallToActionSection>
-<Spacing />
+<Spacing amount="175px" />
 
 <style>
   .brand-bold {
