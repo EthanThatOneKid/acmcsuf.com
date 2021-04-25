@@ -1,6 +1,6 @@
-# Contributing
+# Contributing 🤝
 
-## Getting Started
+## Getting Started 🦕
 
 Getting started with this project is quite simple.
 There really are only a handful of simple steps.
@@ -22,7 +22,7 @@ Every update made to the source code will trigger your `http://localhost:3000/` 
 
 Now that you've got everything up-and-running, you are free to contribute to your heart's content.
 
-## Architecture
+## Architecture 🗿
 
 For architecture-related information, please refer to [`ARCHITECTURE.md`](ARCHITECTURE.md).
 
@@ -58,7 +58,7 @@ Notice that the value `768px` is constant.
 The next most common breakpoint for larger desktop screens would be `1440px`.
 Really, the situation may affect your choice of breakpoint value, but the goal is to try to use only `768px` or `1440px` wherever possible for consistency-purposes.
 
-## Webmaster's Note
+## Webmaster's Note 📝
 
 Thank you for contributing!
 The time spent reading this deserves a pat on the back and even a hydration/stretch break.
