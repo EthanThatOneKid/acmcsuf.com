@@ -8,6 +8,7 @@
 <style>
   .acm-button {
     cursor: pointer;
+    user-select: none;
     border-radius: 25px;
     background-color: var(--acm-dark);
     padding: 8px 16px 8px 16px;
