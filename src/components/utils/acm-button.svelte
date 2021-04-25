@@ -11,6 +11,7 @@
     text-align: center;
     cursor: pointer;
     border-radius: 15px;
+    user-select: none;
     background-color: var(--acm-dark);
     padding: 8px 16px 8px 16px;
     margin-top: 24px;
