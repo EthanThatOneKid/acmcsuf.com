@@ -3,14 +3,10 @@
   import EventItem from "./event-item.svelte";
   import type { AcmEvent } from "../../lib/parse-ical-data";
 
-  enum GrabbingState {
-    Active = "true",
-    Inactive = "false",
-  }
-
   export let events: AcmEvent[] = [];
 
   let carouselRef: HTMLDivElement;
+  let isGrabbing = false;
   const scrollSpeed = 2;
 
   const scrollTheCarousel = (movementScalar: number) => {
@@ -20,19 +16,14 @@
   };
 
   const scrollOnMouseMove = (event: MouseEvent) => {
-      if (carouselRef.getAttribute("data-grabbing") === GrabbingState.Active) {
+      if (isGrabbing) {
         scrollTheCarousel(event.movementX);
       }
     },
-    startGrabbing = () => {
-      carouselRef.setAttribute("data-grabbing", GrabbingState.Active);
-    },
-    endGrabbing = () => {
-      carouselRef.setAttribute("data-grabbing", GrabbingState.Inactive);
-    };
+    startGrabbing = () => (isGrabbing = true),
+    endGrabbing = () => (isGrabbing = false);
 
   onMount(() => {
-    carouselRef.setAttribute("data-grabbing", GrabbingState.Inactive);
     carouselRef.addEventListener("mousemove", scrollOnMouseMove);
     carouselRef.addEventListener("mousedown", startGrabbing);
     carouselRef.addEventListener("mouseup", endGrabbing);
@@ -46,7 +37,7 @@
 
 <section>
   <h2>this week's events</h2>
-  <div bind:this="{carouselRef}" data-grabbing="{GrabbingState.Active}">
+  <div bind:this="{carouselRef}" class:grabbing="{isGrabbing}">
     {#each events as eventInfo}
       <EventItem info="{eventInfo}" />
     {/each}
@@ -64,7 +55,7 @@
     margin-bottom: 40px;
   }
 
-  section div[data-grabbing="true"] {
+  section .grabbing {
     cursor: grabbing;
   }
 
