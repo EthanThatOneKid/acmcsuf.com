@@ -2,7 +2,7 @@
 
 This project was created using a library called [Sapper][sapper_home] which uses [Svelte][svelte_home] to create efficient, static websites.
 
-## `/src/routes` 📁
+## `/src/routes/` 📁
 
 The website's pages are located under the [`routes` directory](../src/routes).
 In that directory, each file represents one page of the website.
@@ -31,7 +31,7 @@ This page should be happy since errors are normally frustrating for users.
 
 Read more about how error pages are used in the [Sapper documentation](https://sapper.svelte.dev/docs#Error_page).
 
-## `/src/components` 📁
+## `/src/components/` 📁
 
 Other components of the website can be organized into the [`/components` directory](../src/components).
 These files are like pieces of the website that can be composed together in the `/routes` components.
@@ -42,19 +42,19 @@ Most of these directories share the name of a route in the [`/routes` directory]
 For example, all components under [`/components/events`](../src/components/events) are used in the `/events` route of the website.
 Additionally, all components under [`/components/index`](../src/components/index) are used in the `/` route.
 
-### `/src/components/utils` 📁
+### `/src/components/utils/` 📁
 
 There are a couple of directories in the components directory that do not fit the `/components/[route_name]/[component_name].svelte` pattern.
 One of them is the [`/components/utils` directory](../src/components/utils).
 This directory contains utility components that are used by multiple routes.
 This includes `acm-button.svelte` and `acm-select.svelte`, for example.
 
-### `/src/components/icons` 📁
+### `/src/components/icons/` 📁
 
 The [`/components/icons` directory](../src/components/icons) contains several Svelte files that contain SVG data.
 These icons can be used in the website in multiple places.
 
-## `/static` 📁
+## `/static/` 📁
 
 The [`/static` directory](../static) contains multiple files that are statically hosted for use on the client.
 
@@ -65,16 +65,16 @@ This includes some utility classes that help color specific text and some CSS va
 This file is to be amended once in a while as any deletions could cause site-wide issues.
 Additions to this file should also be taken with great care as to not complicate the simplicity of our collection of utility classes and CSS variables.
 
-### `/static/assets` 📁
+### `/static/assets/` 📁
 
 This directory is used to contain any assets that are used on the client; primarily including images.
 
-#### `/static/assets/authors` 📁
+#### `/static/assets/authors/` 📁
 
 The [`/static/assets/authors` directory](../static/assets/authors) is home to the normalized headshots of each current acmCSUF board member.
 Each board member who is shown in this directory has granted their consent for their image to be public.
 
-#### `/static/assets/png` 📁
+#### `/static/assets/png/` 📁
 
 The [`/static/assets/png` directory](../static/assets/png) contains all images and illustrations used on the website that are in the PNG file format.
 For visual content in other formats (i.e. SVG), see [`/components/icons`](../src/components/icons).
@@ -105,7 +105,7 @@ This includes `"dependencies"` that are used inside our program and `"devDepende
 ## `package-lock.json` 📄
 
 This file is not meant to be modified by humans, but instead left to be managed by the project's package manager, NPM.
-Even though it is not affected by developers, the lock file is still important and so it is advised to leave it out of the `.gitignore` file.
+Even though it is not affected by developers, the lock file is still important and so it is [_advised_](https://blog.logrocket.com/why-you-should-use-package-lock-json/) to leave it out of the `.gitignore` file.
 
 [sapper_home]: https://sapper.svelte.dev/
 [svelte_home]: https://svelte.dev
