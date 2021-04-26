@@ -3,13 +3,15 @@
   export let text: string = "Submit";
 </script>
 
-<a class="acm-button" href="{link}" target="_blank">{text}</a>
+<a class="call-to-action" href="{link}">{text}</a>
 
 <style>
-  .acm-button {
+  .call-to-action {
+    display: block;
+    text-align: center;
     cursor: pointer;
+    border-radius: 15px;
     user-select: none;
-    border-radius: 25px;
     background-color: var(--acm-dark);
     padding: 8px 16px 8px 16px;
     margin-top: 24px;
@@ -17,19 +19,13 @@
     color: var(--acm-light);
     text-decoration: none;
     border: 2px solid var(--acm-dark);
-    font-size: 1rem;
+    font-size: var(--body-font-size);
     text-transform: lowercase;
   }
 
-  .acm-button:hover {
+  .call-to-action:hover {
     transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out;
     color: var(--acm-blue);
     background-color: var(--acm-light);
-  }
-
-  @media (min-width: 768px) {
-    .acm-button {
-      font-size: 2rem;
-    }
   }
 </style>
