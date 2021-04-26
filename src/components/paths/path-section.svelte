@@ -33,6 +33,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
+    /* The next two lines leave space above the anchored element. */
     padding-top: calc(1.5 * var(--navbar-height));
     margin-top: calc(-1.5 * var(--navbar-height));
   }
