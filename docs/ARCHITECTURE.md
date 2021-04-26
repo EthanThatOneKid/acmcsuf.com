@@ -33,25 +33,25 @@ Read more about how error pages are used in the [Sapper documentation](https://s
 
 ## `/src/components/` 📁
 
-Other components of the website can be organized into the [`/components` directory](../src/components).
+Other components of the website can be organized into the [`/components/` directory](../src/components).
 These files are like pieces of the website that can be composed together in the `/routes` components.
 For example, the [`/components/index/hero.svelte`](../src/components/index/hero.svelte) and [`/components/index/acm-paths.svelte`](../src/components/index/acm-paths.svelte) components are used in [`/routes/index.svelte`](../src/routes/index.svelte).
 
 If you take a look at the [`components` directory](../src/components), you will find a list of several more directories within.
-Most of these directories share the name of a route in the [`/routes` directory](../src/routes).
-For example, all components under [`/components/events`](../src/components/events) are used in the `/events` route of the website.
-Additionally, all components under [`/components/index`](../src/components/index) are used in the `/` route.
+Most of these directories share the name of a route in the [`/routes/` directory](../src/routes).
+For example, all components under [`/components/events/`](../src/components/events) are used in the `/events/` route of the website.
+Additionally, all components under [`/components/index/`](../src/components/index) are used in the `/` route.
 
 ### `/src/components/utils/` 📁
 
 There are a couple of directories in the components directory that do not fit the `/components/[route_name]/[component_name].svelte` pattern.
-One of them is the [`/components/utils` directory](../src/components/utils).
+One of them is the [`/components/utils/` directory](../src/components/utils).
 This directory contains utility components that are used by multiple routes.
 This includes `acm-button.svelte` and `acm-select.svelte`, for example.
 
 ### `/src/components/icons/` 📁
 
-The [`/components/icons` directory](../src/components/icons) contains several Svelte files that contain SVG data.
+The [`/components/icons/` directory](../src/components/icons) contains several Svelte files that contain SVG data.
 These icons can be used in the website in multiple places.
 
 ## `/static/` 📁
@@ -71,12 +71,12 @@ This directory is used to contain any assets that are used on the client; primar
 
 #### `/static/assets/authors/` 📁
 
-The [`/static/assets/authors` directory](../static/assets/authors) is home to the normalized headshots of each current acmCSUF board member.
+The [`/static/assets/authors/` directory](../static/assets/authors) is home to the normalized headshots of each current acmCSUF board member.
 Each board member who is shown in this directory has granted their consent for their image to be public.
 
 #### `/static/assets/png/` 📁
 
-The [`/static/assets/png` directory](../static/assets/png) contains all images and illustrations used on the website that are in the PNG file format.
+The [`/static/assets/png/` directory](../static/assets/png) contains all images and illustrations used on the website that are in the PNG file format.
 For visual content in other formats (i.e. SVG), see [`/components/icons`](../src/components/icons).
 
 ## `tsconfig.json` 📄
