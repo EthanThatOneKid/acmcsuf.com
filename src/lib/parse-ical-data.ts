@@ -16,7 +16,14 @@ export interface AcmEvent {
   location: string;
   summary: string;
   isHappening: boolean;
+  slug: string;
 }
+
+const slugifyEvent = (summary: string, month: string, day: number): string => {
+  const cleanedSummary = summary.replace(/[^\w\s\_]/g, "").replace(/(\s|\-|\_)+/g, "-");
+  const slug = [cleanedSummary, month, day].join("-").toLowerCase();
+  return slug;
+};
 
 export const parseIcalData = (icalData: string): AcmEvent[] => {
   const now = Date.now();
@@ -34,7 +41,8 @@ export const parseIcalData = (icalData: string): AcmEvent[] => {
       const day = date.getDate();
       const time = date.toLocaleTimeString(acmLocale, { hour: "numeric", minute: "numeric" });
       const isHappening = now >= date.valueOf() && now < endDate.valueOf();
-      return { month, day, time, location, summary, date, endDate, isHappening };
+      const slug = slugifyEvent(summary, month, day);
+      return { month, day, time, location, summary, date, endDate, isHappening, slug };
     })
     .filter(({ endDate }) => endDate.valueOf() > now) // Comment out this filter statement to show a longer list of events for testing purposes.
     .sort(({ date: date1 }, { date: date2 }) => date1.valueOf() > date2.valueOf() ? 1 : -1)
