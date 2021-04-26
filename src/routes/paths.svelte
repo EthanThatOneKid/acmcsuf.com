@@ -20,10 +20,7 @@
 
 <section class="paths-screen-info turnback">
   <div id="acmalgo">
-    <object
-      type="image/png"
-      data="../assets/png/acm-algo-badge.png"
-      title="acm-algo-logo"></object>
+    <img src="../assets/png/acm-algo-badge.png" alt="acmAlgo Logo" />
     <div>
       <h2>
         <span class="brand-em">acm<span class="brand-purple">Algo</span></span>
@@ -38,10 +35,7 @@
     </div>
   </div>
   <div id="acmcreate">
-    <object
-      type="image/png"
-      data="../assets/png/acm-create-badge.png"
-      title="acm-create-logo"></object>
+    <img src="../assets/png/acm-create-badge.png" alt="acmCreate Logo" />
     <div>
       <h2>
         <span class="brand-em">acm<span class="brand-pink">Create</span></span>
@@ -56,10 +50,7 @@
     </div>
   </div>
   <div id="acmdev">
-    <object
-      type="image/png"
-      data="../assets/png/acm-dev-badge.png"
-      title="acm-dev-logo"></object>
+    <img src="../assets/png/acm-dev-badge.png" alt="acmDev Logo" />
     <div>
       <h2>
         <span class="brand-em">acm<span class="brand-bluer">Dev</span></span>
@@ -88,91 +79,73 @@
 
 <Spacing amount="175px" />
 
-<style lang="scss">
-  @import "../style/theme.scss";
-
-  .paths-screen-hero {
+<style>
+  .turnback div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
     padding-top: 100px;
-    div {
-      display: flex;
-      flex-direction: column;
-
-      .about-description-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        h2 {
-          @include fluidSize($minHFontSize, $maxHFontSizeMed);
-          text-align: center;
-          font-weight: bold;
-          padding-bottom: 48px;
-        }
-        p {
-          @include fluidSize($minPFontSize, $maxPFontSize);
-          @include fluidSize(220, 1500, $propName: "width");
-          text-align: center;
-        }
-      }
-    }
   }
 
-  .turnback {
-    div {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
+  .turnback div h2 {
+    padding-bottom: 48px;
+    font-size: var(--subheading-font-size);
+  }
+
+  .turnback div p {
+    font-size: var(--body-font-size);
+  }
+
+  .turnback:nth-child(even) {
+    flex-flow: row-reverse;
+  }
+
+  .turnback:nth-child(even) div {
+    align-items: flex-start;
+  }
+
+  .turnback:nth-child(even) p {
+    text-align: left;
+  }
+
+  @media screen and (max-width: 756px) {
+    .turnback {
+      flex-direction: column;
       align-items: center;
-      padding-top: 100px;
-      h2 {
-        padding-bottom: 48px;
-      }
+      flex-flow: column !important;
+    }
 
-      &:nth-child(even) {
-        flex-flow: row-reverse;
-        div {
-          align-items: flex-start;
-          p {
-            text-align: left;
-          }
-        }
-      }
+    .turnback div {
+      justify-content: center;
+      align-items: center;
+    }
 
-      @media screen and (max-width: $breakpoint) {
-        flex-direction: column;
-        align-items: center;
-        flex-flow: column !important;
-        div {
-          justify-content: center;
-          align-items: center;
-          p,
-          h2 {
-            width: 100%;
-            text-align: center !important;
-          }
-        }
-      }
+    .turnback div p,
+    .turnback div h2 {
+      width: 100%;
+      text-align: center !important;
+    }
 
-      object {
-        @include fluidSize(80, 480, $propName: "width");
-        @include fluidSize(80, 480, $propName: "height");
-      }
-      div {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-end;
-        flex-flow: column !important;
-        h2 {
-          @include fluidSize($minHFontSize, $maxHFontSizeMed);
-          text-align: center;
-          font-weight: bold;
-        }
-        p {
-          @include fluidSize($minPFontSize, $maxPFontSize);
-          @include fluidSize(150, 1010, $propName: "width");
-          text-align: right;
-        }
-      }
+    .turnback div img {
+      width: 80px;
+      height: 80px;
+    }
+
+    .turnback div div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      flex-flow: column !important;
+    }
+
+    .turnback div h2 {
+      text-align: center;
+      font-weight: bold;
+    }
+    .turnback div p {
+      text-align: right;
     }
   }
 </style>
