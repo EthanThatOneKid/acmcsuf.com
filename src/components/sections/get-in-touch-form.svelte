@@ -56,7 +56,7 @@
       src="{googleFormUrl}"
       title="acmCSUF contact form"
       width="100%"
-      height="1024"
+      height="520"
       frameborder="0"
       marginheight="0"
       marginwidth="0"
