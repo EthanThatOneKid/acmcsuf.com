@@ -5,62 +5,52 @@
 
   export let events: AcmEvent[] = [];
 
+  const scrollSpeed = 2;
+  const scrollIncrementDistance = 150;
   let carouselRef: HTMLDivElement;
   let carouselButtonLeft: HTMLDivElement;
   let carouselButtonRight: HTMLDivElement;
   let isGrabbing = false;
-  const scrollSpeed = 2;
 
-  const scrollTheCarousel = (movementScalar: number) => {
-    carouselRef.scrollBy({
-      left: -movementScalar * scrollSpeed,
-    });
-  };
-
-  const smoothScrollCarousel = (movementScalar: number) => {
-    carouselRef.scrollBy({
-      left: movementScalar * scrollSpeed,
-      behavior: "smooth",
-    });
-  };
-  const scrollOnMouseMove = (event: MouseEvent) => {
-      if (isGrabbing) {
-        scrollTheCarousel(event.movementX);
-      }
-    },
+  const scrollTheCarousel = (
+      movementScalar: number,
+      isSmooth: boolean = false
+    ) =>
+      carouselRef.scrollBy({
+        left: -movementScalar * scrollSpeed,
+        behavior: isSmooth ? "smooth" : "auto",
+      }),
+    scrollOnMouseMove = (event: MouseEvent) =>
+      isGrabbing && scrollTheCarousel(event.movementX),
     startGrabbing = () => (isGrabbing = true),
-    endGrabbing = () => (isGrabbing = false);
+    endGrabbing = () => (isGrabbing = false),
+    scrollLeft = () => scrollTheCarousel(scrollIncrementDistance, true),
+    scrollRight = () => scrollTheCarousel(-scrollIncrementDistance, true);
 
   onMount(() => {
     carouselRef.addEventListener("mousemove", scrollOnMouseMove);
     carouselRef.addEventListener("mousedown", startGrabbing);
     carouselRef.addEventListener("mouseup", endGrabbing);
-    carouselButtonLeft.addEventListener("click", () => {
-      smoothScrollCarousel(-150);
-    });
-    carouselButtonRight.addEventListener("click", () => {
-      smoothScrollCarousel(150);
-    });
+    carouselButtonLeft.addEventListener("click", scrollLeft);
+    carouselButtonRight.addEventListener("click", scrollRight);
     return () => {
       carouselRef.removeEventListener("mousemove", scrollOnMouseMove);
       carouselRef.removeEventListener("mousedown", startGrabbing);
       carouselRef.removeEventListener("mouseup", endGrabbing);
+      carouselButtonLeft.removeEventListener("click", scrollLeft);
+      carouselButtonRight.removeEventListener("click", scrollRight);
     };
   });
 </script>
 
 <section>
   <h2>this week's events</h2>
-  <div id="EventCarouselContainer">
-    <div
-      bind:this="{carouselButtonLeft}"
-      id="CarouselButtonLeft"
-      class="carousel-button"
-    >
+  <div class="event-carousel-container">
+    <div bind:this="{carouselButtonLeft}" class="carousel-button left">
       &lt;
     </div>
     <div
-      id="EventCarousel"
+      class="event-list"
       bind:this="{carouselRef}"
       class:grabbing="{isGrabbing}"
     >
@@ -70,11 +60,7 @@
       {/each}
       <div class="event-item-buffer"></div>
     </div>
-    <div
-      bind:this="{carouselButtonRight}"
-      id="CarouselButtonRight"
-      class="carousel-button"
-    >
+    <div bind:this="{carouselButtonRight}" class="carousel-button right">
       &gt;
     </div>
   </div>
@@ -91,10 +77,10 @@
   }
 
   section .grabbing {
-    cursor: grabbing;
+    cursor: grabbing !important;
   }
 
-  section #EventCarousel {
+  section .event-list {
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
@@ -105,7 +91,7 @@
   }
 
   /* Hide scrollbar for Chrome, Safari and Opera */
-  section #EventCarousel::-webkit-scrollbar {
+  section .event-list::-webkit-scrollbar {
     display: none;
   }
 
@@ -113,29 +99,30 @@
     min-width: 175px;
   }
 
-  #EventCarouselContainer {
+  .event-carousel-container {
     position: relative;
     display: flex;
     flex-direction: row;
   }
-  #EventCarouselContainer::after {
+
+  .event-carousel-container::after {
     content: "";
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     min-width: 175px;
-    background: linear-gradient(to right, transparent 0%, White 25%);
+    background: linear-gradient(to right, transparent 0%, var(--acm-light) 25%);
   }
 
-  #EventCarouselContainer::before {
+  .event-carousel-container::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     min-width: 175px;
-    background: linear-gradient(to left, transparent 0%, White 25%);
+    background: linear-gradient(to left, transparent 0%, var(--acm-light) 25%);
   }
 
   .carousel-button {
@@ -166,10 +153,11 @@
     box-shadow: 0px 6px 9px rgba(55, 146, 193, 0.5);
   }
 
-  #CarouselButtonLeft {
+  .carousel-button.left {
     left: 100px;
   }
-  #CarouselButtonRight {
+
+  .carousel-button.right {
     right: 100px;
   }
 
@@ -177,18 +165,21 @@
     .event-item-buffer {
       min-width: 100px;
     }
-    #EventCarouselContainer::after,
-    #EventCarouselContainer::before {
+
+    .event-carousel-container::after,
+    .event-carousel-container::before {
       min-width: 100px;
     }
 
     .carousel-button {
       display: none;
     }
-    #CarouselButtonLeft {
+
+    .carousel-button.left {
       left: 50px;
     }
-    #CarouselButtonRight {
+
+    .carousel-button.right {
       right: 50px;
     }
   }
