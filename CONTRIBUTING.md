@@ -31,6 +31,7 @@ For architecture-related information, please refer to [`ARCHITECTURE.md`](ARCHIT
 Svelte files can be written as if it were an HTML file.
 Writing only `<h1>Hello, world!</h1>` in a Svelte file is valid, however, Svelte gives you access to some handy built-in superpowers that simplify development tremendously (See the [Svelte docs][svelte_docs] for further information).
 Additionally, check out this YouTube video, [_Svelte in 100 Seconds_](https://youtu.be/rv3Yq-B8qp4) by [**@fireship-io**](https://github.com/fireship-io).
+For quick reference, check out [**@svelte-society**](https://github.com/svelte-society)'s [Svelte cheatsheet](https://sveltesociety.dev/cheatsheet).
 
 In addition to HTML markup, Svelte files consist of two other sections: _script_ and _styles_.
 
