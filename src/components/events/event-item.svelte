@@ -9,7 +9,7 @@
   let isSuccessfullyCopied = false;
 
   const copyEventLink = (slug: string) => {
-    const url = `${location.origin}${location.pathname}/#${slug}`;
+    const url = [location.origin, location.pathname, "#", slug].join("");
     // Copying text to the clipboard: https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText
     navigator.clipboard.writeText(url).then(() => {
       isSuccessfullyCopied = true;
