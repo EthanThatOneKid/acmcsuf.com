@@ -69,22 +69,27 @@ export interface AcmEvent {
   location: string;
   summary: string;
   isHappening: boolean;
+  slug: string;
 }
 
 const convertIcalDateTime = (datetime: string): Date => {
-  const characters = datetime.split("");
-  const fullYear = characters.splice(0, 4).join("");
-  const month = characters.splice(0, 2).join("");
-  const day = characters.splice(0, 2).join("");
-  characters.shift();
-  const hours = characters.splice(0, 2).join("");
-  const minutes = characters.splice(0, 2).join("");
-  const seconds = characters.splice(0, 2).join("");
-  const date = new Date();
+  const fullYear = datetime.slice(0, 4),
+        month = datetime.slice(4, 6),
+        day = datetime.slice(6, 8),
+        hours = datetime.slice(9, 11),
+        minutes = datetime.slice(11, 13),
+        seconds = datetime.slice(13, 15),
+        date = new Date();
   date.setFullYear(Number(fullYear), Number(month) - 1, Number(day));
-  date.setHours(Number(hours), Number(minutes), Number(seconds));
+  date.setHours(Number(hours) - 7, Number(minutes), Number(seconds));
   return date;
-}
+};
+
+const slugifyEvent = (summary: string, month: string, day: number): string => {
+  const cleanedSummary = summary.replace(/[^\w\s\_]/g, "").replace(/(\s|\-|\_)+/g, "-");
+  const slug = [cleanedSummary, month, day].join("-").toLowerCase();
+  return slug;
+};
 
 export const parseIcalData = (icalData: string): AcmEvent[] => {
   const now = Date.now();
@@ -102,7 +107,8 @@ export const parseIcalData = (icalData: string): AcmEvent[] => {
       const day = date.getDate();
       const time = date.toLocaleTimeString(acmLocale, { hour: "numeric", minute: "numeric" });
       const isHappening = now >= date.valueOf() && now < endDate.valueOf();
-      collection.push({ month, day, time, location, summary, date, endDate, isHappening });
+      const slug = slugifyEvent(summary, month, day);
+      collection.push({ month, day, time, location, summary, date, endDate, isHappening, slug });
       return collection;
     }, [])
     .filter(({ endDate }) => endDate.valueOf() > now) // Comment out this filter statement to show a longer list of events for testing purposes.
