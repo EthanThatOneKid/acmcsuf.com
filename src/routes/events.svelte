@@ -4,14 +4,17 @@
     "https://calendar.google.com/calendar/ical/738lnit63cr2lhp7jtduvj0c9g%40group.calendar.google.com/public/basic.ics";
 
   export async function preload() {
-    const response = await this.fetch(ICAL_TARGET_URL);
-    const icalData = await response.text();
-    return { events: parseIcalData(icalData) };
+    try {
+      const response = await this.fetch(ICAL_TARGET_URL);
+      const icalData = await response.text();
+      return { events: parseIcalData(icalData) };
+    } catch {
+      return { events: [] };
+    }
   }
 </script>
 
 <script lang="ts">
-  import { onMount } from "svelte";
   import type { AcmEvent } from "../lib/parse-ical-data";
   import CommonHero from "@/components/sections/common-hero.svelte";
   import Spacing from "@/components/sections/spacing.svelte";
@@ -19,15 +22,6 @@
   import CallToActionSection from "@/components/sections/call-to-action-section.svelte";
 
   export let events: AcmEvent[] = [];
-
-  // onMount(() => {
-  //   // If the /events route has an event's fragment
-  //   // attached to the URL, the scroll needs to be
-  //   // offset slightly upwards.
-  //   if (location.hash.length > 0) {
-  //     scrollBy({ top: -200 });
-  //   }
-  // });
 </script>
 
 <svelte:head>
