@@ -8,12 +8,16 @@
   import AcmEmpty from "@/components/utils/acm-empty.svelte";
 
   let events: AcmEvent[] = [];
+  let isLoading = true;
 
   onMount(() => {
     // Lazily load the ICAL data for the event carousel.
     fetch("../events.json")
       .then((response) => response.json())
-      .then((icalData) => (events = icalData as AcmEvent[]));
+      .then((icalData) => {
+        events = icalData as AcmEvent[];
+        isLoading = false;
+      });
   });
 </script>
 
@@ -32,12 +36,18 @@
 
 <Spacing />
 
-{#if events.length === 0}
-  <AcmEmpty>
-    <p slot="content">There are currently no events scheduled.</p>
-  </AcmEmpty>
-{:else}
+{#if events.length > 0}
   <EventCarousel events="{events}" />
+{:else}
+  <AcmEmpty>
+    <p slot="content">
+      {#if isLoading}
+        Loading…
+      {:else}
+        There are currently no events scheduled.
+      {/if}
+    </p>
+  </AcmEmpty>
 {/if}
 
 <Spacing />
