@@ -55,8 +55,8 @@
   }
 
   .event-box > .anchor:target + .event-card {
-    border: 2px solid var(--acm-red);
-    box-shadow: 0px 12px 18px var(--acm-red);
+    border: 2px solid #ff003388;
+    box-shadow: 0px 12px 18px #ff003388;
   }
 
   .event-card {
