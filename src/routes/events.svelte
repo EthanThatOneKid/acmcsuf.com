@@ -13,9 +13,7 @@
     // Lazily load the ICAL data for the event carousel.
     fetch("../events.json")
       .then((response) => response.json())
-      .then((icalData) => {
-        events = []; //icalData as AcmEvent[];
-      });
+      .then((icalData) => (events = icalData as AcmEvent[]));
   });
 </script>
 
