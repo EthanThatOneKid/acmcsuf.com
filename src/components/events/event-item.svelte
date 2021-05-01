@@ -2,6 +2,7 @@
   import type { AcmEvent } from "../../lib/parse-ical-data";
   import { links } from "../../lib/links";
   import AcmButton from "@/components/utils/acm-button.svelte";
+
   export let info: AcmEvent;
 
   const isDiscordEvent = info.location.length === 0;
@@ -18,7 +19,8 @@
   };
 </script>
 
-<div id="{info.slug}" class="event-card">
+<div class="event-card">
+  <div class="anchor" id="{info.slug}"></div>
   <p class="event-date">
     <span class="brand-em">
       {info.month} <span class="brand-blue">{info.day}</span>
@@ -41,19 +43,27 @@
 
 <style>
   .event-card {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 320px;
-    min-width: 320px;
+    min-width: 180px;
     margin: 0 15px;
     padding: 20px;
     box-shadow: 0px 12px 18px rgba(55, 146, 193, 0.5);
     border-radius: 25px;
   }
 
+  .event-card > div.anchor {
+    visibility: hidden;
+    position: absolute;
+    top: -200px;
+  }
+
   .event-card h3 {
+    position: relative;
     font-size: calc(var(--subheading-font-size) * 0.75);
     line-height: var(--subheading-font-size);
     margin: 10px 0;
@@ -65,12 +75,24 @@
     cursor: pointer;
   }
 
-  .event-card h3:hover::before {
-    content: "🔗";
+  .event-card h3:hover {
+    color: var(--acm-blue);
+    text-decoration: underline;
   }
 
   .event-card .copied::before {
-    content: "✔" !important; /* This checkmark should take priority if .copied */
+    content: "Copied!";
+    position: absolute;
+    width: 100%;
+    border-radius: 10px;
+    background-color: var(--acm-dark);
+    color: var(--acm-light);
+    padding: 0.25rem;
+    top: -0.5rem;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    opacity: 0.95;
+    font-size: var(--body-font-size);
   }
 
   .event-card p {
