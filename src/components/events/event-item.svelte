@@ -18,28 +18,46 @@
   };
 </script>
 
-<div id="{info.slug}" class="event-card">
-  <p class="event-date">
-    <span class="brand-em">
-      {info.month} <span class="brand-blue">{info.day}</span>
-    </span>
-  </p>
-  <h3
-    class:copied="{isSuccessfullyCopied}"
-    on:click="{() => copyEventLink(info.slug)}"
-  >
-    {info.summary}
-  </h3>
-  <div>
-    <p class="event-time">Starts at {info.time}</p>
-    <p class="event-location">
-      Hosted on {isDiscordEvent ? "Discord" : "Zoom"}
+<div class="event-box">
+  <div class="anchor" id="{info.slug}"></div>
+  <div class="event-card">
+    <p class="event-date">
+      <span class="brand-em">
+        {info.month} <span class="brand-blue">{info.day}</span>
+      </span>
     </p>
-    <AcmButton link="{meetingLink}" text="Click here to join!" />
+    <h3
+      class:copied="{isSuccessfullyCopied}"
+      on:click="{() => copyEventLink(info.slug)}"
+    >
+      {info.summary}
+    </h3>
+    <div>
+      <p class="event-time">Starts at {info.time}</p>
+      <p class="event-location">
+        Hosted on {isDiscordEvent ? "Discord" : "Zoom"}
+      </p>
+      <AcmButton link="{meetingLink}" text="Click here to join!" />
+    </div>
   </div>
 </div>
 
 <style>
+  .event-box {
+    display: flex;
+    position: relative;
+  }
+
+  .event-box > .anchor {
+    visibility: hidden;
+    position: absolute;
+    top: -200px;
+  }
+
+  .event-box > .anchor:target + .event-card {
+    box-shadow: 0px 12px 18px rgba(255, 0, 0, 0.5);
+  }
+
   .event-card {
     display: flex;
     flex-direction: column;
