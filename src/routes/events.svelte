@@ -1,23 +1,34 @@
-<script lang="ts" context="module">
-  import { parseIcalData } from "../lib/parse-ical-data";
-  const ICAL_TARGET_URL =
-    "https://calendar.google.com/calendar/ical/738lnit63cr2lhp7jtduvj0c9g%40group.calendar.google.com/public/basic.ics";
-
-  export async function preload() {
-    const response = await this.fetch(ICAL_TARGET_URL);
-    const icalData = await response.text();
-    return { events: parseIcalData(icalData) };
-  }
-</script>
-
 <script lang="ts">
+  import { onMount } from "svelte";
   import type { AcmEvent } from "../lib/parse-ical-data";
   import CommonHero from "@/components/sections/common-hero.svelte";
   import Spacing from "@/components/sections/spacing.svelte";
   import EventCarousel from "@/components/events/event-carousel.svelte";
   import CallToActionSection from "@/components/sections/call-to-action-section.svelte";
+  import AcmEmpty from "@/components/utils/acm-empty.svelte";
+  import { parseIcalData } from "../lib/parse-ical-data";
 
-  export let events: AcmEvent[] = [];
+  const ICAL_TARGET_URL =
+    "https://calendar.google.com/calendar/ical/738lnit63cr2lhp7jtduvj0c9g%40group.calendar.google.com/public/basic.ics";
+
+  let events: AcmEvent[] = [];
+
+  onMount(() => {
+    // If the /events route has an event's fragment
+    // attached to the URL, the scroll needs to be
+    // offset slightly upwards.
+    if (location.hash.length > 0) {
+      scrollBy({ top: -200 });
+    }
+
+    // Lazily load the ICAL data for the event carousel.
+    fetch(ICAL_TARGET_URL, { mode: "no-cors" })
+      .then((response) => response.text())
+      .then((icalData) => {
+        events = parseIcalData(icalData);
+        console.log({ events });
+      });
+  });
 </script>
 
 <svelte:head>
@@ -36,9 +47,19 @@
     absolutely welcome to join us for the ride.
   </p>
 </CommonHero>
+
 <Spacing />
-<EventCarousel events="{events}" />
+
+{#if events.length === 0}
+  <AcmEmpty>
+    <p slot="content">There are currently no events scheduled.</p>
+  </AcmEmpty>
+{:else}
+  <EventCarousel events="{events}" />
+{/if}
+
 <Spacing />
+
 <CallToActionSection>
   <h2 slot="headline">so what are you waiting for?</h2>
   <p slot="text">
@@ -47,7 +68,5 @@
     designed to start off your tech journey on the right foot.
   </p>
 </CallToActionSection>
-<Spacing amount="175px" />
 
-<style>
-</style>
+<Spacing amount="175px" />
