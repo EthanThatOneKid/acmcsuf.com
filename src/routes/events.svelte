@@ -11,6 +11,7 @@
 </script>
 
 <script lang="ts">
+  import { onMount } from "svelte";
   import type { AcmEvent } from "../lib/parse-ical-data";
   import CommonHero from "@/components/sections/common-hero.svelte";
   import Spacing from "@/components/sections/spacing.svelte";
@@ -18,6 +19,15 @@
   import CallToActionSection from "@/components/sections/call-to-action-section.svelte";
 
   export let events: AcmEvent[] = [];
+
+  // onMount(() => {
+  //   // If the /events route has an event's fragment
+  //   // attached to the URL, the scroll needs to be
+  //   // offset slightly upwards.
+  //   if (location.hash.length > 0) {
+  //     scrollBy({ top: -200 });
+  //   }
+  // });
 </script>
 
 <svelte:head>

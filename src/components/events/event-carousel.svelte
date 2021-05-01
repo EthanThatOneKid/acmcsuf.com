@@ -5,7 +5,6 @@
 
   export let events: AcmEvent[] = [];
 
-  const scrollSpeed = 2;
   const scrollIncrementDistance = 150;
   let carouselRef: HTMLDivElement;
   let carouselButtonLeft: HTMLDivElement;
@@ -17,7 +16,7 @@
       isSmooth: boolean = false
     ) =>
       carouselRef.scrollBy({
-        left: -movementScalar * scrollSpeed,
+        left: -movementScalar,
         behavior: isSmooth ? "smooth" : "auto",
       }),
     scrollOnMouseMove = (event: MouseEvent) =>
@@ -105,28 +104,28 @@
     flex-direction: row;
   }
 
-  .event-carousel-container::after {
+  .event-carousel-container::after,
+  .event-carousel-container::before {
+    z-index: 10;
     content: "";
     position: absolute;
     top: 0;
-    right: 0;
     bottom: 0;
     min-width: 175px;
+  }
+
+  .event-carousel-container::after {
+    right: 0;
     background: linear-gradient(to right, transparent 0%, var(--acm-light) 25%);
   }
 
   .event-carousel-container::before {
-    content: "";
-    position: absolute;
-    top: 0;
     left: 0;
-    bottom: 0;
-    min-width: 175px;
     background: linear-gradient(to left, transparent 0%, var(--acm-light) 25%);
   }
 
   .carousel-button {
-    z-index: 2;
+    z-index: 20;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -162,13 +161,19 @@
   }
 
   @media screen and (max-width: 768px) {
+    section h2 {
+      text-align: center;
+    }
+
     .event-item-buffer {
-      min-width: 100px;
+      width: 20px;
+      min-width: unset;
     }
 
     .event-carousel-container::after,
     .event-carousel-container::before {
-      min-width: 100px;
+      width: 20px;
+      min-width: unset;
     }
 
     .carousel-button {
