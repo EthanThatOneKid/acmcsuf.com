@@ -44,7 +44,7 @@ export const parseIcalData = (icalData: string): AcmEvent[] => {
       const slug = slugifyEvent(summary, month, day);
       return { month, day, time, location, summary, date, endDate, isHappening, slug };
     })
-    // .filter(({ endDate }) => endDate.valueOf() > now) // Comment out this filter statement to show a longer list of events for testing purposes.
+    .filter(({ endDate }) => endDate.valueOf() > now) // Comment out this filter statement to show a longer list of events for testing purposes.
     .sort(({ date: date1 }, { date: date2 }) => date1.valueOf() > date2.valueOf() ? 1 : -1)
   return jcalData;
 };
