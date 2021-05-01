@@ -6,34 +6,19 @@
   import EventCarousel from "@/components/events/event-carousel.svelte";
   import CallToActionSection from "@/components/sections/call-to-action-section.svelte";
   import AcmEmpty from "@/components/utils/acm-empty.svelte";
-  import { parseIcalData } from "../lib/parse-ical-data";
-
-  const ICAL_TARGET_URL =
-    "https://calendar.google.com/calendar/ical/738lnit63cr2lhp7jtduvj0c9g%40group.calendar.google.com/public/basic.ics";
 
   let events: AcmEvent[] = [];
 
   onMount(() => {
-    // If the /events route has an event's fragment
-    // attached to the URL, the scroll needs to be
-    // offset slightly upwards.
-    if (location.hash.length > 0) {
-      scrollBy({ top: -200 });
-    }
-
     // Lazily load the ICAL data for the event carousel.
-    fetch(ICAL_TARGET_URL, { mode: "no-cors" })
-      .then((response) => response.text())
+    fetch("../events.json")
+      .then((response) => response.json())
       .then((icalData) => {
-        events = parseIcalData(icalData);
-        console.log({ events });
+        console.log({ icalData });
+        events = icalData as AcmEvent[];
       });
   });
 </script>
-
-<svelte:head>
-  <script type="text/javascript" src="https://unpkg.com/ical.js"></script>
-</svelte:head>
 
 <CommonHero src="../assets/png/acm-csuf-badge.png" alt="acm-CSUF-Logo">
   <h1 slot="title">events</h1>
