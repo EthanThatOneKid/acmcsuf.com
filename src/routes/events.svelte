@@ -14,8 +14,7 @@
     fetch("../events.json")
       .then((response) => response.json())
       .then((icalData) => {
-        console.log({ icalData });
-        events = icalData as AcmEvent[];
+        events = []; //icalData as AcmEvent[];
       });
   });
 </script>

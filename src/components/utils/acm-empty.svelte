@@ -1,12 +1,12 @@
 <section>
-  <img src="../assets/png/acm-csuf-badge.png" alt="ACM CSUF Logo" />
   <slot name="content" tag="p" />
 </section>
 
 <style>
   section {
+    width: 100%;
     display: flex;
-    align-items: center;
+    justify-content: center;
   }
 
   section :global(p) {
