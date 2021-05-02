@@ -2,11 +2,10 @@
   export let segment: string;
   const menuItems = [
     { title: "about", slug: "about" },
-    // { title: "events", slug: "events" },
+    { title: "events", slug: "events" },
     { title: "paths", slug: "paths" },
     { title: `node<span class="brand-red">Buds</span>`, slug: "nodebuds" },
     { title: "connect", slug: "connect" },
-    // { title: "newsletters", slug: "posts" },
   ];
 </script>
 
@@ -49,7 +48,7 @@
   nav {
     position: fixed;
     width: 100%;
-    z-index: 3;
+    z-index: 100;
     height: var(--navbar-height);
     background-color: var(--acm-light);
     box-shadow: 0 3px 6px rgba(33, 33, 33, 0.1);
@@ -141,7 +140,7 @@
 
     nav .pages {
       position: fixed;
-      z-index: 2;
+      z-index: 90;
       top: 82px;
       bottom: 100%;
       width: 100vw;

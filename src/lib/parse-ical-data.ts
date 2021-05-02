@@ -1,11 +1,64 @@
-import ICAL from "ical.js";
-
 const acmLocale = "en-us";
 
-const getProperty = (property: string, properties: [string, any, string, string][]): string | undefined => {
-  const [, , , value] = properties.find(([propertyName]) => property === propertyName);
-  return value;
-};
+interface IcalOutput {
+  [key: string]: string | string[] | IcalOutput[];
+}
+
+/**
+ * The code in this function is derived from
+ * https://github.com/adrianlee44/ical2json.
+ * @param source The raw calendar data in ICAL format.
+ * @returns The parsed ICAL data.
+ */
+const convert = (source: string): IcalOutput => {
+  const output: IcalOutput = {};
+  const lines = source.split(/\r\n|\n|\r/);
+  const parents: IcalOutput[] = [];
+  let parent: IcalOutput = {};
+  let current: IcalOutput = output;
+  let currentKey = "";
+
+  for (const line of lines) {
+    let currentValue = "";
+    if (line.charAt(0) === " ") {
+      current[currentKey] += line.substr(1);
+    } else {
+      const splitAt = line.indexOf(":");
+      if (splitAt < 0) {
+        continue;
+      }
+      currentKey = line.substr(0, splitAt);
+      currentValue = line.substr(splitAt + 1);
+      switch (currentKey) {
+        case 'BEGIN':
+          parents.push(parent);
+          parent = current;
+          if (parent[currentValue] == null) {
+            parent[currentValue] = [];
+          }
+          // Create a new object, store the reference for future uses.
+          current = {};
+          (parent[currentValue] as IcalOutput[]).push(current);
+          break;
+        case 'END':
+          current = parent;
+          parent = parents.pop() as IcalOutput;
+          break;
+        default:
+          if (current[currentKey]) {
+            if (!Array.isArray(current[currentKey])) {
+              current[currentKey] = [current[currentKey]] as string[];
+            }
+            (current[currentKey] as string[]).push(currentValue);
+          } else {
+            (current[currentKey] as string) = currentValue;
+          }
+      }
+    }
+  }
+
+  return output;
+}
 
 export interface AcmEvent {
   date: Date;
@@ -16,27 +69,49 @@ export interface AcmEvent {
   location: string;
   summary: string;
   isHappening: boolean;
+  slug: string;
 }
+
+const convertIcalDateTime = (datetime: string): Date => {
+  const fullYear = datetime.slice(0, 4),
+        month = datetime.slice(4, 6),
+        day = datetime.slice(6, 8),
+        hours = datetime.slice(9, 11),
+        minutes = datetime.slice(11, 13),
+        seconds = datetime.slice(13, 15),
+        date = new Date();
+  date.setFullYear(Number(fullYear), Number(month) - 1, Number(day));
+  date.setHours(Number(hours) - 7, Number(minutes), Number(seconds));
+  return date;
+};
+
+const slugifyEvent = (summary: string, month: string, day: number): string => {
+  const cleanedSummary = summary.replace(/[^\w\s\_]/g, "").replace(/(\s|\-|\_)+/g, "-");
+  const slug = [cleanedSummary, month, day].join("-").toLowerCase();
+  return slug;
+};
 
 export const parseIcalData = (icalData: string): AcmEvent[] => {
   const now = Date.now();
-  const jcalData = ICAL
-    .parse(icalData)[2]
-    .slice(1)
-    .map(([, properties]) => {
-      const startTimestamp = getProperty("dtstart", properties),
-            endTimestamp = getProperty("dtend", properties),
-            location = getProperty("location", properties),
-            summary = getProperty("summary", properties);
-      const date = new Date(startTimestamp);
-      const endDate = new Date(endTimestamp);
+  const output = convert(icalData);
+  const events = output["VCALENDAR"][0]["VEVENT"]
+    .reduce((collection: AcmEvent[], event: any) => {
+      const summary = event["SUMMARY"];
+      const location = event["LOCATION"];
+      if (event["DTSTART"] === undefined || event["DTEND"] === undefined) {
+        return collection;
+      }
+      const date = convertIcalDateTime(event["DTSTART"]);
+      const endDate = convertIcalDateTime(event["DTEND"]);
       const month = date.toLocaleString(acmLocale, { month: "long" });
       const day = date.getDate();
       const time = date.toLocaleTimeString(acmLocale, { hour: "numeric", minute: "numeric" });
       const isHappening = now >= date.valueOf() && now < endDate.valueOf();
-      return { month, day, time, location, summary, date, endDate, isHappening };
-    })
+      const slug = slugifyEvent(summary, month, day);
+      collection.push({ month, day, time, location, summary, date, endDate, isHappening, slug });
+      return collection;
+    }, [])
     .filter(({ endDate }) => endDate.valueOf() > now) // Comment out this filter statement to show a longer list of events for testing purposes.
-    .sort(({ date: date1 }, { date: date2 }) => date1.valueOf() > date2.valueOf() ? 1 : -1)
-  return jcalData;
+    .sort(({ date: date1 }, { date: date2 }) => date1.valueOf() > date2.valueOf() ? 1 : -1);
+  return events;
 };
