@@ -7,14 +7,19 @@
     alt="Social event with acmCSUF club members."
   />
   <div>
-    <h2>why should students join acm?</h2>
+    <h2>
+      Why should students join <span class="brand-em"
+        >acm<span class="brand-blue">CSUF</span></span
+      >?
+    </h2>
     <p>
-      <span class="brand-em">acm<span class="brand-em">CSUF</span></span>
-      strives to be a community that encourages growth, friendship, and technical
-      development to prepare people for challenges in their personal lives, school
-      lives, and careers. By joining <span class="brand-em">acm</span>, you'll
-      be stepping into a community that will help you get started on your tech
-      journey.
+      <span class="brand-em">acm<span class="brand-blue">CSUF</span></span>
+      is a community that encourages growth, friendship, and technical development.
+      We prepare each other to overcome future personal, academic, and professional
+      challenges that some may face down the road. By joining
+      <span class="brand-em">acm<span class="brand-em">CSUF</span></span>,
+      you'll be stepping into a community that will help you get started on your
+      tech journey.
     </p>
   </div>
 </section>

@@ -8,18 +8,22 @@
 
 <CommonHero src="../assets/png/node-buds-badge.png" alt="CSUF NodeBuds Logo">
   <h1 slot="title">node<span class="brand-nodebuds">Buds</span></h1>
-  <h2 slot="headline">what is node<span class="brand-nodebuds">Buds</span>?</h2>
+  <h2 slot="headline">What is node<span class="brand-nodebuds">Buds</span>?</h2>
   <p slot="text">
     <span class="brand-bold">node<span class="brand-nodebuds">Buds</span></span>
     is a mentorship program that aims to help underclassmen adjust to university
-    life, and to prepate them for the tech industry. We achieve this by having upper
-    an underclassman form strong connection with each other which allows them to
-    exchange advice, skills, and more, all in order to start student off successfully.
+    life prepare them for the tech industry. We achieve this by having upper an underclassman
+    form strong connection with each other which allows them to exchange advice,
+    skills, and more.
   </p>
 </CommonHero>
+
 <Spacing />
+
 <WhyJoinNodebuds />
+
 <Spacing />
+
 <NodeBudsTestimonial
   src="../assets/png/node-buds-testimonial-illustration.png"
   alt="Mentory Samuel Sandoval and trainee Johnson Tong"
@@ -36,16 +40,18 @@
     <span class="brand-bold">By Johnson Tong</span>
   </p>
 </NodeBudsTestimonial>
+
 <Spacing />
+
 <CallToActionSection>
-  <h2 slot="headline">how can i get involved?</h2>
+  <h2 slot="headline">How can I get involved?</h2>
   <p slot="text">
     Currently, applications are closed to join the program. Follow us on social
     media to know when they open up! Until then, we invite you to become a part
     of
     <span class="brand-em"
       >the largest tech community at <span class="brand-blue">CSUF</span></span
-    >
+    >.
   </p>
 </CallToActionSection>
 <Spacing />

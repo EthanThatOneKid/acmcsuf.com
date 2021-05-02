@@ -11,7 +11,7 @@
   let isLoading = true;
 
   onMount(() => {
-    // Lazily load the ICAL data for the event carousel.
+    // Lazily load the iCal data for the event carousel.
     fetch("../events.json")
       .then((response) => response.json())
       .then((icalData) => {
@@ -23,14 +23,16 @@
 
 <CommonHero src="../assets/png/acm-csuf-badge.png" alt="acm-CSUF-Logo">
   <h1 slot="title">events</h1>
-  <h2 slot="headline">all you need to know!</h2>
+  <h2 slot="headline">All you need to know!</h2>
   <p slot="text">
-    Events are hosted either by the entirety of <span class="brand-em"
+    Events listed below are either hosted by <span class="brand-em"
       >acm<span class="brand-blue">CSUF</span></span
-    >, by our paths, or in collaboration with other organizations. Unless
-    specified, everyone is free to join any of our events! It doesn’t matter
-    what major you are; as long as you have an interest in tech, you’re
-    absolutely welcome to join us for the ride.
+    >, <span class="brand-em">acm<span class="brand-pink">Create</span></span>,
+    <span class="brand-em">acm<span class="brand-purple">Algo</span></span>,
+    <span class="brand-em">acm<span class="brand-bluer">Dev</span></span>, or in
+    collaboration with other organizations. Unless specified, everyone is free
+    to join any of our events! It doesn't matter what major you are; as long as
+    you have an interest in tech, you're absolutely welcome to join us!
   </p>
 </CommonHero>
 
@@ -53,11 +55,12 @@
 <Spacing />
 
 <CallToActionSection>
-  <h2 slot="headline">so what are you waiting for?</h2>
+  <h2 slot="headline">So what are you waiting for?</h2>
   <p slot="text">
-    We invite you to come out to our events, and see what our chapter has in
-    store! All of our coding workshops, info sessions, and community events were
-    designed to start off your tech journey on the right foot.
+    We invite you to become a part of our chapter consisting of
+    <b>350<span class="brand-blue">+</span> members</b>, and rising! All of our
+    coding workshops, info sessions, and community events were designed to start
+    off your tech journey on the right foot.
   </p>
 </CallToActionSection>
 

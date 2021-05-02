@@ -5,11 +5,10 @@
 
 <section>
   <div class="paths-intro">
-    <h2>get involved with our paths!</h2>
+    <h2>Get involved with our paths!</h2>
     <p>
-      Want to specialize somewhere specific in tech? Our paths were designed to
-      give students a head start in their own tech journeys, making them
-      prepared for the industry.
+      Are you looking to specialize somewhere specific in tech? Our paths were
+      designed to jumpstart student's own journeys in the tech industry.
     </p>
   </div>
 

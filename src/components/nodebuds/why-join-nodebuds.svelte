@@ -5,14 +5,13 @@
     title="Why Join nodeBuds"
   />
   <div class="turnback">
-    <h2>why join node<span class="brand-red">Buds</span>?</h2>
+    <h2>Why join node<span class="brand-red">Buds</span>?</h2>
     <p>
       <span class="brand-em">node<span class="brand-red">Buds</span></span>
       was designed to provide underclassmen and transfer students assistance as they
-      start their fresh journey through
-      <span class="brand-blue brand-em">CSUF</span>, and through the tech
-      industry. We provide the knowledge and resources that’ll help students
-      start on the right foot.
+      embark on their <span class="brand-blue brand-em">CSUF</span> experience. We
+      provide the knowledge and resources that'll help students start on the right
+      foot.
     </p>
   </div>
 </div>

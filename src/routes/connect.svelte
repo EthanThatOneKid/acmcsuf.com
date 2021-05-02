@@ -11,7 +11,7 @@
 
 <CommonHero src="../assets/png/acm-csuf-badge.png" alt="acm-CSUF-Logo">
   <h1 slot="title">connect</h1>
-  <h2 slot="headline">follow us!</h2>
+  <h2 slot="headline">Follow us!</h2>
   <p slot="text">
     The best way to keep up with what's going on in the world of
     <span class="brand-bold">acm<span class="brand-blue">CSUF</span></span>
@@ -19,21 +19,28 @@
     accounts listed below are our only public profiles.
   </p>
 </CommonHero>
+
+<Spacing />
+
 <SocialMediaLinks />
+
 <Spacing />
+
 <GetInTouchForm googleFormId="{googleFormId}" />
+
 <Spacing />
+
 <CallToActionSection>
-  <h2 slot="headline">so what are you waiting for?</h2>
+  <h2 slot="headline">So what are you waiting for?</h2>
   <p slot="text">
-    Whatever the reason is for you to reach out to us, we can’t wait to hear,
-    and to getback to you! <span class="brand-bold"
-      >acm<span class="brand-blue">CSUF</span></span
+    We are excited to take your messages and ideas into consideration! <span
+      class="brand-bold">acm<span class="brand-blue">CSUF</span></span
     >
     is here to support you, as
-    <span class="brand-bold">we are the largest tech community </span> on campus.
+    <span class="brand-bold">the largest tech community </span> on campus.
   </p>
 </CallToActionSection>
+
 <Spacing amount="175px" />
 
 <style>

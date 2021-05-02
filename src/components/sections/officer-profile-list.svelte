@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { styleProps } from "../../actions/use-style-props";
   import { officers } from "../../lib/officers";
   import OfficerProfile from "@/components/sections/officer-profile.svelte";
   import AcmSelect from "@/components/utils/acm-select.svelte";
@@ -9,8 +8,8 @@
 
 <section>
   <h2>
-    board
-    <span class="brand-em brand-blue">officers</span>
+    Board
+    <span class="brand-em brand-blue">Officers</span>
   </h2>
   <div class="school-year-input-container">
     <AcmSelect

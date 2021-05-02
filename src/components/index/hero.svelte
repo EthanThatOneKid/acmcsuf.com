@@ -5,7 +5,7 @@
 <section>
   <div class="main-text-container">
     <h1 class="main-text">
-      <span>we are the largest tech community at</span>
+      <span>We are the largest tech community at</span>
       <span class="brand-blue">CSUF</span>
     </h1>
     <AcmButton
