@@ -56,7 +56,7 @@ export const officers: Record<string, Officer[]> = {
     },
     {
       name: "Shaleen Mathur",
-      title: "Workshop Manager",
+      title: "Co-Workshop Manager",
       picture: "shaleen-mathur.png",
     },
     {
@@ -111,7 +111,7 @@ export const officers: Record<string, Officer[]> = {
     },
     {
       name: "Lisa Hong",
-      title: "Product Officer",
+      title: "Create Officer",
       picture: "lisa-hong.png",
     },
   ],
