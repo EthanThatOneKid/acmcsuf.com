@@ -8,16 +8,20 @@
 
 <CommonHero>
   <h1 slot="title">paths</h1>
-  <h2 slot="headline">what are paths?</h2>
+  <h2 slot="headline">What are paths?</h2>
   <p slot="text">
-    <span class="brand-em">paths</span> are committees that focus on certain
-    areas related to the industry. students can discover new interests, enhance
-    current skillsets, and specialize in specific fields through these
-    committees. <span class="brand-em">paths</span> were designed to encourage teamwork
-    and communication to prepare people for real-world opportunities in tech.
+    <span class="brand-em">Paths</span> are committees within
+    <span class="brand-em">acm<span class="brand-blue">CSUF</span></span>
+    that focus on certain areas related to the industry. Students can discover new
+    interests, enhance current skillsets, and specialize in specific fields through
+    these committees. <span class="brand-em">Paths</span> were designed to encourage
+    teamwork and communication to prepare people for real-world opportunities in
+    tech.
   </p>
 </CommonHero>
+
 <Spacing />
+
 <PathSection info="{acmAlgo}" textAlign="right">
   <p slot="content">
     <span class="brand-em">acm<span class="brand-purple">Algo</span></span> is our
@@ -48,7 +52,7 @@
 </PathSection>
 <Spacing amount="175px" />
 <CallToActionSection>
-  <h2 slot="headline">how can i get involved?</h2>
+  <h2 slot="headline">How can I get involved?</h2>
   <p slot="text">
     Our paths host their own events all the time! Follow us on social media to
     get notified for when they happen. Until then, we invite you to become a

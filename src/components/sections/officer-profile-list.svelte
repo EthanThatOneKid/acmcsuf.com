@@ -7,37 +7,39 @@
   let currentSchoolYear = "2020-2021";
 </script>
 
-<h2>
-  board
-  <span class="brand-em brand-blue">officers</span>
-</h2>
+<section>
+  <h2>
+    Board
+    <span class="brand-blue">Officers</span>
+  </h2>
 
-<Spacing amount="30px" />
+  <Spacing amount="30px" />
 
-<div class="school-year-input-container">
-  <AcmSelect
-    bind:defaultValue="{currentSchoolYear}"
-    options="{Object.keys(officers)}"
-  />
-</div>
-
-<Spacing amount="30px" />
-
-<div class="officer-profile-list">
-  {#each officers[currentSchoolYear] as { name, title, picture } (name)}
-    <OfficerProfile
-      name="{name}"
-      title="{title}"
-      picture="{picture}"
-      key="{picture}"
+  <div class="school-year-input-container">
+    <AcmSelect
+      bind:defaultValue="{currentSchoolYear}"
+      options="{Object.keys(officers)}"
     />
-  {/each}
-</div>
+  </div>
+
+  <Spacing amount="30px" />
+
+  <div class="officer-profile-list">
+    {#each officers[currentSchoolYear] as { name, title, picture } (name)}
+      <OfficerProfile
+        name="{name}"
+        title="{title}"
+        picture="{picture}"
+        key="{picture}"
+      />
+    {/each}
+  </div>
+</section>
 
 <style>
-  h2 {
+  section h2 {
+    text-transform: lowercase;
     text-align: center;
-    font-weight: bold;
     font-size: var(--heading-font-size);
   }
 

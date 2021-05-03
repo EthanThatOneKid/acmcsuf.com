@@ -37,6 +37,7 @@
     margin: 0;
     font-size: var(--heading-font-size);
     font-weight: bold;
+    text-transform: lowercase;
   }
 
   section div {
@@ -45,6 +46,7 @@
   }
 
   section div :global(h2) {
+    text-transform: lowercase;
     font-size: var(--subheading-font-size);
     margin: 48px 0 32px 0;
   }

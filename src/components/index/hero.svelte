@@ -5,8 +5,8 @@
 <section>
   <div class="main-text-container">
     <h1 class="main-text">
-      <span>we are the largest tech community at</span>
-      <span class="brand-blue">CSUF</span>
+      <span>We are the largest tech community at</span>
+      <span class="brand-em brand-blue">CSUF</span>
     </h1>
     <AcmButton
       text="Join us today!"
@@ -35,6 +35,7 @@
   }
 
   section .main-text-container .main-text {
+    text-transform: lowercase;
     font-weight: bold;
     font-size: var(--heading-font-size);
     text-align: center;

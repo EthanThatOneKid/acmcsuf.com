@@ -75,6 +75,7 @@
   }
 
   section :global(h2) {
+    text-transform: lowercase;
     font-size: var(--subheading-font-size);
   }
 

@@ -59,7 +59,6 @@
     text-decoration: none;
     border: 2px solid var(--acm-dark);
     font-size: var(--body-font-size);
-    text-transform: lowercase;
     text-align: right;
     display: flex;
     justify-content: space-between;
