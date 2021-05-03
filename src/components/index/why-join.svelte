@@ -17,7 +17,7 @@
       is a community that encourages growth, friendship, and technical development.
       We prepare each other to overcome future personal, academic, and professional
       challenges that some may face down the road. By joining
-      <span class="brand-em">acm<span class="brand-em">CSUF</span></span>,
+      <span class="brand-em">acm<span class="brand-blue">CSUF</span></span>,
       you'll be stepping into a community that will help you get started on your
       tech journey.
     </p>

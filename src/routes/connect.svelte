@@ -14,7 +14,7 @@
   <h2 slot="headline">Follow us!</h2>
   <p slot="text">
     The best way to keep up with what's going on in the world of
-    <span class="brand-bold">acm<span class="brand-blue">CSUF</span></span>
+    <span class="brand-em">acm<span class="brand-blue">CSUF</span></span>
     is by following us on our social media, and by joining our Discord server! The
     accounts listed below are our only public profiles.
   </p>
@@ -34,17 +34,11 @@
   <h2 slot="headline">So what are you waiting for?</h2>
   <p slot="text">
     We are excited to take your messages and ideas into consideration! <span
-      class="brand-bold">acm<span class="brand-blue">CSUF</span></span
+      class="brand-em">acm<span class="brand-blue">CSUF</span></span
     >
     is here to support you, as
-    <span class="brand-bold">the largest tech community </span> on campus.
+    <span class="brand-em">the largest tech community</span> on campus.
   </p>
 </CallToActionSection>
 
 <Spacing amount="175px" />
-
-<style>
-  .brand-bold {
-    font-weight: bold;
-  }
-</style>

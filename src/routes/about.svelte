@@ -8,7 +8,9 @@
 <CommonHero>
   <h1 slot="title">about</h1>
   <h2 slot="headline">
-    What is acm<span class="brand-blue">CSUF</span>
+    What is <span class="brand-em">
+      acm<span class="brand-blue">CSUF</span>
+    </span>
   </h2>
   <p slot="text">
     <span class="brand-em">acm<span class="brand-blue">CSUF</span></span>
