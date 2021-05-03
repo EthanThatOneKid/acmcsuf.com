@@ -5,7 +5,11 @@
     title="Why Join nodeBuds"
   />
   <div class="turnback">
-    <h2>Why join node<span class="brand-red">Buds</span>?</h2>
+    <h2>
+      Why join <span class="brand-em"
+        >node<span class="brand-red">Buds</span></span
+      >?
+    </h2>
     <p>
       <span class="brand-em">node<span class="brand-red">Buds</span></span>
       was designed to provide underclassmen and transfer students assistance as they
@@ -49,6 +53,7 @@
     align-items: flex-start; /* account for short texts */
     text-align: left; /* account for multi-line texts */
   }
+
   .turnback:nth-child(even) {
     align-items: flex-end;
     text-align: right;
@@ -57,7 +62,9 @@
   .turnback > p {
     font-size: var(--body-font-size);
   }
+
   .turnback > h2 {
+    text-transform: lowercase;
     font-size: var(--heading-font-size);
     font-weight: 600; /* medium, not bold */
   }

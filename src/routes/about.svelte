@@ -6,7 +6,7 @@
 </script>
 
 <CommonHero>
-  <h1 slot="title">about</h1>
+  <h1 slot="title">About</h1>
   <h2 slot="headline">
     What is <span class="brand-em">
       acm<span class="brand-blue">CSUF</span>

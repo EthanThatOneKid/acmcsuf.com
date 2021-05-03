@@ -10,7 +10,7 @@
 </script>
 
 <CommonHero src="../assets/png/acm-csuf-badge.png" alt="acm-CSUF-Logo">
-  <h1 slot="title">connect</h1>
+  <h1 slot="title">Connect</h1>
   <h2 slot="headline">Follow us!</h2>
   <p slot="text">
     The best way to keep up with what's going on in the world of

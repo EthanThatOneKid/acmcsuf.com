@@ -9,7 +9,7 @@
 <section>
   <h2>
     Board
-    <span class="brand-em brand-blue">Officers</span>
+    <span class="brand-blue">Officers</span>
   </h2>
   <div class="school-year-input-container">
     <AcmSelect
@@ -31,8 +31,8 @@
 
 <style>
   section h2 {
+    text-transform: lowercase;
     text-align: center;
-    font-weight: bold;
     font-size: var(--heading-font-size);
   }
 

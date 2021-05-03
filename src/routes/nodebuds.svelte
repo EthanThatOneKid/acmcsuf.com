@@ -30,14 +30,14 @@
 >
   <span slot="semester">fall <span class="brand-nodebuds">2020</span></span>
   <p slot="content">
-    <span class="brand-bold">node<span class="brand-nodebuds">Buds</span></span>
+    <span class="brand-em">node<span class="brand-nodebuds">Buds</span></span>
     is a great way to get ahold of how you can move forward in your computer science
     journey! If you feel lost, or don’t have much idea of what to do,
-    <span class="brand-bold">node<span class="brand-nodebuds">Buds</span></span>
+    <span class="brand-em">node<span class="brand-nodebuds">Buds</span></span>
     is a great way to learn and gain insight from a mentor who has more experience,
     and is further along than you are.
     <br />
-    <span class="brand-bold">By Johnson Tong</span>
+    <span class="brand-em">By Johnson Tong</span>
   </p>
 </NodeBudsTestimonial>
 
@@ -54,13 +54,12 @@
     >.
   </p>
 </CallToActionSection>
+
 <Spacing />
 
 <style>
   .brand-nodebuds {
     color: var(--acm-red);
-  }
-  .brand-bold {
-    font-weight: bold;
+    text-transform: none;
   }
 </style>

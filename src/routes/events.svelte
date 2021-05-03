@@ -22,7 +22,7 @@
 </script>
 
 <CommonHero src="../assets/png/acm-csuf-badge.png" alt="acm-CSUF-Logo">
-  <h1 slot="title">events</h1>
+  <h1 slot="title">Events</h1>
   <h2 slot="headline">All you need to know!</h2>
   <p slot="text">
     Events listed below are either hosted by <span class="brand-em"

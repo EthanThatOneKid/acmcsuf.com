@@ -28,6 +28,7 @@
   }
 
   .info-container :global(h2) {
+    text-transform: lowercase;
     font-size: var(--heading-font-size);
     margin-bottom: 20px;
     hyphens: auto; /* Read: https://css-tricks.com/almanac/properties/h/hyphenate/ */

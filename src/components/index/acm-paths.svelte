@@ -32,6 +32,7 @@
   }
 
   .paths-intro h2 {
+    text-transform: lowercase;
     font-size: var(--heading-font-size);
     text-align: center;
     margin: 0 20px 20px 20px;

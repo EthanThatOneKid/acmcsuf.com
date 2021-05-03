@@ -71,6 +71,7 @@
   }
 
   section h2 {
+    text-transform: lowercase;
     font-size: var(--subheading-font-size);
     margin: 0 150px 40px;
   }

@@ -38,6 +38,7 @@
   }
 
   section div h2 {
+    text-transform: lowercase;
     font-weight: bold;
     text-align: center;
     font-size: var(--heading-font-size);

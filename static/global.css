@@ -65,6 +65,7 @@ body,
 .brand-em {
   /* `em` is short for "emphasis" */
   font-weight: 700;
+  text-transform: none;
 }
 
 .headers {
