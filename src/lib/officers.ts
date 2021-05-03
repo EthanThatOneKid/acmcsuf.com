@@ -15,22 +15,22 @@ export const officers: Record<string, Officer[]> = {
   "2020-2021": [
     {
       name: "Jacob Nguyen",
-      title: "President/Create Director 🎨",
+      title: "President/Create Director",
       picture: "jacob-nguyen.png",
     },
     {
       name: "Aaron Lieberman",
-      title: "Internal Vice President 😎",
+      title: "Internal Vice President",
       picture: "aaron-lieberman.png",
     },
     {
       name: "Samuel Sandoval",
-      title: "Dev Director 🧠",
+      title: "Dev Director",
       picture: "samuel-sandoval.png",
     },
     {
       name: "Ethan Davidson",
-      title: "Webmaster 👨‍💻",
+      title: "Webmaster 😎",
       picture: "ethan-davidson.png",
       url: "https://github.com/EthanThatOneKid",
     },
@@ -45,11 +45,6 @@ export const officers: Record<string, Officer[]> = {
       picture: "andrew-lau.jpg",
     },
     {
-      name: "Nicole Traboulsi",
-      title: "NodeBuds Officer",
-      picture: "nicole-traboulsi.jpeg",
-    },
-    {
       name: "Jason Anthony",
       title: "Secretary",
       picture: "jason-anthony.png",
@@ -62,7 +57,7 @@ export const officers: Record<string, Officer[]> = {
     {
       name: "Nicolas Renteria",
       title: "Marketing Chair",
-      picture: "nicolas-renteria.jpg",
+      picture: "nicolas-renteria.png",
     },
     {
       name: "Joshua Hughes",
@@ -113,6 +108,16 @@ export const officers: Record<string, Officer[]> = {
       name: "Lisa Hong",
       title: "Create Officer",
       picture: "lisa-hong.png",
+    },
+    {
+      name: "Taylor Noh",
+      title: "NodeBuds Officer",
+      picture: "taylor-noh.png",
+    },
+    {
+      name: "Eugene Lee",
+      title: "NodeBuds Officer",
+      picture: "eugene-lee.png",
     },
   ],
 };
