@@ -2,6 +2,7 @@
   import { officers } from "../../lib/officers";
   import OfficerProfile from "@/components/sections/officer-profile.svelte";
   import AcmSelect from "@/components/utils/acm-select.svelte";
+  import Spacing from "@/components/sections/spacing.svelte";
 
   let currentSchoolYear = "2020-2021";
 </script>
@@ -11,12 +12,18 @@
     Board
     <span class="brand-blue">Officers</span>
   </h2>
+
+  <Spacing amount="30px" />
+
   <div class="school-year-input-container">
     <AcmSelect
       bind:defaultValue="{currentSchoolYear}"
       options="{Object.keys(officers)}"
     />
   </div>
+
+  <Spacing amount="30px" />
+
   <div class="officer-profile-list">
     {#each officers[currentSchoolYear] as { name, title, picture } (name)}
       <OfficerProfile
