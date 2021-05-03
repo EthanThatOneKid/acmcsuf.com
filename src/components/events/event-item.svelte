@@ -10,6 +10,7 @@
   const isDiscordEvent = info.location.length === 0;
   const meetingLink = isDiscordEvent ? links.discord : info.location;
   let isSuccessfullyCopied = false;
+  let anchor: HTMLDivElement;
 
   const copyEventLink = (slug: string) => {
     const url = [location.origin, location.pathname, "#", slug].join("");
@@ -22,11 +23,23 @@
 
   onMount(() => {
     isActive = location.hash === `#${info.slug}`;
+    if (isActive) {
+      anchor.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "center",
+      });
+    }
   });
 </script>
 
 <div class="event-box">
-  <div class="anchor" id="{info.slug}" class:active="{isActive}"></div>
+  <div
+    class="anchor"
+    id="{info.slug}"
+    class:active="{isActive}"
+    bind:this="{anchor}"
+  ></div>
   <div class="event-card">
     <p class="event-date">
       <span class="brand-em">
