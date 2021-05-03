@@ -15,34 +15,29 @@ export const officers: Record<string, Officer[]> = {
   "2020-2021": [
     {
       name: "Jacob Nguyen",
-      title: "President/Create Director 🎨",
+      title: "President/Create Director",
       picture: "jacob-nguyen.png",
     },
     {
       name: "Aaron Lieberman",
-      title: "Internal Vice President 😎",
+      title: "Internal Vice President",
       picture: "aaron-lieberman.png",
     },
     {
       name: "Samuel Sandoval",
-      title: "External Vice President/Dev Director 🧠",
+      title: "Vice President/Dev Director 🧠",
       picture: "samuel-sandoval.png",
     },
     {
       name: "Ethan Davidson",
-      title: "Webmaster 👨‍💻",
+      title: "Webmaster 😎",
       picture: "ethan-davidson.png",
       url: "https://github.com/EthanThatOneKid",
     },
     {
       name: "Andrew Lau",
       title: "Treasurer",
-      picture: "andrew-lau.jpg",
-    },
-    {
-      name: "Nicole Traboulsi",
-      title: "NodeBuds Officer",
-      picture: "nicole-traboulsi.jpeg",
+      picture: "andrew-lau.png",
     },
     {
       name: "Jason Anthony",
@@ -52,7 +47,7 @@ export const officers: Record<string, Officer[]> = {
     {
       name: "Nicolas Renteria",
       title: "Marketing Chair",
-      picture: "nicolas-renteria.jpg",
+      picture: "nicolas-renteria.png",
     },
     {
       name: "Joshua Hughes",
@@ -70,6 +65,11 @@ export const officers: Record<string, Officer[]> = {
       picture: "wilbert-rodriguez.png",
     },
      {
+      name: "Shaleen Mathur",
+      title: "Co-Workshop Manager",
+      picture: "shaleen-mathur.png",
+    },
+    {
       name: "Shaleen Mathur",
       title: "Co-Workshop Manager",
       picture: "shaleen-mathur.png",
@@ -113,6 +113,21 @@ export const officers: Record<string, Officer[]> = {
       name: "Lisa Hong",
       title: "Create Officer",
       picture: "lisa-hong.png",
+    },
+     {
+      name: "Mike Ploythai",
+      title: "Create Officer",
+      picture: "mike-ploythai.png",
+    },
+    {
+      name: "Taylor Noh",
+      title: "NodeBuds Officer",
+      picture: "taylor-noh.png",
+    },
+    {
+      name: "Eugene Lee",
+      title: "NodeBuds Officer",
+      picture: "eugene-lee.png",
     },
   ],
 };

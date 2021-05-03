@@ -3,30 +3,30 @@
   export let title: string = "";
   export let picture: string = "";
   export let key: string = "";
+
+  title = title
+    .replace(/Create/, `<span class="brand-em brand-pink">Create</span>`)
+    .replace(/Algo/, `<span class="brand-em brand-purple">Algo</span>`)
+    .replace(/Dev/, `<span class="brand-em brand-bluer">Dev</span>`)
+    .replace(/Webmaster/, `<span class="brand-em brand-blue">Webmaster</span>`)
+    .replace(
+      /NodeBuds/,
+      `<span class="brand-em">Node<span class="brand-red">Buds</span></span>`
+    );
 </script>
 
 <div class="officer-container">
-  <svg class="officer-image" viewBox="1 1 8 8">
-    <pattern
-      id="{`officer-image-${key}`}"
-      patternUnits="userSpaceOnUse"
-      width="{10}"
-      height="{10}"
-    >
-      <image
-        width="{10}"
-        height="{10}"
-        xlink:href="{`../assets/authors/${picture || 'placeholder.png'}`}"
-      ></image>
-    </pattern>
-    <path
-      d="M5.5 1.5 L8.5 4.5 Q9 5 8.5 5.5 L5.5 8.5 Q5 9 4.5 8.5 L 1.5 5.5 Q1 5 1.5 4.5 L4.5 1.5 Q 5 1 5.5 1.5z"
-      fill="{`url(#officer-image-${key})`}"></path>
-  </svg>
+  <img
+    class="officer-image"
+    src="{`../assets/authors/${picture}`}"
+    alt="{`Image of ${name}.`}"
+  />
   <h3>
     {name}
   </h3>
-  <p>{title}</p>
+  <p>
+    {@html title}
+  </p>
 </div>
 
 <style>
