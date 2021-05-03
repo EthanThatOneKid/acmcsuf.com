@@ -43,7 +43,7 @@
 </script>
 
 <section>
-  <h2>this week's events</h2>
+  <h2>This week's events</h2>
   <div class="event-carousel-container">
     <div bind:this="{carouselButtonLeft}" class="carousel-button left">
       &lt;
