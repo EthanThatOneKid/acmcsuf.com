@@ -1,13 +1,16 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import type { AcmEvent } from "../../lib/parse-ical-data";
   import { links } from "../../lib/links";
   import AcmButton from "@/components/utils/acm-button.svelte";
 
   export let info: AcmEvent;
+  let isActive = false;
 
   const isDiscordEvent = info.location.length === 0;
   const meetingLink = isDiscordEvent ? links.discord : info.location;
   let isSuccessfullyCopied = false;
+  let anchor: HTMLDivElement;
 
   const copyEventLink = (slug: string) => {
     const url = [location.origin, location.pathname, "#", slug].join("");
@@ -17,10 +20,26 @@
       setTimeout(() => (isSuccessfullyCopied = false), 2e3);
     });
   };
+
+  onMount(() => {
+    isActive = location.hash === `#${info.slug}`;
+    if (isActive) {
+      anchor.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "center",
+      });
+    }
+  });
 </script>
 
 <div class="event-box">
-  <div class="anchor" id="{info.slug}"></div>
+  <div
+    class="anchor"
+    id="{info.slug}"
+    class:active="{isActive}"
+    bind:this="{anchor}"
+  ></div>
   <div class="event-card">
     <p class="event-date">
       <span class="brand-em">
@@ -55,7 +74,8 @@
     top: -200px;
   }
 
-  .event-box > .anchor:target + .event-card {
+  .event-box > .anchor:target + .event-card,
+  .event-box > .anchor.active + .event-card {
     border: 2px solid #ff003388;
     box-shadow: 0px 12px 18px #ff003388;
   }
