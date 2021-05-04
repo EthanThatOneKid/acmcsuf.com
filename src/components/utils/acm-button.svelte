@@ -23,14 +23,12 @@
     text-transform: lowercase;
     box-shadow: 0 0 0 rgba(23, 26, 28, 0.1);
     transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out,
-      -webkit-filter 0.25s ease-in-out, filter 0.25s ease-in-out;
+      box-shadow 0.25s ease-in-out;
   }
 
   .call-to-action:hover {
-    transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out;
     color: var(--acm-light);
     background-color: var(--acm-dark);
-    -webkit-filter: drop-shadow(0 2px 10px rgba(23, 26, 28, 0.5));
-    filter: drop-shadow(0 2px 10px rgba(23, 26, 28, 0.5));
+    box-shadow: 0 2px 10px rgba(23, 26, 28, 0.5);
   }
 </style>
