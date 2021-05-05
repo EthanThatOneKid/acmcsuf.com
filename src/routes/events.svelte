@@ -27,8 +27,8 @@
   <p slot="text">
     Events listed below are either hosted by <span class="brand-em"
       >acm<span class="brand-blue">CSUF</span></span
-    >, <span class="brand-em">acm<span class="brand-pink">Create</span></span>,
-    <span class="brand-em">acm<span class="brand-purple">Algo</span></span>,
+    >, <span class="brand-em">acm<span class="brand-purple">Algo</span></span>,
+    <span class="brand-em">acm<span class="brand-pink">Create</span></span>,
     <span class="brand-em">acm<span class="brand-bluer">Dev</span></span>, or in
     collaboration with other organizations. Unless specified, everyone is free
     to join any of our events! It doesn't matter what major you are; as long as
