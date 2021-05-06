@@ -5,7 +5,7 @@
 
   export let events: AcmEvent[] = [];
 
-  const scrollIncrementDistance = 150;
+  const scrollIncrementDistance = 250;
   let carouselRef: HTMLDivElement;
   let carouselButtonLeft: HTMLDivElement;
   let carouselButtonRight: HTMLDivElement;
@@ -24,18 +24,24 @@
     startGrabbing = () => (isGrabbing = true),
     endGrabbing = () => (isGrabbing = false),
     scrollLeft = () => scrollTheCarousel(scrollIncrementDistance, true),
-    scrollRight = () => scrollTheCarousel(-scrollIncrementDistance, true);
+    scrollRight = () => scrollTheCarousel(-scrollIncrementDistance, true),
+    scrollHorizontally = (event: WheelEvent) => {
+      event.preventDefault();
+      scrollTheCarousel(-event.deltaY);
+    };
 
   onMount(() => {
     carouselRef.addEventListener("mousemove", scrollOnMouseMove);
     carouselRef.addEventListener("mousedown", startGrabbing);
     carouselRef.addEventListener("mouseup", endGrabbing);
+    carouselRef.addEventListener("wheel", scrollHorizontally);
     carouselButtonLeft.addEventListener("click", scrollLeft);
     carouselButtonRight.addEventListener("click", scrollRight);
     return () => {
       carouselRef.removeEventListener("mousemove", scrollOnMouseMove);
       carouselRef.removeEventListener("mousedown", startGrabbing);
       carouselRef.removeEventListener("mouseup", endGrabbing);
+      carouselRef.removeEventListener("wheel", scrollHorizontally);
       carouselButtonLeft.removeEventListener("click", scrollLeft);
       carouselButtonRight.removeEventListener("click", scrollRight);
     };
@@ -83,7 +89,7 @@
   section .event-list {
     display: flex;
     flex-direction: row;
-    overflow-x: scroll;
+    overflow-x: auto;
     padding-bottom: 32px;
     cursor: grab;
     -ms-overflow-style: none; /* Hide scrollbar IE and Edge */
