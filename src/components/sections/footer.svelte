@@ -1,5 +1,6 @@
 <script lang="ts">
   import GitHubIcon from "@/components/icons/github.svelte";
+  import { links } from "../../lib/links";
 </script>
 
 <footer>
@@ -11,7 +12,7 @@
     class="acm-logo"
   />
   <span class="brand-em">CSUF</span>
-  <a class="repo-link" href="https://github.com/EthanThatOneKid/acmcsuf.com">
+  <a class="repo-link" href="{links.github}">
     <GitHubIcon />
   </a>
 </footer>
