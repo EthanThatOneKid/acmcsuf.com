@@ -26,12 +26,7 @@
 
   <div class="officer-profile-list">
     {#each officers[currentSchoolYear] as { name, title, picture } (name)}
-      <OfficerProfile
-        name="{name}"
-        title="{title}"
-        picture="{picture}"
-        key="{picture}"
-      />
+      <OfficerProfile name="{name}" title="{title}" picture="{picture}" />
     {/each}
   </div>
 </section>

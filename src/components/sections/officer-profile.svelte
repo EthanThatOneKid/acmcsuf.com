@@ -1,8 +1,9 @@
 <script lang="ts">
+  const placeholderPicture = "placeholder.png";
+
   export let name: string = "";
   export let title: string = "";
-  export let picture: string = "";
-  export let key: string = "";
+  export let picture: string = placeholderPicture;
 
   title = title
     .replace(/Create/, `<span class="brand-em brand-pink">Create</span>`)
@@ -37,10 +38,12 @@
     align-items: center;
     padding: 64px;
   }
+
   .officer-image {
     width: 200px;
     height: 200px;
   }
+
   h3 {
     font-size: 1.5rem;
     color: var(--acm-dark);
