@@ -1,11 +1,10 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import EventItem from "./event-item.svelte";
   import type { AcmEvent } from "../../lib/parse-ical-data";
 
   export let events: AcmEvent[] = [];
 
-  const scrollIncrementDistance = 150;
+  const scrollIncrementDistance = 250;
   let carouselRef: HTMLDivElement;
   let carouselButtonLeft: HTMLDivElement;
   let carouselButtonRight: HTMLDivElement;
@@ -24,34 +23,31 @@
     startGrabbing = () => (isGrabbing = true),
     endGrabbing = () => (isGrabbing = false),
     scrollLeft = () => scrollTheCarousel(scrollIncrementDistance, true),
-    scrollRight = () => scrollTheCarousel(-scrollIncrementDistance, true);
-
-  onMount(() => {
-    carouselRef.addEventListener("mousemove", scrollOnMouseMove);
-    carouselRef.addEventListener("mousedown", startGrabbing);
-    carouselRef.addEventListener("mouseup", endGrabbing);
-    carouselButtonLeft.addEventListener("click", scrollLeft);
-    carouselButtonRight.addEventListener("click", scrollRight);
-    return () => {
-      carouselRef.removeEventListener("mousemove", scrollOnMouseMove);
-      carouselRef.removeEventListener("mousedown", startGrabbing);
-      carouselRef.removeEventListener("mouseup", endGrabbing);
-      carouselButtonLeft.removeEventListener("click", scrollLeft);
-      carouselButtonRight.removeEventListener("click", scrollRight);
+    scrollRight = () => scrollTheCarousel(-scrollIncrementDistance, true),
+    scrollHorizontally = (event: WheelEvent) => {
+      event.preventDefault();
+      scrollTheCarousel(-event.deltaY);
     };
-  });
 </script>
 
 <section>
   <h2>Upcoming events</h2>
   <div class="event-carousel-container">
-    <div bind:this="{carouselButtonLeft}" class="carousel-button left">
+    <div
+      bind:this="{carouselButtonLeft}"
+      class="carousel-button left"
+      on:click="{scrollLeft}"
+    >
       &lt;
     </div>
     <div
       class="event-list"
       bind:this="{carouselRef}"
       class:grabbing="{isGrabbing}"
+      on:mousemove="{scrollOnMouseMove}"
+      on:mousedown="{startGrabbing}"
+      on:mouseup="{endGrabbing}"
+      on:wheel="{scrollHorizontally}"
     >
       <div class="event-item-buffer"></div>
       {#each events as eventInfo}
@@ -59,7 +55,11 @@
       {/each}
       <div class="event-item-buffer"></div>
     </div>
-    <div bind:this="{carouselButtonRight}" class="carousel-button right">
+    <div
+      bind:this="{carouselButtonRight}"
+      class="carousel-button right"
+      on:click="{scrollRight}"
+    >
       &gt;
     </div>
   </div>
@@ -83,7 +83,7 @@
   section .event-list {
     display: flex;
     flex-direction: row;
-    overflow-x: scroll;
+    overflow-x: auto;
     padding-bottom: 32px;
     cursor: grab;
     -ms-overflow-style: none; /* Hide scrollbar IE and Edge */
