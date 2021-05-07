@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import EventItem from "./event-item.svelte";
   import type { AcmEvent } from "../../lib/parse-ical-data";
 
@@ -29,35 +28,26 @@
       event.preventDefault();
       scrollTheCarousel(-event.deltaY);
     };
-
-  onMount(() => {
-    carouselRef.addEventListener("mousemove", scrollOnMouseMove);
-    carouselRef.addEventListener("mousedown", startGrabbing);
-    carouselRef.addEventListener("mouseup", endGrabbing);
-    carouselRef.addEventListener("wheel", scrollHorizontally);
-    carouselButtonLeft.addEventListener("click", scrollLeft);
-    carouselButtonRight.addEventListener("click", scrollRight);
-    return () => {
-      carouselRef.removeEventListener("mousemove", scrollOnMouseMove);
-      carouselRef.removeEventListener("mousedown", startGrabbing);
-      carouselRef.removeEventListener("mouseup", endGrabbing);
-      carouselRef.removeEventListener("wheel", scrollHorizontally);
-      carouselButtonLeft.removeEventListener("click", scrollLeft);
-      carouselButtonRight.removeEventListener("click", scrollRight);
-    };
-  });
 </script>
 
 <section>
   <h2>Upcoming events</h2>
   <div class="event-carousel-container">
-    <div bind:this="{carouselButtonLeft}" class="carousel-button left">
+    <div
+      bind:this="{carouselButtonLeft}"
+      class="carousel-button left"
+      on:click="{scrollLeft}"
+    >
       &lt;
     </div>
     <div
       class="event-list"
       bind:this="{carouselRef}"
       class:grabbing="{isGrabbing}"
+      on:mousemove="{scrollOnMouseMove}"
+      on:mousedown="{startGrabbing}"
+      on:mouseup="{endGrabbing}"
+      on:wheel="{scrollHorizontally}"
     >
       <div class="event-item-buffer"></div>
       {#each events as eventInfo}
@@ -65,7 +55,11 @@
       {/each}
       <div class="event-item-buffer"></div>
     </div>
-    <div bind:this="{carouselButtonRight}" class="carousel-button right">
+    <div
+      bind:this="{carouselButtonRight}"
+      class="carousel-button right"
+      on:click="{scrollLeft}"
+    >
       &gt;
     </div>
   </div>
