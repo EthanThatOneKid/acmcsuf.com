@@ -58,7 +58,7 @@
     <div
       bind:this="{carouselButtonRight}"
       class="carousel-button right"
-      on:click="{scrollLeft}"
+      on:click="{scrollRight}"
     >
       &gt;
     </div>
