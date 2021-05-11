@@ -10,7 +10,7 @@
   <h1 slot="title">node<span class="brand-nodebuds">Buds</span></h1>
   <h2 slot="headline">What is node<span class="brand-nodebuds">Buds</span>?</h2>
   <p slot="text">
-    <span class="brand-bold">node<span class="brand-nodebuds">Buds</span></span>
+    <span class="brand-em">node<span class="brand-nodebuds">Buds</span></span>
     is a mentorship program that aims to help underclassmen adjust to university
     life prepare them for the tech industry. We achieve this by having upper an underclassman
     form strong connection with each other which allows them to exchange advice,
