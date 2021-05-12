@@ -2,12 +2,14 @@ import sirv from 'sirv';
 import polka from 'polka';
 import compression from 'compression';
 import * as sapper from '@sapper/server';
+import { urlShortener } from './lib/url-shortener';
 
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 
 const server = polka() // You can also use Express
 	.use(
+		urlShortener(),
 		compression({ threshold: 0 }),
 		sirv('static', { dev }),
 		sapper.middleware()
