@@ -1,4 +1,4 @@
 export const links = {
-  discord: "https://tinyurl.com/acm-csuf-discord",
-  github: "https://github.com/EthanThatOneKid/acmcsuf.com"
+  'discord': "https://discord.com/invite/Dfssdtd",
+  'github': "https://github.com/EthanThatOneKid/acmcsuf.com"
 } as const;
