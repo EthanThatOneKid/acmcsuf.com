@@ -1,5 +1,6 @@
 export const links = {
   'discord': "https://discord.com/invite/Dfssdtd",
   'github': "https://github.com/EthanThatOneKid/acmcsuf.com",
-  'youtube': "https://www.youtube.com/channel/UCDMBj0o4V8Cpt0jgsZLNVVg"
+  'youtube': "https://www.youtube.com/channel/UCDMBj0o4V8Cpt0jgsZLNVVg",
+  'instagram': "https://instagram.com/acmcsuf"
 } as const;
