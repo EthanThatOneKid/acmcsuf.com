@@ -25,7 +25,7 @@ Once an admin approves the preview site, it gets promoted to production.
 
 ---
 
-Maintained with 💖 by [**acmDev**][team_page]
+Maintained with 💖 by [**ACM CSUF Web**][team_page]
 
 [node_download]: https://nodejs.org/en/download/
 [github_action_deploy]: .github/workflows/deploy.yaml
