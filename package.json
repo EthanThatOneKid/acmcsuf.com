@@ -26,6 +26,8 @@
     "compression": "^1.7.1",
     "node-fetch": "^2.6.1",
     "polka": "next",
+    "rfs": "^9.0.6",
+    "sass": "^1.41.0",
     "sirv": "^1.0.0"
   },
   "devDependencies": {
