@@ -7,9 +7,9 @@
     alt="Social event with acmCSUF club members."
   />
   <div class="right-content">
-    <h2 class="size-xl">Why should students join?</h2>
-    <p class="size-l">
-      We help kickstart student's journeys through the tech industry by
+    <h2 class="size-l">Why should students join?</h2>
+    <p class="size-s">
+      We help kickstart student’s journies through the tech industry by
       providing workshops that enable growth of technical ability, a community
       of techies open to building personal and professional connections, and a
       mentorship program full of enthusiastic upperclassmen ready prepare

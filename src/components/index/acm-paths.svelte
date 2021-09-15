@@ -5,8 +5,8 @@
 
 <section>
   <div class="paths-intro">
-    <h2 class="headers">Get involved with our paths!</h2>
-    <p>
+    <h2 class="size-l">Get involved with our paths!</h2>
+    <p class="size-s">
       Paths were designed to empower students who want to specialize in
       something specific within the industry. By joining any of our paths,
       students will be given access to exclusive workshops and events that’ll
@@ -16,13 +16,12 @@
 
   <div class="paths-list">
     {#each acmPaths as { title, slug, picture, color } (slug)}
-      <!-- svelte-ignore a11y-missing-attribute -->
-      <a class="path-item">
+      <a class="path-item" href="{`/paths#${slug}`}">
         <img src="{picture}" alt="{`${slug}-logo`}" />
-        <p class="headers">
-          acm<span use:styleProps="{{ 'brand-color': color }}" class="brand-em"
-            >{title}</span
-          >
+        <p class="size-m brand-em">
+          acm<span class="brand-em" use:styleProps="{{ 'brand-color': color }}">
+            {title}
+          </span>
         </p>
       </a>
     {/each}
@@ -63,14 +62,17 @@
     flex-direction: column;
     margin: 0 50px 0;
     align-items: center;
+    text-decoration: none;
   }
 
   .path-item img {
     max-width: 200px;
+    transform: scale(1);
+    transition: 200ms ease-in-out;
   }
 
-  .path-item p {
-    text-decoration: none;
+  .path-item img:hover {
+    transform: scale(1.2);
   }
 
   .path-item p span {
