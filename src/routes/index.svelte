@@ -3,29 +3,23 @@
   import WhyJoin from "@/components/index/why-join.svelte";
   import AcmPaths from "@/components/index/acm-paths.svelte";
   import Spacing from "@/components/sections/spacing.svelte";
-  import CallToActionSection from "@/components/sections/call-to-action-section.svelte";
+  import ReadyUp from "@/components/index/ready-up.svelte";
 </script>
+
+<Spacing minAmount="100px" amount="175px" maxAmount="200px" />
 
 <Hero />
 
-<Spacing amount="200px" />
+<Spacing minAmount="100px" amount="175px" maxAmount="200px" />
 
 <WhyJoin />
 
-<Spacing amount="200px" />
+<Spacing minAmount="100px" amount="175px" maxAmount="200px" />
 
 <AcmPaths />
 
-<Spacing amount="200px" />
+<Spacing minAmount="100px" amount="175px" maxAmount="200px" />
 
-<CallToActionSection>
-  <h2 slot="headline">So what are you waiting for?</h2>
-  <p slot="text">
-    We invite you to become a part of our chapter consisting of
-    <b>350<span class="brand-blue">+</span> members</b>, and rising! All of our
-    coding workshops, info sessions, and community events were designed to start
-    off your tech journey on the right foot.
-  </p>
-</CallToActionSection>
+<ReadyUp />
 
-<Spacing amount="200px" />
+<Spacing minAmount="40px" amount="95px" maxAmount="120px" />

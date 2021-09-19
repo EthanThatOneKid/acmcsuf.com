@@ -1,38 +1,34 @@
 <script lang="ts">
   import AcmButton from "@/components/utils/acm-button.svelte";
+  import { links } from "../../lib/links";
 </script>
 
 <section>
-  <slot name="headline" tag="h2" />
-  <slot name="text" tag="p" />
-  <AcmButton
-    text="join us today!"
-    link="https://tinyurl.com/acm-csuf-discord/"
-  />
+  <div class="main-text">
+    <slot name="headline" tag="h2" />
+    <slot name="text" tag="p" />
+  </div>
+  <AcmButton text="join us today!" link="{links.discord}" />
 </section>
 
-<style>
+<style lang="scss">
+  @import "static/theme.scss";
+
   section {
-    margin: 0 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    margin: 0 24px;
   }
 
-  section :global(h2) {
-    text-transform: lowercase;
-    font-size: var(--subheading-font-size);
-    padding-bottom: 20px;
+  section .main-text {
+    @include font-size(36px);
+    max-width: 950px;
   }
 
   section :global(p) {
-    font-size: var(--body-font-size);
-  }
-
-  @media (min-width: 768px) {
-    section {
-      padding: 0 180px;
-    }
+    @include font-size(18px);
+    margin-top: 16px;
   }
 </style>

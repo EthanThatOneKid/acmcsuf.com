@@ -8,21 +8,21 @@ export interface AcmPath {
 export const acmAlgo: AcmPath = {
   title: "Algo",
   slug: "acmalgo",
-  picture: "./assets/png/acm-algo-badge.png",
+  picture: "./assets/badges/with-shadow/algo.svg",
   color: "var(--acm-purple)",
 };
 
 export const acmCreate: AcmPath = {
   title:"Create",
   slug:"acmcreate",
-  picture: "./assets/png/acm-create-badge.png",
+  picture: "./assets/badges/with-shadow/create.svg",
   color: "var(--acm-pink)"
 };
 
 export const acmDev: AcmPath = {
   title: "Dev",
   slug: "acmdev",
-  picture: "./assets/png/acm-dev-badge.png",
+  picture: "./assets/badges/with-shadow/dev.svg",
   color: "var(--acm-bluer)"
 };
 

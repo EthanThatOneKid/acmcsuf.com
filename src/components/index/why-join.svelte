@@ -6,70 +6,66 @@
     src="assets/png/why-join-illustration.png"
     alt="Social event with acmCSUF club members."
   />
-  <div>
-    <h2>
-      Why should students join <span class="brand-em"
-        >acm<span class="brand-blue">CSUF</span></span
-      >?
-    </h2>
-    <p>
-      <span class="brand-em">acm<span class="brand-blue">CSUF</span></span>
-      is a community that encourages growth, friendship, and technical development.
-      We prepare each other to overcome future personal, academic, and professional
-      challenges that some may face down the road. By joining
-      <span class="brand-em">acm<span class="brand-blue">CSUF</span></span>,
-      you'll be stepping into a community that will help you get started on your
-      tech journey.
+  <div class="right-content">
+    <h2 class="size-l">Why should students join?</h2>
+    <p class="size-s">
+      We help kickstart student’s journies through the tech industry by
+      providing workshops that enable growth of technical ability, a community
+      of techies open to building personal and professional connections, and a
+      mentorship program full of enthusiastic upperclassmen ready prepare
+      underclassmen for success.
     </p>
   </div>
 </section>
 
-<style>
+<style lang="scss">
+  @import "static/theme.scss";
+
   section {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 20px;
+    margin: 0 24px;
+  }
+
+  section .right-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    justify-content: center;
+    max-width: 680px;
+  }
+
+  section .right-content p {
+    padding-top: 16px;
   }
 
   section img {
-    width: 270px;
+    max-width: 350px;
+    margin-right: 120px;
+    filter: drop-shadow(0 10px 40px rgba(44, 145, 198, 0.5));
   }
 
-  section div h2 {
-    text-transform: lowercase;
-    font-weight: bold;
-    text-align: center;
-    font-size: var(--heading-font-size);
-  }
-
-  section div p {
-    text-align: center;
-    font-size: var(--body-font-size);
-  }
-
-  @media (min-width: 768px) {
+  @media (max-width: 839px) {
     section {
-      padding: 0 180px;
-    }
-  }
-
-  @media screen and (min-width: 1440px) {
-    section {
-      flex-direction: row;
+      flex-direction: column;
     }
 
     section img {
-      width: 420px;
+      margin-right: 0;
+      margin-bottom: 32px;
     }
 
-    section div h2 {
-      text-align: right;
+    section .right-content {
+      align-items: center;
+      text-align: center;
     }
+  }
 
-    section div p {
-      text-align: right;
+  @media (max-width: 559px) {
+    section img {
+      max-width: 220px;
     }
   }
 </style>

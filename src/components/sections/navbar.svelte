@@ -4,38 +4,42 @@
     { title: "about", slug: "about" },
     { title: "events", slug: "events" },
     { title: "paths", slug: "paths" },
-    { title: `node<span class="brand-red">Buds</span>`, slug: "nodebuds" },
+    {
+      title: "<span>node</span>Buds",
+      slug: "nodebuds",
+    },
     { title: "connect", slug: "connect" },
   ];
 </script>
 
 <nav>
   <input type="checkbox" id="navToggle" />
+  <div class="content">
+    <a href="/" class="full-logomark">
+      <img
+        src="assets/badges/general.svg"
+        width="48"
+        class="logo-badge"
+        alt="acmCSUF badge"
+      />
+      <span class="logo-text brand-em">CSUF</span>
+    </a>
 
-  <a href="/" class="logo">
-    <img
-      src="assets/png/acm-csuf-badge.png"
-      width="48"
-      class="logoBadge"
-      alt="ACM CSUF logo with a transparent background."
-    />
-    <span class="logoText">CSUF</span>
-  </a>
-
-  <ul class="pages">
-    {#each menuItems as { title, slug } (slug)}
-      <li>
-        <a
-          href="{`/${slug}`}"
-          class="{`page page-${slug}`}"
-          rel="prefetch"
-          aria-current="{segment === slug}"
-        >
-          {@html title}
-        </a>
-      </li>
-    {/each}
-  </ul>
+    <ul class="pages">
+      {#each menuItems as { title, slug } (slug)}
+        <li>
+          <a
+            href="{`/${slug}`}"
+            class="{`page page-${slug}`} headers"
+            rel="prefetch"
+            aria-current="{segment === slug}"
+          >
+            {@html title}
+          </a>
+        </li>
+      {/each}
+    </ul>
+  </div>
 
   <label for="navToggle" class="menu">
     <div class="menuLine"></div>
@@ -47,123 +51,123 @@
 <style>
   nav {
     position: fixed;
-    width: 100%;
+    display: flex;
     z-index: 100;
-    height: var(--navbar-height);
+    width: 100%;
+    justify-content: center;
     background-color: var(--acm-light);
-    box-shadow: 0 3px 6px rgba(33, 33, 33, 0.1);
-    overflow: visible;
+    filter: drop-shadow(0 2px 8px rgba(16, 19, 21, 0.1));
+    -webkit-filter: drop-shadow(0 2px 8px rgba(16, 19, 21, 0.1));
   }
 
-  nav .logo {
-    float: left;
-    display: flex;
-    align-items: center;
-    overflow: visible;
-    margin-left: 128px;
-    height: 100%;
-    text-decoration: none;
-  }
-
-  nav .logo .logoText {
-    padding-left: 12px;
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--acm-dark);
-    text-decoration: none;
-  }
-
+  nav .content,
+  nav .full-logomark,
   nav .pages {
-    float: right;
     display: flex;
     align-items: center;
-    margin: 0;
-    padding: 0;
-    margin-right: 128px;
-    height: 100%;
-    font-weight: 600;
+  }
+
+  nav li,
+  nav a {
     list-style: none;
+    text-decoration: none;
+  }
+
+  nav .content {
+    justify-content: space-between;
+    padding: 24px 0;
+    margin: 0 24px;
+    width: 1156px;
+  }
+
+  nav .full-logomark .logo-badge {
+    filter: drop-shadow(0 1.5px 4.5px rgba(44, 145, 198, 0.5));
+    -webkit-filter: drop-shadow(0 1.5px 4.5px rgba(44, 145, 198, 0.5));
+  }
+
+  nav .full-logomark .logo-text {
+    font-size: 24px;
+    padding-left: 8px;
   }
 
   nav .pages a {
+    font-size: 18px;
     margin-left: 64px;
-    font-size: 24px;
-    color: var(--acm-dark);
-    text-decoration: none;
+    transition: color 0.25s ease-in-out;
   }
 
-  nav .pages .page[aria-current="true"] {
-    color: #3792c1;
+  nav .page-about:hover,
+  nav .page-about[aria-current="true"],
+  nav .page-events:hover,
+  nav .page-events[aria-current="true"],
+  nav .page-paths:hover,
+  nav .page-paths[aria-current="true"],
+  nav .page-connect:hover,
+  nav .page-connect[aria-current="true"] {
+    color: var(--acm-blue);
   }
 
-  nav .pages .page-node-buds[aria-current="true"] {
+  nav .page-nodebuds {
     font-weight: 700;
-    color: #c40042;
   }
 
-  #navToggle {
+  nav .page-nodebuds:hover,
+  nav .page-nodebuds[aria-current="true"] {
+    color: var(--acm-red);
+  }
+
+  #navToggle,
+  nav .menu {
     display: none;
   }
 
   nav .menu {
-    display: none;
     position: absolute;
-    right: 64px;
+    z-index: 100;
     top: 50%;
     transform: translateY(-50%);
+    right: 18px;
     cursor: pointer;
   }
 
   nav .menu .menuLine {
-    width: 30px;
+    width: 24px;
     height: 2px;
     margin: 6px;
-    border-radius: 3px;
+    border-radius: 8px;
     background-color: var(--acm-dark);
-    transition: all 0.25s ease;
+    transition: all 0.25s ease-in-out;
   }
 
-  @media screen and (max-width: 1300px) {
-    nav .logo {
-      margin-left: 88px;
-    }
-
-    nav .pages {
-      margin-right: 88px;
-    }
-  }
-
-  @media screen and (max-width: 1100px) {
-    nav .logo {
-      margin-left: 48px;
+  @media (max-width: 839px) {
+    nav .content {
+      padding: 12px 0;
     }
 
     nav .pages {
       position: fixed;
       z-index: 90;
-      top: 82px;
-      bottom: 100%;
+      top: 0;
+      right: 0;
       width: 100vw;
-      height: auto;
+      height: 0;
       flex-direction: column;
       justify-content: space-evenly;
       overflow: hidden;
-      background-color: rgb(255, 255, 255);
-      transition: all 0.25s ease;
+      background-color: var(--acm-light);
+      transition: all 0.25s ease-in-out;
     }
 
     nav .pages a {
       margin: 0;
-      font-size: 24px;
     }
 
     nav .menu {
       display: block;
-      right: 48px;
     }
 
-    nav :checked ~ .pages {
-      bottom: 0;
+    nav :checked ~ .content .pages {
+      height: 100vh;
     }
 
     nav :checked ~ .menu .menuLine:nth-child(1) {
@@ -176,16 +180,6 @@
 
     nav :checked ~ .menu .menuLine:nth-child(3) {
       transform: translateY(-8px) rotate(-45deg);
-    }
-  }
-
-  @media screen and (max-width: 800px) {
-    nav .logo {
-      margin-left: 48px;
-    }
-
-    nav .menu {
-      right: 48px;
     }
   }
 </style>

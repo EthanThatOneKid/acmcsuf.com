@@ -1,0 +1,7 @@
+@import "../node_modules/rfs/scss";
+
+.size-xs { @include font-size(16px); }
+.size-s { @include font-size(18px); }
+.size-m { @include font-size(24px); }
+.size-l { @include font-size(36px); }
+.size-xl { @include font-size(48px); }
