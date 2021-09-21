@@ -4,4 +4,5 @@ export const links = {
   'instagram': "https://instagram.com/acmcsuf",
   'discord': "https://tinyurl.com/acm-csuf-discord/", // Fallback:
                                                       // <https://discord.com/invite/Dfssdtd>
+  'nbapp': "https://docs.google.com/forms/d/e/1FAIpQLSftpwDGyth2m9D7-_OpihrxoeqVyaRqhZp5edetWcg9KKsnYQ/viewform",
 } as const;
