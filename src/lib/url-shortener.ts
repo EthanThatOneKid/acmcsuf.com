@@ -1,7 +1,7 @@
 import { links } from "./links";
 
 export const urlShortener = () => (req, res, next) => {
-  const slug = req.path.slice(1);
+  const slug = req.path.replace(/^\/+|\/+$/g, "");
   if (links.hasOwnProperty(slug)) {
     const url = links[slug],
       message = `Redirecting to ${url}...`;
