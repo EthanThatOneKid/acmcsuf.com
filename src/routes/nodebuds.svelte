@@ -1,65 +1,124 @@
 <script lang="ts">
-  import WhyJoinNodebuds from "@/components/nodebuds/why-join-nodebuds.svelte";
   import Spacing from "@/components/sections/spacing.svelte";
-  import CommonHero from "@/components/sections/common-hero.svelte";
   import NodeBudsTestimonial from "@/components/nodebuds/nodebuds-testimonial.svelte";
-  import CallToActionSection from "@/components/sections/call-to-action-section.svelte";
+  import OfficerProfileList from "@/components/about/officer-profile-list.svelte";
+  import { OFFICERS } from "../lib/officers";
+
+  const allNodeBuddies = OFFICERS.filter(({ positions }) =>
+    Object.values(positions).some((position) =>
+      position.toUpperCase().includes("NODEBUDS")
+    )
+  );
 </script>
 
-<CommonHero src="../assets/png/node-buds-badge.png" alt="CSUF NodeBuds Logo">
-  <h1 slot="title">node<span class="brand-nodebuds">Buds</span></h1>
-  <h2 slot="headline">What is node<span class="brand-nodebuds">Buds</span>?</h2>
-  <p slot="text">
-    <span class="brand-em">node<span class="brand-nodebuds">Buds</span></span>
-    is a mentorship program that aims to help underclassmen adjust to university
-    life prepare them for the tech industry. We achieve this by having upper an underclassman
-    form strong connection with each other which allows them to exchange advice,
-    skills, and more.
+<Spacing minAmount="100px" amount="175px" maxAmount="200px" />
+
+<div class="container">
+  <section>
+    <div>
+      <h2 class="headers size-l">Personalized mentorship</h2>
+      <p class="size-s">
+        <span class="headers">
+          Node<span class="brand-em brand-red">Buds</span>
+        </span>
+        is our exclusive program where underclassmen get paired with mentors, called
+        <span class="mid">Buddies</span>, who will assist them with adjusting to
+        university life while simultaneously preparing them for their personal
+        journeys in tech.
+        <br /><br />
+        Our program exposes underclassmen to various opportunities that encourage
+        connection, skill building, as well as both personal and technical development.
+      </p>
+    </div>
+    <img src="assets/badges/nodebuds.svg" alt="nodeBuds badge" />
+  </section>
+</div>
+
+<Spacing minAmount="100px" amount="175px" maxAmount="200px" />
+
+<NodeBudsTestimonial>
+  <!-- <p slot="content1">
+    "Great way to get ahold of how you can move forward in your computer science
+    journey!"
+    <Spacing amount="8px" />
+    <span class="mid">Johnson Tong, Fall 2020</span>
+  </p> -->
+
+  <p slot="content2">
+    "Great way to get a hold of how you can move forward in your computer
+    science journey!"
+    <Spacing amount="8px" />
+    <span class="mid">Johnson Tong, Fall 2020</span>
   </p>
-</CommonHero>
 
-<Spacing />
-
-<WhyJoinNodebuds />
-
-<Spacing />
-
-<NodeBudsTestimonial
-  src="../assets/png/node-buds-testimonial-illustration.png"
-  alt="Mentory Samuel Sandoval and trainee Johnson Tong"
->
-  <span slot="semester">fall <span class="brand-nodebuds">2020</span></span>
-  <p slot="content">
-    <span class="brand-em">node<span class="brand-nodebuds">Buds</span></span>
-    is a great way to get ahold of how you can move forward in your computer science
-    journey! If you feel lost, or don’t have much idea of what to do,
-    <span class="brand-em">node<span class="brand-nodebuds">Buds</span></span>
-    is a great way to learn and gain insight from a mentor who has more experience,
-    and is further along than you are.
-    <br />
-    <span class="brand-em">By Johnson Tong</span>
-  </p>
+  <!-- <p slot="content3">
+    "Great way to get ahold of how you can move forward in your computer science
+    journey!"
+    <Spacing amount="8px" />
+    <span class="mid"> Johnson Tong, Fall 2020 </span>
+  </p> -->
 </NodeBudsTestimonial>
 
-<Spacing />
+<Spacing minAmount="100px" amount="175px" maxAmount="200px" />
 
-<CallToActionSection>
-  <h2 slot="headline">How can I get involved?</h2>
-  <p slot="text">
-    Currently, applications are closed to join the program. Follow us on social
-    media to know when they open up! Until then, we invite you to become a part
-    of
-    <span class="brand-em"
-      >the largest tech community at <span class="brand-blue">CSUF</span></span
-    >.
-  </p>
-</CallToActionSection>
+<div class="container">
+  <h2>Buddies</h2>
+</div>
 
-<Spacing />
+<Spacing amount="16px" />
 
-<style>
-  .brand-nodebuds {
-    color: var(--acm-red);
-    text-transform: none;
+<OfficerProfileList
+  officers="{allNodeBuddies}"
+  placeholderPicture="nodebuds-placeholder.svg"
+/>
+
+<Spacing minAmount="40px" amount="95px" maxAmount="120px" />
+
+<style lang="scss">
+  @import "static/theme.scss";
+
+  .container {
+    display: flex;
+    justify-content: center;
+    margin: 0 32px;
+  }
+
+  section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1064px;
+  }
+
+  section img {
+    margin-right: -32px;
+    width: 350px;
+    filter: drop-shadow(0 10px 40px rgba(212, 17, 83, 0.5));
+    -webkit-filter: drop-shadow(0 10px 40px rgba(212, 17, 83, 0.5));
+  }
+
+  section div {
+    max-width: 520px;
+  }
+
+  section h2 {
+    padding-bottom: 16px;
+  }
+
+  @media (max-width: 839px) {
+    section {
+      flex-direction: column-reverse;
+      text-align: center;
+    }
+
+    section img {
+      margin: 0;
+      width: 175px;
+      padding-bottom: 32px;
+    }
+
+    .mid {
+      margin-bottom: 32px;
+    }
   }
 </style>

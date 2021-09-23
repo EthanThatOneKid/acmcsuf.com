@@ -1,3 +1,5 @@
+import { links } from "./links";
+
 const acmLocale = "en-us";
 
 interface IcalOutput {
@@ -68,6 +70,8 @@ export interface AcmEvent {
   time: string;
   location: string;
   summary: string;
+  description: string;
+  meetingLink: string;
   isHappening: boolean;
   slug: string;
 }
@@ -91,16 +95,31 @@ const slugifyEvent = (summary: string, month: string, day: number): string => {
   return slug;
 };
 
+const parseDescription = (content: string): Record<string, string> => {
+  const result = {};
+  for (const line of content.split("\n")) {
+    const [key, value] = line.split("=");
+    result[key.trim()] = value;
+  }
+  return result;
+};
+
 export const parseIcalData = (icalData: string): AcmEvent[] => {
   const now = Date.now();
   const output = convert(icalData);
   const events = output["VCALENDAR"][0]["VEVENT"]
     .reduce((collection: AcmEvent[], event: any) => {
-      const summary = event["SUMMARY"];
-      const location = event["LOCATION"];
       if (event["DTSTART"] === undefined || event["DTEND"] === undefined) {
         return collection;
       }
+      const summary = String(event["SUMMARY"]);
+      const description = String(event["DESCRIPTION"]);
+      const parsedDescription = parseDescription(description);
+      const rawLocation = String(event["LOCATION"]);
+      const isZoomMeeting = rawLocation.startsWith("https://fullerton.zoom.us");
+      const meetingLink = isZoomMeeting ? rawLocation : links.discord;
+      const customLocationName = parsedDescription["ACM_LOCATION"];
+      const location = isZoomMeeting ? "Zoom" : (customLocationName ?? rawLocation);
       const date = convertIcalDateTime(event["DTSTART"]);
       const endDate = convertIcalDateTime(event["DTEND"]);
       const month = date.toLocaleString(acmLocale, { month: "long" });
@@ -108,10 +127,10 @@ export const parseIcalData = (icalData: string): AcmEvent[] => {
       const time = date.toLocaleTimeString(acmLocale, { hour: "numeric", minute: "numeric" });
       const isHappening = now >= date.valueOf() && now < endDate.valueOf();
       const slug = slugifyEvent(summary, month, day);
-      collection.push({ month, day, time, location, summary, date, endDate, isHappening, slug });
+      collection.push({ month, day, time, location, summary, description, meetingLink, date, endDate, isHappening, slug });
       return collection;
     }, [])
-    .filter(({ endDate }) => endDate.valueOf() > now) // Comment out this filter statement to show a longer list of events for testing purposes.
+    .filter(({ endDate }) => endDate.valueOf() + (1e3 * 60 * 60 * 12) > now) // Comment out this filter statement to show a longer list of events for testing purposes.
     .sort(({ date: date1 }, { date: date2 }) => date1.valueOf() > date2.valueOf() ? 1 : -1);
   return events;
 };

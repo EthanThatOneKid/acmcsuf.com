@@ -5,7 +5,7 @@
     { title: "events", slug: "events" },
     { title: "paths", slug: "paths" },
     {
-      title: "<span>node</span>Buds",
+      title: '<span class="headers">node</span>Buds',
       slug: "nodebuds",
     },
     { title: "connect", slug: "connect" },

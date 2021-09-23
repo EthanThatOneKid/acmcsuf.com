@@ -4,7 +4,6 @@
   import CommonHero from "@/components/sections/common-hero.svelte";
   import Spacing from "@/components/sections/spacing.svelte";
   import EventCarousel from "@/components/events/event-carousel.svelte";
-  import CallToActionSection from "@/components/sections/call-to-action-section.svelte";
   import AcmEmpty from "@/components/utils/acm-empty.svelte";
 
   let events: AcmEvent[] = [];
@@ -21,22 +20,27 @@
   });
 </script>
 
-<CommonHero src="../assets/png/acm-csuf-badge.png" alt="acm-CSUF-Logo">
-  <h1 slot="title">Events</h1>
-  <h2 slot="headline">All you need to know!</h2>
-  <p slot="text">
-    Events listed below are either hosted by <span class="brand-em"
-      >acm<span class="brand-blue">CSUF</span></span
-    >, <span class="brand-em">acm<span class="brand-purple">Algo</span></span>,
-    <span class="brand-em">acm<span class="brand-pink">Create</span></span>,
-    <span class="brand-em">acm<span class="brand-bluer">Dev</span></span>, or in
-    collaboration with other organizations. Unless specified, everyone is free
-    to join any of our events! It doesn't matter what major you are; as long as
-    you have an interest in tech, you're absolutely welcome to join us!
+<Spacing minAmount="100px" amount="175px" maxAmount="200px" />
+
+<CommonHero>
+  <h2 slot="headline" class="size-l">Curated events for growth and success</h2>
+  <p slot="text" class="size-s">
+    Our student chapter hosts a multitude of events throughout each school
+    semester, consisting of workshops, info sessions, community building events,
+    and much more!
+    <br /><br />
+    <span class="mid"
+      >Events are open to anyone interested, regardless of major or background
+      experience.</span
+    >
   </p>
 </CommonHero>
 
-<Spacing />
+<Spacing minAmount="100px" amount="125px" maxAmount="125px" />
+
+<h2 class="size-l">This week's events 📅</h2>
+
+<Spacing amount="16px" />
 
 {#if events.length > 0}
   <EventCarousel events="{events}" />
@@ -46,22 +50,23 @@
       {#if isLoading}
         Loading…
       {:else}
-        There are currently no events scheduled.
+        There are no events scheduled!
       {/if}
     </p>
   </AcmEmpty>
 {/if}
 
-<Spacing />
+<Spacing minAmount="8px" amount="63px" maxAmount="88px" />
 
-<CallToActionSection>
-  <h2 slot="headline">So what are you waiting for?</h2>
-  <p slot="text">
-    We invite you to become a part of our chapter consisting of
-    <b>350<span class="brand-blue">+</span> members</b>, and rising! All of our
-    coding workshops, info sessions, and community events were designed to start
-    off your tech journey on the right foot.
-  </p>
-</CallToActionSection>
+<style lang="scss">
+  @import "static/theme.scss";
 
-<Spacing amount="175px" />
+  h2 {
+    display: flex;
+    justify-content: center;
+  }
+
+  p {
+    text-align: center;
+  }
+</style>

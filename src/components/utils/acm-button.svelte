@@ -3,11 +3,15 @@
   export let text: string = "Submit";
 </script>
 
-<a class="call-to-action size-m" href="{link}">{text}</a>
+<a
+  class="call-to-action headers"
+  href="{link}"
+  target="_blank"
+  rel="noopener norefferer">{text}</a
+>
 
 <style lang="scss">
   @import "static/theme.scss";
-
   .call-to-action {
     display: block;
     text-align: center;
@@ -21,7 +25,6 @@
     color: var(--acm-light);
     transition: background-color 0.25s ease-in-out;
   }
-
   .call-to-action:hover {
     background-color: var(--acm-blue);
   }

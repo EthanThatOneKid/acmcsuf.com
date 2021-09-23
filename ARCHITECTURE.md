@@ -27,7 +27,7 @@ This page is rendered when there are any errors on any page of the website.
 If a page on our site cannot render properly due to an error, our site will render this page instead in order to provide the user with any information about the error.
 This page should be happy since errors are normally frustrating for users.
 
-> In addition to regular pages, there is a 'special' page that Sapper expects to find — src/routes/_error.svelte. This will be shown when an error occurs while rendering a page.
+> In addition to regular pages, there is a 'special' page that Sapper expects to find — src/routes/\_error.svelte. This will be shown when an error occurs while rendering a page.
 
 Read more about how error pages are used in the [Sapper documentation](https://sapper.svelte.dev/docs#Error_page).
 

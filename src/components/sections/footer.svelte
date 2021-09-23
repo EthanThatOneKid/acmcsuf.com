@@ -4,56 +4,65 @@
 </script>
 
 <footer>
-  <span class="year">&copy; 2021</span>
-  <img
-    src="assets/png/acm-csuf-badge.png"
-    alt="acmCSUF logo"
-    width="48"
-    class="acm-logo"
-  />
-  <span class="brand-em">CSUF</span>
-  <a class="repo-link" href="{links.github}">
-    <GitHubIcon />
-  </a>
+  <div class="content">
+    <p class="brand-light" style="font-weight: 500">
+      &copy; 2021
+      <span class="headers brand-light">
+        acm<span class="brand-em brand-light">CSUF</span>
+      </span>
+    </p>
+
+    <a
+      href="{links.github}"
+      class="github"
+      target="_blank"
+      rel="noopener norefferer"
+    >
+      <GitHubIcon />
+    </a>
+  </div>
 </footer>
 
-<style>
+<style lang="scss">
+  @import "static/theme.scss";
   footer {
-    background-color: var(--acm-dark);
     display: flex;
-    flex-direction: row;
     justify-content: center;
+    width: 100%;
+    background-color: var(--acm-dark);
+  }
+  footer .content,
+  footer .github {
+    display: flex;
     align-items: center;
-    height: 112px;
-    font-size: 24px;
   }
-
-  footer .acm-logo {
-    filter: drop-shadow(0 5px 5px rgba(55, 146, 193, 0.5));
+  footer .content {
+    justify-content: space-between;
+    padding: 24px 0;
+    margin: 0 24px;
+    width: 1156px;
   }
-
-  footer .year {
-    color: var(--acm-light);
-    margin-right: 12px;
+  footer p {
+    font-size: 18px;
   }
-
-  footer .brand-em {
-    color: var(--acm-light);
-    margin-left: 12px;
+  footer .github :global(svg) {
+    height: 32px;
+    width: 32px;
   }
-
-  footer .repo-link {
-    position: absolute;
-    right: 2em;
+  footer .github :global(path) {
+    fill: var(--acm-light);
+    transition: fill 0.25s ease-in-out;
   }
-
-  footer .repo-link :global(svg):hover {
-    filter: drop-shadow(0 10px 10px rgba(55, 146, 193, 0.5));
+  footer .github:hover :global(path) {
+    fill: var(--acm-blue);
   }
-
-  @media screen and (max-width: 768px) {
-    footer .repo-link :global(svg) {
-      display: none;
+  @media (max-width: 839px) {
+    footer .github :global(svg) {
+      height: 24px;
+      width: 24px;
+    }
+    footer .content {
+      padding: 12px 0;
     }
   }
 </style>

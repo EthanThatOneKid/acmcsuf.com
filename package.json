@@ -54,6 +54,7 @@
     "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-svelte3": "^3.1.1",
     "prettier": "^2.2.1",
+    "prettier-plugin-svelte": "^2.4.0",
     "rollup": "^2.3.4",
     "rollup-plugin-glob": "^1.0.2",
     "rollup-plugin-svelte": "^7.0.0",
