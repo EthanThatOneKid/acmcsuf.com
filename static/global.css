@@ -8,10 +8,14 @@ html, body {
 html,
 body,
 #sapper {
-  color: #212121;
+  color: #101315;
   font-family: "Poppins", sans-serif;
   padding: 0;
   margin: 0;
+}
+
+body {
+  background: #F8F8F8;
 }
 
 .info-screen {
@@ -20,13 +24,13 @@ body,
 }
 
 :root {
-  --acm-blue: #3792c1;
-  --acm-bluer: #1e6cff;
-  --acm-pink: #ff5969;
-  --acm-purple: #5f52d1;
-  --acm-red: #c40042;
-  --acm-dark: #212121;
-  --acm-light: #ffffff;
+  --acm-blue: #2C91C6;
+  --acm-bluer: #1E6CFF;
+  --acm-pink: #FF4365;
+  --acm-purple: #9D35E7;
+  --acm-red: #D41153;
+  --acm-dark: #101315;
+  --acm-light: #F8F8F8;
 
   --desktop-breakpoint: 768px;
   --navbar-height: 82px;
@@ -66,6 +70,10 @@ body,
   /* `em` is short for "emphasis" */
   font-weight: 700;
   text-transform: none;
+}
+
+.brand-alert {
+  color: var(--acm-light);
 }
 
 .headers {

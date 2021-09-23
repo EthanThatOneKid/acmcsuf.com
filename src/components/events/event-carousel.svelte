@@ -4,34 +4,33 @@
 
   export let events: AcmEvent[] = [];
 
-  const scrollIncrementDistance = 250;
+  const scrollIncrementDistance = 335;
   let carouselRef: HTMLDivElement;
   let carouselButtonLeft: HTMLDivElement;
   let carouselButtonRight: HTMLDivElement;
   let isGrabbing = false;
 
   const scrollTheCarousel = (
-      movementScalar: number,
-      isSmooth: boolean = false
-    ) =>
-      carouselRef.scrollBy({
-        left: -movementScalar,
-        behavior: isSmooth ? "smooth" : "auto",
-      }),
-    scrollOnMouseMove = (event: MouseEvent) =>
-      isGrabbing && scrollTheCarousel(event.movementX),
-    startGrabbing = () => (isGrabbing = true),
-    endGrabbing = () => (isGrabbing = false),
-    scrollLeft = () => scrollTheCarousel(scrollIncrementDistance, true),
-    scrollRight = () => scrollTheCarousel(-scrollIncrementDistance, true),
-    scrollHorizontally = (event: WheelEvent) => {
-      event.preventDefault();
-      scrollTheCarousel(-event.deltaY);
-    };
+    movementScalar: number,
+    isSmooth: boolean = false
+  ) =>
+    carouselRef.scrollBy({
+      left: -movementScalar,
+      behavior: isSmooth ? "smooth" : "auto",
+    });
+  const scrollOnMouseMove = (event: MouseEvent) =>
+    isGrabbing && scrollTheCarousel(event.movementX);
+  const startGrabbing = () => (isGrabbing = true);
+  const endGrabbing = () => (isGrabbing = false);
+  const scrollLeft = () => scrollTheCarousel(scrollIncrementDistance, true);
+  const scrollRight = () => scrollTheCarousel(-scrollIncrementDistance, true);
+  const scrollHorizontally = (event: WheelEvent) => {
+    event.preventDefault();
+    scrollTheCarousel(-event.deltaY);
+  };
 </script>
 
 <section>
-  <h2>Upcoming events</h2>
   <div class="event-carousel-container">
     <div
       bind:this="{carouselButtonLeft}"
@@ -47,6 +46,7 @@
       on:mousemove="{scrollOnMouseMove}"
       on:mousedown="{startGrabbing}"
       on:mouseup="{endGrabbing}"
+      on:mouseleave="{endGrabbing}"
       on:wheel="{scrollHorizontally}"
     >
       <div class="event-item-buffer"></div>
@@ -67,13 +67,9 @@
 
 <style>
   section {
-    margin: 0;
-  }
-
-  section h2 {
-    text-transform: lowercase;
-    font-size: var(--subheading-font-size);
-    margin: 0 150px 40px;
+    display: flex;
+    justify-content: center;
+    margin-left: 0px;
   }
 
   section .grabbing {
@@ -82,9 +78,9 @@
 
   section .event-list {
     display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    padding-bottom: 32px;
+    overflow-x: hidden;
+    margin-left: -75px;
+    padding: 0 96px;
     cursor: grab;
     -ms-overflow-style: none; /* Hide scrollbar IE and Edge */
     scrollbar-width: none; /* Hide scrollbar Firefox */
@@ -95,14 +91,10 @@
     display: none;
   }
 
-  .event-item-buffer {
-    min-width: 175px;
-  }
-
   .event-carousel-container {
     position: relative;
     display: flex;
-    flex-direction: row;
+    width: 1168px;
   }
 
   .event-carousel-container::after,
@@ -112,34 +104,36 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    min-width: 175px;
+    width: 170px;
   }
 
   .event-carousel-container::after {
     right: 0;
-    background: linear-gradient(to right, transparent 0%, var(--acm-light) 25%);
+    margin-right: -115px;
+    background: linear-gradient(to right, transparent 0%, var(--acm-light) 20%);
   }
 
   .event-carousel-container::before {
     left: 0;
-    background: linear-gradient(to left, transparent 0%, var(--acm-light) 25%);
+    margin-left: -115px;
+    background: linear-gradient(to left, transparent 0%, var(--acm-light) 20%);
   }
 
   .carousel-button {
     z-index: 20;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: white;
-    box-shadow: 0px 6px 9px rgba(33, 33, 33, 0.2);
-    min-width: 50px;
-    min-height: 50px;
+    background-color: var(--acm-light);
+    color: var(--acm-dar);
+    box-shadow: 0 3px 12px rgba(16, 19, 21, 0.2);
+    width: 50px;
+    height: 50px;
     border-radius: 50px;
     position: absolute;
     font-size: var(--subheading-font-size);
-    top: 40%;
-
+    top: 43%;
+    transition: all 0.25s ease-in-out;
     /* Diable user select */
     -moz-user-select: none;
     -khtml-user-select: none;
@@ -150,43 +144,48 @@
 
   .carousel-button:hover {
     cursor: pointer;
-    box-shadow: 0px 6px 9px rgba(55, 146, 193, 0.5);
+    background-color: var(--acm-blue);
+    color: var(--acm-light);
+    box-shadow: 0 3px 12px rgba(44, 145, 198, 0.5);
   }
 
   .carousel-button.left {
-    left: 100px;
+    left: 0;
   }
 
   .carousel-button.right {
-    right: 100px;
+    right: 0;
   }
 
-  @media screen and (max-width: 768px) {
-    section h2 {
-      text-align: center;
+  @media (max-width: 1024px) {
+    .event-carousel-container {
+      width: 980px;
     }
+  }
 
-    .event-item-buffer {
-      width: 20px;
-      min-width: unset;
+  @media (max-width: 839px) {
+    .event-carousel-container {
+      width: 435px;
     }
+  }
 
-    .event-carousel-container::after,
-    .event-carousel-container::before {
-      width: 20px;
-      min-width: unset;
-    }
-
-    .carousel-button {
-      display: none;
-    }
-
+  @media (max-width: 480px) {
     .carousel-button.left {
       left: 50px;
     }
 
     .carousel-button.right {
       right: 50px;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .carousel-button.left {
+      left: 70px;
+    }
+
+    .carousel-button.right {
+      right: 70px;
     }
   }
 </style>

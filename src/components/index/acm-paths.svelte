@@ -5,8 +5,8 @@
 
 <section>
   <div class="paths-intro">
-    <h2 class="size-l">Get involved with our paths!</h2>
-    <p class="size-s">
+    <h2 class="headers size-l">Get involved with our paths!</h2>
+    <p class="size-xs">
       Paths were designed to empower students who want to specialize in
       something specific within the industry. By joining any of our paths,
       students will be given access to exclusive workshops and events that’ll
@@ -18,7 +18,7 @@
     {#each acmPaths as { title, slug, picture, color } (slug)}
       <a class="path-item" href="{`/paths#${slug}`}">
         <img src="{picture}" alt="{`${slug}-logo`}" />
-        <p class="size-m brand-em">
+        <p class="size-m headers">
           acm<span class="brand-em" use:styleProps="{{ 'brand-color': color }}">
             {title}
           </span>
@@ -68,11 +68,11 @@
   .path-item img {
     max-width: 200px;
     transform: scale(1);
-    transition: 200ms ease-in-out;
+    transition: .25s ease-in-out;
   }
 
   .path-item img:hover {
-    transform: scale(1.2);
+    transform: scale(1.15);
   }
 
   .path-item p span {

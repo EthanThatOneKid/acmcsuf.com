@@ -11,87 +11,86 @@
   export let info: AcmPath | undefined;
 </script>
 
-{#if info !== undefined}
-  <section id="{info.slug}" class:👈="{textAlign === TextAlignment.Left}">
-    <img src="{info.picture}" alt="{`acm${info.title} Logo`}" />
-    <div>
-      <h2>
-        <span class="brand-em">
-          acm<span use:styleProps="{{ 'font-color': info.color }}">
-            {info.title}
+<div class="container">
+  {#if info !== undefined}
+    <section id="{info.slug}" class:👈="{textAlign === TextAlignment.Left}">
+      <img src="{info.picture}" alt="{`acm${info.title} Logo`}" />
+      <div>
+        <h2>
+          <span class="headers size-l">
+            acm<span use:styleProps="{{ 'font-color': info.color }}">
+              <span class="brand-em">{info.title}</span>
+            </span>
           </span>
-        </span>
-      </h2>
-      <slot name="content" tag="p" />
-    </div>
-  </section>
-{/if}
+        </h2>
+        <slot name="content" tag="p" />
+      </div>
+    </section>
+  {/if}
+</div>
 
-<style>
+<style lang="scss">
+  @import "static/theme.scss";
+
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+
   section {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-
-    /* The next two lines leave space above the anchored element. */
-    padding-top: calc(1.5 * var(--navbar-height));
-    margin-top: calc(-1.5 * var(--navbar-height));
-  }
-
-  section img {
-    margin-bottom: 32px;
-    width: 200px;
-    height: 200px;
-  }
-
-  section div {
-    display: flex;
-    flex-direction: column;
+    width: 1064px;
     margin: 0 32px;
   }
 
-  section div h2 {
-    font-size: var(--heading-font-size);
-    text-align: right;
+  section img {
+    margin-left: -32px;
+    width: 350px;
   }
 
-  /* Class `.👈` represents `<PathSection textAlign="left" />` */
-  .👈 div h2 {
-    text-align: left;
+  section div {
+    text-align: right;
+    max-width: 650px;
+  }
+
+  section div h2 {
+    padding-bottom: 16px;
   }
 
   section div h2 span span {
     color: var(--font-color);
   }
 
-  section div :global(p) {
-    font-size: var(--body-font-size);
-    text-indent: 32px;
-    text-align: right;
+  /* Left */
+  .👈 {
+    flex-direction: row-reverse;
   }
 
-  .👈 div :global(p) {
+  .👈 div {
     text-align: left;
   }
 
-  @media screen and (min-width: 768px) {
-    section {
-      flex-direction: row;
-      margin: 0 32px;
-    }
+  .👈 img {
+    margin-right: -32px;
+  }
 
+  @media (max-width: 839px) {
+    section,
     .👈 {
-      flex-direction: row-reverse;
+      flex-direction: column;
     }
 
-    section img {
-      width: 316px;
-      height: 316px;
+    section div,
+    .👈 div {
+      text-align: center;
     }
 
-    section div {
-      max-width: 720px;
+    section img,
+    .👈 img {
+      margin: 0;
+      width: 200px;
     }
   }
 </style>

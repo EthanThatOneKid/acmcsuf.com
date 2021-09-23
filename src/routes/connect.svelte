@@ -1,44 +1,35 @@
 <script lang="ts">
   import CommonHero from "@/components/sections/common-hero.svelte";
   import Spacing from "@/components/sections/spacing.svelte";
-  import SocialMediaLinks from "@/components/sections/social-media-links.svelte";
-  import GetInTouchForm from "@/components/sections/get-in-touch-form.svelte";
-  import CallToActionSection from "@/components/sections/call-to-action-section.svelte";
+  import SocialMediaLinks from "@/components/connect/social-media-links.svelte";
+  import GetInTouchForm from "@/components/connect/get-in-touch-form.svelte";
 
   const googleFormId =
     "1FAIpQLSfJanOAaL2mdjpf193tFeCClBzpW_COEO_crAE8hqsJCB_Rwg";
 </script>
 
-<CommonHero src="../assets/png/acm-csuf-badge.png" alt="acm-CSUF-Logo">
-  <h1 slot="title">Connect</h1>
-  <h2 slot="headline">Follow us!</h2>
-  <p slot="text">
-    The best way to keep up with what's going on in the world of
-    <span class="brand-em">acm<span class="brand-blue">CSUF</span></span>
-    is by following us on our social media, and by joining our Discord server! The
-    accounts listed below are our only public profiles.
+<Spacing minAmount="100px" amount="175px" maxAmount="200px" />
+
+<CommonHero>
+  <h2 slot="headline" class="size-l">Connect with us!</h2>
+  <p slot="text" class="size-s">
+    The best way to stay up to date with us is by following all of our social
+    platforms, and by joining our Discord server. We post announcements,
+    exclusive content, and more, so there’s never a chance to miss out on what’s
+    going on.
   </p>
 </CommonHero>
 
-<Spacing />
+<Spacing amount="64px" />
 
 <SocialMediaLinks />
 
-<Spacing />
+<Spacing minAmount="100px" amount="175px" maxAmount="200px" />
 
 <GetInTouchForm googleFormId="{googleFormId}" />
 
-<Spacing />
+<Spacing minAmount="40px" amount="95px" maxAmount="120px" />
 
-<CallToActionSection>
-  <h2 slot="headline">So what are you waiting for?</h2>
-  <p slot="text">
-    We are excited to take your messages and ideas into consideration! <span
-      class="brand-em">acm<span class="brand-blue">CSUF</span></span
-    >
-    is here to support you, as
-    <span class="brand-em">the largest tech community</span> on campus.
-  </p>
-</CallToActionSection>
-
-<Spacing amount="175px" />
+<style lang="scss">
+  @import "static/theme.scss";
+</style>
