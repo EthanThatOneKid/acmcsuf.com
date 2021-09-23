@@ -12,7 +12,7 @@ import config from "sapper/config/rollup.js";
 import markdown from "@jackfranklin/rollup-plugin-markdown";
 import glob from "rollup-plugin-glob";
 import alias from "@rollup/plugin-alias";
-import json from '@rollup/plugin-json';
+import json from "@rollup/plugin-json";
 import pkg from "./package.json";
 
 const mode = process.env.NODE_ENV;

@@ -10,10 +10,7 @@
       <span class="brand-em brand-blue">CSUF</span>
     </div>
 
-    <AcmButton
-      text="Join us today!"
-      link="{links.discord}"
-    />
+    <AcmButton text="Join us today!" link="{links.discord}" />
   </div>
 
   <img

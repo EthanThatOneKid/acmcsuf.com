@@ -1,13 +1,6 @@
-<script lang="ts">
-</script>
-
 <section>
   <img class="main" src="assets/about-illustration.svg" alt="acmCSUF badges" />
-  <img
-    class="mobile"
-    src="assets/new_assets/badges/general-badge.svg"
-    alt="acmCSUF badge"
-  />
+  <img class="mobile" src="assets/badges/general.svg" alt="acmCSUF badge" />
 </section>
 
 <style>

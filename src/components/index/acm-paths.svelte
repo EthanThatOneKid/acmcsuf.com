@@ -68,7 +68,7 @@
   .path-item img {
     max-width: 200px;
     transform: scale(1);
-    transition: .25s ease-in-out;
+    transition: 0.25s ease-in-out;
   }
 
   .path-item img:hover {

@@ -52,7 +52,9 @@ This means that the stylesheet accommodates for mobile dimensions by default.
 So, to update the styling for desktop sizes, overwrite your styles inside the following media query:
 
 ```css
-@media screen and (min-width: 768px) { /* styles here */ }
+@media screen and (min-width: 768px) {
+  /* styles here */
+}
 ```
 
 Notice that the value `768px` is constant.
