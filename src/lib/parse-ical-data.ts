@@ -99,7 +99,7 @@ const parseDescription = (content: string): Record<string, string> => {
   const result = {};
   for (const line of content.split("\n")) {
     const [key, value] = line.split("=");
-    result[key] = value;
+    result[key.trim()] = value;
   }
   return result;
 };
@@ -118,7 +118,7 @@ export const parseIcalData = (icalData: string): AcmEvent[] => {
       const rawLocation = String(event["LOCATION"]);
       const isZoomMeeting = rawLocation.startsWith("https://fullerton.zoom.us");
       const meetingLink = isZoomMeeting ? rawLocation : links.discord;
-      const customLocationName =  parseDescription["ACM_LOCATION"];
+      const customLocationName = parsedDescription["ACM_LOCATION"];
       const location = isZoomMeeting ? "Zoom" : (customLocationName ?? rawLocation);
       const date = convertIcalDateTime(event["DTSTART"]);
       const endDate = convertIcalDateTime(event["DTEND"]);
