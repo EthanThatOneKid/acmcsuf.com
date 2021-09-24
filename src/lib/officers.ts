@@ -10,9 +10,8 @@ export const TERM_SPRING_21 = "S21";
 export const TERM_FALL_21 = "F21";
 
 export const TERMS = [
-  // TERM_FALL_20,
-  TERM_SPRING_21,
   TERM_FALL_21,
+  TERM_SPRING_21,
 ];
 
 export const OFFICERS: Officer[] = [
@@ -30,24 +29,24 @@ export const OFFICERS: Officer[] = [
     picture: "aaron-lieberman.png",
   },
   {
-    name: "Karnikka Velumani",
+    name: "Karnikaa Velumani",
     positions: { [TERM_FALL_21]: "Vice President" },
-    picture: "karnikka-velumani.png",
+    picture: "karnikaa-velumani.png",
   },
   {
     name: "Samuel Sandoval",
-    positions: { [TERM_SPRING_21]: "Vice President, Dev Director 🧠" },
+    positions: { [TERM_SPRING_21]: "Vice President, Dev Director" },
     picture: "samuel-sandoval.png",
   },
   {
     name: "Ethan Davidson",
     positions: {
       [TERM_FALL_20]: "Competition Manager",
-      [TERM_SPRING_21]: "Webmaster 😎",
-      [TERM_FALL_21]: "Webmaster 🙈",
+      [TERM_SPRING_21]: "Webmaster",
+      [TERM_FALL_21]: "Webmaster",
     },
     picture: "ethan-davidson.png",
-    url: "https://github.com/EthanThatOneKid/",
+    //url: "https://github.com/EthanThatOneKid/",
   },
   {
     name: "Andrew Lau",
@@ -113,6 +112,14 @@ export const OFFICERS: Officer[] = [
     picture: "parth-sharma.png",
   },
   {
+    name: "Armanul Ambia",
+    positions: {
+      [TERM_SPRING_21]: "Dev Officer, NodeBuds Officer",
+      [TERM_FALL_21]: "Algo Director"
+    },
+    picture: "armanul-ambia.png",
+  },
+  {
     name: "Alex Truong",
     positions: { [TERM_FALL_21]: "Algo Officer" },
     picture: "alex-truong.png",
@@ -124,14 +131,6 @@ export const OFFICERS: Officer[] = [
       [TERM_FALL_21]: "Dev Director",
     },
     picture: "wesley-chou.png",
-  },
-  {
-    name: "Armanul Ambia",
-    positions: {
-      [TERM_SPRING_21]: "Dev Officer, NodeBuds Officer",
-      [TERM_FALL_21]: "Algo Director"
-    },
-    picture: "armanul-ambia.png",
   },
   {
     name: "Andy Lasso",
@@ -165,7 +164,6 @@ export const OFFICERS: Officer[] = [
     name: "Taylor Noh",
     positions: {
       [TERM_SPRING_21]: "NodeBuds Officer",
-      [TERM_FALL_21]: "ACM-W President",
     },
     picture: "taylor-noh.png",
   },
@@ -182,14 +180,17 @@ export const OFFICERS: Officer[] = [
   {
     name: "Eduardo Gomez",
     positions: { [TERM_SPRING_21]: "NodeBuds Officer" },
+    picture: "eduardo-gomez.png",
   },
   {
     name: "Ean McGilvery",
     positions: { [TERM_SPRING_21]: "NodeBuds Officer" },
+    picture: "ean-mcgilvery.png",
   },
   {
     name: "Dalisa Nguyen",
     positions: { [TERM_SPRING_21]: "NodeBuds Officer" },
+    picture: "dalisa-nguyen.png",
   },
 ];
 

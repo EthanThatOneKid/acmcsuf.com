@@ -24,12 +24,12 @@
 
 <CommonHero>
   <h2 slot="headline" class="size-l">Curated events for growth and success</h2>
-  <p slot="text" class="size-s">
+  <p slot="text" class="size-xs">
     Our student chapter hosts a multitude of events throughout each school
     semester, consisting of workshops, info sessions, community building events,
     and much more!
     <br /><br />
-    <span class="mid"
+    <span class="brand-med"
       >Events are open to anyone interested, regardless of major or background
       experience.</span
     >
@@ -38,7 +38,7 @@
 
 <Spacing minAmount="100px" amount="125px" maxAmount="125px" />
 
-<h2 class="size-l">This week's events 📅</h2>
+<h2 class="size-l headers">This week's events 📅</h2>
 
 <Spacing amount="16px" />
 

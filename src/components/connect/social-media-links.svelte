@@ -3,26 +3,25 @@
   import DiscordIcon from "@/components/icons/discord.svelte";
   import LinkedInIcon from "@/components/icons/linkedin.svelte";
   import YouTubeIcon from "@/components/icons/youtube.svelte";
-  import { links } from "../../lib/links";
 
   const socialLinks: {
     link: string;
     icon: any;
   }[] = [
     {
-      link: links.instagram,
+      link: "/instagram",
       icon: InstagramIcon,
     },
     {
-      link: links.linkedin,
+      link: "/linkedin",
       icon: LinkedInIcon,
     },
     {
-      link: links.youtube,
+      link: "/youtube",
       icon: YouTubeIcon,
     },
     {
-      link: links.discord,
+      link: "/discord",
       icon: DiscordIcon,
     },
   ];

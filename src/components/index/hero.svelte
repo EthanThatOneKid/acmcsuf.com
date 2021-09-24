@@ -1,6 +1,5 @@
 <script>
   import AcmButton from "@/components/utils/acm-button.svelte";
-  import { links } from "../../lib/links";
 </script>
 
 <section>
@@ -10,7 +9,7 @@
       <span class="brand-em brand-blue">CSUF</span>
     </div>
 
-    <AcmButton text="Join us today!" link="{links.discord}" />
+    <AcmButton text="Join us today!" link="/discord" />
   </div>
 
   <img

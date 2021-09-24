@@ -1,5 +1,3 @@
-import { links } from "./links";
-
 const acmLocale = "en-us";
 
 interface IcalOutput {
@@ -117,7 +115,7 @@ export const parseIcalData = (icalData: string): AcmEvent[] => {
       const parsedDescription = parseDescription(description);
       const rawLocation = String(event["LOCATION"]);
       const isZoomMeeting = rawLocation.startsWith("https://fullerton.zoom.us");
-      const meetingLink = isZoomMeeting ? rawLocation : links.discord;
+      const meetingLink = isZoomMeeting ? rawLocation : "/discord";
       const customLocationName = parsedDescription["ACM_LOCATION"];
       const location = isZoomMeeting ? "Zoom" : (customLocationName ?? rawLocation);
       const date = convertIcalDateTime(event["DTSTART"]);

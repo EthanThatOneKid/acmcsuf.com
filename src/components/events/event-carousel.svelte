@@ -110,13 +110,13 @@
   .event-carousel-container::after {
     right: 0;
     margin-right: -115px;
-    background: linear-gradient(to right, transparent 0%, var(--acm-light) 20%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, var(--acm-light) 20%);
   }
 
   .event-carousel-container::before {
     left: 0;
     margin-left: -115px;
-    background: linear-gradient(to left, transparent 0%, var(--acm-light) 20%);
+    background: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, var(--acm-light) 20%);
   }
 
   .carousel-button {
@@ -157,13 +157,25 @@
     right: 0;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1219px) {
     .event-carousel-container {
       width: 980px;
     }
   }
 
-  @media (max-width: 839px) {
+  @media (max-width: 1019px) {
+    .event-carousel-container {
+      width: 750px;
+    }
+  }
+
+  @media (max-width: 799px) {
+    .event-carousel-container {
+      width: 600px;
+    }
+  }
+
+  @media (max-width: 649px) {
     .event-carousel-container {
       width: 435px;
     }

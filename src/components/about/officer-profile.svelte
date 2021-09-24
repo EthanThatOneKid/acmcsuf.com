@@ -10,13 +10,9 @@
     .replace(/Create/, `<span class="brand-em brand-pink">Create</span>`)
     .replace(/Algo/, `<span class="brand-em brand-purple">Algo</span>`)
     .replace(/Dev/, `<span class="brand-em brand-bluer">Dev</span>`)
-    .replace(/ACM-W/, `<span class="brand-em brand-red">ACM-W</span>`)
-    .replace(/President/, `<span class="brand-em brand-blue">President</span>`)
-    .replace(/Webmaster/, `<span class="brand-em brand-blue">Webmaster</span>`)
-    .replace(/Treasurer/, `<span class="brand-em brand-blue">Treasurer</span>`)
     .replace(
       /NodeBuds/,
-      `<span class="brand-em">Node<span class="brand-red">Buds</span></span>`
+      `<span class="headers">node<span class="brand-em brand-red">Buds</span></span>`
     );
 </script>
 
@@ -47,18 +43,17 @@
   }
 
   .officer-image {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
   }
 
   h3 {
     color: var(--acm-dark);
-    margin-top: 8px;
   }
 
   p {
     font-weight: 500;
-    max-width: 150px;
+    max-width: 250px;
     color: var(--acm-dark);
   }
 </style>

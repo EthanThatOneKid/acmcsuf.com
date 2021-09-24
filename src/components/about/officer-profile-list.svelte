@@ -13,7 +13,7 @@
   };
 
   const formattedTerms = TERMS.map(formatTerm);
-  let currentTermIndex = TERMS.length - 1;
+  let currentTermIndex = 0;
   let currentFormattedTerm = formattedTerms[currentTermIndex];
   $: currentTermIndex = formattedTerms.indexOf(currentFormattedTerm);
   $: filteredOfficers = officers.filter(({ positions }) =>
@@ -65,7 +65,7 @@
   .officer-profile-list {
     display: flex;
     flex-flow: row wrap;
-    max-width: 1250px;
-    justify-content: space-around;
+    max-width: 1400px;
+    justify-content: space-evenly;
   }
 </style>

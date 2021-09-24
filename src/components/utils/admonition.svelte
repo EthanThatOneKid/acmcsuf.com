@@ -12,8 +12,8 @@
     <div class="content">
       <img src="{icon}" alt="Admontion icon" />
       <p class="brand-light">
-        <span class="brand-em brand-alert">Alert</span>{": "}
-        <slot><span>{text}</span></slot>
+        <span class="brand-em brand-alert">ALERT</span>{": "}
+        <slot><span class="size-xs">{text}</span></slot>
       </p>
     </div>
   </div>
@@ -26,7 +26,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    margin: 0 16px;
 
     .content {
       display: flex;
@@ -35,31 +35,40 @@
       justify-content: center;
       text-align: center;
       text-decoration: none;
-      border-radius: 12px;
+      border-radius: 24px;
       padding: 12px 24px;
       width: min(700px, calc(70% + 100px));
       background-color: var(--acm-dark);
       color: var(--acm-light);
 
       img {
-        width: 200px;
-        height: 200px;
+        width: 125px;
+        height: 125px;
+        padding-bottom: 1rem;
       }
 
       p {
-        padding: 2rem;
+        padding-left: 0;
+        padding-bottom: .5rem;
       }
     }
   }
 
-  @media (min-width: 700px) {
+  @media (min-width: 840px) {
     .wrapper {
       .content {
+        padding: 24px 48px;
         flex-direction: row;
 
         img {
-          width: 125px;
-          height: 125px;
+          width: 150px;
+          height: 150px;
+          padding-bottom: 0;
+        }
+
+        p {
+          padding-left: 3rem;
+          padding-bottom: 0;
         }
       }
     }

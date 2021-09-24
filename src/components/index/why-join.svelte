@@ -44,7 +44,7 @@
   section img {
     max-width: 350px;
     margin-right: 120px;
-    filter: drop-shadow(0 10px 40px rgba(44, 145, 198, 0.5));
+    filter: drop-shadow(0 14px 56px rgba(44, 145, 198, 0.5));
   }
 
   @media (max-width: 839px) {

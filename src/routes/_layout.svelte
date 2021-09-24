@@ -3,7 +3,6 @@
   import Footer from "@/components/sections/footer.svelte";
 
   export let segment: string;
-  const pageTitle = segment === undefined ? "ACM at CSUF" : segment;
 </script>
 
 <Navbar segment="{segment}" />
@@ -13,7 +12,7 @@
 <svelte:head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{`acmCSUF | ${pageTitle}`}</title>
+  <title>{`acmCSUF / ACM at CSUF`}</title>
   <link
     rel="apple-touch-icon"
     sizes="180x180"
@@ -46,3 +45,9 @@
   <meta name="theme-color" content="#000" />
   <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
 </svelte:head>
+
+<style>
+  main {
+    min-height: 100vh;
+  }
+</style>
