@@ -1,10 +1,10 @@
 <script lang="ts">
+  export let path: string = "general";
   export let text: string = "";
   export let expiration: number;
-  export let picture: string = "";
 
   const isExpired = new Date().valueOf() > expiration;
-  const icon = picture;
+  const icon = `../assets/badges/${path}.svg`;
 </script>
 
 {#if !isExpired}
@@ -49,7 +49,7 @@
 
       p {
         padding-left: 0;
-        padding-bottom: 0.5rem;
+        padding-bottom: .5rem;
       }
     }
   }
