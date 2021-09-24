@@ -39,7 +39,7 @@
 <!-- TODO: Get the content below from the `/events.json` endpoint and just
 display the most upcoming event with a reminder/notice flair. -->
 <Admonition
-  path="nodebuds"
+  picture="assets/badges/with-shadow/nodebuds.svg"
   expiration="{new Date('Sat Oct 07 2021 00:00:00 GMT-0700').valueOf()}"
 >
   Looking to improve your computer science skills AND make a friend in the

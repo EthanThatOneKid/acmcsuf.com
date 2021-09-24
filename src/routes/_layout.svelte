@@ -6,7 +6,7 @@
 </script>
 
 <Navbar segment="{segment}" />
-<main style="min-height: 100vh;"><slot /></main>
+<main><slot /></main>
 <Footer />
 
 <svelte:head>
@@ -45,3 +45,9 @@
   <meta name="theme-color" content="#000" />
   <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
 </svelte:head>
+
+<style>
+  main {
+    min-height: 100vh;
+  }
+</style>

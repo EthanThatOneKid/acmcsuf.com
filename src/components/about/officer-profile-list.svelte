@@ -13,7 +13,7 @@
   };
 
   const formattedTerms = TERMS.map(formatTerm);
-  let currentTermIndex = TERMS.length - 2;
+  let currentTermIndex = 0;
   let currentFormattedTerm = formattedTerms[currentTermIndex];
   $: currentTermIndex = formattedTerms.indexOf(currentFormattedTerm);
   $: filteredOfficers = officers.filter(({ positions }) =>

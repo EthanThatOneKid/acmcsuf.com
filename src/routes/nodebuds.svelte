@@ -26,8 +26,9 @@
         development.
         <br /><br />
         Everone under this program will get paired with student-mentors, called
-        <span class="brand-med">Buddies</span>, who will be there to help students
-        prepare for their successful journeys through the tech industry.
+        <span class="brand-med">Buddies</span>, who will be there to help
+        students prepare for their successful journeys through the tech
+        industry.
       </p>
     </div>
     <img src="assets/badges/nodebuds.svg" alt="nodeBuds badge" />
@@ -67,9 +68,7 @@
 
 <Spacing amount="16px" />
 
-<OfficerProfileList
-  officers="{allNodeBuddies}"
-/>
+<OfficerProfileList officers="{allNodeBuddies}" />
 
 <Spacing minAmount="40px" amount="95px" maxAmount="120px" />
 
