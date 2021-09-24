@@ -13,8 +13,8 @@
 <Spacing minAmount="32px" maxAmount="64px" />
 
 <CommonHero>
-  <h2 slot="headline" class="size-xl">Who are we?</h2>
-  <p slot="text" class="size-s">
+  <h2 slot="headline" class="size-l">Who are we?</h2>
+  <p slot="text" class="size-xs">
     <span class="headers">
       acm<span class="brand-em brand-blue">CSUF</span>
     </span>
@@ -42,18 +42,20 @@ display the most upcoming event with a reminder/notice flair. -->
   path="nodebuds"
   expiration="{new Date('Sat Oct 07 2021 00:00:00 GMT-0700').valueOf()}"
 >
-  Looking to improve your computer science skills and make a friend in the
-  process? Join <span class="brand-em brand-light"
-    >Node<span class="brand-red">Buds</span></span
-  >, ACM's mentorship program where students can learn from and with another
-  student and get involved with the largest tech community on campus at the same
-  time! Apply at <a href="/nbapp" class="brand-light">acmcsuf.com/nbapp</a>.
+  Looking to improve your computer science skills AND make a friend in the
+  process? Join <span class="headers brand-light"
+    >node<span class="brand-em brand-red">Buds</span></span
+  >, our mentorship program where students get paired with 
+  <span class="brand-med brand-light">Buddies</span>
+  that'll help you learn new things and improve your coding abilities.
+  <br><br>
+  <a href="/nbapp" class="link headers brand-light">Click here to apply now!</a>
 </Admonition>
 
 <Spacing amount="150px" />
 
 <div class="container">
-  <h2 class="size-xl">Board members</h2>
+  <h2 class="headers size-l">Board members</h2>
 </div>
 
 <Spacing amount="16px" />
@@ -79,5 +81,14 @@ display the most upcoming event with a reminder/notice flair. -->
 
   .acm-text:hover {
     color: var(--acm-blue);
+  }
+
+  .link {
+    text-decoration: none;
+    transition: color 0.25s ease-in-out;
+  }
+
+  .link:hover {
+    color: var(--acm-red);
   }
 </style>

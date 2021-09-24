@@ -1,6 +1,5 @@
 <script lang="ts">
   import AcmButton from "@/components/utils/acm-button.svelte";
-  import { links } from "../../lib/links";
 </script>
 
 <section>
@@ -13,7 +12,7 @@
       tech journey on the right foot.
     </p>
   </div>
-  <AcmButton text="Join us today!" link="{links.discord}" />
+  <AcmButton text="Join us today!" link="/discord" />
 </section>
 
 <style lang="scss">

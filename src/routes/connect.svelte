@@ -12,7 +12,7 @@
 
 <CommonHero>
   <h2 slot="headline" class="size-l">Connect with us!</h2>
-  <p slot="text" class="size-s">
+  <p slot="text" class="size-xs">
     The best way to stay up to date with us is by following all of our social
     platforms, and by joining our Discord server. We post announcements,
     exclusive content, and more, so there’s never a chance to miss out on what’s

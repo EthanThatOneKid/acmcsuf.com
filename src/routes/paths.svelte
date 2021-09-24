@@ -8,8 +8,8 @@
 <Spacing minAmount="100px" amount="175px" maxAmount="200px" />
 
 <CommonHero>
-  <h2 slot="headline" class="size-xl">What are paths?</h2>
-  <p slot="text" class="size-s">
+  <h2 slot="headline" class="size-l">What are paths?</h2>
+  <p slot="text" class="size-xs">
     Paths are committees that specialize in specific fields in the tech
     industry. We’ve designed paths to be gateways for students to explore new
     fields, develop new interests, and enhance skills that’ll benefit in the
@@ -20,7 +20,7 @@
 <Spacing minAmount="100px" amount="175px" maxAmount="200px" />
 
 <PathSection info="{acmAlgo}" textAlign="right">
-  <p slot="content">
+  <p slot="content" class="size-xs">
     This path is dedicated to building the programming proficiency of students.
     <span class="brand-purple brand-em">Algo</span> focuses on mastering data structures
     and algorithms, enhancing problem solving abilities, and exploration of competitive
@@ -31,7 +31,7 @@
 <Spacing amount="64px" />
 
 <PathSection info="{acmCreate}" textAlign="left">
-  <p slot="content">
+  <p slot="content" class="size-xs">
     This path is dedicated to emphasizing the importance of product design and
     product management in the tech industry. <span class="brand-pink brand-em"
       >Create</span
@@ -43,7 +43,7 @@
 <Spacing amount="64px" />
 
 <PathSection info="{acmDev}" textAlign="right">
-  <p slot="content">
+  <p slot="content" class="size-xs">
     This path is dedicated to giving students the opportunity to explore tech
     via hands-on projects and activities. <span class="brand-em brand-bluer"
       >Dev</span

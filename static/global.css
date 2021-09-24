@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700");
 
 html,
 body {
@@ -73,6 +73,10 @@ body {
   text-transform: none;
 }
 
+.brand-med {
+  font-weight: 500;
+}
+
 .brand-alert {
   color: var(--acm-light);
 }
@@ -107,4 +111,8 @@ body {
 
 .brand-light {
   color: var(--acm-light);
+}
+
+.brand-sky {
+  color: var(--acm-sky);
 }

@@ -16,7 +16,7 @@
   }
 
   section div {
-    width: min(1000px, calc(70% + 100px));
+    width: min(1150px, calc(70% + 100px));
   }
 
   section div :global(h2) {

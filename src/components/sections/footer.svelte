@@ -1,6 +1,5 @@
 <script lang="ts">
   import GitHubIcon from "@/components/icons/github.svelte";
-  import { links } from "../../lib/links";
 </script>
 
 <footer>
@@ -13,7 +12,7 @@
     </p>
 
     <a
-      href="{links.github}"
+      href="/github"
       class="github"
       target="_blank"
       rel="noopener norefferer"
