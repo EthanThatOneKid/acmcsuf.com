@@ -21,9 +21,17 @@
         <span class="headers">
           node<span class="brand-em brand-red">Buds</span>
         </span>
-        is our exclusive program that exposes students to various opportunities that
-        encourage connection, skill building, as well as both personal and technical
-        development.
+        is our exclusive program in partnership with
+        <a
+          href="/acm-w"
+          class="w-text"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="headers">ACM </span>W</a
+        >
+        that exposes students to various opportunities that encourage connection,
+        skill building, as well as both personal and technical development.
         <br /><br />
         Everone under this program will get paired with student-mentors, called
         <span class="brand-med">Buddies</span>, who will be there to help
@@ -101,6 +109,17 @@
 
   section h2 {
     padding-bottom: 16px;
+  }
+
+  .w-text {
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--acm-dark);
+    transition: color 0.25s ease-in-out;
+  }
+
+  .w-text:hover {
+    color: var(--acm-sky);
   }
 
   @media (max-width: 839px) {

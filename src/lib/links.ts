@@ -6,4 +6,5 @@ export const links = {
   'linkedin': "https://linkedin.com/company/acm-at-csuf/",
   'nbapp': "https://docs.google.com/forms/d/e/1FAIpQLSftpwDGyth2m9D7-_OpihrxoeqVyaRqhZp5edetWcg9KKsnYQ/viewform",
   'tuffyhacks': "https://tuffyhacks.com/",
+  'acm-w': "https://sites.google.com/view/acm-w",
 } as const;
