@@ -25,8 +25,8 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      Association for Computing Machinery
-    </a>, an international organization based in New York that advocates for the
+      Association for Computing Machinery</a
+    >, an international organization based in New York that advocates for the
     advancement of computer science as a science and profession. Our chapter
     based in California State University, Fullerton focuses on bringing
     passionate Titans together to be involved in the tech community via
@@ -45,10 +45,10 @@ display the most upcoming event with a reminder/notice flair. -->
   Looking to improve your computer science skills AND make a friend in the
   process? Join <span class="headers brand-light"
     >node<span class="brand-em brand-red">Buds</span></span
-  >, our mentorship program where students get paired with 
+  >, our mentorship program where students get paired with
   <span class="brand-med brand-light">Buddies</span>
   that'll help you learn new things and improve your coding abilities.
-  <br><br>
+  <br /><br />
   <a href="/nbapp" class="link headers brand-light">Click here to apply now!</a>
 </Admonition>
 
