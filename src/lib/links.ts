@@ -7,4 +7,5 @@ export const links = {
   'nbapp': "https://docs.google.com/forms/d/e/1FAIpQLSftpwDGyth2m9D7-_OpihrxoeqVyaRqhZp5edetWcg9KKsnYQ/viewform",
   'tuffyhacks': "https://tuffyhacks.com/",
   'acm-w': "https://sites.google.com/view/acm-w",
+  'devf21': "https://docs.google.com/forms/d/e/1FAIpQLSe53VPrM1myjU_BQQYQCw9MXJb9VYlSQ0U_xe8SRUE-I8PnBw/viewform",
 } as const;
