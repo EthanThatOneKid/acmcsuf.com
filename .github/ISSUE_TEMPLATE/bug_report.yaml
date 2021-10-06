@@ -5,12 +5,12 @@ body:
 - type: markdown
   attributes:
     value: |
-      Thanks for taking the time to fill out this bug report! ![logo](https://raw.githubusercontent.com/EthanThatOneKid/acmcsuf.com/main/static/assets/about-illustration.svg)
+      ![logo](https://raw.githubusercontent.com/EthanThatOneKid/acmcsuf.com/main/static/assets/about-illustration.svg)
 - type: textarea
   attributes:
     label: What happened?
     description: |
       Can you please explain what happened, what you saw, what you expected to see, and any other relevant information? Please drag and drop any screenshots here.
-    placeholder: Type away!
+    placeholder: Type away! Feel free to drag-and-drop any screenshots here.
   validations:
     required: false
