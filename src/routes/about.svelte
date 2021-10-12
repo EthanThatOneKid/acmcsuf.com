@@ -4,6 +4,14 @@
   import Spacing from "@/components/sections/spacing.svelte";
   import Header from "@/components/about/what-is-acm.svelte";
   import Admonition from "../components/utils/admonition.svelte";
+  import { TERMS } from "../lib/officers";
+  import type { Officer } from "../lib/officers";
+  import { termIndex } from "../lib/stores/term-index";
+
+  const filterOfficers = (officer: Officer) => {
+    const isCurrentTerm = officer.positions[TERMS[$termIndex]] !== undefined;
+    return isCurrentTerm;
+  };
 </script>
 
 <Spacing minAmount="100px" amount="175px" maxAmount="200px" />
@@ -60,7 +68,7 @@ display the most upcoming event with a reminder/notice flair. -->
 
 <Spacing amount="16px" />
 
-<OfficerProfileList />
+<OfficerProfileList filter="{filterOfficers}" />
 
 <Spacing minAmount="40px" amount="95px" maxAmount="120px" />
 
