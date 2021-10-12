@@ -74,14 +74,6 @@ export const OFFICERS: Officer[] = [
     picture: "joshua-hughes.png",
   },
   {
-    name: "Samuel Valls",
-    positions: {
-      [TERM_SPRING_21]: "Community Manager",
-      [TERM_FALL_21]: "Create Officer",
-    },
-    picture: "samuel-valls.png",
-  },
-  {
     name: "Wilbert Rodriguez",
     positions: { [TERM_SPRING_21]: "Intern Program Manager" },
     picture: "wilbert-rodriguez.png",
@@ -138,12 +130,30 @@ export const OFFICERS: Officer[] = [
     picture: "andy-lasso.png",
   },
   {
+    name: "Rina Watanabe",
+    positions: { [TERM_FALL_21]: "Dev Officer, Project Manager"},
+    picture: "rina-watanabe.png",
+  },
+  {
+    name: "Jorge Mejia",
+    positions: { [TERM_FALL_21]: "Dev Officer"},
+    picture: "jorge-mejia.png",
+  },
+  {
     name: "Mike Ploythai",
     positions: {
       [TERM_SPRING_21]: "Create Officer",
       [TERM_FALL_21]: "Create Director, Marketing Chair",
     },
     picture: "mike-ploythai.png",
+  },
+  {
+    name: "Samuel Valls",
+    positions: {
+      [TERM_SPRING_21]: "Community Manager",
+      [TERM_FALL_21]: "Create Officer",
+    },
+    picture: "samuel-valls.png",
   },
   {
     name: "Lisa Hong",
