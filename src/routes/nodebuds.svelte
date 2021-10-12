@@ -7,11 +7,10 @@
   import { termIndex } from "../lib/stores/term-index";
 
   const filterNodeBuddies = (officer: Officer) => {
-    const isCurrentTerm = officer.positions[TERMS[$termIndex]] !== undefined;
-    const isNodeBuddy = Object.values(officer.positions).some((position) =>
-      position.toUpperCase().includes("NODEBUDS")
-    );
-    return isCurrentTerm && isNodeBuddy;
+    const position = officer.positions[TERMS[$termIndex]];
+    if (position === undefined) return false;
+    const isNodeBuddy = position.toUpperCase().includes("NODEBUDS");
+    return isNodeBuddy;
   };
 </script>
 
