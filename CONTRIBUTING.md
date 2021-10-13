@@ -13,7 +13,7 @@ First, make sure that Node.js is **installed** on your machine in order to run o
 If you do not have Node.js installed, visit their [downloads page][node_dl] and install the latest long-term supported version.
 
 To contribute to this project, you may simply begin by **cloning** this repository to your machine.
-Clone this repository by [directly downloading it][ddl] or via git: `git clone https://github.com/EthanThatOneKid/acmcsuf.com.git`.
+Clone this repository by [directly downloading it][ddl] or via git: `git clone https://etok.codes/acmcsuf.com.git`.
 
 Open the repository in your code editor or terminal of choice and enter `npm i` to **install** the project's dependencies.
 After that, enter `npm run dev` to spin up the development server.
@@ -53,7 +53,7 @@ So, to update the styling for desktop sizes, overwrite your styles inside the fo
 
 ```css
 @media screen and (min-width: 768px) {
-  /* styles here */
+	/* styles here */
 }
 ```
 

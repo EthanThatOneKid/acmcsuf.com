@@ -1,4 +1,4 @@
 {
   "version": 2,
-  "builds": [{ "src": "package.json", "use": "vercel-sapper" }]
+  "builds": [{ "src": "package.json", "use": "vercel-sveltekit" }]
 }

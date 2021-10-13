@@ -1,6 +1,6 @@
 # Architecture 🗿
 
-This project was created using a library called [Sapper][sapper_home] which uses [Svelte][svelte_home] to create efficient, static websites.
+This project was created using a library called [SvelteKit][sveltekit_home] which uses [Svelte][svelte_home] to create efficient, static websites.
 
 ## `/src/routes/` 📁
 
@@ -13,23 +13,25 @@ In that directory, each file represents one page of the website.
 | `/src/routes/about.svelte`       | `https://acmcsuf.com/about/` |
 | `/src/routes/paths/index.svelte` | `https://acmcsuf.com/paths/` |
 
-### `/src/routes/_layout.svelte` 📄
+> ℹ more info: <https://kit.svelte.dev/docs#routing-advanced>
 
-The [`_layout.svelte file`](src/routes/_layout.svelte) at the root of the `/routes` directory is used in the background of every page of the site.
+### `/src/routes/__layout.svelte` 📄
+
+The [`__layout.svelte file`](src/routes/__layout.svelte) at the root of the `/routes` directory is used in the background of every page of the site.
 
 > ...But in many apps, there are elements that should be visible on every page, such as top-level navigation or a footer. Instead of repeating them in every page, we can use layout components.
 
-Read more about how layouts are used in the [Sapper documentation](https://sapper.svelte.dev/docs#Layouts).
+Read more about how layouts are used in the [SvelteKit documentation](https://kit.svelte.dev/docs#layouts).
 
-### `/src/routes/_error.svelte` 📄
+### `/src/routes/__error.svelte` 📄
 
 This page is rendered when there are any errors on any page of the website.
 If a page on our site cannot render properly due to an error, our site will render this page instead in order to provide the user with any information about the error.
 This page should be happy since errors are normally frustrating for users.
 
-> In addition to regular pages, there is a 'special' page that Sapper expects to find — src/routes/\_error.svelte. This will be shown when an error occurs while rendering a page.
+> In addition to regular pages, there is a 'special' page that SvelteKit expects to find — `src/routes/__error.svelte`. This will be shown when an error occurs while rendering a page.
 
-Read more about how error pages are used in the [Sapper documentation](https://sapper.svelte.dev/docs#Error_page).
+Read more about how error pages are used in the [SvelteKit documentation](https://kit.svelte.dev/docs#layouts-error-pages).
 
 ## `/src/components/` 📁
 
@@ -84,10 +86,9 @@ For visual content in other formats (i.e. SVG), see [`/components/icons`](src/co
 The [TSConfig file](tsconfig.json) is used by the TypeScript compiler to specify any compilation parameters and settings.
 In the case of this project, our TSConfig is mostly extended from [`@tsconfig/svelte`](https://www.npmjs.com/package/@tsconfig/svelte), an opinionated base TSConfig for working with Svelte.
 
-## `rollup.config.js` 📄
+## `svelte.config.ts` 📄
 
-[This file](rollup.config.js) is a configuration file of sorts that handles the bundling and live page reloading when developing the project.
-Our particular file was originally copied over from the Sapper project template.
+[This file](svelte.config.ts) is a configuration file of sorts that handles the bundling and live page reloading when developing the project.
 
 ## `.eslintrc.js` 📄
 
@@ -107,6 +108,6 @@ This includes `"dependencies"` that are used inside our program and `"devDepende
 This file is not meant to be modified by humans, but instead left to be managed by the project's package manager, NPM.
 Even though it is not affected by developers, the lock file is still important and so it is [_advised_](https://blog.logrocket.com/why-you-should-use-package-lock-json/) to leave it out of the `.gitignore` file.
 
-[sapper_home]: https://sapper.svelte.dev/
+[sveltekit_home]: https://kit.svelte.dev/
 [svelte_home]: https://svelte.dev
 [svelte_docs]: https://svelte.dev/docs/

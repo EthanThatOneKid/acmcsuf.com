@@ -1,119 +1,119 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700');
 
 html,
 body {
-  overflow-x: hidden;
+	overflow-x: hidden;
 }
 
 *,
 html,
 body,
-#sapper {
-  color: #101315;
-  font-family: "Poppins", sans-serif;
-  padding: 0;
-  margin: 0;
+#svelte {
+	color: #101315;
+	font-family: 'Poppins', sans-serif;
+	padding: 0;
+	margin: 0;
 }
 
 body {
-  background: #f8f8f8;
+	background: #f8f8f8;
 }
 
 .info-screen {
-  display: block;
-  height: 100vh;
+	display: block;
+	height: 100vh;
 }
 
 :root {
-  --acm-blue: #2c91c6;
-  --acm-bluer: #1e6cff;
-  --acm-pink: #ff4365;
-  --acm-purple: #9d35e7;
-  --acm-red: #d41153;
-  --acm-sky: #38b6ff;
-  --acm-dark: #101315;
-  --acm-light: #f8f8f8;
+	--acm-blue: #2c91c6;
+	--acm-bluer: #1e6cff;
+	--acm-pink: #ff4365;
+	--acm-purple: #9d35e7;
+	--acm-red: #d41153;
+	--acm-sky: #38b6ff;
+	--acm-dark: #101315;
+	--acm-light: #f8f8f8;
 
-  --desktop-breakpoint: 768px;
-  --navbar-height: 82px;
+	--desktop-breakpoint: 768px;
+	--navbar-height: 82px;
 
-  /* Fluid font size is the magical numbers for fluid font sizing. It should be
+	/* Fluid font size is the magical numbers for fluid font sizing. It should be
    * put into parent containers. */
-  --fluid-font-size: clamp(1vw, 0.7em, 3vw);
+	--fluid-font-size: clamp(1vw, 0.7em, 3vw);
 
-  --p-font-size: 2em;
-  --h-font-size-med: 3em;
+	--p-font-size: 2em;
+	--h-font-size-med: 3em;
 
-  --min-p-font-size: 18px;
-  --max-p-font-size: 36px;
-  --min-h-font-size: 22px;
-  --max-h-font-size: 86px;
-  --max-h-font-size-med: 64px;
+	--min-p-font-size: 18px;
+	--max-p-font-size: 36px;
+	--min-h-font-size: 22px;
+	--max-h-font-size: 86px;
+	--max-h-font-size-med: 64px;
 
-  --heading-font-size: 48px;
-  --subheading-font-size: 24px;
-  --body-font-size: 18px;
-  --margin-text-font-size: 12px;
+	--heading-font-size: 48px;
+	--subheading-font-size: 24px;
+	--body-font-size: 18px;
+	--margin-text-font-size: 12px;
 }
 
 /* New CSS Guidelines */
 @media screen and (min-width: 768px) {
-  :root {
-    --title-font-size: 96px;
-    --heading-font-size: 64px;
-    --subheading-font-size: 36px;
-    --body-font-size: 24px;
-    --margin-text-font-size: 16px;
-  }
+	:root {
+		--title-font-size: 96px;
+		--heading-font-size: 64px;
+		--subheading-font-size: 36px;
+		--body-font-size: 24px;
+		--margin-text-font-size: 16px;
+	}
 }
 
 /* Branding Macros */
 .brand-em {
-  /* `em` is short for "emphasis" */
-  font-weight: 700;
-  text-transform: none;
+	/* `em` is short for "emphasis" */
+	font-weight: 700;
+	text-transform: none;
 }
 
 .brand-med {
-  font-weight: 500;
+	font-weight: 500;
 }
 
 .brand-alert {
-  color: var(--acm-light);
+	color: var(--acm-light);
 }
 
 .headers {
-  font-weight: 600;
+	font-weight: 600;
 }
 
 .brand-blue {
-  color: var(--acm-blue);
+	color: var(--acm-blue);
 }
 
 .brand-bluer {
-  color: var(--acm-bluer);
+	color: var(--acm-bluer);
 }
 
 .brand-pink {
-  color: var(--acm-pink);
+	color: var(--acm-pink);
 }
 
 .brand-purple {
-  color: var(--acm-purple);
+	color: var(--acm-purple);
 }
 
 .brand-red {
-  color: var(--acm-red);
+	color: var(--acm-red);
 }
 
 .brand-dark {
-  color: var(--acm-dark);
+	color: var(--acm-dark);
 }
 
 .brand-light {
-  color: var(--acm-light);
+	color: var(--acm-light);
 }
 
 .brand-sky {
-  color: var(--acm-sky);
+	color: var(--acm-sky);
 }
