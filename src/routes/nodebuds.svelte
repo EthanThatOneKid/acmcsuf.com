@@ -1,14 +1,17 @@
 <script lang="ts">
   import Spacing from "@/components/sections/spacing.svelte";
-  import NodeBudsTestimonial from "@/components/nodebuds/nodebuds-testimonial.svelte";
+  // import NodeBudsTestimonial from "@/components/nodebuds/nodebuds-testimonial.svelte";
   import OfficerProfileList from "@/components/about/officer-profile-list.svelte";
-  import { OFFICERS } from "../lib/officers";
+  import { TERMS } from "../lib/officers";
+  import type { Officer } from "../lib/officers";
+  import { termIndex } from "../lib/stores/term-index";
 
-  const allNodeBuddies = OFFICERS.filter(({ positions }) =>
-    Object.values(positions).some((position) =>
-      position.toUpperCase().includes("NODEBUDS")
-    )
-  );
+  const filterNodeBuddies = (officer: Officer) => {
+    const position = officer.positions[TERMS[$termIndex]];
+    if (position === undefined) return false;
+    const isNodeBuddy = position.toUpperCase().includes("NODEBUDS");
+    return isNodeBuddy;
+  };
 </script>
 
 <Spacing minAmount="100px" amount="175px" maxAmount="200px" />
@@ -76,7 +79,7 @@
 
 <Spacing amount="16px" />
 
-<OfficerProfileList officers="{allNodeBuddies}" />
+<OfficerProfileList filter="{filterNodeBuddies}" />
 
 <Spacing minAmount="40px" amount="95px" maxAmount="120px" />
 
