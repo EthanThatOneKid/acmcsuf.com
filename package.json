@@ -1,69 +1,43 @@
 {
-  "name": "acmcsuf.com",
-  "homepage": "https://acmcsuf.com/",
-  "author": {
-    "name": "EthanThatOneKid",
-    "url": "https://github.com/EthanThatOneKid/"
-  },
-  "repository": {
-    "url": "https://github.com/EthanThatOneKid/acmcsuf.com.git/"
-  },
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "sapper dev",
-    "build:server": "sapper build --legacy",
-    "build": "sapper export --legacy",
-    "start": "node __sapper__/build",
-    "validate": "svelte-check --ignore src/node_modules/@sapper",
-    "format": "prettier --write ./**/*.{js,svelte,md,html,css,json}",
-    "prelint": "npm run format",
-    "lint": "eslint './**/*.{js,svelte}'",
-    "lint:fix": "eslint --fix './**/*.{js,svelte}'",
-    "pretest": "npm run lint",
-    "test": "echo \"No test script :(\""
-  },
-  "dependencies": {
-    "compression": "^1.7.1",
-    "node-fetch": "^2.6.1",
-    "polka": "next",
-    "rfs": "^9.0.6",
-    "sass": "^1.41.0",
-    "sirv": "^1.0.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/runtime": "^7.0.0",
-    "@jackfranklin/rollup-plugin-markdown": "^0.3.0",
-    "@rollup/plugin-alias": "^3.1.1",
-    "@rollup/plugin-babel": "^5.0.0",
-    "@rollup/plugin-commonjs": "^14.0.0",
-    "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^8.0.0",
-    "@rollup/plugin-replace": "^2.2.0",
-    "@rollup/plugin-typescript": "^6.0.0",
-    "@rollup/plugin-url": "^5.0.0",
-    "@tsconfig/svelte": "^1.0.10",
-    "@types/compression": "^1.7.0",
-    "@types/node": "^14.11.1",
-    "@types/polka": "^0.5.1",
-    "eslint": "^7.20.0",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-cypress": "^2.11.2",
-    "eslint-plugin-svelte3": "^3.1.1",
-    "prettier": "^2.2.1",
-    "prettier-plugin-svelte": "^2.4.0",
-    "rollup": "^2.3.4",
-    "rollup-plugin-glob": "^1.0.2",
-    "rollup-plugin-svelte": "^7.0.0",
-    "rollup-plugin-terser": "^7.0.0",
-    "sapper": "^0.28.0",
-    "svelte": "^3.17.3",
-    "svelte-check": "^1.0.46",
-    "svelte-preprocess": "^4.3.0",
-    "tslib": "^2.0.1",
-    "typescript": "^4.0.3"
-  }
+	"name": "acmcsuf.com",
+	"type": "module",
+	"homepage": "https://acmcsuf.com/",
+	"author": {
+		"name": "EthanThatOneKid",
+		"url": "https://etok.codes/"
+	},
+	"repository": {
+		"url": "https://github.com/EthanThatOneKid/acmcsuf.com.git/"
+	},
+	"version": "1.1.0",
+	"scripts": {
+		"dev": "svelte-kit dev",
+		"build": "svelte-kit build",
+		"preview": "svelte-kit preview",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
+		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
+	},
+	"dependencies": {
+		"rfs": "^9.0.6"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-static": "next",
+		"@sveltejs/adapter-vercel": "next",
+		"@sveltejs/kit": "next",
+		"@typescript-eslint/eslint-plugin": "^4.31.1",
+		"@typescript-eslint/parser": "^4.31.1",
+		"eslint": "^7.32.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-svelte3": "^3.2.1",
+		"prettier": "^2.4.1",
+		"prettier-plugin-svelte": "^2.4.0",
+		"sass": "^1.42.1",
+		"svelte": "^3.42.6",
+		"svelte-check": "^2.2.6",
+		"svelte-preprocess": "^4.9.4",
+		"tslib": "^2.3.1",
+		"typescript": "^4.4.3"
+	}
 }
