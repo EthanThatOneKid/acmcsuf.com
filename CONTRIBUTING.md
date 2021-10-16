@@ -5,7 +5,7 @@
 Getting started with this project is quite simple.
 There really are only a handful of simple steps.
 
-1. Make sure Node.js is installed on your machine.
+1. Make sure [Node.js is installed][node_dl] on your machine.
 1. Clone the repository.
 1. Install the dependencies and contribute.
 
@@ -53,7 +53,7 @@ So, to update the styling for desktop sizes, overwrite your styles inside the fo
 
 ```css
 @media screen and (min-width: 768px) {
-	/* styles here */
+  /* styles here */
 }
 ```
 
@@ -65,6 +65,7 @@ Really, the situation may affect your choice of breakpoint value, but the goal i
 
 Thank you for contributing!
 The time spent reading this deserves a pat on the back and even a hydration/stretch break.
+Up next, read [`ARCHITECTURE.md`](ARCHITECTURE.md)!
 
 [ddl]: https://github.com/EthanThatOneKid/acmcsuf.com/archive/main.zip
 [node_dl]: https://nodejs.org/en/download/
