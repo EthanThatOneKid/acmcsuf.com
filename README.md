@@ -9,23 +9,19 @@
 To get started, clone this repository to your machine and run `npm i` in the root of this project.
 Then, run `npm run dev` to spin up the [development server][dev_server].
 
-For more information, check out the [`CONTRIBUTING.md`](CONTRIBUTING.md) document.
+## Contributing 🤝
+
+If you're interested in contributing to this project, I'd recommend checking out the [`CONTRIBUTING.md`](CONTRIBUTING.md) document.
+For a more detailed overview of this repository's structure, feel free to review the [`ARCHITECTURE.md`](ARCHITECTURE.md) document.
 
 ## Deployment 🚀
 
 Whenever a push is made to the main branch, Vercel builds the site, tests it, and if there are no errors, it will deploy a preview site.
 Once an admin approves the preview site, it gets promoted to production.
 
-## Designers 🎨
-
-- [Jacob Nguyen](https://github.com/barrotbake)
-- [Lisa Hong](#)
-- [Mike Ploythai](https://github.com/mikeploythai)
-- [Mathias Nguyen](#)
-
 ---
 
-Maintained with 💖 by [**ACM CSUF Web**][team_page]
+Maintained with 💖 by [**acmcsuf.com hub**][team_doc]
 
 [node_download]: https://nodejs.org/en/download/
 [github_action_deploy]: .github/workflows/deploy.yaml
@@ -35,4 +31,4 @@ Maintained with 💖 by [**ACM CSUF Web**][team_page]
 [figma_design]: https://www.figma.com/file/9cvuO69WgNGuCjf2JGDPfq/ACM-Website-Mockup---Mike-Ploythai?node-id=1%3A26
 [dev_server]: http://localhost:3000/
 [vercel_dashboard]: https://vercel.com/ethanthatonekid/acm-csuf-site
-[team_page]: https://acmcsuf.com/about/
+[team_doc]: https://docs.google.com/document/d/11GoIBTAAnIOgmWuG1TsgXUE3MMkweQ8V6bB9TbrY0Hs/edit?usp=sharing
