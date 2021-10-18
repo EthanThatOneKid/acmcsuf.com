@@ -2,7 +2,7 @@
 
 ## Getting Started 🦕
 
-Getting started with this project is quite simple.
+Getting started with this project is similar to any other NodeJS project.
 There really are only a handful of simple steps.
 
 1. Make sure [Node.js is installed][node_dl] on your machine.
@@ -13,7 +13,7 @@ First, make sure that Node.js is **installed** on your machine in order to run o
 If you do not have Node.js installed, visit their [downloads page][node_dl] and install the latest long-term supported version.
 
 To contribute to this project, you may simply begin by **cloning** this repository to your machine.
-Clone this repository by [directly downloading it][ddl] or via git: `git clone https://etok.codes/acmcsuf.com.git`.
+Clone this repository by [directly downloading it][ddl] or via git: `git clone https://github.com/ethanthatonekid/acmcsuf.com.git`.
 
 Open the repository in your code editor or terminal of choice and enter `npm i` to **install** the project's dependencies.
 After that, enter `npm run dev` to spin up the development server.
@@ -31,7 +31,7 @@ For architecture-related information, please refer to [`ARCHITECTURE.md`](ARCHIT
 Svelte files can be written as if it were an HTML file.
 Writing only `<h1>Hello, world!</h1>` in a Svelte file is valid, however, Svelte gives you access to some handy built-in superpowers that simplify development tremendously (See the [Svelte docs][svelte_docs] for further information).
 Additionally, check out this YouTube video, [_Svelte in 100 Seconds_](https://youtu.be/rv3Yq-B8qp4) by [**@fireship-io**](https://github.com/fireship-io).
-For quick reference, check out [**@svelte-society**](https://github.com/svelte-society)'s [Svelte cheatsheet](https://sveltesociety.dev/cheatsheet).
+For quick reference, check out <https://svelte.dev/tutorial/basics>.
 
 In addition to HTML markup, Svelte files consist of two other sections: _script_ and _styles_.
 
@@ -67,9 +67,8 @@ Thank you for contributing!
 The time spent reading this deserves a pat on the back and even a hydration/stretch break.
 Up next, read [`ARCHITECTURE.md`](ARCHITECTURE.md)!
 
-[ddl]: https://github.com/EthanThatOneKid/acmcsuf.com/archive/main.zip
+[ddl]: https://etok.codes/acmcsuf.com/archive/main.zip
 [node_dl]: https://nodejs.org/en/download/
-[sapper_home]: https://sapper.svelte.dev/
 [svelte_home]: https://svelte.dev/
 [svelte_docs]: https://svelte.dev/docs/
 [mobile_first_info]: https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Responsive/Mobile_first
