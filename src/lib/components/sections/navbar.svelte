@@ -1,34 +1,43 @@
 <script lang="ts">
 	export let segment: string;
+	let menu: HTMLUListElement;
+	let checkbox: HTMLInputElement;
+
 	const menuItems = [
 		{ title: 'about', slug: 'about' },
 		{ title: 'events', slug: 'events' },
 		{ title: 'paths', slug: 'paths' },
 		{
 			title: '<span class="headers">node</span>Buds',
-			slug: 'nodebuds'
+			slug: 'nodebuds',
 		},
-		{ title: 'connect', slug: 'connect' }
+		{ title: 'connect', slug: 'connect' },
 	];
+
+	const handleClose = () => {
+		if (checkbox.checked === true) {
+			checkbox.checked = false;
+		}
+	};
 </script>
 
 <nav>
-	<input type="checkbox" id="navToggle" />
+	<input type="checkbox" id="navToggle" bind:this={checkbox} />
 	<div class="content">
 		<a href="/" class="full-logomark">
 			<img src="assets/badges/general.svg" width="48" class="logo-badge" alt="acmCSUF badge" />
 			<span class="logo-text brand-em">CSUF</span>
 		</a>
 
-		<ul class="pages">
+		<ul class="pages" bind:this={menu}>
 			{#each menuItems as { title, slug } (slug)}
 				<li>
 					<a
+						on:click={() => handleClose()}
 						href={`/${slug}`}
 						class="{`page page-${slug}`} headers"
 						rel="prefetch"
-						aria-current={segment === slug}
-					>
+						aria-current={segment === slug}>
 						{@html title}
 					</a>
 				</li>
