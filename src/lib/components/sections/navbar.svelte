@@ -1,7 +1,7 @@
 <script lang="ts">
 	export let segment: string;
-	let menu;
-	let checkbox;
+	let menu: HTMLUListElement;
+	let checkbox: HTMLInputElement;
 
 	const menuItems = [
 		{ title: 'about', slug: 'about' },
@@ -16,13 +16,7 @@
 
 	const handleClose = () => {
 		if (checkbox.checked === true) {
-			menu.style.visibility = 'hidden';
 			checkbox.checked = false;
-		}
-	};
-	const handleOpen = () => {
-		if (checkbox.checked === false) {
-			menu.style.visibility = 'visible';
 		}
 	};
 </script>
@@ -51,7 +45,7 @@
 		</ul>
 	</div>
 
-	<label for="navToggle" class="menu" on:click={() => handleOpen()}>
+	<label for="navToggle" class="menu">
 		<div class="menuLine" />
 		<div class="menuLine" />
 		<div class="menuLine" />
