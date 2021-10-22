@@ -20,7 +20,8 @@
 		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
 	},
 	"dependencies": {
-		"rfs": "^9.0.6"
+		"rfs": "^9.0.6",
+		"rrule": "^2.6.8"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-static": "next",

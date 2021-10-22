@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import type { AcmEvent } from '$lib/parse-ical-data';
+	import type { AcmEvent } from '$lib/ical/parse';
 	import { links } from '$lib/constants/links';
 	import AcmButton from '$lib/components/utils/acm-button.svelte';
 
@@ -38,6 +38,10 @@
 			<span class="mid">
 				{info.month}
 				{info.day}
+				{#if info.recurringText !== undefined}
+					<br/>
+					{info.recurringText}
+				{/if}
 			</span>
 		</p>
 		<h3
