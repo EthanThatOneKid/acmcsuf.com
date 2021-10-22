@@ -66,7 +66,7 @@ export const parseRawIcal = (source: string): IcalOutput => {
 	return output;
 };
 
-export const convertIcalDateTime = (datetime: string): Date => {
+const parseRawIcalDatetime = (datetime: string) => {
 	const fullYear = datetime.slice(0, 4),
 		month = datetime.slice(4, 6),
 		day = datetime.slice(6, 8),
@@ -77,6 +77,21 @@ export const convertIcalDateTime = (datetime: string): Date => {
 	date.setFullYear(Number(fullYear), Number(month) - 1, Number(day));
 	date.setHours(Number(hours) - 7, Number(minutes), Number(seconds));
 	return date;
+};
+
+export const convertIcalDatetime = (event: any) => {
+	const rawDatetime = event['DTSTART'];
+	const rawRrule = event['RRULE'];
+	if (rawRrule !== undefined) {
+		try {
+			const ruleSrc = `DTSTART:${rawDatetime}Z\nRRULE:${rawRrule}`;
+			const recurrence = RRule.fromString(ruleSrc);
+			const date = recurrence.after(new Date());
+			date.setHours(date.getHours() + 7); // Adjust for LA timezone.
+			return date;
+		} catch {}
+	}
+	return parseRawIcalDatetime(rawDatetime);
 };
 
 export const slugifyEvent = (summary: string, month: string, day: number): string => {

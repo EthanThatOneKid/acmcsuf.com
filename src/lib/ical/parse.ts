@@ -1,7 +1,8 @@
+import { Time } from '$lib/constants/time';
 import {
 	parseRawIcal,
 	parseDescription,
-	convertIcalDateTime,
+	convertIcalDatetime,
 	slugifyEvent,
 	formatRecurrence,
 } from './common';
@@ -10,7 +11,6 @@ const acmLocale = 'en-us';
 
 export interface AcmEvent {
 	date: Date;
-	endDate: Date;
 	month: string;
 	day: number;
 	time: string;
@@ -18,7 +18,6 @@ export interface AcmEvent {
 	summary: string;
 	description: string;
 	meetingLink: string;
-	isHappening: boolean;
 	slug: string;
 	recurringText?: string;
 }
@@ -39,12 +38,10 @@ export const parse = (icalData: string): AcmEvent[] => {
 			const meetingLink = isZoomMeeting ? rawLocation : '/discord';
 			const customLocationName = parsedDescription['ACM_LOCATION'];
 			const location = isZoomMeeting ? 'Zoom' : customLocationName ?? rawLocation;
-			const date = convertIcalDateTime(event['DTSTART']);
-			const endDate = convertIcalDateTime(event['DTEND']);
+			const date = convertIcalDatetime(event);
 			const month = date.toLocaleString(acmLocale, { month: 'long' });
 			const day = date.getDate();
 			const time = date.toLocaleTimeString(acmLocale, { hour: 'numeric', minute: 'numeric' });
-			const isHappening = now >= date.valueOf() && now < endDate.valueOf();
 			const slug = slugifyEvent(summary, month, day);
 			const recurringText = formatRecurrence(event['RRULE']);
 			collection.push({
@@ -56,14 +53,12 @@ export const parse = (icalData: string): AcmEvent[] => {
 				description,
 				meetingLink,
 				date,
-				endDate,
-				isHappening,
 				slug,
 				recurringText,
 			});
 			return collection;
 		}, [])
-		.filter(({ endDate }) => endDate.valueOf() + 1e3 * 60 * 60 * 12 > now) // Comment out this filter statement to show a longer list of events for testing purposes.
+		.filter(({ date }) => date.valueOf() + Time.Day / 2 > now) // Comment out this filter statement to show a longer list of events for testing purposes.
 		.sort(({ date: date1 }, { date: date2 }) => (date1.valueOf() > date2.valueOf() ? 1 : -1));
 	return events;
 };
