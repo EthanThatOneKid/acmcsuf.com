@@ -87,7 +87,7 @@ export const convertIcalDatetime = (event: any) => {
 			const ruleSrc = `DTSTART:${rawDatetime}Z\nRRULE:${rawRrule}`;
 			const recurrence = RRule.fromString(ruleSrc);
 			const date = recurrence.after(new Date());
-			date.setHours(date.getHours()); // (+7) Adjust for LA timezone.
+			date.setHours(date.getHours());
 			return date;
 		} catch {}
 	}
