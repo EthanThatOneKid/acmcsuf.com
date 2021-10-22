@@ -1,4 +1,4 @@
-import { rrulestr } from 'rrule';
+import RRule from 'rrule';
 
 interface IcalOutput {
 	[key: string]: string | string[] | IcalOutput[];
@@ -88,9 +88,9 @@ export const slugifyEvent = (summary: string, month: string, day: number): strin
 export const formatRecurrence = (raw?: string): string | undefined => {
 	if (raw === undefined) return;
 	try {
-		const rrule = rrulestr(raw);
-		if (rrule.isFullyConvertibleToText) {
-			return rrule.toText();
+		const recurrence = RRule.fromString(raw);
+		if (recurrence.isFullyConvertibleToText) {
+			return recurrence.toText();
 		}
 	} catch {}
 };
