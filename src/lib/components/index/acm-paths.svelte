@@ -15,7 +15,7 @@
 
 	<div class="paths-list">
 		{#each acmPaths as { title, slug, picture, color } (slug)}
-			<a class="path-item" href={`/paths#${slug}`}>
+			<a class="path-item" target="_self" href={`/paths#${slug}`}>
 				<img src={picture} alt={`${slug}-logo`} />
 				<p class="size-m headers">
 					acm<span class="brand-em" use:styleProps={{ 'brand-color': color }}>
