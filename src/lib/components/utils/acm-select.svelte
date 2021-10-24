@@ -1,34 +1,29 @@
 <script lang="ts">
-	export let defaultValue: string | HTMLInputElement = '';
+	export let defaultValue: string = '';
 	export let options: string[] = [];
 
-	let option: HTMLDivElement;
+	let currentValue: string = defaultValue;
 	let dropTitle: HTMLDivElement;
+	let active: boolean = false;
 
-	const setDrop = () => {
-		option.classList.toggle('active');
+	const openDropdown = () => {
+		active = !active;
 	};
 
 	const handleOption = (term) => {
-		dropTitle.innerHTML = term;
-		option.classList.remove('active');
-		defaultValue = term;
+		currentValue = term;
+		defaultValue = currentValue;
+		active = false;
 	};
 </script>
 
 <div class="term" name="school-year">
 	<div class="option-box">
-		<div class="selected" bind:this={dropTitle} on:click={setDrop}>{defaultValue}</div>
-		<div class="option active" bind:this={option}>
+		<div class="selected" bind:this={dropTitle} on:click={openDropdown}>{currentValue}</div>
+		<div class="option" class:active>
 			{#each options as optionValue (optionValue)}
-				<div>
-					<input
-						value={optionValue}
-						on:click={() => handleOption(optionValue)}
-						type="radio"
-						class="radio"
-						id={optionValue} />
-					<label for={optionValue}> {optionValue} </label>
+				<div class="option-choice" on:click={() => handleOption(optionValue)}>
+					{optionValue}
 				</div>
 			{/each}
 		</div>
@@ -45,7 +40,7 @@
 		}
 	}
 
-	label,
+	.option-choice,
 	.selected {
 		color: white;
 	}
@@ -64,7 +59,7 @@
 		visibility: hidden;
 		margin-bottom: 0.5rem;
 		transition: all 300ms;
-		label {
+		.option-choice {
 			cursor: pointer;
 			&:hover {
 				color: transparent;
@@ -82,7 +77,7 @@
 		margin-top: 0.2rem;
 		border-radius: 0 0 6px 6px;
 		transition: all 200ms;
-		label:hover {
+		.option-choice:hover {
 			color: var(--acm-blue);
 		}
 	}
