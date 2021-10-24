@@ -3,10 +3,9 @@
 	export let options: string[] = [];
 
 	let currentValue: string = defaultValue;
-	let dropTitle: HTMLDivElement;
 	let active: boolean = false;
 
-	const openDropdown = () => {
+	const toggleDropdown = () => {
 		active = !active;
 	};
 
@@ -19,7 +18,7 @@
 
 <div class="term" name="school-year">
 	<div class="option-box">
-		<div class="selected" bind:this={dropTitle} on:click={openDropdown}>{currentValue}</div>
+		<div class="selected" on:click={toggleDropdown}>{currentValue}</div>
 		<div class="option" class:active>
 			{#each options as optionValue (optionValue)}
 				<div class="option-choice" on:click={() => handleOption(optionValue)}>
@@ -42,7 +41,7 @@
 
 	.option-choice,
 	.selected {
-		color: white;
+		color: var(--acm-light);
 	}
 	.selected {
 		background-color: var(--acm-dark);
@@ -62,12 +61,9 @@
 		.option-choice {
 			cursor: pointer;
 			&:hover {
-				color: transparent;
+				color: var(--acm-light);
 			}
 		}
-	}
-	.radio {
-		display: none;
 	}
 
 	.option.active {
