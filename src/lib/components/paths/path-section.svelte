@@ -4,7 +4,7 @@
 
 	enum TextAlignment {
 		Left = 'left',
-		Right = 'right'
+		Right = 'right',
 	}
 
 	export let textAlign: TextAlignment = TextAlignment.Right;
@@ -43,6 +43,7 @@
 		align-items: center;
 		width: 1064px;
 		margin: 0 32px;
+		scroll-margin-top: 4rem;
 	}
 
 	section img {
