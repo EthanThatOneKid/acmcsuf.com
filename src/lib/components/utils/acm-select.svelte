@@ -17,9 +17,9 @@
 </script>
 
 <div class="term" name="school-year">
-	<div class="option-box">
+	<div class="option-box" class:active>
 		<div class="selected" on:click={toggleDropdown}>{currentValue}</div>
-		<div class="option" class:active>
+		<div class="option">
 			{#each options as optionValue (optionValue)}
 				<div class="option-choice" on:click={() => handleOption(optionValue)}>
 					{optionValue}
@@ -47,10 +47,13 @@
 		background-color: var(--acm-dark);
 		padding: 8px 24px;
 		cursor: pointer;
-		border-radius: 6px 6px 0px 0px;
+		border-radius: 6px;
 		&:hover {
 			color: var(--acm-blue);
 		}
+	}
+	.active > .selected {
+		border-radius: 6px 6px 0 0;
 	}
 
 	.option {
@@ -66,7 +69,7 @@
 		}
 	}
 
-	.option.active {
+	.active > .option {
 		visibility: visible;
 		background-color: var(--acm-dark);
 		padding: 8px 24px;
