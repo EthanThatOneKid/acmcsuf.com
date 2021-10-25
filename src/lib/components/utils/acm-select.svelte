@@ -1,37 +1,83 @@
 <script lang="ts">
 	export let defaultValue: string = '';
 	export let options: string[] = [];
+
+	let currentValue: string = defaultValue;
+	let active: boolean = false;
+
+	const toggleDropdown = () => {
+		active = !active;
+	};
+
+	const handleOption = (term) => {
+		currentValue = term;
+		defaultValue = currentValue;
+		active = false;
+	};
 </script>
 
-<select name="school-year" bind:value={defaultValue}>
-	{#each options as optionValue (optionValue)}
-		<option value={optionValue}>{optionValue}</option>
-	{/each}
-</select>
+<div class="term" name="school-year">
+	<div class="option-box" class:active>
+		<div class="selected" on:click={toggleDropdown}>{currentValue}</div>
+		<div class="option">
+			{#each options as optionValue (optionValue)}
+				<div class="option-choice" on:click={() => handleOption(optionValue)}>
+					{optionValue}
+				</div>
+			{/each}
+		</div>
+	</div>
+</div>
 
-<style>
-	select {
-		text-align: center;
-		font-size: 18px;
+<style lang="scss">
+	.term {
 		font-weight: 600;
-		padding: 8px 20px;
-		border: none;
-		border-radius: 8px;
-		background-color: var(--acm-dark);
-		color: var(--acm-light);
-		outline: none;
-		appearance: none;
-		transition: background-color 0.25s ease-in-out;
+		.option-box {
+			flex-direction: column;
+			display: flex;
+			justify-content: center;
+		}
 	}
 
-	select:hover {
+	.option-choice,
+	.selected {
+		color: var(--acm-light);
+	}
+	.selected {
+		background-color: var(--acm-dark);
+		padding: 8px 24px;
 		cursor: pointer;
-		background-color: var(--acm-blue);
+		border-radius: 6px;
+		&:hover {
+			color: var(--acm-blue);
+		}
+	}
+	.active > .selected {
+		border-radius: 6px 6px 0 0;
 	}
 
-	option {
+	.option {
+		cursor: pointer;
+		visibility: hidden;
+		margin-bottom: 0.5rem;
+		transition: all 300ms;
+		.option-choice {
+			cursor: pointer;
+			&:hover {
+				color: var(--acm-light);
+			}
+		}
+	}
+
+	.active > .option {
+		visibility: visible;
 		background-color: var(--acm-dark);
-		color: var(--acm-light);
-		font-weight: 500;
+		padding: 8px 24px;
+		margin-top: 0.2rem;
+		border-radius: 0 0 6px 6px;
+		transition: all 200ms;
+		.option-choice:hover {
+			color: var(--acm-blue);
+		}
 	}
 </style>
