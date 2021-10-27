@@ -1,4 +1,4 @@
-import { AcmEvent, parseIcalData } from '$lib/parse-ical-data';
+import { AcmEvent, parse } from '$lib/ical/parse';
 
 const ICAL_TARGET_URL =
 	'https://calendar.google.com/calendar/ical/738lnit63cr2lhp7jtduvj0c9g%40group.calendar.google.com/public/basic.ics';
@@ -10,7 +10,7 @@ let events: AcmEvent[] = [];
 
 const setCache = async (timestamp: number) => {
 	const data = await fetch(ICAL_TARGET_URL).then((response) => response.text());
-	events = parseIcalData(data);
+	events = parse(data);
 	eventExpirationTimestamp = timestamp + expirationTimeout;
 	return events;
 };

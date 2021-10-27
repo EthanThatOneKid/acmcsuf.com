@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import type { AcmEvent } from '$lib/parse-ical-data';
-	import { links } from '$lib/constants/links';
+	import type { AcmEvent } from '$lib/ical/parse';
 	import AcmButton from '$lib/components/utils/acm-button.svelte';
 
 	export let info: AcmEvent;
@@ -25,7 +24,7 @@
 			anchor.scrollIntoView({
 				behavior: 'smooth',
 				block: 'start',
-				inline: 'center'
+				inline: 'center',
 			});
 		}
 	});
@@ -43,8 +42,7 @@
 		<h3
 			class="headers"
 			class:copied={isSuccessfullyCopied}
-			on:click={() => copyEventLink(info.slug)}
-		>
+			on:click={() => copyEventLink(info.slug)}>
 			{info.summary}
 		</h3>
 		<div>
