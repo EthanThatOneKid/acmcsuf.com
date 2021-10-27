@@ -60,5 +60,19 @@ export const parse = (icalData: string): AcmEvent[] => {
 		}, [])
 		.filter(filterIfPassed(now, Time.Day / 2)) // Comment out this filter statement to show a longer list of events for testing purposes.
 		.sort(sortByDate());
-	return events;
+	return [
+		...events,
+		{
+			month: 'October',
+			day: 777,
+			time: '12:00 PM',
+			location: 'Zoom',
+			summary: 'Halloween',
+			description: 'Halloween is coming!',
+			meetingLink: 'https://fullerton.zoom.us/j/898420100',
+			date: new Date(),
+			slug: 'halloween',
+			recurring: true,
+		},
+	];
 };
