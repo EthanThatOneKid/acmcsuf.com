@@ -4,7 +4,7 @@ import {
 	parseDescription,
 	computeIcalDatetime,
 	slugifyEvent,
-	formatRecurrence,
+	checkForRecurrence,
 	sortByDate,
 	filterIfPassed,
 } from './common';
@@ -19,7 +19,7 @@ export interface AcmEvent {
 	description: string;
 	meetingLink: string;
 	slug: string;
-	recurringText?: string;
+	recurring: boolean;
 }
 
 export const parse = (icalData: string): AcmEvent[] => {
@@ -43,7 +43,7 @@ export const parse = (icalData: string): AcmEvent[] => {
 			const day = date.getDate();
 			const time = date.toLocaleTimeString(ACM_LOCALE, { hour: 'numeric', minute: 'numeric' });
 			const slug = slugifyEvent(summary, month, day);
-			const recurringText = formatRecurrence(event['RRULE']);
+			const recurring = checkForRecurrence(event['RRULE']);
 			collection.push({
 				month,
 				day,
@@ -54,7 +54,7 @@ export const parse = (icalData: string): AcmEvent[] => {
 				meetingLink,
 				date,
 				slug,
-				recurringText,
+				recurring,
 			});
 			return collection;
 		}, [])

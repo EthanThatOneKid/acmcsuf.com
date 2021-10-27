@@ -100,14 +100,13 @@ export const slugifyEvent = (summary: string, month: string, day: number): strin
 	return slug;
 };
 
-export const formatRecurrence = (raw?: string): string | undefined => {
-	if (raw === undefined) return;
+export const checkForRecurrence = (raw?: string): boolean => {
+	if (raw === undefined) return false;
 	try {
 		const recurrence = RRule.fromString(raw);
-		if (recurrence.isFullyConvertibleToText) {
-			return recurrence.toText();
-		}
+		return recurrence.isFullyConvertibleToText();
 	} catch {}
+	return false;
 };
 
 export const parseDescription = (content: string): Record<string, string> => {
