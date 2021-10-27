@@ -5,8 +5,9 @@
 
 	export let info: AcmEvent;
 
-	let isActive = false;
-	let isSuccessfullyCopied = false;
+	let isActive: boolean = false;
+	let isRecurring: boolean = info.recurring;
+	let isSuccessfullyCopied: boolean = false;
 	let anchor: HTMLDivElement;
 
 	const copyEventLink = (slug: string) => {
@@ -38,6 +39,9 @@
 				{info.month}
 				{info.day}
 			</span>
+			{#if isRecurring}
+				<p class="event-recurring">RECURRING</p>
+			{/if}
 		</p>
 		<h3
 			class="headers"
@@ -88,6 +92,12 @@
 		padding: 32px;
 		box-shadow: 0 6px 24px rgba(44, 145, 198, 0.5);
 		border-radius: 30px;
+	}
+
+	.event-recurring {
+		font-weight: 800;
+		color: var(--acm-blue);
+		font-size: 16px;
 	}
 
 	.event-card h3 {
