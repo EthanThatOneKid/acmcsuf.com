@@ -66,14 +66,19 @@ export const parseRawIcal = (source: string): IcalOutput => {
 	return output;
 };
 
-const parseRawIcalDatetime = (datetime: string) => {
-	const fullYear = datetime.slice(0, 4),
-		month = datetime.slice(4, 6),
-		day = datetime.slice(6, 8),
-		hours = datetime.slice(9, 11),
-		minutes = datetime.slice(11, 13),
-		seconds = datetime.slice(13, 15),
-		date = new Date();
+/**
+ * This function parses the raw ICAL datetime string into a Date object.
+ * @param datetime Example: October 31st, 2021 = "20211031T000000"
+ * @returns The parsed Date object.
+ */
+const parseRawIcalDatetime = (datetime: string): Date => {
+	const fullYear = datetime.slice(0, 4);
+	const month = datetime.slice(4, 6);
+	const day = datetime.slice(6, 8);
+	const hours = datetime.slice(9, 11);
+	const minutes = datetime.slice(11, 13);
+	const seconds = datetime.slice(13, 15);
+	const date = new Date();
 	date.setFullYear(Number(fullYear), Number(month) - 1, Number(day));
 	date.setHours(Number(hours) - 7, Number(minutes), Number(seconds));
 	return date;
