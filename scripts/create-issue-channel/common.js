@@ -1,11 +1,14 @@
 import fetch from 'node-fetch';
 
-const getChannelPosition = async (channels) => {
+const getChannelPosition = async (channels, newName) => {
+	let position = null;
 	for (const [id, channel] of channels.cache) {
+		if (channel.name === newName) return null; // Fail if name already exists.
 		if (channel.name === 'closed-issues-below') {
-			return channel.rawPosition;
+			position = channel.rawPosition;
 		}
 	}
+	return position;
 };
 
 const fetchLatestIssue = async () => {
@@ -25,10 +28,12 @@ export const createIssueChannel = async (client) => {
 		const channelName = `website-issue-${number}`;
 		await client.guilds.fetch();
 		const { channels } = client.guilds.cache.get(process.env.GUILD_ID);
+		const position = await getChannelPosition(channels);
+		if (position === null) return false;
 		const channel = await channels.create(channelName, {
 			type: 'GUILD_TEXT',
 			reason: `Let's resolve #${number}!`,
-			position: await getChannelPosition(channels),
+			position,
 		});
 		const firstMessage = await channel.send(link);
 		await firstMessage.pin();
