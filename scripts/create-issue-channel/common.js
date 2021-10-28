@@ -1,8 +1,11 @@
 import fetch from 'node-fetch';
 
-const getChannelPosition = async (message) => {
-	const channels = await message.guild.channels.fetch();
-	return channels.findIndex(({ name }) => name === 'closed-issues-below');
+const getChannelPosition = async (channels) => {
+	for (const [id, channel] of channels.cache) {
+		if (channel.name === 'closed-issues-below') {
+			return channel.rawPosition;
+		}
+	}
 };
 
 const fetchLatestIssue = async () => {
@@ -20,12 +23,12 @@ export const createIssueChannel = async (client) => {
 		const link = issue.html_url;
 		const number = issue.number;
 		const channelName = `website-issue-${number}`;
-		const guilds = await client.guilds.fetch();
-		const guild = guilds.get(process.env.GUILD_ID);
-		const channel = await guild.channels.create(channelName, {
+		await client.guilds.fetch();
+		const { channels } = client.guilds.cache.get(process.env.GUILD_ID);
+		const channel = await channels.create(channelName, {
 			type: 'GUILD_TEXT',
 			reason: `Let's resolve #${number}!`,
-			position: await getChannelPosition(message),
+			position: await getChannelPosition(channels),
 		});
 		const firstMessage = await channel.send(link);
 		await firstMessage.pin();
