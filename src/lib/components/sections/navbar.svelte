@@ -1,17 +1,18 @@
 <script lang="ts">
-	export let segment: string;
+	import { page } from '$app/stores';
+
 	let menu: HTMLUListElement;
 	let checkbox: HTMLInputElement;
 
 	const menuItems = [
-		{ title: 'about', slug: 'about' },
-		{ title: 'events', slug: 'events' },
-		{ title: 'paths', slug: 'paths' },
+		{ title: 'about', path: '/about' },
+		{ title: 'events', path: '/events' },
+		{ title: 'paths', path: '/paths' },
 		{
 			title: '<span class="headers">node</span>Buds',
-			slug: 'nodebuds',
+			path: '/nodebuds',
 		},
-		{ title: 'connect', slug: 'connect' },
+		{ title: 'connect', path: '/connect' },
 	];
 
 	const handleClose = () => {
@@ -30,14 +31,14 @@
 		</a>
 
 		<ul class="pages" bind:this={menu}>
-			{#each menuItems as { title, slug } (slug)}
+			{#each menuItems as { title, path } (path)}
 				<li>
 					<a
 						on:click={() => handleClose()}
-						href={`/${slug}`}
-						class="{`page page-${slug}`} headers"
+						href={path}
+						class="{`page page-${path.replace(/^\//, "")}`} headers"
 						rel="prefetch"
-						aria-current={segment === slug}>
+						aria-current={path === $page.path }>
 						{@html title}
 					</a>
 				</li>
