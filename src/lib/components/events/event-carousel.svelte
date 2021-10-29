@@ -1,6 +1,6 @@
 <script lang="ts">
 	import EventItem from './event-item.svelte';
-	import type { AcmEvent } from '$lib/parse-ical-data';
+	import type { AcmEvent } from '$lib/ical/parse';
 
 	export let events: AcmEvent[] = [];
 
@@ -13,7 +13,7 @@
 	const scrollTheCarousel = (movementScalar: number, isSmooth: boolean = false) =>
 		carouselRef.scrollBy({
 			left: -movementScalar,
-			behavior: isSmooth ? 'smooth' : 'auto'
+			behavior: isSmooth ? 'smooth' : 'auto',
 		});
 	const scrollOnMouseMove = (event: MouseEvent) => isGrabbing && scrollTheCarousel(event.movementX);
 	const startGrabbing = () => (isGrabbing = true);
@@ -39,8 +39,7 @@
 			on:mousedown={startGrabbing}
 			on:mouseup={endGrabbing}
 			on:mouseleave={endGrabbing}
-			on:wheel={scrollHorizontally}
-		>
+			on:wheel={scrollHorizontally}>
 			<div class="event-item-buffer" />
 			{#each events as eventInfo}
 				<EventItem info={eventInfo} />

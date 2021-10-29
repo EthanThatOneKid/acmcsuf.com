@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import type { AcmEvent } from '$lib/parse-ical-data';
-	import { links } from '$lib/constants/links';
+	import type { AcmEvent } from '$lib/ical/parse';
 	import AcmButton from '$lib/components/utils/acm-button.svelte';
 
 	export let info: AcmEvent;
 
-	let isActive = false;
-	let isSuccessfullyCopied = false;
+	let isActive: boolean = false;
+	let isRecurring: boolean = info.recurring;
+	let isSuccessfullyCopied: boolean = false;
 	let anchor: HTMLDivElement;
 
 	const copyEventLink = (slug: string) => {
@@ -25,7 +25,7 @@
 			anchor.scrollIntoView({
 				behavior: 'smooth',
 				block: 'start',
-				inline: 'center'
+				inline: 'center',
 			});
 		}
 	});
@@ -39,12 +39,14 @@
 				{info.month}
 				{info.day}
 			</span>
+			{#if isRecurring}
+				<p class="event-recurring">RECURRING</p>
+			{/if}
 		</p>
 		<h3
 			class="headers"
 			class:copied={isSuccessfullyCopied}
-			on:click={() => copyEventLink(info.slug)}
-		>
+			on:click={() => copyEventLink(info.slug)}>
 			{info.summary}
 		</h3>
 		<div>
@@ -90,6 +92,12 @@
 		padding: 32px;
 		box-shadow: 0 6px 24px rgba(44, 145, 198, 0.5);
 		border-radius: 30px;
+	}
+
+	.event-recurring {
+		font-weight: 800;
+		color: var(--acm-blue);
+		font-size: 16px;
 	}
 
 	.event-card h3 {
