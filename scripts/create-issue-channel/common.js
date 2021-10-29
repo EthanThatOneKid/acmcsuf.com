@@ -49,6 +49,6 @@ export const createIssueChannel = async (client) => {
 		const firstMessage = await channel.send(link);
 		await firstMessage.pin();
 		success = true;
-	} catch {}
+	} catch (e) { console.log({ e }) }
 	return success;
 };
