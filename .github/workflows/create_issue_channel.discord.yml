@@ -16,5 +16,6 @@ jobs:
         DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
         GUILD_ID: ${{ secrets.GUILD_ID }}
         HUB_ID: ${{ secrets.HUB_ID }}
+    - run: npm i
     - run: node scripts/create-issue-channel
  
