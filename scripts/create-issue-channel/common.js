@@ -1,22 +1,28 @@
 import fetch from 'node-fetch';
 
+/**
+ * This function handles shifting the positions of the affected channels.
+ * Returns null when an the channel has already been made or if the start
+ * channel cannot be found. When successful, returns the new channel position.
+ */
 const shiftChannels = async (channelCache, newName, belowName) => {
-	const channels = [...channelCache.cache];
-	const nameExists = channels.find(([_, { name }]) => name === newName) !== undefined;
+	const channels = [...channelCache.cache.values()]; // converts to Channel[]
+	const nameExists = channels.find((ch) => ch.name === newName) !== undefined;
 	if (nameExists) return null;
-	const startChannel = channels.find(([_, { name }]) => name === belowName)[1];
-	if (startChannel === undefined) return null;
+	const startChannel = channels.find((ch) => ch.name === belowName);
+	const startChannelExists = startChannel !== undefined;
+	if (!startChannelExists) return null;
 	const startPos = startChannel.position;
 	const shiftedChannels = channels
-		.filter(([_, channel]) => {
+		.filter((channel) => {
 			return (
 				channel.parentId === process.env.HUB_ID &&
 				channel.position >= startPos &&
 				channel.type === 'GUILD_TEXT'
 			);
 		})
-		.sort(([_, i], [__, j]) => i.position - j.position);
-	for (const [_, channel] of shiftedChannels) {
+		.sort((i, j) => j.position - i.position);
+	for (const channel of shiftedChannels) {
 		await channel.edit({ position: channel.position + 1 });
 	}
 	return startPos;
@@ -36,7 +42,7 @@ export const createIssueChannel = async (client) => {
 		const issue = await fetchLatestIssue();
 		const link = issue.html_url;
 		const number = issue.number;
-		const channelName = `website-issue-${number}`;
+		const channelName = `issue-${number}`;
 		await client.guilds.fetch();
 		const { channels } = client.guilds.cache.get(process.env.GUILD_ID);
 		const position = await shiftChannels(channels, channelName, 'closed-issues-below');
@@ -49,6 +55,8 @@ export const createIssueChannel = async (client) => {
 		const firstMessage = await channel.send(link);
 		await firstMessage.pin();
 		success = true;
-	} catch (e) { console.log({ e }) }
+	} catch (e) {
+		console.log({ e });
+	}
 	return success;
 };

@@ -2,19 +2,19 @@ name: Create Issue Channel on Discord
 
 on:
   issues:
-    types: [ opened ]
+    types: [opened]
 
 jobs:
   create_channel:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
-      with:
-        node-version: '16'
-    - run: npm i
-    - run: node scripts/create-issue-channel
-      env:
-        DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
-        GUILD_ID: ${{ secrets.GUILD_ID }}
-        HUB_ID: ${{ secrets.HUB_ID }}
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - run: npm ci
+      - run: node scripts/create-issue-channel
+        env:
+          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+          GUILD_ID: ${{ secrets.GUILD_ID }}
+          HUB_ID: ${{ secrets.HUB_ID }}
