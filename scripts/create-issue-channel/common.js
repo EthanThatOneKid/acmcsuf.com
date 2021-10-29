@@ -1,11 +1,12 @@
 import fetch from 'node-fetch';
 
-/**
- * This function handles shifting the positions of the affected channels.
- * Returns null when an the channel has already been made or if the start
- * channel cannot be found. When successful, returns the new channel position.
- */
-const shiftChannels = async (channelCache, newName, belowName) => {
+const shiftChannels = async (shiftedChannels) => {
+	for (const channel of shiftedChannels) {
+		await channel.edit({ position: channel.position + 1 });
+	}
+};
+
+const prepareChannelData = async (channelCache, newName, belowName) => {
 	const channels = [...channelCache.cache.values()]; // converts to Channel[]
 	const nameExists = channels.find((ch) => ch.name === newName) !== undefined;
 	if (nameExists) return null;
@@ -13,7 +14,7 @@ const shiftChannels = async (channelCache, newName, belowName) => {
 	const startChannelExists = startChannel !== undefined;
 	if (!startChannelExists) return null;
 	const startPos = startChannel.position;
-	const shiftedChannels = channels
+	const displacedChannels = channels
 		.filter((channel) => {
 			return (
 				channel.parentId === process.env.HUB_ID &&
@@ -22,10 +23,10 @@ const shiftChannels = async (channelCache, newName, belowName) => {
 			);
 		})
 		.sort((i, j) => j.position - i.position);
-	for (const channel of shiftedChannels) {
-		await channel.edit({ position: channel.position + 1 });
-	}
-	return startPos;
+	return {
+		position: startPos,
+		displacedChannels,
+	};
 };
 
 const fetchLatestIssue = async () => {
@@ -45,13 +46,16 @@ export const createIssueChannel = async (client) => {
 		const channelName = `issue-${number}`;
 		await client.guilds.fetch();
 		const { channels } = client.guilds.cache.get(process.env.GUILD_ID);
-		const position = await shiftChannels(channels, channelName, 'closed-issues-below');
-		if (position === null) return false;
+		const channelData = await prepareChannelData(channels, channelName, 'closed-issues-below');
+		if (channelData === null) return false;
+		const { position, displacedChannels } = channelData;
 		const channel = await channels.create(channelName, {
 			type: 'GUILD_TEXT',
+			parent: process.env.HUB_ID,
 			reason: `Let's resolve #${number}!`,
-			position,
 		});
+		await shiftChannels(displacedChannels); // First shift channels down.
+		await channel.edit({ position }); // Then position the channel.
 		const firstMessage = await channel.send(link);
 		await firstMessage.pin();
 		success = true;
