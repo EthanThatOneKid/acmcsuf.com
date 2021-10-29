@@ -12,6 +12,7 @@ jobs:
     - uses: actions/setup-node@v2
       with:
         node-version: '16'
+    - run: npm i
     - run: node scripts/create-issue-channel
       env:
         DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
