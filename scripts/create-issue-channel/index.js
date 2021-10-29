@@ -12,6 +12,7 @@ client.on('ready', async () => {
 	console.log(`Logged in as ${client.user.tag}`);
 	const success = await createIssueChannel(client);
 	client.destroy();
+	console.log(`Success: ${success}`);
 	process.exit(success ? 0 : 1);
 });
 

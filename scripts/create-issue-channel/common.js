@@ -1,14 +1,25 @@
 import fetch from 'node-fetch';
 
-const getChannelPosition = async (channels, newName) => {
-	let position = null;
-	for (const [id, channel] of channels.cache) {
-		if (channel.name === newName) return null; // Fail if name already exists.
-		if (channel.name === 'closed-issues-below') {
-			position = channel.rawPosition;
-		}
+const shiftChannels = async (channelCache, newName, belowName) => {
+	const channels = [...channelCache.cache];
+	const nameExists = channels.find(([_, { name }]) => name === newName) !== undefined;
+	if (nameExists) return null;
+	const startChannel = channels.find(([_, { name }]) => name === belowName)[1];
+	if (startChannel === undefined) return null;
+	const startPos = startChannel.position;
+	const shiftedChannels = channels
+		.filter(([_, channel]) => {
+			return (
+				channel.parentId === process.env.HUB_ID &&
+				channel.position >= startPos &&
+				channel.type === 'GUILD_TEXT'
+			);
+		})
+		.sort(([_, i], [__, j]) => i.position - j.position);
+	for (const [_, channel] of shiftedChannels) {
+		await channel.edit({ position: channel.position + 1 });
 	}
-	return position;
+	return startPos;
 };
 
 const fetchLatestIssue = async () => {
@@ -28,7 +39,7 @@ export const createIssueChannel = async (client) => {
 		const channelName = `website-issue-${number}`;
 		await client.guilds.fetch();
 		const { channels } = client.guilds.cache.get(process.env.GUILD_ID);
-		const position = await getChannelPosition(channels);
+		const position = await shiftChannels(channels, channelName, 'closed-issues-below');
 		if (position === null) return false;
 		const channel = await channels.create(channelName, {
 			type: 'GUILD_TEXT',
