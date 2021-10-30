@@ -28,11 +28,6 @@
 	};
 	onMount(() => {
 		hasHorizontalScrollBar = carouselRef.scrollWidth > carouselRef.clientWidth;
-<<<<<<< HEAD
-=======
-		console.log('hello', hasHorizontalScrollBar);
->>>>>>> parent of 3a94cef (Update event-carousel.svelte)
-	});
 </script>
 
 <section>
