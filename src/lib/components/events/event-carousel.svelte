@@ -1,7 +1,7 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import EventItem from './event-item.svelte';
 	import type { AcmEvent } from '$lib/ical/parse';
-	import { onMount } from 'svelte';
 
 	export let events: AcmEvent[] = [];
 
