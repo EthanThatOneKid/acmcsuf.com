@@ -43,7 +43,7 @@ export const createIssueChannel = async (client) => {
 		const issue = await fetchLatestIssue();
 		const link = issue.html_url;
 		const number = issue.number;
-		const channelName = `issue-${number}`;
+		const channelName = `website-issue-${number}`;
 		await client.guilds.fetch();
 		const { channels } = client.guilds.cache.get(process.env.GUILD_ID);
 		const channelData = await prepareChannelData(channels, channelName, 'closed-issues-below');
