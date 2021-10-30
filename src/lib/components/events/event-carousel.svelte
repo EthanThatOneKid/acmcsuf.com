@@ -1,6 +1,7 @@
 <script lang="ts">
 	import EventItem from './event-item.svelte';
 	import type { AcmEvent } from '$lib/parse-ical-data';
+	import { onMount } from 'svelte';
 
 	export let events: AcmEvent[] = [];
 
@@ -13,8 +14,9 @@
 	const scrollTheCarousel = (movementScalar: number, isSmooth: boolean = false) =>
 		carouselRef.scrollBy({
 			left: -movementScalar,
-			behavior: isSmooth ? 'smooth' : 'auto'
+			behavior: isSmooth ? 'smooth' : 'auto',
 		});
+	var hasHorizontalScrollBar = false;
 	const scrollOnMouseMove = (event: MouseEvent) => isGrabbing && scrollTheCarousel(event.movementX);
 	const startGrabbing = () => (isGrabbing = true);
 	const endGrabbing = () => (isGrabbing = false);
@@ -24,13 +26,20 @@
 		event.preventDefault();
 		scrollTheCarousel(-event.deltaY);
 	};
+	onMount(() => {
+		hasHorizontalScrollBar = carouselRef.scrollWidth > carouselRef.clientWidth;
+		console.log('hello', hasHorizontalScrollBar);
+	});
 </script>
 
 <section>
-	<div class="event-carousel-container">
-		<div bind:this={carouselButtonLeft} class="carousel-button left" on:click={scrollLeft}>
-			&lt;
-		</div>
+	<div class="event-carousel-container" id="carousel-container">
+		{#if hasHorizontalScrollBar}
+			<div bind:this={carouselButtonLeft} class="carousel-button left" on:click={scrollLeft}>
+				&lt;
+			</div>
+		{/if}
+
 		<div
 			class="event-list"
 			bind:this={carouselRef}
@@ -39,17 +48,18 @@
 			on:mousedown={startGrabbing}
 			on:mouseup={endGrabbing}
 			on:mouseleave={endGrabbing}
-			on:wheel={scrollHorizontally}
-		>
+			on:wheel={scrollHorizontally}>
 			<div class="event-item-buffer" />
 			{#each events as eventInfo}
 				<EventItem info={eventInfo} />
 			{/each}
 			<div class="event-item-buffer" />
 		</div>
-		<div bind:this={carouselButtonRight} class="carousel-button right" on:click={scrollRight}>
-			&gt;
-		</div>
+		{#if hasHorizontalScrollBar}
+			<div bind:this={carouselButtonRight} class="carousel-button right" on:click={scrollRight}>
+				&gt;
+			</div>
+		{/if}
 	</div>
 </section>
 
