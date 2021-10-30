@@ -28,6 +28,7 @@
 	};
 	onMount(() => {
 		hasHorizontalScrollBar = carouselRef.scrollWidth > carouselRef.clientWidth;
+	});
 </script>
 
 <section>
