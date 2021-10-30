@@ -16,7 +16,6 @@
 			left: -movementScalar,
 			behavior: isSmooth ? 'smooth' : 'auto',
 		});
-	var hasHorizontalScrollBar = false;
 	const scrollOnMouseMove = (event: MouseEvent) => isGrabbing && scrollTheCarousel(event.movementX);
 	const startGrabbing = () => (isGrabbing = true);
 	const endGrabbing = () => (isGrabbing = false);
@@ -26,19 +25,13 @@
 		event.preventDefault();
 		scrollTheCarousel(-event.deltaY);
 	};
-	onMount(() => {
-		hasHorizontalScrollBar = carouselRef.scrollWidth > carouselRef.clientWidth;
-		console.log('hello', hasHorizontalScrollBar);
-	});
 </script>
 
 <section>
 	<div class="event-carousel-container" id="carousel-container">
-		{#if hasHorizontalScrollBar}
-			<div bind:this={carouselButtonLeft} class="carousel-button left" on:click={scrollLeft}>
-				&lt;
-			</div>
-		{/if}
+		<div bind:this={carouselButtonLeft} class="carousel-button left" on:click={scrollLeft}>
+			&lt;
+		</div>
 
 		<div
 			class="event-list"
@@ -55,11 +48,9 @@
 			{/each}
 			<div class="event-item-buffer" />
 		</div>
-		{#if hasHorizontalScrollBar}
-			<div bind:this={carouselButtonRight} class="carousel-button right" on:click={scrollRight}>
-				&gt;
-			</div>
-		{/if}
+		<div bind:this={carouselButtonRight} class="carousel-button right" on:click={scrollRight}>
+			&gt;
+		</div>
 	</div>
 </section>
 
