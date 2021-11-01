@@ -16,7 +16,7 @@
 			left: -movementScalar,
 			behavior: isSmooth ? 'smooth' : 'auto',
 		});
-	var hasHorizontalScrollbar = false;
+	let hasHorizontalScrollbar = false;
 	const scrollOnMouseMove = (event: MouseEvent) => isGrabbing && scrollTheCarousel(event.movementX);
 	const startGrabbing = () => (isGrabbing = true);
 	const endGrabbing = () => (isGrabbing = false);
@@ -33,11 +33,13 @@
 
 <section>
 	<div class="event-carousel-container">
-		{#if hasHorizontalScrollbar}
-			<div bind:this={carouselButtonLeft} class="carousel-button left" on:click={scrollLeft}>
-				&lt;
-			</div>
-		{/if}
+		<div
+			bind:this={carouselButtonLeft}
+			class:enabled={hasHorizontalScrollbar}
+			class="carousel-button left"
+			on:click={scrollLeft}>
+			&lt;
+		</div>
 		<div
 			class="event-list"
 			bind:this={carouselRef}
@@ -53,11 +55,13 @@
 			{/each}
 			<div class="event-item-buffer" />
 		</div>
-		{#if hasHorizontalScrollbar}
-			<div bind:this={carouselButtonRight} class="carousel-button right" on:click={scrollRight}>
-				&gt;
-			</div>
-		{/if}
+		<div
+			bind:this={carouselButtonRight}
+			class:enabled={hasHorizontalScrollbar}
+			class="carousel-button right"
+			on:click={scrollRight}>
+			&gt;
+		</div>
 	</div>
 </section>
 
@@ -136,6 +140,7 @@
 		-webkit-user-select: none;
 		-ms-user-select: none;
 		user-select: none;
+		opacity: 0;
 	}
 
 	.carousel-button:hover {
@@ -151,6 +156,10 @@
 
 	.carousel-button.right {
 		right: 0;
+	}
+
+	.enabled {
+		opacity: 1;
 	}
 
 	@media (max-width: 1219px) {
