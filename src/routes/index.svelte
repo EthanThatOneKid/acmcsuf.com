@@ -6,20 +6,20 @@
 	import ReadyUp from '$lib/components/index/ready-up.svelte';
 </script>
 
-<Spacing --mobile-space="100px" --medium-space="175px" --desktop-space="200px" />
+<Spacing --min="100px" --med="175px" --max="200px" />
 
 <Hero />
 
-<Spacing --mobile-space="100px" --medium-space="175px" --desktop-space="200px" />
+<Spacing --min="100px" --med="175px" --max="200px" />
 
 <WhyJoin />
 
-<Spacing --mobile-space="100px" --medium-space="175px" --desktop-space="200px" />
+<Spacing --min="100px" --med="175px" --max="200px" />
 
 <AcmPaths />
 
-<Spacing --mobile-space="100px" --medium-space="175px" --desktop-space="200px" />
+<Spacing --min="100px" --med="175px" --max="200px" />
 
 <ReadyUp />
 
-<Spacing --mobile-space="40px" --medium-space="95px" --desktop-space="120px" />
+<Spacing --min="40px" --med="95px" --max="120px" />

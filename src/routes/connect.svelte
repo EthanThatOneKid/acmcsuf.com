@@ -7,7 +7,7 @@
 	const googleFormId = '1FAIpQLSfJanOAaL2mdjpf193tFeCClBzpW_COEO_crAE8hqsJCB_Rwg';
 </script>
 
-<Spacing --mobile-space="100px" --medium-space="175px" --desktop-space="200px" />
+<Spacing --min="100px" --med="175px" --max="200px" />
 
 <CommonHero>
 	<h2 slot="headline" class="size-l">Connect with us!</h2>
@@ -18,15 +18,15 @@
 	</p>
 </CommonHero>
 
-<Spacing --medium-space="64px" />
+<Spacing --med="64px" />
 
 <SocialMediaLinks />
 
-<Spacing --mobile-space="100px" --medium-space="175px" --desktop-space="200px" />
+<Spacing --min="100px" --med="175px" --max="200px" />
 
 <GetInTouchForm {googleFormId} />
 
-<Spacing --mobile-space="40px" --medium-space="95px" --desktop-space="120px" />
+<Spacing --min="40px" --med="95px" --max="120px" />
 
 <style lang="scss">
 	@import 'static/theme.scss';

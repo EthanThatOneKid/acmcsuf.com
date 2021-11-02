@@ -2,21 +2,21 @@
 
 <style>
 	div {
-		--medium-space: 100px;
-		--mobile-space: var(--medium-space, 100px);
-		--desktop-space: var(--medium-space, 100px);
-		height: var(--mobile-space);
+		--med: 100px;
+		--min: var(--med, 100px);
+		--max: var(--med, 100px);
+		height: var(--min);
 	}
 
 	@media screen and (min-width: 768px) {
 		div {
-			height: var(--medium-space);
+			height: var(--med);
 		}
 	}
 
 	@media screen and (min-width: 1440px) {
 		div {
-			height: var(--desktop-space);
+			height: var(--max);
 		}
 	}
 </style>

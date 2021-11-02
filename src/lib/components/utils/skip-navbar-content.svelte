@@ -2,4 +2,4 @@
 	import Spacing from '$lib/components/sections/spacing.svelte';
 </script>
 
-<Spacing --medium-space="100px" --mobile-space="200px" --desktop-space="250px" />
+<Spacing --med="100px" --min="200px" --max="250px" />
