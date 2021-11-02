@@ -1,5 +1,6 @@
 <script lang="ts">
 	import GitHubIcon from '$lib/components/icons/github.svelte';
+	import BugsIcon from '$lib/components/icons/bugs.svelte';
 </script>
 
 <footer>
@@ -10,10 +11,14 @@
 				acm<span class="brand-em brand-light">CSUF</span>
 			</span>
 		</p>
-
-		<a href="/github" class="github" target="_blank" rel="noopener norefferer">
-			<GitHubIcon />
-		</a>
+		<div class="footer-link">
+			<a href="/bug" class="bug" target="_blank" rel="noopener norefferer">
+				<BugsIcon />
+			</a>
+			<a href="/github" class="github" target="_blank" rel="noopener norefferer">
+				<GitHubIcon />
+			</a>
+		</div>
 	</div>
 </footer>
 
@@ -26,9 +31,12 @@
 		background-color: var(--acm-dark);
 	}
 	footer .content,
-	footer .github {
+	footer .footer-link {
 		display: flex;
 		align-items: center;
+	}
+	footer .github {
+		margin-left: 32px;
 	}
 	footer .content {
 		justify-content: space-between;
@@ -39,19 +47,27 @@
 	footer p {
 		font-size: 18px;
 	}
-	footer .github :global(svg) {
+	footer .github :global(svg),
+	footer .bug :global(svg) {
 		height: 32px;
 		width: 32px;
 	}
-	footer .github :global(path) {
+	footer .github :global(path),
+	footer .bug :global(path) {
 		fill: var(--acm-light);
 		transition: fill 0.25s ease-in-out;
 	}
-	footer .github:hover :global(path) {
+	footer .github:hover :global(path),
+	footer .bug:hover :global(path) {
 		fill: var(--acm-blue);
 	}
+
 	@media (max-width: 839px) {
 		footer .github :global(svg) {
+			height: 24px;
+			width: 24px;
+		}
+		footer .bug :global(svg) {
 			height: 24px;
 			width: 24px;
 		}
