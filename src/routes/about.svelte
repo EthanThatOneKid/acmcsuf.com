@@ -14,11 +14,11 @@
 	};
 </script>
 
-<Spacing minAmount="100px" amount="175px" maxAmount="200px" />
+<Spacing --mobile-space="100px" --medium-space="175px" --desktop-space="200px" />
 
 <Header />
 
-<Spacing minAmount="32px" maxAmount="64px" />
+<Spacing --mobile-space="32px" --desktop-space="64px" />
 
 <CommonHero>
 	<h2 slot="headline" class="size-l">Who are we?</h2>
@@ -36,7 +36,7 @@
 	</p>
 </CommonHero>
 
-<Spacing amount="150px" />
+<Spacing --medium-space="150px" />
 
 <!-- TODO: Get the content below from the `/events.json` endpoint and just
 display the most upcoming event with a reminder/notice flair. -->
@@ -53,17 +53,17 @@ display the most upcoming event with a reminder/notice flair. -->
 	<a href="/nbapp" class="link headers brand-light">Click here to apply now!</a>
 </Admonition>
 
-<Spacing amount="150px" />
+<Spacing --medium-space="150px" />
 
 <div class="container">
 	<h2 class="headers size-l">Board members</h2>
 </div>
 
-<Spacing amount="16px" />
+<Spacing --medium-space="16px" />
 
 <OfficerProfileList filter={filterOfficers} placeholderPicture="placeholder.png" />
 
-<Spacing minAmount="40px" amount="95px" maxAmount="120px" />
+<Spacing --mobile-space="40px" --medium-space="95px" --desktop-space="120px" />
 
 <style lang="scss">
 	@import 'static/theme.scss';

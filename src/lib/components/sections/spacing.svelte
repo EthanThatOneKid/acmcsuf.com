@@ -1,32 +1,22 @@
-<script lang="ts">
-	import { styleProps } from '$lib/actions/use-style-props';
-	export let amount: string = '100px';
-	export let minAmount: string = amount;
-	export let maxAmount: string = amount;
-</script>
-
-<div
-	use:styleProps={{
-		'min-spacing-height': minAmount,
-		'med-spacing-height': amount,
-		'max-spacing-height': maxAmount
-	}}
-/>
+<div />
 
 <style>
 	div {
-		height: var(--min-spacing-height);
+		--medium-space: 100px;
+		--mobile-space: var(--medium-space, 100px);
+		--desktop-space: var(--medium-space, 100px);
+		height: var(--mobile-space);
 	}
 
 	@media screen and (min-width: 768px) {
 		div {
-			height: var(--med-spacing-height);
+			height: var(--medium-space);
 		}
 	}
 
 	@media screen and (min-width: 1440px) {
 		div {
-			height: var(--max-spacing-height);
+			height: var(--desktop-space);
 		}
 	}
 </style>

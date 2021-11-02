@@ -14,7 +14,7 @@
 	};
 </script>
 
-<Spacing minAmount="100px" amount="175px" maxAmount="200px" />
+<Spacing --mobile-space="100px" --medium-space="175px" --desktop-space="200px" />
 
 <div class="container">
 	<section>
@@ -65,17 +65,17 @@
   </p>
 </NodeBudsTestimonial> -->
 
-<Spacing minAmount="100px" amount="175px" maxAmount="200px" />
+<Spacing --mobile-space="100px" --medium-space="175px" --desktop-space="200px" />
 
 <div class="container">
 	<h2 class="headers size-l">Buddies</h2>
 </div>
 
-<Spacing amount="16px" />
+<Spacing --medium-space="16px" />
 
 <OfficerProfileList filter={filterNodeBuddies} />
 
-<Spacing minAmount="40px" amount="95px" maxAmount="120px" />
+<Spacing --mobile-space="40px" --medium-space="95px" --desktop-space="120px" />
 
 <style lang="scss">
 	@import 'static/theme.scss';
