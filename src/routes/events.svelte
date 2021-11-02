@@ -20,7 +20,7 @@
 	});
 </script>
 
-<Spacing minAmount="100px" amount="175px" maxAmount="200px" />
+<Spacing --min="100px" --med="175px" --max="200px" />
 
 <CommonHero>
 	<h2 slot="headline" class="size-l">Curated events for growth and success</h2>
@@ -29,16 +29,15 @@
 		workshops, info sessions, community building events, and much more!
 		<br /><br />
 		<span class="brand-med"
-			>Events are open to anyone interested, regardless of major or background experience.</span
-		>
+			>Events are open to anyone interested, regardless of major or background experience.</span>
 	</p>
 </CommonHero>
 
-<Spacing minAmount="100px" amount="125px" maxAmount="125px" />
+<Spacing --min="100px" --med="125px" --max="125px" />
 
 <h2 class="size-l headers">This week's events 📅</h2>
 
-<Spacing amount="16px" />
+<Spacing --med="16px" />
 
 {#if events.length > 0}
 	<EventCarousel {events} />
@@ -54,7 +53,7 @@
 	</AcmEmpty>
 {/if}
 
-<Spacing minAmount="8px" amount="63px" maxAmount="88px" />
+<Spacing --min="8px" --med="63px" --max="88px" />
 
 <style lang="scss">
 	@import 'static/theme.scss';

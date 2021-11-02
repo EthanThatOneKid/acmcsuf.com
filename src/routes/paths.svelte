@@ -5,7 +5,7 @@
 	import Spacing from '$lib/components/sections/spacing.svelte';
 </script>
 
-<Spacing minAmount="100px" amount="175px" maxAmount="200px" />
+<Spacing --min="100px" --med="175px" --max="200px" />
 
 <CommonHero>
 	<h2 slot="headline" class="size-l">What are paths?</h2>
@@ -16,7 +16,7 @@
 	</p>
 </CommonHero>
 
-<Spacing minAmount="100px" amount="175px" maxAmount="200px" />
+<Spacing --min="100px" --med="175px" --max="200px" />
 
 <PathSection info={acmAlgo} textAlign="right">
 	<p slot="content" class="size-xs">
@@ -26,7 +26,7 @@
 	</p>
 </PathSection>
 
-<Spacing amount="64px" />
+<Spacing --med="64px" />
 
 <PathSection info={acmCreate} textAlign="left">
 	<p slot="content" class="size-xs">
@@ -37,7 +37,7 @@
 	</p>
 </PathSection>
 
-<Spacing amount="64px" />
+<Spacing --med="64px" />
 
 <PathSection info={acmDev} textAlign="right">
 	<p slot="content" class="size-xs">
@@ -47,7 +47,7 @@
 	</p>
 </PathSection>
 
-<Spacing minAmount="40px" amount="95px" maxAmount="120px" />
+<Spacing --min="40px" --med="95px" --max="120px" />
 
 <style lang="scss">
 	@import 'static/theme.scss';

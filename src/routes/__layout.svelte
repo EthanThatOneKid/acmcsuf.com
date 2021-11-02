@@ -1,11 +1,13 @@
 <script lang="ts">
 	import Navbar from '$lib/components/sections/navbar.svelte';
+	import SkipNavbarContent from '$lib/components/utils/skip-navbar-content.svelte';
 	import Footer from '$lib/components/sections/footer.svelte';
 
 	export let segment: string;
 </script>
 
 <Navbar {segment} />
+<SkipNavbarContent />
 <main><slot /></main>
 <Footer />
 

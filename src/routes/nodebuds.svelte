@@ -14,7 +14,7 @@
 	};
 </script>
 
-<Spacing minAmount="100px" amount="175px" maxAmount="200px" />
+<Spacing --min="100px" --med="175px" --max="200px" />
 
 <div class="container">
 	<section>
@@ -26,8 +26,7 @@
 				</span>
 				is our exclusive program in partnership with
 				<a href="/acm-w" class="w-text" target="_blank" rel="noopener noreferrer">
-					<span class="headers">ACM </span>W</a
-				>
+					<span class="headers">ACM </span>W</a>
 				that exposes students to various opportunities that encourage connection, skill building, as
 				well as both personal and technical development.
 				<br /><br />
@@ -65,17 +64,17 @@
   </p>
 </NodeBudsTestimonial> -->
 
-<Spacing minAmount="100px" amount="175px" maxAmount="200px" />
+<Spacing --min="100px" --med="175px" --max="200px" />
 
 <div class="container">
 	<h2 class="headers size-l">Buddies</h2>
 </div>
 
-<Spacing amount="16px" />
+<Spacing --med="16px" />
 
 <OfficerProfileList filter={filterNodeBuddies} />
 
-<Spacing minAmount="40px" amount="95px" maxAmount="120px" />
+<Spacing --min="40px" --med="95px" --max="120px" />
 
 <style lang="scss">
 	@import 'static/theme.scss';
