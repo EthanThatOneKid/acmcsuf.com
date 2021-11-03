@@ -19,6 +19,9 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+      - name: This workflow is under maintenance!
+        run: exit 0
+  
       - name: Checkout
         uses: actions/checkout@v2
 
