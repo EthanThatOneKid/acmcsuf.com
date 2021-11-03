@@ -10,13 +10,22 @@
 	let carouselButtonLeft: HTMLDivElement;
 	let carouselButtonRight: HTMLDivElement;
 	let isGrabbing = false;
+	let hasHorizontalScrollbar = false;
+	let leftButtonEnabled = false;
+	let rightButtonEnabled = false;
 
-	const scrollTheCarousel = (movementScalar: number, isSmooth: boolean = false) =>
+	const scrollTheCarousel = (movementScalar: number, isSmooth: boolean = false) => {
 		carouselRef.scrollBy({
 			left: -movementScalar,
 			behavior: isSmooth ? 'smooth' : 'auto',
 		});
-	let hasHorizontalScrollbar = false;
+		const canScrollLeft = carouselRef.scrollLeft > 0;
+		const canScrollRight =
+			carouselRef.scrollWidth - carouselRef.scrollLeft - carouselRef.clientWidth <
+			scrollIncrementDistance;
+		leftButtonEnabled = canScrollLeft;
+		rightButtonEnabled = canScrollRight;
+	};
 	const scrollOnMouseMove = (event: MouseEvent) => isGrabbing && scrollTheCarousel(event.movementX);
 	const startGrabbing = () => (isGrabbing = true);
 	const endGrabbing = () => (isGrabbing = false);
@@ -35,7 +44,7 @@
 	<div class="event-carousel-container">
 		<div
 			bind:this={carouselButtonLeft}
-			class:enabled={hasHorizontalScrollbar}
+			class:enabled={leftButtonEnabled}
 			class="carousel-button left"
 			on:click={scrollLeft}>
 			&lt;
@@ -57,9 +66,10 @@
 		</div>
 		<div
 			bind:this={carouselButtonRight}
-			class:enabled={hasHorizontalScrollbar}
+			class:visibility={hasHorizontalScrollbar}
 			class="carousel-button right"
-			on:click={scrollRight}>
+			on:click={scrollRight}
+			class:enabled={!rightButtonEnabled === hasHorizontalScrollbar ? !rightButtonEnabled : false}>
 			&gt;
 		</div>
 	</div>
@@ -140,7 +150,7 @@
 		-webkit-user-select: none;
 		-ms-user-select: none;
 		user-select: none;
-		opacity: 0;
+		visibility: hidden;
 	}
 
 	.carousel-button:hover {
@@ -159,9 +169,8 @@
 	}
 
 	.enabled {
-		opacity: 1;
+		visibility: visible;
 	}
-
 	@media (max-width: 1219px) {
 		.event-carousel-container {
 			width: 980px;
