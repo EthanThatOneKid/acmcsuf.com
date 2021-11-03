@@ -40,6 +40,4 @@ jobs:
         run: npm ci
 
       - name: Check code
-        run: |
-          npm run lint
-          npm run check
+        run: npm run check
