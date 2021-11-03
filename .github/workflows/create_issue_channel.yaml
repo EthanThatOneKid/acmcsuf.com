@@ -2,7 +2,7 @@ name: Create Issue Channel on Discord
 
 on:
   issues:
-    types: [opened]
+    types: [opened, reopened]
 
 jobs:
   create_channel:
@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: '16'
       - run: npm ci
-      - run: node scripts/create-issue-channel
+      - run: node scripts/create-issue-channel --payload="${{ github.event.issue }}"
         env:
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
           GUILD_ID: ${{ secrets.GUILD_ID }}
