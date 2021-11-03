@@ -1,10 +1,13 @@
 <div />
 
 <style>
-	div {
+	:root {
 		--med: 100px;
 		--min: var(--med, 100px);
 		--max: var(--med, 100px);
+	}
+
+	div {
 		height: var(--min);
 	}
 
