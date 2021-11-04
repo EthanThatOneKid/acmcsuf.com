@@ -1,19 +1,13 @@
-import { Client, Intents } from 'discord.js';
 import { createIssueChannel } from './common.js';
-import { config } from 'dotenv';
+import { startBot, parseArgs, parseIssue } from '../common.js';
 
-config();
+const ARGS = parseArgs();
 
-const client = new Client({
-	intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
-});
-
-client.on('ready', async () => {
+startBot(async (client) => {
 	console.log(`Logged in as ${client.user.tag}`);
-	const success = await createIssueChannel(client);
+	const issue = parseIssue(ARGS['payload']);
+	const success = await createIssueChannel(client, issue);
 	client.destroy();
 	console.log(`Success: ${success}`);
 	process.exit(success ? 0 : 1);
 });
-
-client.login(process.env.DISCORD_BOT_TOKEN);

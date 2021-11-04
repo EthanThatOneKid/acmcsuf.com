@@ -15,6 +15,6 @@ export const startBot = (start) => {
 	config();
 	const intents = [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES];
 	const client = new Client({ intents });
-	client.on('ready', start);
+	client.on('ready', async () => await start(client));
 	client.login(process.env.DISCORD_BOT_TOKEN);
 };
