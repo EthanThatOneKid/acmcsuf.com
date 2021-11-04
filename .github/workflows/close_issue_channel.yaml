@@ -17,5 +17,4 @@ jobs:
         env:
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
           GUILD_ID: ${{ secrets.GUILD_ID }}
-          HUB_ID: ${{ secrets.HUB_ID }}
           ARCHIVE_CHANNEL_ID: ${{ secrets.ARCHIVE_CHANNEL_ID }}

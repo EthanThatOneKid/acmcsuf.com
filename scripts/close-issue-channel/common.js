@@ -10,7 +10,8 @@ export const closeIssueChannel = async (client, issueNumber) => {
 		}
 		const oldChannels = channels.filter(
 			(ch) =>
-				ch.parentId === process.env.HUB_ID && ch.name.startsWith(`website-issue-${issueNumber}`)
+				ch.parentId === archiveChannel.parentId &&
+				ch.name.startsWith(`website-issue-${issueNumber}`)
 		);
 		for (const oldChannel of oldChannels) {
 			console.log('Channel: ', oldChannel);
