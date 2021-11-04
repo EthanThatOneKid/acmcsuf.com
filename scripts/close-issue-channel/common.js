@@ -1,19 +1,30 @@
-export const closeIssueChannel = async (client, issue) => {
+const findFirstChannelInCategory = (channels, categoryId) => {
+	let firstChannel = null;
+	for (const channel of channels) {
+		if (
+			channel.parentId === categoryId &&
+			(firstChannel === null || channel.position < firstChannel.position)
+		) {
+			firstChannel = channel;
+		}
+	}
+	return firstChannel;
+};
+
+export const closeIssueChannel = async (client, issueNumber) => {
 	let success = false;
 	try {
 		await client.guilds.fetch();
 		const { channels } = client.guilds.cache.get(process.env.GUILD_ID);
-		const hubChannel = channels.cache.find(
-			(c) => c.parentId === process.env.HUB_ID && c.position === 0
-		);
-		if (hubChannel === undefined) {
+		const hubChannel = findFirstChannelInCategory(channels, process.env.HUB_ID);
+		if (hubChannel === null) {
 			console.log(`No hub channel found.`);
 			return false;
 		}
 		for (const channel of channels.cache) {
 			// Only close the channel if it matches the issue number.
 			if (channel.parentId !== process.env.HUB_ID) continue;
-			if (!channel.name.startsWith(`website-issue-${issue.number}`)) continue;
+			if (!channel.name.startsWith(`website-issue-${issueNumber}`)) continue;
 			// TODO: Check if hub channel is always at position 0.
 			console.log({ hubChannel, closedChannel, channels: [...channels.cache] });
 			// TODO: Fetch all messages from `closedChannel` text channel.

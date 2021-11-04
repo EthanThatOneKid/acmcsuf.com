@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: '16'
       - run: npm ci
-      - run: node scripts/close-issue-channel --payload="${{ github.event.issue }}"
+      - run: node scripts/close-issue-channel --issue=${{ github.event.issue.number }}
         env:
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
           GUILD_ID: ${{ secrets.GUILD_ID }}

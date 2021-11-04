@@ -6,13 +6,13 @@
 1. Run the following command.
 
 ```bash
-node scripts/close-issue-channel --payload="{ \"number\": 180 }"
+node scripts/close-issue-channel --issue=180
 ```
 
 ## GitHub Workflow Usage
 
 ```yaml
-- run: node scripts/close-issue-channel --payload="${{ github.event.issue }}"
+- run: node scripts/close-issue-channel --issue=${{ github.event.issue.number }}
   env:
     DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
     GUILD_ID: ${{ secrets.GUILD_ID }}
