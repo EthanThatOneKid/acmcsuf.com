@@ -8,15 +8,16 @@ export const closeIssueChannel = async (client, issueNumber) => {
 			console.log(`No archive channel found.`);
 			return false;
 		}
-		for (const channel of channels) {
-			// Only close the channel if it matches the issue number.
-			if (channel.parentId !== process.env.HUB_ID) continue;
-			if (!channel.name.startsWith(`website-issue-${issueNumber}`)) continue;
-			console.log('Channel: ', channel);
-			// TODO: Fetch all messages from `closedChannel` text channel.
+		const oldChannels = channels.filter(
+			(ch) =>
+				ch.parentId === process.env.HUB_ID && ch.name.startsWith(`website-issue-${issueNumber}`)
+		);
+		for (const oldChannel of oldChannels) {
+			console.log('Channel: ', oldChannel);
+			// TODO: Fetch all messages from `oldChannel` text channel.
 			// TODO: Print messages out to TXT file format.
-			// TODO: Send TXT file to `hubChannel` text channel.
-			// TODO: Delete `closedChannel` text channel.
+			// TODO: Send TXT file to `archiveChannel` text channel.
+			// TODO: Delete `oldChannel` text channel.
 		}
 		success = true;
 	} catch (e) {
