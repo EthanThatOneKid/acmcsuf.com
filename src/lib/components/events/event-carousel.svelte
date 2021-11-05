@@ -162,6 +162,7 @@
 		-ms-user-select: none;
 		user-select: none;
 		opacity: 0;
+		visibility: hidden;
 	}
 
 	.carousel-button:hover {
@@ -181,6 +182,7 @@
 
 	.enabled {
 		opacity: 1;
+		visibility: visible;
 	}
 	@media (max-width: 1219px) {
 		.event-carousel-container {
