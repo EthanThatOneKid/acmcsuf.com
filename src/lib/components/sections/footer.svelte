@@ -12,7 +12,7 @@
 			</span>
 		</p>
 		<div class="footer-link">
-			<a href="/bug" class="bug" target="_blank" rel="noopener norefferer">
+			<a href="/bugs" class="bug" target="_blank" rel="noopener norefferer">
 				<BugsIcon />
 			</a>
 			<a href="/github" class="github" target="_blank" rel="noopener norefferer">

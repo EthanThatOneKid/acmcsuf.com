@@ -1,6 +1,6 @@
 export const links = {
 	github: 'https://github.com/EthanThatOneKid/acmcsuf.com',
-	bug: 'https://github.com/EthanThatOneKid/acmcsuf.com/issues/new?assignees=&labels=bug&template=bug_report.yaml',
+	bugs: 'https://github.com/EthanThatOneKid/acmcsuf.com/issues/new?assignees=&labels=bug&template=bug_report.yaml',
 	youtube: 'https://www.youtube.com/channel/UCDMBj0o4V8Cpt0jgsZLNVVg',
 	instagram: 'https://instagram.com/acmcsuf',
 	discord: 'https://tinyurl.com/acm-csuf-discord/', // Fallback: <https://discord.com/invite/Dfssdtd>
