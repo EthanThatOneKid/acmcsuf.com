@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import EventItem from './event-item.svelte';
 	import type { AcmEvent } from '$lib/ical/parse';
+	import { Time } from '$lib/constants/time';
 
 	export let events: AcmEvent[] = [];
 
@@ -13,18 +14,28 @@
 	let hasHorizontalScrollbar = false;
 	let leftButtonEnabled = false;
 	let rightButtonEnabled = false;
+	let scrollTimeId = undefined;
 
 	const scrollTheCarousel = (movementScalar: number, isSmooth: boolean = false) => {
 		carouselRef.scrollBy({
 			left: -movementScalar,
 			behavior: isSmooth ? 'smooth' : 'auto',
 		});
-		const canScrollLeft = carouselRef.scrollLeft > 0;
-		const canScrollRight =
-			carouselRef.scrollWidth - carouselRef.scrollLeft - carouselRef.clientWidth <
-			scrollIncrementDistance;
-		leftButtonEnabled = canScrollLeft;
-		rightButtonEnabled = canScrollRight;
+		debounceTheScroll(() => {
+			const canScrollLeft = carouselRef.scrollLeft > 0;
+			const canScrollRight =
+				carouselRef.scrollWidth - carouselRef.scrollLeft - carouselRef.clientWidth < 1;
+			leftButtonEnabled = canScrollLeft;
+			rightButtonEnabled = canScrollRight;
+		}, Time.Second * 0.75);
+	};
+
+	const debounceTheScroll = (callback: () => void, wait: number) => {
+		callback();
+		if (scrollTimeId !== undefined) {
+			clearTimeout(scrollTimeId);
+		}
+		scrollTimeId = setTimeout(callback, wait);
 	};
 	const scrollOnMouseMove = (event: MouseEvent) => isGrabbing && scrollTheCarousel(event.movementX);
 	const startGrabbing = () => (isGrabbing = true);
@@ -150,7 +161,7 @@
 		-webkit-user-select: none;
 		-ms-user-select: none;
 		user-select: none;
-		visibility: hidden;
+		opacity: 0;
 	}
 
 	.carousel-button:hover {
@@ -169,7 +180,7 @@
 	}
 
 	.enabled {
-		visibility: visible;
+		opacity: 1;
 	}
 	@media (max-width: 1219px) {
 		.event-carousel-container {
