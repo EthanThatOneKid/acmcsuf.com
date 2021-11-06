@@ -1,6 +1,8 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import EventItem from './event-item.svelte';
 	import type { AcmEvent } from '$lib/ical/parse';
+	import { Time } from '$lib/constants/time';
 
 	export let events: AcmEvent[] = [];
 
@@ -9,12 +11,32 @@
 	let carouselButtonLeft: HTMLDivElement;
 	let carouselButtonRight: HTMLDivElement;
 	let isGrabbing = false;
+	let hasHorizontalScrollbar = false;
+	let leftButtonEnabled = false;
+	let rightButtonEnabled = false;
+	let scrollTimeId = undefined;
 
-	const scrollTheCarousel = (movementScalar: number, isSmooth: boolean = false) =>
+	const scrollTheCarousel = (movementScalar: number, isSmooth: boolean = false) => {
 		carouselRef.scrollBy({
 			left: -movementScalar,
 			behavior: isSmooth ? 'smooth' : 'auto',
 		});
+		debounceTheScroll(() => {
+			const canScrollLeft = carouselRef.scrollLeft > 0;
+			const canScrollRight =
+				carouselRef.scrollWidth - carouselRef.scrollLeft - carouselRef.clientWidth > 1;
+			leftButtonEnabled = canScrollLeft;
+			rightButtonEnabled = canScrollRight;
+		}, Time.Second * 0.75);
+	};
+
+	const debounceTheScroll = (callback: () => void, wait: number) => {
+		callback();
+		if (scrollTimeId !== undefined) {
+			clearTimeout(scrollTimeId);
+		}
+		scrollTimeId = setTimeout(callback, wait);
+	};
 	const scrollOnMouseMove = (event: MouseEvent) => isGrabbing && scrollTheCarousel(event.movementX);
 	const startGrabbing = () => (isGrabbing = true);
 	const endGrabbing = () => (isGrabbing = false);
@@ -24,11 +46,19 @@
 		event.preventDefault();
 		scrollTheCarousel(-event.deltaY);
 	};
+	onMount(() => {
+		hasHorizontalScrollbar = carouselRef.scrollWidth > carouselRef.clientWidth;
+		rightButtonEnabled = hasHorizontalScrollbar;
+	});
 </script>
 
 <section>
 	<div class="event-carousel-container">
-		<div bind:this={carouselButtonLeft} class="carousel-button left" on:click={scrollLeft}>
+		<div
+			bind:this={carouselButtonLeft}
+			class:enabled={leftButtonEnabled}
+			class="carousel-button left"
+			on:click={scrollLeft}>
 			&lt;
 		</div>
 		<div
@@ -46,7 +76,11 @@
 			{/each}
 			<div class="event-item-buffer" />
 		</div>
-		<div bind:this={carouselButtonRight} class="carousel-button right" on:click={scrollRight}>
+		<div
+			bind:this={carouselButtonRight}
+			class="carousel-button right"
+			on:click={scrollRight}
+			class:enabled={rightButtonEnabled}>
 			&gt;
 		</div>
 	</div>
@@ -127,6 +161,8 @@
 		-webkit-user-select: none;
 		-ms-user-select: none;
 		user-select: none;
+		opacity: 0;
+		visibility: hidden;
 	}
 
 	.carousel-button:hover {
@@ -144,6 +180,10 @@
 		right: 0;
 	}
 
+	.enabled {
+		opacity: 1;
+		visibility: visible;
+	}
 	@media (max-width: 1219px) {
 		.event-carousel-container {
 			width: 980px;
