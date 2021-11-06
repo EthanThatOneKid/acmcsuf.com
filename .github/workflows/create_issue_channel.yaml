@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: '16'
       - run: npm ci
-      - run: node scripts/create-issue-channel.js --payload="${{ github.event.issue }}"
+      - run: node scripts/create-issue-channel.js '${{ github.event.issue }}'
         env:
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
           GUILD_ID: ${{ secrets.GUILD_ID }}

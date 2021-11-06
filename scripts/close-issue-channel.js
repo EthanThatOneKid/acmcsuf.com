@@ -18,13 +18,13 @@ startBot(async (client) => {
  * 1. Run the following command.
  *
  * ```bash
- * node scripts/close-issue-channel.js --issue=180
+ * node scripts/close-issue-channel.js 180
  * ```
  *
  * ## GitHub Workflow Usage
  *
  * ```yaml
- * - run: node scripts/close-issue-channel.js --issue=${{ github.event.issue.number }}
+ * - run: node scripts/close-issue-channel.js ${{ github.event.issue.number }}
  *   env:
  *     DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
  *     GUILD_ID: ${{ secrets.GUILD_ID }}
