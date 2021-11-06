@@ -8,6 +8,7 @@ import {
   sortByDate,
   filterIfPassed,
 } from './common';
+import type { IcalOutput } from './common';
 
 export interface AcmEvent {
   date: Date;
@@ -26,7 +27,7 @@ export const parse = (icalData: string): AcmEvent[] => {
   const now = Date.now();
   const output = parseRawIcal(icalData);
   const events = output['VCALENDAR'][0]['VEVENT']
-    .reduce((collection: AcmEvent[], event: any) => {
+    .reduce((collection: AcmEvent[], event: IcalOutput) => {
       if (event['DTSTART'] === undefined || event['DTEND'] === undefined) {
         return collection;
       }

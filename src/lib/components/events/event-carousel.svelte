@@ -16,7 +16,7 @@
   let rightButtonEnabled = false;
   let scrollTimeId = undefined;
 
-  const scrollTheCarousel = (movementScalar: number, isSmooth: boolean = false) => {
+  const scrollTheCarousel = (movementScalar: number, isSmooth = false) => {
     carouselRef.scrollBy({
       left: -movementScalar,
       behavior: isSmooth ? 'smooth' : 'auto',

@@ -2,10 +2,11 @@
   import OfficerProfile from '$lib/components/about/officer-profile.svelte';
   import AcmSelect from '$lib/components/utils/acm-select.svelte';
   import { OFFICERS, TERMS } from '$lib/constants/officers';
+  import type { Officer } from '$lib/constants/officers';
   import { termIndex } from '$lib/stores/term-index';
 
   export let placeholderPicture: string | undefined = undefined;
-  export let filter: (officer: any) => boolean;
+  export let filter: (officer: Officer) => boolean;
 
   /**
    * @param termCode ex: `F21`, `S22`, etc.
@@ -54,11 +55,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-
-  section h2 {
-    text-align: center;
-    font-weight: 700;
   }
 
   .school-year-input-container {

@@ -1,6 +1,6 @@
 import RRule from 'rrule';
 
-interface IcalOutput {
+export interface IcalOutput {
   [key: string]: string | string[] | IcalOutput[];
 }
 
@@ -36,7 +36,7 @@ export const parseRawIcal = (source: string): IcalOutput => {
       currentKey = cleanIcalKey(line.substr(0, splitAt));
       currentValue = line.substr(splitAt + 1);
       switch (currentKey) {
-        case 'BEGIN':
+        case 'BEGIN': {
           parents.push(parent);
           parent = current;
           if (parent[currentValue] == null) {
@@ -46,11 +46,13 @@ export const parseRawIcal = (source: string): IcalOutput => {
           current = {};
           (parent[currentValue] as IcalOutput[]).push(current);
           break;
-        case 'END':
+        }
+        case 'END': {
           current = parent;
           parent = parents.pop() as IcalOutput;
           break;
-        default:
+        }
+        default: {
           if (current[currentKey]) {
             if (!Array.isArray(current[currentKey])) {
               current[currentKey] = [current[currentKey]] as string[];
@@ -59,6 +61,7 @@ export const parseRawIcal = (source: string): IcalOutput => {
           } else {
             (current[currentKey] as string) = currentValue;
           }
+        }
       }
     }
   }
@@ -84,7 +87,7 @@ const parseRawIcalDatetime = (datetime: string): Date => {
   return date;
 };
 
-export const computeIcalDatetime = (event: any) => {
+export const computeIcalDatetime = (event: IcalOutput): Date => {
   const rawDatetime = event['DTSTART'];
   const rawRrule = event['RRULE'];
   if (rawRrule !== undefined) {
@@ -94,13 +97,14 @@ export const computeIcalDatetime = (event: any) => {
       const date = recurrence.after(new Date());
       date.setHours(date.getHours());
       return date;
+      // eslint-disable-next-line no-empty
     } catch {}
   }
-  return parseRawIcalDatetime(rawDatetime);
+  return parseRawIcalDatetime(rawDatetime as string);
 };
 
 export const slugifyEvent = (summary: string, month: string, day: number): string => {
-  const cleanedSummary = summary.replace(/[^\w\s\_]/g, '').replace(/(\s|\-|\_)+/g, '-');
+  const cleanedSummary = summary.replace(/[^\w\s_]/g, '').replace(/(\s|-|_)+/g, '-');
   const slug = [cleanedSummary, month, day].join('-').toLowerCase();
   return slug;
 };
@@ -110,6 +114,7 @@ export const checkForRecurrence = (raw?: string): boolean => {
   try {
     const recurrence = RRule.fromString(raw);
     return recurrence.isFullyConvertibleToText();
+    // eslint-disable-next-line no-empty
   } catch {}
   return false;
 };
@@ -123,10 +128,10 @@ export const parseDescription = (content: string): Record<string, string> => {
   return result;
 };
 
-export const sortByDate = () => {
+export const sortByDate = (): ((a: { date: Date }, b: { date: Date }) => 1 | -1) => {
   return ({ date: date1 }, { date: date2 }) => (date1.valueOf() > date2.valueOf() ? 1 : -1);
 };
 
-export const filterIfPassed = (now: number, offset: number = 0) => {
-  return ({ date }: { date: Date }) => date.valueOf() + offset > now;
+export const filterIfPassed = (now: number, offset = 0) => {
+  return ({ date }: { date: Date }): boolean => date.valueOf() + offset > now;
 };

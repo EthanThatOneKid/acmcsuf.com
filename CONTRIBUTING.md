@@ -27,9 +27,10 @@ Now that you've got everything up-and-running, you are free to contribute to you
 Before publishing a PR, it is recommended that you run a few commands to make sure that you are complying with our style guidelines.
 
 ```bash
-npm run format # Careful, this command **will** mutate your files.
+npm run format # Careful, this command might mutate your files.
+npm run lint --fix # Careful, this might mutate your files.
 npm run check # Use this command to find bugs in your website code.
-npm run tabs # Use this to make sure your code uses no tabs (silence=golden).
+npm run build # Use this to make sure your code builds successfully.
 ```
 
 ## Architecture 🗿

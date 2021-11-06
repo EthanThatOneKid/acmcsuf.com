@@ -1,4 +1,6 @@
 import { AcmEvent, parse } from '$lib/ical/parse';
+import type { EndpointOutput } from '@sveltejs/kit';
+import type { DefaultBody } from '@sveltejs/kit/types/endpoint';
 
 const ICAL_TARGET_URL =
   'https://calendar.google.com/calendar/ical/738lnit63cr2lhp7jtduvj0c9g%40group.calendar.google.com/public/basic.ics';
@@ -23,4 +25,6 @@ const getCache = async () => {
   return await setCache(now);
 };
 
-export const get = async () => ({ body: await getCache() });
+export const get = async (): Promise<EndpointOutput> => ({
+  body: (await getCache()) as unknown as DefaultBody,
+});

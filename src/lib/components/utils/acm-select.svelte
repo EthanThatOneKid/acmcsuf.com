@@ -1,9 +1,9 @@
 <script lang="ts">
-  export let defaultValue: string = '';
+  export let defaultValue = '';
   export let options: string[] = [];
 
   let currentValue: string = defaultValue;
-  let active: boolean = false;
+  let active = false;
 
   const toggleDropdown = () => {
     active = !active;
@@ -32,6 +32,7 @@
 <style lang="scss">
   .term {
     font-weight: 600;
+
     .option-box {
       flex-direction: column;
       display: flex;

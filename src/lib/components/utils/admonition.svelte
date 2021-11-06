@@ -1,6 +1,6 @@
 <script lang="ts">
-  export let path: string = 'general';
-  export let text: string = '';
+  export let path = 'general';
+  export let text = '';
   export let expiration: number;
 
   const isExpired = new Date().valueOf() > expiration;

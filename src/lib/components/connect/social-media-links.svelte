@@ -1,4 +1,5 @@
 <script lang="ts">
+  import type { SvelteComponent } from 'svelte';
   import InstagramIcon from '$lib/components/icons/instagram.svelte';
   import DiscordIcon from '$lib/components/icons/discord.svelte';
   import LinkedInIcon from '$lib/components/icons/linkedin.svelte';
@@ -6,7 +7,7 @@
 
   const socialLinks: {
     link: string;
-    icon: any;
+    icon: SvelteComponent;
   }[] = [
     {
       link: '/instagram',

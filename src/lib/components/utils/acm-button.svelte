@@ -1,6 +1,6 @@
 <script lang="ts">
-  export let link: string = '#';
-  export let text: string = 'Submit';
+  export let link = '#';
+  export let text = 'Submit';
 </script>
 
 <a class="call-to-action headers" href={link} target="_blank" rel="noopener norefferer">{text}</a>

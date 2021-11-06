@@ -1,7 +1,7 @@
 <script lang="ts">
-  export let placeholderPicture: string = 'placeholder.png';
-  export let name: string = '';
-  export let title: string = '';
+  export let placeholderPicture = 'placeholder.png';
+  export let name = '';
+  export let title = '';
   export let picture: string = placeholderPicture;
 
   let officerName = name;

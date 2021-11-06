@@ -5,9 +5,9 @@
 
   export let info: AcmEvent;
 
-  let isActive: boolean = false;
+  let isActive = false;
   let isRecurring: boolean = info.recurring;
-  let isSuccessfullyCopied: boolean = false;
+  let isSuccessfullyCopied = false;
   let anchor: HTMLDivElement;
 
   const copyEventLink = (slug: string) => {
