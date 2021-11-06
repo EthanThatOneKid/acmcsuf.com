@@ -83,11 +83,6 @@ export const closeIssueChannel = async (client, issueNumber, dev = false) => {
 	return success;
 };
 
-/**
- * TODO: Fetch all messages in a channel via pagination technique.
- * Inspired by
- * https://github.com/diamondburned/arikawa/blob/123f8bc41ff2db3c2a9088a336889012c1f7ebf6/api/message.go#L60
- */
 const fetchAllMessages = async (channel, limit = 2e4) => {
 	const result = [];
 	let lastId;
