@@ -1,4 +1,5 @@
 import { startBot, parseArgs } from './common.js';
+import { textSync as asciiText } from 'figlet';
 
 const ARGS = parseArgs();
 
@@ -52,15 +53,63 @@ export const closeIssueChannel = async (client, issueNumber) => {
 				ch.name.startsWith(`website-issue-${issueNumber}`)
 		);
 		for (const oldChannel of oldChannels) {
-			console.log('Channel: ', oldChannel);
-			// TODO: Fetch all messages from `oldChannel` text channel.
-			// TODO: Print messages out to TXT file format.
-			// TODO: Send TXT file to `archiveChannel` text channel.
-			// TODO: Delete `oldChannel` text channel.
+			const allMessages = await fetchAllMessages(oldChannel);
+			const title = asciiText(oldChannel.name, { font: 'Standard' });
+			const subtitle = ` ╰─ archived ${new Date().toISOString()}`;
+			const fileContent =
+				title + '\n' + subtitle + '\n' + allMessages.map(formatMessage).join('\n\n');
+			const archiveBin = Buffer.from(fileContent);
+			const archiveFile = new Discord.MessageAttachment(archiveBin, `${oldChannel.name}.txt`);
+			await archiveChannel.send(archiveFile);
 		}
 		success = true;
 	} catch (error) {
 		console.log(error);
 	}
 	return success;
+};
+
+/**
+ * TODO: Fetch all messages from `oldChannel` text channel.
+ * Inspired by
+ * https://github.com/diamondburned/arikawa/blob/123f8bc41ff2db3c2a9088a336889012c1f7ebf6/api/message.go#L60
+ */
+const fetchAllMessages = async (channel) => {
+	const result = [];
+	return result;
+};
+
+const formatMessage = (message, wordWrap = 72) => {
+	const lines = [];
+	for (const line of message.content.split('\n')) {
+		lines.push(...wrapText(line, wordWrap));
+	}
+	const topLeft = `╭─${msg.id}─@${msg.author}─(${msg.createdAt.toISOString()})─`;
+	const longestLine = Math.max(
+		lines.reduce((a, b) => (a.length > b.length ? a : b)),
+		topLeft.length
+	);
+	const topRight = '─'.repeat(topLeft.length - longestLine.length) + '╮';
+	const content = lines
+		.map((line) => `│ ${line}${' '.repeat(longestLine.length - line.length - 2)} │`)
+		.join('\n');
+	const bottom = `╰${'─'.repeat(longestLine.length)}╯`;
+	const result = topLeft + topRight + '\n' + content + '\n' + bottom;
+	return result;
+};
+
+const wrapText = (text, width = 72) => {
+	const lines = [];
+	while (text.length > width) {
+		const index = text.lastIndexOf(' ', width);
+		if (index === -1) {
+			lines.push(text.substring(0, width));
+			text = text.substring(width);
+		} else {
+			lines.push(text.substring(0, index));
+			text = text.substring(index + 1);
+		}
+	}
+	lines.push(text);
+	return lines;
 };
