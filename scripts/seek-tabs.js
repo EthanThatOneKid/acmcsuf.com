@@ -3,6 +3,11 @@ import { exec } from 'child_process';
 
 const execAsync = promisify(exec);
 
+/**
+ * Accessible via `npm run tabs`, this script just checks to see if
+ * any of the changed files contain tabs. If so, they are logged to
+ * stdout. If any tabs are found, the process fails.
+ */
 const seekTabs = async () => {
   const { stdout: diff } = await execAsync('git diff');
   const tabs = diff
