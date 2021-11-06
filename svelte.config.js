@@ -10,8 +10,13 @@ const config = {
 	kit: {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
-		adapter: adapter()
-	}
+		adapter: adapter(),
+	},
+
+	onwarn: (warning, handler) => {
+		if (warning.code === 'css-unused-selector') return;
+		handler(warning);
+	},
 };
 
 export default config;

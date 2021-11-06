@@ -1,11 +1,7 @@
 <script lang="ts">
 	import type { AcmPath } from '$lib/constants/acm-paths';
+	import { TextAlignment } from '$lib/constants/text-alignment';
 	import { styleProps } from '$lib/actions/use-style-props';
-
-	enum TextAlignment {
-		Left = 'left',
-		Right = 'right',
-	}
 
 	export let textAlign: TextAlignment = TextAlignment.Right;
 	export let info: AcmPath | undefined;

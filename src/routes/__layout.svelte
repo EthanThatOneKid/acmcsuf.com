@@ -1,11 +1,9 @@
 <script lang="ts">
 	import Navbar from '$lib/components/sections/navbar.svelte';
 	import Footer from '$lib/components/sections/footer.svelte';
-
-	export let segment: string;
 </script>
 
-<Navbar {segment} />
+<Navbar />
 <main><slot /></main>
 <Footer />
 

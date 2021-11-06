@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { acmAlgo, acmCreate, acmDev } from '$lib/constants/acm-paths';
+	import { TextAlignment } from '$lib/constants/text-alignment';
 	import CommonHero from '$lib/components/sections/common-hero.svelte';
 	import PathSection from '$lib/components/paths/path-section.svelte';
 	import Spacing from '$lib/components/sections/spacing.svelte';
@@ -18,7 +19,7 @@
 
 <Spacing --min="100px" --med="175px" --max="200px" />
 
-<PathSection info={acmAlgo} textAlign="right">
+<PathSection info={acmAlgo} textAlign={TextAlignment.Right}>
 	<p slot="content" class="size-xs">
 		This path is dedicated to building the programming proficiency of students.
 		<span class="brand-purple brand-em">Algo</span> focuses on mastering data structures and algorithms,
@@ -28,7 +29,7 @@
 
 <Spacing --med="64px" />
 
-<PathSection info={acmCreate} textAlign="left">
+<PathSection info={acmCreate} textAlign={TextAlignment.Left}>
 	<p slot="content" class="size-xs">
 		This path is dedicated to emphasizing the importance of product design and product management in
 		the tech industry. <span class="brand-pink brand-em">Create</span> focuses on educating students
@@ -39,7 +40,7 @@
 
 <Spacing --med="64px" />
 
-<PathSection info={acmDev} textAlign="right">
+<PathSection info={acmDev} textAlign={TextAlignment.Right}>
 	<p slot="content" class="size-xs">
 		This path is dedicated to giving students the opportunity to explore tech via hands-on projects
 		and activities. <span class="brand-em brand-bluer">Dev</span> focuses on introducing students to

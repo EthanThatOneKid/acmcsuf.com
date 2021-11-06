@@ -4,7 +4,7 @@
 	import { OFFICERS, TERMS } from '$lib/constants/officers';
 	import { termIndex } from '$lib/stores/term-index';
 
-	export let placeholderPicture: string;
+	export let placeholderPicture: string | undefined = undefined;
 	export let filter: (officer: any) => boolean;
 
 	/**
@@ -40,8 +40,7 @@
 					{name}
 					title={positions[TERMS[$termIndex]]}
 					{picture}
-					{placeholderPicture}
-				/>
+					{placeholderPicture} />
 			{/each}
 		</div>
 	</div>
