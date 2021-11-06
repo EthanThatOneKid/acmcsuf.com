@@ -1,10 +1,8 @@
-import { startBot, parseArgs, parseIssue } from './common.js';
-
-const ARGS = parseArgs();
+import { startBot, get$1 } from './common.js';
 
 startBot(async (client) => {
 	console.log(`Logged in as ${client.user.tag}`);
-	const issue = parseIssue(ARGS['payload']);
+	const issue = get$1();
 	const success = await createIssueChannel(client, issue);
 	client.destroy();
 	console.log(`Success: ${success}`);

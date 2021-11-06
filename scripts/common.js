@@ -1,14 +1,12 @@
 import { Client, Intents } from 'discord.js';
 import { config } from 'dotenv';
-import minimist from 'minimist';
 
-export const parseArgs = () => minimist(process.argv.slice(2));
-
-export const parseIssue = (payload) => {
+export const get$1 = () => {
+	const payload = process.argv[1];
 	try {
 		return JSON.parse(payload);
 	} catch {}
-	return null;
+	return payload;
 };
 
 export const startBot = (start) => {
