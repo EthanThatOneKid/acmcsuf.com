@@ -11,19 +11,19 @@
   }[] = [
     {
       link: '/instagram',
-      icon: InstagramIcon,
+      icon: InstagramIcon as unknown as SvelteComponent,
     },
     {
       link: '/linkedin',
-      icon: LinkedInIcon,
+      icon: LinkedInIcon as unknown as SvelteComponent,
     },
     {
       link: '/youtube',
-      icon: YouTubeIcon,
+      icon: YouTubeIcon as unknown as SvelteComponent,
     },
     {
       link: '/discord',
-      icon: DiscordIcon,
+      icon: DiscordIcon as unknown as SvelteComponent,
     },
   ];
 </script>

@@ -44,7 +44,7 @@ export const parse = (icalData: string): AcmEvent[] => {
       const day = date.getDate();
       const time = date.toLocaleTimeString(ACM_LOCALE, { hour: 'numeric', minute: 'numeric' });
       const slug = slugifyEvent(summary, month, day);
-      const recurring = checkForRecurrence(event['RRULE']);
+      const recurring = checkForRecurrence(String(event['RRULE']));
       collection.push({
         month,
         day,
