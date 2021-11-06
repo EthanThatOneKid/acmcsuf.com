@@ -5,15 +5,15 @@ import { config } from 'dotenv';
 config();
 
 const client = new Client({
-	intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
 
 client.on('ready', async () => {
-	console.log(`Logged in as ${client.user.tag}`);
-	const success = await createIssueChannel(client);
-	client.destroy();
-	console.log(`Success: ${success}`);
-	process.exit(success ? 0 : 1);
+  console.log(`Logged in as ${client.user.tag}`);
+  const success = await createIssueChannel(client);
+  client.destroy();
+  console.log(`Success: ${success}`);
+  process.exit(success ? 0 : 1);
 });
 
 client.login(process.env.DISCORD_BOT_TOKEN);

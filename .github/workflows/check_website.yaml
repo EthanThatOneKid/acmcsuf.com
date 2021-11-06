@@ -41,3 +41,6 @@ jobs:
 
       - name: Check code
         run: npm run check
+
+      - name: Seek Tabs
+        run: npm run tabs
