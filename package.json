@@ -34,7 +34,6 @@
 		"eslint": "^7.32.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-svelte3": "^3.2.1",
-		"figlet": "^1.5.2",
 		"minimist": "^1.2.5",
 		"prettier": "^2.4.1",
 		"prettier-plugin-svelte": "^2.4.0",

@@ -1,5 +1,4 @@
 import { startBot, parseArgs } from './common.js';
-import { textSync as asciiText } from 'figlet';
 
 const ARGS = parseArgs();
 
@@ -36,31 +35,43 @@ startBot(async (client) => {
  *
  * See `.github/workflows/close_issue_channel.yaml`.
  */
-export const closeIssueChannel = async (client, issueNumber) => {
+export const closeIssueChannel = async (client, issueNumber, dev = false) => {
 	let success = false;
 	try {
 		await client.guilds.fetch();
 		const { channels } = client.guilds.cache.get(process.env.GUILD_ID);
-		const archiveChannel = channels.cache.find((ch) => ch.id === process.env.ARCHIVE_CHANNEL_ID);
-		if (archiveChannel === null) {
+		const archiveChannel = [...channels.cache.values()].find(
+			(ch) => ch.id === process.env.ARCHIVE_CHANNEL_ID
+		);
+		if (archiveChannel === undefined) {
 			console.log(`No archive channel found.`);
 			return false;
 		}
-		console.log({ archiveChannel });
-		const oldChannels = channels.cache.filter(
+		const oldChannels = [...channels.cache.values()].filter(
 			(ch) =>
-				ch.parentId === archiveChannel.parentId &&
-				ch.name.startsWith(`website-issue-${issueNumber}`)
+				ch.parentId === archiveChannel.parentId && ch.name.includes(`website-issue-${issueNumber}`)
 		);
 		for (const oldChannel of oldChannels) {
 			const allMessages = await fetchAllMessages(oldChannel);
-			const title = asciiText(oldChannel.name, { font: 'Standard' });
-			const subtitle = ` ╰─ archived ${new Date().toISOString()}`;
+			const title = `╭
+│    __/__/_ 
+│   __/__/_  ${oldChannel.name}
+│    /  /
+│
+╰─ archived ${formatRFC882PST(new Date())}`;
+			const footer = `╭─generated with 💖 by acmcsuf.com hub─╮`;
 			const fileContent =
-				title + '\n' + subtitle + '\n' + allMessages.map(formatMessage).join('\n\n');
-			const archiveBin = Buffer.from(fileContent);
-			const archiveFile = new Discord.MessageAttachment(archiveBin, `${oldChannel.name}.txt`);
-			await archiveChannel.send(archiveFile);
+				title + '\n\n' + allMessages.map(formatMessage).join('\n') + '\n' + footer;
+			if (dev) {
+				console.log(fileContent);
+				return true;
+			}
+			const attachment = Buffer.from(fileContent);
+			const message = await archiveChannel.send({
+				files: [{ name: `${oldChannel.name}.txt`, attachment }],
+			});
+			// await message.pin();
+			// await oldChannel.delete();
 		}
 		success = true;
 	} catch (error) {
@@ -70,30 +81,35 @@ export const closeIssueChannel = async (client, issueNumber) => {
 };
 
 /**
- * TODO: Fetch all messages from `oldChannel` text channel.
  * Inspired by
  * https://github.com/diamondburned/arikawa/blob/123f8bc41ff2db3c2a9088a336889012c1f7ebf6/api/message.go#L60
  */
 const fetchAllMessages = async (channel) => {
-	const result = [];
+	const result = [...(await channel.messages.fetch()).values()]
+		.filter((msg) => msg.content.length > 0)
+		.reverse();
 	return result;
 };
 
-const formatMessage = (message, wordWrap = 72) => {
+const formatMessage = (msg) => {
 	const lines = [];
-	for (const line of message.content.split('\n')) {
-		lines.push(...wrapText(line, wordWrap));
+	for (const line of msg.content.split('\n')) {
+		lines.push(...wrapText(line, 72));
 	}
-	const topLeft = `╭─${msg.id}─@${msg.author}─(${msg.createdAt.toISOString()})─`;
-	const longestLine = Math.max(
-		lines.reduce((a, b) => (a.length > b.length ? a : b)),
-		topLeft.length
-	);
-	const topRight = '─'.repeat(topLeft.length - longestLine.length) + '╮';
+	const topLeft = `╭${msg.author.tag} ─ ${formatRFC882PST(msg.createdAt)}`;
+	const longestLine = lines.reduce((record, line) => {
+		const lineLength = getTextLength(line);
+		return lineLength > record ? lineLength : record;
+	}, 0);
+	const width = Math.max(longestLine + 3, topLeft.length);
+	const topRight = '─'.repeat(width - topLeft.length) + '╮';
 	const content = lines
-		.map((line) => `│ ${line}${' '.repeat(longestLine.length - line.length - 2)} │`)
+		.map((line) => {
+			const padding = width - getTextLength(line) - 3;
+			return `│ ${line}${' '.repeat(padding)} │`;
+		})
 		.join('\n');
-	const bottom = `╰${'─'.repeat(longestLine.length)}╯`;
+	const bottom = `╰${'─'.repeat(width - 1)}╯`;
 	const result = topLeft + topRight + '\n' + content + '\n' + bottom;
 	return result;
 };
@@ -113,3 +129,20 @@ const wrapText = (text, width = 72) => {
 	lines.push(text);
 	return lines;
 };
+
+const formatRFC882PST = (date) => {
+	const [month, day, year, time, amPm] = date
+		.toLocaleDateString('en-US', {
+			day: '2-digit',
+			month: 'short',
+			year: '2-digit',
+			hour: '2-digit',
+			minute: '2-digit',
+			timeZone: 'America/Los_Angeles',
+		})
+		.replace(/\,/g, '')
+		.split(' ');
+	return `${day} ${month} ${year} ${time} ${amPm} PST`;
+};
+
+const getTextLength = (text) => text.length;
