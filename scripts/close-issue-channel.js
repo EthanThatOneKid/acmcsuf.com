@@ -6,7 +6,7 @@ startBot(async (client) => {
 	console.log(`Logged in as ${client.user.tag}`);
 	const issueNumber = ARGS['issue'];
 	console.log(`Closing issue ${issueNumber}`);
-	const success = await closeIssueChannel(client, issueNumber);
+	const success = await closeIssueChannel(client, issueNumber, /*dev=*/ false);
 	client.destroy();
 	console.log(`Success: ${success}`);
 	process.exit(success ? 0 : 1);
@@ -52,16 +52,19 @@ export const closeIssueChannel = async (client, issueNumber, dev = false) => {
 				ch.parentId === archiveChannel.parentId && ch.name.includes(`website-issue-${issueNumber}`)
 		);
 		for (const oldChannel of oldChannels) {
-			const allMessages = await fetchAllMessages(oldChannel);
+			const timestamp = formatRFC882PST(new Date());
 			const title = `╭
 │    __/__/_ 
 │   __/__/_  ${oldChannel.name}
 │    /  /
 │
-╰─ archived ${formatRFC882PST(new Date())}`;
-			const footer = `╭─generated with 💖 by acmcsuf.com hub─╮`;
+╰─ archived ${timestamp}`;
+			const footer = `╭${'─'.repeat(timestamp.length + 11)}╮
+│ archived ${timestamp} │
+╰${'─'.repeat(timestamp.length + 11)}╯`;
+			const allMessages = await fetchAllMessages(oldChannel);
 			const fileContent =
-				title + '\n\n' + allMessages.map(formatMessage).join('\n') + '\n' + footer;
+				title + '\n\n' + allMessages.map(formatMessage).join('\n') + '\n\n' + footer;
 			if (dev) {
 				console.log(fileContent);
 				return true;
@@ -70,8 +73,8 @@ export const closeIssueChannel = async (client, issueNumber, dev = false) => {
 			const message = await archiveChannel.send({
 				files: [{ name: `${oldChannel.name}.txt`, attachment }],
 			});
-			// TODO: await message.pin();
-			// TODO: await oldChannel.delete();
+			await message.pin();
+			await oldChannel.delete();
 		}
 		success = true;
 	} catch (error) {
@@ -85,11 +88,19 @@ export const closeIssueChannel = async (client, issueNumber, dev = false) => {
  * Inspired by
  * https://github.com/diamondburned/arikawa/blob/123f8bc41ff2db3c2a9088a336889012c1f7ebf6/api/message.go#L60
  */
-const fetchAllMessages = async (channel) => {
-	const result = [...(await channel.messages.fetch()).values()]
-		.filter((msg) => msg.content.length > 0)
-		.reverse();
-	return result;
+const fetchAllMessages = async (channel, limit = 2e4) => {
+	const result = [];
+	let lastId;
+	while (true) {
+		const options = { limit: 100 };
+		if (lastId) options.before = lastId;
+		const messages = await channel.messages.fetch(options);
+		if (messages === undefined) break;
+		result.push(...messages.values());
+		lastId = messages.last().id;
+		if (messages.size != 100 || result >= limit) break;
+	}
+	return result.sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
 };
 
 const formatMessage = (msg) => {
@@ -98,7 +109,10 @@ const formatMessage = (msg) => {
 		lines.push(...wrapText(line, 72));
 	}
 	const topLeft = `╭${msg.author.tag} ─ ${formatRFC882PST(msg.createdAt)}`;
-	const longestLine = lines.reduce((record, line) => (line.length > record ? line.length : record));
+	const longestLine = lines.reduce(
+		(record, line) => (line.length > record ? line.length : record),
+		0
+	);
 	const width = Math.max(longestLine + 3, topLeft.length);
 	const topRight = '─'.repeat(width - topLeft.length) + '╮';
 	const content = lines
