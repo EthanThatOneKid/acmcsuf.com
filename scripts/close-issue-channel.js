@@ -83,18 +83,22 @@ export const closeIssueChannel = async (client, issueNumber, dev = false) => {
 
 const fetchAllMessages = async (channel, limit = 2e3) => {
 	const result = [];
+	const softLimit = 100;
 	let lastId;
 	while (true) {
-		const options = { limit: 100 };
+		const options = { limit: softLimit };
 		if (lastId) options.before = lastId;
 		const messages = await channel.messages.fetch(options);
 		if (messages === undefined) break;
 		result.push(...messages.values());
 		lastId = messages.last().id;
-		if (messages.size != 100 || result >= limit) break;
+		if (messages.size != softLimit || result >= limit) break;
+		await sleep(250); // Let's not hammer the API.
 	}
 	return result.sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
 };
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const formatMessage = (msg) => {
 	const lines = [];
