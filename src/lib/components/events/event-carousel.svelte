@@ -48,6 +48,7 @@
 	};
 	onMount(() => {
 		hasHorizontalScrollbar = carouselRef.scrollWidth > carouselRef.clientWidth;
+		rightButtonEnabled = hasHorizontalScrollbar;
 	});
 </script>
 
@@ -77,10 +78,9 @@
 		</div>
 		<div
 			bind:this={carouselButtonRight}
-			class:visibility={hasHorizontalScrollbar}
 			class="carousel-button right"
 			on:click={scrollRight}
-			class:enabled={!rightButtonEnabled === hasHorizontalScrollbar ? !rightButtonEnabled : false}>
+			class:enabled={rightButtonEnabled}>
 			&gt;
 		</div>
 	</div>
