@@ -98,15 +98,12 @@ const formatMessage = (msg) => {
 		lines.push(...wrapText(line, 72));
 	}
 	const topLeft = `╭${msg.author.tag} ─ ${formatRFC882PST(msg.createdAt)}`;
-	const longestLine = lines.reduce((record, line) => {
-		const lineLength = getTextLength(line);
-		return lineLength > record ? lineLength : record;
-	}, 0);
+	const longestLine = lines.reduce((record, line) => (line.length > record ? line.length : record));
 	const width = Math.max(longestLine + 3, topLeft.length);
 	const topRight = '─'.repeat(width - topLeft.length) + '╮';
 	const content = lines
 		.map((line) => {
-			const padding = width - getTextLength(line) - 3;
+			const padding = width - line.length - 3;
 			return `│ ${line}${' '.repeat(padding)} │`;
 		})
 		.join('\n');
@@ -145,5 +142,3 @@ const formatRFC882PST = (date) => {
 		.split(' ');
 	return `${day} ${month} ${year} ${time} ${amPm} PST`;
 };
-
-const getTextLength = (text) => text.length;
