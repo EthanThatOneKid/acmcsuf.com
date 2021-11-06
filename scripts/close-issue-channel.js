@@ -147,5 +147,12 @@ const formatRFC882PST = (date) => {
 		})
 		.replace(/\,/g, '')
 		.split(' ');
-	return `${day} ${month} ${year} ${time} ${amPm} PST`;
+	const timezone = Intl.DateTimeFormat('en-US', {
+		timeZoneName: 'short',
+		timeZone: 'America/Los_Angeles',
+	})
+		.format(date)
+		.split(' ')
+		.at(-1);
+	return `${day} ${month} ${year} ${time} ${amPm} ${timezone}`;
 };
