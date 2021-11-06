@@ -24,7 +24,7 @@
 		debounceTheScroll(() => {
 			const canScrollLeft = carouselRef.scrollLeft > 0;
 			const canScrollRight =
-				carouselRef.scrollWidth - carouselRef.scrollLeft - carouselRef.clientWidth < 1;
+				carouselRef.scrollWidth - carouselRef.scrollLeft - carouselRef.clientWidth > 1;
 			leftButtonEnabled = canScrollLeft;
 			rightButtonEnabled = canScrollRight;
 		}, Time.Second * 0.75);
