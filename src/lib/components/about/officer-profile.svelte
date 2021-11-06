@@ -33,8 +33,12 @@
 	@import 'static/theme.scss';
 
 	.officer-container {
-		text-align: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		padding: 64px 64px 0;
+		text-align: center;
 	}
 
 	.officer-image {
