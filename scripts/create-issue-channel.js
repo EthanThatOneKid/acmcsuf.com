@@ -1,8 +1,8 @@
-import { startBot, get$1 } from './common.js';
+import { startBot, getNArg } from './common.js';
 
 startBot(async (client) => {
 	console.log(`Logged in as ${client.user.tag}`);
-	const issue = get$1();
+	const issue = getNArg(1);
 	const success = await createIssueChannel(client, issue);
 	client.destroy();
 	console.log(`Success: ${success}`);
