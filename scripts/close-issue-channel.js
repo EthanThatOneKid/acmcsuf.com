@@ -2,7 +2,7 @@ import { startBot, getNArg } from './common.js';
 
 startBot(async (client) => {
 	console.log(`Logged in as ${client.user.tag}`);
-	const issueNumber = getNArg(1);
+	const issueNumber = getNArg(2);
 	console.log(`Closing issue ${issueNumber}`);
 	const success = await closeIssueChannel(client, issueNumber, /*dev=*/ false);
 	client.destroy();
@@ -81,7 +81,7 @@ export const closeIssueChannel = async (client, issueNumber, dev = false) => {
 	return success;
 };
 
-const fetchAllMessages = async (channel, limit = 2e4) => {
+const fetchAllMessages = async (channel, limit = 2e3) => {
 	const result = [];
 	let lastId;
 	while (true) {

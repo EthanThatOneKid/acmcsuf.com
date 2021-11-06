@@ -1,7 +1,7 @@
 import { Client, Intents } from 'discord.js';
 import { config } from 'dotenv';
 
-export const getNArg = (n = 1) => {
+export const getNArg = (n = 2) => {
 	const payload = process.argv[n];
 	try {
 		return JSON.parse(payload);
