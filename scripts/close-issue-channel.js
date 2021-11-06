@@ -70,8 +70,8 @@ export const closeIssueChannel = async (client, issueNumber, dev = false) => {
 			const message = await archiveChannel.send({
 				files: [{ name: `${oldChannel.name}.txt`, attachment }],
 			});
-			// await message.pin();
-			// await oldChannel.delete();
+			// TODO: await message.pin();
+			// TODO: await oldChannel.delete();
 		}
 		success = true;
 	} catch (error) {
@@ -81,6 +81,7 @@ export const closeIssueChannel = async (client, issueNumber, dev = false) => {
 };
 
 /**
+ * TODO: Fetch all messages in a channel via pagination technique.
  * Inspired by
  * https://github.com/diamondburned/arikawa/blob/123f8bc41ff2db3c2a9088a336889012c1f7ebf6/api/message.go#L60
  */
