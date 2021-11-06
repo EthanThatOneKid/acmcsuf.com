@@ -40,8 +40,7 @@
 					{name}
 					title={positions[TERMS[$termIndex]]}
 					{picture}
-					{placeholderPicture}
-				/>
+					{placeholderPicture} />
 			{/each}
 		</div>
 	</div>
@@ -67,9 +66,11 @@
 	}
 
 	.officer-profile-list {
-		display: flex;
-		flex-flow: row wrap;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		grid-gap: 64px;
+		justify-content: center;
+		align-items: center;
 		max-width: 1400px;
-		justify-content: space-evenly;
 	}
 </style>
