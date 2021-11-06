@@ -34,6 +34,7 @@
 
 	.officer-container {
 		text-align: center;
+		padding: 64px 64px 0;
 	}
 
 	.officer-image {

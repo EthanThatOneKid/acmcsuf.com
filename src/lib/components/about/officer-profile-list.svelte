@@ -67,10 +67,9 @@
 
 	.officer-profile-list {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-		grid-gap: 64px;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 		justify-content: center;
 		align-items: center;
-		max-width: 1400px;
+		max-width: calc(100vw - (64px * 2));
 	}
 </style>
