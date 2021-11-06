@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import type { AcmEvent } from '$lib/parse-ical-data';
+	import type { AcmEvent } from '$lib/ical/parse';
 	import CommonHero from '$lib/components/sections/common-hero.svelte';
 	import Spacing from '$lib/components/sections/spacing.svelte';
 	import EventCarousel from '$lib/components/events/event-carousel.svelte';

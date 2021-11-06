@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { acmPaths } from '$lib/constants/acm-paths';
-	import { styleProps } from '$lib/actions/use-style-props';
 </script>
 
 <section>
@@ -18,7 +17,7 @@
 			<a class="path-item" target="_self" href={`/paths#${slug}`}>
 				<img src={picture} alt={`${slug}-logo`} />
 				<p class="size-m headers">
-					acm<span class="brand-em" use:styleProps={{ 'brand-color': color }}>
+					acm<span class="brand-em" style={`--brand-color=${color}`}>
 						{title}
 					</span>
 				</p>

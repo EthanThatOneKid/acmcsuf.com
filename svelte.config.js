@@ -12,11 +12,6 @@ const config = {
 		target: '#svelte',
 		adapter: adapter(),
 	},
-
-	onwarn: (warning, handler) => {
-		if (warning.code === 'css-unused-selector') return;
-		handler(warning);
-	},
 };
 
 export default config;

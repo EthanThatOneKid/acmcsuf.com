@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { AcmPath } from '$lib/constants/acm-paths';
 	import { TextAlignment } from '$lib/constants/text-alignment';
-	import { styleProps } from '$lib/actions/use-style-props';
 
 	export let textAlign: TextAlignment = TextAlignment.Right;
 	export let info: AcmPath | undefined;
@@ -14,7 +13,7 @@
 			<div>
 				<h2>
 					<span class="headers size-l">
-						acm<span use:styleProps={{ 'font-color': info.color }}>
+						acm<span style={`--font-color: ${info.color}`}>
 							<span class="brand-em">{info.title}</span>
 						</span>
 					</span>

@@ -9,7 +9,7 @@
 		active = !active;
 	};
 
-	const handleOption = (term) => {
+	const handleOption = (term: string) => {
 		currentValue = term;
 		defaultValue = currentValue;
 		active = false;
