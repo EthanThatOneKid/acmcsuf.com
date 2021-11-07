@@ -1,7 +1,7 @@
 <script lang="ts">
-  export let placeholderPicture: string = "placeholder.png";
-  export let name: string = "";
-  export let title: string = "";
+  export let placeholderPicture = 'placeholder.png';
+  export let name = '';
+  export let title = '';
   export let picture: string = placeholderPicture;
 
   let officerName = name;
@@ -19,9 +19,8 @@
 <div class="officer-container">
   <img
     class="officer-image"
-    src="{`../assets/authors/${officerPicture}`}"
-    alt="{`Image of ${officerName}.`}"
-  />
+    src={`../assets/authors/${officerPicture}`}
+    alt={`Image of ${officerName}.`} />
   <h3 class="headers">
     {officerName}
   </h3>
@@ -31,7 +30,7 @@
 </div>
 
 <style lang="scss">
-  @import "static/theme.scss";
+  @import 'static/theme.scss';
 
   .officer-container {
     display: flex;

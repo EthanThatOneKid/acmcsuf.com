@@ -10,7 +10,7 @@
 </section>
 
 <style lang="scss">
-  @import "static/theme.scss";
+  @import 'static/theme.scss';
 
   section {
     display: flex;
