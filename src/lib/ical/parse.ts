@@ -7,6 +7,7 @@ import {
   checkForRecurrence,
   sortByDate,
   filterIfPassed,
+  cleanSummary,
 } from './common';
 import type { IcalOutput } from './common';
 
@@ -31,7 +32,7 @@ export const parse = (icalData: string): AcmEvent[] => {
       if (event['DTSTART'] === undefined || event['DTEND'] === undefined) {
         return collection;
       }
-      const summary = String(event['SUMMARY']);
+      const summary = cleanSummary(String(event['SUMMARY']));
       const description = String(event['DESCRIPTION']);
       const parsedDescription = parseDescription(description);
       const rawLocation = String(event['LOCATION']);

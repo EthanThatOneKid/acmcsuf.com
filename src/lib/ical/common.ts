@@ -135,3 +135,9 @@ export const sortByDate = (): ((a: { date: Date }, b: { date: Date }) => 1 | -1)
 export const filterIfPassed = (now: number, offset = 0) => {
   return ({ date }: { date: Date }): boolean => date.valueOf() + offset > now;
 };
+
+export const cleanSummary = (summary?: string) => {
+  if (summary === undefined) return "Unnamed Event";
+
+  return summary.replace(/\\/g, "");
+}
