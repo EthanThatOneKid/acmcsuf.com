@@ -7,7 +7,7 @@ import {
   checkForRecurrence,
   sortByDate,
   filterIfPassed,
-	cleanSummary
+  cleanSummary,
 } from './common';
 import type { IcalOutput } from './common';
 
