@@ -11,34 +11,21 @@
     <span class="intro">
       <h2 class="headers">Get in touch</h2>
       <p>
-        Got any questions for us? Want to collaborate? Just want to say hi?
-        Whatever it is, feel free to contact us! Send us an email by filling out
-        the form below, and we’ll have a representative get back to you as soon
-        as possible.
+        Got any questions for us? Want to collaborate? Just want to say hi? Whatever it is, feel
+        free to contact us! Send us an email by filling out the form below, and we’ll have a
+        representative get back to you as soon as possible.
       </p>
     </span>
 
     <form action="#">
       <span>
         <label for="form-name" class="mid">Name</label>
-        <input
-          type="text"
-          id="form-name"
-          name="form-name"
-          placeholder="Your name..."
-          required
-        />
+        <input type="text" id="form-name" name="form-name" placeholder="Your name..." required />
       </span>
 
       <span>
         <label for="form-email" class="mid">Email</label>
-        <input
-          type="text"
-          id="form-email"
-          name="form-email"
-          placeholder="Your email..."
-          required
-        />
+        <input type="text" id="form-email" name="form-email" placeholder="Your email..." required />
       </span>
 
       <span>
@@ -48,8 +35,7 @@
           id="form-topic"
           name="form-topic"
           placeholder="Your subject..."
-          required
-        />
+          required />
       </span>
 
       <span>
@@ -59,26 +45,20 @@
           id="form-message"
           name="form-message"
           placeholder="Your message..."
-          required></textarea>
+          required />
       </span>
 
-      <input
-        type="submit"
-        id="form-submit"
-        name="form-submit"
-        placeholder="Submit"
-      />
+      <input type="submit" id="form-submit" name="form-submit" placeholder="Submit" />
     </form>
   {:else}
     <iframe
-      src="{googleFormUrl}"
+      src={googleFormUrl}
       title="acmCSUF contact form"
       width="100%"
       height="962"
       frameborder="0"
       marginheight="0"
-      marginwidth="0"
-    >
+      marginwidth="0">
       Loading…
     </iframe>
   {/if}
@@ -121,7 +101,7 @@
     align-items: flex-start;
   }
 
-  form input[type="text"],
+  form input[type='text'],
   form textarea {
     background-color: var(--acm-light);
     border-radius: 12px;
