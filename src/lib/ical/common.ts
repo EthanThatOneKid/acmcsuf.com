@@ -133,7 +133,7 @@ export const filterIfPassed = (now: number, offset: number = 0) => {
 
 
 export const cleanSummary = (summary?: string) => {
-  if(summary === undefined)
-		return "Unnamed Event";
+  if (summary === undefined) return "Unnamed Event";
+
   return summary.replace(/\\/g, "");
 }
