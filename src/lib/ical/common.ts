@@ -136,7 +136,7 @@ export const filterIfPassed = (now: number, offset = 0) => {
   return ({ date }: { date: Date }): boolean => date.valueOf() + offset > now;
 };
 
-export const cleanSummary = (summary?: string) => {
+export const cleanSummary = (summary?: string): string => {
   if (summary === undefined) return "Unnamed Event";
 
   return summary.replace(/\\/g, "");
