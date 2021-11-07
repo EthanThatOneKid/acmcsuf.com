@@ -15,6 +15,10 @@ const createIssueChannel = async (client, issueNumber) => {
     const channelName = `website-issue-${issueNumber}`;
     await client.guilds.fetch();
     const { channels } = client.guilds.cache.get(process.env.GUILD_ID);
+    if (await channelExists(channels, channelName)) {
+      console.log(`#${channelName} already exists`);
+      return true;
+    }
     const channel = await channels.create(channelName, {
       type: 'GUILD_TEXT',
       parent: process.env.HUB_ID,
@@ -28,4 +32,11 @@ const createIssueChannel = async (client, issueNumber) => {
     console.error(error);
   }
   return success;
+};
+
+const channelExists = async (channels, name) => {
+  for (const channel of channels.cache.values()) {
+    if (channel.name === name) return true;
+  }
+  return false;
 };
