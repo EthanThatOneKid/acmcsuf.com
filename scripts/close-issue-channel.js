@@ -95,12 +95,9 @@ const fetchAllMessages = async (channel, limit = 2e3) => {
     result.push(...messages.values());
     lastId = messages.last().id;
     if (messages.size != softLimit || result >= limit) break;
-    await sleep(250); // Let's not hammer the API.
   }
   return result.sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
 };
-
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const formatMessage = (msg) => {
   const lines = [];
