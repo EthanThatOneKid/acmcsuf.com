@@ -1,5 +1,6 @@
+import axios from 'axios';
+import { readFileSync, writeFileSync, createWriteStream } from 'fs';
 import { getNArg } from './common.js';
-import { readFileSync } from 'fs';
 
 /**
  * Example officer data:
@@ -26,7 +27,7 @@ const termAbbr = (term) => (term.startsWith('F') ? 'F' : 'S') + term.slice(term.
  * Parses the first instance of an image URL from a markdown string.
  */
 const parseImgSrcFromMd = (markdown) => {
-  const pattern = /!\[[^\]]*\]\((?<filename>.*?)(?=\"|\))(?<optionalpart>\".*\")?\)/i; // https://regex101.com/r/cSbfvF/3/
+  const pattern = /!\[[^\]]*\]\((?<filename>.*?)(?="|\))(?<optionalpart>".*")?\)/i; // https://regex101.com/r/cSbfvF/3/
   const match = pattern.exec(markdown);
   if (match !== null) {
     const {
@@ -43,7 +44,7 @@ const downloadOfficerImage = async (url, officerName) => {
   const response = axios({ url, responseType: 'stream' });
   return await new Promise((resolve, reject) => {
     response.data
-      .pipe(fs.createWriteStream(image_path))
+      .pipe(createWriteStream(filename))
       .on('finish', () => resolve(filename))
       .on('error', reject);
   });
@@ -62,7 +63,7 @@ const updateOfficer = async () => {
     console.error(`Received invalid officer name ${name}.`);
     return false;
   }
-  const officerIndex = result.findIndex(({ name }) => name === officerName);
+  const officerIndex = result.findIndex((officer) => officer.name === name);
   const abbreviatedTerm = termAbbr(term);
   if (officerIndex === -1) {
     // officer name not found, so let's create a new officer
@@ -83,7 +84,7 @@ const updateOfficer = async () => {
       if (typeof imagePath === 'string') result[officerIndex].picture = picture;
     }
   }
-  fs.writeFileSync(OFFICERS_FILENAME, JSON.stringify(result, null, 2));
+  writeFileSync(OFFICERS_FILENAME, JSON.stringify(result, null, 2));
 };
 
 try {
