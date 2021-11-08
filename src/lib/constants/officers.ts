@@ -1,10 +1,10 @@
 import OFFICERS_JSON from './officers.json';
 
 export interface Officer {
-	name: string;
-	positions: Record<string, string>;
-	picture?: string;
-	url?: string;
+  name: string;
+  positions: Record<string, string>;
+  picture?: string;
+  url?: string;
 }
 
 export const TERM_FALL_20 = 'F20';

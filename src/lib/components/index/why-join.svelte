@@ -2,24 +2,20 @@
 </script>
 
 <section>
-  <img
-    src="assets/png/why-join-illustration.png"
-    alt="Social event with acmCSUF club members."
-  />
+  <img src="assets/png/why-join-illustration.png" alt="Social event with acmCSUF club members." />
   <div class="right-content">
     <h2 class="headers size-l">Why should students join?</h2>
     <p class="size-xs">
-      We help kickstart student’s journies through the tech industry by
-      providing workshops that enable growth of technical ability, a community
-      of techies open to building personal and professional connections, and a
-      mentorship program full of enthusiastic upperclassmen ready prepare
-      underclassmen for success.
+      We help kickstart student’s journies through the tech industry by providing workshops that
+      enable growth of technical ability, a community of techies open to building personal and
+      professional connections, and a mentorship program full of enthusiastic upperclassmen ready
+      prepare underclassmen for success.
     </p>
   </div>
 </section>
 
 <style lang="scss">
-  @import "static/theme.scss";
+  @import 'static/theme.scss';
 
   section {
     display: flex;

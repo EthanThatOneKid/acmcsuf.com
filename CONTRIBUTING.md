@@ -22,6 +22,17 @@ Every update made to the source code will trigger your `http://localhost:3000/` 
 
 Now that you've got everything up-and-running, you are free to contribute to your heart's content.
 
+## Submitting your own Contributions 🎉
+
+Before publishing a PR, it is recommended that you run a few commands to make sure that you are complying with our style guidelines.
+
+```bash
+npm run format # Careful, this command might mutate your files.
+npm run lint --fix # Careful, this might mutate your files.
+npm run check # Use this command to find bugs in your website code.
+npm run build # Use this to make sure your code builds successfully.
+```
+
 ## Architecture 🗿
 
 For architecture-related information, please refer to [`ARCHITECTURE.md`](ARCHITECTURE.md).
