@@ -1,6 +1,6 @@
 name: Officer Form
 description: Here is where you can update an acmCSUF officer's information.
-labels: 'officer_form'
+labels: 'officer form'
 
 body:
   - type: markdown
