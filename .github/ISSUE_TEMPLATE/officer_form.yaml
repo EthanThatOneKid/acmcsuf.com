@@ -12,7 +12,7 @@ body:
   - type: input
     id: officer_name
     attributes:
-      label: <<Officer Name>>
+      label: >>Officer Name<<
       description: Please enter the name of the officer as seen on https://acmcsuf.com/.
     validations:
       required: true
@@ -20,7 +20,7 @@ body:
   - type: dropdown
     id: officer_position
     attributes:
-      label: <<Overwrite Officer Position>>
+      label: >>Overwrite Officer Position<<
       options:
         - S21
         - F21
@@ -32,7 +32,7 @@ body:
   - type: textarea
     id: officer_image
     attributes:
-      label: <<Overwrite Officer Image>>
+      label: >>Overwrite Officer Image<<
       description: |
         If an image is detected inside of this textarea, it will be used to update the officer's image on the website.
       placeholder: You can attach images by clicking this area to highlight it and then dragging files in.
