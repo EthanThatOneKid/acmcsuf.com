@@ -1,0 +1,40 @@
+name: Officer Form
+description: Here is where you can update an acmCSUF officer's information.
+labels: 'officer form'
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ![banner](https://raw.githubusercontent.com/EthanThatOneKid/acmcsuf.com/main/static/assets/about-illustration.svg)
+        <small>Note: Banner not included in your published bug report.</small>
+
+  - type: input
+    id: officer_name
+    attributes:
+      label: >>Officer Name<<
+      description: Please enter the name of the officer as seen on https://acmcsuf.com/.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: officer_position
+    attributes:
+      label: >>Overwrite Officer Position<<
+      options:
+        - S21
+        - F21
+        - S22
+        - F22
+    validations:
+      required: false
+
+  - type: textarea
+    id: officer_image
+    attributes:
+      label: >>Overwrite Officer Image<<
+      description: |
+        If an image is detected inside of this textarea, it will be used to update the officer's image on the website.
+      placeholder: You can attach images by clicking this area to highlight it and then dragging files in.
+    validations:
+      required: false
