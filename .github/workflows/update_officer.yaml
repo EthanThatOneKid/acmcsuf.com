@@ -27,7 +27,7 @@ jobs:
       
       - name: Run Update Officer Script
         run: npm ci
-        run: node scripts/update-officer --payload="${{ steps.parse.outputs.payload }}"
+        run: node scripts/update-officer.js "${{ steps.parse.outputs.payload }}"
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
