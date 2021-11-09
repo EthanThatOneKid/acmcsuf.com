@@ -28,8 +28,6 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Run Update Officer Script
-        id: update_officer
       - run: node scripts/update-officer.js
         env:
           FORM_DATA: ${{ steps.parse.outputs.payload }}
@@ -51,4 +49,4 @@ jobs:
           issue_id: ${{ github.event.issue.number }}
           message: Closed by \#${{ steps.pull_request.outputs.pull_request_id }}
           state: closed
-          body: ${{ steps.officer.outputs.body }}
+          body: Closed by \#${{ steps.pull_request.outputs.pull_request_id }}
