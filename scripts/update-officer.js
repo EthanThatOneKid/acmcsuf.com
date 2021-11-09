@@ -27,11 +27,11 @@ const termAbbr = (term) => (term.startsWith('F') ? 'F' : 'S') + term.slice(term.
  * Parses the first instance of an image URL from a markdown string.
  */
 const parseImgSrcFromMd = (markdown) => {
-  const pattern = /!\[[^\]]*\]\((?<filename>.*?)(?="|\))(?<optionalpart>".*")?\)/i; // https://regex101.com/r/cSbfvF/3/
+  // https://regex101.com/r/cSbfvF/3/
+  const pattern = /!\[[^\]]*\]\((?<filename>.*?)(?="|\))(?<optionalpart>".*")?\)/i;
   const match = pattern.exec(markdown);
   if (match === null) return null;
-  const [_, src] = match;
-  return src;
+  return match[1];
 };
 
 const downloadOfficerImage = async (url, officerName) => {

@@ -30,7 +30,7 @@ jobs:
 
       - name: Run Update Officer Script
         id: update_officer
-        run: node scripts/update-officer.js
+      - run: node scripts/update-officer.js
         env:
           FORM_DATA: ${{ steps.parse.outputs.payload }}
 
