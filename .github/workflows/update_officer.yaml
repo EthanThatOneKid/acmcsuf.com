@@ -35,7 +35,7 @@ jobs:
 
       - run: node scripts/update-officer.js
         env:
-          FORM_DATA: ${{ steps.parse.outputs.payload }}
+          FORM_DATA: steps.parse.outputs.payload
 
       - name: Create Pull Request
         id: pull_request
