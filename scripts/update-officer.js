@@ -54,7 +54,7 @@ const updateOfficer = async () => {
     ['Term to Overwrite']: term,
     ['Overwrite Officer Position Title']: title,
     ['Overwrite Officer Picture']: picture,
-  } = JSON.parse(config().parsed.FORM_DATA);
+  } = JSON.parse(process.env.FORM_DATA);
   const isValidName = name?.trim().length > 0 ?? false;
   if (!isValidName) {
     console.error(`Received invalid officer name ${name}.`);
@@ -89,6 +89,7 @@ const updateOfficer = async () => {
 };
 
 try {
+  config();
   const success = await updateOfficer();
   if (success) process.exit(0);
   // eslint-disable-next-line no-empty
