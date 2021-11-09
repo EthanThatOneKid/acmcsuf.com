@@ -32,7 +32,7 @@ const parseImgSrcFromMd = (markdown) => {
   const pattern = /!\[[^\]]*\]\((?<filename>.*?)(?="|\))(?<optionalpart>".*")?\)/i;
   const match = pattern.exec(markdown);
   if (match === null) return null;
-  return match[1];
+  return match.groups.filename;
 };
 
 const downloadOfficerImage = async (url, officerName) => {
@@ -40,12 +40,12 @@ const downloadOfficerImage = async (url, officerName) => {
   const filename = `${encodeURIComponent(cleanOfficerName)}.png`;
   const imagePath = `./static/assets/authors/${filename}`;
   const response = await axios({ url, responseType: 'stream' });
-  return await new Promise((resolve, reject) => {
+  return await new Promise((resolve, reject) =>
     response.data
       .pipe(createWriteStream(imagePath))
       .on('finish', () => resolve(filename))
-      .on('error', reject);
-  });
+      .on('error', reject)
+  );
 };
 
 const updateOfficer = async () => {
@@ -85,8 +85,8 @@ const updateOfficer = async () => {
         console.error(`received invalid officer picture '${picture}'`);
         return false;
       }
-      const imagePath = await downloadOfficerImage(imgSrc, name);
-      if (typeof imagePath === 'string') result[officerIndex].picture = picture;
+      const relativeImgSrc = await downloadOfficerImage(imgSrc, name);
+      if (typeof relativeImgSrc === 'string') result[officerIndex].picture = relativeImgSrc;
     }
     console.log({ officer: result[officerIndex] });
   }
