@@ -14,5 +14,3 @@ export const TERM_FALL_21 = 'F21';
 export const TERMS = [TERM_FALL_21, TERM_SPRING_21];
 
 export const OFFICERS: Officer[] = [...OFFICERS_JSON];
-
-console.log(JSON.stringify(OFFICERS, null, 2));
