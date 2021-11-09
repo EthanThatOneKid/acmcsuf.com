@@ -70,9 +70,9 @@ const closeIssueChannel = async (client, issueNumber, dev = false) => {
       }
       const attachment = Buffer.from(fileContent);
       const message = await archiveChannel.send({
+        content: oldChannel.name,
         files: [{ name: `${oldChannel.name}.txt`, attachment }],
       });
-      await message.pin();
       await oldChannel.delete();
     }
     success = true;
