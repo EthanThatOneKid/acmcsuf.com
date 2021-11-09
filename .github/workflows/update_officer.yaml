@@ -47,6 +47,6 @@ jobs:
         uses: peter-evans/close-issue@v1
         with:
           issue_id: ${{ github.event.issue.number }}
-          message: Closed by \#${{ steps.pull_request.outputs.pull_request_id }}
+          message: Closed by \#${{ steps.pull_request.outputs.pull_request_id }
           state: closed
           body: ${{ steps.officer.outputs.body }}
