@@ -30,7 +30,7 @@ jobs:
 
       - name: Run Update Officer Script
         id: update_officer
-        run: node scripts/update-officer.js "${{ toJSON(fromJSON(steps.parse.outputs.payload)) }}"
+        run: node scripts/update-officer.js ${{ steps.parse.outputs.payload }}
 
       - name: Create Pull Request
         id: pull_request

@@ -57,7 +57,7 @@ const updateOfficer = async () => {
     ['Term to Overwrite']: term,
     ['Overwrite Officer Position Title']: title,
     ['Overwrite Officer Picture']: picture,
-  } = JSON.parse(getNArg(2));
+  } = JSON.parse(process.argv.slice(2).join(' '));
   const isValidName = name?.trim().length > 0 ?? false;
   if (!isValidName) {
     console.error(`Received invalid officer name ${name}.`);
