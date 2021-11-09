@@ -21,7 +21,8 @@ const OFFICERS_FILENAME = './src/lib/constants/officers.json';
 /**
  * Converts 'Fall 2021' to 'F21', 'Spring 2022' to 'S22, etc.
  */
-const termAbbr = (term) => (term.startsWith('F') ? 'F' : 'S') + term.slice(term.length - 2);
+const termAbbr = (term) =>
+  term === undefined ? null : (term.startsWith('F') ? 'F' : 'S') + term.slice(term.length - 2);
 
 /**
  * Parses the first instance of an image URL from a markdown string.
@@ -57,11 +58,15 @@ const updateOfficer = async () => {
   } = JSON.parse(process.env.FORM_DATA);
   const isValidName = name?.trim().length > 0 ?? false;
   if (!isValidName) {
-    console.error(`Received invalid officer name ${name}.`);
+    console.error(`received invalid officer name ${name}`);
     return false;
   }
   const officerIndex = result.findIndex((officer) => officer.name === name);
   const abbreviatedTerm = termAbbr(term);
+  if (abbreviatedTerm === null) {
+    console.error(`received invalid term, '${term}'`);
+    return false;
+  }
   if (officerIndex === -1) {
     // officer name not found, so let's create a new officer
     const positions = { [abbreviatedTerm]: title };
@@ -77,7 +82,7 @@ const updateOfficer = async () => {
     if (pictureNeedsUpdate) {
       const imgSrc = parseImgSrcFromMd(picture);
       if (imgSrc === null) {
-        console.error(`Received invalid officer picture ${picture}.`);
+        console.error(`received invalid officer picture '${picture}'`);
         return false;
       }
       const imagePath = await downloadOfficerImage(imgSrc, name);
