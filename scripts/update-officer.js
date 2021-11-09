@@ -61,11 +61,16 @@ const updateOfficer = async () => {
     console.error(`received invalid officer name, ${name}`);
     return false;
   }
-  let officerIndex = result.findIndex((officer) => officer.name === name);
   const abbreviatedTerm = termAbbr(term);
   if (abbreviatedTerm === null) {
     console.error(`received invalid term, '${term}'`);
     return false;
+  }
+  let officerIndex = result.findIndex((officer) => officer.name === name);
+  if (officerIndex === -1) {
+    // officer name not found, so let's create a new officer
+    result.push({ name });
+    officerIndex = result.length - 1;
   }
   const titleNeedsUpdate = title !== undefined && title.trim().length > 0;
   if (titleNeedsUpdate) {
@@ -73,11 +78,6 @@ const updateOfficer = async () => {
     else result[officerIndex].positions[abbreviatedTerm] = title.trim();
   }
   const pictureNeedsUpdate = picture !== undefined && picture.trim().length > 0;
-  if (officerIndex === -1) {
-    // officer name not found, so let's create a new officer
-    result.push({ name });
-    officerIndex = result.length - 1;
-  }
   if (pictureNeedsUpdate) {
     const imgSrc = parseImgSrcFromMd(picture);
     if (imgSrc === null) {
@@ -86,8 +86,8 @@ const updateOfficer = async () => {
     }
     const relativeImgSrc = await downloadOfficerImage(imgSrc, name);
     if (typeof relativeImgSrc === 'string') result[officerIndex].picture = relativeImgSrc;
-    console.log(`${name.trim()}'s updated officer data: `, result[officerIndex]);
   }
+  console.log(`${name.trim()}'s updated officer data: `, result[officerIndex]);
   writeFileSync(OFFICERS_FILENAME, JSON.stringify(result, null, 2));
   return true;
 };
