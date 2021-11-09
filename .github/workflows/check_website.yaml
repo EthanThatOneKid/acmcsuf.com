@@ -11,7 +11,7 @@ on:
 
 jobs:
   if: github.event.label.name != 'automation:officer'
-  test:
+  website_check:
     runs-on: ubuntu-latest
 
     strategy:
