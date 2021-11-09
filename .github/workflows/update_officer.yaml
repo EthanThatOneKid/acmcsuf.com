@@ -20,6 +20,11 @@ jobs:
           label_marker_start: '>>'
           label_marker_end: '<<'
 
+      - name: Set form data as environment variable
+        run: |
+          touch .env
+          echo FORM_DATA=${{ steps.parse.outputs.payload }} >> .env
+
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
