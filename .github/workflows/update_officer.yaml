@@ -34,7 +34,6 @@ jobs:
 
       - name: Create Pull Request
         id: pull_request
-        if: steps.officer.outcome == 'success'
         uses: peter-evans/create-pull-request@v3
         with:
           commit-message: Update officer
@@ -46,7 +45,5 @@ jobs:
         id: close_successfully
         uses: peter-evans/close-issue@v1
         with:
-          issue_id: ${{ github.event.issue.number }}
-          message: Closed by \#${{ steps.pull_request.outputs.pull_request_id }}
-          state: closed
-          body: Closed by \#${{ steps.pull_request.outputs.pull_request_id }}
+          issue-number: ${{ github.event.issue.number }}
+          comment: Closed by \#${{ steps.pull_request.outputs.pull_request_id }}
