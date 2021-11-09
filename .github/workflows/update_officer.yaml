@@ -19,7 +19,6 @@ jobs:
           separator: '###'
           label_marker_start: '>>'
           label_marker_end: '<<'
-      
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
@@ -35,6 +34,21 @@ jobs:
           commit-message: Updated officer data
           title: '[OFFICER_AUTOMATION]'
           body: This change was automated by officer update request \#${{ github.event.issue.number }} ✨
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - run: node scripts/update-officer.js
+        env:
+          FORM_DATA: ${{ steps.parse.outputs.payload }}
+
+      - name: Create Pull Request
+        id: pull_request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: Update officer
+          title: Update officer
+          body: Process automated by \#${{ github.event.issue.number }}
           branch: update-officers
 
       - name: Close Issue
@@ -42,4 +56,4 @@ jobs:
         uses: peter-evans/close-issue@v1
         with:
           issue-number: ${{ github.event.issue.number }}
-          comment: Closed by \#${{ steps.pull_request.outputs.pull-request-number }}.
+          comment: Closed by \#${{ steps.pull_request.outputs.pull-request-number }} ✨
