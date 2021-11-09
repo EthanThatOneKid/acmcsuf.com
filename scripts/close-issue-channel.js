@@ -69,7 +69,7 @@ const closeIssueChannel = async (client, issueNumber, dev = false) => {
         return true;
       }
       const attachment = Buffer.from(fileContent);
-      const message = await archiveChannel.send({
+      await archiveChannel.send({
         content: oldChannel.name,
         files: [{ name: `${oldChannel.name}.txt`, attachment }],
       });
