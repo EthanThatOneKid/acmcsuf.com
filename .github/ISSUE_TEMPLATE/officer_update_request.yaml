@@ -1,4 +1,4 @@
-name: Officer Form
+name: Officer Update Request
 description: Here is where you can update an acmCSUF officer's information.
 title: '[OFFICER_AUTOMATION]'
 labels: ['automation:officer']
