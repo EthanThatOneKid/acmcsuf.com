@@ -88,9 +88,10 @@ const updateOfficer = async () => {
       const relativeImgSrc = await downloadOfficerImage(imgSrc, name);
       if (typeof relativeImgSrc === 'string') result[officerIndex].picture = relativeImgSrc;
     }
-    console.log({ officer: result[officerIndex] });
+    console.log(`${name.trim()}'s updated officer data: `, result[officerIndex]);
   }
   writeFileSync(OFFICERS_FILENAME, JSON.stringify(result, null, 2));
+  return true;
 };
 
 try {
