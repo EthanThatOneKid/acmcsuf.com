@@ -20,11 +20,6 @@ jobs:
           label_marker_start: '>>'
           label_marker_end: '<<'
 
-      - name: Set form data as environment variable
-        run: |
-          touch .env
-          echo FORM_DATA=${{ steps.parse.outputs.payload }} >> .env
-
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
@@ -35,7 +30,7 @@ jobs:
 
       - run: node scripts/update-officer.js
         env:
-          FORM_DATA: steps.parse.outputs.payload
+          FORM_DATA: ${{ steps.parse.outputs.payload }}
 
       - name: Create Pull Request
         id: pull_request
