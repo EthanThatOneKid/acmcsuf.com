@@ -1,6 +1,6 @@
 import axios from 'axios';
+import { config } from 'dotenv';
 import { readFileSync, writeFileSync, createWriteStream } from 'fs';
-import { getNArg } from './common.js';
 
 /**
  * Example officer data:
@@ -29,22 +29,19 @@ const termAbbr = (term) => (term.startsWith('F') ? 'F' : 'S') + term.slice(term.
 const parseImgSrcFromMd = (markdown) => {
   const pattern = /!\[[^\]]*\]\((?<filename>.*?)(?="|\))(?<optionalpart>".*")?\)/i; // https://regex101.com/r/cSbfvF/3/
   const match = pattern.exec(markdown);
-  if (match !== null) {
-    const {
-      groups: [src],
-    } = match;
-    return src;
-  }
-  return null;
+  if (match === null) return null;
+  const [_, src] = match;
+  return src;
 };
 
 const downloadOfficerImage = async (url, officerName) => {
   const cleanOfficerName = officerName.trim().toLowerCase().replace(/\s/g, '-');
-  const filename = `./static/assets/authors/${encodeURIComponent(cleanOfficerName)}.png`;
-  const response = axios({ url, responseType: 'stream' });
+  const filename = `${encodeURIComponent(cleanOfficerName)}.png`;
+  const imagePath = `./static/assets/authors/${filename}`;
+  const response = await axios({ url, responseType: 'stream' });
   return await new Promise((resolve, reject) => {
     response.data
-      .pipe(createWriteStream(filename))
+      .pipe(createWriteStream(imagePath))
       .on('finish', () => resolve(filename))
       .on('error', reject);
   });
@@ -57,7 +54,7 @@ const updateOfficer = async () => {
     ['Term to Overwrite']: term,
     ['Overwrite Officer Position Title']: title,
     ['Overwrite Officer Picture']: picture,
-  } = JSON.parse(process.argv.slice(2).join(' '));
+  } = JSON.parse(config().parsed.FORM_DATA);
   const isValidName = name?.trim().length > 0 ?? false;
   if (!isValidName) {
     console.error(`Received invalid officer name ${name}.`);
@@ -73,7 +70,10 @@ const updateOfficer = async () => {
     // officer name found, so let's update the officer
     const titleNeedsUpdate = title !== undefined && title.trim().length > 0;
     const pictureNeedsUpdate = picture !== undefined && picture.trim().length > 0;
-    if (titleNeedsUpdate) result[officerIndex].positions[abbreviatedTerm] = title;
+    if (titleNeedsUpdate) {
+      if (title === 'DELETE') delete result[officerIndex].positions[abbreviatedTerm];
+      else result[officerIndex].positions[abbreviatedTerm] = title.trim();
+    }
     if (pictureNeedsUpdate) {
       const imgSrc = parseImgSrcFromMd(picture);
       if (imgSrc === null) {
@@ -83,6 +83,7 @@ const updateOfficer = async () => {
       const imagePath = await downloadOfficerImage(imgSrc, name);
       if (typeof imagePath === 'string') result[officerIndex].picture = picture;
     }
+    console.log({ officer: result[officerIndex] });
   }
   writeFileSync(OFFICERS_FILENAME, JSON.stringify(result, null, 2));
 };
