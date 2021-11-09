@@ -19,34 +19,22 @@ jobs:
           separator: '###'
           label_marker_start: '>>'
           label_marker_end: '<<'
-
+      
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
           node-version: '16'
-
+      
       - name: Install Dependencies
         run: npm ci
-
+      
       - name: Run Update Officer Script
-        id: update_officer
-        run: node scripts/update-officer.js "${{ fromJSON(steps.parse.outputs.payload) }}"
+        run: node scripts/update-officer.js "${{ steps.parse.outputs.payload }}"
 
       - name: Create Pull Request
-        id: pull_request
-        if: steps.officer.outcome == 'success'
         uses: peter-evans/create-pull-request@v3
         with:
           commit-message: Update officer
           title: Update officer
           body: Process automated by \#${{ github.event.issue.number }}
           branch: update-officers
-
-      - name: Close Issue
-        id: close_successfully
-        uses: peter-evans/close-issue@v1
-        with:
-          issue_id: ${{ github.event.issue.number }}
-          message: Closed by \#${{ steps.pull_request.outputs.pull_request_id }
-          state: closed
-          body: ${{ steps.officer.outputs.body }}
