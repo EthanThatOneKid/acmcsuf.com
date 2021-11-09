@@ -25,10 +25,8 @@ jobs:
         with:
           node-version: '16'
       
-      - name: Install Dependencies
-        run: npm ci
-      
       - name: Run Update Officer Script
+        run: npm ci
         run: node scripts/update-officer.js "${{ steps.parse.outputs.payload }}"
 
       - name: Create Pull Request
