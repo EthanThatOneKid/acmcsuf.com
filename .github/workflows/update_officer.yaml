@@ -49,6 +49,7 @@ jobs:
           commit-message: Updated officer data
           title: 'Add/Update officer ${{ steps.officer-name.outputs.result }}'
           body: Resolves \#${{ github.event.issue.number }} ✨
+          branch: 'automation/${{ github.event.issue.number }}'
 
       - name: Close Issue
         id: close_successfully
