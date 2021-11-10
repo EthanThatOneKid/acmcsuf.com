@@ -69,7 +69,7 @@ const updateOfficer = async () => {
   let officerIndex = result.findIndex((officer) => officer.name === name);
   if (officerIndex === -1) {
     // officer name not found, so let's create a new officer
-    result.push({ name });
+    result.push({ name, positions: {} });
     officerIndex = result.length - 1;
   }
   const titleNeedsUpdate = title !== undefined && title.trim().length > 0;
