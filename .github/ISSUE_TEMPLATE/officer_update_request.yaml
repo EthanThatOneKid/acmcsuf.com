@@ -24,7 +24,7 @@ body:
   - type: dropdown
     id: officer_term
     attributes:
-      label: '>>Overwrite Officer Position<<'
+      label: '>>Term to Overwrite<<'
       options:
         - Spring 2021
         - Fall 2021
