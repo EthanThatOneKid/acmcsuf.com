@@ -20,7 +20,7 @@ jobs:
           separator: '###'
           label_marker_start: '>>'
           label_marker_end: '<<'
-      
+
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
@@ -32,13 +32,22 @@ jobs:
       - run: node scripts/update-officer.js
         env:
           FORM_DATA: ${{ steps.parse.outputs.payload }}
-      
+
+      - name: Expose Officer Name
+        id: officer-name
+        uses: actions/github-script@v5
+        with:
+          script: return JSON.parse(process.env["FORM_DATA"])["Officer Name"]
+          result-encoding: string
+        env:
+          FORM_DATA: ${{ steps.parse.outputs.payload }}
+
       - name: Create Pull Request
         id: pull_request
         uses: peter-evans/create-pull-request@v3
         with:
           commit-message: Updated officer data
-          title: '[OFFICER_AUTOMATION]'
+          title: 'Add/Update officer ${{ steps.officer-name.outputs.result }}'
           body: Resolves \#${{ github.event.issue.number }} ✨
 
       - name: Close Issue
