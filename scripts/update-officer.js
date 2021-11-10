@@ -29,10 +29,14 @@ const termAbbr = (term) =>
  */
 const parseImgSrcFromMd = (markdown) => {
   // https://regex101.com/r/cSbfvF/3/
-  const pattern = /!\[[^\]]*\]\((?<filename>.*?)(?="|\))(?<optionalpart>".*")?\)/i;
-  const match = pattern.exec(markdown);
-  if (match === null) return null;
-  return match.groups.filename;
+  const mdPattern = /!\[[^\]]*\]\((?<filename>.*?)(?="|\))(?<optionalpart>".*")?\)/m;
+  let match = mdPattern.exec(markdown);
+  if (match !== null) return match.groups.filename;
+  // https://stackoverflow.com/a/450117
+  const htmlPattern = /src\s*=\s*"(.+?)"/m;
+  match = htmlPattern.exec(markdown);
+  if (match !== null) return match[1];
+  return null;
 };
 
 const downloadOfficerImage = async (url, officerName) => {
