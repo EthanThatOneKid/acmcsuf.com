@@ -38,7 +38,7 @@ jobs:
         with:
           commit-message: Updated officer data
           title: '[OFFICER_AUTOMATION]'
-          body: These changes resolve officer update request \#${{ github.event.issue.number }} ✨
+          body: Resolves \#${{ github.event.issue.number }} ✨
 
       - name: Close Issue
         id: close_successfully
