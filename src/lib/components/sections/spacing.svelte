@@ -13,7 +13,7 @@
 
   @media screen and (min-width: 768px) {
     div {
-      height: var(--med);
+      max-height: var(--med);
     }
   }
 
