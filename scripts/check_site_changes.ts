@@ -15,19 +15,16 @@ const allowlist = ['src/', 'static/', 'package*.json', 'svelte.config.js'];
 const process = Deno.run({
   cmd: ['git', 'status', '--porcelain', '--', ...allowlist],
   stdout: 'piped',
-  stderr: 'piped',
 });
 
 // Await for the process to complete.
-const { code } = await process.status();
+const stdout = await process.output();
 
 // Check if there are any changes.
-const changes = new TextDecoder().decode(await process.output());
+const changes = new TextDecoder().decode(stdout);
 
-if (changes.length === 0) {
-  // Succeed 0 if there aren't any changes.
-  Deno.exit(0);
-}
+// Succeed if there aren't any changes.
+if (changes.length === 0) Deno.exit(0);
 
 // Exit with 1 if there are changes.
 Deno.exit(1);
