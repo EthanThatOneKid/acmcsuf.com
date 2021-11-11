@@ -1,0 +1,52 @@
+name: Officer Update Request
+description: Here is where you can update an acmCSUF officer's information.
+title: '[OFFICER_AUTOMATION]'
+labels: ['automation:officer']
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### About this form
+        When you submit this form, an automation is triggered that creates a PR updating the user data on <https://acmcsuf.com/about/>.
+        This form only triggers a workflow if you are an authorized contributor.
+        ![banner](https://raw.githubusercontent.com/EthanThatOneKid/acmcsuf.com/main/static/assets/about-illustration.svg)
+        **Note**: Above banner not included in your published bug report.
+
+  - type: input
+    id: officer_name
+    attributes:
+      label: '>>Officer Name<<'
+      description: Please enter the name of the officer as seen on https://acmcsuf.com/about/.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: officer_term
+    attributes:
+      label: '>>Term to Overwrite<<'
+      options:
+        - Spring 2021
+        - Fall 2021
+        - Spring 2022
+        - Fall 2022
+    validations:
+      required: false
+
+  - type: input
+    id: officer_position
+    attributes:
+      label: '>>Overwrite Officer Position Title<<'
+      description: Please enter the new title of the officer's position during the term selected above.
+    validations:
+      required: false
+
+  - type: textarea
+    id: officer_image
+    attributes:
+      label: '>>Overwrite Officer Picture<<'
+      description: |
+        If an image is detected inside of this textarea, it will be used to update the officer's image on the website.
+      placeholder: You can attach images by clicking this area to highlight it and then dragging files in.
+    validations:
+      required: false
