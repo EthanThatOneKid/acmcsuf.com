@@ -11,9 +11,9 @@ startBot(async (client) => {
 });
 
 /**
- * # Close Issue Channel Script
+ * ### Close Issue Channel Script
  *
- * ## Command Line Usage
+ * #### Command Line Usage
  *
  * 1. Make sure your environment variables are defined.
  * 1. Run the following command.
@@ -22,7 +22,7 @@ startBot(async (client) => {
  * node scripts/close-issue-channel.js 180
  * ```
  *
- * ## GitHub Workflow Usage
+ * #### GitHub Workflow Usage
  *
  * ```yaml
  * - run: node scripts/close-issue-channel.js ${{ github.event.issue.number }}
@@ -32,7 +32,9 @@ startBot(async (client) => {
  *     ARCHIVE_CHANNEL_ID: ${{ secrets.ARCHIVE_CHANNEL_ID }}
  * ```
  *
- * See `.github/workflows/close_issue_channel.yaml`.
+ * ---
+ *
+ * See https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/.github/workflows/close_issue_channel.yaml.
  */
 const closeIssueChannel = async (client, issueNumber, dev = false) => {
   let success = false;
