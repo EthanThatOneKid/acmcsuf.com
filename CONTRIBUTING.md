@@ -72,6 +72,35 @@ Notice that the value `768px` is constant.
 The next most common breakpoint for larger desktop screens would be `1440px`.
 Really, the situation may affect your choice of breakpoint value, but the goal is to try to use only `768px` or `1440px` wherever possible for consistency-purposes.
 
+## Custom Workflows
+
+In this repository, we use GitHub Actions to _automate all the things_ 😎
+
+### Creating an Officer Update Request
+
+To update the way an officer appears on <https://acmcsuf.com/about>, contributors may fill out our [**Officer Update Request Form**](https://github.com/EthanThatOneKid/acmcsuf.com/issues/new?assignees=&labels=automation%3Aofficer&template=officer_update_request.yaml&title=%5BOFFICER_AUTOMATION%5D) ([source](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/.github/ISSUE_TEMPLATE/officer_update_request.yaml)) to proc a pull request to be generated with the requested changes.
+Contributors are free to merge the auto-generated pull request if it seems to have made the intended changes.
+
+The [`workflows/update_officer.yaml`](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/.github/workflows/update_officer.yaml) workflow configuration is procced each time an issue is opened with a `automation:officer` label.
+The workflow relies on [`scripts/update-officer.js`](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/scripts/update-officer.js) to make the appropriate changes to the checked-out codebase (includes updating the repo's `officers.json` file or adding/replacing their image in the repo's `/static/assets/authors/` directory.
+Then the workflow generates a pull request based on the changes made by the `update-officer.js` script and immediately closes the issue.
+
+### Automated Third-Party Message Board
+
+Our team uses Discord as our third-party messaging service of choice to discuss relevant topics that aren't suited/ready for GitHub.
+We have text channels set up on Discord dedicated to every open issue on GitHub.
+This approach allowed us to communicate about multiple issues in an orderly and stress-free fashion.
+
+Manually creating and closing text channels for every single GitHub issue is not an appropriate solution to this problem since the text channels will eventually become stale.
+We also want a way to archive these discussions without cluttering the Discord server with text channels.
+To accomplish these needs, we need a way to automate those tasks whenever an issue is created or closed on this GitHub repository.
+
+The [`workflows/create_issue_channel.yaml`](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/.github/workflows/create_issue_channel.yaml) workflow is responsible for creating a new text channel whenever an issue is opened [or reopened] on Github.
+This workflow relies on [`scripts/create-issue-channel.js`](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/scripts/create-issue-channel.js) to create the text channel and send the first message containing a link to the newly created issue.
+
+The [`workflows/close_issue_channel.yaml`](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/.github/workflows/close_issue_channel.yaml) workflow is responsible for closing a text channel whenever a corresponding issue is closed [or deleted] on Github.
+This workflow relies on [`scripts/close-issue-channel.js`](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/scripts/close-issue-channel.js) to transcribe the old issue channel's messages to a dedicated _archive_ channel and then delete the old channel.
+
 ## Webmaster's Note 📝
 
 Thank you for contributing!
