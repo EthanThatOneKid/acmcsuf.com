@@ -32,6 +32,7 @@
   }
 
   section {
+    --gap: var(--md-space);
     padding-block-start: calc(var(--md-space) * 2);
     padding-block-end: var(--md-space);
   }
@@ -178,34 +179,4 @@
       }
     }
   }
-
-  /* @-webkit-keyframes octocat-wave {
-    0%,
-    100% {
-      transform: rotate(0);
-    }
-    20%,
-    60% {
-      transform: rotate(-25deg);
-    }
-    40%,
-    80% {
-      transform: rotate(10deg);
-    }
-  }
-
-  @keyframes octocat-wave {
-    0%,
-    100% {
-      transform: rotate(0);
-    }
-    20%,
-    60% {
-      transform: rotate(-25deg);
-    }
-    40%,
-    80% {
-      transform: rotate(10deg);
-    }
-  } */
 </style>
