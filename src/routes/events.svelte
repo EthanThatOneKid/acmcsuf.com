@@ -3,7 +3,8 @@
   import type { AcmEvent } from '$lib/ical/parse';
   import CommonHero from '$lib/components/sections/common-hero.svelte';
   import Spacing from '$lib/components/sections/spacing.svelte';
-  import EventCarousel from '$lib/components/utils/acm-carousel.svelte';
+  import AcmCarousel from '$lib/components/utils/acm-carousel.svelte';
+  import EventCard from '$lib/components/events/event-card.svelte';
   import AcmEmpty from '$lib/components/utils/acm-empty.svelte';
 
   let events: AcmEvent[] = [];
@@ -40,7 +41,7 @@
 <Spacing --med="16px" />
 
 {#if events.length > 0}
-  <EventCarousel {events} />
+  <AcmCarousel data={events} card={EventCard} />
 {:else}
   <AcmEmpty>
     <p slot="content">

@@ -7,6 +7,11 @@
 
 <style lang="scss">
   @import 'static/theme.scss';
+
+  :root {
+    --margin-top: 64px;
+  }
+
   .call-to-action {
     display: block;
     text-align: center;
@@ -15,11 +20,12 @@
     text-decoration: none;
     border-radius: 12px;
     padding: 12px 24px;
-    margin-top: 64px;
+    margin-top: var(--margin-top);
     background-color: var(--acm-dark);
     color: var(--acm-light);
     transition: background-color 0.25s ease-in-out;
   }
+
   .call-to-action:hover {
     background-color: var(--acm-blue);
   }
