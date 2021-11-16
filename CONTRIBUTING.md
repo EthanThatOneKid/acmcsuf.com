@@ -78,10 +78,10 @@ In this repository, we use GitHub Actions to _automate all the things_ 😎
 
 ### Creating an Officer Update Request
 
-To update the way an officer appears on <https://acmcsuf.com/about>, contributors may fill out our [**Officer Update Request Form**](https://github.com/EthanThatOneKid/acmcsuf.com/issues/new?assignees=&labels=automation%3Aofficer&template=officer_update_request.yaml&title=%5BOFFICER_AUTOMATION%5D) ([source](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/.github/ISSUE_TEMPLATE/officer_update_request.yaml)) to proc a pull request to be generated with the requested changes.
+To update the way an officer appears on <https://acmcsuf.com/about>, contributors may fill out our [**Officer Update Request Form**](https://github.com/EthanThatOneKid/acmcsuf.com/issues/new?assignees=&labels=automation%3Aofficer&template=officer_update_request.yaml&title=%5BOFFICER_AUTOMATION%5D) ([source](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/.github/ISSUE_TEMPLATE/officer_update_request.yaml)) to automate a pull request with the requested changes.
 Contributors are free to merge the auto-generated pull request if it seems to have made the intended changes.
 
-The [`workflows/update_officer.yaml`](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/.github/workflows/update_officer.yaml) workflow configuration will proc each time an issue is opened with the `automation:officer` label.
+The [`workflows/update_officer.yaml`](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/.github/workflows/update_officer.yaml) workflow configuration automates each time an issue is opened with the `automation:officer` label.
 This workflow relies on [`scripts/update-officer.js`](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/scripts/update-officer.js) to make the appropriate changes to the checked-out codebase (including updating the repo's `officers.json` file or adding/replacing their image in the repo's `/static/assets/authors/` directory).
 Then, the workflow generates a pull request based on the changes made by the `update-officer.js` script and immediately closes the issue.
 
@@ -89,7 +89,7 @@ Then, the workflow generates a pull request based on the changes made by the `up
 
 Our team uses Discord as our third-party messaging service of choice to discuss relevant topics that aren't suited/ready for GitHub.
 We have text channels set up on Discord dedicated to every open issue on GitHub.
-This approach allowed us to communicate about multiple issues in an orderly and stress-free fashion.
+This approach allows us to communicate about multiple issues in an orderly and stress-free fashion.
 
 Manually creating and closing text channels for every single GitHub issue is not an appropriate solution to this problem since the text channels will eventually become stale.
 We also want a way to archive these discussions without cluttering the Discord server with text channels.
