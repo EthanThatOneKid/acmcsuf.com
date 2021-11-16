@@ -60,7 +60,7 @@ export const parse = (icalData: string): AcmEvent[] => {
       });
       return collection;
     }, [])
-    .filter(filterIfPassed(now, Time.Day / 2)) // Comment out this filter statement to show a longer list of events for testing purposes.
+    // .filter(filterIfPassed(now, Time.Day / 2)) // Comment out this filter statement to show a longer list of events for testing purposes.
     .sort(sortByDate());
   return events;
 };
