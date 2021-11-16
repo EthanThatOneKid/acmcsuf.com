@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Name: check_site_changes.sh
 # Description: Checks for changes in the site and succeeds if there are none.
 # Usage: bash scripts/check_site_changes.sh
