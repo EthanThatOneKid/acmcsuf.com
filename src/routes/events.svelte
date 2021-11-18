@@ -20,7 +20,7 @@
   });
 </script>
 
-<Spacing --min="100px" --med="175px" --max="200px" />
+<Spacing --min="175px" --med="200px" --max="200px" />
 
 <CommonHero>
   <h2 slot="headline" class="size-l">Curated events for growth and success</h2>
