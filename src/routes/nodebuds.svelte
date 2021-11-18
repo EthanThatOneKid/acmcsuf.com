@@ -14,7 +14,7 @@
   };
 </script>
 
-<Spacing --min="100px" --med="175px" --max="200px" />
+<Spacing --min="175px" --med="200px" --max="200px" />
 
 <div class="container">
   <section>

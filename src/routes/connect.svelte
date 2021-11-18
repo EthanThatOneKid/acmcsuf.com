@@ -7,7 +7,7 @@
   const googleFormId = '1FAIpQLSfJanOAaL2mdjpf193tFeCClBzpW_COEO_crAE8hqsJCB_Rwg';
 </script>
 
-<Spacing --min="100px" --med="175px" --max="200px" />
+<Spacing --min="175px" --med="200px" --max="200px" />
 
 <CommonHero>
   <h2 slot="headline" class="size-l">Connect with us!</h2>

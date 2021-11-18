@@ -14,7 +14,7 @@
   };
 </script>
 
-<Spacing --min="100px" --med="175px" --max="200px" />
+<Spacing --min="175px" --med="200px" --max="200px" />
 
 <Header />
 
@@ -58,7 +58,7 @@ display the most upcoming event with a reminder/notice flair. -->
   <h2 class="headers size-l">Board members</h2>
 </div>
 
-<Spacing --med="16px" />
+<Spacing --min="16px" --med="16px" --max="16px" />
 
 <OfficerProfileList filter={filterOfficers} placeholderPicture="placeholder.png" />
 
