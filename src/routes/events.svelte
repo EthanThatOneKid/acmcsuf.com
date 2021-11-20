@@ -38,10 +38,12 @@
 
 <h2 class="size-l headers">This week's events 📅</h2>
 
-<Spacing --med="16px" />
+<Spacing --min="16px" --med="16px" --max="16px" />
 
 {#if events.length > 0}
-  <AcmCarousel data={events} card={EventCard} />
+  <div class="carousel-container">
+    <AcmCarousel data={events} card={EventCard} />
+  </div>
 {:else}
   <AcmEmpty>
     <p slot="content">
@@ -54,7 +56,7 @@
   </AcmEmpty>
 {/if}
 
-<Spacing --min="8px" --med="63px" --max="88px" />
+<Spacing />
 
 <style lang="scss">
   @import 'static/theme.scss';
@@ -66,5 +68,10 @@
 
   p {
     text-align: center;
+  }
+
+  .carousel-container {
+    margin: 0 auto;
+    max-width: 800px;
   }
 </style>

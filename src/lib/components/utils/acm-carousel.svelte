@@ -30,6 +30,8 @@
 
   ul {
     --gap: var(--md-space);
+    --thumb-color: var(--acm-dark);
+    --shadow-color: var(--acm-blue);
 
     display: grid;
     grid-auto-flow: column;
@@ -48,8 +50,25 @@
     scroll-padding-right: var(--sm-space);
     scroll-padding-inline: var(--sm-space);
 
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px var(--shadow-color);
+      border-radius: 10px;
+      background-color: var(--acm-light);
+    }
+
+    &::-webkit-scrollbar {
+      width: 12px;
+      background-color: var(--acm-light);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: var(--thumb-color);
+    }
+
     li {
-      display: inline-block;
+      display: flex;
+      justify-content: space-evenly;
       scroll-snap-align: start;
       scroll-snap-stop: always;
     }
