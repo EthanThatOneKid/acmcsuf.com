@@ -20,6 +20,14 @@
   });
 </script>
 
+<noscript>
+  <style>
+    .jsEnabled {
+      display: none;
+    }
+  </style>
+</noscript>
+
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <CommonHero>
@@ -45,7 +53,8 @@
   <AcmEmpty>
     <p slot="content">
       {#if isLoading}
-        Loading…
+        <span class="jsEnabled"> Loading… </span>
+        <noscript>Enable Javascript to see events</noscript>
       {:else}
         There are no events scheduled!
       {/if}
