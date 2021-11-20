@@ -2,6 +2,9 @@
   import type { SvelteComponentTyped } from 'svelte';
   import { rovingIndex } from '../../utils/roving-ux';
 
+  // customize which element is focused
+  export let focusableSelector = 'li';
+
   // pass array of ambiguously-structured data to carousel
   export let data: unknown[] = [];
 
@@ -12,7 +15,7 @@
   const CardComponent = card;
 </script>
 
-<ul use:rovingIndex={'li'}>
+<ul use:rovingIndex={focusableSelector}>
   {#each data as item (JSON.stringify(item))}
     <li>
       <CardComponent info={item} />
