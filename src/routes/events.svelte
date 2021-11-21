@@ -20,14 +20,6 @@
   });
 </script>
 
-<noscript>
-  <style>
-    .jsEnabled {
-      display: none;
-    }
-  </style>
-</noscript>
-
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <CommonHero>
@@ -76,3 +68,11 @@
     text-align: center;
   }
 </style>
+
+<noscript>
+  <style>
+    .jsEnabled {
+      display: none;
+    }
+  </style>
+</noscript>
