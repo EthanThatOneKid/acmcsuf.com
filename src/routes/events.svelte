@@ -8,9 +8,11 @@
 
   let events: AcmEvent[] = [];
   let isLoading = true;
+  let hasJS = false;
 
   onMount(() => {
     // Lazily load the iCal data for the event carousel.
+    hasJS = true;
     fetch('../events.json')
       .then((response) => response.json())
       .then((icalData) => {
@@ -44,10 +46,12 @@
 {:else}
   <AcmEmpty>
     <p slot="content">
-      {#if isLoading}
-        Loading…
-      {:else}
-        There are no events scheduled!
+      {#if hasJS}
+        {#if isLoading}
+          Loading…
+        {:else}
+          There are no events scheduled!
+        {/if}
       {/if}
     </p>
   </AcmEmpty>
