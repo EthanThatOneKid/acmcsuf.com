@@ -52,6 +52,8 @@
         {:else}
           There are no events scheduled!
         {/if}
+      {:else}
+        JS is needed to fetch events
       {/if}
     </p>
   </AcmEmpty>
