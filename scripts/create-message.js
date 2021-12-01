@@ -3,7 +3,7 @@ import { startBot, getNArg } from './common.js';
 startBot(async (client) => {
   console.log(`Logged in as ${client.user.tag}`);
   const issueNumber = getNArg(2);
-  const success = await createIssueChannel(client, issueNumber);
+  const success = await createMessage(client, issueNumber);
   client.destroy();
   console.log(`Success: ${success}`);
   process.exit(success ? 0 : 1);
@@ -20,7 +20,7 @@ const createMessage = async (client,issueNumber) => {
       console.log('Channel ${channelName} was never found');
       return false;
     }
-    await channel.send(provess.env.MESSAGE);
+    await channel.send(process.env.MESSAGE);
     success = true;
   } catch(error){
     console.log(error);
