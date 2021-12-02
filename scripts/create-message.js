@@ -9,7 +9,7 @@ startBot(async (client) => {
   process.exit(success ? 0 : 1);
 });
 
-const createMessage = async (client,issueNumber) => {
+const createMessage = async (client, issueNumber) => {
   let success = false;
   try{
     const channelName = `website-issue-${issueNumber}`;
