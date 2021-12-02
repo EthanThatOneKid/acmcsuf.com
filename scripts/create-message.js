@@ -22,7 +22,7 @@ const createMessage = async (client, issueNumber) => {
     }
     await channel.send(process.env.MESSAGE);
     success = true;
-  } catch(error){
+  } catch(error) {
     console.log(error);
   }
   return success;
