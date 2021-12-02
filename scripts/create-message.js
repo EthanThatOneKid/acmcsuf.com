@@ -16,7 +16,7 @@ const createMessage = async (client, issueNumber) => {
     await client.guilds.fetch();
     const { channels } = client.guilds.cache.get(process.env.GUILD_ID);
     const channel = await returnChannel(channels, channelName);
-    if(channel === null){
+    if (channel === null) {
       console.log('Channel ${channelName} was never found');
       return false;
     }
