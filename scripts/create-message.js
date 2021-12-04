@@ -11,18 +11,18 @@ startBot(async (client) => {
 
 const createMessage = async (client, issueNumber) => {
   let success = false;
-  try{
+  try {
     const channelName = `website-issue-${issueNumber}`;
     await client.guilds.fetch();
     const { channels } = client.guilds.cache.get(process.env.GUILD_ID);
-    const channel = await returnChannel(channels, channelName);
+    const channel = await findChannel(channels, channelName);
     if (channel === null) {
-      console.log('Channel ${channelName} was never found');
+      console.log(`Channel '${channelName}' was never found`);
       return false;
     }
     await channel.send(process.env.MESSAGE);
     success = true;
-  } catch(error) {
+  } catch (error) {
     console.log(error);
   }
   return success;
