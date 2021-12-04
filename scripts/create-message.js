@@ -28,7 +28,7 @@ const createMessage = async (client, issueNumber) => {
   return success;
 };
 
-const returnChannel = async (channels, name) => {
+const findChannel = async (channels, name) => {
   for (const channel of channels.cache.values()) {
     if (channel.name === name) return channel;
   }
