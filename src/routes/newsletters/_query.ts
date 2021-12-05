@@ -1,6 +1,7 @@
 const id = import.meta.env.VITE_GH_DISCUSSION_CATEGORY_ID;
 
 export interface Newsletter {
+  id: number;
   title: string;
   html: string;
   lastEdited: number | null;
@@ -18,6 +19,7 @@ export const newslettersQuery = `{
     discussions(first: 100, categoryId: "${id}") {
       nodes {
         title
+        number
         bodyHTML
         lastEditedAt
         
