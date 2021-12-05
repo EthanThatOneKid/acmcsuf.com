@@ -62,9 +62,10 @@
   }
 
   .officer-profile-list {
-    display: flex;
-    flex-flow: row wrap;
-    max-width: 1400px;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
   }
 </style>
