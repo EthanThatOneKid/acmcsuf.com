@@ -61,11 +61,13 @@
     text-align: center;
   }
 
+  .container {
+    width: 100%;
+    max-width: 1200px;
+  }
   .officer-profile-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    justify-content: center;
     align-items: center;
-    max-width: 1200px;
   }
 </style>
