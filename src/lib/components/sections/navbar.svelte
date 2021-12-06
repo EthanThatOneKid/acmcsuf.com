@@ -26,7 +26,7 @@
   <input type="checkbox" id="navToggle" bind:this={checkbox} />
   <div class="content">
     <a href="/" class="full-logomark">
-      <img src="assets/badges/general.svg" width="48" class="logo-badge" alt="acmCSUF badge" />
+      <img src="/assets/badges/general.svg" width="48" class="logo-badge" alt="acmCSUF badge" />
       <span class="logo-text brand-em">CSUF</span>
     </a>
 
