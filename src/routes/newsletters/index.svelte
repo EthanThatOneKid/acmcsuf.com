@@ -20,15 +20,6 @@
 
 <section>
   <h1>Newsletters!</h1>
-  <!-- title: string;
-  html: string;
-  lastEdited: number | null;
-  labels: string[];
-  author: {
-    displayname: string;
-    url: string;
-    picture: string;
-  }; -->
   <ul>
     {#each posts as post (post.id)}
       <li>
