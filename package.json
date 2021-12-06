@@ -21,6 +21,7 @@
     "tabs": "node scripts/seek-tabs.js"
   },
   "dependencies": {
+    "gfm.css": "^1.1.2",
     "rfs": "^9.0.6",
     "rrule": "^2.6.8"
   },

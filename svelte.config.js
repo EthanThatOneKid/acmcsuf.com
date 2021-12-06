@@ -1,3 +1,4 @@
+/* eslint-disable */
 import adapter from '@sveltejs/adapter-vercel';
 import preprocess from 'svelte-preprocess';
 
@@ -11,6 +12,13 @@ const config = {
     // hydrate the <div id="svelte"> element in src/app.html
     target: '#svelte',
     adapter: adapter(),
+    prerender: {
+      /** @type {import('@sveltejs/kit').PrerenderErrorHandler} */
+      onError: ({ status, path, referrer, referenceType }) => {
+        if (path.startsWith('/newsletters')) throw new Error('Missing a newsletter!');
+        console.warn(`${status} ${path}${referrer ? ` (${referenceType} from ${referrer})` : ''}`);
+      },
+    },
   },
 };
 
