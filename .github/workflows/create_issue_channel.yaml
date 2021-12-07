@@ -10,7 +10,6 @@ jobs:
     if: ${{ !contains(String(github.event.issue.labels.*.name), 'automation' }}
     steps:
       - uses: actions/checkout@v2
-        if: ${{ steps.automation_check.result === "false" }}
       - uses: actions/setup-node@v2
         with:
           node-version: '16'
