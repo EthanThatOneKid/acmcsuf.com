@@ -7,7 +7,7 @@ on:
 jobs:
   create_channel:
     runs-on: ubuntu-latest
-    if: ${{ !contains(String(github.event.issue.labels.*.name), 'automation' }}
+    if: ${{ !contains(github.event.issue.labels.*.name, 'automation') }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
