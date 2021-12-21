@@ -33,6 +33,13 @@ npm run check # Use this command to find bugs in your website code.
 npm run build # Use this to make sure your code builds successfully.
 ```
 
+### NPM Bloat
+
+In this project, we set a threshold for how large the `/node_modules` folder can become after an `npm install`.
+In our [`package.json`](package.json), we set the size to 50 MB.
+
+To test the size of the dependencies in your local workspace, run `npm run test:size`.
+
 ## Architecture 🗿
 
 For architecture-related information, please refer to [`ARCHITECTURE.md`](ARCHITECTURE.md).
