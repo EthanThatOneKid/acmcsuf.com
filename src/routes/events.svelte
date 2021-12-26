@@ -1,5 +1,15 @@
+<script context="module" lang="ts">
+  // import type { Load } from '@sveltejs/kit';
+
+  export async function load({ fetch }) {
+    const response = await fetch('../events.json');
+    const events: AcmEvent[] = await response.json();
+    return { props: { events } };
+  }
+</script>
+
 <script lang="ts">
-  import { onMount } from 'svelte';
+  // import { onMount } from 'svelte';
   import type { AcmEvent } from '$lib/ical/parse';
   import CommonHero from '$lib/components/sections/common-hero.svelte';
   import Spacing from '$lib/components/sections/spacing.svelte';
@@ -7,18 +17,7 @@
   import EventCard from '$lib/components/events/event-card.svelte';
   import AcmEmpty from '$lib/components/utils/acm-empty.svelte';
 
-  let events: AcmEvent[] = [];
-  let isLoading = true;
-
-  onMount(() => {
-    // Lazily load the iCal data for the event carousel.
-    fetch('../events.json')
-      .then((response) => response.json())
-      .then((icalData) => {
-        events = icalData as AcmEvent[];
-        isLoading = false;
-      });
-  });
+  export let events: AcmEvent[] = [];
 </script>
 
 <Spacing --min="100px" --med="175px" --max="200px" />
@@ -46,13 +45,7 @@
   </div>
 {:else}
   <AcmEmpty>
-    <p slot="content">
-      {#if isLoading}
-        Loading…
-      {:else}
-        There are no events scheduled!
-      {/if}
-    </p>
+    <p slot="content">There are no events scheduled!</p>
   </AcmEmpty>
 {/if}
 
