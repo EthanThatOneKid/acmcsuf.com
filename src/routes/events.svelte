@@ -1,6 +1,4 @@
 <script context="module" lang="ts">
-  // import type { Load } from '@sveltejs/kit';
-
   export async function load({ fetch }) {
     const response = await fetch('../events.json');
     const events: AcmEvent[] = await response.json();
@@ -9,7 +7,6 @@
 </script>
 
 <script lang="ts">
-  // import { onMount } from 'svelte';
   import type { AcmEvent } from '$lib/ical/parse';
   import CommonHero from '$lib/components/sections/common-hero.svelte';
   import Spacing from '$lib/components/sections/spacing.svelte';

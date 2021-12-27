@@ -6,7 +6,7 @@
 
   export let events: AcmEvent[] = [];
 
-  const scrollIncrementDistance = 335;
+  const scrollIncrementDistance = 200;
   let carouselRef: HTMLDivElement;
   let carouselButtonLeft: HTMLDivElement;
   let carouselButtonRight: HTMLDivElement;
@@ -16,11 +16,20 @@
   let rightButtonEnabled = false;
   let scrollTimeId = undefined;
 
+  const debounceTheScroll = (callback: () => void, wait: number) => {
+    callback();
+    if (scrollTimeId !== undefined) {
+      clearTimeout(scrollTimeId);
+    }
+    scrollTimeId = setTimeout(callback, wait);
+  };
+
   const scrollTheCarousel = (movementScalar: number, isSmooth = false) => {
     carouselRef.scrollBy({
       left: -movementScalar,
       behavior: isSmooth ? 'smooth' : 'auto',
     });
+
     debounceTheScroll(() => {
       const canScrollLeft = carouselRef.scrollLeft > 0;
       const canScrollRight =
@@ -30,13 +39,6 @@
     }, Time.Second * 0.75);
   };
 
-  const debounceTheScroll = (callback: () => void, wait: number) => {
-    callback();
-    if (scrollTimeId !== undefined) {
-      clearTimeout(scrollTimeId);
-    }
-    scrollTimeId = setTimeout(callback, wait);
-  };
   const scrollOnMouseMove = (event: MouseEvent) => isGrabbing && scrollTheCarousel(event.movementX);
   const startGrabbing = () => (isGrabbing = true);
   const endGrabbing = () => (isGrabbing = false);
@@ -46,6 +48,7 @@
     event.preventDefault();
     scrollTheCarousel(-event.deltaY);
   };
+
   onMount(() => {
     hasHorizontalScrollbar = carouselRef.scrollWidth > carouselRef.clientWidth;
     rightButtonEnabled = hasHorizontalScrollbar;
@@ -61,6 +64,7 @@
       on:click={scrollLeft}>
       &lt;
     </div>
+
     <div
       class="event-list"
       bind:this={carouselRef}
@@ -76,6 +80,7 @@
       {/each}
       <div class="event-item-buffer" />
     </div>
+
     <div
       bind:this={carouselButtonRight}
       class="carousel-button right"
