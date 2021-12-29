@@ -27,7 +27,7 @@
   let scrollTimeId = undefined;
 
   const debounceTheScroll = (callback: () => void, wait: number) => {
-    callback();
+    // callback();
     if (scrollTimeId !== undefined) {
       clearTimeout(scrollTimeId);
     }
@@ -42,8 +42,10 @@
 
     debounceTheScroll(() => {
       const canScrollLeft = carouselRef.scrollLeft > 0;
-      const canScrollRight =
-        carouselRef.scrollWidth - carouselRef.scrollLeft - carouselRef.clientWidth > 1;
+      const scrollLeftRemaining =
+        carouselRef.scrollWidth - carouselRef.scrollLeft - carouselRef.clientWidth;
+      console.log({ scrollLeftRemaining });
+      const canScrollRight = scrollLeftRemaining > 80; // var(--md-space) == 80px
       leftButtonEnabled = canScrollLeft;
       rightButtonEnabled = canScrollRight;
     }, Time.Second * 0.75);
@@ -62,6 +64,9 @@
   onMount(() => {
     hasHorizontalScrollbar = carouselRef.scrollWidth > carouselRef.clientWidth;
     rightButtonEnabled = hasHorizontalScrollbar;
+
+    // hide scrollbar and enable grabbing if JavaScript is enabled
+    carouselRef.classList.add('scrollbar-disabled', 'grabbable');
   });
 </script>
 
@@ -70,7 +75,7 @@
     <div
       bind:this={carouselButtonLeft}
       class:enabled={leftButtonEnabled}
-      class="carousel-button left"
+      class="carousel-button left disable-user-select"
       on:click={scrollLeft}>
       &lt;
     </div>
@@ -85,20 +90,16 @@
       on:mouseup={endGrabbing}
       on:mouseleave={endGrabbing}
       on:wheel={scrollHorizontally}>
-      <!-- <li class="item-buffer" /> -->
-
       {#each data as item (JSON.stringify(item))}
         <li>
           <CardComponent info={item} />
         </li>
       {/each}
-
-      <!-- <li class="item-buffer" /> -->
     </ul>
 
     <div
       bind:this={carouselButtonRight}
-      class="carousel-button right"
+      class="carousel-button right disable-user-select"
       on:click={scrollRight}
       class:enabled={rightButtonEnabled}>
       &gt;
@@ -111,7 +112,7 @@
 
   :root {
     --sm-space: 2rem;
-    --md-space: 5rem;
+    --md-space: 80px;
   }
 
   ul {
@@ -164,6 +165,20 @@
     }
   }
 
+  ul.scrollbar-disabled {
+    -ms-overflow-style: none; /* Hide scrollbar IE and Edge */
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .grabbable {
+    cursor: grab;
+  }
+
   section {
     display: flex;
     justify-content: center;
@@ -172,21 +187,6 @@
 
   .grabbing {
     cursor: grabbing !important;
-  }
-
-  .card-list {
-    display: flex;
-    overflow-x: hidden;
-    margin-left: -75px;
-    padding: 0 96px;
-    cursor: grab;
-    -ms-overflow-style: none; /* Hide scrollbar IE and Edge */
-    scrollbar-width: none; /* Hide scrollbar Firefox */
-  }
-
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  .card-list::-webkit-scrollbar {
-    display: none;
   }
 
   .carousel-container {
@@ -223,7 +223,7 @@
     justify-content: center;
     align-items: center;
     background-color: var(--acm-light);
-    color: var(--acm-dar);
+    color: var(--acm-dark);
     box-shadow: 0 3px 12px rgba(16, 19, 21, 0.2);
     width: 50px;
     height: 50px;
@@ -232,14 +232,16 @@
     font-size: var(--subheading-font-size);
     top: 43%;
     transition: all 0.25s ease-in-out;
-    /* Diable user select */
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .disable-user-select {
     -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    opacity: 0;
-    visibility: hidden;
   }
 
   .carousel-button:hover {
