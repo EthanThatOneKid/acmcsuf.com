@@ -16,44 +16,67 @@
   export let posts: Newsletter[];
 </script>
 
-<Spacing --min="120px" --med="135px" --max="160px" />
+<Spacing --min="128px" --med="196px" --max="196px" />
 
 <section>
-  <h1>Newsletters!</h1>
+  <img src="static/assets/fully-updated.svg" />
 
-  <Spacing />
+  <img class="badge" src="static/assets/fully-updated-badge.svg" />
+
+  <Spacing --min="64px" --med="100px" --max="128px" />
 
   <ul>
     {#each posts as post (post.id)}
       <li>
         <a href={`/newsletters/${post.id}`} sveltekit:prefetch>
           <h2>{post.title}</h2>
+          <div class="markdown-body">
+            {@html post.html}
+          </div>
           <small>{post.labels.join(', ')}</small>
         </a>
       </li>
     {/each}
   </ul>
+
+  <Spacing --min="40px" --med="95px" --max="120px" />
 </section>
 
 <!-- <pre><code>{JSON.stringify(posts, null, 2)}</code></pre> -->
 <style lang="scss">
+  @import 'static/theme.scss';
+
   section {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  h1 {
+  /* h1 {
     font-size: var(--max-h-font-size);
     text-decoration: wavy underline;
     text-underline-offset: 0.5em;
+  } */
+
+  img {
+    width: 600px;
+    height: auto;
+  }
+
+  .badge {
+    display: none;
+  }
+
+  .markdown-body {
+    max-height: 100px;
+    overflow: hidden
   }
 
   ul {
     list-style: none;
     padding: 2em;
     margin: 0;
-    border-radius: 2em;
+    border-radius: 1em;
     border: 2px solid var(--acm-sky);
     width: min(1000px, 77vw);
   }
@@ -79,14 +102,32 @@
   }
 
   @media (max-width: 1440px) {
-    h1 {
+    /* h1 {
       font-size: var(--h-font-size-med);
+    } */
+    img {
+      display: none;
+    }
+
+    .badge {
+      display: flex;
+      width: 150px;
+      height: auto;
     }
   }
 
   @media (max-width: 340px) {
-    h1 {
+    /* h1 {
       font-size: var(--min-h-font-size);
+    } */
+    img {
+      display: none;
+    }
+
+    .badge {
+      display: flex;
+      width: 150px;
+      height: auto;
     }
   }
 </style>

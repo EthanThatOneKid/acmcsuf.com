@@ -18,7 +18,7 @@ export interface Newsletter {
 // @see https://docs.github.com/en/graphql/overview/explorer
 export const newslettersQuery = `{
   repository(owner: "ethanthatonekid", name: "acmcsuf.com") {
-    discussions(first: 100, categoryId: "${id}") {
+    discussions(first: 100, categoryId: "DIC_kwDOE7ysSc4CAC0o") {
       nodes {
         title
         url
