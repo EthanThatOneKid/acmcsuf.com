@@ -10,5 +10,7 @@ export const links = {
   'acm-w': 'https://sites.google.com/view/acm-w',
   devf21:
     'https://docs.google.com/forms/d/e/1FAIpQLSe53VPrM1myjU_BQQYQCw9MXJb9VYlSQ0U_xe8SRUE-I8PnBw/viewform',
-  'apply': 'https://forms.gle/ftVfaFJSoAvQJdHy9',
+  apply: 'https://forms.gle/ftVfaFJSoAvQJdHy9',
+  'board-positions':
+    'https://jn42.notion.site/Spring-2022-Open-Board-Positions-3bbf4851a9334b199b512bd5a5c4b5f7',
 } as const;
