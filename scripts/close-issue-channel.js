@@ -140,7 +140,7 @@ const wrapText = (text, width = 72) => {
   return lines;
 };
 
-const formatRFC882PST = (date) => {
+function formatRFC882PST(date) {
   const [month, day, year, time, amPm] = date
     .toLocaleDateString('en-US', {
       day: '2-digit',
@@ -152,12 +152,15 @@ const formatRFC882PST = (date) => {
     })
     .replace(/,/g, '')
     .split(' ');
-  const timezone = Intl.DateTimeFormat('en-US', {
+  
+  // get the formatted timezone required for RFC88
+  const tz = Intl.DateTimeFormat('en-US', {
     timeZoneName: 'short',
     timeZone: 'America/Los_Angeles',
   })
     .format(date)
     .split(' ')
     .at(-1);
-  return `${day} ${month} ${year} ${time} ${amPm} ${timezone}`;
+
+  return [day, month, year, time, amPM, tz].join(" ");
 };
