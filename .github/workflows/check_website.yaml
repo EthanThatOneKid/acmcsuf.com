@@ -45,5 +45,9 @@ jobs:
       - name: Check
         run: npm run check
 
+      # info: https://etok.codes/acmcsuf.com/blob/main/CONTRIBUTING.md#npm-bloat
+      - name: Test Dependency Size
+        run: npm run test:size
+
       - name: Build
         run: npm run build
