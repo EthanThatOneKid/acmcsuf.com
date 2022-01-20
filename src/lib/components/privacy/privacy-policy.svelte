@@ -2,7 +2,7 @@
 
 <main>
   <section id="welcome">
-    <h2>Welcom to ACM!</h2>
+    <h2>Welcome to ACM!</h2>
 
     <p>
       acmCSUF provides a social online platform, Discord, that brings passionate Titans together to
