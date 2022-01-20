@@ -1,0 +1,34 @@
+<script lang="ts">
+  import CommonHero from '$lib/components/sections/common-hero.svelte';
+  import Spacing from '$lib/components/sections/spacing.svelte';
+  import PrivacyPolicy from '$lib/components/privacy/privacy-policy.svelte';
+</script>
+
+<Spacing --min="175px" --med="200px" --max="200px" />
+
+<CommonHero>
+  <h2 slot="headline" class="size-l">Privacy Policy</h2>
+  <p slot="text" class="size-s">
+    <span class="headers">
+      acm<span class="brand-em brand-blue">CSUF</span>
+    </span>'s Privacy Policy describes how our discord bot collects, uses, and shares your personal
+    data.
+    <br />
+    <br />
+    Last updated January 16th, 2022
+  </p>
+</CommonHero>
+
+<Spacing --med="64px" />
+
+<PrivacyPolicy />
+
+<Spacing --min="40px" --med="95px" --max="120px" />
+
+<style lang="scss">
+  @import 'static/theme.scss';
+
+  .subheading {
+    color: darkgrey;
+  }
+</style>
