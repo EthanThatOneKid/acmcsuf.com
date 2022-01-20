@@ -73,7 +73,7 @@
     <p>
       Please feel free to contact us if you have any questions about acmCSUF&rsquo;s Privacy Policy
       by reaching out to any of our Officers via Discord or email us at <a
-        href="mailto:acmcsuf@gmail.com">acmcsuf@gmail.com</a
+        href="mailto:acmcsufullerton@gmail.com">acmcsufullerton@gmail.com</a
       >.
     </p>
   </section>
