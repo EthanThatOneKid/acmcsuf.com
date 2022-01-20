@@ -9,10 +9,7 @@
 <CommonHero>
   <h2 slot="headline" class="size-l">Privacy Policy</h2>
   <p slot="text" class="size-s">
-    <span class="headers">
-      acm<span class="brand-em brand-blue">CSUF</span>
-    </span>'s Privacy Policy describes how our discord bot collects, uses, and shares your personal
-    data.
+    Our privacy policy describes how our Discord bot collects, uses, and shares your personal data.
     <br />
     <br />
     Last updated January 16th, 2022
@@ -27,8 +24,4 @@
 
 <style lang="scss">
   @import 'static/theme.scss';
-
-  .subheading {
-    color: darkgrey;
-  }
 </style>
