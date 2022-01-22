@@ -20,9 +20,9 @@
 <Spacing --min="128px" --med="196px" --max="196px" />
 
 <section>
-  <img src="static/assets/fully-updated.svg" alt="Blog logo" />
+  <img src="/assets/fully-updated.svg" alt="Blog logo" />
 
-  <img class="badge" src="static/assets/fully-updated-badge.svg" alt="Blog title: Fully Updated" />
+  <img class="badge" src="/assets/fully-updated-badge.svg" alt="Blog title: Fully Updated" />
 
   <Spacing --min="64px" --med="100px" --max="128px" />
 
