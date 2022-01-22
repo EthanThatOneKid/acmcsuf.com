@@ -1,3 +1,4 @@
+import type { Officer } from '$lib/constants';
 import { OFFICERS } from '$lib/constants';
 
 export interface Newsletter {
@@ -43,13 +44,10 @@ export const newslettersQuery = `{
   }
 }`;
 
-function getAuthorPicture(ghUsername: string): string | null {
-  // get author by GitHub username who has a picture on file
-  const officer = OFFICERS.find(
-    (o) => o.ghUsername !== undefined && o.ghUsername === ghUsername && o.picture !== undefined
-  );
-
-  return officer !== undefined ? '/assets/authors/' + officer.picture : null;
+function getOfficerByGhUsername(ghUsername: string): Officer | null {
+  // get author by GitHub username
+  const officer = OFFICERS.find((o) => o.ghUsername !== undefined && o.ghUsername === ghUsername);
+  return officer ?? null;
 }
 
 function formatNewsletters(output): Newsletter[] {
@@ -60,7 +58,10 @@ function formatNewsletters(output): Newsletter[] {
     const url = 'https://acmcsuf.com/newsletters/' + id;
     const lastEdited = discussion.lastEditedAt ?? discussion.createdAt;
     const labels = discussion.labels.nodes.map(({ name }) => name);
-    const picture = getAuthorPicture(author.login) ?? author.avatarUrl;
+    const officer = getOfficerByGhUsername(author.login);
+    const authorUrl: string = officer?.url ?? author.url;
+    const displayname: string = officer?.name ?? author.login;
+    const picture: string = officer?.picture ?? author.avatarUrl;
 
     return {
       id,
@@ -70,11 +71,7 @@ function formatNewsletters(output): Newsletter[] {
       html,
       lastEdited,
       labels,
-      author: {
-        picture,
-        displayname: author.login,
-        url: author.url,
-      },
+      author: { url: authorUrl, displayname, picture },
     };
   });
 }
