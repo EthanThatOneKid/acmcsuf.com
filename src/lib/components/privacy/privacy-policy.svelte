@@ -13,7 +13,7 @@
   </section>
 
   <section id="collected-info">
-    <h2 class="headers">Information we Collect</h2>
+    <h2 class="headers">Information we collect</h2>
 
     <p>
       <span class="heavy">Information you provide</span>: We collect information that you
@@ -24,7 +24,7 @@
   </section>
 
   <section id="our-info-usage">
-    <h2 class="headers">Our use of your Information</h2>
+    <h2 class="headers">Our use of your information</h2>
 
     <p>
       <span class="heavy">Data we collect automatically</span>: When you interact with any of our
@@ -35,7 +35,7 @@
   </section>
 
   <section id="data-retention">
-    <h2 class="headers">Data Retention</h2>
+    <h2 class="headers">Data retention</h2>
 
     <p>
       We plan to retain personal data for as long as necessary to fulfill the purposes for which it
@@ -45,7 +45,7 @@
   </section>
 
   <section id="data-rights-and-choices">
-    <h2 class="headers">Your Data Rights and Choices</h2>
+    <h2 class="headers">Your data rights and choices</h2>
 
     <p>
       As CSUF students ourselves, we understand that users should be respected and treated equally,
@@ -56,7 +56,7 @@
   </section>
 
   <section id="changes-to-this-policy">
-    <h2 class="headers">Changes to this Privacy Policy</h2>
+    <h2 class="headers">Changes to this privacy policy</h2>
 
     <p>
       We reserve the right to make updates and modifications on this Policy document at any time and
@@ -68,7 +68,7 @@
   </section>
 
   <section id="contacting-us">
-    <h2 class="headers">Contacting Us</h2>
+    <h2 class="headers">Contacting us</h2>
 
     <p>
       Please feel free to contact us if you have any questions about acmCSUF&rsquo;s Privacy Policy
