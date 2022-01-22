@@ -52,12 +52,6 @@
     align-items: center;
   }
 
-  /* h1 {
-    font-size: var(--max-h-font-size);
-    text-decoration: wavy underline;
-    text-underline-offset: 0.5em;
-  } */
-
   img {
     width: 600px;
     height: auto;
@@ -102,9 +96,6 @@
   }
 
   @media (max-width: 1440px) {
-    /* h1 {
-      font-size: var(--h-font-size-med);
-    } */
     img {
       display: none;
     }
@@ -117,9 +108,6 @@
   }
 
   @media (max-width: 340px) {
-    /* h1 {
-      font-size: var(--min-h-font-size);
-    } */
     img {
       display: none;
     }
