@@ -23,12 +23,14 @@
   "dependencies": {
     "gfm.css": "^1.1.2",
     "rfs": "^9.0.6",
-    "rrule": "^2.6.8"
+    "rrule": "^2.6.8",
+    "rss": "^1.2.2"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "next",
     "@sveltejs/adapter-vercel": "next",
     "@sveltejs/kit": "next",
+    "@types/rss": "^0.0.29",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
     "axios": "^0.24.0",

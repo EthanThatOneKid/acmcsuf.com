@@ -5,6 +5,7 @@ export interface Officer {
   positions: Record<string, string>;
   picture?: string;
   url?: string;
+  ghUsername?: string;
 }
 
 export const TERM_FALL_20 = 'F20';

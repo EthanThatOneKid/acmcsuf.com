@@ -1,5 +1,6 @@
 <script lang="ts" context="module">
   import type { LoadOutput, LoadInput } from '@sveltejs/kit';
+
   /**
    * @type {import('@sveltejs/kit').Load}
    */
@@ -19,9 +20,9 @@
 <Spacing --min="128px" --med="196px" --max="196px" />
 
 <section>
-  <img src="static/assets/fully-updated.svg" />
+  <img src="static/assets/fully-updated.svg" alt="Blog logo" />
 
-  <img class="badge" src="static/assets/fully-updated-badge.svg" />
+  <img class="badge" src="static/assets/fully-updated-badge.svg" alt="Blog title: Fully Updated" />
 
   <Spacing --min="64px" --med="100px" --max="128px" />
 
@@ -69,7 +70,7 @@
 
   .markdown-body {
     max-height: 100px;
-    overflow: hidden
+    overflow: hidden;
   }
 
   ul {

@@ -1,4 +1,4 @@
-const id = import.meta.env.VITE_GH_DISCUSSION_CATEGORY_ID;
+import { OFFICERS } from '$lib/constants';
 
 export interface Newsletter {
   id: number;
@@ -18,7 +18,7 @@ export interface Newsletter {
 // @see https://docs.github.com/en/graphql/overview/explorer
 export const newslettersQuery = `{
   repository(owner: "ethanthatonekid", name: "acmcsuf.com") {
-    discussions(first: 100, categoryId: "DIC_kwDOE7ysSc4CAC0o") {
+    discussions(first: 100, categoryId: "${import.meta.env.VITE_GH_DISCUSSION_CATEGORY_ID}") {
       nodes {
         title
         url
@@ -43,35 +43,51 @@ export const newslettersQuery = `{
   }
 }`;
 
-/* eslint-disable */
-const formatNewsletters = (output: any): Newsletter[] => {
-  const discussions = output.data.repository.discussions.nodes;
-  return discussions.map(
-    (discussion: any): Newsletter => ({
-      id: discussion.number,
-      url: `https://acmcsuf.com/newsletters/${discussion.number as string}`,
-      discussionUrl: discussion.url,
-      title: discussion.title,
-      html: discussion.bodyHTML,
-      lastEdited: discussion.lastEditedAt ?? discussion.createdAt,
-      labels: discussion.labels.nodes.map(({ name }) => name),
-      author: {
-        displayname: discussion.author.login,
-        url: discussion.author.url,
-        picture: discussion.author.avatarUrl,
-      },
-    })
+function getAuthorPicture(ghUsername: string): string | null {
+  // get author by GitHub username who has a picture on file
+  const officer = OFFICERS.find(
+    (o) => o.ghUsername !== undefined && o.ghUsername === ghUsername && o.picture !== undefined
   );
-};
-/* eslint-enable */
 
-export const fetchNewsletters = async (): Promise<Newsletter[]> => {
+  return officer !== undefined ? '/assets/authors/' + officer.picture : null;
+}
+
+function formatNewsletters(output): Newsletter[] {
+  const discussions = output.data.repository.discussions.nodes;
+
+  return discussions.map((discussion): Newsletter => {
+    const { title, author, number: id, bodyHTML: html, url: discussionUrl } = discussion;
+    const url = 'https://acmcsuf.com/newsletters/' + id;
+    const lastEdited = discussion.lastEditedAt ?? discussion.createdAt;
+    const labels = discussion.labels.nodes.map(({ name }) => name);
+    const picture = getAuthorPicture(author.login) ?? author.avatarUrl;
+
+    return {
+      id,
+      url,
+      discussionUrl,
+      title,
+      html,
+      lastEdited,
+      labels,
+      author: {
+        picture,
+        displayname: author.login,
+        url: author.url,
+      },
+    };
+  });
+}
+
+export async function fetchNewsletters(): Promise<Newsletter[]> {
   const ghAccessToken = import.meta.env.VITE_GH_ACCESS_TOKEN;
+
   const response = await fetch('https://api.github.com/graphql', {
     method: 'POST',
     headers: { Authorization: `token ${ghAccessToken}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({ query: newslettersQuery }),
   });
+
   const newsletters = formatNewsletters(await response.json());
   return newsletters;
-};
+}
