@@ -92,7 +92,6 @@
       margin-bottom: 50px;
 
       h2 {
-        text-transform: lowercase;
         padding-bottom: 1em;
       }
     }
