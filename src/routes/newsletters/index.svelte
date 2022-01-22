@@ -43,7 +43,6 @@
   <Spacing --min="40px" --med="95px" --max="120px" />
 </section>
 
-<!-- <pre><code>{JSON.stringify(posts, null, 2)}</code></pre> -->
 <style lang="scss">
   @import 'static/theme.scss';
 
