@@ -56,7 +56,7 @@
       <br />
     {/if}
 
-    <small class="ita">Read TXT: <a href={`${post.url}.txt`}>{post.url}.txt</a></small>
+    <small class="ita">Read as TXT: <a href={`${post.url}.txt`}>{post.url}.txt</a></small>
   </div>
 
   <Spacing />
