@@ -14,6 +14,7 @@ const config = {
     prerender: {
       // Provide a custom error message when the prerender fails on pages
       // beyond /blog. See <https://kit.svelte.dev/docs#configuration-prerender>.
+      // Note: Eslint-disabling next line allows use of any argument/return types.
       // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
       onError: ({ status, path, referrer, referenceType }) => {
         if (path.startsWith('/blog')) throw new Error('Missing a newsletter!');
