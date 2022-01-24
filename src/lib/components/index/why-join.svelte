@@ -1,16 +1,16 @@
-<script lang="ts">
-</script>
-
 <section>
-  <img src="assets/png/why-join-illustration.png" alt="Social event with acmCSUF club members." />
-  <div class="right-content">
-    <h2 class="headers size-l">Why should students join?</h2>
-    <p class="size-xs">
-      We help kickstart student’s journies through the tech industry by providing workshops that
-      enable growth of technical ability, a community of techies open to building personal and
-      professional connections, and a mentorship program full of enthusiastic upperclassmen ready
-      prepare underclassmen for success.
-    </p>
+  <div class="container">
+    <img src="assets/png/why-join-illustration.png" alt="Social event with acmCSUF club members." />
+
+    <div class="right-content">
+      <h2 class="headers size-l">Your journey into tech starts here</h2>
+      <p class="size-xs">
+        We aim to build a foundation for future industry leaders by developing their technical and
+        professional skills. We facilitate these by offering free workshops, social events, guest
+        speaker sessions, and a mentorship program; all of which have been proven to help students
+        start on the right path for their careers.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -22,46 +22,55 @@
     justify-content: center;
     align-items: center;
     margin: 0 24px;
-  }
 
-  section .right-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    text-align: right;
-    justify-content: center;
-    max-width: 680px;
-  }
+    .container {
+      display: flex;
+      justify-content: space-between;
+      width: 1280px;
+    }
 
-  section .right-content p {
-    padding-top: 16px;
-  }
+    img {
+      max-width: 350px;
+      margin-right: 64px;
+      filter: drop-shadow(0 14px 56px rgba(44, 145, 198, 0.5));
+    }
 
-  section img {
-    max-width: 350px;
-    margin-right: 120px;
-    filter: drop-shadow(0 14px 56px rgba(44, 145, 198, 0.5));
-  }
-
-  @media (max-width: 839px) {
-    section {
+    .right-content {
+      display: flex;
       flex-direction: column;
-    }
+      align-items: flex-end;
+      text-align: right;
+      justify-content: center;
+      max-width: 680px;
 
-    section img {
-      margin-right: 0;
-      margin-bottom: 32px;
-    }
-
-    section .right-content {
-      align-items: center;
-      text-align: center;
+      p {
+        padding-top: 16px;
+      }
     }
   }
 
-  @media (max-width: 559px) {
+  @media (max-width: 900px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        margin-right: 0;
+        margin-bottom: 32px;
+      }
+
+      .right-content {
+        align-items: center;
+        text-align: center;
+      }
+    }
+  }
+
+  @media (max-width: 1100px) {
     section img {
-      max-width: 220px;
+      max-width: 240px;
+      filter: drop-shadow(0 6px 30px rgba(44, 145, 198, 0.5));
     }
   }
 </style>

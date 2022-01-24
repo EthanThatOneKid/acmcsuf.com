@@ -1,6 +1,5 @@
 <script lang="ts">
   import Spacing from '$lib/components/sections/spacing.svelte';
-  // import NodeBudsTestimonial from "@/components/nodebuds/nodebuds-testimonial.svelte";
   import OfficerProfileList from '$lib/components/about/officer-profile-list.svelte';
   import { TERMS } from '$lib/constants/officers';
   import type { Officer } from '$lib/constants/officers';
@@ -19,14 +18,14 @@
 <div class="container">
   <section>
     <div>
-      <h2 class="headers size-l">Personalized mentorship</h2>
+      <h2 class="headers size-l">Personalized for your success</h2>
       <p class="size-xs">
         <span class="headers">
-          node<span class="brand-em brand-red">Buds</span>
+          node buds
         </span>
         is our exclusive program in partnership with
-        <a href="/acm-w" class="w-text" target="_blank" rel="noopener noreferrer">
-          <span class="headers">ACM </span>W</a>
+        <a href="/acm-w" class="headers w-text" target="_blank" rel="noopener noreferrer">
+          ACM-W</a>
         that exposes students to various opportunities that encourage connection, skill building, as
         well as both personal and technical development.
         <br /><br />
@@ -39,38 +38,13 @@
   </section>
 </div>
 
-<!-- <Spacing minAmount="100px" amount="175px" maxAmount="200px" />
-
-<NodeBudsTestimonial>
-  <p slot="content1">
-    "Great way to get ahold of how you can move forward in your computer science
-    journey!"
-    <Spacing amount="8px" />
-    <span class="mid">Johnson Tong, Fall 2020</span>
-  </p>
-
-  <p slot="content2">
-    "Great way to get a hold of how you can move forward in your computer
-    science journey!"
-    <Spacing amount="8px" />
-    <span class="mid">Johnson Tong, Fall 2020</span>
-  </p>
-
-  <p slot="content3">
-    "Great way to get ahold of how you can move forward in your computer science
-    journey!"
-    <Spacing amount="8px" />
-    <span class="mid"> Johnson Tong, Fall 2020 </span>
-  </p>
-</NodeBudsTestimonial> -->
-
 <Spacing --min="100px" --med="175px" --max="200px" />
 
 <div class="container">
   <h2 class="headers size-l">Buddies</h2>
 </div>
 
-<Spacing --med="16px" />
+<Spacing --min="16px" --med="16px" --max="16px" />
 
 <OfficerProfileList filter={filterNodeBuddies} />
 
@@ -89,7 +63,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 1064px;
+    width: 1100px;
   }
 
   section img {
@@ -100,7 +74,7 @@
   }
 
   section div {
-    max-width: 522px;
+    max-width: 600px;
   }
 
   section h2 {
@@ -109,16 +83,15 @@
 
   .w-text {
     text-decoration: none;
-    font-weight: 700;
     color: var(--acm-dark);
     transition: color 0.25s ease-in-out;
   }
 
   .w-text:hover {
-    color: var(--acm-sky);
+    color: var(--acm-blue);
   }
 
-  @media (max-width: 839px) {
+  @media (max-width: 900px) {
     section {
       flex-direction: column-reverse;
       text-align: center;
