@@ -97,15 +97,4 @@
       }
     }
   }
-  /* @media (max-width: 1440px) {
-    h1 {
-      font-size: var(--h-font-size-med);
-    }
-  }
-
-  @media (max-width: 340px) {
-    h1 {
-      font-size: var(--min-h-font-size);
-    }
-  } */
 </style>

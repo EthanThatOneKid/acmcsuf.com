@@ -25,7 +25,7 @@ const renderXML = (post: Newsletter): string => {
 export async function get(): Promise<EndpointOutput> {
   const posts = await fetchNewsletters();
   const description =
-    "ACM-CSUF's newsletter is a weekly newsletter that covers all of the latest news and events from the ACM-CSUF community. It is also a place for you to share your thoughts and experiences with the ACM-CSUF community.";
+    'README by acmCSUF is a weekly newsletter that covers all of the latest news and events from the acmCSUF community. It is also a place for you to share your thoughts and experiences with the acmCSUF community.';
   return {
     headers: {
       'Cache-Control': 'max-age=0, s-maxage=3600',
