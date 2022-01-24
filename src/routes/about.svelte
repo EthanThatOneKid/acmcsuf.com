@@ -3,7 +3,6 @@
   import OfficerProfileList from '$lib/components/about/officer-profile-list.svelte';
   import Spacing from '$lib/components/sections/spacing.svelte';
   import Header from '$lib/components/about/what-is-acm.svelte';
-  /* import Admonition from '$lib/components/utils/admonition.svelte'; */
   import { TERMS } from '$lib//constants/officers';
   import type { Officer } from '$lib//constants/officers';
   import { termIndex } from '$lib//stores/term-index';

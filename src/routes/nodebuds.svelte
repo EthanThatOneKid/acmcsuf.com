@@ -1,6 +1,5 @@
 <script lang="ts">
   import Spacing from '$lib/components/sections/spacing.svelte';
-  // import NodeBudsTestimonial from "@/components/nodebuds/nodebuds-testimonial.svelte";
   import OfficerProfileList from '$lib/components/about/officer-profile-list.svelte';
   import { TERMS } from '$lib/constants/officers';
   import type { Officer } from '$lib/constants/officers';
@@ -38,31 +37,6 @@
     <img src="assets/badges/nodebuds.svg" alt="nodeBuds badge" />
   </section>
 </div>
-
-<!-- <Spacing minAmount="100px" amount="175px" maxAmount="200px" />
-
-<NodeBudsTestimonial>
-  <p slot="content1">
-    "Great way to get ahold of how you can move forward in your computer science
-    journey!"
-    <Spacing amount="8px" />
-    <span class="mid">Johnson Tong, Fall 2020</span>
-  </p>
-
-  <p slot="content2">
-    "Great way to get a hold of how you can move forward in your computer
-    science journey!"
-    <Spacing amount="8px" />
-    <span class="mid">Johnson Tong, Fall 2020</span>
-  </p>
-
-  <p slot="content3">
-    "Great way to get ahold of how you can move forward in your computer science
-    journey!"
-    <Spacing amount="8px" />
-    <span class="mid"> Johnson Tong, Fall 2020 </span>
-  </p>
-</NodeBudsTestimonial> -->
 
 <Spacing --min="100px" --med="175px" --max="200px" />
 

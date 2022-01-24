@@ -12,7 +12,6 @@
       title: 'Mentorship',
       path: '/nodebuds',
     },
-    /* { title: 'connect', path: '/connect' }, */
   ];
 
   const handleClose = () => {
@@ -107,22 +106,11 @@
   nav .page-events[aria-current='true'],
   nav .page-paths:hover,
   nav .page-paths[aria-current='true'],
-  nav .page-connect:hover,
-  nav .page-connect[aria-current='true'],
   nav .page-nodebuds:hover,
   nav .page-nodebuds[aria-current='true'] {
     color: var(--acm-blue);
   }
 
-  /* nav .page-nodebuds {
-    font-weight: 700;
-  }
-
-  nav .page-nodebuds:hover,
-  nav .page-nodebuds[aria-current='true'] {
-    color: var(--acm-red);
-  }
- */
   #navToggle,
   nav .menu {
     display: none;
