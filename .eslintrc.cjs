@@ -11,6 +11,8 @@ module.exports = {
   },
   rules: {
     indent: ['error', 2, { SwitchCase: 1 }],
+    'func-style': ['error', 'declaration', { allowArrowFunctions: false }],
+    'prefer-arrow-callback': 'error',
   },
   parserOptions: {
     sourceType: 'module',
