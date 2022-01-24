@@ -1,7 +1,7 @@
 const id = import.meta.env.VITE_GH_DISCUSSION_CATEGORY_ID;
 
 export interface Newsletter {
-  id: number;
+  id: string;
   url: string;
   discussionUrl: string;
   title: string;
@@ -18,7 +18,7 @@ export interface Newsletter {
 // @see https://docs.github.com/en/graphql/overview/explorer
 export const newslettersQuery = `{
   repository(owner: "ethanthatonekid", name: "acmcsuf.com") {
-    discussions(first: 100, categoryId: "DIC_kwDOE7ysSc4CAC0o") {
+    discussions(first: 100, categoryId: "${id}") {
       nodes {
         title
         url
@@ -49,7 +49,7 @@ const formatNewsletters = (output: any): Newsletter[] => {
   return discussions.map(
     (discussion: any): Newsletter => ({
       id: discussion.number,
-      url: `https://acmcsuf.com/newsletters/${discussion.number as string}`,
+      url: `https://acmcsuf.com/blog/${discussion.number as string}`,
       discussionUrl: discussion.url,
       title: discussion.title,
       html: discussion.bodyHTML,

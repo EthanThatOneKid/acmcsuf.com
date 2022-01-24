@@ -13,7 +13,7 @@ const renderXML = (post: Newsletter): string => {
   <content:encoded>
     <div style="margin-top: 50px; font-style: italic;">
       <strong>
-        <a href="${website}/newsletters/${post.id}">
+        <a href="${website}/blog/${post.id}">
           Keep reading
         </a>
       </strong>  
