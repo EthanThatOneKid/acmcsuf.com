@@ -52,13 +52,13 @@ function getOfficerByGhUsername(ghUsername: string): Officer | null {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function formatNewsletters(output: any, baseURL: string): Newsletter[] {
+function formatNewsletters(output: any): Newsletter[] {
   const discussions = output.data.repository.discussions.nodes;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return discussions.map((discussion: any): Newsletter => {
     const { title, author, number: id, bodyHTML: html, url: discussionUrl } = discussion;
-    const url = baseURL + '/blog/' + id;
+    const url = '/blog/' + id;
     const lastEdited = discussion.lastEditedAt ?? discussion.createdAt;
     const labels = discussion.labels.nodes.map(({ name }) => name);
     const officer = getOfficerByGhUsername(author.login);
@@ -88,7 +88,6 @@ export async function fetchNewsletters(): Promise<Newsletter[]> {
     body: JSON.stringify({ query: newslettersQuery }),
   });
 
-  const baseURL = dev.valueOf() ? 'http://localhost:3000' : 'https://acmcsuf.com';
-  const newsletters = formatNewsletters(await response.json(), baseURL);
+  const newsletters = formatNewsletters(await response.json());
   return newsletters;
 }
