@@ -82,7 +82,7 @@
 
         <span>
           <a href="/covid-19" class="brand-light" target="_blank" rel="noopener noreferrer">
-            COVID-19 Notice
+            COVID-19 Policy
           </a>
         </span>
 
