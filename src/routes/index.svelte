@@ -10,16 +10,16 @@
 
 <Hero />
 
-<Spacing --min="100px" --med="175px" --max="200px" />
+<Spacing --min="120px" --med="175px" --max="200px" />
 
 <WhyJoin />
 
-<Spacing --min="100px" --med="175px" --max="200px" />
+<Spacing --min="120px" --med="175px" --max="200px" />
 
 <AcmPaths />
 
-<Spacing --min="100px" --med="175px" --max="200px" />
+<Spacing --min="120px" --med="175px" --max="200px" />
 
 <ReadyUp />
 
-<Spacing --min="40px" --med="95px" --max="120px" />
+<Spacing --min="75px" --med="100px" --max="120px" />

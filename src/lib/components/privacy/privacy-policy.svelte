@@ -16,7 +16,7 @@
     <h2 class="headers">Information we collect</h2>
 
     <p>
-      <span class="heavy">Information you provide</span>: We collect information that you
+      <span class="brand-med">Information you provide</span>: We collect information that you
       voluntarily provide, such as when you interact with our discord bot. Information that we
       collect may include, but not be limited to, your email address, discord ID, first and last
       name, status, and class subjects.
@@ -27,10 +27,10 @@
     <h2 class="headers">Our use of your information</h2>
 
     <p>
-      <span class="heavy">Data we collect automatically</span>: When you interact with any of our
-      discord bots, we receive and store the given information within our database maintained by our
-      officers. Our officers may use such information to pool it with others in order to track the
-      number of members within our club, the number of members with similar classes, etc.
+      <span class="brand-med">Data we collect automatically</span>: When you interact with any of
+      our discord bots, we receive and store the given information within our database maintained by
+      our officers. Our officers may use such information to pool it with others in order to track
+      the number of members within our club, the number of members with similar classes, etc.
     </p>
   </section>
 
@@ -73,7 +73,11 @@
     <p>
       Please feel free to contact us if you have any questions about acmCSUF&rsquo;s Privacy Policy
       by reaching out to any of our Officers via Discord or email us at <a
-        href="mailto:acmcsufullerton@gmail.com">acmcsufullerton@gmail.com</a
+        href="mailto:acmcsufullerton@gmail.com"
+        class="brand-med"
+        target="_blank"
+        rel="noopener noreferrer">
+        acmcsufullerton@gmail.com</a
       >.
     </p>
   </section>
@@ -94,10 +98,15 @@
       h2 {
         padding-bottom: 1em;
       }
-    }
-  }
 
-  .heavy {
-    font-weight: 500;
+      a {
+        text-decoration: none;
+        transition: 0.25s ease-in-out;
+
+        &:hover {
+          color: var(--acm-blue);
+        }
+      }
+    }
   }
 </style>

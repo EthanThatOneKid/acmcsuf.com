@@ -3,18 +3,20 @@
 </script>
 
 <section>
-  <div class="left-content">
-    <div class="main-text headers size-xl">
-      We are the largest tech community at
-      <span class="brand-em brand-blue">CSUF</span>
+  <div class="container">
+    <div class="left-content">
+      <div class="main-text headers size-xl">
+        We are the largest tech community at
+        <span class="brand-em brand-blue">CSUF</span>
+      </div>
+
+      <AcmButton text="Join us today!" link="/discord" />
     </div>
 
-    <AcmButton text="Join us today!" link="/discord" />
+    <img
+      src="assets/png/hero-illustration.png"
+      alt="Frank the shark (ACM CSUF's mascot) is holding a flag that says 'I ♥ ACM'" />
   </div>
-
-  <img
-    src="assets/png/hero-illustration.png"
-    alt="Frank the shark (ACM CSUF's mascot) is holding a flag that says 'I ♥ ACM'" />
 </section>
 
 <style lang="scss">
@@ -25,44 +27,54 @@
     justify-content: center;
     align-items: center;
     margin: 0 24px;
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      width: 1280px;
+    }
+
+    .left-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+
+      .main-text {
+        max-width: 570px;
+      }
+    }
+
+    img {
+      max-width: 470px;
+      margin-left: 64px;
+      filter: drop-shadow(0 10px 40px rgba(44, 145, 198, 0.5));
+    }
   }
 
-  section .left-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-  }
-
-  section .left-content .main-text {
-    max-width: 570px;
-  }
-
-  section img {
-    max-width: 468px;
-    margin-left: 120px;
-    filter: drop-shadow(0 10px 40px rgba(44, 145, 198, 0.5));
-  }
-
-  @media (max-width: 839px) {
-    section {
+  @media (max-width: 900px) {
+    .container {
       flex-direction: column-reverse;
-    }
-
-    section img {
-      margin-left: 0;
-      margin-bottom: 32px;
-    }
-
-    section .left-content {
       align-items: center;
-      text-align: center;
+      justify-content: center;
+
+      img {
+        margin-left: 0;
+        margin-bottom: 32px;
+      }
+
+      .left-content {
+        align-items: center;
+        text-align: center;
+      }
     }
   }
 
-  @media (max-width: 559px) {
+  @media (max-width: 1100px) {
     section img {
-      max-width: 280px;
+      max-width: 321px;
+      max-height: 240px;
+      filter: drop-shadow(0 6px 30px rgba(44, 145, 198, 0.5));
     }
   }
 </style>

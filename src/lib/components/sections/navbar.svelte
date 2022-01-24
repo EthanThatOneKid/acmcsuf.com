@@ -5,14 +5,14 @@
   let checkbox: HTMLInputElement;
 
   const menuItems = [
-    { title: 'about', path: '/about' },
-    { title: 'events', path: '/events' },
-    { title: 'paths', path: '/paths' },
+    { title: 'About', path: '/about' },
+    { title: 'Events', path: '/events' },
+    { title: 'Paths', path: '/paths' },
     {
-      title: '<span class="headers">node</span>Buds',
+      title: 'Mentorship',
       path: '/nodebuds',
     },
-    { title: 'connect', path: '/connect' },
+    /* { title: 'connect', path: '/connect' }, */
   ];
 
   const handleClose = () => {
@@ -57,7 +57,7 @@
   nav {
     position: fixed;
     display: flex;
-    z-index: 100;
+    z-index: 1000;
     width: 100%;
     justify-content: center;
     background-color: var(--acm-light);
@@ -82,7 +82,7 @@
     justify-content: space-between;
     padding: 24px 0;
     margin: 0 24px;
-    width: 1156px;
+    width: 1280px;
   }
 
   nav .full-logomark .logo-badge {
@@ -108,11 +108,13 @@
   nav .page-paths:hover,
   nav .page-paths[aria-current='true'],
   nav .page-connect:hover,
-  nav .page-connect[aria-current='true'] {
+  nav .page-connect[aria-current='true'],
+  nav .page-nodebuds:hover,
+  nav .page-nodebuds[aria-current='true'] {
     color: var(--acm-blue);
   }
 
-  nav .page-nodebuds {
+  /* nav .page-nodebuds {
     font-weight: 700;
   }
 
@@ -120,7 +122,7 @@
   nav .page-nodebuds[aria-current='true'] {
     color: var(--acm-red);
   }
-
+ */
   #navToggle,
   nav .menu {
     display: none;
@@ -144,7 +146,7 @@
     transition: all 0.25s ease-in-out;
   }
 
-  @media (max-width: 839px) {
+  @media (max-width: 900px) {
     nav .content {
       padding: 12px 0;
     }

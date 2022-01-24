@@ -4,11 +4,12 @@
 
 <section>
   <div class="paths-intro">
-    <h2 class="headers size-l">Get involved with our paths!</h2>
+    <h2 class="headers size-l">Find the path you want to take</h2>
     <p class="size-xs">
-      Paths were designed to empower students who want to specialize in something specific within
-      the industry. By joining any of our paths, students will be given access to exclusive
-      workshops and events that’ll build, strengthen, and improve skills.
+      Our programs were designed to allow students to explore the various fields within tech and
+      discover what aligns with their interests the most. By joining any of them, students will be
+      given access to exclusive workshops and projects that will build, enhance, and strengthen
+      their technical and professional skills.
     </p>
   </div>
 
@@ -42,7 +43,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    max-width: 1050px;
+    max-width: 1280px;
   }
 
   .paths-intro p {
@@ -77,7 +78,7 @@
     color: var(--brand-color);
   }
 
-  @media (max-width: 839px) {
+  @media (max-width: 900px) {
     .paths-list {
       flex-direction: column;
       height: 700px;
