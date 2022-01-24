@@ -14,7 +14,7 @@ const config = {
     prerender: {
       /** @type {import('@sveltejs/kit').PrerenderErrorHandler} */
       onError: ({ status, path, referrer, referenceType }) => {
-        if (path.startsWith('/newsletters')) throw new Error('Missing a newsletter!');
+        if (path.startsWith('/blog')) throw new Error('Missing a newsletter!');
         console.warn(`${status} ${path}${referrer ? ` (${referenceType} from ${referrer})` : ''}`);
       },
     },

@@ -110,8 +110,8 @@
   nav .page-paths[aria-current='true'],
   nav .page-connect:hover,
   nav .page-connect[aria-current='true'],
-  nav .page-newsletters:hover,
-  nav .page-newsletters[aria-current='true'] {
+  nav .page-blog:hover,
+  nav .page-blog[aria-current='true'] {
     color: var(--acm-blue);
   }
 
