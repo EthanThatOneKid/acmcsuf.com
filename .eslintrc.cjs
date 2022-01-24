@@ -4,7 +4,10 @@ module.exports = {
   extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
   plugins: ['svelte3', '@typescript-eslint'],
   ignorePatterns: ['*.cjs'],
-  overrides: [{ files: ['*.svelte'], processor: 'svelte3/svelte3' }],
+  overrides: [
+    { files: ['*.svelte'], processor: 'svelte3/svelte3' },
+    { files: ['*.js'], rules: { '@typescript-eslint/explicit-module-boundary-types': 0 } },
+  ],
   settings: {
     'svelte3/typescript': () => require('typescript'),
     'svelte3/ignore-styles': () => true, // ignore svelte styles since we use scss
