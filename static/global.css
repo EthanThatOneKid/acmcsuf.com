@@ -67,6 +67,10 @@ body {
   }
 }
 
+.ita {
+  font-style: italic;
+}
+
 /* Branding Macros */
 .brand-em {
   /* `em` is short for "emphasis" */

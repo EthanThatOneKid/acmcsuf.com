@@ -11,6 +11,13 @@ const config = {
     // hydrate the <div id="svelte"> element in src/app.html
     target: '#svelte',
     adapter: adapter(),
+    prerender: {
+      /** @type {import('@sveltejs/kit').PrerenderErrorHandler} */
+      onError: ({ status, path, referrer, referenceType }) => {
+        if (path.startsWith('/blog')) throw new Error('Missing a newsletter!');
+        console.warn(`${status} ${path}${referrer ? ` (${referenceType} from ${referrer})` : ''}`);
+      },
+    },
   },
 };
 
