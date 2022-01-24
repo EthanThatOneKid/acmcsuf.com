@@ -9,12 +9,14 @@ startBot(async (client) => {
   process.exit(success ? 0 : 1);
 });
 
-const createIssueChannel = async (client, issueNumber) => {
+async function createIssueChannel(client, issueNumber) {
   let success = false;
+
   try {
-    const channelName = `website-issue-${issueNumber}`;
     await client.guilds.fetch();
     const { channels } = client.guilds.cache.get(process.env.GUILD_ID);
+
+    const channelName = `website-issue-${issueNumber}`;
     if (await channelExists(channels, channelName)) {
       console.log(`#${channelName} already exists`);
       return true;
@@ -24,6 +26,7 @@ const createIssueChannel = async (client, issueNumber) => {
       parent: process.env.HUB_ID,
       reason: `Let's resolve #${issueNumber}!`,
     });
+
     const baseUrl = 'https://github.com/EthanThatOneKid/acmcsuf.com/issues/';
     const firstMessage = await channel.send(baseUrl + issueNumber);
     await firstMessage.pin();
@@ -32,11 +35,12 @@ const createIssueChannel = async (client, issueNumber) => {
     console.error(error);
   }
   return success;
-};
+}
 
-const channelExists = async (channels, name) => {
+async function channelExists(channels, name) {
   for (const channel of channels.cache.values()) {
     if (channel.name === name) return true;
   }
+
   return false;
-};
+}

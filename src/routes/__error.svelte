@@ -4,11 +4,12 @@
 
 <svelte:head>
   <title>acmCSUF / {status}</title>
+  <link rel="stylesheet" href="/global.css" />
 </svelte:head>
 
 <section>
-  <img src="assets/png/404-h.png" class="wide" alt="404 - Page Not Found" />
-  <img src="assets/png/404-v.png" class="mobile" alt="404 - Page Not Found" />
+  <img src="/assets/png/404-h.png" class="wide" alt="404 - Page Not Found" />
+  <img src="/assets/png/404-v.png" class="mobile" alt="404 - Page Not Found" />
 </section>
 
 <style>

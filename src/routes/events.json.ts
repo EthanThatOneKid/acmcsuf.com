@@ -10,21 +10,23 @@ const expirationTimeout = 1e3 * 60 * 3; // Fetch updates every 2 minutes.
 let eventExpirationTimestamp = 0;
 let events: AcmEvent[] = [];
 
-const setCache = async (timestamp: number) => {
+async function setCache(timestamp: number): Promise<AcmEvent[]> {
   const data = await fetch(ICAL_TARGET_URL).then((response) => response.text());
   events = parse(data);
   eventExpirationTimestamp = timestamp + expirationTimeout;
   return events;
-};
+}
 
-const getCache = async () => {
+async function getCache() {
   const now = Date.now();
   if (caching && eventExpirationTimestamp > now) {
     return events;
   }
   return await setCache(now);
-};
+}
 
-export const get = async (): Promise<EndpointOutput> => ({
-  body: (await getCache()) as unknown as DefaultBody,
-});
+export async function get(): Promise<EndpointOutput> {
+  return {
+    body: (await getCache()) as unknown as DefaultBody,
+  };
+}

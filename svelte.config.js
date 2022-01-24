@@ -12,8 +12,10 @@ const config = {
     target: '#svelte',
     adapter: adapter(),
     prerender: {
+      // Provide a custom error message when the prerender fails on pages
+      // beyond /blog. See <https://kit.svelte.dev/docs#configuration-prerender>.
       /** @type {import('@sveltejs/kit').PrerenderErrorHandler} */
-      onError: ({ status, path, referrer, referenceType }) => {
+      onError({ status, path, referrer, referenceType }) {
         if (path.startsWith('/blog')) throw new Error('Missing a newsletter!');
         console.warn(`${status} ${path}${referrer ? ` (${referenceType} from ${referrer})` : ''}`);
       },

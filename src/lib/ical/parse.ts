@@ -24,7 +24,7 @@ export interface AcmEvent {
   recurring: boolean;
 }
 
-export const parse = (icalData: string): AcmEvent[] => {
+export function parse(icalData: string): AcmEvent[] {
   const now = Date.now();
   const output = parseRawIcal(icalData);
   const events = output['VCALENDAR'][0]['VEVENT']
@@ -63,4 +63,4 @@ export const parse = (icalData: string): AcmEvent[] => {
     .filter(filterIfPassed(now, Time.Day / 2)) // Comment out this filter statement to show a longer list of events for testing purposes.
     .sort(sortByDate());
   return events;
-};
+}

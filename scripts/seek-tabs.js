@@ -8,8 +8,9 @@ const execAsync = promisify(exec);
  * any of the changed files contain tabs. If so, they are logged to
  * stdout. If any tabs are found, the process fails.
  */
-const seekTabs = async () => {
+async function seekTabs() {
   const { stdout: diff } = await execAsync('git diff');
+
   const tabs = diff
     .split('\n')
     .filter((line) => {
@@ -18,10 +19,12 @@ const seekTabs = async () => {
       return isNewChange && containsTab;
     })
     .map((line) => line.slice(1)); // remove the '+'
+
   tabs.forEach((code) => console.error(`tabs: ${code}`));
+
   const success = tabs.length === 0;
   return success;
-};
+}
 
 const success = await seekTabs();
 process.exit(success ? 0 : 1);

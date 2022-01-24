@@ -16,12 +16,20 @@
   export let posts: Newsletter[];
 </script>
 
+<svelte:head>
+  <title>acmCSUF / README</title>
+  <link rel="stylesheet" href="../global.css" />
+</svelte:head>
+
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <section>
   <img src="assets/readme-logomark.svg" alt="README by acmCSUF" />
 
-  <h2 class="headers">The official acmCSUF blog.</h2>
+  <h2 class="subtitle headers">
+    The official acmCSUF blog.<a href="/blog.xml"
+      ><img src="assets/badges/feed-icon.svg" alt="RSS feed logo" /></a>
+  </h2>
 
   <Spacing --min="100px" --med="175px" --max="200px" />
 
@@ -42,9 +50,21 @@
 
 <Spacing --min="40px" --med="95px" --max="120px" />
 
-<!-- <pre><code>{JSON.stringify(posts, null, 2)}</code></pre> -->
 <style lang="scss">
   @import 'static/theme.scss';
+
+  .subtitle {
+    a {
+      display: inline-block;
+      padding-left: 2.5vw;
+      vertical-align: baseline;
+
+      img {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
 
   section {
     display: flex;

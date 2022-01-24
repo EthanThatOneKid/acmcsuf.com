@@ -5,15 +5,15 @@
   let currentValue: string = defaultValue;
   let active = false;
 
-  const toggleDropdown = () => {
+  function toggleDropdown() {
     active = !active;
-  };
+  }
 
-  const handleOption = (term: string) => {
+  function handleOption(term: string) {
     currentValue = term;
     defaultValue = currentValue;
     active = false;
-  };
+  }
 </script>
 
 <div class="term" name="school-year">

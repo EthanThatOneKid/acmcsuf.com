@@ -16,7 +16,7 @@
     "preview": "svelte-kit preview",
     "check": "svelte-check --tsconfig ./tsconfig.json --compiler-warnings \"css-unused-selector:ignore,unused-export-let:error\"",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-    "lint": "eslint --ignore-path .gitignore .",
+    "lint": "eslint --ignore-path .gitignore . --fix",
     "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
     "tabs": "node scripts/seek-tabs.js",
     "test:size": "npm i && size-limit"
@@ -33,6 +33,7 @@
     "@sveltejs/adapter-static": "next",
     "@sveltejs/adapter-vercel": "next",
     "@sveltejs/kit": "next",
+    "@types/html-to-text": "^8.0.1",
     "@types/rss": "^0.0.29",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
