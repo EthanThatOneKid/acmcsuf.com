@@ -1,5 +1,4 @@
 import type { EndpointOutput, IncomingRequest } from '@sveltejs/kit';
-import type { DefaultBody } from '@sveltejs/kit/types/endpoint';
 import { convert as convertHtml2Txt } from 'html-to-text';
 import type { Newsletter } from './_query';
 
