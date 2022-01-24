@@ -13,4 +13,7 @@ export const links = {
   apply: 'https://forms.gle/ftVfaFJSoAvQJdHy9',
   'board-positions':
     'https://jn42.notion.site/Spring-2022-Open-Board-Positions-3bbf4851a9334b199b512bd5a5c4b5f7',
+  'covid-19':
+    'https://docs.google.com/document/d/1aEfH50N0fmeK3JiID968DoG41jmdk3nelDipQpF6yio/edit?usp=sharing',
+  bug: 'https://github.com/EthanThatOneKid/acmcsuf.com/issues/new?assignees=&labels=bug&template=bug_report.yaml',
 } as const;

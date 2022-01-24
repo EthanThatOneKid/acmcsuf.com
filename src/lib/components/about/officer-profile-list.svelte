@@ -59,15 +59,20 @@
 
   .school-year-input-container {
     text-align: center;
+    z-index: 100;
   }
 
   .container {
+    z-index: 1;
+    margin-top: -64px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1280px;
   }
+
   .officer-profile-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    justify-content: center;
     align-items: center;
   }
 </style>

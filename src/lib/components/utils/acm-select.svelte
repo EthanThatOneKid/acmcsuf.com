@@ -37,6 +37,7 @@
       flex-direction: column;
       display: flex;
       justify-content: center;
+      font-size: 18px;
     }
   }
 
@@ -44,26 +45,31 @@
   .selected {
     color: var(--acm-light);
   }
+
   .selected {
     background-color: var(--acm-dark);
     padding: 8px 24px;
     cursor: pointer;
-    border-radius: 6px;
+    border-radius: 8px;
+    transition: 0.25s ease-in-out;
+
     &:hover {
-      color: var(--acm-blue);
+      background-color: var(--acm-blue);
     }
   }
+
   .active > .selected {
-    border-radius: 6px 6px 0 0;
+    border-radius: 8px 8px 0 0;
   }
 
   .option {
     cursor: pointer;
     visibility: hidden;
-    margin-bottom: 0.5rem;
-    transition: all 300ms;
+    transition: 0.25s ease-in-out;
+
     .option-choice {
       cursor: pointer;
+
       &:hover {
         color: var(--acm-light);
       }
@@ -75,10 +81,15 @@
     background-color: var(--acm-dark);
     padding: 8px 24px;
     margin-top: 0.2rem;
-    border-radius: 0 0 6px 6px;
-    transition: all 200ms;
-    .option-choice:hover {
-      color: var(--acm-blue);
+    border-radius: 0 0 8px 8px;
+    transition: 0.25s ease-in-out;
+
+    .option-choice {
+      transition: 0.25s ease-in-out;
+
+      &:hover {
+        color: var(--acm-blue);
+      }
     }
   }
 </style>

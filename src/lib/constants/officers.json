@@ -10,14 +10,16 @@
     "name": "Aaron Lieberman",
     "positions": {
       "S21": "Internal Vice President, NodeBuds Officer",
-      "F21": "President"
+      "F21": "President, NodeBuds Officer",
+      "S22": "President, NodeBuds Officer"
     },
     "picture": "aaron-lieberman.png"
   },
   {
     "name": "Karnikaa Velumani",
     "positions": {
-      "F21": "Vice President"
+      "F21": "Vice President",
+      "S22": "Vice President"
     },
     "picture": "karnikaa-velumani.png"
   },
@@ -33,10 +35,10 @@
     "positions": {
       "F20": "Competition Manager",
       "S21": "Webmaster",
-      "F21": "Webmaster"
+      "F21": "Webmaster",
+      "S22": "Webmaster"
     },
-    "picture": "ethan-davidson.png",
-    "ghUsername": "EthanThatOneKid"
+    "picture": "ethan-davidson.png"
   },
   {
     "name": "Andrew Lau",
@@ -48,7 +50,8 @@
   {
     "name": "Tommy Le",
     "positions": {
-      "F21": "Treasurer"
+      "F21": "Treasurer",
+      "S22": "Treasurer"
     },
     "picture": "tommy-le.png"
   },
@@ -119,14 +122,16 @@
     "name": "Armanul Ambia",
     "positions": {
       "S21": "Dev Officer, NodeBuds Officer",
-      "F21": "Algo Director"
+      "F21": "Algo Director",
+      "S22": "Algo President"
     },
     "picture": "armanul-ambia.png"
   },
   {
     "name": "Alex Truong",
     "positions": {
-      "F21": "Algo Officer"
+      "F21": "Algo Officer",
+      "S22": "Algo Officer"
     },
     "picture": "alex-truong.png"
   },
@@ -134,36 +139,49 @@
     "name": "Wesley Chou",
     "positions": {
       "S21": "Dev Officer",
-      "F21": "Dev Director"
+      "F21": "Dev Director",
+      "S22": "Dev President"
     },
     "picture": "wesley-chou.png"
   },
   {
     "name": "Andy Lasso",
     "positions": {
-      "F21": "Dev Officer"
+      "F21": "Dev Officer",
+      "S22": "Dev Officer"
     },
     "picture": "andy-lasso.png"
   },
   {
     "name": "Rina Watanabe",
     "positions": {
-      "F21": "Dev Officer, Project Manager"
+      "F21": "Dev Officer, Project Manager",
+      "S22": "Dev Officer"
     },
     "picture": "rina-watanabe.png"
   },
   {
     "name": "Jorge Mejia",
     "positions": {
-      "F21": "Dev Officer"
+      "F21": "Dev Officer",
+      "S22": "Dev Officer"
     },
     "picture": "jorge-mejia.png"
+  },
+  {
+    "name": "Johnathan Carranza",
+    "positions": {
+      "F21": "Dev Officer",
+      "S22": "Dev Officer"
+    },
+    "picture": "johnathan-carranza.png"
   },
   {
     "name": "Mike Ploythai",
     "positions": {
       "S21": "Create Officer",
-      "F21": "Create Director, Marketing Chair"
+      "F21": "Create Director, Marketing Chair",
+      "S22": "Create President"
     },
     "picture": "mike-ploythai.png"
   },
@@ -171,7 +189,8 @@
     "name": "Samuel Valls",
     "positions": {
       "S21": "Community Manager",
-      "F21": "Create Officer"
+      "F21": "Create Officer",
+      "S22": "Create Event Coordinator"
     },
     "picture": "samuel-valls.png"
   },
@@ -192,28 +211,34 @@
   {
     "name": "Serena Naranjo",
     "positions": {
-      "F21": "Create Officer"
+      "F21": "Create Officer",
+      "S22": "Create Officer"
     },
     "picture": "serena-naranjo.png"
   },
   {
     "name": "Taylor Noh",
     "positions": {
-      "S21": "NodeBuds Officer"
+      "S21": "NodeBuds Officer",
+      "F21": "NodeBuds Officer",
+      "S22": "NodeBuds Officer"
     },
     "picture": "taylor-noh.png"
   },
   {
     "name": "Eugene Lee",
     "positions": {
-      "S21": "NodeBuds Officer"
+      "S21": "NodeBuds Officer",
+      "F21": "NodeBuds Officer",
+      "S22": "NodeBuds Officer"
     },
     "picture": "eugene-lee.png"
   },
   {
     "name": "Sami Bajwa",
     "positions": {
-      "F21": "NodeBuds Officer"
+      "F21": "NodeBuds Officer",
+      "S22": "NodeBuds Officer"
     },
     "picture": "sami-bajwa.png"
   },

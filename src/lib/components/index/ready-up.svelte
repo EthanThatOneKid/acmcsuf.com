@@ -1,14 +1,20 @@
 <script lang="ts">
   import AcmButton from '$lib/components/utils/acm-button.svelte';
+  import Spacing from '$lib/components/sections/spacing.svelte';
 </script>
 
 <section>
   <div class="main-text">
     <h2 class="headers size-l">Ready to get started?</h2>
     <p class="size-xs">
-      We invite all to join our student chapter consisting of
-      <span class="headers">350+</span> passionate tech enthusiasts. Each of our workshops, info sessions,
-      and community events were designed to kickstart your tech journey on the right foot.
+      If you want to improve your skills, want to learn how to break into the industry, or just got
+      a passion for technology, then we are the perfect organization for you!
+      <br />
+      <Spacing --min="16px" --med="16px" --max="0" />
+      <span class="brand-med"
+        >Our student-chapter with 600+ members is forever free and open for anyone to join,
+        regardless of major or technical ability.
+      </span>
     </p>
   </div>
   <AcmButton text="Join us today!" link="/discord" />
@@ -26,7 +32,7 @@
   }
 
   section .main-text {
-    max-width: 950px;
+    max-width: 1280px;
   }
 
   section p {

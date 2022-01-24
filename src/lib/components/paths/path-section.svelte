@@ -72,7 +72,7 @@
     margin-right: -32px;
   }
 
-  @media (max-width: 839px) {
+  @media (max-width: 900px) {
     section,
     .👈 {
       flex-direction: column;
