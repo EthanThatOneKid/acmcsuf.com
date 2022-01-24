@@ -7,10 +7,10 @@
   import type { Officer } from '$lib//constants/officers';
   import { termIndex } from '$lib//stores/term-index';
 
-  const filterOfficers = (officer: Officer) => {
+  function filterOfficers(officer: Officer): boolean {
     const isCurrentTerm = officer.positions[TERMS[$termIndex]] !== undefined;
     return isCurrentTerm;
-  };
+  }
 </script>
 
 <Spacing --min="175px" --med="200px" --max="200px" />

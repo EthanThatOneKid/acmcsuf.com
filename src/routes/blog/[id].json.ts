@@ -7,7 +7,7 @@ interface ServerRequest extends IncomingRequest {
   };
 }
 
-const getCache = async (id: number, baseURL: string) => {
+async function getCache(id: number, baseURL: string) {
   const target = baseURL + `/blog.json`;
   try {
     const response = await fetch(target);
@@ -18,7 +18,7 @@ const getCache = async (id: number, baseURL: string) => {
     console.error(err);
     return undefined;
   }
-};
+}
 
 export async function get(request: ServerRequest): Promise<EndpointOutput> {
   const id = Number(request.params.id);

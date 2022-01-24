@@ -16,7 +16,7 @@
   let rightButtonEnabled = false;
   let scrollTimeId = undefined;
 
-  const scrollTheCarousel = (movementScalar: number, isSmooth = false) => {
+  function scrollTheCarousel(movementScalar: number, isSmooth = false) {
     carouselRef.scrollBy({
       left: -movementScalar,
       behavior: isSmooth ? 'smooth' : 'auto',
@@ -28,24 +28,44 @@
       leftButtonEnabled = canScrollLeft;
       rightButtonEnabled = canScrollRight;
     }, Time.Second * 0.75);
-  };
+  }
 
-  const debounceTheScroll = (callback: () => void, wait: number) => {
+  function debounceTheScroll(callback: () => void, wait: number) {
     callback();
     if (scrollTimeId !== undefined) {
       clearTimeout(scrollTimeId);
     }
+
     scrollTimeId = setTimeout(callback, wait);
-  };
-  const scrollOnMouseMove = (event: MouseEvent) => isGrabbing && scrollTheCarousel(event.movementX);
-  const startGrabbing = () => (isGrabbing = true);
-  const endGrabbing = () => (isGrabbing = false);
-  const scrollLeft = () => scrollTheCarousel(scrollIncrementDistance, true);
-  const scrollRight = () => scrollTheCarousel(-scrollIncrementDistance, true);
-  const scrollHorizontally = (event: WheelEvent) => {
+  }
+
+  function scrollOnMouseMove(event: MouseEvent) {
+    if (isGrabbing) {
+      scrollTheCarousel(event.movementX);
+    }
+  }
+
+  function startGrabbing() {
+    isGrabbing = true;
+  }
+
+  function endGrabbing() {
+    isGrabbing = false;
+  }
+
+  function scrollLeft() {
+    scrollTheCarousel(scrollIncrementDistance, true);
+  }
+
+  function scrollRight() {
+    scrollTheCarousel(-scrollIncrementDistance, true);
+  }
+
+  function scrollHorizontally(event: WheelEvent) {
     event.preventDefault();
     scrollTheCarousel(-event.deltaY);
-  };
+  }
+
   onMount(() => {
     hasHorizontalScrollbar = carouselRef.scrollWidth > carouselRef.clientWidth;
     rightButtonEnabled = hasHorizontalScrollbar;

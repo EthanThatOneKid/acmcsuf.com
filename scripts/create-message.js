@@ -9,7 +9,7 @@ startBot(async (client) => {
   process.exit(success ? 0 : 1);
 });
 
-const createMessage = async (client, issueNumber) => {
+async function createMessage(client, issueNumber) {
   let success = false;
   try {
     const channelName = `website-issue-${issueNumber}`;
@@ -26,11 +26,12 @@ const createMessage = async (client, issueNumber) => {
     console.log(error);
   }
   return success;
-};
+}
 
-const findChannel = async (channels, name) => {
+async function findChannel(channels, name) {
   for (const channel of channels.cache.values()) {
     if (channel.name === name) return channel;
   }
+
   return null;
-};
+}

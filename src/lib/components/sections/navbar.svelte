@@ -14,11 +14,11 @@
     },
   ];
 
-  const handleClose = () => {
+  function handleClose() {
     if (checkbox.checked === true) {
       checkbox.checked = false;
     }
-  };
+  }
 </script>
 
 <nav>

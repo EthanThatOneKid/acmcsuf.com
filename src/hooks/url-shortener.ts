@@ -1,8 +1,8 @@
 import { links } from '$lib/constants/links';
 import type { Handle } from '@sveltejs/kit';
 
-export const urlShortener = (): Handle =>
-  async ({ request, resolve }) => {
+export function urlShortener(): Handle {
+  return async ({ request, resolve }) => {
     const slug = request.path.replace(/^\/+|\/+$/g, '');
     const url = links[slug];
     if (url === undefined) return await resolve(request);
@@ -17,3 +17,4 @@ export const urlShortener = (): Handle =>
       },
     };
   };
+}

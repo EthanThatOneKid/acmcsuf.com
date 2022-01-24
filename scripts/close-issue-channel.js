@@ -36,7 +36,7 @@ startBot(async (client) => {
  *
  * See https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/.github/workflows/close_issue_channel.yaml.
  */
-const closeIssueChannel = async (client, issueNumber, dev = false) => {
+async function closeIssueChannel(client, issueNumber, dev = false) {
   let success = false;
   try {
     await client.guilds.fetch();
@@ -82,9 +82,9 @@ const closeIssueChannel = async (client, issueNumber, dev = false) => {
     console.log(error);
   }
   return success;
-};
+}
 
-const fetchAllMessages = async (channel, limit = 2e3) => {
+async function fetchAllMessages(channel, limit = 2e3) {
   const result = [];
   const softLimit = 100;
   let lastId;
@@ -99,9 +99,9 @@ const fetchAllMessages = async (channel, limit = 2e3) => {
     if (messages.size != softLimit || result >= limit) break;
   }
   return result.sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
-};
+}
 
-const formatMessage = (msg) => {
+async function formatMessage(msg) {
   const lines = [];
   for (const line of msg.content.split('\n')) {
     lines.push(...wrapText(line, 72));
@@ -122,9 +122,9 @@ const formatMessage = (msg) => {
   const bottom = `╰${'─'.repeat(width - 1)}╯`;
   const result = topLeft + topRight + '\n' + content + '\n' + bottom;
   return result;
-};
+}
 
-const wrapText = (text, width = 72) => {
+function wrapText(text, width = 72) {
   const lines = [];
   while (text.length > width) {
     const index = text.lastIndexOf(' ', width);
@@ -138,7 +138,7 @@ const wrapText = (text, width = 72) => {
   }
   lines.push(text);
   return lines;
-};
+}
 
 function formatRFC882PST(date) {
   const [month, day, year, time, amPm] = date
