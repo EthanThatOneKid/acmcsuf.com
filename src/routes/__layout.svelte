@@ -20,6 +20,8 @@
   <meta name="msapplication-TileColor" content="#000000" />
   <meta name="msapplication-config" content="/assets/favicon/browserconfig.xml" />
   <meta name="theme-color" content="#000" />
+
+  <link rel="stylesheet" href="/global.css" />
 </svelte:head>
 
 <style>
