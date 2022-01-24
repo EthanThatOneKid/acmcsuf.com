@@ -11,9 +11,12 @@
       </span>
     </p>
 
-    <a href="/github" class="github" target="_blank" rel="noopener norefferer">
-      <GitHubIcon />
-    </a>
+    <span>
+      <a href="/github" class="github" target="_blank" rel="noopener norefferer">
+        <GitHubIcon />
+      </a>
+      <a class="hidden" href="/privacy" rel="prefetch">Privacy Policy</a>
+    </span>
   </div>
 </footer>
 
@@ -38,6 +41,9 @@
   }
   footer p {
     font-size: 18px;
+  }
+  .hidden {
+    display: none;
   }
   footer .github :global(svg) {
     height: 32px;

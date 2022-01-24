@@ -1,4 +1,5 @@
-const id = import.meta.env.VITE_GH_DISCUSSION_CATEGORY_ID;
+import type { Officer } from '$lib/constants';
+import { OFFICERS } from '$lib/constants';
 
 export interface Newsletter {
   id: string;
@@ -18,7 +19,7 @@ export interface Newsletter {
 // @see https://docs.github.com/en/graphql/overview/explorer
 export const newslettersQuery = `{
   repository(owner: "ethanthatonekid", name: "acmcsuf.com") {
-    discussions(first: 100, categoryId: "${id}") {
+    discussions(first: 100, categoryId: "${import.meta.env.VITE_GH_DISCUSSION_CATEGORY_ID}") {
       nodes {
         title
         url
@@ -43,8 +44,13 @@ export const newslettersQuery = `{
   }
 }`;
 
-/* eslint-disable */
-const formatNewsletters = (output: any): Newsletter[] => {
+function getOfficerByGhUsername(ghUsername: string): Officer | null {
+  // get author by GitHub username
+  const officer = OFFICERS.find((o) => o.ghUsername !== undefined && o.ghUsername === ghUsername);
+  return officer ?? null;
+}
+
+function formatNewsletters(output): Newsletter[] {
   const discussions = output.data.repository.discussions.nodes;
   return discussions.map(
     (discussion: any): Newsletter => ({
@@ -62,16 +68,17 @@ const formatNewsletters = (output: any): Newsletter[] => {
       },
     })
   );
-};
-/* eslint-enable */
+}
 
-export const fetchNewsletters = async (): Promise<Newsletter[]> => {
+export async function fetchNewsletters(): Promise<Newsletter[]> {
   const ghAccessToken = import.meta.env.VITE_GH_ACCESS_TOKEN;
+
   const response = await fetch('https://api.github.com/graphql', {
     method: 'POST',
     headers: { Authorization: `token ${ghAccessToken}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({ query: newslettersQuery }),
   });
+
   const newsletters = formatNewsletters(await response.json());
   return newsletters;
-};
+}
