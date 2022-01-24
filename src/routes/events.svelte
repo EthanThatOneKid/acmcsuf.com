@@ -35,7 +35,7 @@
   </p>
 </CommonHero>
 
-<Spacing --min="100px" --med="125px" --max="125px" />
+<Spacing --min="100px" --med="175px" --max="200px" />
 
 <h2 class="size-l headers">This week's events 📅</h2>
 
