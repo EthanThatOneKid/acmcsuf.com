@@ -2,7 +2,7 @@ import type { Officer } from '$lib/constants';
 import { OFFICERS } from '$lib/constants';
 
 export interface Newsletter {
-  id: number;
+  id: string;
   url: string;
   discussionUrl: string;
   title: string;
@@ -52,28 +52,22 @@ function getOfficerByGhUsername(ghUsername: string): Officer | null {
 
 function formatNewsletters(output): Newsletter[] {
   const discussions = output.data.repository.discussions.nodes;
-
-  return discussions.map((discussion): Newsletter => {
-    const { title, author, number: id, bodyHTML: html, url: discussionUrl } = discussion;
-    const url = 'https://acmcsuf.com/newsletters/' + id;
-    const lastEdited = discussion.lastEditedAt ?? discussion.createdAt;
-    const labels = discussion.labels.nodes.map(({ name }) => name);
-    const officer = getOfficerByGhUsername(author.login);
-    const authorUrl: string = officer?.url ?? author.url;
-    const displayname: string = officer?.name ?? author.login;
-    const picture: string = officer?.picture ?? author.avatarUrl;
-
-    return {
-      id,
-      url,
-      discussionUrl,
-      title,
-      html,
-      lastEdited,
-      labels,
-      author: { url: authorUrl, displayname, picture },
-    };
-  });
+  return discussions.map(
+    (discussion: any): Newsletter => ({
+      id: discussion.number,
+      url: `https://acmcsuf.com/blog/${discussion.number as string}`,
+      discussionUrl: discussion.url,
+      title: discussion.title,
+      html: discussion.bodyHTML,
+      lastEdited: discussion.lastEditedAt ?? discussion.createdAt,
+      labels: discussion.labels.nodes.map(({ name }) => name),
+      author: {
+        displayname: discussion.author.login,
+        url: discussion.author.url,
+        picture: discussion.author.avatarUrl,
+      },
+    })
+  );
 }
 
 export async function fetchNewsletters(): Promise<Newsletter[]> {

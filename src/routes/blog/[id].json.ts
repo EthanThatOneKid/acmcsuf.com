@@ -8,7 +8,7 @@ interface ServerRequest extends IncomingRequest {
 }
 
 const getCache = async (id: number, baseURL: string) => {
-  const target = baseURL + `/newsletters.json`;
+  const target = baseURL + `/blog.json`;
   try {
     const response = await fetch(target);
     const data = await response.json();

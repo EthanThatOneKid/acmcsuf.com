@@ -13,7 +13,7 @@
       path: '/nodebuds',
     },
     { title: 'connect', path: '/connect' },
-    { title: 'blog', path: '/newsletters' },
+    { title: 'blog', path: '/blog' },
   ];
 
   const handleClose = () => {

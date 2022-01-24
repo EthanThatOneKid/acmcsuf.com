@@ -6,7 +6,7 @@
    */
   export async function load({ fetch, page }: LoadInput): Promise<LoadOutput> {
     const { id: slug } = page.params;
-    const response = await fetch(`/newsletters/${slug}.json`);
+    const response = await fetch(`/blog/${slug}.json`);
     const newsletter = await response.json();
     if (typeof newsletter?.id !== 'number') {
       return { status: 404 };
@@ -24,29 +24,34 @@
 
 <svelte:head>
   <title>{post.title}</title>
-  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="../global.css" />
 </svelte:head>
 
-<Spacing --min="120px" --med="135px" --max="160px" />
+<Spacing --min="175px" --med="200px" --max="200px" />
 
 <section>
-  <h1>{post.title}</h1>
+  <h1 class="headers size-l">{post.title}</h1>
 
-  <Spacing --min="70px" --med="70px" --max="70px" />
+  <Spacing --min="16px" --med="16px" --max="16px" />
 
   <p>
     by
-    <a href={'https://github.com/' + post.author.displayname} target="_blank">
+    <a
+      href={'https://github.com/' + post.author.displayname}
+      target="_blank"
+      rel="noopener noreferrer">
       @{post.author.displayname}
     </a>
   </p>
 
-  <Spacing --min="70px" --med="70px" --max="70px" />
+  <Spacing --min="75px" --med="100px" --max="150px" />
 
   <div class="container">
     <div class="markdown-body">
       {@html post.html}
     </div>
+
+    <small class="ita">Tags: {post.labels.join(', ')}</small>
   </div>
 
   <Spacing />
@@ -58,32 +63,38 @@
   section {
     display: flex;
     flex-direction: column;
+    text-align: center;
+    justify-content: center;
     align-items: center;
-  }
+    padding: 0 24px;
 
-  h1 {
-    font-size: var(--max-h-font-size);
-    text-decoration: wavy underline;
-    text-underline-offset: 0.5em;
-  }
+    a {
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.25s ease-in-out;
 
-  .container {
-    padding: 2em;
-    margin: 0;
-    border-radius: 2em;
-    border: 2px solid var(--acm-sky);
-    width: min(1000px, 77vw);
-  }
-
-  @media (max-width: 1440px) {
-    h1 {
-      font-size: var(--h-font-size-med);
+      &:hover {
+        color: var(--acm-blue);
+      }
     }
   }
 
-  @media (max-width: 340px) {
-    h1 {
-      font-size: var(--min-h-font-size);
+  .container {
+    text-align: left;
+    padding: 4em 4em 3em;
+    margin: 0;
+    background-color: var(--acm-light);
+    border-radius: 3em;
+    filter: drop-shadow(0 8px 40px rgba(16, 19, 21, 0.1));
+    -webkit-filter: drop-shadow(0 8px 40px rgba(16, 19, 21, 0.1));
+    width: min(1000px, 70vw);
+
+    .markdown-body {
+      text-align: left;
+
+      :global(p) {
+        margin-bottom: 16px;
+      }
     }
   }
 </style>
