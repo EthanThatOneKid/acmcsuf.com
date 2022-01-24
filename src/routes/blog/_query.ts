@@ -1,3 +1,4 @@
+import { dev } from '$app/env';
 import type { Officer } from '$lib/constants';
 import { OFFICERS } from '$lib/constants';
 
@@ -51,13 +52,13 @@ function getOfficerByGhUsername(ghUsername: string): Officer | null {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function formatNewsletters(output: any): Newsletter[] {
+function formatNewsletters(output: any, baseURL: string): Newsletter[] {
   const discussions = output.data.repository.discussions.nodes;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return discussions.map((discussion: any): Newsletter => {
     const { title, author, number: id, bodyHTML: html, url: discussionUrl } = discussion;
-    const url = 'https://acmcsuf.com/blog/' + id;
+    const url = baseURL + '/blog/' + id;
     const lastEdited = discussion.lastEditedAt ?? discussion.createdAt;
     const labels = discussion.labels.nodes.map(({ name }) => name);
     const officer = getOfficerByGhUsername(author.login);
@@ -87,6 +88,7 @@ export async function fetchNewsletters(): Promise<Newsletter[]> {
     body: JSON.stringify({ query: newslettersQuery }),
   });
 
-  const newsletters = formatNewsletters(await response.json());
+  const baseURL = dev.valueOf() ? 'http://localhost:3000' : 'https://acmcsuf.com';
+  const newsletters = formatNewsletters(await response.json(), baseURL);
   return newsletters;
 }
