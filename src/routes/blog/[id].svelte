@@ -51,7 +51,12 @@
       {@html post.html}
     </div>
 
-    <small class="ita">Tags: {post.labels.join(', ')}</small>
+    {#if post.labels.length > 0}
+      <small class="ita">Tags: {post.labels.join(', ')}</small>
+      <br />
+    {/if}
+
+    <small class="ita">Read TXT: <a href={`${post.url}.txt`}>{post.url}.txt</a></small>
   </div>
 
   <Spacing />

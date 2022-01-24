@@ -33,6 +33,7 @@
     "@sveltejs/adapter-static": "next",
     "@sveltejs/adapter-vercel": "next",
     "@sveltejs/kit": "next",
+    "@types/html-to-text": "^8.0.1",
     "@types/rss": "^0.0.29",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",

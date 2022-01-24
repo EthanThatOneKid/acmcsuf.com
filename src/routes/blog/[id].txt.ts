@@ -31,7 +31,7 @@ function serializeNewsletter(newsletter: Newsletter) {
 // Query the newsletter endpoint itself instead of the lib in order to
 // take advantage of caching.
 async function getCache(id: number, baseURL: string) {
-  const target = baseURL + `/newsletters.json`;
+  const target = baseURL + `/blog.json`;
   try {
     const response = await fetch(target);
     const data = await response.json();
@@ -49,7 +49,7 @@ export async function get(request: ServerRequest): Promise<EndpointOutput> {
   const newsletter = await getCache(id, base);
 
   if (!newsletter) {
-    return { body: '', status: 404, headers: { 'Content-Type': 'text/plain' } };
+    return { body: '404 Not Found', status: 404, headers: { 'Content-Type': 'text/plain' } };
   }
 
   const body = serializeNewsletter(newsletter);

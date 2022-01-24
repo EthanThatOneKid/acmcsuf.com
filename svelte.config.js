@@ -12,7 +12,7 @@ const config = {
     target: '#svelte',
     adapter: adapter(),
     prerender: {
-      /** @type {import('@sveltejs/kit').PrerenderErrorHandler} */
+      // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
       onError: ({ status, path, referrer, referenceType }) => {
         if (path.startsWith('/blog')) throw new Error('Missing a newsletter!');
         console.warn(`${status} ${path}${referrer ? ` (${referenceType} from ${referrer})` : ''}`);

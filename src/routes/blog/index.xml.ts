@@ -23,10 +23,10 @@ function truncateDescription(description: string, length: number) {
 
 function makeRssFeed(posts: Newsletter[]): string {
   const feed = new RSS({
-    title: 'acmCSUF Community Newsletters',
+    title: 'acmCSUF README',
     description:
       'Posts written about computer science topics by the ACM community at California State Univerity Fullerton. It covers all the latest news and events for acmCSUF.',
-    feed_url: 'https://acmcsuf.com/newsletters.xml',
+    feed_url: 'https://acmcsuf.com/blog.xml',
     site_url: 'https://acmcsuf.com',
     image_url: 'https://acmcsuf.com/assets/png/acm-csuf-badge.png',
     categories: getCategories(posts),

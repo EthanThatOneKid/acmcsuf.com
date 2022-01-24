@@ -152,7 +152,7 @@ function formatRFC882PST(date) {
     })
     .replace(/,/g, '')
     .split(' ');
-  
+
   // get the formatted timezone required for RFC88
   const tz = Intl.DateTimeFormat('en-US', {
     timeZoneName: 'short',
@@ -162,5 +162,5 @@ function formatRFC882PST(date) {
     .split(' ')
     .at(-1);
 
-  return [day, month, year, time, amPM, tz].join(" ");
-};
+  return [day, month, year, time, amPm, tz].join(' ');
+}
