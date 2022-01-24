@@ -47,7 +47,7 @@
         </h1>
 
         <div class="links brand-light">
-          <a href="/privacy" class="brand-light" target="_blank" rel="noopener noreferrer">
+          <a href="/privacy" class="brand-light" rel="noopener noreferrer">
             frankBot Privacy
           </a>
 
@@ -77,7 +77,7 @@
 
       <div class="links">
         <span>
-          <a href="/blog" class="brand-light" target="_blank" rel="noopener noreferrer">Blog</a>
+          <a href="/blog" class="brand-light" rel="noopener noreferrer">Blog</a>
         </span>
 
         <span>
