@@ -7,6 +7,7 @@ export interface Newsletter {
   discussionUrl: string;
   title: string;
   html: string;
+  createdAt: number | null;
   lastEdited: number | null;
   labels: string[];
   author: {
@@ -16,7 +17,10 @@ export interface Newsletter {
   };
 }
 
-// @see https://docs.github.com/en/graphql/overview/explorer
+/**
+ * GraphQL query to get all the blog posts from the newsletters category.
+ * @see https://docs.github.com/en/graphql/overview/explorer
+ */
 export const newslettersQuery = `{
   repository(owner: "ethanthatonekid", name: "acmcsuf.com") {
     discussions(first: 100, categoryId: "${import.meta.env.VITE_GH_DISCUSSION_CATEGORY_ID}") {
@@ -54,11 +58,22 @@ function getOfficerByGhUsername(ghUsername: string): Officer | null {
 function formatNewsletters(output: any): Newsletter[] {
   const discussions = output.data.repository.discussions.nodes;
 
+  /**
+   * No types exist for the discussion object, as the structure is generated
+   * based on the GraphQL {@link newslettersQuery}.
+   */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return discussions.map((discussion: any): Newsletter => {
-    const { title, author, number: id, bodyHTML: html, url: discussionUrl } = discussion;
+    const {
+      title,
+      author,
+      createdAt,
+      lastEditedAt: lastEdited,
+      number: id,
+      bodyHTML: html,
+      url: discussionUrl,
+    } = discussion;
     const url = '/blog/' + id;
-    const lastEdited = discussion.lastEditedAt ?? discussion.createdAt;
     const labels = discussion.labels.nodes.map(({ name }) => name);
     const officer = getOfficerByGhUsername(author.login);
     const authorUrl: string = officer?.url ?? author.url;
@@ -71,6 +86,7 @@ function formatNewsletters(output: any): Newsletter[] {
       discussionUrl,
       title,
       html,
+      createdAt,
       lastEdited,
       labels,
       author: { url: authorUrl, displayname, picture },

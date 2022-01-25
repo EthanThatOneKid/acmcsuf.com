@@ -9,23 +9,44 @@ interface ServerRequest extends IncomingRequest {
 }
 
 function serializeNewsletter(newsletter: Newsletter) {
-  const txtTitle = convertHtml2Txt(newsletter.title);
+  const lines: string[] = [];
 
-  return [
-    `---`,
-    `id: ${newsletter.id}`,
-    `title: "${txtTitle}"`,
-    `author: "${newsletter.author.displayname}` +
-      (newsletter.author.url !== undefined ? ` (${newsletter.author.url})"` : '"'),
-    `labels: [${newsletter.labels.map((l) => `"${l}"`).join(', ')}]`,
-    `date: "${new Date(newsletter.lastEdited).toISOString()}"`,
-    `---`,
-    '',
-    txtTitle,
-    '='.repeat(txtTitle.length),
-    '',
-    convertHtml2Txt(newsletter.html, { wordwrap: 100 }),
-  ].join('\n');
+  // Top of file is where blog metadata is displayed as YAML front matter
+  /*********** [[[ METADATA START ]]] ***********/
+  lines.push('---');
+
+  const txtTitle = convertHtml2Txt(newsletter.title);
+  lines.push(`title: ${txtTitle}`);
+
+  lines.push(`id: ${newsletter.id}`);
+  lines.push(`html_url: "${newsletter.url}"`);
+  lines.push(`discussion_url: $"{newsletter.discussionUrl}"`);
+
+  const author =
+    newsletter.author.displayname +
+    (newsletter.author.url !== undefined ? ` (${newsletter.author.url})` : '');
+  lines.push(`author: "${author}"`);
+
+  const labels = newsletter.labels.map((l) => `"${l}"`).join(', ');
+  lines.push(`labels: [${labels}]`);
+
+  lines.push(`created: "${new Date(newsletter.createdAt).toISOString()}"`);
+
+  if (newsletter.lastEdited) {
+    lines.push(`edited: "${new Date(newsletter.lastEdited).toISOString()}"`);
+  }
+
+  lines.push('---');
+  /*********** [[[ METADATA END ]]] ***********/
+
+  // Add title with padding
+  lines.push('');
+  lines.push(txtTitle);
+  lines.push('='.repeat(txtTitle.length));
+  lines.push('');
+
+  // Add blog content
+  return lines.concat(convertHtml2Txt(newsletter.html, { wordwrap: 100 })).join('\n');
 }
 
 // Query the newsletter endpoint itself instead of the lib in order to
