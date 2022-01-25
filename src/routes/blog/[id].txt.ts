@@ -17,8 +17,10 @@ function serializeNewsletter(newsletter: Newsletter) {
     `title: "${txtTitle}"`,
     `author: "${newsletter.author.displayname}` +
       (newsletter.author.url !== undefined ? ` (${newsletter.author.url})"` : '"'),
+    `html_url: "${newsletter.url}"`,
     `labels: [${newsletter.labels.map((l) => `"${l}"`).join(', ')}]`,
-    `date: "${new Date(newsletter.lastEdited).toISOString()}"`,
+    `created: "${new Date(newsletter.createdAt).toISOString()}"`,
+    `edited: "${new Date(newsletter.lastEdited).toISOString()}"`,
     `---`,
     '',
     txtTitle,
