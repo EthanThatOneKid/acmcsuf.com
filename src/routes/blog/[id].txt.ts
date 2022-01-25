@@ -19,8 +19,8 @@ function serializeNewsletter(newsletter: Newsletter) {
   lines.push(`title: ${txtTitle}`);
 
   lines.push(`id: ${newsletter.id}`);
-  lines.push(`html_url: "${newsletter.url}"`);
-  lines.push(`discussion_url: $"{newsletter.discussionUrl}"`);
+  lines.push(`html_url: "https://acmcsuf.com${newsletter.url}"`);
+  lines.push(`discussion_url: "${newsletter.discussionUrl}"`);
 
   const author =
     newsletter.author.displayname +
