@@ -68,7 +68,7 @@ function formatNewsletters(output: any): Newsletter[] {
       title,
       author,
       createdAt,
-      lastEdited,
+      lastEditedAt: lastEdited,
       number: id,
       bodyHTML: html,
       url: discussionUrl,
