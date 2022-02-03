@@ -3,7 +3,12 @@
   export let text = 'Submit';
 </script>
 
-<a class="call-to-action headers" href={link} target="_blank" rel="noopener norefferer">{text}</a>
+<a
+  class="call-to-action headers"
+  role="button"
+  href={link}
+  target="_blank"
+  rel="noopener norefferer">{text}</a>
 
 <style lang="scss">
   @import 'static/theme.scss';
