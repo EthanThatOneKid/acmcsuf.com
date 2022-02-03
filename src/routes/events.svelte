@@ -46,14 +46,15 @@
 {:else}
   <AcmEmpty>
     <p slot="content">
+      <noscript>
+        <p class="size-m">JavaScript is needed to fetch events.</p>
+      </noscript>
       {#if hasJS}
         {#if isLoading}
           Loading…
         {:else}
           There are no events scheduled!
         {/if}
-      {:else}
-        JS is needed to fetch events
       {/if}
     </p>
   </AcmEmpty>
