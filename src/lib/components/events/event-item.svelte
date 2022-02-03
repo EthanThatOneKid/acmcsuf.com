@@ -1,28 +1,14 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import type { AcmEvent } from '$lib/ical/parse';
-  import AcmButton from '$lib/components/utils/acm-button.svelte';
 
   export let info: AcmEvent;
 
-  let isActive = false;
   let isRecurring: boolean = info.recurring;
-  let isSuccessfullyCopied = false;
-  let anchor: HTMLDivElement;
-
-  function copyEventLink(slug: string) {
-    const url = [location.origin, location.pathname, '#', slug].join('');
-    // Copying text to the clipboard: https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText
-    navigator.clipboard.writeText(url).then(() => {
-      isSuccessfullyCopied = true;
-      setTimeout(() => (isSuccessfullyCopied = false), 2e3);
-    });
-  }
 
   onMount(() => {
-    isActive = location.hash === `#${info.slug}`;
-    if (isActive) {
-      anchor.scrollIntoView({
+    if (location.hash === `#${info.slug}`) {
+      document.getElementById(info.slug).scrollIntoView({
         behavior: 'smooth',
         block: 'start',
         inline: 'center',
@@ -32,32 +18,30 @@
 </script>
 
 <div class="event-box">
-  <div class="anchor" id={info.slug} class:active={isActive} bind:this={anchor} />
+  <!-- Workaround for the top panel covering the event card's anchor. -->
+  <div class="anchor" id={info.slug} />
   <div class="event-card">
-    <p class="event-date">
-      <span class="mid">
-        {info.month}
-        {info.day}
-      </span>
-      {#if isRecurring}
-        <p class="event-recurring">RECURRING</p>
-      {/if}
-    </p>
-    <h3
-      class="headers"
-      class:copied={isSuccessfullyCopied}
-      on:click={() => copyEventLink(info.slug)}>
-      {info.summary}
-    </h3>
-    <div>
-      <p class="event-time">{info.time} PT</p>
+    <div class="event-name">
+      <h2 class="headers">
+        <a href="#{info.slug}">
+          {info.summary}
+        </a>
+      </h2>
       <p class="event-location">
         {info.location === 'Discord' || info.location === 'Zoom'
           ? `Hosted on ${info.location}`
           : info.location}
       </p>
-      <AcmButton link={info.meetingLink} text="Click to join!" />
     </div>
+    <p class="event-date">
+      <!-- TODO: RFC3339 timestamp for datetime -->
+      <time>
+        {info.month}
+        {info.day} at {info.time}
+        {#if isRecurring}(recurring){/if}
+      </time>
+    </p>
+    <a class="event-join size-s" href={info.meetingLink} role="button">Join</a>
   </div>
 </div>
 
@@ -65,71 +49,107 @@
   @import 'static/theme.scss';
 
   .event-box {
-    display: flex;
     position: relative;
   }
 
   .event-box > .anchor {
     visibility: hidden;
     position: absolute;
+    /* 200px from the top of the screen for the anchor workaround. */
     top: -200px;
   }
 
-  .event-box > .anchor:target + .event-card,
-  .event-box > .anchor.active + .event-card {
+  .event-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 32px 64px;
+    padding: 24px 30px;
+    box-shadow: 0 6px 18px rgba(44, 145, 198, 0.25);
+    transition: all 0.25s ease-in-out;
+    border-radius: 30px;
+    border: 2px solid var(--acm-dark);
+  }
+
+  .event-box > .anchor:target + .event-card {
+    box-shadow: 0 6px 24px rgba(44, 145, 198, 0.75);
     border: 2px solid var(--acm-blue);
   }
 
-  .event-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 200px;
-    height: 300px;
-    margin: 32px 0 32px 64px;
-    padding: 32px;
-    box-shadow: 0 6px 24px rgba(44, 145, 198, 0.5);
-    border-radius: 30px;
+  .event-card a {
+    text-decoration: none;
+    transition: all 0.15s ease-in-out;
   }
 
-  .event-recurring {
-    font-weight: 800;
+  .event-card a:hover {
     color: var(--acm-blue);
-    font-size: 16px;
   }
 
-  .event-card h3 {
+  .event-card h2 {
     position: relative;
-    width: 186px;
-    text-align: center;
     user-select: none;
     color: var(--acm-dark);
-    transition: all 0.25s ease-in-out;
+    transition: all 0.15s ease-in-out;
   }
 
-  .event-card h3:hover {
-    color: var(--acm-blue);
-    cursor: pointer;
-  }
-
-  .event-card .copied::before {
-    content: 'Copied link!';
-    position: absolute;
-    width: 100%;
-    border-radius: 10px;
-    background-color: var(--acm-blue);
-    color: var(--acm-light);
-    font-weight: 500;
-    padding: 0.25rem;
-    left: 50%;
-    transform: translate(-50%, -100%);
-    opacity: 0.8;
-  }
-
-  .event-card p {
-    text-align: center;
+  .event-date {
+    flex: 0;
     user-select: none;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .event-name {
+    flex: 1;
+    text-align: left;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .event-name,
+  .event-date {
+    margin-right: 16px;
+  }
+
+  .event-name h2 {
+    line-height: 1.2em;
+  }
+
+  .event-location:not(:empty) {
+    margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* Required for ellipsizing. */
+    max-width: 300px;
+  }
+
+  .event-join {
+    margin: 0;
+    padding: 0;
+    padding: 12px 24px;
+    border-radius: 12px;
+    background-color: var(--acm-dark);
+    color: var(--acm-light);
+    transition: background-color 0.25s ease-in-out;
+  }
+
+  @media (max-width: 799px) {
+    .event-card {
+      flex-direction: column;
+    }
+    .event-name {
+      text-align: center;
+      margin-right: 0;
+      align-items: center;
+    }
+    .event-date {
+      margin-top: 10px;
+      margin-bottom: 12px;
+      margin-right: 0;
+    }
   }
 </style>
