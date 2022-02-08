@@ -84,14 +84,20 @@
     border: 2px solid var(--acm-blue);
   }
 
+  .event-card:hover h2,
+  .event-card[open] h2 {
+    color: var(--acm-blue);
+  }
+
   .event-box > .anchor:target + .event-card {
     box-shadow: 0 6px 24px rgba(44, 145, 198, 0.75);
     border: 2px solid var(--acm-blue);
   }
 
-  .event-card > hr {
+  .event-card hr {
     border-width: 1px;
     border-color: var(--acm-dark);
+    background-color: var(--acm-dark);
     opacity: 0.5;
     margin: 24px 0;
   }
@@ -121,7 +127,7 @@
     transition: all 0.15s ease-in-out;
   }
 
-  .event-body .event-name:hover {
+  .event-body:hover .event-name {
     color: var(--acm-blue);
   }
 
