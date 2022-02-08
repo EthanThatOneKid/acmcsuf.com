@@ -173,6 +173,7 @@
     margin: 0;
     padding: 0;
     padding: 12px 24px;
+    width: auto;
     border-radius: 12px;
     background-color: var(--acm-dark);
     color: var(--acm-light);
