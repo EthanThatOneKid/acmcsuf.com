@@ -3,7 +3,7 @@
   import type { AcmEvent } from '$lib/ical/parse';
   import CommonHero from '$lib/components/sections/common-hero.svelte';
   import Spacing from '$lib/components/sections/spacing.svelte';
-  import EventCarousel from '$lib/components/events/event-carousel.svelte';
+  import EventCarousel from '$lib/components/events/event-list.svelte';
   import AcmEmpty from '$lib/components/utils/acm-empty.svelte';
 
   let events: AcmEvent[] = [];

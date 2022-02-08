@@ -6,7 +6,7 @@
 </script>
 
 <section>
-  <div class="event-carousel-container">
+  <div class="event-list-container">
     {#each events as eventInfo}
       <EventItem info={eventInfo} />
     {/each}
@@ -20,7 +20,7 @@
     margin-left: 0px;
   }
 
-  .event-carousel-container {
+  .event-list-container {
     width: clamp(435px, 95%, 980px);
   }
 </style>
