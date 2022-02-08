@@ -29,9 +29,7 @@
     <summary class="event-body">
       <div class="event-name">
         <h2 class="headers">
-          <a href="#{info.slug}" on:click={() => (details.open = !details.open)}>
-            {info.summary}
-          </a>
+          {info.summary}
         </h2>
         <p class="event-location">
           {info.location === 'Discord' || info.location === 'Zoom'
@@ -119,12 +117,11 @@
     display: none;
   }
 
-  .event-body a {
-    text-decoration: none;
+  .event-body .event-name {
     transition: all 0.15s ease-in-out;
   }
 
-  .event-body a:hover {
+  .event-body .event-name:hover {
     color: var(--acm-blue);
   }
 
@@ -171,8 +168,8 @@
 
   .event-join {
     margin: 0;
-    padding: 0;
     padding: 12px 24px;
+    text-decoration: none;
     text-align: center;
     border-radius: 12px;
     background-color: var(--acm-dark);
