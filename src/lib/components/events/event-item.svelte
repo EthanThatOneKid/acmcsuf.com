@@ -29,7 +29,7 @@
     <summary class="event-body">
       <div class="event-name">
         <h2 class="headers">
-          <a href="#{info.slug}">
+          <a href="#{info.slug}" on:click={() => (details.open = !details.open)}>
             {info.summary}
           </a>
         </h2>
