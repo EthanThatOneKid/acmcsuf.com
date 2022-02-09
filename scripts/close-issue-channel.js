@@ -84,7 +84,7 @@ async function closeIssueChannel(client, issueNumber, dev = false) {
   return success;
 }
 
-function fetchAllMessages(channel, limit = 2e3) {
+async function fetchAllMessages(channel, limit = 2e3) {
   const result = [];
   const softLimit = 100;
   let lastId;
@@ -101,7 +101,7 @@ function fetchAllMessages(channel, limit = 2e3) {
   return result.sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
 }
 
-async function formatMessage(msg) {
+function formatMessage(msg) {
   const lines = [];
   for (const line of msg.content.split('\n')) {
     lines.push(...wrapText(line, 72));
