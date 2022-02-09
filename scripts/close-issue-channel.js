@@ -101,7 +101,7 @@ async function fetchAllMessages(channel, limit = 2e3) {
   return result.sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
 }
 
-async function formatMessage(msg) {
+function formatMessage(msg) {
   const lines = [];
   for (const line of msg.content.split('\n')) {
     lines.push(...wrapText(line, 72));
