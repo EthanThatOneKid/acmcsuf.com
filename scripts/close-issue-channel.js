@@ -84,7 +84,7 @@ async function closeIssueChannel(client, issueNumber, dev = false) {
   return success;
 }
 
-function fetchAllMessages(channel, limit = 2e3) {
+async function fetchAllMessages(channel, limit = 2e3) {
   const result = [];
   const softLimit = 100;
   let lastId;
