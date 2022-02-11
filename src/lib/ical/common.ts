@@ -11,6 +11,18 @@ function cleanIcalKey(key: string): string {
 }
 
 /**
+ * Checks to see if the given date is observing daylight savings time.
+ * @param date The date to be checked
+ * @returns true if the date observes daylight savings time, false otherwise.
+ * @see https://stackoverflow.com/a/30280636
+ */
+function checkDateObservesDST(date: Date): boolean {
+  const jan = new Date(date.getFullYear(), 0, 1);
+  const jul = new Date(date.getFullYear(), 6, 1);
+  return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset()) > date.getTimezoneOffset();
+}
+
+/**
  * The code in this function is derived from
  * https://github.com/adrianlee44/ical2json.
  * @param source The raw calendar data in ICAL format.
@@ -84,7 +96,11 @@ function parseRawIcalDatetime(datetime: string): Date {
 
   const date = new Date();
   date.setFullYear(Number(fullYear), Number(month) - 1, Number(day));
-  date.setHours(Number(hours) - 7, Number(minutes), Number(seconds));
+
+  // The timezone determines how many hours the date is relative of UTC.
+  const observingDST = checkDateObservesDST(date);
+  const tzHoursOffset = observingDST ? -7 : -8; // PST
+  date.setHours(Number(hours) + tzHoursOffset, Number(minutes), Number(seconds));
 
   return date;
 }
