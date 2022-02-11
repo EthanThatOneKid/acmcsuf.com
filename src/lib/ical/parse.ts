@@ -39,7 +39,11 @@ export function parse(icalData: string): AcmEvent[] {
       const isZoomMeeting = rawLocation.startsWith('https://fullerton.zoom.us');
       const customLocationName = parsedDescription['ACM_LOCATION'] ?? rawLocation;
       const location = isZoomMeeting ? 'Zoom' : customLocationName;
-      const meetingLink = isZoomMeeting ? rawLocation : (location.startsWith('https://') ? location : "/discord");
+      const meetingLink = isZoomMeeting
+        ? rawLocation
+        : location.startsWith('https://')
+        ? location
+        : '/discord';
       const date = computeIcalDatetime(event);
       const month = date.toLocaleString(ACM_LOCALE, { month: 'long' });
       const day = date.getDate();
