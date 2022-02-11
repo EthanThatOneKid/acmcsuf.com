@@ -40,9 +40,7 @@ jobs:
         run: npm ci
 
       - name: Check Formatting
-        run: |
-          npm run format
-          bash ./scripts/check_site_changes.sh
+        run: npm run format && bash ./scripts/check_site_changes.sh
 
       - name: Lint
         run: npm run lint
