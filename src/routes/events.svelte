@@ -3,7 +3,7 @@
   import type { AcmEvent } from '$lib/ical/parse';
   import CommonHero from '$lib/components/sections/common-hero.svelte';
   import Spacing from '$lib/components/sections/spacing.svelte';
-  import EventCarousel from '$lib/components/events/event-carousel.svelte';
+  import EventCarousel from '$lib/components/events/event-list.svelte';
   import AcmEmpty from '$lib/components/utils/acm-empty.svelte';
 
   let events: AcmEvent[] = [];
@@ -46,14 +46,15 @@
 {:else}
   <AcmEmpty>
     <p slot="content">
+      <noscript>
+        <p class="size-m">JavaScript is needed to fetch events.</p>
+      </noscript>
       {#if hasJS}
         {#if isLoading}
           Loading…
         {:else}
           There are no events scheduled!
         {/if}
-      {:else}
-        JS is needed to fetch events
       {/if}
     </p>
   </AcmEmpty>
@@ -67,6 +68,7 @@
   h2 {
     display: flex;
     justify-content: center;
+    text-align: center;
   }
 
   p {
