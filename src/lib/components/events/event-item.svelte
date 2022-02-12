@@ -45,7 +45,12 @@
           {#if isRecurring}(recurring){/if}
         </time>
       </p>
-      <a class="event-join size-s" href={info.meetingLink} role="button">Join</a>
+      <a
+        class="event-join size-s"
+        href={info.meetingLink}
+        role="button"
+        target="_blank"
+        rel="noopener noreferrer">Join</a>
     </summary>
     <hr />
     <p class="event-description">{info.description}</p>
