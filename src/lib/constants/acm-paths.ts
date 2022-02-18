@@ -26,4 +26,11 @@ export const acmDev: AcmPath = {
   color: 'var(--acm-bluer)',
 };
 
-export const acmPaths = [acmAlgo, acmCreate, acmDev] as const;
+export const acmGeneral: AcmPath = {
+  title: 'General',
+  slug: 'general',
+  picture: './assets/badges/general.svg',
+  color: 'var(--acm-blue)',
+};
+
+export const acmPaths = [acmAlgo, acmCreate, acmDev, acmGeneral] as const;

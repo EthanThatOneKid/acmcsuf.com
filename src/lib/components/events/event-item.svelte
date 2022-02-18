@@ -22,7 +22,7 @@
   });
 </script>
 
-<div class="event-box">
+<div class="event-box" style={`--highlights: var(--${info.acmPath.slug}-rgb)`}>
   <!-- Workaround for the top panel covering the event card's anchor. -->
   <div class="anchor" id={info.slug} bind:this={anchor} />
   <details class="event-card" bind:this={details}>
@@ -60,6 +60,13 @@
 <style lang="scss">
   @import 'static/theme.scss';
 
+  :root {
+    --general-rgb: 44, 145, 198;
+    --algo-rgb: 157, 53, 231;
+    --create-rgb: 255, 67, 101;
+    --dev-rgb: 30, 108, 255;
+  }
+
   .event-box {
     position: relative;
   }
@@ -74,29 +81,29 @@
   .event-card {
     margin: 32px 64px;
     padding: 0;
-    box-shadow: 0 6px 18px rgba(44, 145, 198, 0.25);
+    box-shadow: 0 6px 18px rgba(var(--highlights, --general-rgb), 0.25);
     transition: all 0.15s ease-in-out;
     border-radius: 30px;
     border: 2px solid var(--acm-dark);
   }
 
   .event-card:hover {
-    box-shadow: 0 6px 18px rgba(44, 145, 198, 0.65);
+    box-shadow: 0 6px 18px rgba(var(--highlights, --general-rgb), 0.65);
   }
 
   .event-card[open] {
-    box-shadow: 0 6px 24px rgba(44, 145, 198, 0.75);
-    border: 2px solid var(--acm-blue);
+    box-shadow: 0 6px 24px rgba(var(--highlights, --general-rgb), 0.75);
+    border: 2px solid rgb(var(--highlights, --general-rgb));
   }
 
   .event-card:hover h2,
   .event-card[open] h2 {
-    color: var(--acm-blue);
+    color: rgb(var(--highlights, --general-rgb));
   }
 
   .event-box > .anchor:target + .event-card {
-    box-shadow: 0 6px 24px rgba(44, 145, 198, 0.75);
-    border: 2px solid var(--acm-blue);
+    box-shadow: 0 6px 24px rgba(var(--highlights, --general-rgb), 0.75);
+    border: 2px solid rgb(var(--highlights, --general-rgb));
   }
 
   .event-card hr {
@@ -133,7 +140,7 @@
   }
 
   .event-body:hover .event-name {
-    color: var(--acm-blue);
+    color: rgb(var(--highlights, --general-rgb));
   }
 
   .event-body h2 {
@@ -203,11 +210,13 @@
     .event-body {
       flex-direction: column;
     }
+
     .event-name {
       text-align: center;
       margin-right: 0;
       align-items: center;
     }
+
     .event-date {
       margin-top: 10px;
       margin-bottom: 12px;

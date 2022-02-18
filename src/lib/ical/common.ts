@@ -140,15 +140,27 @@ export function checkForRecurrence(raw?: string): boolean {
   return false;
 }
 
-export function parseDescription(content: string): Record<string, string> {
-  const result = {};
+export interface AcmEventDescription {
+  description: string;
+  variables: Map<string, string>;
+}
 
-  for (const line of content.split('\n')) {
-    const [key, value] = line.split('=');
-    result[key.trim()] = value;
+export function parseDescription(content: string): AcmEventDescription {
+  let resultingLines = [];
+  const variables = new Map<string, string>();
+
+  for (const line of content.split(/\\n/)) {
+    if (line.includes('=')) {
+      const [key, ...value] = line.split('=');
+      variables.set(key.trim(), value.join('=').trim());
+    } else {
+      // Add line to unescaped description.
+      resultingLines.push(line.replace(/\\/g, ''));
+    }
   }
 
-  return result;
+  const description = resultingLines.join('\n');
+  return { description, variables };
 }
 
 export function sortByDate(): (a: { date: Date }, b: { date: Date }) => 1 | -1 {
