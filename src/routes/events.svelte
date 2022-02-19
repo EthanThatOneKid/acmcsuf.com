@@ -1,25 +1,21 @@
+<script lang="ts" context="module">
+  import type { LoadOutput, LoadInput } from '@sveltejs/kit';
+
+  /** @type {import('@sveltejs/kit').Load} */
+  export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
+    const response = await fetch(`/events.json`);
+    return { props: { events: await response.json() } };
+  }
+</script>
+
 <script lang="ts">
-  import { onMount } from 'svelte';
   import type { AcmEvent } from '$lib/ical/parse';
   import CommonHero from '$lib/components/sections/common-hero.svelte';
   import Spacing from '$lib/components/sections/spacing.svelte';
   import EventCarousel from '$lib/components/events/event-list.svelte';
   import AcmEmpty from '$lib/components/utils/acm-empty.svelte';
 
-  let events: AcmEvent[] = [];
-  let isLoading = true;
-  let hasJS = false;
-
-  onMount(() => {
-    // Lazily load the iCal data for the event carousel.
-    hasJS = true;
-    fetch('../events.json')
-      .then((response) => response.json())
-      .then((icalData) => {
-        events = icalData as AcmEvent[];
-        isLoading = false;
-      });
-  });
+  export let events: AcmEvent[] = [];
 </script>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
@@ -45,18 +41,7 @@
   <EventCarousel {events} />
 {:else}
   <AcmEmpty>
-    <p slot="content">
-      <noscript>
-        <p class="size-m">JavaScript is needed to fetch events.</p>
-      </noscript>
-      {#if hasJS}
-        {#if isLoading}
-          Loading…
-        {:else}
-          There are no events scheduled!
-        {/if}
-      {/if}
-    </p>
+    <p slot="content">There are no events scheduled!</p>
   </AcmEmpty>
 {/if}
 

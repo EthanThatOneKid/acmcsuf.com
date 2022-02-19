@@ -1,7 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
 
-  let menu: HTMLUListElement;
   let checkbox: HTMLInputElement;
 
   const menuItems = [
@@ -15,7 +14,7 @@
   ];
 
   function handleClose() {
-    if (checkbox.checked === true) {
+    if (checkbox.checked) {
       checkbox.checked = false;
     }
   }
@@ -29,15 +28,15 @@
       <span class="logo-text brand-em">CSUF</span>
     </a>
 
-    <ul class="pages" bind:this={menu}>
+    <ul class="pages">
       {#each menuItems as { title, path } (path)}
         <li>
           <a
             on:click={() => handleClose()}
             href={path}
             class="{`page page-${path.replace(/^\//, '')}`} headers"
-            rel="prefetch"
-            aria-current={path === $page.path}>
+            aria-current={path === $page.path}
+            sveltekit:prefetch>
             {@html title}
           </a>
         </li>
