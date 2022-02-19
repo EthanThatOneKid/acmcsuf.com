@@ -71,12 +71,6 @@ async function updateOfficer() {
     return false;
   }
 
-  const abbreviatedTerm = termAbbr(term);
-  if (abbreviatedTerm === null) {
-    console.error(`received invalid term, '${term}'`);
-    return false;
-  }
-
   let officerIndex = result.findIndex((officer) => officer.name === name);
   if (officerIndex === -1) {
     // officer name not found, so let's create a new officer
@@ -84,8 +78,14 @@ async function updateOfficer() {
     officerIndex = result.length - 1;
   }
 
+  const abbreviatedTerm = termAbbr(term);
   const titleNeedsUpdate = title !== undefined && title.trim().length > 0;
   if (titleNeedsUpdate) {
+    if (abbreviatedTerm === null) {
+      console.error(`received invalid term, '${term}'`);
+      return false;
+    }
+
     if (title === 'DELETE') delete result[officerIndex].positions[abbreviatedTerm];
     else result[officerIndex].positions[abbreviatedTerm] = title.trim();
   }
