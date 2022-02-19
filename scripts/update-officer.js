@@ -102,7 +102,9 @@ async function updateOfficer() {
   }
 
   console.log(`${name.trim()}'s updated officer data: `, result[officerIndex]);
-  writeFileSync(OFFICERS_FILENAME, JSON.stringify(result, null, 2));
+
+  // Do not forget to make our linter happy by adding a new line at the end of the generated file
+  writeFileSync(OFFICERS_FILENAME, JSON.stringify(result, null, 2) + '\n');
   return true;
 }
 
