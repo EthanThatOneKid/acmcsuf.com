@@ -2,6 +2,8 @@
 
 > Official website of CSUF's ACM club.
 
+[![Website Check](https://github.com/EthanThatOneKid/acmcsuf.com/actions/workflows/check_website.yaml/badge.svg)](https://github.com/EthanThatOneKid/acmcsuf.com/actions/workflows/check_website.yaml)
+
 ## Develop [👩‍💻][figma_design]
 
 > 💡 This project runs on NodeJS; [install the latest long-term support version][node_download].

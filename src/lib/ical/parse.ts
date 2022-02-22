@@ -48,8 +48,8 @@ export function parse(icalData: string): AcmEvent[] {
       const meetingLink = isZoomMeeting
         ? rawLocation
         : location.startsWith('https://')
-        ? location
-        : '/discord';
+          ? location
+          : '/discord';
 
       const date = computeIcalDatetime(event);
       const month = date.toLocaleString(ACM_LOCALE, { month: 'long' });
@@ -65,12 +65,12 @@ export function parse(icalData: string): AcmEvent[] {
         rawAcmPath === undefined
           ? acmGeneral
           : rawAcmPath === acmAlgo.slug
-          ? acmAlgo
-          : rawAcmPath === acmCreate.slug
-          ? acmCreate
-          : rawAcmPath === acmDev.slug
-          ? acmDev
-          : acmGeneral;
+            ? acmAlgo
+            : rawAcmPath === acmCreate.slug
+              ? acmCreate
+              : rawAcmPath === acmDev.slug
+                ? acmDev
+                : acmGeneral;
 
       collection.push({
         month,
