@@ -8,7 +8,7 @@ on:
 jobs:
   issue_commented:
     name: Issue comment
-    if: ${{ !(github.event.issue.pull_request) && (github.event.issue.state == "open") }}
+    if: ${{ !(github.event.issue.pull_request) && (github.event.issue.state == 'open') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
