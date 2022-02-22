@@ -18,4 +18,6 @@ export const links = {
   bug: 'https://github.com/EthanThatOneKid/acmcsuf.com/issues/new?assignees=&labels=bug&template=bug_report.yaml',
   'history-of-rss': 'https://acmcsuf.com/blog/269',
   v2: 'https://acmcsuf.com/blog/262',
+  'intro-to-figma':
+    'https://www.figma.com/file/9riz8baPf9poRFt3Peu2X2/S22-%2F-Intro-to-Figma?node-id=0%3A1',
 } as const;
