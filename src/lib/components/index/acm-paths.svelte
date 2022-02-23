@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { acmPaths } from '$lib/constants/acm-paths';
+  import { pinnedPaths } from '$lib/constants/acm-paths';
 </script>
 
 <section>
@@ -14,7 +14,7 @@
   </div>
 
   <div class="paths-list">
-    {#each acmPaths as { title, slug, picture, color } (slug)}
+    {#each pinnedPaths as { title, slug, picture, color } (slug)}
       <a class="path-item" target="_self" href={`/paths#${slug}`}>
         <img src={picture} alt={`${slug}-logo`} />
         <p class="size-m headers">

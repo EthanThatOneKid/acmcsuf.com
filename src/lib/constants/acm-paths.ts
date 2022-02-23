@@ -34,3 +34,6 @@ export const acmGeneral: AcmPath = {
 };
 
 export const acmPaths = [acmAlgo, acmCreate, acmDev, acmGeneral] as const;
+
+/** Pinned paths are featured on the landing page. */
+export const pinnedPaths = [acmAlgo, acmCreate, acmDev] as const;
