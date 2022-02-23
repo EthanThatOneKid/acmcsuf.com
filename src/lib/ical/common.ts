@@ -146,7 +146,7 @@ export interface AcmEventDescription {
 }
 
 export function parseDescription(content: string): AcmEventDescription {
-  let resultingLines = [];
+  const resultingLines = [];
   const variables = new Map<string, string>();
 
   for (const line of content.split(/\\n/)) {

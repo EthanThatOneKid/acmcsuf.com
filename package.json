@@ -16,8 +16,8 @@
     "preview": "svelte-kit preview",
     "check": "svelte-check --tsconfig ./tsconfig.json --compiler-warnings \"css-unused-selector:ignore,unused-export-let:error\"",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-    "lint": "eslint --ignore-path .gitignore . --fix",
     "format": "prettier --ignore-path .gitignore --list-different --write --plugin-search-dir=. .",
+    "lint": "eslint --ignore-path .gitignore . --fix && npm run format",
     "tabs": "node scripts/seek-tabs.js",
     "test:size": "npm i && size-limit"
   },
@@ -41,8 +41,6 @@
     "discord.js": "^13.2.0",
     "dotenv": "^10.0.0",
     "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-svelte3": "^3.2.1",
     "node-fetch": "^3.0.0",
     "prettier": "^2.4.1",

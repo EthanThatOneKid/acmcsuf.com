@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
-  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
   plugins: ['svelte3', '@typescript-eslint'],
   ignorePatterns: ['*.cjs'],
   overrides: [
@@ -16,6 +16,8 @@ module.exports = {
     indent: ['error', 2, { SwitchCase: 1 }],
     'func-style': ['error', 'declaration', { allowArrowFunctions: false }],
     'prefer-arrow-callback': 'error',
+    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
   },
   parserOptions: {
     sourceType: 'module',
