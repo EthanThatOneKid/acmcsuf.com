@@ -145,21 +145,30 @@ export interface AcmEventDescription {
   variables: Map<string, string>;
 }
 
-export function parseDescription(content: string): AcmEventDescription {
-  const resultingLines = [];
+export function parseDescription(content: string, prefix = 'ACM_'): AcmEventDescription {
   const variables = new Map<string, string>();
 
-  for (const line of content.split(/\\n/)) {
-    if (line.includes('=')) {
-      const [key, ...value] = line.split('=');
-      variables.set(key.trim(), value.join('=').trim());
-    } else {
-      // Add line to unescaped description.
-      resultingLines.push(line.replace(/\\/g, ''));
-    }
+  let description = content.replace(/\\n/g, '<br>').replace(/\\/g, '');
+
+  console.log({ description });
+
+  // Extract variables from the description until there are no more.
+  while (description.includes(prefix)) {
+    const start = description.indexOf(prefix);
+    let end = description.indexOf('<br>', start);
+    if (end === -1) end = description.indexOf('\\n', start);
+    if (end === -1) end = description.length;
+
+    const variable = description.substring(start, end);
+
+    const splitAt = variable.indexOf('=');
+    const key = variable.substring(0, splitAt);
+    const value = variable.substring(splitAt + 1);
+
+    variables.set(key, value);
+    description = description.substring(0, start) + description.substring(end);
   }
 
-  const description = resultingLines.join('\n');
   return { description, variables };
 }
 

@@ -53,7 +53,9 @@
         rel="noopener noreferrer">Join</a>
     </summary>
     <hr />
-    <p class="event-description">{info.description}</p>
+    <p class="event-description">
+      {@html info.description}
+    </p>
   </details>
 </div>
 

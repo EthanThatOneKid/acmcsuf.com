@@ -61,6 +61,9 @@ export function parse(icalData: string): AcmEvent[] {
       const recurring = checkForRecurrence(String(event['RRULE']));
 
       const rawAcmPath = variables.get('ACM_PATH')?.toLowerCase();
+      if (rawAcmPath !== undefined) {
+        console.log(`ACM_PATH variable found for ${summary}, using ${rawAcmPath}`);
+      }
       const acmPath =
         rawAcmPath === undefined
           ? acmGeneral

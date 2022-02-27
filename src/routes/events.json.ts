@@ -2,11 +2,13 @@ import { AcmEvent, parse } from '$lib/ical/parse';
 import type { EndpointOutput } from '@sveltejs/kit';
 import type { DefaultBody } from '@sveltejs/kit/types/endpoint';
 
+// Constants
+const caching = false; // Make this false to disable server-side caching in development.
+const expirationTimeout = 1e3 * 60 * 1; // Fetch updates every 1 minute.
 const ICAL_TARGET_URL =
   'https://calendar.google.com/calendar/ical/738lnit63cr2lhp7jtduvj0c9g%40group.calendar.google.com/public/basic.ics';
 
-const caching = false; // Make this false to disable server-side caching in development.
-const expirationTimeout = 1e3 * 60 * 3; // Fetch updates every 2 minutes.
+// Globals
 let eventExpirationTimestamp = 0;
 let events: AcmEvent[] = [];
 
