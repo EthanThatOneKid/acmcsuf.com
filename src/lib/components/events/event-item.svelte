@@ -231,6 +231,7 @@
 
   .event-actionbar {
     display: flex;
+    flex-direction: row-reverse;
     padding: 0 2em 2em 2em;
 
     button {
