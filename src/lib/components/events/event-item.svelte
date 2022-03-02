@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import type { AcmEvent } from '$lib/ical/parse';
   import { toast, ToastType } from '$lib/stores/toasts';
-  import ClipboardIcon from '$lib/components/icons/clipboard.svelte';
+  import CopyLinkIcon from '$lib/components/icons/copy-link.svelte';
 
   export let info: AcmEvent;
 
@@ -75,7 +75,9 @@
       <button
         on:click={() => {
           copyEventLink(info.slug);
-        }}><ClipboardIcon /></button>
+        }}>
+        <CopyLinkIcon />
+      </button>
     </div>
   </details>
 </div>
