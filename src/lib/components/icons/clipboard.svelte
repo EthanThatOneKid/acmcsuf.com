@@ -1,17 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"
-  ><title>Clipboard</title><path
-    d="M336 64h32a48 48 0 0148 48v320a48 48 0 01-48 48H144a48 48 0 01-48-48V112a48 48 0 0148-48h32"
+  ><title>Link</title><path
+    d="M208 352h-64a96 96 0 010-192h64M304 160h64a96 96 0 010 192h-64M163.29 256h187.42"
     fill="none"
     stroke="currentColor"
+    stroke-linecap="round"
     stroke-linejoin="round"
-    stroke-width="32" /><rect
-    x="176"
-    y="32"
-    width="160"
-    height="64"
-    rx="26.13"
-    ry="26.13"
-    fill="none"
-    stroke="currentColor"
-    stroke-linejoin="round"
-    stroke-width="32" /></svg>
+    stroke-width="36" /></svg>
