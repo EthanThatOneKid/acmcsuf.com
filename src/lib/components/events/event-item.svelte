@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import type { AcmEvent } from '$lib/ical/parse';
+  import { toast } from '$lib/stores/toasts';
 
   export let info: AcmEvent;
 
@@ -56,6 +57,18 @@
     <p class="event-description">
       {@html info.description}
     </p>
+    <div class="event-actionbar">
+      <!-- todo: integrate toast
+      todo: copy on click and provide success toast 
+      icon: https://ionic.io/ionicons
+    -->
+      <button
+        on:click={() => {
+          toast({
+            content: 'Hello World',
+          });
+        }}>Yooo</button>
+    </div>
   </details>
 </div>
 
@@ -206,6 +219,16 @@
     content: 'No description.';
     opacity: 0.75;
     font-style: italic;
+  }
+
+  .event-actionbar {
+    display: flex;
+
+    button {
+      width: 50px;
+      height: 50px;
+      background-color: rgb(var(--highlights, --general-rgb));
+    }
   }
 
   @media (max-width: 799px) {
