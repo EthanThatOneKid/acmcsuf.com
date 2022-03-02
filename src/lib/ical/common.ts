@@ -122,9 +122,9 @@ export function computeIcalDatetime(event: IcalOutput): Date {
   return parseRawIcalDatetime(rawDatetime as string);
 }
 
-export function slugifyEvent(summary: string, month: string, day: number): string {
+export function slugifyEvent(summary: string, year: string, month: string, day: number): string {
   const cleanedSummary = summary.replace(/[^\w\s_]/g, '').replace(/(\s|-|_)+/g, '-');
-  const slug = [cleanedSummary, month, day].join('-').toLowerCase();
+  const slug = [cleanedSummary, year, month, day].join('-').toLowerCase();
   return slug;
 }
 

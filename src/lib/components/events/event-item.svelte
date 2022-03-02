@@ -1,13 +1,26 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import type { AcmEvent } from '$lib/ical/parse';
-  import { toast } from '$lib/stores/toasts';
+  import { toast, ToastType } from '$lib/stores/toasts';
+  import ClipboardIcon from '$lib/components/icons/clipboard.svelte';
 
   export let info: AcmEvent;
 
   let isRecurring: boolean = info.recurring;
   let anchor: HTMLElement;
   let details: HTMLDetailsElement;
+
+  function copyEventLink(slug: string) {
+    const eventLink = location.origin + location.pathname + '#' + slug;
+
+    // @see <https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText>
+    navigator.clipboard
+      .writeText(eventLink)
+      .then(() => toast({ content: 'Copied event link to clipboard!' }))
+      .catch(() =>
+        toast({ type: ToastType.Error, content: 'Failed to copy event link to clipboard!' })
+      );
+  }
 
   onMount(() => {
     if (location.hash === `#${info.slug}`) {
@@ -16,6 +29,7 @@
         block: 'start',
         inline: 'center',
       });
+
       // This has the same styling as :target, and :target doesn't want to work
       // for dynamically-added elements.
       details.open = true;
@@ -58,16 +72,10 @@
       {@html info.description}
     </p>
     <div class="event-actionbar">
-      <!-- todo: integrate toast
-      todo: copy on click and provide success toast 
-      icon: https://ionic.io/ionicons
-    -->
       <button
         on:click={() => {
-          toast({
-            content: 'Hello World',
-          });
-        }}>Yooo</button>
+          copyEventLink(info.slug);
+        }}><ClipboardIcon /></button>
     </div>
   </details>
 </div>
@@ -223,11 +231,23 @@
 
   .event-actionbar {
     display: flex;
+    padding: 0 2em 2em 2em;
 
     button {
-      width: 50px;
-      height: 50px;
-      background-color: rgb(var(--highlights, --general-rgb));
+      --size: 40px;
+
+      width: var(--size);
+      height: var(--size);
+      padding: calc(var(--size) * 0.15);
+      box-shadow: 0 6px 18px rgba(var(--highlights, --general-rgb), 0.25);
+      transition: all 0.25s ease-in-out;
+      border-radius: 30px;
+      border: 2px solid var(--acm-dark);
+      background-color: var(--acm-light);
+    }
+
+    button:hover {
+      box-shadow: 0 6px 18px rgba(var(--highlights, --general-rgb), 0.66);
     }
   }
 

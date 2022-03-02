@@ -1,13 +1,16 @@
 <script lang="ts">
-  import { toasts, dismissToast } from '$lib/stores/toasts';
-  import { writable } from 'svelte/store';
+  import { fly } from 'svelte/transition';
+  import { toasts } from '$lib/stores/toasts';
 </script>
 
 <section>
   {#each $toasts as toastItem (toastItem.id)}
-    <div class="toast-item" style={`--highlights: var(--${toastItem.type}-rgb)`}>
+    <div
+      class="toast-item"
+      in:fly={{ x: 20, y: 20 }}
+      out:fly={{ x: 20, y: -20 }}
+      style={`--highlights: var(--${toastItem.type}-rgb)`}>
       {@html toastItem.content}
-      <button on:click={() => dismissToast(toastItem.id)}>X</button>
     </div>
   {/each}
 </section>
@@ -28,10 +31,10 @@
   }
 
   .toast-item {
-    margin: 32px 64px;
-    padding: 0;
+    margin: 32px 32px;
+    padding: 2em;
     box-shadow: 0 6px 18px rgba(var(--highlights, --general-rgb), 0.25);
-    transition: all 0.15s ease-in-out;
+    transition: all 0.25s ease-in-out;
     border-radius: 30px;
     border: 2px solid var(--acm-dark);
     background-color: var(--acm-light);

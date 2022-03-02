@@ -52,12 +52,14 @@ export function parse(icalData: string): AcmEvent[] {
         : '/discord';
 
       const date = computeIcalDatetime(event);
+      const year = date.toLocaleString(ACM_LOCALE, { year: 'numeric' });
       const month = date.toLocaleString(ACM_LOCALE, { month: 'long' });
       const day = date.getDate();
       const time = date.toLocaleTimeString(ACM_LOCALE, { hour: 'numeric', minute: 'numeric' });
+      const slug = slugifyEvent(summary, year, month, day);
 
-      const slug = slugifyEvent(summary, month, day);
       const recurring = checkForRecurrence(String(event['RRULE']));
+
       const rawAcmPath = variables.get('ACM_PATH')?.toLowerCase();
       const acmPath =
         rawAcmPath === undefined
