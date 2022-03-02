@@ -145,24 +145,24 @@ export interface AcmEventDescription {
   variables: Map<string, string>;
 }
 
-export function parseDescription(content: string, prefix = 'ACM_'): AcmEventDescription {
+export function parseDescription(content: string, varPrefix = 'ACM_'): AcmEventDescription {
   const variables = new Map<string, string>();
 
   let description = content.replace(/\\n/g, '<br>').replace(/\\/g, '');
 
-  console.log({ description });
-
   // Extract variables from the description until there are no more.
-  while (description.includes(prefix)) {
-    const start = description.indexOf(prefix);
-    let end = description.indexOf('<br>', start);
-    if (end === -1) end = description.indexOf('\\n', start);
-    if (end === -1) end = description.length;
+  while (description.includes(varPrefix)) {
+    const start = description.indexOf(varPrefix);
+    const nextTag = description.indexOf('<', start);
+    const end =
+      nextTag > -1
+        ? nextTag // Stop at next HTML tag (e.g. '<br>')
+        : description.length; // Or stop at end of string
 
     const variable = description.substring(start, end);
 
     const splitAt = variable.indexOf('=');
-    const key = variable.substring(0, splitAt);
+    const key = variable.substring(0, splitAt).trim();
     const value = variable.substring(splitAt + 1);
 
     variables.set(key, value);
