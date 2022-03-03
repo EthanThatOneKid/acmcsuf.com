@@ -34,6 +34,11 @@ body {
   --acm-dark: #101315;
   --acm-light: #f8f8f8;
 
+  --acm-general-rgb: 44, 145, 198;
+  --acm-algo-rgb: 157, 53, 231;
+  --acm-create-rgb: 255, 67, 101;
+  --acm-dev-rgb: 30, 108, 255;
+
   --desktop-breakpoint: 768px;
   --navbar-height: 82px;
 

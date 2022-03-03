@@ -122,9 +122,9 @@ export function computeIcalDatetime(event: IcalOutput): Date {
   return parseRawIcalDatetime(rawDatetime as string);
 }
 
-export function slugifyEvent(summary: string, month: string, day: number): string {
+export function slugifyEvent(summary: string, year: string, month: string, day: number): string {
   const cleanedSummary = summary.replace(/[^\w\s_]/g, '').replace(/(\s|-|_)+/g, '-');
-  const slug = [cleanedSummary, month, day].join('-').toLowerCase();
+  const slug = [cleanedSummary, year, month, day].join('-').toLowerCase();
   return slug;
 }
 
@@ -145,21 +145,30 @@ export interface AcmEventDescription {
   variables: Map<string, string>;
 }
 
-export function parseDescription(content: string): AcmEventDescription {
-  const resultingLines = [];
+export function parseDescription(content: string, varPrefix = 'ACM_'): AcmEventDescription {
   const variables = new Map<string, string>();
 
-  for (const line of content.split(/\\n/)) {
-    if (line.includes('=')) {
-      const [key, ...value] = line.split('=');
-      variables.set(key.trim(), value.join('=').trim());
-    } else {
-      // Add line to unescaped description.
-      resultingLines.push(line.replace(/\\/g, ''));
-    }
+  let description = content.replace(/\\n/g, '<br>').replace(/\\/g, '');
+
+  // Extract variables from the description until there are no more.
+  while (description.includes(varPrefix)) {
+    const start = description.indexOf(varPrefix);
+    const nextTag = description.indexOf('<', start);
+    const end =
+      nextTag > -1
+        ? nextTag // Stop at next HTML tag (e.g. '<br>')
+        : description.length; // Or stop at end of string
+
+    const variable = description.substring(start, end);
+
+    const splitAt = variable.indexOf('=');
+    const key = variable.substring(0, splitAt).trim();
+    const value = variable.substring(splitAt + 1);
+
+    variables.set(key, value);
+    description = description.substring(0, start) + description.substring(end);
   }
 
-  const description = resultingLines.join('\n');
   return { description, variables };
 }
 
