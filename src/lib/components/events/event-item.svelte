@@ -3,6 +3,8 @@
   import type { AcmEvent } from '$lib/ical/parse';
   import { toast, ToastType } from '$lib/stores/toasts';
   import CopyLinkIcon from '$lib/components/icons/copy-link.svelte';
+  import CopyTextIcon from '$lib/components/icons/copy-text.svelte';
+  import AcmEmpty from '../utils/acm-empty.svelte';
 
   export let info: AcmEvent;
 
@@ -23,6 +25,15 @@
           path: event.acmPath.slug,
           content: 'Failed to copy event link to clipboard!',
         })
+      );
+  }
+
+  function copyEventSummary(event: AcmEvent) {
+    navigator.clipboard
+      .writeText(event.summary)
+      .then(() => toast({ content: 'Copied event summary to clipboard!' }))
+      .catch(() =>
+        toast({ type: ToastType.Error, content: 'Failed to copy event summary to clipboard!' })
       );
   }
 
@@ -50,12 +61,14 @@
         <h2 class="headers">
           {info.summary}
         </h2>
+
         <p class="event-location">
           {info.location === 'Discord' || info.location === 'Zoom'
             ? `Hosted on ${info.location}`
             : info.location}
         </p>
       </div>
+
       <p class="event-date">
         <!-- TODO: RFC3339 timestamp for datetime -->
         <time>
@@ -64,6 +77,7 @@
           {#if isRecurring}(recurring){/if}
         </time>
       </p>
+
       <a
         class="event-join size-s"
         href={info.meetingLink}
@@ -71,16 +85,20 @@
         target="_blank"
         rel="noopener noreferrer">Join</a>
     </summary>
+
     <hr />
+
     <p class="event-description">
       {@html info.description}
     </p>
+
     <div class="event-actionbar">
-      <button
-        on:click={() => {
-          copyEventLink(info);
-        }}>
+      <button on:click={() => copyEventLink(info)}>
         <CopyLinkIcon />
+      </button>
+
+      <button on:click={() => copyEventSummary(info)}>
+        <CopyTextIcon />
       </button>
     </div>
   </details>
@@ -232,6 +250,7 @@
     display: flex;
     flex-direction: row-reverse;
     padding: 0 2em 2em 2em;
+    gap: 1em;
 
     button {
       --size: 40px;
