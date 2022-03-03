@@ -161,8 +161,14 @@
     transition: all 0.15s ease-in-out;
   }
 
-  .event-body:hover .event-name {
-    color: rgb(var(--highlights, --acm-general-rgb));
+  .event-body:hover {
+    .event-name {
+      color: rgb(var(--highlights, --acm-general-rgb));
+    }
+
+    .event-join:hover {
+      color: rgb(var(--highlights, --acm-general-rgb));
+    }
   }
 
   .event-body h2 {
