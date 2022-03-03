@@ -10,15 +10,19 @@
   let anchor: HTMLElement;
   let details: HTMLDetailsElement;
 
-  function copyEventLink(slug: string) {
-    const eventLink = location.origin + location.pathname + '#' + slug;
+  function copyEventLink(event: AcmEvent) {
+    const eventLink = location.origin + location.pathname + '#' + event.slug;
 
     // @see <https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText>
     navigator.clipboard
       .writeText(eventLink)
-      .then(() => toast({ content: 'Copied event link to clipboard!' }))
+      .then(() => toast({ content: 'Copied event link to clipboard!', path: event.acmPath.slug }))
       .catch(() =>
-        toast({ type: ToastType.Error, content: 'Failed to copy event link to clipboard!' })
+        toast({
+          type: ToastType.Error,
+          path: event.acmPath.slug,
+          content: 'Failed to copy event link to clipboard!',
+        })
       );
   }
 
@@ -37,7 +41,7 @@
   });
 </script>
 
-<div class="event-box" style={`--highlights: var(--${info.acmPath.slug}-rgb)`}>
+<div class="event-box" style={`--highlights: var(--acm-${info.acmPath.slug}-rgb)`}>
   <!-- Workaround for the top panel covering the event card's anchor. -->
   <div class="anchor" id={info.slug} bind:this={anchor} />
   <details class="event-card" bind:this={details}>
@@ -74,7 +78,7 @@
     <div class="event-actionbar">
       <button
         on:click={() => {
-          copyEventLink(info.slug);
+          copyEventLink(info);
         }}>
         <CopyLinkIcon />
       </button>
@@ -84,13 +88,6 @@
 
 <style lang="scss">
   @import 'static/theme.scss';
-
-  :root {
-    --general-rgb: 44, 145, 198;
-    --algo-rgb: 157, 53, 231;
-    --create-rgb: 255, 67, 101;
-    --dev-rgb: 30, 108, 255;
-  }
 
   .event-box {
     position: relative;
@@ -106,29 +103,29 @@
   .event-card {
     margin: 32px 64px;
     padding: 0;
-    box-shadow: 0 6px 18px rgba(var(--highlights, --general-rgb), 0.25);
+    box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.25);
     transition: all 0.15s ease-in-out;
     border-radius: 30px;
     border: 2px solid var(--acm-dark);
   }
 
   .event-card:hover {
-    box-shadow: 0 6px 18px rgba(var(--highlights, --general-rgb), 0.65);
+    box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.65);
   }
 
   .event-card[open] {
-    box-shadow: 0 6px 24px rgba(var(--highlights, --general-rgb), 0.75);
-    border: 2px solid rgb(var(--highlights, --general-rgb));
+    box-shadow: 0 6px 24px rgba(var(--highlights, --acm-general-rgb), 0.75);
+    border: 2px solid rgb(var(--highlights, --acm-general-rgb));
   }
 
   .event-card:hover h2,
   .event-card[open] h2 {
-    color: rgb(var(--highlights, --general-rgb));
+    color: rgb(var(--highlights, --acm-general-rgb));
   }
 
   .event-box > .anchor:target + .event-card {
-    box-shadow: 0 6px 24px rgba(var(--highlights, --general-rgb), 0.75);
-    border: 2px solid rgb(var(--highlights, --general-rgb));
+    box-shadow: 0 6px 24px rgba(var(--highlights, --acm-general-rgb), 0.75);
+    border: 2px solid rgb(var(--highlights, --acm-general-rgb));
   }
 
   .event-card hr {
@@ -165,7 +162,7 @@
   }
 
   .event-body:hover .event-name {
-    color: rgb(var(--highlights, --general-rgb));
+    color: rgb(var(--highlights, --acm-general-rgb));
   }
 
   .event-body h2 {
@@ -242,7 +239,7 @@
       width: var(--size);
       height: var(--size);
       padding: calc(var(--size) * 0.15);
-      box-shadow: 0 6px 18px rgba(var(--highlights, --general-rgb), 0.25);
+      box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.25);
       transition: all 0.25s ease-in-out;
       border-radius: 30px;
       border: 2px solid var(--acm-dark);
@@ -250,7 +247,7 @@
     }
 
     button:hover {
-      box-shadow: 0 6px 18px rgba(var(--highlights, --general-rgb), 0.66);
+      box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.66);
     }
   }
 
