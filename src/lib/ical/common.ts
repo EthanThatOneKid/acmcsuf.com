@@ -1,4 +1,28 @@
 import RRule from 'rrule';
+import type { CalendarEvent } from './calendar-link';
+import * as calendarLink from './calendar-link';
+import type { AcmPath } from '$lib/constants/acm-paths';
+
+export interface AcmEvent {
+  date: Date;
+  month: string;
+  day: number;
+  time: string;
+  location: string;
+  summary: string;
+  description: string;
+  meetingLink: string;
+  slug: string;
+  selfLink: string;
+  recurring: boolean;
+  acmPath: AcmPath;
+  calendarLinks: {
+    google: string;
+    outlook: string;
+    office365: string;
+    yahoo: string;
+  };
+}
 
 export interface IcalOutput {
   [key: string]: string | string[] | IcalOutput[];
@@ -184,4 +208,41 @@ export function cleanSummary(summary?: string): string {
   if (summary === undefined) return 'Unnamed Event';
 
   return summary.replace(/\\/g, '');
+}
+
+export function makeEventLink(slug: string): string {
+  return 'https://acmcsuf.com/events' + '#' + slug;
+}
+
+export function makeCalendarLink(
+  type: 'google' | 'outlook' | 'office365' | 'yahoo',
+  summary: string,
+  description: string,
+  selfLink: string,
+  date: Date
+): string {
+  const options: CalendarEvent = {
+    title: summary,
+    description: description.length > 0 ? `${description}\n\n${selfLink}` : selfLink,
+    start: date,
+    duration: [2, 'hour'],
+  };
+
+  switch (type) {
+    case 'google': {
+      return calendarLink.google(options);
+    }
+    case 'outlook': {
+      return calendarLink.outlook(options);
+    }
+    case 'office365': {
+      return calendarLink.office365(options);
+    }
+    case 'yahoo': {
+      return calendarLink.yahoo(options);
+    }
+    default: {
+      return '';
+    }
+  }
 }

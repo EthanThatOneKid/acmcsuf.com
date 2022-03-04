@@ -1,7 +1,6 @@
 import { Time, ACM_LOCALE } from '$lib/constants/time';
-import type { AcmPath } from '$lib/constants/acm-paths';
 import { acmAlgo, acmCreate, acmDev, acmGeneral } from '$lib/constants/acm-paths';
-import type { IcalOutput } from './common';
+import { IcalOutput, AcmEvent, makeEventLink } from './common';
 import {
   parseRawIcal,
   parseDescription,
@@ -11,21 +10,8 @@ import {
   sortByDate,
   filterIfPassed,
   cleanSummary,
+  makeCalendarLink,
 } from './common';
-
-export interface AcmEvent {
-  date: Date;
-  month: string;
-  day: number;
-  time: string;
-  location: string;
-  summary: string;
-  description: string;
-  meetingLink: string;
-  slug: string;
-  recurring: boolean;
-  acmPath: AcmPath;
-}
 
 export function parse(icalData: string): AcmEvent[] {
   const now = Date.now();
@@ -57,6 +43,7 @@ export function parse(icalData: string): AcmEvent[] {
       const day = date.getDate();
       const time = date.toLocaleTimeString(ACM_LOCALE, { hour: 'numeric', minute: 'numeric' });
       const slug = slugifyEvent(summary, year, month, day);
+      const selfLink = makeEventLink(slug);
 
       const recurring = checkForRecurrence(String(event['RRULE']));
 
@@ -72,6 +59,14 @@ export function parse(icalData: string): AcmEvent[] {
           ? acmDev
           : acmGeneral;
 
+      const calendarLinks = (['google', 'outlook', 'office365', 'yahoo'] as const).reduce(
+        (links, service) => {
+          links[service] = makeCalendarLink(service, summary, description, selfLink, date);
+          return links;
+        },
+        {} as AcmEvent['calendarLinks']
+      );
+
       const item = {
         month,
         day,
@@ -82,8 +77,10 @@ export function parse(icalData: string): AcmEvent[] {
         meetingLink,
         date,
         slug,
+        selfLink,
         recurring,
         acmPath,
+        calendarLinks,
       };
 
       collection.push(item);
@@ -95,3 +92,5 @@ export function parse(icalData: string): AcmEvent[] {
 
   return events;
 }
+
+export type { AcmEvent };
