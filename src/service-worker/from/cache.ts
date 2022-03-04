@@ -3,5 +3,5 @@ import { CURRENT_CACHE_NAME } from '../common';
 export async function fromCache(request: Request): Promise<Response> {
   const cache = await caches.open(CURRENT_CACHE_NAME);
   const matching = await cache.match(request);
-  return matching || cache.match('/about/'); // Fallback to /about/ if not found
+  return matching || cache.match('/'); // Fallback to homepage if not found
 }
