@@ -31,7 +31,7 @@
   function copyEventSummary(event: AcmEvent) {
     navigator.clipboard
       .writeText(event.summary)
-      .then(() => toast({ content: 'Copied event summary to clipboard!' }))
+      .then(() => toast({ content: 'Copied event title to clipboard!' }))
       .catch(() =>
         toast({ type: ToastType.Error, content: 'Failed to copy event summary to clipboard!' })
       );
