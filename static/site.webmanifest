@@ -1,6 +1,7 @@
 {
   "name": "acmcsuf.com",
-  "short_name": "ACM at CSUF",
+  "short_name": "acmCSUF",
+  "description": "ACM at CSUF",
   "author": "https://github.com/EthanThatOneKid/acmcsuf.com/",
   "homepage_url": "https://acmcsuf.com/",
   "offline_enabled": true,
@@ -19,7 +20,7 @@
   ],
   "theme_color": "#3792c1",
   "background_color": "#ffffff",
-  "start_url": "https://acmcsuf.com/",
+  "start_url": ".",
   "display": "standalone",
   "orientation": "portrait"
 }
