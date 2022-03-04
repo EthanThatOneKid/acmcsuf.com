@@ -59,6 +59,7 @@ worker.addEventListener('fetch', (event) => {
 
   // don't try to handle e.g. data: URIs
   const isHttp = url.protocol.startsWith('http');
+  const isGlobalCSS = url.pathname.endsWith('global.css');
   const isDevServerRequest =
     url.hostname === self.location.hostname && url.port !== self.location.port;
   const isStaticAsset = url.host === self.location.host && staticAssets.has(url.pathname);
@@ -72,7 +73,9 @@ worker.addEventListener('fetch', (event) => {
         // set this variable to true for them and they will only be fetched once.
         const cachedAsset = isStaticAsset && (await caches.match(event.request));
 
-        return cachedAsset || fetchAndCache(event.request);
+        if (cachedAsset || isGlobalCSS) {
+          return fetchAndCache(event.request);
+        }
       })()
     );
   }
