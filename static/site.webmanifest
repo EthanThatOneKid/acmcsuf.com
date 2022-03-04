@@ -1,11 +1,6 @@
 {
   "name": "acmcsuf.com",
-  "short_name": "acmCSUF",
-  "description": "ACM at CSUF",
-  "author": "https://github.com/EthanThatOneKid/acmcsuf.com/",
-  "homepage_url": "https://acmcsuf.com/",
-  "offline_enabled": true,
-  "omnibox": { "keyword": "acmcsuf" },
+  "short_name": "acmcsuf.com",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -18,9 +13,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#3792c1",
+  "theme_color": "#ffffff",
   "background_color": "#ffffff",
-  "start_url": ".",
-  "display": "standalone",
-  "orientation": "portrait"
+  "display": "standalone"
 }
