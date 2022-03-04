@@ -4,7 +4,6 @@
   import { toast, ToastType } from '$lib/stores/toasts';
   import CopyLinkIcon from '$lib/components/icons/copy-link.svelte';
   import CopyTextIcon from '$lib/components/icons/copy-text.svelte';
-  import AcmEmpty from '../utils/acm-empty.svelte';
 
   export let info: AcmEvent;
 
