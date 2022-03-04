@@ -46,7 +46,11 @@
 
   function makeGoogleCalendarLink(event: AcmEvent) {
     const eventLink = makeEventLink(event);
+    const start = new Date(event.date);
+    const end = new Date(event.date);
     end.setHours(end.getHours() + 2);
+
+    const BASE_CALENDAR_URL = 'https://calendar.google.com/calendar/render';
     const params = new URLSearchParams({
       action: 'TEMPLATE',
       text: event.summary,
@@ -65,7 +69,12 @@
         toast({ content: 'Copied Google Calendar link to clipboard!', path: event.acmPath.slug })
       )
       .catch(() =>
+        toast({
+          type: ToastType.Error,
+          content: 'Failed to copy Google Calendar link to clipboard!',
           path: event.acmPath.slug,
+        })
+      );
   }
 
   onMount(() => {
