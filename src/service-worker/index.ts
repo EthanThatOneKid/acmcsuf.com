@@ -1,7 +1,5 @@
 /// <reference lib="webworker" />
-import { CURRENT_CACHE_NAME, BUILD_FILES, cacheRequest } from './common';
-import { fromCache } from './from/cache';
-import { fromNetwork } from './from/network';
+import { CURRENT_CACHE_NAME, BUILD_FILES } from './common';
 
 self.addEventListener('activate', (event: ExtendableEvent) => {
   event.waitUntil(
@@ -25,7 +23,5 @@ self.addEventListener('install', (event: ExtendableEvent) => {
 self.addEventListener('fetch', (event: FetchEvent) => {
   // If online, try to fetch from network with a timeout.
   // If anything fails, try to serve from cache.
-  event.respondWith(fromNetwork(event.request, 10e3).catch(() => fromCache(event.request)));
-
-  event.waitUntil(cacheRequest(event.request));
+  event.respondWith(fetch(event.request));
 });
