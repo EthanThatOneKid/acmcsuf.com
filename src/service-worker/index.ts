@@ -26,4 +26,6 @@ self.addEventListener('fetch', (event: FetchEvent) => {
   // If online, try to fetch from network with a timeout.
   // If anything fails, try to serve from cache.
   event.respondWith(fromNetwork(event.request, 10e3).catch(() => fromCache(event.request)));
+
+  event.waitUntil(cacheRequest(event.request));
 });
