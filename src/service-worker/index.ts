@@ -1,5 +1,5 @@
 /// <reference lib="webworker" />
-import { CURRENT_CACHE_NAME, BUILD_FILES, CACHE_BLOCKLIST } from './common';
+import { CURRENT_CACHE_NAME, BUILD_FILES } from './common';
 import { fromNetwork } from './from/network';
 import { fromCache } from './from/cache';
 
@@ -8,12 +8,7 @@ self.addEventListener('activate', (event: ExtendableEvent) => {
     caches.keys().then((cacheNames) =>
       Promise.all(
         // Delete old caches with an expired cache name
-        cacheNames.map(
-          (cacheName) =>
-            cacheName !== CURRENT_CACHE_NAME &&
-            !CACHE_BLOCKLIST.has('/' + cacheName) &&
-            caches.delete(cacheName)
-        )
+        cacheNames.map((cacheName) => cacheName !== CURRENT_CACHE_NAME && caches.delete(cacheName))
       )
     )
   );
