@@ -175,4 +175,4 @@ export function ics(calendarEvent: CalendarEvent): string {
   return `data:text/calendar;charset=utf8,${calendarUrl}`;
 }
 
-export { CalendarEvent };
+export type { CalendarEvent };
