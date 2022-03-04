@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
+import utc from 'dayjs/plugin/utc.js';
 import { stringify } from 'query-string';
 
 import type { CalendarEvent, NormalizedCalendarEvent, Google, Outlook, Yahoo } from './interfaces';
