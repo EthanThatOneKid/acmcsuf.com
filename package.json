@@ -22,6 +22,7 @@
     "test:size": "npm i && size-limit"
   },
   "dependencies": {
+    "calendar-link": "^2.1.1",
     "gfm.css": "^1.1.2",
     "html-to-text": "^8.1.0",
     "rfs": "^9.0.6",

@@ -1,11 +1,16 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { page } from '$app/stores';
+  import type { CalendarEvent } from 'calendar-link';
+  import { google, outlook, office365, yahoo } from 'calendar-link';
   import type { AcmEvent } from '$lib/ical/parse';
   import { toast, ToastType } from '$lib/stores/toasts';
   import CopyLinkIcon from '$lib/components/icons/copy-link.svelte';
   import CopyTextIcon from '$lib/components/icons/copy-text.svelte';
-  import CalendarIcon from '$lib/components/icons/calendar.svelte';
+  import GoogleCalendarIcon from '$lib/components/icons/google-calendar.svelte';
+  import MsOutlookIcon from '$lib/components/icons/ms-outlook.svelte';
+  import MsOfficeIcon from '$lib/components/icons/ms-office.svelte';
+  import YahooIcon from '$lib/components/icons/yahoo.svelte';
 
   export let info: AcmEvent;
 
@@ -44,27 +49,33 @@
       );
   }
 
-  function makeGoogleCalendarLink(event: AcmEvent) {
+  function makeCalendarLink(type: 'google' | 'outlook' | 'office365' | 'yahoo', event: AcmEvent) {
     const eventLink = makeEventLink(event);
-    const start = new Date(event.date);
-    const end = new Date(event.date);
-    end.setHours(end.getHours() + 2);
+    const options: CalendarEvent = {
+      title: event.summary,
+      description:
+        event.description.length > 0 ? `${event.description}\n\n${eventLink}` : eventLink,
+      start: event.date,
+      duration: [2, 'hour'],
+    };
 
-    const BASE_CALENDAR_URL = 'https://calendar.google.com/calendar/render';
-    const params = new URLSearchParams({
-      action: 'TEMPLATE',
-      text: event.summary,
-      details: event.description.length > 0 ? `${event.description}\n\n${eventLink}` : eventLink,
-      dates: encodeURIComponent(start.toISOString() + '/' + end.toISOString()),
-    });
-
-    const calendarLink = BASE_CALENDAR_URL + '?' + params;
-    return calendarLink;
+    switch (type) {
+      case 'google':
+        return google(options);
+      case 'outlook':
+        return outlook(options);
+      case 'office365':
+        return office365(options);
+      case 'yahoo':
+        return yahoo(options);
+      default:
+        return '';
+    }
   }
 
   function copyGoogleCalendarLink(event: AcmEvent) {
     navigator.clipboard
-      .writeText(makeGoogleCalendarLink(event))
+      .writeText(makeCalendarLink('google', event))
       .then(() =>
         toast({ content: 'Copied Google Calendar link to clipboard!', path: event.acmPath.slug })
       )
@@ -72,6 +83,57 @@
         toast({
           type: ToastType.Error,
           content: 'Failed to copy Google Calendar link to clipboard!',
+          path: event.acmPath.slug,
+        })
+      );
+  }
+
+  function copyMsOutlookCalendarLink(event: AcmEvent) {
+    navigator.clipboard
+      .writeText(makeCalendarLink('outlook', event))
+      .then(() =>
+        toast({
+          content: 'Copied Microsoft Outlook link calendar to clipboard!',
+          path: event.acmPath.slug,
+        })
+      )
+      .catch(() =>
+        toast({
+          type: ToastType.Error,
+          content: 'Failed to copy Microsoft Outlook calendar link to clipboard!',
+          path: event.acmPath.slug,
+        })
+      );
+  }
+
+  function copyMsOffice365CalendarLink(event: AcmEvent) {
+    navigator.clipboard
+      .writeText(makeCalendarLink('office365', event))
+      .then(() =>
+        toast({
+          content: 'Copied Microsoft Office 365 calendar link to clipboard!',
+          path: event.acmPath.slug,
+        })
+      )
+      .catch(() =>
+        toast({
+          type: ToastType.Error,
+          content: 'Failed to copy Microsoft Office 365 calendar link to clipboard!',
+          path: event.acmPath.slug,
+        })
+      );
+  }
+
+  function copyYahooCalendarLink(event: AcmEvent) {
+    navigator.clipboard
+      .writeText(makeCalendarLink('yahoo', event))
+      .then(() =>
+        toast({ content: 'Copied Yahoo! calendar link to clipboard!', path: event.acmPath.slug })
+      )
+      .catch(() =>
+        toast({
+          type: ToastType.Error,
+          content: 'Failed to copy Yahoo! calendar link to clipboard!',
           path: event.acmPath.slug,
         })
       );
@@ -145,7 +207,28 @@
         class="action-item"
         title="Copy Google Calendar link"
         on:click={() => copyGoogleCalendarLink(info)}>
-        <CalendarIcon />
+        <GoogleCalendarIcon />
+      </button>
+
+      <button
+        class="action-item"
+        title="Copy Microsoft Outlook calendar link"
+        on:click={() => copyMsOutlookCalendarLink(info)}>
+        <MsOutlookIcon />
+      </button>
+
+      <button
+        class="action-item"
+        title="Copy Microsoft Office 365 calendar link"
+        on:click={() => copyMsOffice365CalendarLink(info)}>
+        <MsOfficeIcon />
+      </button>
+
+      <button
+        class="action-item"
+        title="Copy Yahoo! calendar link"
+        on:click={() => copyYahooCalendarLink(info)}>
+        <YahooIcon />
       </button>
     </div>
   </details>
