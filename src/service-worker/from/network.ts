@@ -6,8 +6,11 @@ export function fromNetwork(request: Request, timeout: number): Promise<Response
 
     fetch(request).then((response) => {
       clearTimeout(timeoutId);
-      fulfill(response);
-      cacheRequest(request);
+
+      if (response.ok) {
+        fulfill(response);
+        cacheRequest(request);
+      }
     }, reject);
   });
 }
