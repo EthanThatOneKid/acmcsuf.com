@@ -19,7 +19,8 @@
     "format": "prettier --ignore-path .gitignore --list-different --write --plugin-search-dir=. .",
     "lint": "eslint --ignore-path .gitignore . --fix && npm run format",
     "tabs": "node scripts/seek-tabs.js",
-    "test:size": "npm i && size-limit"
+    "test:size": "npm i && size-limit",
+    "all": "npm run lint && npm run check && npm run build && npm run preview"
   },
   "dependencies": {
     "gfm.css": "^1.1.2",

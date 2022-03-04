@@ -13,7 +13,7 @@ In that directory, each file represents one page of the website.
 | `/src/routes/about.svelte`       | `https://acmcsuf.com/about/` |
 | `/src/routes/paths/index.svelte` | `https://acmcsuf.com/paths/` |
 
-> ℹ more info: <https://kit.svelte.dev/docs#routing-advanced>
+> ℹ more info: <https://kit.svelte.dev/docs/routing#advanced-routing>
 
 ### `/src/routes/__layout.svelte` 📄
 
@@ -33,27 +33,27 @@ This page should be happy since errors are normally frustrating for users.
 
 Read more about how error pages are used in the [SvelteKit documentation](https://kit.svelte.dev/docs#layouts-error-pages).
 
-## `/src/components/` 📁
+## `/src/lib/components/` 📁
 
-Other components of the website can be organized into the [`/components/` directory](src/components).
+Other components of the website can be organized into the [`/lib/components/` directory](src/lib/components).
 These files are like pieces of the website that can be composed together in the `/routes` components.
-For example, the [`/components/index/hero.svelte`](src/components/index/hero.svelte) and [`/components/index/acm-paths.svelte`](src/components/index/acm-paths.svelte) components are used in [`/routes/index.svelte`](src/routes/index.svelte).
+For example, the [`/lib/components/index/hero.svelte`](src/lib/components/index/hero.svelte) and [`/lib/components/index/acm-paths.svelte`](src/lib/components/index/acm-paths.svelte) components are used in [`/routes/index.svelte`](src/routes/index.svelte).
 
-If you take a look at the [`components` directory](src/components), you will find a list of several more directories within.
+If you take a look at the [`lib/components` directory](src/lib/components), you will find a list of several more directories within.
 Most of these directories share the name of a route in the [`/routes/` directory](src/routes).
-For example, all components under [`/components/events/`](src/components/events) are used in the `/events/` route of the website.
-Additionally, all components under [`/components/index/`](src/components/index) are used in the `/` route.
+For example, all components under [`/lib/components/events/`](src/lib/components/events) are used in the `/events/` route of the website.
+Additionally, all components under [`/components/index/`](src/lib/components/index) are used in the `/` route.
 
-### `/src/components/utils/` 📁
+### `/src/lib/components/utils/` 📁
 
-There are a couple of directories in the components directory that do not fit the `/components/[route_name]/[component_name].svelte` pattern.
-One of them is the [`/components/utils/` directory](src/components/utils).
+There are a couple of directories in the components directory that do not fit the `/lib/components/[route_name]/[component_name].svelte` pattern.
+One of them is the [`/lib/components/utils/` directory](src/lib/components/utils).
 This directory contains utility components that are used by multiple routes.
 This includes `acm-button.svelte` and `acm-select.svelte`, for example.
 
-### `/src/components/icons/` 📁
+### `/src/lib/components/icons/` 📁
 
-The [`/components/icons/` directory](src/components/icons) contains several Svelte files that contain SVG data.
+The [`/lib/components/icons/` directory](src/lib/components/icons) contains several Svelte files that contain SVG data.
 These icons can be used in the website in multiple places.
 
 ## `/static/` 📁
@@ -79,24 +79,24 @@ Each board member who is shown in this directory has granted their consent for t
 #### `/static/assets/png/` 📁
 
 The [`/static/assets/png/` directory](static/assets/png) contains all images and illustrations used on the website that are in the PNG file format.
-For visual content in other formats (i.e. SVG), see [`/components/icons`](src/components/icons).
+For visual content in other formats (i.e. SVG), see [`/lib/components/icons`](src/lib/components/icons).
 
 ## `tsconfig.json` 📄
 
 The [TSConfig file](tsconfig.json) is used by the TypeScript compiler to specify any compilation parameters and settings.
 In the case of this project, our TSConfig is mostly extended from [`@tsconfig/svelte`](https://www.npmjs.com/package/@tsconfig/svelte), an opinionated base TSConfig for working with Svelte.
 
-## `svelte.config.ts` 📄
+## `svelte.config.js` 📄
 
-[This file](svelte.config.ts) is a configuration file of sorts that handles the bundling and live page reloading when developing the project.
+[This file](svelte.config.js) is a configuration file of sorts that handles the bundling and live page reloading when developing the project.
 
-## `.eslintrc.js` 📄
+## `.eslintrc.cjs` 📄
 
-[This file](.eslintrc.js) is a file that declares the _linting_ configuration of the project.
+[This file](.eslintrc.cjs) is a file that declares the _linting_ configuration of the project.
 
-## `.prettier.js` 📄
+## `.prettierrc` 📄
 
-[This file](.prettier.js) is a file that declares the _formatting_ configuration of the project.
+[This file](.prettierrc) is a file that declares the _formatting_ configuration of the project.
 
 ## `package.json` 📄
 
