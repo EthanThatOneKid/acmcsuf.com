@@ -1,9 +1,11 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { page } from '$app/stores';
   import type { AcmEvent } from '$lib/ical/parse';
   import { toast, ToastType } from '$lib/stores/toasts';
   import CopyLinkIcon from '$lib/components/icons/copy-link.svelte';
   import CopyTextIcon from '$lib/components/icons/copy-text.svelte';
+  import CalendarIcon from '$lib/components/icons/calendar.svelte';
 
   export let info: AcmEvent;
 
@@ -11,12 +13,14 @@
   let anchor: HTMLElement;
   let details: HTMLDetailsElement;
 
-  function copyEventLink(event: AcmEvent) {
-    const eventLink = location.origin + location.pathname + '#' + event.slug;
+  function makeEventLink(event: AcmEvent): string {
+    return $page.host + $page.path + '#' + event.slug;
+  }
 
-    // @see <https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText>
+  /** @see <https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText> */
+  function copyEventLink(event: AcmEvent) {
     navigator.clipboard
-      .writeText(eventLink)
+      .writeText(makeEventLink(event))
       .then(() => toast({ content: 'Copied event link to clipboard!', path: event.acmPath.slug }))
       .catch(() =>
         toast({
@@ -38,6 +42,30 @@
           path: event.acmPath.slug,
         })
       );
+  }
+
+  function makeGoogleCalendarLink(event: AcmEvent) {
+    const eventLink = makeEventLink(event);
+    end.setHours(end.getHours() + 2);
+    const params = new URLSearchParams({
+      action: 'TEMPLATE',
+      text: event.summary,
+      details: event.description.length > 0 ? `${event.description}\n\n${eventLink}` : eventLink,
+      dates: encodeURIComponent(start.toISOString() + '/' + end.toISOString()),
+    });
+
+    const calendarLink = BASE_CALENDAR_URL + '?' + params;
+    return calendarLink;
+  }
+
+  function copyGoogleCalendarLink(event: AcmEvent) {
+    navigator.clipboard
+      .writeText(makeGoogleCalendarLink(event))
+      .then(() =>
+        toast({ content: 'Copied Google Calendar link to clipboard!', path: event.acmPath.slug })
+      )
+      .catch(() =>
+          path: event.acmPath.slug,
   }
 
   onMount(() => {
@@ -96,12 +124,19 @@
     </p>
 
     <div class="event-actionbar">
-      <button on:click={() => copyEventLink(info)}>
+      <button class="action-item" title="Copy event link" on:click={() => copyEventLink(info)}>
         <CopyLinkIcon />
       </button>
 
-      <button on:click={() => copyEventSummary(info)}>
+      <button class="action-item" title="Copy event title" on:click={() => copyEventSummary(info)}>
         <CopyTextIcon />
+      </button>
+
+      <button
+        class="action-item"
+        title="Copy Google Calendar link"
+        on:click={() => copyGoogleCalendarLink(info)}>
+        <CalendarIcon />
       </button>
     </div>
   </details>
@@ -261,7 +296,7 @@
     padding: 0 2em 2em 2em;
     gap: 1em;
 
-    button {
+    .action-item {
       --size: 40px;
 
       width: var(--size);
@@ -274,7 +309,7 @@
       background-color: var(--acm-light);
     }
 
-    button:hover {
+    .action-item:hover {
       box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.66);
     }
   }
