@@ -73,7 +73,9 @@ worker.addEventListener('fetch', (event) => {
         // set this variable to true for them and they will only be fetched once.
         const cachedAsset = isStaticAsset && (await caches.match(event.request));
 
-        return cachedAsset || fetchAndCache(event.request);
+        if (cachedAsset || isGlobalCSS) {
+          return fetchAndCache(event.request);
+        }
       })()
     );
   }
