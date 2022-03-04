@@ -1,6 +1,5 @@
 /// <reference lib="webworker" />
-import { build, files, timestamp } from '$service-worker';
-import { CURRENT_CACHE_NAME, cacheRequest } from './common';
+import { CURRENT_CACHE_NAME, BUILD_FILES, cacheRequest } from './common';
 import { fromCache } from './from/cache';
 import { fromNetwork } from './from/network';
 
@@ -19,7 +18,7 @@ self.addEventListener('install', (event) => {
   event.wautUntil(
     // Cache known build output and static files
     // @see <https://kit.svelte.dev/docs/modules#$service-worker-build>
-    caches.open(CURRENT_CACHE_NAME).then((cache) => cache.addAll([...build, ...files]))
+    caches.open(CURRENT_CACHE_NAME).then((cache) => cache.addAll(BUILD_FILES))
   );
 });
 
