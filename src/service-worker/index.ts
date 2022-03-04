@@ -1,7 +1,7 @@
 /// <reference lib="webworker" />
-import { CURRENT_CACHE_NAME, BUILD_FILES, cacheRequest } from './common';
-import { fromCache } from './from/cache';
+import { CURRENT_CACHE_NAME, BUILD_FILES } from './common';
 import { fromNetwork } from './from/network';
+import { fromCache } from './from/cache';
 
 self.addEventListener('activate', (event: ExtendableEvent) => {
   event.waitUntil(
