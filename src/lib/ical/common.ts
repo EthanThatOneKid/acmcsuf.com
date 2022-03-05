@@ -9,8 +9,9 @@ export interface AcmEvent {
   day: number;
   time: string;
   location: string;
-  summary: string;
+  title: string;
   description: string;
+  summary: string;
   meetingLink: string;
   slug: string;
   selfLink: string;
@@ -144,10 +145,10 @@ export function computeIcalDatetime(event: IcalOutput): Date {
   return parseRawIcalDatetime(rawDatetime as string);
 }
 
-export function slugifyEvent(summary: string, year: string, month: string, day: number): string {
-  const cleanedSummary = summary.replace(/[^\w\s_]/g, '').replace(/(\s|-|_)+/g, '-');
-  const slug = [cleanedSummary, year, month, day].join('-').toLowerCase();
-  return slug;
+export function slugifyEvent(title: string, year: string, month: string, day: number): string {
+  const slugifiedTitle = title.replace(/[^\w\s_]/g, '').replace(/(\s|-|_)+/g, '-');
+  const slugifiedEvent = [slugifiedTitle, year, month, day].join('-').toLowerCase();
+  return slugifiedEvent;
 }
 
 export function checkForRecurrence(raw?: string): boolean {
@@ -202,10 +203,10 @@ export function filterIfPassed(now: number, offset = 0) {
   return ({ date }: { date: Date }): boolean => date.valueOf() + offset > now;
 }
 
-export function cleanSummary(summary?: string): string {
-  if (summary === undefined) return 'Unnamed Event';
+export function cleanTitle(title?: string): string {
+  if (title === undefined) return 'Unnamed Event';
 
-  return summary.replace(/\\/g, '');
+  return title.replace(/\\/g, '');
 }
 
 export function makeEventLink(slug: string): string {
@@ -214,14 +215,14 @@ export function makeEventLink(slug: string): string {
 
 export function makeCalendarLink(
   type: 'google' | 'outlook' | 'office365' | 'yahoo',
-  summary: string,
+  title: string,
   description: string,
   selfLink: string,
   date: Date
 ): string {
   const options: CalendarEvent = {
-    title: summary,
-    description: description.length > 0 ? `${description}\n\n${selfLink}` : selfLink,
+    title,
+    description: produceSummary(title, description, selfLink),
     start: date,
     duration: [2, 'hour'],
   };
@@ -243,4 +244,28 @@ export function makeCalendarLink(
       return '';
     }
   }
+}
+
+function wrapText(text: string, width = 100) {
+  const lines: string[] = [];
+
+  while (text.length > width) {
+    const index = text.lastIndexOf(' ', width);
+    if (index === -1) {
+      lines.push(text.substring(0, width));
+      text = text.substring(width);
+    } else {
+      lines.push(text.substring(0, index));
+      text = text.substring(index + 1);
+    }
+  }
+
+  lines.push(text);
+  return lines;
+}
+
+export function produceSummary(title: string, description: string, selfLink: string): string {
+  return description.length > 0
+    ? [title, '='.repeat(title.length), '', ...wrapText(description), '', selfLink].join('\n')
+    : title + ' — ' + selfLink;
 }

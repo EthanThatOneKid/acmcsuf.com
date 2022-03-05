@@ -43,7 +43,7 @@
     <summary class="event-body">
       <div class="event-name">
         <h2 class="headers">
-          {info.summary}
+          {info.title}
         </h2>
 
         <p class="event-location">
@@ -92,12 +92,12 @@
 
       <button
         class="action-item"
-        title="Copy event title"
+        title="Copy event summary"
         on:click={() =>
           copy(
-            info.selfLink,
-            'Copied event title to clipboard!',
-            'Failed to copy event title to clipboard!',
+            info.summary,
+            'Copied event summary to clipboard!',
+            'Failed to copy event summary to clipboard!',
             info.acmPath.slug
           )}>
         <CopyTextIcon />

@@ -9,7 +9,8 @@ import {
   checkForRecurrence,
   sortByDate,
   filterIfPassed,
-  cleanSummary,
+  cleanTitle,
+  produceSummary,
   makeCalendarLink,
 } from './common';
 
@@ -23,9 +24,19 @@ export function parse(icalData: string): AcmEvent[] {
         return collection;
       }
 
-      const summary = cleanSummary(String(event['SUMMARY']));
+      const recurring = checkForRecurrence(String(event['RRULE']));
+      const date = computeIcalDatetime(event);
+      const year = date.toLocaleString(ACM_LOCALE, { year: 'numeric' });
+      const month = date.toLocaleString(ACM_LOCALE, { month: 'long' });
+      const day = date.getDate();
+      const time = date.toLocaleTimeString(ACM_LOCALE, { hour: 'numeric', minute: 'numeric' });
+
+      const title = cleanTitle(String(event['SUMMARY']));
+      const slug = slugifyEvent(title, year, month, day);
+      const selfLink = makeEventLink(slug);
       const rawDescription = String(event['DESCRIPTION']);
       const { description, variables } = parseDescription(rawDescription);
+      const summary = produceSummary(title, description, selfLink);
 
       const rawLocation = String(event['LOCATION']);
       const isZoomMeeting = rawLocation.startsWith('https://fullerton.zoom.us');
@@ -36,16 +47,6 @@ export function parse(icalData: string): AcmEvent[] {
         : location.startsWith('https://')
         ? location
         : '/discord';
-
-      const date = computeIcalDatetime(event);
-      const year = date.toLocaleString(ACM_LOCALE, { year: 'numeric' });
-      const month = date.toLocaleString(ACM_LOCALE, { month: 'long' });
-      const day = date.getDate();
-      const time = date.toLocaleTimeString(ACM_LOCALE, { hour: 'numeric', minute: 'numeric' });
-      const slug = slugifyEvent(summary, year, month, day);
-      const selfLink = makeEventLink(slug);
-
-      const recurring = checkForRecurrence(String(event['RRULE']));
 
       const rawAcmPath = variables.get('ACM_PATH')?.toLowerCase();
       const acmPath =
@@ -60,15 +61,16 @@ export function parse(icalData: string): AcmEvent[] {
           : acmGeneral;
 
       const calendarLinks = (['google', 'outlook'] as const).reduce((links, service) => {
-        links[service] = makeCalendarLink(service, summary, description, selfLink, date);
+        links[service] = makeCalendarLink(service, title, description, selfLink, date);
         return links;
       }, {} as AcmEvent['calendarLinks']);
 
-      const item = {
+      const item: AcmEvent = {
         month,
         day,
         time,
         location,
+        title,
         summary,
         description,
         meetingLink,
