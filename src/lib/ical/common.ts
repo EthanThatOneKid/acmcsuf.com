@@ -1,4 +1,27 @@
 import RRule from 'rrule';
+import type { CalendarEvent } from '$lib/calendar-link';
+import * as calendarLink from '$lib/calendar-link';
+import type { AcmPath } from '$lib/constants/acm-paths';
+
+export interface AcmEvent {
+  date: Date;
+  month: string;
+  day: number;
+  time: string;
+  location: string;
+  title: string;
+  description: string;
+  summary: string;
+  meetingLink: string;
+  slug: string;
+  selfLink: string;
+  recurring: boolean;
+  acmPath: AcmPath;
+  calendarLinks: {
+    google: string;
+    outlook: string;
+  };
+}
 
 export interface IcalOutput {
   [key: string]: string | string[] | IcalOutput[];
@@ -122,10 +145,10 @@ export function computeIcalDatetime(event: IcalOutput): Date {
   return parseRawIcalDatetime(rawDatetime as string);
 }
 
-export function slugifyEvent(summary: string, year: string, month: string, day: number): string {
-  const cleanedSummary = summary.replace(/[^\w\s_]/g, '').replace(/(\s|-|_)+/g, '-');
-  const slug = [cleanedSummary, year, month, day].join('-').toLowerCase();
-  return slug;
+export function slugifyEvent(title: string, year: string, month: string, day: number): string {
+  const slugifiedTitle = title.replace(/[^\w\s_]/g, '').replace(/(\s|-|_)+/g, '-');
+  const slugifiedEvent = [slugifiedTitle, year, month, day].join('-').toLowerCase();
+  return slugifiedEvent;
 }
 
 export function checkForRecurrence(raw?: string): boolean {
@@ -180,8 +203,69 @@ export function filterIfPassed(now: number, offset = 0) {
   return ({ date }: { date: Date }): boolean => date.valueOf() + offset > now;
 }
 
-export function cleanSummary(summary?: string): string {
-  if (summary === undefined) return 'Unnamed Event';
+export function cleanTitle(title?: string): string {
+  if (title === undefined) return 'Unnamed Event';
 
-  return summary.replace(/\\/g, '');
+  return title.replace(/\\/g, '');
+}
+
+export function makeEventLink(slug: string): string {
+  return 'https://acmcsuf.com/events' + '#' + slug;
+}
+
+export function makeCalendarLink(
+  type: 'google' | 'outlook' | 'office365' | 'yahoo',
+  title: string,
+  description: string,
+  selfLink: string,
+  date: Date
+): string {
+  const options: CalendarEvent = {
+    title,
+    description: produceSummary(title, description, selfLink),
+    start: date,
+    duration: [2, 'hour'],
+  };
+
+  switch (type) {
+    case 'google': {
+      return calendarLink.google(options);
+    }
+    case 'outlook': {
+      return calendarLink.outlook(options);
+    }
+    case 'office365': {
+      return calendarLink.office365(options);
+    }
+    case 'yahoo': {
+      return calendarLink.yahoo(options);
+    }
+    default: {
+      return '';
+    }
+  }
+}
+
+function wrapText(text: string, width = 100) {
+  const lines: string[] = [];
+
+  while (text.length > width) {
+    const index = text.lastIndexOf(' ', width);
+    if (index === -1) {
+      lines.push(text.substring(0, width));
+      text = text.substring(width);
+    } else {
+      lines.push(text.substring(0, index));
+      text = text.substring(index + 1);
+    }
+  }
+
+  lines.push(text);
+  return lines;
+}
+
+export function produceSummary(title: string, description: string, selfLink: string): string {
+  return description.length > 0
+    ? [title, '='.repeat(title.length), '', ...wrapText(description), '', selfLink].join('\n')
+    : title + ' — ' + selfLink;
 }

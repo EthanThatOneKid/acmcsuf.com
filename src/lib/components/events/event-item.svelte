@@ -1,11 +1,11 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { page } from '$app/stores';
   import type { AcmEvent } from '$lib/ical/parse';
   import { toast, ToastType } from '$lib/stores/toasts';
   import CopyLinkIcon from '$lib/components/icons/copy-link.svelte';
   import CopyTextIcon from '$lib/components/icons/copy-text.svelte';
-  import CalendarIcon from '$lib/components/icons/calendar.svelte';
+  import GoogleCalendarIcon from '$lib/components/icons/google-calendar.svelte';
+  import MsOutlookIcon from '$lib/components/icons/ms-outlook.svelte';
 
   export let info: AcmEvent;
 
@@ -13,68 +13,12 @@
   let anchor: HTMLElement;
   let details: HTMLDetailsElement;
 
-  function makeEventLink(event: AcmEvent): string {
-    return $page.host + $page.path + '#' + event.slug;
-  }
-
   /** @see <https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText> */
-  function copyEventLink(event: AcmEvent) {
+  function copy(link: string, successMessage: string, errorMessage: string, path: string) {
     navigator.clipboard
-      .writeText(makeEventLink(event))
-      .then(() => toast({ content: 'Copied event link to clipboard!', path: event.acmPath.slug }))
-      .catch(() =>
-        toast({
-          type: ToastType.Error,
-          path: event.acmPath.slug,
-          content: 'Failed to copy event link to clipboard!',
-        })
-      );
-  }
-
-  function copyEventSummary(event: AcmEvent) {
-    navigator.clipboard
-      .writeText(event.summary)
-      .then(() => toast({ content: 'Copied event title to clipboard!', path: event.acmPath.slug }))
-      .catch(() =>
-        toast({
-          type: ToastType.Error,
-          content: 'Failed to copy event summary to clipboard!',
-          path: event.acmPath.slug,
-        })
-      );
-  }
-
-  function makeGoogleCalendarLink(event: AcmEvent) {
-    const eventLink = makeEventLink(event);
-    const start = new Date(event.date);
-    const end = new Date(event.date);
-    end.setHours(end.getHours() + 2);
-
-    const BASE_CALENDAR_URL = 'https://calendar.google.com/calendar/render';
-    const params = new URLSearchParams({
-      action: 'TEMPLATE',
-      text: event.summary,
-      details: event.description.length > 0 ? `${event.description}\n\n${eventLink}` : eventLink,
-      dates: encodeURIComponent(start.toISOString() + '/' + end.toISOString()),
-    });
-
-    const calendarLink = BASE_CALENDAR_URL + '?' + params;
-    return calendarLink;
-  }
-
-  function copyGoogleCalendarLink(event: AcmEvent) {
-    navigator.clipboard
-      .writeText(makeGoogleCalendarLink(event))
-      .then(() =>
-        toast({ content: 'Copied Google Calendar link to clipboard!', path: event.acmPath.slug })
-      )
-      .catch(() =>
-        toast({
-          type: ToastType.Error,
-          content: 'Failed to copy Google Calendar link to clipboard!',
-          path: event.acmPath.slug,
-        })
-      );
+      .writeText(link)
+      .then(() => toast({ content: successMessage, path }))
+      .catch(() => toast({ path, type: ToastType.Error, content: errorMessage }));
   }
 
   onMount(() => {
@@ -99,7 +43,7 @@
     <summary class="event-body">
       <div class="event-name">
         <h2 class="headers">
-          {info.summary}
+          {info.title}
         </h2>
 
         <p class="event-location">
@@ -133,19 +77,56 @@
     </p>
 
     <div class="event-actionbar">
-      <button class="action-item" title="Copy event link" on:click={() => copyEventLink(info)}>
+      <button
+        class="action-item"
+        title="Copy event link"
+        on:click={() =>
+          copy(
+            info.selfLink,
+            'Copied event link to clipboard!',
+            'Failed to copy event link to clipboard!',
+            info.acmPath.slug
+          )}>
         <CopyLinkIcon />
       </button>
 
-      <button class="action-item" title="Copy event title" on:click={() => copyEventSummary(info)}>
+      <button
+        class="action-item"
+        title="Copy event summary"
+        on:click={() =>
+          copy(
+            info.summary,
+            'Copied event summary to clipboard!',
+            'Failed to copy event summary to clipboard!',
+            info.acmPath.slug
+          )}>
         <CopyTextIcon />
       </button>
 
       <button
         class="action-item"
         title="Copy Google Calendar link"
-        on:click={() => copyGoogleCalendarLink(info)}>
-        <CalendarIcon />
+        on:click={() =>
+          copy(
+            info.calendarLinks.google,
+            'Copied Google Calendar link to clipboard!',
+            'Failed to copy Google Calendar link to clipboard!',
+            info.acmPath.slug
+          )}>
+        <GoogleCalendarIcon />
+      </button>
+
+      <button
+        class="action-item"
+        title="Copy Microsoft Outlook calendar link"
+        on:click={() =>
+          copy(
+            info.calendarLinks.outlook,
+            'Copied Microsoft Outlook calendar link to clipboard!',
+            'Failed to copy Microsoft Outlook calendar link to clipboard!',
+            info.acmPath.slug
+          )}>
+        <MsOutlookIcon />
       </button>
     </div>
   </details>
