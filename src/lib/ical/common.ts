@@ -1,6 +1,6 @@
 import RRule from 'rrule';
-import type { CalendarEvent } from './calendar-link';
-import * as calendarLink from './calendar-link';
+import type { CalendarEvent } from '$lib/calendar-link';
+import * as calendarLink from '$lib/calendar-link';
 import type { AcmPath } from '$lib/constants/acm-paths';
 
 export interface AcmEvent {
