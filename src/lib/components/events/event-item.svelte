@@ -6,8 +6,6 @@
   import CopyTextIcon from '$lib/components/icons/copy-text.svelte';
   import GoogleCalendarIcon from '$lib/components/icons/google-calendar.svelte';
   import MsOutlookIcon from '$lib/components/icons/ms-outlook.svelte';
-  import MsOfficeIcon from '$lib/components/icons/ms-office.svelte';
-  import YahooIcon from '$lib/components/icons/yahoo.svelte';
 
   export let info: AcmEvent;
 
@@ -129,32 +127,6 @@
             info.acmPath.slug
           )}>
         <MsOutlookIcon />
-      </button>
-
-      <button
-        class="action-item"
-        title="Copy Microsoft Office 365 calendar link"
-        on:click={() =>
-          copy(
-            info.selfLink,
-            'Copied Microsoft Office 365 calendar link to clipboard!',
-            'Failed to copy Microsoft Office 365 calendar link to clipboard!',
-            info.acmPath.slug
-          )}>
-        <MsOfficeIcon />
-      </button>
-
-      <button
-        class="action-item"
-        title="Copy Yahoo! calendar link"
-        on:click={() =>
-          copy(
-            info.selfLink,
-            'Copied Yahoo! calendar link to clipboard!',
-            'Failed to copy Yahoo! calendar link to clipboard!',
-            info.acmPath.slug
-          )}>
-        <YahooIcon />
       </button>
     </div>
   </details>
