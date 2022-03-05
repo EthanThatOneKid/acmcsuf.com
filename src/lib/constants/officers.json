@@ -262,5 +262,12 @@
       "S21": "NodeBuds Officer"
     },
     "picture": "dalisa-nguyen.png"
+  },
+  {
+    "name": "Daniel Truong",
+    "positions": {
+      "S22": "Dev Project Manager"
+    },
+    "picture": "daniel-truong.png"
   }
 ]
