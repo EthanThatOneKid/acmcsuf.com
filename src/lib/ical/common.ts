@@ -19,8 +19,6 @@ export interface AcmEvent {
   calendarLinks: {
     google: string;
     outlook: string;
-    office365: string;
-    yahoo: string;
   };
 }
 

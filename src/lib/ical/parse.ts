@@ -59,13 +59,10 @@ export function parse(icalData: string): AcmEvent[] {
           ? acmDev
           : acmGeneral;
 
-      const calendarLinks = (['google', 'outlook', 'office365', 'yahoo'] as const).reduce(
-        (links, service) => {
-          links[service] = makeCalendarLink(service, summary, description, selfLink, date);
-          return links;
-        },
-        {} as AcmEvent['calendarLinks']
-      );
+      const calendarLinks = (['google', 'outlook'] as const).reduce((links, service) => {
+        links[service] = makeCalendarLink(service, summary, description, selfLink, date);
+        return links;
+      }, {} as AcmEvent['calendarLinks']);
 
       const item = {
         month,

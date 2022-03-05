@@ -108,7 +108,7 @@
         title="Copy Google Calendar link"
         on:click={() =>
           copy(
-            info.selfLink,
+            info.calendarLinks.google,
             'Copied Google Calendar link to clipboard!',
             'Failed to copy Google Calendar link to clipboard!',
             info.acmPath.slug
@@ -121,7 +121,7 @@
         title="Copy Microsoft Outlook calendar link"
         on:click={() =>
           copy(
-            info.selfLink,
+            info.calendarLinks.outlook,
             'Copied Microsoft Outlook calendar link to clipboard!',
             'Failed to copy Microsoft Outlook calendar link to clipboard!',
             info.acmPath.slug
