@@ -1,17 +1,29 @@
 import OFFICERS_JSON from './officers.json';
+import TIERS_JSON from './tiers.json';
 
-export interface Officer {
-  name: string;
-  positions: Record<string, string>;
-  picture?: string;
-  url?: string;
-  ghUsername?: string;
+export enum Term {
+  Spring21 = 'S21',
+  Fall21 = 'F21',
+  Spring22 = 'S22',
+  Fall22 = 'F22',
+  Spring23 = 'S23',
 }
 
-export const TERM_SPRING_21 = 'S21';
-export const TERM_FALL_21 = 'F21';
-export const TERM_SPRING_22 = 'S22';
+export interface Officer {
+  fullName: string;
+  picture: string;
+  displayName?: string;
 
-export const TERMS = [TERM_SPRING_22, TERM_FALL_21, TERM_SPRING_21];
+  positions: {
+    [t in Term]?: {
+      title: string;
+      tier: number;
+    };
+  };
+}
+
+export const VISIBLE_TERMS = [Term.Spring22, Term.Fall21, Term.Spring21];
 
 export const OFFICERS: Officer[] = [...OFFICERS_JSON];
+
+export const TIERS: string[] = [...TIERS_JSON];

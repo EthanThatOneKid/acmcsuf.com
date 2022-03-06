@@ -50,7 +50,7 @@ export const newslettersQuery = `{
 
 function getOfficerByGhUsername(ghUsername: string): Officer | null {
   // get author by GitHub username
-  const officer = OFFICERS.find((o) => o.ghUsername !== undefined && o.ghUsername === ghUsername);
+  const officer = OFFICERS.find((o) => o.displayName !== undefined && o.displayName === ghUsername);
   return officer ?? null;
 }
 
@@ -76,8 +76,8 @@ function formatNewsletters(output: any): Newsletter[] {
     const url = '/blog/' + id;
     const labels = discussion.labels.nodes.map(({ name }) => name);
     const officer = getOfficerByGhUsername(author.login);
-    const authorUrl: string = officer?.url ?? author.url;
-    const displayname: string = officer?.name ?? author.login;
+    const authorUrl: string = author.url;
+    const displayname: string = officer?.fullName ?? author.login;
     const picture: string = officer?.picture ?? author.avatarUrl;
 
     return {

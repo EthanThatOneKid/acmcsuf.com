@@ -1,7 +1,7 @@
 <script lang="ts">
   import OfficerProfile from '$lib/components/about/officer-profile.svelte';
   import AcmSelect from '$lib/components/utils/acm-select.svelte';
-  import { OFFICERS, TERMS } from '$lib/constants/officers';
+  import { OFFICERS, VISIBLE_TERMS } from '$lib/constants/officers';
   import type { Officer } from '$lib/constants/officers';
   import { termIndex } from '$lib/stores/term-index';
 
@@ -18,15 +18,29 @@
     return `${termText} 20${yearDigit1}${yearDigit2}`;
   }
 
+  /**
+   * @param termCode ex: `F21`, `S22`, etc.
+   * @returns sort function for `Officer`s
+   */
+  function sortByTier(termCode: string) {
+    return (a: Officer, b: Officer) => {
+      const aTier = a.positions[termCode].tier;
+      const bTier = b.positions[termCode].tier;
+      return aTier - bTier;
+    };
+  }
+
   // The process below is admittedly _hacky_. Due to a constraint with
   // the AcmSelect component, the index of the selected item must be
   // handled outside of the component. Below, we are updating the
   // termIndex when the AcmSelect component's value changes.
-  const formattedTerms = TERMS.map(formatTerm);
+  const formattedTerms = VISIBLE_TERMS.map(formatTerm);
   let filteredOfficers = [];
   let currentFormattedTerm = formattedTerms[$termIndex];
   $: $termIndex = formattedTerms.indexOf(currentFormattedTerm);
-  termIndex.subscribe(() => (filteredOfficers = OFFICERS.filter(filter)));
+  termIndex.subscribe(
+    () => (filteredOfficers = OFFICERS.filter(filter).sort(sortByTier(VISIBLE_TERMS[$termIndex])))
+  );
 </script>
 
 <section>
@@ -36,12 +50,8 @@
 
   <div class="container">
     <div class="officer-profile-list">
-      {#each filteredOfficers as { name, positions, picture } (`${name}-${$termIndex}`)}
-        <OfficerProfile
-          {name}
-          title={positions[TERMS[$termIndex]]}
-          {picture}
-          {placeholderPicture} />
+      {#each filteredOfficers as officer ($termIndex + officer.fullName)}
+        <OfficerProfile info={officer} {placeholderPicture} />
       {/each}
     </div>
   </div>

@@ -6,15 +6,15 @@ import { readFileSync, writeFileSync, createWriteStream } from 'fs';
  * Example officer data:
  * ```json
  * {
- *	"name": "Ethan Davidson",
+ *	"fullName": "Ethan Davidson",
+ *  "picture": "ethan-davidson.png",
  *	"positions": {
- *		"F20": "Competition Manager",
- *		"S21": "Webmaster",
- *		"F21": "Webmaster"
- *	},
- *	"picture": "ethan-davidson.png"
+ *		"F20": { title: "Competition Manager", tier: Tier.GeneralBoard },
+ *		"S21": { title: "Webmaster", tier: Tier.GeneralBoard },
+ *		"F21": { title: "Webmaster", tier: Tier.GeneralBoard }
+ *	}
  * }
- *```
+ * ```
  */
 const OFFICERS_FILENAME = './src/lib/constants/officers.json';
 
@@ -35,6 +35,7 @@ function parseImgSrcFromMd(markdown) {
   const mdPattern = /!\[[^\]]*\]\((?<filename>.*?)(?="|\))(?<optionalpart>".*")?\)/m;
   let match = mdPattern.exec(markdown);
   if (match !== null) return match.groups.filename;
+
   // https://stackoverflow.com/a/450117
   const htmlPattern = /src\s*=\s*"(.+?)"/m;
   match = htmlPattern.exec(markdown);
@@ -56,25 +57,28 @@ async function downloadOfficerImage(url, officerName) {
 }
 
 async function updateOfficer() {
+  const TIERS_JSON = JSON.parse(readFileSync('./src/lib/constants/tiers.json'));
   const result = JSON.parse(readFileSync(OFFICERS_FILENAME));
 
   const {
-    ['Officer Name']: name,
+    ['Officer Name']: fullName,
     ['Term to Overwrite']: term,
     ['Overwrite Officer Position Title']: title,
+    ['Overwrite Officer Position Tier']: rawTier,
+    ['Overwrite Officer GitHub Username']: displayName,
     ['Overwrite Officer Picture']: picture,
   } = JSON.parse(process.env.FORM_DATA);
 
-  const isValidName = name?.trim().length > 0 ?? false;
-  if (!isValidName) {
-    console.error(`received invalid officer name, ${name}`);
+  const isValidFullName = fullName?.trim().length > 0 ?? false;
+  if (!isValidFullName) {
+    console.error(`received invalid officer name, ${fullName}`);
     return false;
   }
 
-  let officerIndex = result.findIndex((officer) => officer.name === name);
+  let officerIndex = result.findIndex((officer) => officer.fullName === fullName);
   if (officerIndex === -1) {
-    // officer name not found, so let's create a new officer
-    result.push({ name, positions: {} });
+    // officer fullName not found, so let's create a new officer
+    result.push({ fullName, positions: {} });
     officerIndex = result.length - 1;
   }
 
@@ -86,8 +90,21 @@ async function updateOfficer() {
       return false;
     }
 
-    if (title === 'DELETE') delete result[officerIndex].positions[abbreviatedTerm];
-    else result[officerIndex].positions[abbreviatedTerm] = title.trim();
+    if (title === 'DELETE') {
+      delete result[officerIndex].positions[abbreviatedTerm];
+    } else {
+      result[officerIndex].positions[abbreviatedTerm].title = title.trim();
+    }
+  }
+
+  const tierValue = TIERS_JSON.indexOf(rawTier);
+  if (tierValue !== -1 && term.trim().length > 0 && title !== 'DELETE') {
+    result[officerIndex].positions[abbreviatedTerm].tier = tierValue;
+  }
+
+  const displayNameNeedsUpdate = displayName !== undefined && displayName.trim().length > 0;
+  if (displayNameNeedsUpdate) {
+    result[officerIndex].displayName = displayName.trim();
   }
 
   const pictureNeedsUpdate = picture !== undefined && picture.trim().length > 0;
@@ -97,11 +114,11 @@ async function updateOfficer() {
       console.error(`received invalid officer picture '${picture}'`);
       return false;
     }
-    const relativeImgSrc = await downloadOfficerImage(imgSrc, name);
+    const relativeImgSrc = await downloadOfficerImage(imgSrc, fullName);
     if (typeof relativeImgSrc === 'string') result[officerIndex].picture = relativeImgSrc;
   }
 
-  console.log(`${name.trim()}'s updated officer data: `, result[officerIndex]);
+  console.log(`${fullName.trim()}'s updated officer data: `, result[officerIndex]);
 
   // Do not forget to make our linter happy by adding a new line at the end of the generated file
   writeFileSync(OFFICERS_FILENAME, JSON.stringify(result, null, 2) + '\n');
