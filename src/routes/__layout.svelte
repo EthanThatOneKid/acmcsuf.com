@@ -13,8 +13,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>acmCSUF / ACM at CSUF</title>
-
-  <link rel="stylesheet" href="/global.css" />
 </svelte:head>
 
 <style>
