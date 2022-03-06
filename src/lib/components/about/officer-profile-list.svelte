@@ -51,7 +51,7 @@
   <div class="container">
     <div class="officer-profile-list">
       {#each filteredOfficers as officer ($termIndex + officer.fullName)}
-        <OfficerProfile info={officer} {placeholderPicture} dev={true} />
+        <OfficerProfile info={officer} {placeholderPicture} />
       {/each}
     </div>
   </div>
