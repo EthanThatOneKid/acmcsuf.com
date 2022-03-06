@@ -1,12 +1,15 @@
 <script lang="ts">
-  export let placeholderPicture = 'placeholder.png';
-  export let name = '';
-  export let title = '';
-  export let picture = placeholderPicture;
+  import { Officer, TIERS, VISIBLE_TERMS } from '$lib/constants';
+  import { termIndex } from '$lib/stores/term-index';
 
-  let officerName = name;
-  let officerPicture = picture;
-  let titleHTML = title
+  export let info: Officer;
+  export let placeholderPicture = 'placeholder.png';
+  export let dev = false;
+
+  const officerName = info.fullName ?? '';
+  const officerPicture = info.picture ?? placeholderPicture;
+
+  $: titleHTML = info.positions[VISIBLE_TERMS[$termIndex]].title
     .replace(/Create/, `<span class="brand-em brand-pink">Create</span>`)
     .replace(/Algo/, `<span class="brand-em brand-purple">Algo</span>`)
     .replace(/Dev/, `<span class="brand-em brand-bluer">Dev</span>`)
@@ -14,6 +17,8 @@
       /NodeBuds/,
       `<span class="headers">node<span class="brand-em brand-red">Buds</span></span>`
     );
+
+  $: officerTier = dev ? TIERS[info.positions[VISIBLE_TERMS[$termIndex]].tier] : '';
 </script>
 
 <div class="officer-container">
@@ -23,6 +28,7 @@
     alt={`Image of ${officerName}.`} />
   <h3 class="headers">
     {officerName}
+    {#if officerTier.length}<br />{officerTier}<br />{/if}
   </h3>
   <p>
     {@html titleHTML}

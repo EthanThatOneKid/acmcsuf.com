@@ -26,7 +26,7 @@
     return (a: Officer, b: Officer) => {
       const aTier = a.positions[termCode].tier;
       const bTier = b.positions[termCode].tier;
-      return aTier === bTier ? 0 : aTier < bTier ? -1 : 1;
+      return aTier - bTier;
     };
   }
 
@@ -50,12 +50,8 @@
 
   <div class="container">
     <div class="officer-profile-list">
-      {#each filteredOfficers as { name, positions, picture } (`${name}-${$termIndex}`)}
-        <OfficerProfile
-          {name}
-          {picture}
-          title={positions[VISIBLE_TERMS[$termIndex]].title}
-          {placeholderPicture} />
+      {#each filteredOfficers as officer ($termIndex + officer.fullName)}
+        <OfficerProfile info={officer} {placeholderPicture} dev={true} />
       {/each}
     </div>
   </div>

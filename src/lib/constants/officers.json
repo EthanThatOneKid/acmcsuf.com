@@ -15,7 +15,7 @@
     "positions": {
       "S21": {
         "title": "Internal Vice President, NodeBuds Officer",
-        "tier": 0
+        "tier": 1
       },
       "F21": {
         "title": "President, NodeBuds Officer",
@@ -33,11 +33,11 @@
     "positions": {
       "F21": {
         "title": "Vice President",
-        "tier": 0
+        "tier": 1
       },
       "S22": {
         "title": "Vice President",
-        "tier": 0
+        "tier": 1
       }
     }
   },
@@ -47,7 +47,7 @@
     "positions": {
       "S21": {
         "title": "Vice President, Dev Director",
-        "tier": 0
+        "tier": 1
       }
     }
   },
@@ -57,19 +57,19 @@
     "positions": {
       "F20": {
         "title": "Competition Manager",
-        "tier": 0
+        "tier": 13
       },
       "S21": {
         "title": "Webmaster",
-        "tier": 0
+        "tier": 2
       },
       "F21": {
         "title": "Webmaster",
-        "tier": 0
+        "tier": 2
       },
       "S22": {
-        "title": "Poop Man",
-        "tier": 500
+        "title": "Webmaster",
+        "tier": 2
       }
     },
     "displayName": "EthanThatOneKid"
@@ -80,7 +80,7 @@
     "positions": {
       "S21": {
         "title": "Treasurer",
-        "tier": 0
+        "tier": 3
       }
     }
   },
@@ -90,11 +90,11 @@
     "positions": {
       "F21": {
         "title": "Treasurer",
-        "tier": 0
+        "tier": 3
       },
       "S22": {
         "title": "Treasurer",
-        "tier": 0
+        "tier": 3
       }
     }
   },
@@ -104,7 +104,7 @@
     "positions": {
       "S21": {
         "title": "Secretary",
-        "tier": 0
+        "tier": 4
       }
     }
   },
@@ -114,7 +114,7 @@
     "positions": {
       "S21": {
         "title": "Marketing Chair, NodeBuds Officer",
-        "tier": 0
+        "tier": 6
       }
     }
   },
@@ -124,7 +124,7 @@
     "positions": {
       "S21": {
         "title": "ICC Representative",
-        "tier": 0
+        "tier": 22
       }
     }
   },
@@ -134,7 +134,7 @@
     "positions": {
       "S21": {
         "title": "Intern Program Manager",
-        "tier": 0
+        "tier": 22
       }
     }
   },
@@ -144,7 +144,7 @@
     "positions": {
       "S21": {
         "title": "Co-Workshop Manager",
-        "tier": 0
+        "tier": 19
       }
     }
   },
@@ -154,7 +154,7 @@
     "positions": {
       "S21": {
         "title": "Co-Workshop Manager",
-        "tier": 0
+        "tier": 19
       }
     }
   },
@@ -164,7 +164,7 @@
     "positions": {
       "S21": {
         "title": "Algo Director",
-        "tier": 0
+        "tier": 11
       }
     }
   },
@@ -174,7 +174,7 @@
     "positions": {
       "S21": {
         "title": "Algo Officer",
-        "tier": 0
+        "tier": 12
       }
     }
   },
@@ -184,7 +184,7 @@
     "positions": {
       "S21": {
         "title": "Algo Officer",
-        "tier": 0
+        "tier": 12
       }
     }
   },
@@ -194,15 +194,15 @@
     "positions": {
       "S21": {
         "title": "Dev Officer, NodeBuds Officer",
-        "tier": 0
+        "tier": 12
       },
       "F21": {
         "title": "Algo Director",
-        "tier": 0
+        "tier": 11
       },
       "S22": {
         "title": "Algo President",
-        "tier": 0
+        "tier": 11
       }
     }
   },
@@ -212,11 +212,11 @@
     "positions": {
       "F21": {
         "title": "Algo Officer",
-        "tier": 0
+        "tier": 12
       },
       "S22": {
         "title": "Algo Officer",
-        "tier": 0
+        "tier": 12
       }
     }
   },
@@ -226,15 +226,15 @@
     "positions": {
       "S21": {
         "title": "Dev Officer",
-        "tier": 0
+        "tier": 19
       },
       "F21": {
         "title": "Dev Director",
-        "tier": 0
+        "tier": 18
       },
       "S22": {
         "title": "Dev President",
-        "tier": 0
+        "tier": 18
       }
     }
   },
@@ -244,11 +244,11 @@
     "positions": {
       "F21": {
         "title": "Dev Officer",
-        "tier": 0
+        "tier": 19
       },
       "S22": {
         "title": "Dev Officer",
-        "tier": 0
+        "tier": 19
       }
     }
   },
@@ -258,11 +258,11 @@
     "positions": {
       "F21": {
         "title": "Dev Officer, Project Manager",
-        "tier": 0
+        "tier": 20
       },
       "S22": {
         "title": "Dev Officer",
-        "tier": 0
+        "tier": 19
       }
     }
   },
@@ -272,11 +272,11 @@
     "positions": {
       "F21": {
         "title": "Dev Officer",
-        "tier": 0
+        "tier": 19
       },
       "S22": {
         "title": "Dev Officer",
-        "tier": 0
+        "tier": 19
       }
     }
   },
@@ -286,11 +286,11 @@
     "positions": {
       "F21": {
         "title": "Dev Officer",
-        "tier": 0
+        "tier": 19
       },
       "S22": {
         "title": "Dev Officer",
-        "tier": 0
+        "tier": 19
       }
     }
   },
@@ -301,15 +301,15 @@
     "positions": {
       "S21": {
         "title": "Create Officer",
-        "tier": 0
+        "tier": 15
       },
       "F21": {
         "title": "Create Director, Marketing Chair",
-        "tier": 0
+        "tier": 14
       },
       "S22": {
         "title": "Create President",
-        "tier": 0
+        "tier": 14
       }
     }
   },
@@ -319,15 +319,15 @@
     "positions": {
       "S21": {
         "title": "Community Manager",
-        "tier": 0
+        "tier": 5
       },
       "F21": {
         "title": "Create Officer",
-        "tier": 0
+        "tier": 15
       },
       "S22": {
         "title": "Create Event Coordinator",
-        "tier": 0
+        "tier": 13
       }
     }
   },
@@ -337,7 +337,7 @@
     "positions": {
       "S21": {
         "title": "Create Officer",
-        "tier": 0
+        "tier": 15
       }
     }
   },
@@ -347,7 +347,7 @@
     "positions": {
       "F21": {
         "title": "Create Officer",
-        "tier": 0
+        "tier": 15
       }
     }
   },
@@ -357,11 +357,11 @@
     "positions": {
       "F21": {
         "title": "Create Officer",
-        "tier": 0
+        "tier": 15
       },
       "S22": {
         "title": "Create Officer",
-        "tier": 0
+        "tier": 15
       }
     }
   },
@@ -371,15 +371,15 @@
     "positions": {
       "S21": {
         "title": "NodeBuds Officer",
-        "tier": 0
+        "tier": 21
       },
       "F21": {
         "title": "NodeBuds Officer",
-        "tier": 0
+        "tier": 21
       },
       "S22": {
         "title": "NodeBuds Officer",
-        "tier": 0
+        "tier": 21
       }
     }
   },
@@ -389,15 +389,15 @@
     "positions": {
       "S21": {
         "title": "NodeBuds Officer",
-        "tier": 0
+        "tier": 21
       },
       "F21": {
         "title": "NodeBuds Officer",
-        "tier": 0
+        "tier": 21
       },
       "S22": {
         "title": "NodeBuds Officer",
-        "tier": 0
+        "tier": 21
       }
     }
   },
@@ -407,11 +407,11 @@
     "positions": {
       "F21": {
         "title": "NodeBuds Officer",
-        "tier": 0
+        "tier": 21
       },
       "S22": {
         "title": "NodeBuds Officer",
-        "tier": 0
+        "tier": 21
       }
     }
   },
@@ -421,7 +421,7 @@
     "positions": {
       "S21": {
         "title": "NodeBuds Officer",
-        "tier": 0
+        "tier": 21
       }
     }
   },
@@ -431,7 +431,7 @@
     "positions": {
       "S21": {
         "title": "NodeBuds Officer",
-        "tier": 0
+        "tier": 21
       }
     }
   },
@@ -441,7 +441,7 @@
     "positions": {
       "S21": {
         "title": "NodeBuds Officer",
-        "tier": 0
+        "tier": 21
       }
     }
   },
@@ -451,7 +451,7 @@
     "positions": {
       "S22": {
         "title": "Dev Project Manager",
-        "tier": 0
+        "tier": 20
       }
     }
   }

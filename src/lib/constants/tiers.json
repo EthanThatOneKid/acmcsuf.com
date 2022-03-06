@@ -8,14 +8,18 @@
   "Marketing Coordinator",
   "Historian",
   "Data Analyst",
+  "AI President",
+  "AI Officer",
   "Algo President",
   "Algo Officer",
+  "Algo Event Coordinator",
   "Create President",
   "Create Officer",
-  "Create Event Coordinator",
   "Create Project Developer",
+  "Create Event Coordinator",
   "Dev President",
   "Dev Officer",
   "Dev Project Manager",
-  "Node Buddy"
+  "NodeBuds Officer",
+  "Deprecated Position"
 ]
