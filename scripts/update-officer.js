@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { config } from 'dotenv';
 import { readFileSync, writeFileSync, createWriteStream } from 'fs';
-import TIERS_JSON from '../src/lib/constants/tiers.json';
 
 /**
  * Example officer data:
@@ -58,6 +57,7 @@ async function downloadOfficerImage(url, officerName) {
 }
 
 async function updateOfficer() {
+  const TIERS_JSON = JSON.parse(readFileSync('./src/lib/constants/tiers.json'));
   const result = JSON.parse(readFileSync(OFFICERS_FILENAME));
 
   const {
@@ -83,6 +83,7 @@ async function updateOfficer() {
   }
 
   const abbreviatedTerm = termAbbr(term);
+  const tierValue = TIERS_JSON.indexOf(rawTier);
   const titleNeedsUpdate = title !== undefined && title.trim().length > 0;
   if (titleNeedsUpdate) {
     if (abbreviatedTerm === null) {
@@ -90,15 +91,15 @@ async function updateOfficer() {
       return false;
     }
 
-    const tierValue = TIERS_JSON.indexOf(rawTier);
     if (title === 'DELETE') {
       delete result[officerIndex].positions[abbreviatedTerm];
-    } else if (rawTier === undefined || term.trim().length === 0 || tierValue === -1) {
-      console.error(`received invalid tier, '${tierValue}'`);
-      return false;
     } else {
-      result[officerIndex].positions[abbreviatedTerm] = { title: title.trim(), tier: tierValue };
+      result[officerIndex].positions[abbreviatedTerm].title = title.trim();
     }
+  }
+
+  if (tierValue !== -1 && term.trim().length > 0 && title !== 'DELETE') {
+    result[officerIndex].positions[abbreviatedTerm].tier = tierValue;
   }
 
   const displayNameNeedsUpdate = displayName !== undefined && displayName.trim().length > 0;
