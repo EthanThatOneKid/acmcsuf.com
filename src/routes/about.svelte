@@ -3,12 +3,12 @@
   import OfficerProfileList from '$lib/components/about/officer-profile-list.svelte';
   import Spacing from '$lib/components/sections/spacing.svelte';
   import Header from '$lib/components/about/what-is-acm.svelte';
-  import { TERMS } from '$lib//constants/officers';
-  import type { Officer } from '$lib//constants/officers';
+  import { VISIBLE_TERMS } from '$lib/constants/officers';
+  import type { Officer } from '$lib/constants/officers';
   import { termIndex } from '$lib//stores/term-index';
 
   function filterOfficers(officer: Officer): boolean {
-    const isCurrentTerm = officer.positions[TERMS[$termIndex]] !== undefined;
+    const isCurrentTerm = officer.positions[VISIBLE_TERMS[$termIndex]] !== undefined;
     return isCurrentTerm;
   }
 </script>

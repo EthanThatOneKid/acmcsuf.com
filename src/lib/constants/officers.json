@@ -1,273 +1,458 @@
 [
   {
-    "name": "Jacob Nguyen",
+    "fullName": "Jacob Nguyen",
+    "picture": "jacob-nguyen.png",
     "positions": {
-      "S21": "President, Create Director, NodeBuds Officer"
-    },
-    "picture": "jacob-nguyen.png"
+      "S21": {
+        "title": "President, Create Director, NodeBuds Officer",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Aaron Lieberman",
+    "fullName": "Aaron Lieberman",
+    "picture": "aaron-lieberman.png",
     "positions": {
-      "S21": "Internal Vice President, NodeBuds Officer",
-      "F21": "President, NodeBuds Officer",
-      "S22": "President, NodeBuds Officer"
-    },
-    "picture": "aaron-lieberman.png"
+      "S21": {
+        "title": "Internal Vice President, NodeBuds Officer",
+        "tier": 0
+      },
+      "F21": {
+        "title": "President, NodeBuds Officer",
+        "tier": 0
+      },
+      "S22": {
+        "title": "President, NodeBuds Officer",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Karnikaa Velumani",
+    "fullName": "Karnikaa Velumani",
+    "picture": "karnikaa-velumani.png",
     "positions": {
-      "F21": "Vice President",
-      "S22": "Vice President"
-    },
-    "picture": "karnikaa-velumani.png"
+      "F21": {
+        "title": "Vice President",
+        "tier": 0
+      },
+      "S22": {
+        "title": "Vice President",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Samuel Sandoval",
+    "fullName": "Samuel Sandoval",
+    "picture": "samuel-sandoval.png",
     "positions": {
-      "S21": "Vice President, Dev Director"
-    },
-    "picture": "samuel-sandoval.png"
+      "S21": {
+        "title": "Vice President, Dev Director",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Ethan Davidson",
+    "fullName": "Ethan Davidson",
+    "picture": "ethan-davidson.png",
     "positions": {
-      "F20": "Competition Manager",
-      "S21": "Webmaster",
-      "F21": "Webmaster",
-      "S22": "Webmaster"
+      "F20": {
+        "title": "Competition Manager",
+        "tier": 0
+      },
+      "S21": {
+        "title": "Webmaster",
+        "tier": 0
+      },
+      "F21": {
+        "title": "Webmaster",
+        "tier": 0
+      },
+      "S22": {
+        "title": "Poop Man",
+        "tier": 500
+      }
     },
-    "picture": "ethan-davidson.png"
+    "displayName": "EthanThatOneKid"
   },
   {
-    "name": "Andrew Lau",
+    "fullName": "Andrew Lau",
+    "picture": "andrew-lau.png",
     "positions": {
-      "S21": "Treasurer"
-    },
-    "picture": "andrew-lau.png"
+      "S21": {
+        "title": "Treasurer",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Tommy Le",
+    "fullName": "Tommy Le",
+    "picture": "tommy-le.png",
     "positions": {
-      "F21": "Treasurer",
-      "S22": "Treasurer"
-    },
-    "picture": "tommy-le.png"
+      "F21": {
+        "title": "Treasurer",
+        "tier": 0
+      },
+      "S22": {
+        "title": "Treasurer",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Jason Anthony",
+    "fullName": "Jason Anthony",
+    "picture": "jason-anthony.png",
     "positions": {
-      "S21": "Secretary"
-    },
-    "picture": "jason-anthony.png"
+      "S21": {
+        "title": "Secretary",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Nicolas Renteria",
+    "fullName": "Nicolas Renteria",
+    "picture": "nicolas-renteria.png",
     "positions": {
-      "S21": "Marketing Chair, NodeBuds Officer"
-    },
-    "picture": "nicolas-renteria.png"
+      "S21": {
+        "title": "Marketing Chair, NodeBuds Officer",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Joshua Hughes",
+    "fullName": "Joshua Hughes",
+    "picture": "joshua-hughes.png",
     "positions": {
-      "S21": "ICC Representative"
-    },
-    "picture": "joshua-hughes.png"
+      "S21": {
+        "title": "ICC Representative",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Wilbert Rodriguez",
+    "fullName": "Wilbert Rodriguez",
+    "picture": "wilbert-rodriguez.png",
     "positions": {
-      "S21": "Intern Program Manager"
-    },
-    "picture": "wilbert-rodriguez.png"
+      "S21": {
+        "title": "Intern Program Manager",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Shaleen Mathur",
+    "fullName": "Shaleen Mathur",
+    "picture": "shaleen-mathur.png",
     "positions": {
-      "S21": "Co-Workshop Manager"
-    },
-    "picture": "shaleen-mathur.png"
+      "S21": {
+        "title": "Co-Workshop Manager",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Johnson Tong",
+    "fullName": "Johnson Tong",
+    "picture": "johnson-tong.png",
     "positions": {
-      "S21": "Co-Workshop Manager"
-    },
-    "picture": "johnson-tong.png"
+      "S21": {
+        "title": "Co-Workshop Manager",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Kavit Sanghavi",
+    "fullName": "Kavit Sanghavi",
+    "picture": "kavit-sanghavi.png",
     "positions": {
-      "S21": "Algo Director"
-    },
-    "picture": "kavit-sanghavi.png"
+      "S21": {
+        "title": "Algo Director",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Kevin Dillon",
+    "fullName": "Kevin Dillon",
+    "picture": "kevin-dillon.png",
     "positions": {
-      "S21": "Algo Officer"
-    },
-    "picture": "kevin-dillon.png"
+      "S21": {
+        "title": "Algo Officer",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Parth Sharma",
+    "fullName": "Parth Sharma",
+    "picture": "parth-sharma.png",
     "positions": {
-      "S21": "Algo Officer"
-    },
-    "picture": "parth-sharma.png"
+      "S21": {
+        "title": "Algo Officer",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Armanul Ambia",
+    "fullName": "Armanul Ambia",
+    "picture": "armanul-ambia.png",
     "positions": {
-      "S21": "Dev Officer, NodeBuds Officer",
-      "F21": "Algo Director",
-      "S22": "Algo President"
-    },
-    "picture": "armanul-ambia.png"
+      "S21": {
+        "title": "Dev Officer, NodeBuds Officer",
+        "tier": 0
+      },
+      "F21": {
+        "title": "Algo Director",
+        "tier": 0
+      },
+      "S22": {
+        "title": "Algo President",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Alex Truong",
+    "fullName": "Alex Truong",
+    "picture": "alex-truong.png",
     "positions": {
-      "F21": "Algo Officer",
-      "S22": "Algo Officer"
-    },
-    "picture": "alex-truong.png"
+      "F21": {
+        "title": "Algo Officer",
+        "tier": 0
+      },
+      "S22": {
+        "title": "Algo Officer",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Wesley Chou",
+    "fullName": "Wesley Chou",
+    "picture": "wesley-chou.png",
     "positions": {
-      "S21": "Dev Officer",
-      "F21": "Dev Director",
-      "S22": "Dev President"
-    },
-    "picture": "wesley-chou.png"
+      "S21": {
+        "title": "Dev Officer",
+        "tier": 0
+      },
+      "F21": {
+        "title": "Dev Director",
+        "tier": 0
+      },
+      "S22": {
+        "title": "Dev President",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Andy Lasso",
+    "fullName": "Andy Lasso",
+    "picture": "andy-lasso.png",
     "positions": {
-      "F21": "Dev Officer",
-      "S22": "Dev Officer"
-    },
-    "picture": "andy-lasso.png"
+      "F21": {
+        "title": "Dev Officer",
+        "tier": 0
+      },
+      "S22": {
+        "title": "Dev Officer",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Rina Watanabe",
+    "fullName": "Rina Watanabe",
+    "picture": "rina-watanabe.png",
     "positions": {
-      "F21": "Dev Officer, Project Manager",
-      "S22": "Dev Officer"
-    },
-    "picture": "rina-watanabe.png"
+      "F21": {
+        "title": "Dev Officer, Project Manager",
+        "tier": 0
+      },
+      "S22": {
+        "title": "Dev Officer",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Jorge Mejia",
+    "fullName": "Jorge Mejia",
+    "picture": "jorge-mejia.png",
     "positions": {
-      "F21": "Dev Officer",
-      "S22": "Dev Officer"
-    },
-    "picture": "jorge-mejia.png"
+      "F21": {
+        "title": "Dev Officer",
+        "tier": 0
+      },
+      "S22": {
+        "title": "Dev Officer",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Johnathan Carranza",
+    "fullName": "Johnathan Carranza",
+    "picture": "johnathan-carranza.png",
     "positions": {
-      "F21": "Dev Officer",
-      "S22": "Dev Officer"
-    },
-    "picture": "johnathan-carranza.png"
+      "F21": {
+        "title": "Dev Officer",
+        "tier": 0
+      },
+      "S22": {
+        "title": "Dev Officer",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Mike Ploythai",
+    "fullName": "Mike Ploythai",
+    "picture": "mike-ploythai.png",
+    "displayName": "mikeploythai",
     "positions": {
-      "S21": "Create Officer",
-      "F21": "Create Director, Marketing Chair",
-      "S22": "Create President"
-    },
-    "picture": "mike-ploythai.png"
+      "S21": {
+        "title": "Create Officer",
+        "tier": 0
+      },
+      "F21": {
+        "title": "Create Director, Marketing Chair",
+        "tier": 0
+      },
+      "S22": {
+        "title": "Create President",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Samuel Valls",
+    "fullName": "Samuel Valls",
+    "picture": "samuel-valls.png",
     "positions": {
-      "S21": "Community Manager",
-      "F21": "Create Officer",
-      "S22": "Create Event Coordinator"
-    },
-    "picture": "samuel-valls.png"
+      "S21": {
+        "title": "Community Manager",
+        "tier": 0
+      },
+      "F21": {
+        "title": "Create Officer",
+        "tier": 0
+      },
+      "S22": {
+        "title": "Create Event Coordinator",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Lisa Hong",
+    "fullName": "Lisa Hong",
+    "picture": "lisa-hong.png",
     "positions": {
-      "S21": "Create Officer"
-    },
-    "picture": "lisa-hong.png"
+      "S21": {
+        "title": "Create Officer",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Kayla Nguyen",
+    "fullName": "Kayla Nguyen",
+    "picture": "kayla-nguyen.png",
     "positions": {
-      "F21": "Create Officer"
-    },
-    "picture": "kayla-nguyen.png"
+      "F21": {
+        "title": "Create Officer",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Serena Naranjo",
+    "fullName": "Serena Naranjo",
+    "picture": "serena-naranjo.png",
     "positions": {
-      "F21": "Create Officer",
-      "S22": "Create Officer"
-    },
-    "picture": "serena-naranjo.png"
+      "F21": {
+        "title": "Create Officer",
+        "tier": 0
+      },
+      "S22": {
+        "title": "Create Officer",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Taylor Noh",
+    "fullName": "Taylor Noh",
+    "picture": "taylor-noh.png",
     "positions": {
-      "S21": "NodeBuds Officer",
-      "F21": "NodeBuds Officer",
-      "S22": "NodeBuds Officer"
-    },
-    "picture": "taylor-noh.png"
+      "S21": {
+        "title": "NodeBuds Officer",
+        "tier": 0
+      },
+      "F21": {
+        "title": "NodeBuds Officer",
+        "tier": 0
+      },
+      "S22": {
+        "title": "NodeBuds Officer",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Eugene Lee",
+    "fullName": "Eugene Lee",
+    "picture": "eugene-lee.png",
     "positions": {
-      "S21": "NodeBuds Officer",
-      "F21": "NodeBuds Officer",
-      "S22": "NodeBuds Officer"
-    },
-    "picture": "eugene-lee.png"
+      "S21": {
+        "title": "NodeBuds Officer",
+        "tier": 0
+      },
+      "F21": {
+        "title": "NodeBuds Officer",
+        "tier": 0
+      },
+      "S22": {
+        "title": "NodeBuds Officer",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Sami Bajwa",
+    "fullName": "Sami Bajwa",
+    "picture": "sami-bajwa.png",
     "positions": {
-      "F21": "NodeBuds Officer",
-      "S22": "NodeBuds Officer"
-    },
-    "picture": "sami-bajwa.png"
+      "F21": {
+        "title": "NodeBuds Officer",
+        "tier": 0
+      },
+      "S22": {
+        "title": "NodeBuds Officer",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Eduardo Gomez",
+    "fullName": "Eduardo Gomez",
+    "picture": "eduardo-gomez.png",
     "positions": {
-      "S21": "NodeBuds Officer"
-    },
-    "picture": "eduardo-gomez.png"
+      "S21": {
+        "title": "NodeBuds Officer",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Ean McGilvery",
+    "fullName": "Ean McGilvery",
+    "picture": "ean-mcgilvery.png",
     "positions": {
-      "S21": "NodeBuds Officer"
-    },
-    "picture": "ean-mcgilvery.png"
+      "S21": {
+        "title": "NodeBuds Officer",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Dalisa Nguyen",
+    "fullName": "Dalisa Nguyen",
+    "picture": "dalisa-nguyen.png",
     "positions": {
-      "S21": "NodeBuds Officer"
-    },
-    "picture": "dalisa-nguyen.png"
+      "S21": {
+        "title": "NodeBuds Officer",
+        "tier": 0
+      }
+    }
   },
   {
-    "name": "Daniel Truong",
+    "fullName": "Daniel Truong",
+    "picture": "daniel-truong.png",
     "positions": {
-      "S22": "Dev Project Manager"
-    },
-    "picture": "daniel-truong.png"
+      "S22": {
+        "title": "Dev Project Manager",
+        "tier": 0
+      }
+    }
   }
 ]

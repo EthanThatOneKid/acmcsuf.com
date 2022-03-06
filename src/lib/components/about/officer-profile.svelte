@@ -2,7 +2,7 @@
   export let placeholderPicture = 'placeholder.png';
   export let name = '';
   export let title = '';
-  export let picture: string = placeholderPicture;
+  export let picture = placeholderPicture;
 
   let officerName = name;
   let officerPicture = picture;

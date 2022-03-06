@@ -41,6 +41,26 @@ body:
     validations:
       required: false
 
+  - type: dropdown
+    id: officer_tier
+    attributes:
+      label: '>>Overwrite Officer Position Tier<<'
+      description: Please enter the tier of the officer's position.
+      options:
+        - 'President'
+        - 'Vice President'
+        - 'Webmaster'
+        - 'Treasurer'
+        - 'Algo President'
+        - 'Algo Officer'
+        - 'Dev President'
+        - 'Dev Officer'
+        - 'Create President'
+        - 'Create Officer'
+        - 'Node Buddy'
+    validations:
+      required: false
+
   - type: textarea
     id: officer_image
     attributes:
@@ -48,5 +68,13 @@ body:
       description: |
         If an image is detected inside of this textarea, it will be used to update the officer's image on the website.
       placeholder: You can attach images by clicking this area to highlight it and then dragging files in.
+    validations:
+      required: false
+
+  - type: input
+    id: officer_displayname
+    attributes:
+      label: '>>Overwrite Officer GitHub Username<<'
+      description: Please enter the GitHub username of the officer's position.
     validations:
       required: false
