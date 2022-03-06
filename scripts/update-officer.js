@@ -83,7 +83,6 @@ async function updateOfficer() {
   }
 
   const abbreviatedTerm = termAbbr(term);
-  const tierValue = TIERS_JSON.indexOf(rawTier);
   const titleNeedsUpdate = title !== undefined && title.trim().length > 0;
   if (titleNeedsUpdate) {
     if (abbreviatedTerm === null) {
@@ -98,6 +97,7 @@ async function updateOfficer() {
     }
   }
 
+  const tierValue = TIERS_JSON.indexOf(rawTier);
   if (tierValue !== -1 && term.trim().length > 0 && title !== 'DELETE') {
     result[officerIndex].positions[abbreviatedTerm].tier = tierValue;
   }
