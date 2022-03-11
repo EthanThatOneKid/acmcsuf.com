@@ -4,12 +4,14 @@
   import { toast, ToastType } from '$lib/stores/toasts';
   import CopyLinkIcon from '$lib/components/icons/copy-link.svelte';
   import CopyTextIcon from '$lib/components/icons/copy-text.svelte';
+  import ShareIcon from '$lib/components/icons/share.svelte';
   import GoogleCalendarIcon from '$lib/components/icons/google-calendar.svelte';
   import MsOutlookIcon from '$lib/components/icons/ms-outlook.svelte';
 
   export let info: AcmEvent;
 
   let isRecurring: boolean = info.recurring;
+  let deviceCanShare = false;
   let anchor: HTMLElement;
   let details: HTMLDetailsElement;
 
@@ -19,6 +21,21 @@
       .writeText(link)
       .then(() => toast({ content: successMessage, path }))
       .catch(() => toast({ path, type: ToastType.Error, content: errorMessage }));
+  }
+
+  function share(info: AcmEvent) {
+    const successMsg = 'Event shared successfully';
+    const errorMsg = 'Failed to share event';
+    const path = info.acmPath.slug;
+
+    navigator
+      .share({
+        title: info.title,
+        text: info.description,
+        url: info.selfLink,
+      })
+      .then(() => toast({ content: successMsg, path }))
+      .catch(() => toast({ type: ToastType.Error, content: errorMsg, path }));
   }
 
   onMount(() => {
@@ -33,6 +50,8 @@
       // for dynamically-added elements.
       details.open = true;
     }
+
+    deviceCanShare = 'share' in navigator;
   });
 </script>
 
@@ -77,18 +96,24 @@
     </p>
 
     <div class="event-actionbar">
-      <button
-        class="action-item"
-        title="Copy event link"
-        on:click={() =>
-          copy(
-            info.selfLink,
-            'Copied event link to clipboard!',
-            'Failed to copy event link to clipboard!',
-            info.acmPath.slug
-          )}>
-        <CopyLinkIcon />
-      </button>
+      {#if deviceCanShare}
+        <button class="action-item" title="Share event link" on:click={() => share(info)}>
+          <ShareIcon />
+        </button>
+      {:else}
+        <button
+          class="action-item"
+          title="Copy event link"
+          on:click={() =>
+            copy(
+              info.selfLink,
+              'Copied event link to clipboard!',
+              'Failed to copy event link to clipboard!',
+              info.acmPath.slug
+            )}>
+          <CopyLinkIcon />
+        </button>
+      {/if}
 
       <button
         class="action-item"
