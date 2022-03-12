@@ -1,21 +1,11 @@
 import adapter from '@sveltejs/adapter-vercel';
 import preprocess from 'svelte-preprocess';
-import { config as env } from 'dotenv';
-
-// VITE_DEBUG is expected to be '0' or '1'
-const DEBUG = Number(env().parsed.VITE_DEBUG);
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
   preprocess: preprocess(),
-
-  // Silence unwanted preprocessor warnings except in debug mode
-  onwarn(warning, handler) {
-    if (!DEBUG && warning.code === 'css-unused-selector') return;
-    handler(warning);
-  },
 
   kit: {
     // hydrate the <div id="svelte"> element in src/app.html

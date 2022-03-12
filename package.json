@@ -23,7 +23,6 @@
     "all": "npm run lint && npm run check && npm run build && npm run preview"
   },
   "dependencies": {
-    "github-markdown-css": "^5.1.0",
     "html-to-text": "^8.1.0",
     "rfs": "^9.0.6",
     "rrule": "^2.6.8",
