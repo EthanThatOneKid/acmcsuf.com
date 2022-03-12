@@ -13,7 +13,7 @@
       <img src={icon} alt="Admontion icon" />
       <p class="brand-light">
         <span class="brand-em brand-alert">ALERT</span>{': '}
-        <slot><span class="xs">{text}</span></slot>
+        <slot><span class="size-xs">{text}</span></slot>
       </p>
     </div>
   </div>
@@ -22,8 +22,8 @@
 <style lang="scss">
   @import 'node_modules/rfs/scss';
 
-  .xs {
-    @include font-size(16px);
+  .size-xs {
+    @include font-size(var(--size-xs));
   }
 
   .wrapper {
