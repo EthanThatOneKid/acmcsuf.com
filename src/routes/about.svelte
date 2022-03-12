@@ -20,7 +20,7 @@
 <Spacing --min="32px" --max="64px" />
 
 <CommonHero>
-  <h2 slot="headline" class="size-l">Who are we?</h2>
+  <h2 slot="headline" class="size-lg">Who are we?</h2>
   <p slot="text" class="size-xs">
     acmCSUF is a student chapter of the
     <a href="https://acm.org" class="brand-med" target="_blank" rel="noopener noreferrer">
@@ -35,7 +35,7 @@
 <Spacing --min="120px" --med="150px" --max="200px" />
 
 <div class="container">
-  <h2 class="headers size-l">Board members</h2>
+  <h2 class="headers size-lg">Board members</h2>
 </div>
 
 <Spacing --min="16px" --med="16px" --max="16px" />
@@ -45,7 +45,15 @@
 <Spacing --min="40px" --med="95px" --max="120px" />
 
 <style lang="scss">
-  @import 'static/theme.scss';
+  @import 'node_modules/rfs/scss';
+
+  .size-xs {
+    @include font-size(var(--size-xs));
+  }
+
+  .size-lg {
+    @include font-size(var(--size-lg));
+  }
 
   a {
     text-decoration: none;

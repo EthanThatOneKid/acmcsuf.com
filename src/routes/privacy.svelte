@@ -7,8 +7,8 @@
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <CommonHero>
-  <h2 slot="headline" class="size-l">Privacy Policy</h2>
-  <p slot="text" class="size-s">
+  <h2 slot="headline" class="size-lg">Privacy Policy</h2>
+  <p slot="text" class="size-sm">
     Our privacy policy describes how our Discord bot collects, uses, and shares your personal data.
     <br />
     <br />
@@ -23,5 +23,13 @@
 <Spacing --min="40px" --med="95px" --max="120px" />
 
 <style lang="scss">
-  @import 'static/theme.scss';
+  @import 'node_modules/rfs/scss';
+
+  .size-sm {
+    @include font-size(var(--size-sm));
+  }
+
+  .size-lg {
+    @include font-size(var(--size-lg));
+  }
 </style>

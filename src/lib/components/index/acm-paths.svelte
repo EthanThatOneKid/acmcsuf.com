@@ -4,7 +4,7 @@
 
 <section>
   <div class="paths-intro">
-    <h2 class="headers size-l">Find the path you want to take</h2>
+    <h2 class="headers size-lg">Find the path you want to take</h2>
     <p class="size-xs">
       Our programs were designed to allow students to explore the various fields within tech and
       discover what aligns with their interests the most. By joining any of them, students will be
@@ -17,7 +17,7 @@
     {#each pinnedPaths as { title, slug, picture, color } (slug)}
       <a class="path-item" target="_self" href={`/paths#${slug}`}>
         <img src={picture} alt={`${slug}-logo`} />
-        <p class="size-m headers">
+        <p class="size-md headers">
           acm<span class="brand-em" style={`--brand-color: ${color}`}>
             {title}
           </span>
@@ -28,7 +28,19 @@
 </section>
 
 <style lang="scss">
-  @import 'static/theme.scss';
+  @import 'node_modules/rfs/scss';
+
+  .size-xs {
+    @include font-size(var(--size-xs));
+  }
+
+  .size-md {
+    @include font-size(var(--size-md));
+  }
+
+  .size-lg {
+    @include font-size(var(--size-lg));
+  }
 
   section {
     display: flex;

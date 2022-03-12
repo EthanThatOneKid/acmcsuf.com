@@ -20,7 +20,11 @@
 </section>
 
 <style lang="scss">
-  @import 'static/theme.scss';
+  @import 'node_modules/rfs/scss';
+
+  .size-xl {
+    @include font-size(var(--size-xl));
+  }
 
   section {
     display: flex;

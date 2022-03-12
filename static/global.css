@@ -59,6 +59,12 @@ body {
   --subheading-font-size: 24px;
   --body-font-size: 18px;
   --margin-text-font-size: 12px;
+
+  --size-xs: 16px;
+  --size-sm: 18px;
+  --size-md: 24px;
+  --size-lg: 36px;
+  --size-xl: 48px;
 }
 
 /* New CSS Guidelines */

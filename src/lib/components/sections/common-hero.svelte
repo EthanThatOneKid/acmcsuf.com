@@ -6,8 +6,6 @@
 </section>
 
 <style lang="scss">
-  @import 'static/theme.scss';
-
   section {
     display: flex;
     justify-content: center;

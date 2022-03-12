@@ -12,7 +12,7 @@
 </section>
 
 <style lang="scss">
-  @import 'static/theme.scss';
+  @import 'node_modules/rfs/scss';
 
   section {
     display: flex;

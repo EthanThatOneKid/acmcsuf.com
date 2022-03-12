@@ -30,7 +30,7 @@
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <section>
-  <h1 class="headers size-l">{post.title}</h1>
+  <h1 class="headers size-lg">{post.title}</h1>
 
   <Spacing --min="16px" --med="16px" --max="16px" />
 
@@ -64,6 +64,11 @@
 
 <style lang="scss">
   @import '../node_modules/gfm.css/source/gfm.scss';
+  @import 'node_modules/rfs/scss';
+
+  .size-lg {
+    @include font-size(var(--size-lg));
+  }
 
   section {
     display: flex;

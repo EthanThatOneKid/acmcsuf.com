@@ -13,14 +13,18 @@
       <img src={icon} alt="Admontion icon" />
       <p class="brand-light">
         <span class="brand-em brand-alert">ALERT</span>{': '}
-        <slot><span class="size-xs">{text}</span></slot>
+        <slot><span class="xs">{text}</span></slot>
       </p>
     </div>
   </div>
 {/if}
 
 <style lang="scss">
-  @import 'static/theme.scss';
+  @import 'node_modules/rfs/scss';
+
+  .xs {
+    @include font-size(16px);
+  }
 
   .wrapper {
     display: flex;

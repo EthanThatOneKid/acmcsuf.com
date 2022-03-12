@@ -51,8 +51,6 @@
 <Spacing --min="40px" --med="95px" --max="120px" />
 
 <style lang="scss">
-  @import 'static/theme.scss';
-
   .subtitle {
     a {
       display: inline-block;

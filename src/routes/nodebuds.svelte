@@ -21,7 +21,7 @@
 <div class="container">
   <section>
     <div>
-      <h2 class="headers size-l">Personalized for your success</h2>
+      <h2 class="headers size-lg">Personalized for your success</h2>
       <p class="size-xs">
         <span class="headers"> node buds </span>
         is our exclusive program in partnership with
@@ -41,7 +41,7 @@
 <Spacing --min="100px" --med="175px" --max="200px" />
 
 <div class="container">
-  <h2 class="headers size-l">Buddies</h2>
+  <h2 class="headers size-lg">Buddies</h2>
 </div>
 
 <Spacing --min="16px" --med="16px" --max="16px" />
@@ -51,7 +51,15 @@
 <Spacing --min="40px" --med="95px" --max="120px" />
 
 <style lang="scss">
-  @import 'static/theme.scss';
+  @import 'node_modules/rfs/scss';
+
+  .size-xs {
+    @include font-size(var(--size-xs));
+  }
+
+  .size-lg {
+    @include font-size(var(--size-lg));
+  }
 
   .container {
     display: flex;
@@ -101,10 +109,6 @@
       margin: 0;
       width: 175px;
       padding-bottom: 32px;
-    }
-
-    .mid {
-      margin-bottom: 32px;
     }
   }
 </style>

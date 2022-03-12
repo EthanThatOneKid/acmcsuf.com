@@ -9,7 +9,7 @@
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <CommonHero>
-  <h2 slot="headline" class="size-l">What are paths?</h2>
+  <h2 slot="headline" class="size-lg">What are paths?</h2>
   <p slot="text" class="size-xs">
     Paths are committees that specialize in specific fields in the tech industry. We’ve designed
     paths to be gateways for students to explore new fields, develop new interests, and enhance
@@ -51,5 +51,13 @@
 <Spacing --min="40px" --med="95px" --max="120px" />
 
 <style lang="scss">
-  @import 'static/theme.scss';
+  @import 'node_modules/rfs/scss';
+
+  .size-xs {
+    @include font-size(var(--size-xs));
+  }
+
+  .size-lg {
+    @include font-size(var(--size-lg));
+  }
 </style>

@@ -95,8 +95,6 @@
 </footer>
 
 <style lang="scss">
-  @import 'static/theme.scss';
-
   footer {
     display: flex;
     justify-content: center;
