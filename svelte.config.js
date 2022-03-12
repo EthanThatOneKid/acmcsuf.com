@@ -2,7 +2,7 @@ import adapter from '@sveltejs/adapter-vercel';
 import preprocess from 'svelte-preprocess';
 import { config as env } from 'dotenv';
 
-// VITE_DEBUG is expected to be 0 or 1
+// VITE_DEBUG is expected to be '0' or '1'
 const DEBUG = Number(env().parsed.VITE_DEBUG);
 
 /** @type {import('@sveltejs/kit').Config} */
