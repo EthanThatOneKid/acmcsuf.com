@@ -29,7 +29,11 @@
         title: info.title,
         url: info.selfLink,
       })
-      .then(() => toast({ content: successMsg, path }));
+      .then(() => {
+        const successMsg = 'Event shared successfully';
+        const path = info.acmPath.slug;
+        toast({ content: successMsg, path });
+      });
   }
 
   onMount(() => {
