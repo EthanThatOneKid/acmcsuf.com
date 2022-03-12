@@ -23,12 +23,12 @@
   }
 
   section .main-text {
-    @include font-size(36px);
+    @include font-size(var(--size-lg));
     max-width: 950px;
   }
 
   section :global(p) {
-    @include font-size(18px);
+    @include font-size(var(--size-md));
     margin-top: 16px;
   }
 </style>
