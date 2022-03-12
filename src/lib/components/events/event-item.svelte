@@ -25,7 +25,6 @@
 
   function share(info: AcmEvent) {
     const successMsg = 'Event shared successfully';
-    const errorMsg = 'Failed to share event';
     const path = info.acmPath.slug;
 
     navigator
