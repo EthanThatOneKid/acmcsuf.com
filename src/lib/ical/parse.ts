@@ -93,7 +93,7 @@ export function parse(icalData: string): AcmEvent[] {
   const sortedEvents = allEvents.sort(sortByDate());
 
   // Show 10 sample events in debug mode
-  if (DEBUG) return sortedEvents.slice(0, 10);
+  if (DEBUG) return sortedEvents.slice(sortedEvents.length - 10);
 
   // Filter out events that have passed if not in debug mode
   return sortedEvents.filter(filterIfPassed(now, Time.Day / 2));
