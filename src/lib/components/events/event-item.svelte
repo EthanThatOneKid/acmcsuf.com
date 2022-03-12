@@ -34,8 +34,7 @@
         text: info.summary,
         url: info.selfLink,
       })
-      .then(() => toast({ content: successMsg, path }))
-      .catch(() => toast({ type: ToastType.Error, content: errorMsg, path }));
+      .then(() => toast({ content: successMsg, path }));
   }
 
   onMount(() => {
