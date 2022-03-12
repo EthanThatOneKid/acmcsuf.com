@@ -31,7 +31,7 @@
     navigator
       .share({
         title: info.title,
-        text: info.description,
+        text: info.summary,
         url: info.selfLink,
       })
       .then(() => toast({ content: successMsg, path }))
