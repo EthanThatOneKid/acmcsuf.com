@@ -11,6 +11,7 @@ const config = {
     // hydrate the <div id="svelte"> element in src/app.html
     target: '#svelte',
     adapter: adapter(),
+    vite: { test: { environment: 'jsdom' } },
     prerender: {
       // Provide a custom error message when the prerender fails on pages
       // beyond /blog. See <https://kit.svelte.dev/docs#configuration-prerender>.
