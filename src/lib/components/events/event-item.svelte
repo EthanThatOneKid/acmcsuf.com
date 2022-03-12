@@ -24,16 +24,16 @@
   }
 
   function share(info: AcmEvent) {
-    const successMsg = 'Event shared successfully';
-    const path = info.acmPath.slug;
-
     navigator
       .share({
         title: info.title,
-        text: info.summary,
         url: info.selfLink,
       })
-      .then(() => toast({ content: successMsg, path }));
+      .then(() => {
+        const successMsg = 'Event shared successfully';
+        const path = info.acmPath.slug;
+        toast({ content: successMsg, path });
+      });
   }
 
   onMount(() => {
