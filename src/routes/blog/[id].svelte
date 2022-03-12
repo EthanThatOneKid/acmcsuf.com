@@ -18,6 +18,7 @@
 <script lang="ts">
   import type { Newsletter } from './_query';
   import Spacing from '$lib/components/sections/spacing.svelte';
+  import '../../../node_modules/github-markdown-css/github-markdown-light.css';
 
   export let post: Newsletter;
 </script>
@@ -63,7 +64,6 @@
 </section>
 
 <style lang="scss">
-  @import '../node_modules/gfm.css/source/gfm.scss';
   @import 'node_modules/rfs/scss';
 
   .size-lg {
@@ -106,5 +106,9 @@
         margin-bottom: 16px;
       }
     }
+  }
+
+  :global(.markdown-body) {
+    background-color: var(--acm-light);
   }
 </style>
