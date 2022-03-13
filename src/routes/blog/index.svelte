@@ -1,8 +1,6 @@
 <script lang="ts" context="module">
   import type { LoadOutput, LoadInput } from '@sveltejs/kit';
-  /**
-   * @type {import('@sveltejs/kit').Load}
-   */
+
   export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
     const response = await fetch(`/blog.json`);
     return { props: { posts: await response.json() } };
