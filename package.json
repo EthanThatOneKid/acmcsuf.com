@@ -22,7 +22,7 @@
     "test": "vitest --run",
     "test:watch": "vitest",
     "test:size": "npm i && size-limit",
-    "all": "npm run lint && npm run check && npm run test && npm run build && npm run preview"
+    "all": "npm run lint && npm run check && npm t && npm run build && npm run preview"
   },
   "dependencies": {
     "html-to-text": "^8.1.0",
