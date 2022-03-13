@@ -35,7 +35,7 @@
             on:click={() => handleClose()}
             href={path}
             class="{`page page-${path.replace(/^\//, '')}`} headers"
-            aria-current={path === $page.path}
+            aria-current={path === $page.url.pathname}
             sveltekit:prefetch>
             {@html title}
           </a>

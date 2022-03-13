@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-  import type { LoadOutput, LoadInput } from '@sveltejs/kit';
+  import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/internal';
 
   export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
     const response = await fetch(`/events.json`);

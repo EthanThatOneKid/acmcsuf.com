@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { Officer, TIERS, VISIBLE_TERMS } from '$lib/constants';
+  import type { Officer } from '$lib/constants/officers';
+  import { TIERS, VISIBLE_TERMS } from '$lib/constants';
   import { termIndex } from '$lib/stores/term-index';
 
   export let info: Officer;

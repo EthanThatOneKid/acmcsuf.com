@@ -1,6 +1,7 @@
 import { Time, ACM_LOCALE } from '$lib/constants/time';
 import { acmAlgo, acmCreate, acmDev, acmGeneral } from '$lib/constants/acm-paths';
-import { IcalOutput, AcmEvent, makeEventLink } from './common';
+import type { IcalOutput, AcmEvent } from './common';
+import { makeEventLink } from './common';
 import {
   parseRawIcal,
   parseDescription,

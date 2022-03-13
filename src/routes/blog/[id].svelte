@@ -1,16 +1,15 @@
 <script lang="ts" context="module">
-  import type { LoadOutput, LoadInput } from '@sveltejs/kit';
-
   /**
    * @type {import('@sveltejs/kit').Load}
    */
-  export async function load({ fetch, page }: LoadInput): Promise<LoadOutput> {
-    const { id: slug } = page.params;
-    const response = await fetch(`/blog/${slug}.json`);
+  export async function load({ fetch, params }) {
+    const response = await fetch(`/blog/${params.id}.json`);
     const newsletter = await response.json();
+
     if (typeof newsletter?.id !== 'number') {
       return { status: 404 };
     }
+
     return { props: { post: newsletter } };
   }
 </script>

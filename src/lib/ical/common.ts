@@ -62,14 +62,14 @@ export function parseRawIcal(source: string): IcalOutput {
   for (const line of lines) {
     let currentValue = '';
     if (line.charAt(0) === ' ') {
-      current[currentKey] += line.substr(1);
+      current[currentKey] += line.substring(1);
     } else {
       const splitAt = line.indexOf(':');
       if (splitAt < 0) {
         continue;
       }
-      currentKey = cleanIcalKey(line.substr(0, splitAt));
-      currentValue = line.substr(splitAt + 1);
+      currentKey = cleanIcalKey(line.substring(0, splitAt));
+      currentValue = line.substring(splitAt + 1);
       switch (currentKey) {
         case 'BEGIN': {
           parents.push(parent);
