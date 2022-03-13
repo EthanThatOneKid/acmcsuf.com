@@ -1,7 +1,6 @@
 <script lang="ts" context="module">
-  import type { LoadOutput, LoadInput } from '@sveltejs/kit';
+  import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/internal';
 
-  /** @type {import('@sveltejs/kit').Load} */
   export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
     const response = await fetch(`/events.json`);
     return { props: { events: await response.json() } };
@@ -27,7 +26,8 @@
     workshops, info sessions, community building events, and much more!
     <br /><br />
     <span class="brand-med"
-      >Events are open to anyone interested, regardless of major or background experience.</span>
+      >Events are open to anyone interested, regardless of major or background experience.</span
+    >
   </p>
 </CommonHero>
 

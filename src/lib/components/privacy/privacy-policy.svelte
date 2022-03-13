@@ -76,7 +76,8 @@
         href="mailto:acmcsufullerton@gmail.com"
         class="brand-med"
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+      >
         acmcsufullerton@gmail.com</a
       >.
     </p>

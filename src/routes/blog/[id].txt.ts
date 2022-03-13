@@ -1,12 +1,6 @@
-import type { EndpointOutput, IncomingRequest } from '@sveltejs/kit';
+import type { RequestEvent, RequestHandlerOutput } from '@sveltejs/kit/types/internal';
 import { convert as convertHtml2Txt } from 'html-to-text';
 import type { Newsletter } from './_query';
-
-interface ServerRequest extends IncomingRequest {
-  params: {
-    id: number;
-  };
-}
 
 function serializeNewsletter(newsletter: Newsletter) {
   const lines: string[] = [];
@@ -64,15 +58,19 @@ async function getCache(id: number, baseURL: string) {
   }
 }
 
-export async function get(request: ServerRequest): Promise<EndpointOutput> {
-  const id = Number(request.params.id);
-  const base = `http://${request.host}`;
-  const newsletter = await getCache(id, base);
+export async function get(event: RequestEvent<{ id: number }>): Promise<RequestHandlerOutput> {
+  const id = Number(event.params.id);
+  const newsletter = await getCache(id, event.url.origin);
 
   if (!newsletter) {
-    return { body: '404 Not Found', status: 404, headers: { 'Content-Type': 'text/plain' } };
+    return new Response('404 Not Found', {
+      status: 404,
+      headers: { 'Content-Type': 'text/plain' },
+    });
   }
 
-  const body = serializeNewsletter(newsletter);
-  return { body, status: 200, headers: { 'Content-Type': 'text/plain' } };
+  return new Response(serializeNewsletter(newsletter), {
+    status: 200,
+    headers: { 'Content-Type': 'text/plain' },
+  });
 }

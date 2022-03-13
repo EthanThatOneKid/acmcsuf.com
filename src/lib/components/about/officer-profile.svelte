@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { Officer, TIERS, VISIBLE_TERMS } from '$lib/constants';
+  import type { Officer } from '$lib/constants/officers';
+  import { TIERS, VISIBLE_TERMS } from '$lib/constants';
   import { termIndex } from '$lib/stores/term-index';
 
   export let info: Officer;
@@ -25,7 +26,8 @@
   <img
     class="officer-image"
     src={`../assets/authors/${officerPicture}`}
-    alt={`Image of ${officerName}.`} />
+    alt={`Image of ${officerName}.`}
+  />
   <h3 class="headers">
     {officerName}
     {#if officerTier.length}<br />{officerTier}<br />{/if}

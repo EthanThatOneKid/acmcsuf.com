@@ -1,6 +1,6 @@
-import { timestamp, build, files } from '$service-worker';
+import { build, files, version } from '$service-worker';
 
-export const CURRENT_CACHE_NAME = 'acmcsuf-' + timestamp;
+export const CURRENT_CACHE_NAME = 'acmcsuf-' + version;
 export const BUILD_FILES = build.concat(files);
 
 export function cacheRequest(request: Request): void {

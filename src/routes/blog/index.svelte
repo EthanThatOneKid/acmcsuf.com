@@ -1,10 +1,9 @@
 <script lang="ts" context="module">
-  import type { LoadOutput, LoadInput } from '@sveltejs/kit';
   /**
    * @type {import('@sveltejs/kit').Load}
    */
-  export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
-    const response = await fetch(`/blog.json`);
+  export async function load({ fetch, url }) {
+    const response = await fetch(url.origin + '/blog.json');
     return { props: { posts: await response.json() } };
   }
 </script>
@@ -28,7 +27,8 @@
 
   <h2 class="subtitle headers">
     The official acmCSUF blog.<a href="/blog.xml"
-      ><img src="assets/badges/feed-icon.svg" alt="RSS feed logo" /></a>
+      ><img src="assets/badges/feed-icon.svg" alt="RSS feed logo" /></a
+    >
   </h2>
 
   <Spacing --min="100px" --med="175px" --max="200px" />

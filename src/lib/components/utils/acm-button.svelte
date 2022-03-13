@@ -8,7 +8,8 @@
   role="button"
   href={link}
   target="_blank"
-  rel="noopener norefferer">{text}</a>
+  rel="noopener norefferer">{text}</a
+>
 
 <style lang="scss">
   .call-to-action {
