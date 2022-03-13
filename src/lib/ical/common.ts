@@ -1,4 +1,4 @@
-import RRule from 'rrule';
+import RRule from 'rrule/dist/es5/rrule.min.js';
 import type { CalendarEvent } from '$lib/calendar-link';
 import * as calendarLink from '$lib/calendar-link';
 import type { AcmPath } from '$lib/constants/acm-paths';
@@ -27,7 +27,7 @@ export interface IcalOutput {
   [key: string]: string | string[] | IcalOutput[];
 }
 
-function cleanIcalKey(key: string): string {
+export function cleanIcalKey(key: string): string {
   if (key.startsWith('DTSTART')) return 'DTSTART';
   if (key.startsWith('DTEND')) return 'DTEND';
   return key;
@@ -39,7 +39,7 @@ function cleanIcalKey(key: string): string {
  * @returns true if the date observes daylight savings time, false otherwise.
  * @see https://stackoverflow.com/a/30280636
  */
-function checkDateObservesDST(date: Date): boolean {
+export function checkDateObservesDST(date: Date): boolean {
   const jan = new Date(date.getFullYear(), 0, 1);
   const jul = new Date(date.getFullYear(), 6, 1);
   return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset()) > date.getTimezoneOffset();
@@ -109,7 +109,7 @@ export function parseRawIcal(source: string): IcalOutput {
  * @param datetime Example: October 31st, 2021 = "20211031T000000"
  * @returns The parsed Date object.
  */
-function parseRawIcalDatetime(datetime: string): Date {
+export function parseRawIcalDatetime(datetime: string): Date {
   const fullYear = datetime.slice(0, 4);
   const month = datetime.slice(4, 6);
   const day = datetime.slice(6, 8);
@@ -146,7 +146,7 @@ export function computeIcalDatetime(event: IcalOutput): Date {
 }
 
 export function slugifyEvent(title: string, year: string, month: string, day: number): string {
-  const slugifiedTitle = title.replace(/[^\w\s_]/g, '').replace(/(\s|-|_)+/g, '-');
+  const slugifiedTitle = title.replace(/[^\w\s-_]/g, '').replace(/(\s|-|_)+/g, '-');
   const slugifiedEvent = [slugifiedTitle, year, month, day].join('-').toLowerCase();
   return slugifiedEvent;
 }
@@ -189,7 +189,7 @@ export function parseDescription(content: string, varPrefix = 'ACM_'): AcmEventD
     const value = variable.substring(splitAt + 1);
 
     variables.set(key, value);
-    description = description.substring(0, start) + description.substring(end);
+    description = (description.substring(0, start) + description.substring(end)).trim();
   }
 
   return { description, variables };
@@ -209,8 +209,9 @@ export function cleanTitle(title?: string): string {
   return title.replace(/\\/g, '');
 }
 
-export function makeEventLink(slug: string): string {
-  return 'https://acmcsuf.com/events' + '#' + slug;
+export function makeEventLink(slug?: string, base = 'https://acmcsuf.com/events'): string {
+  if (slug === undefined) return base;
+  return base + '#' + slug;
 }
 
 export function makeCalendarLink(
@@ -246,7 +247,7 @@ export function makeCalendarLink(
   }
 }
 
-function wrapText(text: string, width = 100) {
+export function wrapText(text: string, width = 100) {
   const lines: string[] = [];
 
   while (text.length > width) {
