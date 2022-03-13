@@ -5,7 +5,7 @@
   "printWidth": 100,
   "svelteStrictMode": false,
   "svelteAllowShorthand": true,
-  "svelteBracketNewLine": false,
+  "bracketSameLine": false,
   "svelteIndentScriptAndStyle": true,
   "svelteSortOrder": "scripts-options-markup-styles"
 }
