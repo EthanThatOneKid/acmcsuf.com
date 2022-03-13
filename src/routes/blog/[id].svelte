@@ -24,7 +24,6 @@
 
 <svelte:head>
   <title>{post.title}</title>
-  <link rel="stylesheet" href="../global.css" />
 </svelte:head>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
@@ -63,12 +62,6 @@
 </section>
 
 <style lang="scss">
-  @import 'node_modules/rfs/scss';
-
-  .size-lg {
-    @include font-size(var(--size-lg));
-  }
-
   section {
     display: flex;
     flex-direction: column;

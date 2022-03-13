@@ -20,12 +20,6 @@
 {/if}
 
 <style lang="scss">
-  @import 'node_modules/rfs/scss';
-
-  .size-xs {
-    @include font-size(var(--size-xs));
-  }
-
   .wrapper {
     display: flex;
     align-items: center;

@@ -20,12 +20,6 @@
 </section>
 
 <style lang="scss">
-  @import 'node_modules/rfs/scss';
-
-  .size-xl {
-    @include font-size(var(--size-xl));
-  }
-
   section {
     display: flex;
     justify-content: center;

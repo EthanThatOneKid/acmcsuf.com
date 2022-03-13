@@ -25,12 +25,6 @@
 </div>
 
 <style lang="scss">
-  @import 'node_modules/rfs/scss';
-
-  .size-lg {
-    @include font-size(var(--size-lg));
-  }
-
   .container {
     display: flex;
     justify-content: center;

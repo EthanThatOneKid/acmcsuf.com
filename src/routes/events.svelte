@@ -48,16 +48,6 @@
 <Spacing --min="8px" --med="63px" --max="88px" />
 
 <style lang="scss">
-  @import 'node_modules/rfs/scss';
-
-  .size-xs {
-    @include font-size(var(--size-xs));
-  }
-
-  .size-lg {
-    @include font-size(var(--size-lg));
-  }
-
   h2 {
     display: flex;
     justify-content: center;

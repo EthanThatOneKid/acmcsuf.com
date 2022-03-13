@@ -49,15 +49,3 @@
 </PathSection>
 
 <Spacing --min="40px" --med="95px" --max="120px" />
-
-<style lang="scss">
-  @import 'node_modules/rfs/scss';
-
-  .size-xs {
-    @include font-size(var(--size-xs));
-  }
-
-  .size-lg {
-    @include font-size(var(--size-lg));
-  }
-</style>

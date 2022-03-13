@@ -21,15 +21,3 @@
 <PrivacyPolicy />
 
 <Spacing --min="40px" --med="95px" --max="120px" />
-
-<style lang="scss">
-  @import 'node_modules/rfs/scss';
-
-  .size-sm {
-    @include font-size(var(--size-sm));
-  }
-
-  .size-lg {
-    @include font-size(var(--size-lg));
-  }
-</style>

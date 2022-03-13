@@ -18,7 +18,6 @@
 
 <svelte:head>
   <title>acmCSUF / README</title>
-  <link rel="stylesheet" href="../global.css" />
 </svelte:head>
 
 <Spacing --min="175px" --med="200px" --max="200px" />

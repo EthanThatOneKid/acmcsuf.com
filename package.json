@@ -24,7 +24,6 @@
   },
   "dependencies": {
     "html-to-text": "^8.1.0",
-    "rfs": "^9.0.6",
     "rrule": "^2.6.8",
     "rss": "^1.2.2"
   },

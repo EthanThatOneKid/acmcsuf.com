@@ -133,12 +133,6 @@
 </div>
 
 <style lang="scss">
-  @import 'node_modules/rfs/scss';
-
-  .size-sm {
-    @include font-size(var(--size-sm));
-  }
-
   .event-box {
     position: relative;
   }
