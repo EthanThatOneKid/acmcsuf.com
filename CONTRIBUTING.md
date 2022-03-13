@@ -28,9 +28,10 @@ Before publishing a PR, it is recommended that you run a few commands to make su
 
 ```bash
 npm run format # Careful, this command might mutate your files.
-npm run lint --fix # Careful, this might mutate your files.
+npm run lint # Careful, this might mutate your files.
 npm run check # Use this command to find bugs in your website code.
 npm run build # Use this to make sure your code builds successfully.
+npm t # Run all our unit tests (or with `npm run test`)
 
 # Or, run the following to check everything you'd normally want to check.
 npm run all
