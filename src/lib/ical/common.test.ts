@@ -1,4 +1,3 @@
-// @vitest-environment node
 import { assert, expect, test } from 'vitest';
 
 import {
