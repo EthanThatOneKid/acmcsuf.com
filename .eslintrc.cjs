@@ -1,8 +1,8 @@
 module.exports = {
-  root: true,
   parser: '@typescript-eslint/parser',
   extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
   plugins: ['svelte3', '@typescript-eslint'],
+  env: { browser: true, node: true },
   ignorePatterns: ['*.cjs'],
   overrides: [
     { files: ['*.svelte'], processor: 'svelte3/svelte3' },
@@ -18,14 +18,5 @@ module.exports = {
     'prefer-arrow-callback': 'error',
     '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
-  },
-  parserOptions: {
-    sourceType: 'module',
-    ecmaVersion: 2019,
-  },
-  env: {
-    browser: true,
-    es2017: true,
-    node: true,
   },
 };
