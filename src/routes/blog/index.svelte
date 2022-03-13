@@ -11,7 +11,7 @@
   import type { Newsletter } from './_query';
   import Spacing from '$lib/components/sections/spacing.svelte';
 
-  export let posts: Newsletter[];
+  export let posts: Newsletter[] = [];
 </script>
 
 <svelte:head>
