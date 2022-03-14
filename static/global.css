@@ -101,6 +101,7 @@ body {
   font-weight: 600;
 }
 
+/* Font Sizes */
 .size-xs {
   font-size: var(--size-xs);
 }
@@ -119,6 +120,28 @@ body {
 
 .size-xl {
   font-size: var(--size-xl);
+}
+
+@media screen and (min-width: 768px) {
+  .size-xs {
+    font-size: var(--size-xs);
+  }
+
+  .size-sm {
+    font-size: var(--size-sm);
+  }
+
+  .size-md {
+    font-size: var(--size-md);
+  }
+
+  .size-lg {
+    font-size: var(--size-lg);
+  }
+
+  .size-xl {
+    font-size: var(--size-xl);
+  }
 }
 
 .brand-blue {
