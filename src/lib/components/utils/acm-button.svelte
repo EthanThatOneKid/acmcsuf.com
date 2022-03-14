@@ -23,9 +23,9 @@
     margin-top: 64px;
     background-color: var(--acm-dark);
     color: var(--acm-light);
-    transition: background-color 0.25s ease-in-out;
+    transition: color 0.25s ease-in-out;
   }
   .call-to-action:hover {
-    background-color: var(--acm-blue);
+    color: var(--acm-blue);
   }
 </style>
