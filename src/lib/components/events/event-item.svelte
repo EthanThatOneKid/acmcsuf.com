@@ -272,6 +272,7 @@
   .event-description {
     margin-top: 24px;
     margin-bottom: 24px;
+    overflow-wrap: break-word;
   }
 
   .event-description:empty::after {
