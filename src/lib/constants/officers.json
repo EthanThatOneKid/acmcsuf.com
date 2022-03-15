@@ -454,5 +454,16 @@
         "tier": 20
       }
     }
+  },
+  {
+    "fullName": "Jason Wong",
+    "positions": {
+      "S22": {
+        "title": "Historian",
+        "tier": 7
+      }
+    },
+    "displayName": "jaasonw",
+    "picture": "jason-wong.png"
   }
 ]
