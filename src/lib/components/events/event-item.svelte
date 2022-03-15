@@ -24,12 +24,10 @@
   }
 
   function share(info: AcmEvent) {
-    navigator
-      .share({
-        title: info.title,
-        url: info.selfLink,
-      })
-      .then(() => toast({ content: 'Copied event link to clipboard!', path: info.acmPath.slug }));
+    navigator.share({
+      title: info.title,
+      url: info.selfLink,
+    });
   }
 
   onMount(() => {
