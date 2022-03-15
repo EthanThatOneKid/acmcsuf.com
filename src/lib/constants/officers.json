@@ -465,5 +465,16 @@
     },
     "displayName": "jaasonw",
     "picture": "jason-wong.png"
+  },
+  {
+    "fullName": "Angel Armendariz",
+    "positions": {
+      "S22": {
+        "title": "Dev Project Manager",
+        "tier": 20
+      }
+    },
+    "displayName": "Angel-Armendariz",
+    "picture": "angel-armendariz.png"
   }
 ]
