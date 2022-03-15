@@ -83,6 +83,7 @@ async function updateOfficer() {
   }
 
   const abbreviatedTerm = termAbbr(term);
+  const position = result[officerIndex].positions[abbreviatedTerm] ?? {};
   const titleNeedsUpdate = title !== undefined && title.trim().length > 0;
   if (titleNeedsUpdate) {
     if (abbreviatedTerm === null) {
@@ -93,13 +94,17 @@ async function updateOfficer() {
     if (title === 'DELETE') {
       delete result[officerIndex].positions[abbreviatedTerm];
     } else {
-      result[officerIndex].positions[abbreviatedTerm].title = title.trim();
+      position.title = title.trim();
     }
   }
 
   const tierValue = TIERS_JSON.indexOf(rawTier);
   if (tierValue !== -1 && term.trim().length > 0 && title !== 'DELETE') {
-    result[officerIndex].positions[abbreviatedTerm].tier = tierValue;
+    position.tier = tierValue;
+  }
+
+  if (title !== 'DELETE') {
+    result[officerIndex].positions[abbreviatedTerm] = position;
   }
 
   const displayNameNeedsUpdate = displayName !== undefined && displayName.trim().length > 0;
