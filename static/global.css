@@ -67,17 +67,6 @@ body {
   --size-xl: 48px;
 }
 
-/* New CSS Guidelines */
-@media screen and (min-width: 768px) {
-  :root {
-    --title-font-size: 96px;
-    --heading-font-size: 64px;
-    --subheading-font-size: 36px;
-    --body-font-size: 24px;
-    --margin-text-font-size: 16px;
-  }
-}
-
 .ita {
   font-style: italic;
 }
