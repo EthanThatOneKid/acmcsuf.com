@@ -26,7 +26,8 @@
     workshops, info sessions, community building events, and much more!
     <br /><br />
     <span class="brand-med"
-      >Events are open to anyone interested, regardless of major or background experience.</span>
+      >Events are open to anyone interested, regardless of major or background experience.</span
+    >
   </p>
 </CommonHero>
 

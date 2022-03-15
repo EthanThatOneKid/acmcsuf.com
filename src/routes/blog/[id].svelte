@@ -37,7 +37,8 @@
     <a
       href={'https://github.com/' + post.author.displayname}
       target="_blank"
-      rel="noopener noreferrer">
+      rel="noopener noreferrer"
+    >
       @{post.author.displayname}
     </a>
   </p>

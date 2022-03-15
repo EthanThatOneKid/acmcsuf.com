@@ -25,7 +25,8 @@
 
   <h2 class="subtitle headers">
     The official acmCSUF blog.<a href="/blog.xml"
-      ><img src="assets/badges/feed-icon.svg" alt="RSS feed logo" /></a>
+      ><img src="assets/badges/feed-icon.svg" alt="RSS feed logo" /></a
+    >
   </h2>
 
   <Spacing --min="100px" --med="175px" --max="200px" />

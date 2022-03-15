@@ -36,7 +36,8 @@
             href={path}
             class="{`page page-${path.replace(/^\//, '')}`} headers"
             aria-current={path === $page.url.pathname}
-            sveltekit:prefetch>
+            sveltekit:prefetch
+          >
             {@html title}
           </a>
         </li>

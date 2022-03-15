@@ -26,7 +26,8 @@
   <img
     class="officer-image"
     src={`../assets/authors/${officerPicture}`}
-    alt={`Image of ${officerName}.`} />
+    alt={`Image of ${officerName}.`}
+  />
   <h3 class="headers">
     {officerName}
     {#if officerTier.length}<br />{officerTier}<br />{/if}
