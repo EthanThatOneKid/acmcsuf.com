@@ -29,11 +29,7 @@
         title: info.title,
         url: info.selfLink,
       })
-      .then(() => {
-        const successMsg = 'Event shared successfully';
-        const path = info.acmPath.slug;
-        toast({ content: successMsg, path });
-      });
+      .then(() => toast({ content: 'Copied event link to clipboard!', path: info.acmPath.slug }));
   }
 
   onMount(() => {
