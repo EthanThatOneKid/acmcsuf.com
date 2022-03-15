@@ -122,25 +122,14 @@ body {
   font-size: var(--size-xl);
 }
 
-@media screen and (min-width: 768px) {
-  .size-xs {
-    font-size: var(--size-xs);
-  }
-
-  .size-sm {
-    font-size: var(--size-sm);
-  }
-
-  .size-md {
-    font-size: var(--size-md);
-  }
-
-  .size-lg {
-    font-size: var(--size-lg);
-  }
-
-  .size-xl {
-    font-size: var(--size-xl);
+/* We use the following to avoid the <https://github.com/twbs/rfs> dependency */
+@media screen and (max-width: 1000px) {
+  :root {
+    --size-xl: calc(1.425rem + 2.1vw);
+    --size-lg: calc(1.35rem + 1.2vw);
+    --size-md: calc(1.275rem + 0.3vw);
+    --size-sm: calc(1.175rem + 0.1vw);
+    --size-xs: calc(1.075rem + 0.05vw);
   }
 }
 
