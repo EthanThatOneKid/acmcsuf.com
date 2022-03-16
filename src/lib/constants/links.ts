@@ -9,6 +9,8 @@ export const links = {
   'covid-19':
     'https://docs.google.com/document/d/1aEfH50N0fmeK3JiID968DoG41jmdk3nelDipQpF6yio/edit?usp=sharing',
   bug: 'https://github.com/EthanThatOneKid/acmcsuf.com/issues/new?assignees=&labels=bug&template=bug_report.yaml',
+  enhance:
+    'https://github.com/EthanThatOneKid/acmcsuf.com/issues/new?assignees=&labels=enhancement&template=feature_request.yaml',
   'history-of-rss': 'https://acmcsuf.com/blog/269',
   v2: 'https://acmcsuf.com/blog/262',
 } as const;
