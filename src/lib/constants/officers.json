@@ -476,5 +476,16 @@
     },
     "displayName": "Angel-Armendariz",
     "picture": "angel-armendariz.png"
+  },
+  {
+    "fullName": "Duc Dinh",
+    "positions": {
+      "S22": {
+        "title": "Dev Officer",
+        "tier": 19
+      }
+    },
+    "displayName": "diamondburned",
+    "picture": "diamondburned.png"
   }
 ]
