@@ -12,7 +12,7 @@
       class:info={toastItem.type === ToastType.Info}
       in:fly={{ y: 20 }}
       out:fly={{ y: -20 }}
-      style={`--highlights: var(--acm-${toastItem.path}-rgb)`}
+      style:--highlights={`var(--acm-${toastItem.path}-rgb)`}
     >
       <img src="/assets/png/acm-shark.png" alt="acmCSUF Mascot: Frank the Shark" />
       <p>{@html toastItem.content}</p>
