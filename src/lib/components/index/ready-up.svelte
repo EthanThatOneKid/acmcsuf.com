@@ -5,7 +5,7 @@
 
 <section>
   <div class="main-text">
-    <h2 class="headers size-l">Ready to get started?</h2>
+    <h2 class="headers size-lg">Ready to get started?</h2>
     <p class="size-xs">
       If you want to improve your skills, want to learn how to break into the industry, or just got
       a passion for technology, then we are the perfect organization for you!
@@ -21,8 +21,6 @@
 </section>
 
 <style lang="scss">
-  @import 'static/theme.scss';
-
   section {
     display: flex;
     flex-direction: column;

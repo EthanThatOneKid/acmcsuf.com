@@ -36,8 +36,6 @@
 </div>
 
 <style lang="scss">
-  @import 'static/theme.scss';
-
   .officer-container {
     display: flex;
     flex-direction: column;

@@ -10,7 +10,7 @@
   }
 
   section :global(p) {
-    font-size: var(--subheading-font-size);
+    font-size: var(--size-lg);
     margin: 20px;
   }
 </style>

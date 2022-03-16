@@ -1,8 +1,6 @@
 <script lang="ts" context="module">
   import type { LoadOutput, LoadInput } from '@sveltejs/kit';
-  /**
-   * @type {import('@sveltejs/kit').Load}
-   */
+
   export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
     const response = await fetch(`/blog.json`);
     return { props: { posts: await response.json() } };
@@ -18,7 +16,6 @@
 
 <svelte:head>
   <title>acmCSUF / README</title>
-  <link rel="stylesheet" href="../global.css" />
 </svelte:head>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
@@ -51,8 +48,6 @@
 <Spacing --min="40px" --med="95px" --max="120px" />
 
 <style lang="scss">
-  @import 'static/theme.scss';
-
   .subtitle {
     a {
       display: inline-block;

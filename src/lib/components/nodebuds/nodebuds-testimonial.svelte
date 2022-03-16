@@ -1,7 +1,7 @@
 <section>
   <div class="info-container">
-    <h2 class="headers size-l">Testimonials</h2>
-    <span class="size-s">
+    <h2 class="headers size-lg">Testimonials</h2>
+    <span class="size-sm">
       <slot name="content1" tag="p" />
       <slot name="content2" tag="p" />
       <slot name="content3" tag="p" />
@@ -10,8 +10,6 @@
 </section>
 
 <style lang="scss">
-  @import 'static/theme.scss';
-
   section {
     display: flex;
     justify-content: center;

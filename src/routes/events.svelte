@@ -1,7 +1,6 @@
 <script lang="ts" context="module">
   import type { LoadOutput, LoadInput } from '@sveltejs/kit';
 
-  /** @type {import('@sveltejs/kit').Load} */
   export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
     const response = await fetch(`/events.json`);
     return { props: { events: await response.json() } };
@@ -21,7 +20,7 @@
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <CommonHero>
-  <h2 slot="headline" class="size-l">Curated events for growth and success</h2>
+  <h2 slot="headline" class="size-lg">Curated events for growth and success</h2>
   <p slot="text" class="size-xs">
     Our student chapter hosts a multitude of events throughout each school semester, consisting of
     workshops, info sessions, community building events, and much more!
@@ -33,7 +32,7 @@
 
 <Spacing --min="100px" --med="175px" --max="200px" />
 
-<h2 class="size-l headers">This week's events 📅</h2>
+<h2 class="size-lg headers">This week's events 📅</h2>
 
 <Spacing --med="16px" />
 
@@ -48,8 +47,6 @@
 <Spacing --min="8px" --med="63px" --max="88px" />
 
 <style lang="scss">
-  @import 'static/theme.scss';
-
   h2 {
     display: flex;
     justify-content: center;

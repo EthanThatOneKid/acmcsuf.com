@@ -63,7 +63,7 @@
       </p>
 
       <a
-        class="event-join size-s"
+        class="event-join size-sm"
         href={info.meetingLink}
         role="button"
         target="_blank"
@@ -133,8 +133,6 @@
 </div>
 
 <style lang="scss">
-  @import 'static/theme.scss';
-
   .event-box {
     position: relative;
   }

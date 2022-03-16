@@ -24,13 +24,12 @@
 
 <svelte:head>
   <title>{post.title}</title>
-  <link rel="stylesheet" href="../global.css" />
 </svelte:head>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <section>
-  <h1 class="headers size-l">{post.title}</h1>
+  <h1 class="headers size-lg">{post.title}</h1>
 
   <Spacing --min="16px" --med="16px" --max="16px" />
 
@@ -63,8 +62,6 @@
 </section>
 
 <style lang="scss">
-  @import '../node_modules/gfm.css/source/gfm.scss';
-
   section {
     display: flex;
     flex-direction: column;
