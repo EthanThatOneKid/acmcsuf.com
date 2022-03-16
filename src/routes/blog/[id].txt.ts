@@ -58,7 +58,7 @@ async function getCache(id: number, baseURL: string) {
   }
 }
 
-export async function get(event: RequestEvent<{ id: number }>): Promise<RequestHandlerOutput> {
+export async function get(event: RequestEvent<{ id: string }>): Promise<RequestHandlerOutput> {
   const id = Number(event.params.id);
   const newsletter = await getCache(id, event.url.origin);
 
