@@ -1,8 +1,7 @@
 <script lang="ts" context="module">
-  /**
-   * @type {import('@sveltejs/kit').Load}
-   */
-  export async function load({ fetch, params }) {
+  import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/internal';
+
+  export async function load({ fetch, params }: LoadInput): Promise<LoadOutput> {
     const response = await fetch(`/blog/${params.id}.json`);
     const newsletter = await response.json();
 
