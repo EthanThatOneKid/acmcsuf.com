@@ -7,7 +7,8 @@
     stroke="currentColor"
     stroke-linecap="round"
     stroke-linejoin="round"
-    stroke-width="32" /><circle
+    stroke-width="32"
+  /><circle
     cx="384"
     cy="112"
     r="48"
@@ -15,7 +16,8 @@
     stroke="currentColor"
     stroke-linecap="round"
     stroke-linejoin="round"
-    stroke-width="32" /><circle
+    stroke-width="32"
+  /><circle
     cx="384"
     cy="400"
     r="48"
@@ -23,10 +25,13 @@
     stroke="currentColor"
     stroke-linecap="round"
     stroke-linejoin="round"
-    stroke-width="32" /><path
+    stroke-width="32"
+  /><path
     fill="none"
     stroke="currentColor"
     stroke-linecap="round"
     stroke-linejoin="round"
     stroke-width="32"
-    d="M169.83 279.53l172.34 96.94M342.17 135.53l-172.34 96.94" /></svg>
+    d="M169.83 279.53l172.34 96.94M342.17 135.53l-172.34 96.94"
+  /></svg
+>
