@@ -9,14 +9,19 @@ body {
 html,
 body,
 #svelte {
-  color: #101315;
+  color: var(--acm-dark);
   font-family: 'Poppins', sans-serif;
   padding: 0;
   margin: 0;
 }
 
 body {
-  background: #f8f8f8;
+  background: var(--acm-light);
+}
+
+.dark {
+  --acm-dark: #f8f8f8;
+  --acm-light: #101315;
 }
 
 .info-screen {

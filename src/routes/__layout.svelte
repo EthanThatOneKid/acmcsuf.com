@@ -2,6 +2,22 @@
   import Navbar from '$lib/components/sections/navbar.svelte';
   import Footer from '$lib/components/sections/footer.svelte';
   import AcmToaster from '$lib/components/utils/acm-toaster.svelte';
+  import { AcmTheme, theme } from '$lib/stores/theme';
+  import { onMount } from 'svelte';
+
+  function changeTheme(event) {
+    theme.set(event.matches ? AcmTheme.Dark : AcmTheme.Light);
+  }
+
+  onMount(() => {
+    theme.init();
+
+    if ('matchMedia' in window) {
+      const mediaList = matchMedia('(prefers-color-scheme: dark)');
+      mediaList.addEventListener('change', changeTheme);
+      return () => mediaList.removeEventListener('change', changeTheme);
+    }
+  });
 </script>
 
 <Navbar />
