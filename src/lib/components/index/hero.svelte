@@ -15,7 +15,8 @@
 
     <img
       src="assets/png/hero-illustration.png"
-      alt="Frank the shark (ACM CSUF's mascot) is holding a flag that says 'I ♥ ACM'" />
+      alt="Frank the shark (ACM CSUF's mascot) is holding a flag that says 'I ♥ ACM'"
+    />
   </div>
 </section>
 
