@@ -1,5 +1,5 @@
-import { Client, Intents } from 'discord.js';
 import { config } from 'dotenv';
+import { Client, Intents } from 'discord.js';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function getNArg(n = 2) {

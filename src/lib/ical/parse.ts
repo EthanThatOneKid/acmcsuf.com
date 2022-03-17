@@ -1,18 +1,18 @@
-import { Time, ACM_LOCALE } from '$lib/constants/time';
+import { ACM_LOCALE, Time } from '$lib/constants/time';
 import { acmAlgo, acmCreate, acmDev, acmGeneral } from '$lib/constants/acm-paths';
-import type { IcalOutput, AcmEvent } from './common';
+import type { AcmEvent, IcalOutput } from './common';
 import {
-  parseRawIcal,
-  parseDescription,
-  computeIcalDatetime,
-  slugifyEvent,
-  makeEventLink,
   checkForRecurrence,
-  sortByDate,
-  filterIfPassed,
   cleanTitle,
-  produceSummary,
+  computeIcalDatetime,
+  filterIfPassed,
   makeCalendarLink,
+  makeEventLink,
+  parseDescription,
+  parseRawIcal,
+  produceSummary,
+  slugifyEvent,
+  sortByDate,
 } from './common';
 
 export function parse(icalData: string): AcmEvent[] {
@@ -46,20 +46,20 @@ export function parse(icalData: string): AcmEvent[] {
       const meetingLink = isZoomMeeting
         ? rawLocation
         : location.startsWith('https://')
-        ? location
-        : '/discord';
+          ? location
+          : '/discord';
 
       const rawAcmPath = variables.get('ACM_PATH')?.toLowerCase();
       const acmPath =
         rawAcmPath === undefined
           ? acmGeneral
           : rawAcmPath === acmAlgo.slug
-          ? acmAlgo
-          : rawAcmPath === acmCreate.slug
-          ? acmCreate
-          : rawAcmPath === acmDev.slug
-          ? acmDev
-          : acmGeneral;
+            ? acmAlgo
+            : rawAcmPath === acmCreate.slug
+              ? acmCreate
+              : rawAcmPath === acmDev.slug
+                ? acmDev
+                : acmGeneral;
 
       const calendarLinks = (['google', 'outlook'] as const).reduce((links, service) => {
         links[service] = makeCalendarLink(service, title, description, selfLink, date);

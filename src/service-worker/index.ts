@@ -1,5 +1,5 @@
 /// <reference lib="webworker" />
-import { CURRENT_CACHE_NAME, BUILD_FILES } from './common';
+import { BUILD_FILES, CURRENT_CACHE_NAME } from './common';
 
 self.addEventListener('activate', (event: ExtendableEvent) => {
   event.waitUntil(

@@ -1,11 +1,11 @@
 import { assert, expect, test } from 'vitest';
 
 import {
-  slugifyEvent,
-  parseDescription,
-  sortByDate,
   filterIfPassed,
   makeEventLink,
+  parseDescription,
+  slugifyEvent,
+  sortByDate,
   wrapText,
 } from './common';
 

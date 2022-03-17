@@ -1,18 +1,18 @@
 import axios from 'axios';
 import { config } from 'dotenv';
-import { readFileSync, writeFileSync, createWriteStream } from 'fs';
+import { createWriteStream, readFileSync, writeFileSync } from 'fs';
 
 /**
  * Example officer data:
  * ```json
  * {
- *	"fullName": "Ethan Davidson",
- *  "picture": "ethan-davidson.png",
- *	"positions": {
- *		"F20": { title: "Competition Manager", tier: Tier.GeneralBoard },
- *		"S21": { title: "Webmaster", tier: Tier.GeneralBoard },
- *		"F21": { title: "Webmaster", tier: Tier.GeneralBoard }
- *	}
+ *   "fullName": "Ethan Davidson",
+ *   "picture": "ethan-davidson.png",
+ *   "positions": {
+ *     "F20": { title: "Competition Manager", tier: Tier.GeneralBoard },
+ *     "S21": { title: "Webmaster", tier: Tier.GeneralBoard },
+ *  	 "F21": { title: "Webmaster", tier: Tier.GeneralBoard }
+ *   }
  * }
  * ```
  */

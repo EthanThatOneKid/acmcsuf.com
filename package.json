@@ -44,6 +44,7 @@
     "discord.js": "^13.6.0",
     "dotenv": "^16.0.0",
     "eslint": "^8.11.0",
+    "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-svelte3": "^3.4.1",
     "jsdom": "^19.0.0",
     "node-fetch": "^3.2.3",

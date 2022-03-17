@@ -1,4 +1,4 @@
-import { startBot, getNArg } from './common.js';
+import { getNArg, startBot } from './common.js';
 
 startBot(async (client) => {
   console.log(`Logged in as ${client.user.tag}`);

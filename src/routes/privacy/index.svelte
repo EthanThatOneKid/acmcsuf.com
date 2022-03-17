@@ -1,7 +1,7 @@
 <script lang="ts">
   import CommonHero from '$lib/components/sections/common-hero.svelte';
-  import Spacing from '$lib/components/sections/spacing.svelte';
   import PrivacyPolicy from '$lib/components/privacy/privacy-policy.svelte';
+  import Spacing from '$lib/components/sections/spacing.svelte';
 </script>
 
 <Spacing --min="175px" --med="200px" --max="200px" />

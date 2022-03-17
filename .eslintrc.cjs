@@ -15,6 +15,14 @@ module.exports = {
   rules: {
     indent: ['error', 2, { SwitchCase: 1 }],
     'func-style': ['error', 'declaration', { allowArrowFunctions: false }],
+    'sort-imports': [
+      'error',
+      {
+        ignoreCase: true,
+        allowSeparatedGroups: true,
+        memberSyntaxSortOrder: ['all', 'single', 'multiple', 'none'],
+      },
+    ],
     'prefer-arrow-callback': 'error',
     '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],

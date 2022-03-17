@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc.js';
 import { stringify } from 'query-string';
 
-import type { CalendarEvent, NormalizedCalendarEvent, Google, Outlook, Yahoo } from './interfaces';
+import type { CalendarEvent, Google, NormalizedCalendarEvent, Outlook, Yahoo } from './interfaces';
 import { TimeFormats } from './utils';
 
 dayjs.extend(utc);
@@ -21,16 +21,16 @@ export function eventify(event: CalendarEvent): NormalizedCalendarEvent {
   const endUtc = end
     ? dayjs(end).utc()
     : (() => {
-        if (event.allDay) {
-          return startUtc.add(1, 'day');
-        }
-        if (duration && duration.length == 2) {
-          const value = Number(duration[0]);
-          const unit = duration[1];
-          return startUtc.add(value, unit);
-        }
-        return dayjs().utc();
-      })();
+      if (event.allDay) {
+        return startUtc.add(1, 'day');
+      }
+      if (duration && duration.length == 2) {
+        const value = Number(duration[0]);
+        const unit = duration[1];
+        return startUtc.add(value, unit);
+      }
+      return dayjs().utc();
+    })();
   return {
     ...rest,
     startUtc,
