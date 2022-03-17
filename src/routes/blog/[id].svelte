@@ -1,16 +1,14 @@
 <script lang="ts" context="module">
-  import type { LoadOutput, LoadInput } from '@sveltejs/kit';
+  import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/internal';
 
-  /**
-   * @type {import('@sveltejs/kit').Load}
-   */
-  export async function load({ fetch, page }: LoadInput): Promise<LoadOutput> {
-    const { id: slug } = page.params;
-    const response = await fetch(`/blog/${slug}.json`);
+  export async function load({ fetch, params }: LoadInput): Promise<LoadOutput> {
+    const response = await fetch(`/blog/${params.id}.json`);
     const newsletter = await response.json();
+
     if (typeof newsletter?.id !== 'number') {
       return { status: 404 };
     }
+
     return { props: { post: newsletter } };
   }
 </script>
@@ -38,7 +36,8 @@
     <a
       href={'https://github.com/' + post.author.displayname}
       target="_blank"
-      rel="noopener noreferrer">
+      rel="noopener noreferrer"
+    >
       @{post.author.displayname}
     </a>
   </p>

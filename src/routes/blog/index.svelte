@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-  import type { LoadOutput, LoadInput } from '@sveltejs/kit';
+  import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/internal';
 
   export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
     const response = await fetch(`/blog.json`);
@@ -11,7 +11,7 @@
   import type { Newsletter } from './_query';
   import Spacing from '$lib/components/sections/spacing.svelte';
 
-  export let posts: Newsletter[];
+  export let posts: Newsletter[] = [];
 </script>
 
 <svelte:head>
@@ -25,7 +25,8 @@
 
   <h2 class="subtitle headers">
     The official acmCSUF blog.<a href="/blog.xml"
-      ><img src="assets/badges/feed-icon.svg" alt="RSS feed logo" /></a>
+      ><img src="assets/badges/feed-icon.svg" alt="RSS feed logo" /></a
+    >
   </h2>
 
   <Spacing --min="100px" --med="175px" --max="200px" />
