@@ -1,5 +1,4 @@
 import { Time, ACM_LOCALE } from '$lib/constants/time';
-import { DEBUG } from '$lib/constants';
 import { acmAlgo, acmCreate, acmDev, acmGeneral } from '$lib/constants/acm-paths';
 import type { IcalOutput, AcmEvent } from './common';
 import {
@@ -16,7 +15,7 @@ import {
   makeCalendarLink,
 } from './common';
 
-export function parse(icalData: string): AcmEvent[] {
+export function parse(icalData: string, maxEvents?: number): AcmEvent[] {
   const now = Date.now();
   const output = parseRawIcal(icalData);
 
@@ -93,8 +92,10 @@ export function parse(icalData: string): AcmEvent[] {
 
   const sortedEvents = allEvents.sort(sortByDate());
 
-  // Show 10 sample events in debug mode
-  if (DEBUG) return sortedEvents.slice(sortedEvents.length - 10);
+  // Show sample events in debug mode
+  if (maxEvents !== undefined) {
+    return sortedEvents.slice(sortedEvents.length - maxEvents);
+  }
 
   // Filter out events that have passed if not in debug mode
   return sortedEvents.filter(filterIfPassed(now, Time.Day / 2));
