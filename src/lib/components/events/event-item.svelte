@@ -12,6 +12,7 @@
 
   let isRecurring: boolean = info.recurring;
   let deviceCanShare = false;
+  let debounceId = 0;
   let anchor: HTMLElement;
   let details: HTMLDetailsElement;
 
@@ -24,7 +25,7 @@
   }
 
   /** @see <https://stackoverflow.com/a/57711953> */
-  function share(info: AcmEvent) {
+  function share() {
     return new Promise((resolve, reject) => {
       navigator
         .share({ title: info.title, url: info.selfLink })
@@ -55,6 +56,11 @@
 
       addEventListener('focus', cancel);
     });
+  }
+
+  function debounceShare(timeout = 500) {
+    clearTimeout(debounceId);
+    debounceId = Number(setTimeout(share, timeout));
   }
 
   onMount(() => {
@@ -117,7 +123,7 @@
 
     <div class="event-actionbar">
       {#if deviceCanShare}
-        <button class="action-item" title="Share event link" on:click={() => share(info)}>
+        <button class="action-item" title="Share event link" on:click={() => debounceShare(2e2)}>
           <ShareIcon />
         </button>
       {:else}
