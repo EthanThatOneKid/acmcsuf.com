@@ -15,12 +15,12 @@ import {
   makeCalendarLink,
 } from './common';
 
-export function parse(icalData: string): AcmEvent[] {
+export function parse(icalData: string, maxEvents?: number): AcmEvent[] {
   const now = Date.now();
   const output = parseRawIcal(icalData);
 
-  const events = output['VCALENDAR'][0]['VEVENT']
-    .reduce((collection: AcmEvent[], event: IcalOutput) => {
+  const allEvents = output['VCALENDAR'][0]['VEVENT'].reduce(
+    (collection: AcmEvent[], event: IcalOutput) => {
       if (event['DTSTART'] === undefined || event['DTEND'] === undefined) {
         return collection;
       }
@@ -86,11 +86,19 @@ export function parse(icalData: string): AcmEvent[] {
       collection.push(item);
 
       return collection;
-    }, [])
-    .filter(filterIfPassed(now, Time.Day / 2)) // Comment out this filter statement to show a longer list of events for testing purposes.
-    .sort(sortByDate());
+    },
+    []
+  );
 
-  return events;
+  const sortedEvents = allEvents.sort(sortByDate());
+
+  // Show sample events in debug mode
+  if (maxEvents !== undefined) {
+    return sortedEvents.slice(sortedEvents.length - maxEvents);
+  }
+
+  // Filter out events that have passed if not in debug mode
+  return sortedEvents.filter(filterIfPassed(now, Time.Day / 2));
 }
 
 export type { AcmEvent };
