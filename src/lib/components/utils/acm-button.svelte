@@ -8,10 +8,10 @@
   role="button"
   href={link}
   target="_blank"
-  rel="noopener norefferer">{text}</a>
+  rel="noopener norefferer">{text}</a
+>
 
 <style lang="scss">
-  @import 'static/theme.scss';
   .call-to-action {
     display: block;
     text-align: center;

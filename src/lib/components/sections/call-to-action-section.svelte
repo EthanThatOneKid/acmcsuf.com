@@ -12,8 +12,6 @@
 </section>
 
 <style lang="scss">
-  @import 'static/theme.scss';
-
   section {
     display: flex;
     flex-direction: column;
@@ -23,12 +21,10 @@
   }
 
   section .main-text {
-    @include font-size(36px);
     max-width: 950px;
   }
 
   section :global(p) {
-    @include font-size(18px);
     margin-top: 16px;
   }
 </style>

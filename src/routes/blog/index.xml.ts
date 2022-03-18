@@ -1,6 +1,5 @@
-import type { EndpointOutput } from '@sveltejs/kit';
-import type { ResponseHeaders } from '@sveltejs/kit/types/helper';
 import RSS from 'rss';
+import type { RequestHandlerOutput } from '@sveltejs/kit/types/internal';
 import type { Newsletter } from './_query';
 import { fetchNewsletters } from './_query';
 
@@ -53,14 +52,9 @@ function makeRssFeed(posts: Newsletter[]): string {
   return feed.xml({ indent: ' '.repeat(2) });
 }
 
-export async function get(): Promise<EndpointOutput> {
-  const headers: ResponseHeaders = {
-    'Cache-Control': 'max-age=0, s-maxage=3600',
-    'Content-Type': 'application/xml',
-  };
-
-  const posts = await fetchNewsletters();
-  const body = makeRssFeed(posts);
-
-  return { headers, body };
+export async function get(): Promise<RequestHandlerOutput> {
+  return new Response(JSON.stringify(makeRssFeed(await fetchNewsletters())), {
+    status: 200,
+    headers: { 'Cache-Control': 'max-age=0, s-maxage=3600', 'Content-Type': 'application/xml' },
+  });
 }

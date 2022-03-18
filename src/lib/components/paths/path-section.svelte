@@ -12,7 +12,7 @@
       <img src={info.picture} alt={`acm${info.title} Logo`} />
       <div>
         <h2>
-          <span class="headers size-l">
+          <span class="headers size-lg">
             acm<span style={`--font-color: ${info.color}`}>
               <span class="brand-em">{info.title}</span>
             </span>
@@ -25,8 +25,6 @@
 </div>
 
 <style lang="scss">
-  @import 'static/theme.scss';
-
   .container {
     display: flex;
     justify-content: center;

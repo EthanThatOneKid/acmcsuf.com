@@ -1,16 +1,14 @@
 <script lang="ts" context="module">
-  import type { LoadOutput, LoadInput } from '@sveltejs/kit';
+  import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/internal';
 
-  /**
-   * @type {import('@sveltejs/kit').Load}
-   */
-  export async function load({ fetch, page }: LoadInput): Promise<LoadOutput> {
-    const { id: slug } = page.params;
-    const response = await fetch(`/blog/${slug}.json`);
+  export async function load({ fetch, params }: LoadInput): Promise<LoadOutput> {
+    const response = await fetch(`/blog/${params.id}.json`);
     const newsletter = await response.json();
+
     if (typeof newsletter?.id !== 'number') {
       return { status: 404 };
     }
+
     return { props: { post: newsletter } };
   }
 </script>
@@ -24,13 +22,12 @@
 
 <svelte:head>
   <title>{post.title}</title>
-  <link rel="stylesheet" href="../global.css" />
 </svelte:head>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <section>
-  <h1 class="headers size-l">{post.title}</h1>
+  <h1 class="headers size-lg">{post.title}</h1>
 
   <Spacing --min="16px" --med="16px" --max="16px" />
 
@@ -39,7 +36,8 @@
     <a
       href={'https://github.com/' + post.author.displayname}
       target="_blank"
-      rel="noopener noreferrer">
+      rel="noopener noreferrer"
+    >
       @{post.author.displayname}
     </a>
   </p>
@@ -63,8 +61,6 @@
 </section>
 
 <style lang="scss">
-  @import '../node_modules/gfm.css/source/gfm.scss';
-
   section {
     display: flex;
     flex-direction: column;

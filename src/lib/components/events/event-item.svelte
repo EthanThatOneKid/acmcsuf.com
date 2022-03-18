@@ -63,11 +63,12 @@
       </p>
 
       <a
-        class="event-join size-s"
+        class="event-join size-sm"
         href={info.meetingLink}
         role="button"
         target="_blank"
-        rel="noopener noreferrer">Join</a>
+        rel="noopener noreferrer">Join</a
+      >
     </summary>
 
     <hr />
@@ -86,7 +87,8 @@
             'Copied event link to clipboard!',
             'Failed to copy event link to clipboard!',
             info.acmPath.slug
-          )}>
+          )}
+      >
         <CopyLinkIcon />
       </button>
 
@@ -99,7 +101,8 @@
             'Copied event summary to clipboard!',
             'Failed to copy event summary to clipboard!',
             info.acmPath.slug
-          )}>
+          )}
+      >
         <CopyTextIcon />
       </button>
 
@@ -112,7 +115,8 @@
             'Copied Google Calendar link to clipboard!',
             'Failed to copy Google Calendar link to clipboard!',
             info.acmPath.slug
-          )}>
+          )}
+      >
         <GoogleCalendarIcon />
       </button>
 
@@ -125,7 +129,8 @@
             'Copied Microsoft Outlook calendar link to clipboard!',
             'Failed to copy Microsoft Outlook calendar link to clipboard!',
             info.acmPath.slug
-          )}>
+          )}
+      >
         <MsOutlookIcon />
       </button>
     </div>
@@ -133,8 +138,6 @@
 </div>
 
 <style lang="scss">
-  @import 'static/theme.scss';
-
   .event-box {
     position: relative;
   }
@@ -272,7 +275,7 @@
   .event-description {
     margin-top: 24px;
     margin-bottom: 24px;
-    word-break: break-all;
+    overflow-wrap: break-word;
   }
 
   .event-description:empty::after {

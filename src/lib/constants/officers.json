@@ -454,5 +454,38 @@
         "tier": 20
       }
     }
+  },
+  {
+    "fullName": "Jason Wong",
+    "positions": {
+      "S22": {
+        "title": "Historian",
+        "tier": 7
+      }
+    },
+    "displayName": "jaasonw",
+    "picture": "jason-wong.png"
+  },
+  {
+    "fullName": "Angel Armendariz",
+    "positions": {
+      "S22": {
+        "title": "Dev Project Manager",
+        "tier": 20
+      }
+    },
+    "displayName": "Angel-Armendariz",
+    "picture": "angel-armendariz.png"
+  },
+  {
+    "fullName": "Duc Dinh",
+    "positions": {
+      "S22": {
+        "title": "Dev Officer",
+        "tier": 19
+      }
+    },
+    "displayName": "diamondburned",
+    "picture": "diamondburned.png"
   }
 ]

@@ -64,7 +64,8 @@
           href="mailto:acmcsufullerton@gmail.com"
           class="brand-light"
           target="_blank"
-          rel="noopener noreferrer">
+          rel="noopener noreferrer"
+        >
           acmcsufullerton@gmail.com
         </a>
       </div>
@@ -95,8 +96,6 @@
 </footer>
 
 <style lang="scss">
-  @import 'static/theme.scss';
-
   footer {
     display: flex;
     justify-content: center;

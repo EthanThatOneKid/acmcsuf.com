@@ -1,8 +1,6 @@
 <script lang="ts" context="module">
-  import type { LoadOutput, LoadInput } from '@sveltejs/kit';
-  /**
-   * @type {import('@sveltejs/kit').Load}
-   */
+  import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/internal';
+
   export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
     const response = await fetch(`/blog.json`);
     return { props: { posts: await response.json() } };
@@ -13,12 +11,11 @@
   import type { Newsletter } from './_query';
   import Spacing from '$lib/components/sections/spacing.svelte';
 
-  export let posts: Newsletter[];
+  export let posts: Newsletter[] = [];
 </script>
 
 <svelte:head>
   <title>acmCSUF / README</title>
-  <link rel="stylesheet" href="../global.css" />
 </svelte:head>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
@@ -28,7 +25,8 @@
 
   <h2 class="subtitle headers">
     The official acmCSUF blog.<a href="/blog.xml"
-      ><img src="assets/badges/feed-icon.svg" alt="RSS feed logo" /></a>
+      ><img src="assets/badges/feed-icon.svg" alt="RSS feed logo" /></a
+    >
   </h2>
 
   <Spacing --min="100px" --med="175px" --max="200px" />
@@ -51,8 +49,6 @@
 <Spacing --min="40px" --med="95px" --max="120px" />
 
 <style lang="scss">
-  @import 'static/theme.scss';
-
   .subtitle {
     a {
       display: inline-block;

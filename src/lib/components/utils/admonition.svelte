@@ -20,8 +20,6 @@
 {/if}
 
 <style lang="scss">
-  @import 'static/theme.scss';
-
   .wrapper {
     display: flex;
     align-items: center;

@@ -3,7 +3,7 @@
     <img src="assets/png/why-join-illustration.png" alt="Social event with acmCSUF club members." />
 
     <div class="right-content">
-      <h2 class="headers size-l">Your journey into tech starts here</h2>
+      <h2 class="size-lg headers g">Your journey into tech starts here</h2>
       <p class="size-xs">
         We aim to build a foundation for future industry leaders by developing their technical and
         professional skills. We facilitate these by offering free workshops, social events, guest
@@ -15,8 +15,6 @@
 </section>
 
 <style lang="scss">
-  @import 'static/theme.scss';
-
   section {
     display: flex;
     justify-content: center;

@@ -35,7 +35,8 @@
           id="form-topic"
           name="form-topic"
           placeholder="Your subject..."
-          required />
+          required
+        />
       </span>
 
       <span>
@@ -45,7 +46,8 @@
           id="form-message"
           name="form-message"
           placeholder="Your message..."
-          required />
+          required
+        />
       </span>
 
       <input type="submit" id="form-submit" name="form-submit" placeholder="Submit" />
@@ -58,7 +60,8 @@
       height="962"
       frameborder="0"
       marginheight="0"
-      marginwidth="0">
+      marginwidth="0"
+    >
       Loading…
     </iframe>
   {/if}

@@ -1,6 +1,6 @@
-import { AcmEvent, parse } from '$lib/ical/parse';
-import type { EndpointOutput } from '@sveltejs/kit';
-import type { DefaultBody } from '@sveltejs/kit/types/endpoint';
+import type { RequestHandlerOutput } from '@sveltejs/kit/types/internal';
+import type { AcmEvent } from '$lib/ical/common';
+import { parse } from '$lib/ical/parse';
 
 // Constants
 const caching = false; // Make this false to disable server-side caching in development.
@@ -27,8 +27,9 @@ async function getCache() {
   return await setCache(now);
 }
 
-export async function get(): Promise<EndpointOutput> {
-  return {
-    body: (await getCache()) as unknown as DefaultBody,
-  };
+export async function get(): Promise<RequestHandlerOutput> {
+  return new Response(JSON.stringify(await getCache()), {
+    status: 200,
+    headers: { 'Content-Type': 'application/json' },
+  });
 }
