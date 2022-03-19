@@ -1,7 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
 
-  export let initialValue: boolean = false;
+  export let initialValue = false;
 
   let value = initialValue;
 
