@@ -1,8 +1,10 @@
 <script lang="ts">
-  import Instagram from '../icons/instagram.svelte';
-  import Discord from '../icons/discord.svelte';
-  import Youtube from '../icons/youtube.svelte';
-  import Linkedin from '../icons/linkedin.svelte';
+  import Instagram from '$lib/components/icons/instagram.svelte';
+  import Discord from '$lib/components/icons/discord.svelte';
+  import Youtube from '$lib/components/icons/youtube.svelte';
+  import Linkedin from '$lib/components/icons/linkedin.svelte';
+  import AcmToggle from '$lib/components/utils/acm-toggle.svelte';
+  import { AcmTheme, theme } from '$lib/stores/theme';
 </script>
 
 <footer>
@@ -89,6 +91,18 @@
           <a href="/github" class="brand-light" target="_blank" rel="noopener noreferrer">
             Source Code
           </a>
+        </span>
+
+        <span>
+          <!-- true is dark -->
+          <AcmToggle
+            initialValue={$theme === AcmTheme.Dark}
+            on:toggle={(event) => {
+              $theme = event.detail ? AcmTheme.Dark : AcmTheme.Light;
+              const test = $theme;
+              console.log({ test, event });
+            }}
+          />
         </span>
       </div>
     </div>
