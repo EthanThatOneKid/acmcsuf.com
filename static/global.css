@@ -20,7 +20,7 @@ body {
 }
 
 .dark {
-  --acm-dark: #f8f8f8;
+  --acm-dark: #dddddd;
   --acm-light: #101315;
   --navbar-bg: var(--acm-gray);
   --footer-bg: var(--acm-gray);
