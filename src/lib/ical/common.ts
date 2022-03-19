@@ -27,7 +27,7 @@ export interface IcalOutput {
   [key: string]: string | string[] | IcalOutput[];
 }
 
-export function cleanIcalKey(key: string): string {
+function cleanIcalKey(key: string): string {
   if (key.startsWith('DTSTART')) return 'DTSTART';
   if (key.startsWith('DTEND')) return 'DTEND';
   return key;
@@ -39,7 +39,7 @@ export function cleanIcalKey(key: string): string {
  * @returns true if the date observes daylight savings time, false otherwise.
  * @see https://stackoverflow.com/a/30280636
  */
-export function checkDateObservesDST(date: Date): boolean {
+function checkDateObservesDST(date: Date): boolean {
   const jan = new Date(date.getFullYear(), 0, 1);
   const jul = new Date(date.getFullYear(), 6, 1);
   return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset()) > date.getTimezoneOffset();
@@ -109,7 +109,7 @@ export function parseRawIcal(source: string): IcalOutput {
  * @param datetime Example: October 31st, 2021 = "20211031T000000"
  * @returns The parsed Date object.
  */
-export function parseRawIcalDatetime(datetime: string): Date {
+function parseRawIcalDatetime(datetime: string): Date {
   const fullYear = datetime.slice(0, 4);
   const month = datetime.slice(4, 6);
   const day = datetime.slice(6, 8);
