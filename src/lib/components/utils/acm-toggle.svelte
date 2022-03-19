@@ -1,14 +1,13 @@
 <script lang="ts">
   import { createEventDispatcher, onMount } from 'svelte';
 
-  export let initialValue = false;
+  export let checked: boolean;
 
   const dispatch = createEventDispatcher();
   let input: HTMLInputElement;
-  let value = initialValue;
 
-  function toggle() {
-    dispatch('toggle', (value = !value));
+  function toggle(event: any) {
+    dispatch('toggle', (checked = (event.target as typeof input).checked));
   }
 
   onMount(() => {
@@ -18,6 +17,6 @@
 </script>
 
 <label>
-  <input type="checkbox" bind:this={input} />
+  <input type="checkbox" bind:this={input} bind:checked />
   <slot />
 </label>

@@ -96,7 +96,7 @@
         <span>
           <!-- true is dark -->
           <AcmToggle
-            initialValue={$theme === AcmTheme.Dark}
+            checked={$theme === AcmTheme.Dark}
             on:toggle={(event) => ($theme = event.detail ? AcmTheme.Dark : AcmTheme.Light)}
           >
             <span class="darkmode-label">Darkmode</span>
