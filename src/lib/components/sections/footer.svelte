@@ -1,10 +1,14 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import Instagram from '$lib/components/icons/instagram.svelte';
   import Discord from '$lib/components/icons/discord.svelte';
   import Youtube from '$lib/components/icons/youtube.svelte';
   import Linkedin from '$lib/components/icons/linkedin.svelte';
   import AcmToggle from '$lib/components/utils/acm-toggle.svelte';
   import { AcmTheme, theme } from '$lib/stores/theme';
+
+  let jsEnabled = false;
+  onMount(() => (jsEnabled = true));
 </script>
 
 <footer>
@@ -93,15 +97,17 @@
           </a>
         </span>
 
-        <span>
-          <!-- true is dark -->
-          <AcmToggle
-            checked={$theme === AcmTheme.Dark}
-            on:toggle={(event) => ($theme = event.detail ? AcmTheme.Dark : AcmTheme.Light)}
-          >
-            <span class="footer-text">Darkmode</span>
-          </AcmToggle>
-        </span>
+        {#if jsEnabled}
+          <span>
+            <!-- true is dark -->
+            <AcmToggle
+              checked={$theme === AcmTheme.Dark}
+              on:toggle={(event) => ($theme = event.detail ? AcmTheme.Dark : AcmTheme.Light)}
+            >
+              <span class="footer-text darkmode-label">Darkmode</span>
+            </AcmToggle>
+          </span>
+        {/if}
       </div>
     </div>
   </div>
@@ -208,7 +214,8 @@
           display: flex;
           flex-direction: column;
 
-          a {
+          a,
+          .darkmode-label {
             text-decoration: none;
             font-size: 14px;
             transition: 0.25s ease-in-out;
