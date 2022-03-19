@@ -97,12 +97,10 @@
           <!-- true is dark -->
           <AcmToggle
             initialValue={$theme === AcmTheme.Dark}
-            on:toggle={(event) => {
-              $theme = event.detail ? AcmTheme.Dark : AcmTheme.Light;
-              const test = $theme;
-              console.log({ test, event });
-            }}
-          />
+            on:toggle={(event) => ($theme = event.detail ? AcmTheme.Dark : AcmTheme.Light)}
+          >
+            <span class="darkmode-label">Darkmode</span>
+          </AcmToggle>
         </span>
       </div>
     </div>
@@ -204,13 +202,16 @@
           display: flex;
           flex-direction: column;
 
-          a {
+          a,
+          .darkmode-label {
             text-decoration: none;
             font-size: 14px;
             transition: 0.25s ease-in-out;
+            color: var(--acm-light);
 
             &:hover {
               color: var(--acm-blue);
+              cursor: pointer;
             }
           }
         }

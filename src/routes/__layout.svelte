@@ -5,7 +5,7 @@
   import { AcmTheme, theme } from '$lib/stores/theme';
   import { onMount } from 'svelte';
 
-  function changeTheme(event) {
+  function changeTheme(event: MediaQueryListEvent) {
     theme.set(event.matches ? AcmTheme.Dark : AcmTheme.Light);
   }
 

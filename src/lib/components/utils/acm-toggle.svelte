@@ -1,25 +1,23 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher, onMount } from 'svelte';
 
   export let initialValue = false;
 
+  const dispatch = createEventDispatcher();
+  let input: HTMLInputElement;
   let value = initialValue;
 
-  const dispatch = createEventDispatcher();
+  function toggle() {
+    dispatch('toggle', (value = !value));
+  }
+
+  onMount(() => {
+    input.addEventListener('change', toggle);
+    return () => input.removeEventListener('change', toggle);
+  });
 </script>
 
-<div class="button b2" id="button-17">
-  <input
-    type="checkbox"
-    class="checkbox"
-    on:change={(event) => {
-      value = !value;
-      console.log({ event, value });
-      dispatch('toggle', value);
-    }}
-  />
-  <div class="knobs">
-    <span />
-  </div>
-  <div class="layer" />
-</div>
+<label>
+  <input type="checkbox" bind:this={input} />
+  <slot />
+</label>
