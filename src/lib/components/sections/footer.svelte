@@ -10,7 +10,7 @@
 <footer>
   <div class="container">
     <div class="left">
-      <h1 class="headers brand-light">Stay connected</h1>
+      <h1 class="headers footer-text">Stay connected</h1>
 
       <div class="socials">
         <span>
@@ -41,30 +41,30 @@
 
     <div class="mid">
       <div class="top">
-        <h1 class="brand-med brand-light">
+        <h1 class="brand-med footer-text">
           &copy; 2022
-          <span class="headers brand-light">
-            acm<span class="brand-em brand-light">CSUF</span>
+          <span class="headers footer-text">
+            acm<span class="brand-em footer-text">CSUF</span>
           </span>
         </h1>
 
-        <div class="links brand-light">
-          <a href="/privacy" class="brand-light" rel="noopener noreferrer"> frankBot Privacy </a>
+        <div class="links footer-text">
+          <a href="/privacy" class="footer-text" rel="noopener noreferrer"> frankBot Privacy </a>
 
           /
 
-          <a href="/bug" class="brand-light" target="_blank" rel="noopener noreferrer">
+          <a href="/bug" class="footer-text" target="_blank" rel="noopener noreferrer">
             Report a Bug
           </a>
         </div>
       </div>
 
       <div class="bottom">
-        <h2 class="headers brand-light">Get in touch</h2>
+        <h2 class="headers footer-text">Get in touch</h2>
 
         <a
           href="mailto:acmcsufullerton@gmail.com"
-          class="brand-light"
+          class="footer-text"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -74,21 +74,21 @@
     </div>
 
     <div class="right">
-      <h1 class="headers brand-light">More from us</h1>
+      <h1 class="headers footer-text">More from us</h1>
 
       <div class="links">
         <span>
-          <a href="/blog" class="brand-light" rel="noopener noreferrer">Blog</a>
+          <a href="/blog" class="footer-text" rel="noopener noreferrer">Blog</a>
         </span>
 
         <span>
-          <a href="/covid-19" class="brand-light" target="_blank" rel="noopener noreferrer">
+          <a href="/covid-19" class="footer-text" target="_blank" rel="noopener noreferrer">
             COVID-19 Policy
           </a>
         </span>
 
         <span>
-          <a href="/github" class="brand-light" target="_blank" rel="noopener noreferrer">
+          <a href="/github" class="footer-text" target="_blank" rel="noopener noreferrer">
             Source Code
           </a>
         </span>
@@ -99,7 +99,7 @@
             checked={$theme === AcmTheme.Dark}
             on:toggle={(event) => ($theme = event.detail ? AcmTheme.Dark : AcmTheme.Light)}
           >
-            <span class="darkmode-label">Darkmode</span>
+            <span class="footer-text">Darkmode</span>
           </AcmToggle>
         </span>
       </div>
@@ -109,12 +109,18 @@
 
 <style lang="scss">
   footer {
+    --ever-white: #f8f8f8; /* does not change with theme */
+
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--acm-dark);
+    background-color: var(--footer-bg);
     padding: 24px 0;
     width: 100vw;
+
+    .footer-text {
+      color: var(--ever-white);
+    }
 
     .container {
       display: flex;
@@ -147,7 +153,7 @@
             }
 
             & :global(path) {
-              fill: var(--acm-light);
+              fill: var(--ever-white);
               transition: fill 0.25s ease-in-out;
             }
 
@@ -202,12 +208,10 @@
           display: flex;
           flex-direction: column;
 
-          a,
-          .darkmode-label {
+          a {
             text-decoration: none;
             font-size: 14px;
             transition: 0.25s ease-in-out;
-            color: var(--acm-light);
 
             &:hover {
               color: var(--acm-blue);

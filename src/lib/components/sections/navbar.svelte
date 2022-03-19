@@ -59,7 +59,7 @@
     z-index: 1000;
     width: 100%;
     justify-content: center;
-    background-color: var(--acm-light);
+    background-color: var(--navbar-bg);
     filter: drop-shadow(0 2px 8px rgba(16, 19, 21, 0.1));
     -webkit-filter: drop-shadow(0 2px 8px rgba(16, 19, 21, 0.1));
   }

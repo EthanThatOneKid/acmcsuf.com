@@ -22,6 +22,8 @@ body {
 .dark {
   --acm-dark: #f8f8f8;
   --acm-light: #101315;
+  --navbar-bg: var(--acm-gray);
+  --footer-bg: var(--acm-gray);
 }
 
 .info-screen {
@@ -36,6 +38,7 @@ body {
   --acm-purple: #9d35e7;
   --acm-red: #d41153;
   --acm-sky: #38b6ff;
+  --acm-gray: #292c2f;
   --acm-dark: #101315;
   --acm-light: #f8f8f8;
 
@@ -46,6 +49,8 @@ body {
 
   --desktop-breakpoint: 768px;
   --navbar-height: 82px;
+  --navbar-bg: var(--acm-light);
+  --footer-bg: var(--acm-dark);
 
   /* Fluid font size is the magical numbers for fluid font sizing. It should be
    * put into parent containers. */
