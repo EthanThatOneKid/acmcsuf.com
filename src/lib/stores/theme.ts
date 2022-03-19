@@ -9,8 +9,8 @@ const STORAGE_KEY = 'theme';
 
 function get(): AcmTheme {
   const savedValue = localStorage.getItem(STORAGE_KEY);
-  const validTheme = Object.values(AcmTheme).includes(savedValue as AcmTheme);
-  if (validTheme) return savedValue as AcmTheme;
+  if (savedValue === AcmTheme.Dark) return AcmTheme.Dark;
+  if (savedValue === AcmTheme.Light) return AcmTheme.Light;
   return matchMedia('(prefers-color-scheme: dark)').matches ? AcmTheme.Dark : AcmTheme.Light;
 }
 

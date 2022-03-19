@@ -6,7 +6,7 @@
   const dispatch = createEventDispatcher();
   let input: HTMLInputElement;
 
-  function toggle(event: any) {
+  function toggle(event: Event) {
     dispatch('toggle', (checked = (event.target as typeof input).checked));
   }
 
