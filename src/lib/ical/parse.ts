@@ -15,6 +15,7 @@ import {
   makeCalendarLink,
 } from './common';
 
+// TODO(etok): Refactor this to be more readable.
 export function parse(icalData: string, maxEvents?: number): AcmEvent[] {
   const now = Date.now();
   const output = parseRawIcal(icalData);
