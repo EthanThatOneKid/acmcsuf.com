@@ -1,15 +1,15 @@
-import { test } from 'vitest';
-import { readFileSync } from 'fs';
-import { walkICAL } from './utils';
-
-// test('slugifies simple event details', () => {
-//   const actual = slugifyEvent('test-event', '2000', 'january', 1);
-//   const expected = 'test-event-2000-january-1';
-//   expect(actual).toBe(expected);
-// });
+import { test, expect } from 'vitest';
+import { readFileSync, writeFileSync } from 'fs';
+import { walkICAL, parse } from './utils';
 
 test('parses sample ICAL payload', () => {
   const rawICAL = readFileSync('./src/routes/events/_testdata/events.ics', 'utf-8');
-  const output = [...walkICAL(rawICAL)];
-  console.log({ output });
+  expect([...walkICAL(rawICAL)].length).toBeGreaterThan(0);
+});
+
+test('parses sample ICAL payload 2', () => {
+  const rawICAL = readFileSync('./src/routes/events/_testdata/events.ics', 'utf-8');
+  const events = parse(rawICAL);
+  writeFileSync('./src/routes/events/_testdata/events.json', JSON.stringify(events, null, 2));
+  expect(events.length).toBeGreaterThan(0);
 });
