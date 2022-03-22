@@ -578,5 +578,15 @@
       }
     },
     "picture": "minh-le.png"
+  },
+  {
+    "fullName": "Joel Anil John",
+    "positions": {
+      "S22": {
+        "title": "Dev Officer",
+        "tier": 19
+      }
+    },
+    "picture": "joel-anil-john.png"
   }
 ]
