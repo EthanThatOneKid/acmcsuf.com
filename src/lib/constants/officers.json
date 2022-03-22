@@ -497,5 +497,15 @@
       }
     },
     "picture": "ibrahim-israr.png"
+  },
+  {
+    "fullName": "Stephanie Pocci",
+    "positions": {
+      "S22": {
+        "title": "Event Coordinator",
+        "tier": 5
+      }
+    },
+    "picture": "stephanie-pocci.png"
   }
 ]
