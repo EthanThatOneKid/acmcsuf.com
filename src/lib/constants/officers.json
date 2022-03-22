@@ -548,5 +548,15 @@
       }
     },
     "picture": "iftekharul-islam.png"
+  },
+  {
+    "fullName": "Alan Cortez",
+    "positions": {
+      "S22": {
+        "title": "Create Officer",
+        "tier": 15
+      }
+    },
+    "picture": "alan-cortez.png"
   }
 ]
