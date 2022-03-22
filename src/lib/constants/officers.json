@@ -497,5 +497,15 @@
       }
     },
     "picture": "ibrahim-israr.png"
+  },
+  {
+    "fullName": "Nurhaliza Hassan",
+    "positions": {
+      "S22": {
+        "title": "Marketing Director",
+        "tier": 6
+      }
+    },
+    "picture": "nurhaliza-hassan.png"
   }
 ]
