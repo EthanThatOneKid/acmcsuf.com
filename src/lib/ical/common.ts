@@ -27,11 +27,7 @@ export interface IcalOutput {
   [key: string]: string | string[] | IcalOutput[];
 }
 
-function cleanIcalKey(key: string): string {
-  if (key.startsWith('DTSTART')) return 'DTSTART';
-  if (key.startsWith('DTEND')) return 'DTEND';
-  return key;
-}
+function cleanIcalKey(key: string): string {}
 
 /**
  * Checks to see if the given date is observing daylight savings time.
@@ -43,65 +39,6 @@ function checkDateObservesDST(date: Date): boolean {
   const jan = new Date(date.getFullYear(), 0, 1);
   const jul = new Date(date.getFullYear(), 6, 1);
   return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset()) > date.getTimezoneOffset();
-}
-
-/**
- * The code in this function is derived from
- * https://github.com/adrianlee44/ical2json.
- * @param source The raw calendar data in ICAL format.
- * @returns The parsed ICAL data.
- */
-export function parseRawIcal(source: string): IcalOutput {
-  const output: IcalOutput = {};
-  const lines = source.split(/\r\n|\n|\r/);
-  const parents: IcalOutput[] = [];
-  let parent: IcalOutput = {};
-  let current: IcalOutput = output;
-  let currentKey = '';
-
-  for (const line of lines) {
-    let currentValue = '';
-    if (line.charAt(0) === ' ') {
-      current[currentKey] += line.substring(1);
-    } else {
-      const splitAt = line.indexOf(':');
-      if (splitAt < 0) {
-        continue;
-      }
-      currentKey = cleanIcalKey(line.substring(0, splitAt));
-      currentValue = line.substring(splitAt + 1);
-      switch (currentKey) {
-        case 'BEGIN': {
-          parents.push(parent);
-          parent = current;
-          if (parent[currentValue] == null) {
-            parent[currentValue] = [];
-          }
-          // Create a new object, store the reference for future uses.
-          current = {};
-          (parent[currentValue] as IcalOutput[]).push(current);
-          break;
-        }
-        case 'END': {
-          current = parent;
-          parent = parents.pop() as IcalOutput;
-          break;
-        }
-        default: {
-          if (current[currentKey]) {
-            if (!Array.isArray(current[currentKey])) {
-              current[currentKey] = [current[currentKey]] as string[];
-            }
-            (current[currentKey] as string[]).push(currentValue);
-          } else {
-            (current[currentKey] as string) = currentValue;
-          }
-        }
-      }
-    }
-  }
-
-  return output;
 }
 
 /**

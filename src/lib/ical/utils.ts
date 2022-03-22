@@ -17,13 +17,98 @@ import { acmAlgo, acmCreate, acmDev, acmGeneral } from '$lib/constants/acm-paths
 //   produceSummary,
 //   makeCalendarLink,
 // } from './common';
+import type { AcmPath } from '$lib/constants/acm-paths';
+
+export interface AcmEvent {
+  date: Date;
+  month: string;
+  day: number;
+  time: string;
+  location: string;
+  title: string;
+  description: string;
+  summary: string;
+  meetingLink: string;
+  slug: string;
+  selfLink: string;
+  recurring: boolean;
+  acmPath: AcmPath;
+  calendarLinks: {
+    google: string;
+    outlook: string;
+  };
+}
+
+export type ICALResolvable =  string | string[] | ICALResolvable[] | { [k: string]:ICALResolvable}
 
 export interface ICALParseOptions {
   referenceDate?: Date;
   maxEvents?: number;
 }
 
-export function makeAcmEvent(icalEvent: ICALOutput): AcmEvent|null {
+/**
+ * The code in this function is derived from
+ * https://github.com/adrianlee44/ical2json.
+ * @param source The raw calendar data in ICAL format.
+ * @returns The parsed ICAL data.
+ */
+export function *walkICAL(rawICAL: string) { {
+  const output: ICALResolvable = {};
+  const lines = rawICAL.split(/\r\n|\n|\r/);
+  const parents: ICALResolvable[] = [];
+  let parent: ICALResolvable = {};
+  let current: ICALResolvable = output;
+  let currentKey = '';
+
+  for (const line of lines) {
+    console.log({parents, parent, current, currentKey})
+    let currentValue = '';
+    if (line.charAt(0) === ' ') {
+      current[currentKey] += line.substring(1);
+    } else {
+      const splitAt = line.indexOf(':');
+      if (splitAt < 0) {
+        continue;
+      }
+      currentKey = ((key:string)=>{if (key.startsWith('DTSTART')) return 'DTSTART';
+      if (key.startsWith('DTEND')) return 'DTEND';
+      return key;})(line.substring(0, splitAt));
+      currentValue = line.substring(splitAt + 1);
+      switch (currentKey) {
+        case 'BEGIN': {
+          parents.push(parent);
+          parent = current;
+          if (parent[currentValue] == null) {
+            parent[currentValue] = [];
+          }
+          // Create a new object, store the reference for future uses.
+          current = {};
+          (parent[currentValue] as ICALResolvable[]).push(current);
+          break;
+        }
+        case 'END': {
+          current = parent;
+          parent = parents.pop() as ICALResolvable;
+          break;
+        }
+        default: {
+          if (current[currentKey]) {
+            if (!Array.isArray(current[currentKey])) {
+              current[currentKey] = [current[currentKey]] as string[];
+            }
+            (current[currentKey] as string[]).push(currentValue);
+          } else {
+            (current[currentKey] as string) = currentValue;
+          }
+        }
+      }
+    }
+  }
+
+  return output;
+}
+
+export function makeAcmEvent(icalEvent: ICALResolvable): AcmEvent|null {
   if (icalEvent['DTSTART'] === undefined || icalEvent['DTEND'] === undefined) {
     return null;
   }
