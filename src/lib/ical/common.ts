@@ -23,24 +23,6 @@ export interface AcmEvent {
   };
 }
 
-export interface IcalOutput {
-  [key: string]: string | string[] | IcalOutput[];
-}
-
-function cleanIcalKey(key: string): string {}
-
-/**
- * Checks to see if the given date is observing daylight savings time.
- * @param date The date to be checked
- * @returns true if the date observes daylight savings time, false otherwise.
- * @see https://stackoverflow.com/a/30280636
- */
-function checkDateObservesDST(date: Date): boolean {
-  const jan = new Date(date.getFullYear(), 0, 1);
-  const jul = new Date(date.getFullYear(), 6, 1);
-  return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset()) > date.getTimezoneOffset();
-}
-
 /**
  * This function parses the raw ICAL datetime string into a Date object.
  * @param datetime Example: October 31st, 2021 = "20211031T000000"

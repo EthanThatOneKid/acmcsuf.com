@@ -1,4 +1,5 @@
 // import { Time, ACM_LOCALE } from '$lib/constants/time';
+import *as RRule from 'rrule/dist/es5/rrule.min.js';
 import { Temporal } from '@js-temporal/polyfill';
 import { acmAlgo, acmCreate, acmDev, acmGeneral } from '$lib/constants/acm-paths';
 // import type { IcalOutput, AcmEvent } from './common';
@@ -39,7 +40,7 @@ export interface AcmEvent {
   };
 }
 
-export type ICALResolvable =  string | string[] | ICALResolvable[] | { [k: string]:ICALResolvable}
+export type ICALResolvable = string | string[] | ICALResolvable[] | { [k: string]: ICALResolvable };
 
 export interface ICALParseOptions {
   referenceDate?: Date;
@@ -48,147 +49,158 @@ export interface ICALParseOptions {
 
 /**
  * The code in this function is derived from
- * https://github.com/adrianlee44/ical2json.
+ * <https://github.com/adrianlee44/ical2json>.
  * @param source The raw calendar data in ICAL format.
  * @returns The parsed ICAL data.
  */
-export function *walkICAL(rawICAL: string) { {
-  const output: ICALResolvable = {};
-  const lines = rawICAL.split(/\r\n|\n|\r/);
-  const parents: ICALResolvable[] = [];
-  let parent: ICALResolvable = {};
-  let current: ICALResolvable = output;
-  let currentKey = '';
+export function* walkICAL(rawICAL: string) {
+    const output: ICALResolvable = {};
+    const lines = rawICAL.split(/\r\n|\n|\r/);
+    const parents: ICALResolvable[] = [];
+    let parent: ICALResolvable = {};
+    let current: ICALResolvable = output;
+    let currentKey = '';
 
-  for (const line of lines) {
-    console.log({parents, parent, current, currentKey})
-    let currentValue = '';
-    if (line.charAt(0) === ' ') {
-      current[currentKey] += line.substring(1);
-    } else {
-      const splitAt = line.indexOf(':');
-      if (splitAt < 0) {
-        continue;
-      }
-      currentKey = ((key:string)=>{if (key.startsWith('DTSTART')) return 'DTSTART';
-      if (key.startsWith('DTEND')) return 'DTEND';
-      return key;})(line.substring(0, splitAt));
-      currentValue = line.substring(splitAt + 1);
-      switch (currentKey) {
-        case 'BEGIN': {
-          parents.push(parent);
-          parent = current;
-          if (parent[currentValue] == null) {
-            parent[currentValue] = [];
-          }
-          // Create a new object, store the reference for future uses.
-          current = {};
-          (parent[currentValue] as ICALResolvable[]).push(current);
-          break;
+    for (const line of lines) {
+      console.log({ parents, parent, current, currentKey });
+      let currentValue = '';
+      if (line.charAt(0) === ' ') {
+        current[currentKey] += line.substring(1);
+      } else {
+        const splitAt = line.indexOf(':');
+        if (splitAt < 0) {
+          continue;
         }
-        case 'END': {
-          current = parent;
-          parent = parents.pop() as ICALResolvable;
-          break;
-        }
-        default: {
-          if (current[currentKey]) {
-            if (!Array.isArray(current[currentKey])) {
-              current[currentKey] = [current[currentKey]] as string[];
+        currentKey = ((key: string) => {
+          if (key.startsWith('DTSTART')) return 'DTSTART';
+          if (key.startsWith('DTEND')) return 'DTEND';
+          return key;
+        })(line.substring(0, splitAt));
+        currentValue = line.substring(splitAt + 1);
+        switch (currentKey) {
+          case 'BEGIN': {
+            parents.push(parent);
+            parent = current;
+            if (parent[currentValue] == null) {
+              parent[currentValue] = [];
             }
-            (current[currentKey] as string[]).push(currentValue);
-          } else {
-            (current[currentKey] as string) = currentValue;
+            // Create a new object, store the reference for future uses.
+            current = {};
+            (parent[currentValue] as ICALResolvable[]).push(current);
+            break;
+          }
+          case 'END': {
+            current = parent;
+            parent = parents.pop() as ICALResolvable;
+            break;
+          }
+          default: {
+            if (current[currentKey]) {
+              if (!Array.isArray(current[currentKey])) {
+                current[currentKey] = [current[currentKey]] as string[];
+              }
+              (current[currentKey] as string[]).push(currentValue);
+            } else {
+              (current[currentKey] as string) = currentValue;
+            }
           }
         }
       }
     }
+
+    return output;
   }
 
-  return output;
-}
-
-export function makeAcmEvent(icalEvent: ICALResolvable): AcmEvent|null {
-  if (icalEvent['DTSTART'] === undefined || icalEvent['DTEND'] === undefined) {
-    return null;
+  export function parseRRULE(rawRRULE: string): boolean {
+      if (rawRRULE === undefined) return false;
+    
+      try {
+        const recurrence = RRule.fromString(rawRRULE);
+        return recurrence.isFullyConvertibleToText();
+      } catch {
+        return false;
+      }
   }
 
-  const recurring = checkForRecurrence(String(icalEvent['RRULE']));
-  const date = computeIcalDatetime(icalEvent);
-  const year = date.toLocaleString(ACM_LOCALE, { year: 'numeric' });
-  const month = date.toLocaleString(ACM_LOCALE, { month: 'long' });
-  const day = date.getDate();
-  const time = date.toLocaleTimeString(ACM_LOCALE, { hour: 'numeric', minute: 'numeric' });
+  export function makeAcmEvent(icalEvent: ICALResolvable): AcmEvent | null {
+    if (icalEvent['DTSTART'] === undefined || icalEvent['DTEND'] === undefined) {
+      return null;
+    }
 
-  const title = cleanTitle(String(event['SUMMARY']));
-  const slug = slugifyEvent(title, year, month, day);
-  const selfLink = makeEventLink(slug);
-  const rawDescription = String(event['DESCRIPTION']);
-  const { description, variables } = parseDescription(rawDescription);
-  const summary = produceSummary(title, description, selfLink);
+    const recurring = parseRRULE(String(icalEvent['RRULE']));
+    const date = computeIcalDatetime(icalEvent);
+    const year = date.toLocaleString(ACM_LOCALE, { year: 'numeric' });
+    const month = date.toLocaleString(ACM_LOCALE, { month: 'long' });
+    const day = date.getDate();
+    const time = date.toLocaleTimeString(ACM_LOCALE, { hour: 'numeric', minute: 'numeric' });
 
-  const rawLocation = String(event['LOCATION']);
-  const isZoomMeeting = rawLocation.startsWith('https://fullerton.zoom.us');
-  const customLocationName = variables.get('ACM_LOCATION') ?? rawLocation;
-  const location = isZoomMeeting ? 'Zoom' : customLocationName;
-  const meetingLink = isZoomMeeting
-    ? rawLocation
-    : location.startsWith('https://')
-    ? location
-    : '/discord';
+    const title = cleanTitle(String(event['SUMMARY']));
+    const slug = slugifyEvent(title, year, month, day);
+    const selfLink = makeEventLink(slug);
+    const rawDescription = String(event['DESCRIPTION']);
+    const { description, variables } = parseDescription(rawDescription);
+    const summary = produceSummary(title, description, selfLink);
 
-  const rawAcmPath = variables.get('ACM_PATH')?.toLowerCase();
-  const acmPath =
-    rawAcmPath === undefined
-      ? acmGeneral
-      : rawAcmPath === acmAlgo.slug
-      ? acmAlgo
-      : rawAcmPath === acmCreate.slug
-      ? acmCreate
-      : rawAcmPath === acmDev.slug
-      ? acmDev
-      : acmGeneral;
+    const rawLocation = String(event['LOCATION']);
+    const isZoomMeeting = rawLocation.startsWith('https://fullerton.zoom.us');
+    const customLocationName = variables.get('ACM_LOCATION') ?? rawLocation;
+    const location = isZoomMeeting ? 'Zoom' : customLocationName;
+    const meetingLink = isZoomMeeting
+      ? rawLocation
+      : location.startsWith('https://')
+      ? location
+      : '/discord';
 
-  const calendarLinks = (['google', 'outlook'] as const).reduce((links, service) => {
-    links[service] = makeCalendarLink(service, title, description, selfLink, date);
-    return links;
-  }, {} as AcmEvent['calendarLinks']);
+    const rawAcmPath = variables.get('ACM_PATH')?.toLowerCase();
+    const acmPath =
+      rawAcmPath === undefined
+        ? acmGeneral
+        : rawAcmPath === acmAlgo.slug
+        ? acmAlgo
+        : rawAcmPath === acmCreate.slug
+        ? acmCreate
+        : rawAcmPath === acmDev.slug
+        ? acmDev
+        : acmGeneral;
 
-  const item:  = {
-    month,
-    day,
-    time,
-    location,
-    title,
-    summary,
-    description,
-    meetingLink,
-    date,
-    slug,
-    selfLink,
-    recurring,
-    acmPath,
-    calendarLinks,
-  };
-}
+    const calendarLinks = (['google', 'outlook'] as const).reduce((links, service) => {
+      links[service] = makeCalendarLink(service, title, description, selfLink, date);
+      return links;
+    }, {} as AcmEvent['calendarLinks']);
 
-export function parse(rawICAL: string, options?: ICALParseOptions): AcmEvent[] {
-  const acmEvents: AcmEvent = [];
-
-  for (const icalEvent of walkICAL(rawICAL)) {
-    const acmEvent = makeAcmEvent(icalEvent);
-    acmEvents.push(acmEvent);
+    const item = {
+      month,
+      day,
+      time,
+      location,
+      title,
+      summary,
+      description,
+      meetingLink,
+      date,
+      slug,
+      selfLink,
+      recurring,
+      acmPath,
+      calendarLinks,
+    };
   }
 
-  return acmEvents;
-}
+  export function parse(rawICAL: string, options?: ICALParseOptions): AcmEvent[] {
+    const acmEvents: AcmEvent = [];
+
+    for (const icalEvent of walkICAL(rawICAL)) {
+      const acmEvent = makeAcmEvent(icalEvent);
+      acmEvents.push(acmEvent);
+    }
+
+    return acmEvents;
+  }
 
   const output = parseRawIcal(icalData);
 
   const allEvents = output['VCALENDAR'][0]['VEVENT'].reduce(
     (collection: AcmEvent[], event: IcalOutput) => {
-      
-
       collection.push(item);
 
       return collection;
