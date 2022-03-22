@@ -558,5 +558,15 @@
       }
     },
     "picture": "alan-cortez.png"
+  },
+  {
+    "fullName": "Kirsten Ochoa",
+    "positions": {
+      "S22": {
+        "title": "Create Project Developer",
+        "tier": 16
+      }
+    },
+    "picture": "kirsten-ochoa.png"
   }
 ]
