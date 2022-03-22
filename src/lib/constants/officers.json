@@ -558,5 +558,15 @@
       }
     },
     "picture": "alan-cortez.png"
+  },
+  {
+    "fullName": "Minh Le",
+    "positions": {
+      "S22": {
+        "title": "Dev Officer",
+        "tier": 19
+      }
+    },
+    "picture": "minh-le.png"
   }
 ]
