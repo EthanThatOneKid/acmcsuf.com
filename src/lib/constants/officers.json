@@ -517,5 +517,15 @@
       }
     },
     "picture": "stephanie-pocci.png"
+  },
+  {
+    "fullName": "Nolan Lee",
+    "positions": {
+      "S22": {
+        "title": "Historian",
+        "tier": 7
+      }
+    },
+    "picture": "nolan-lee.png"
   }
 ]
