@@ -538,5 +538,15 @@
     },
     "displayName": "JustinStitt",
     "picture": "justin-stitt.png"
+  },
+  {
+    "fullName": "Iftekharul Islam",
+    "positions": {
+      "S22": {
+        "title": "Algo Officer",
+        "tier": 12
+      }
+    },
+    "picture": "iftekharul-islam.png"
   }
 ]
