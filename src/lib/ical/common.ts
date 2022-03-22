@@ -1,6 +1,6 @@
-import RRule from 'rrule/dist/es5/rrule.min.js';
-import type { CalendarEvent } from '$lib/calendar-link';
+import * as RRule from 'rrule/dist/es5/rrule.min.js';
 import * as calendarLink from '$lib/calendar-link';
+import type { CalendarEvent } from '$lib/calendar-link';
 import type { AcmPath } from '$lib/constants/acm-paths';
 
 export interface AcmEvent {
