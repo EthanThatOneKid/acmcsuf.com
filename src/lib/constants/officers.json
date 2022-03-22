@@ -487,5 +487,15 @@
     },
     "displayName": "diamondburned",
     "picture": "diamondburned.png"
+  },
+  {
+    "fullName": "Ibrahim Asrar",
+    "positions": {
+      "S22": {
+        "title": "Secretary",
+        "tier": 4
+      }
+    },
+    "picture": "ibrahim-asrar.png"
   }
 ]
