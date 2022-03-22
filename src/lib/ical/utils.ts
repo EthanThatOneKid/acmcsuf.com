@@ -112,7 +112,14 @@ export function parseRRULE(rawRRULE: string): boolean {
 
 export function makeEventSlug(title: string, date: Temporal.PlainDateTime): string {
   const normalizedTitle = title.replace(/[^\w\s-_]/g, '').replace(/(\s|-|_)+/g, '-');
-  return [normalizedTitle, date.year, date.monthCode, date.day].join('-').toLowerCase();
+  return [
+    normalizedTitle,
+    date.year,
+    date.toLocaleString('en-US', { month: 'long' }).toLowerCase(),
+    date.day,
+  ]
+    .join('-')
+    .toLowerCase();
 }
 
 export function makeEventLink(slug?: string, baseURL = 'https://acmcsuf.com/events') {
@@ -253,12 +260,12 @@ export function makeAcmEvent(icalEvent: ICALResolvable): AcmEvent | null {
     rawAcmPath === undefined
       ? acmGeneral
       : rawAcmPath === acmAlgo.slug
-      ? acmAlgo
-      : rawAcmPath === acmCreate.slug
-      ? acmCreate
-      : rawAcmPath === acmDev.slug
-      ? acmDev
-      : acmGeneral;
+        ? acmAlgo
+        : rawAcmPath === acmCreate.slug
+          ? acmCreate
+          : rawAcmPath === acmDev.slug
+            ? acmDev
+            : acmGeneral;
 
   const googleCalendarLink = makeGoogleCalendarLink(
     title,

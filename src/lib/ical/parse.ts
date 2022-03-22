@@ -46,20 +46,20 @@ export function parse(icalData: string, maxEvents?: number): AcmEvent[] {
       const meetingLink = isZoomMeeting
         ? rawLocation
         : location.startsWith('https://')
-        ? location
-        : '/discord';
+          ? location
+          : '/discord';
 
       const rawAcmPath = variables.get('ACM_PATH')?.toLowerCase();
       const acmPath =
         rawAcmPath === undefined
           ? acmGeneral
           : rawAcmPath === acmAlgo.slug
-          ? acmAlgo
-          : rawAcmPath === acmCreate.slug
-          ? acmCreate
-          : rawAcmPath === acmDev.slug
-          ? acmDev
-          : acmGeneral;
+            ? acmAlgo
+            : rawAcmPath === acmCreate.slug
+              ? acmCreate
+              : rawAcmPath === acmDev.slug
+                ? acmDev
+                : acmGeneral;
 
       const calendarLinks = (['google', 'outlook'] as const).reduce((links, service) => {
         links[service] = makeCalendarLink(service, title, description, selfLink, date);
