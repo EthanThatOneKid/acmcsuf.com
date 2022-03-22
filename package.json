@@ -25,6 +25,7 @@
     "all": "npm run lint && npm run check && npm t && npm run build && npm run preview"
   },
   "dependencies": {
+    "@js-temporal/polyfill": "^0.4.0",
     "html-to-text": "^8.1.0",
     "rrule": "^2.6.9",
     "rss": "^1.2.2"
