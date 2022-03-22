@@ -527,5 +527,16 @@
       }
     },
     "picture": "nolan-lee.png"
+  },
+  {
+    "fullName": "Justin Stitt",
+    "positions": {
+      "S22": {
+        "title": "Algo Officer",
+        "tier": 12
+      }
+    },
+    "displayName": "JustinStitt",
+    "picture": "justin-stitt.png"
   }
 ]
