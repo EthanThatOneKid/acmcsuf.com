@@ -2,7 +2,7 @@ import * as RRule from 'rrule/dist/es5/rrule.min.js';
 import { Temporal } from '@js-temporal/polyfill';
 import type { AcmPath } from '$lib/constants/acm-paths';
 import { acmAlgo, acmCreate, acmDev, acmGeneral } from '$lib/constants/acm-paths';
-import { makeCalendarLink } from './common';
+import { DEBUG } from '$lib/constants';
 
 export interface AcmEvent {
   month: string;
@@ -271,12 +271,12 @@ export function makeAcmEvent(
     rawAcmPath === undefined
       ? acmGeneral
       : rawAcmPath === acmAlgo.slug
-        ? acmAlgo
-        : rawAcmPath === acmCreate.slug
-          ? acmCreate
-          : rawAcmPath === acmDev.slug
-            ? acmDev
-            : acmGeneral;
+      ? acmAlgo
+      : rawAcmPath === acmCreate.slug
+      ? acmCreate
+      : rawAcmPath === acmDev.slug
+      ? acmDev
+      : acmGeneral;
 
   const calendarLinks = {
     google: makeGoogleCalendarLink(title, summary, selfLink, dtStart, dtEnd).toString(),
@@ -306,38 +306,28 @@ export function makeAcmEvent(
 export function parse(rawICAL: string, options?: ICALParseOptions): AcmEvent[] {
   const acmEvents: AcmEvent[] = [];
 
-  const refDate = Temporal.Now.zonedDateTimeISO('America/Los_Angeles');
+  const refDate =
+    options.referenceDate ??
+    Temporal.Now.zonedDateTimeISO(options.referenceDate?.timeZone ?? 'America/Los_Angeles');
 
   for (const icalEvent of walkICAL(rawICAL)) {
     const acmEvent = makeAcmEvent(icalEvent, refDate);
-    if (!acmEvent.duration.startsWith('0')) console.log({ acmEvent });
-    if (!acmEvent.hasEnded) {
+
+    // skip events that have already ended (except when in debug mode)
+    if (!acmEvent.hasEnded || DEBUG) {
       acmEvents.push(acmEvent);
     }
   }
 
-  return acmEvents.sort((a, b) => Temporal.ZonedDateTime.compare(a.date, b.date));
+  const sortedAcmEvents = acmEvents.sort((one, two) =>
+    Temporal.ZonedDateTime.compare(one.date, two.date)
+  );
+
+  // serve set amount of events in debug mode
+  // @see <https://etok.codes/acmcsuf.com/pull/329>
+  if (DEBUG) {
+    return sortedAcmEvents.slice(-1 * (options.maxEvents ?? 5));
+  }
+
+  return sortedAcmEvents;
 }
-
-// const output = parseRawIcal(icalData);
-
-// const allEvents = output['VCALENDAR'][0]['VEVENT'].reduce(
-//   (collection: AcmEvent[], event: IcalOutput) => {
-//     collection.push(item);
-
-//     return collection;
-//   },
-//   []
-// );
-
-// const sortedEvents = allEvents.sort(sortByDate());
-
-// // Show sample events in debug mode
-// if (maxEvents !== undefined) {
-//   return sortedEvents.slice(sortedEvents.length - maxEvents);
-// }
-
-// // Filter out events that have passed if not in debug mode
-// return sortedEvents.filter(filterIfPassed(now, Time.Day / 2));
-
-// export type { AcmEvent };
