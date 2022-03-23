@@ -1,8 +1,6 @@
 import type { RequestHandlerOutput } from '@sveltejs/kit/types/internal';
-// import type { AcmEvent } from '$lib/ical/common';
-// import { parse } from '$lib/ical/parse';
 import type { AcmEvent } from '$lib/ical/utils';
-import { parse } from '$lib/ical/utils';
+import { parse } from '$lib/ical/parse';
 import { DEBUG } from '$lib/constants';
 
 // Constants

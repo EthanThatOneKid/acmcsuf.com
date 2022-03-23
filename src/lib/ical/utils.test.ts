@@ -1,6 +1,7 @@
 import { test, expect } from 'vitest';
 import { readFileSync, writeFileSync } from 'fs';
-import { walkICAL, parse } from './utils';
+import { walkICAL } from './utils';
+import { parse } from './parse';
 import { Temporal } from '@js-temporal/polyfill';
 
 test('parses sample ICAL payload', () => {
