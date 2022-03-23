@@ -2,6 +2,7 @@ import * as RRule from 'rrule/dist/es5/rrule.min.js';
 import { Temporal } from '@js-temporal/polyfill';
 import type { AcmPath } from '$lib/constants/acm-paths';
 import { acmAlgo, acmCreate, acmDev, acmGeneral } from '$lib/constants/acm-paths';
+import { makeCalendarLink } from './common';
 
 export interface AcmEvent {
   month: string;
@@ -28,7 +29,7 @@ export interface AcmEvent {
 export type ICALResolvable = string | string[] | ICALResolvable[] | { [k: string]: ICALResolvable };
 
 export interface ICALParseOptions {
-  referenceDate?: Date;
+  referenceDate?: Temporal.ZonedDateTime;
   maxEvents?: number;
 }
 
@@ -47,7 +48,6 @@ export function* walkICAL(rawICAL: string) {
   let currentKey = '';
 
   for (const line of lines) {
-    // console.log({ parents, parent, current, currentKey });
     let currentValue = '';
     if (line.charAt(0) === ' ') {
       current[currentKey] += line.substring(1);
@@ -98,19 +98,18 @@ export function* walkICAL(rawICAL: string) {
   }
 }
 
-export function parseRRULE(rawRRULE: string): boolean {
-  if (rawRRULE === undefined) return false;
+// export function parseRRULE(rawRRULE: string): boolean {
+//   if (rawRRULE === undefined) return false;
 
-  try {
-    const recurrence = RRule.fromString(rawRRULE);
-    console.log({ recurrence });
-    return recurrence.isFullyConvertibleToText();
-  } catch {
-    return false;
-  }
-}
+//   try {
+//     const recurrence = RRule.fromString(rawRRULE);
+//     return recurrence.isFullyConvertibleToText();
+//   } catch {
+//     return false;
+//   }
+// }
 
-export function makeEventSlug(title: string, date: Temporal.PlainDateTime): string {
+export function makeEventSlug(title: string, date: Temporal.ZonedDateTime): string {
   const normalizedTitle = title.replace(/[^\w\s-_]/g, '').replace(/(\s|-|_)+/g, '-');
   return [
     normalizedTitle,
@@ -190,19 +189,15 @@ export function makeGoogleCalendarLink(
   title: string,
   summary: string,
   selfLink: string,
-  dtStart: Temporal.PlainDateTime,
-  dtEnd: Temporal.PlainDateTime,
-  zone: Temporal.TimeZoneLike
+  dtStart: Temporal.ZonedDateTime,
+  dtEnd: Temporal.ZonedDateTime
 ) {
   const url = new URL('https://calendar.google.com/calendar/render');
   url.searchParams.set('action', 'TEMPLATE');
   url.searchParams.set('text', title);
   url.searchParams.set('details', summary);
   url.searchParams.set('location', selfLink);
-  url.searchParams.set(
-    'dates',
-    [dtStart, dtEnd].map((d) => d.toZonedDateTime(zone).toString()).join('/')
-  );
+  url.searchParams.set('dates', [dtStart, dtEnd].map((d) => d.epochSeconds).join('/'));
 
   return url;
 }
@@ -223,8 +218,9 @@ export function parseLocation(
   return { location: defaultLocation, meetingLink: defaultLink };
 }
 
-export function fromICALDateTime(dtICAL: string): Temporal.PlainDateTime {
-  return Temporal.PlainDateTime.from({
+export function zonedDateFromICALDateTime(dtICAL: string): Temporal.ZonedDateTime {
+  return Temporal.ZonedDateTime.from({
+    timeZone: 'America/Los_Angeles',
     year: Number(dtICAL.slice(0, 4)),
     month: Number(dtICAL.slice(4, 6)),
     day: Number(dtICAL.slice(6, 8)),
@@ -234,26 +230,41 @@ export function fromICALDateTime(dtICAL: string): Temporal.PlainDateTime {
   });
 }
 
-export function makeAcmEvent(icalEvent: ICALResolvable): AcmEvent | null {
+export function makeAcmEvent(
+  icalEvent: ICALResolvable,
+  referenceDate: Temporal.ZonedDateTime
+): AcmEvent | null {
   if (icalEvent['DTSTART'] === undefined || icalEvent['DTEND'] === undefined) {
     return null;
   }
 
-  const recurring = parseRRULE(icalEvent['RRULE']);
-  const dtStart = fromICALDateTime(icalEvent['DTSTART']);
-  const dtEnd = fromICALDateTime(icalEvent['DTEND']);
-
   const title =
     icalEvent['SUMMARY'] !== undefined ? icalEvent['SUMMARY'].replace(/\\/g, '') : 'Unnamed Event';
 
-  const slug = makeEventSlug(title, dtStart);
-  const selfLink = makeEventLink(slug);
+  const recurring = false; // parseRRULE(icalEvent['RRULE']);
+
+  const dtStart = zonedDateFromICALDateTime(icalEvent['DTSTART']);
+  const dtEnd = zonedDateFromICALDateTime(icalEvent['DTEND']);
+  const date = dtStart.toString();
+  const month = dtStart.toLocaleString('en-US', { month: 'long' });
+  const day = dtStart.day;
+  const time = dtStart.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric' });
+  const hasStarted = Temporal.PlainDateTime.compare(referenceDate, dtStart) >= 0;
+  const hasEnded = Temporal.PlainDateTime.compare(referenceDate, dtEnd) >= 0;
+  const duration = dtEnd.since(dtStart).minutes + ' minutes';
+
   const { description, variables } = parseDescription(icalEvent['DESCRIPTION']);
-  const summary = produceSummary(title, description, selfLink);
+
   const { location, meetingLink } = parseLocation(
     icalEvent['LOCATION'],
     variables.get('ACM_LOCATION')
   );
+
+  const slug = makeEventSlug(title, dtStart);
+
+  const selfLink = makeEventLink(slug);
+
+  const summary = produceSummary(title, description, selfLink);
 
   const rawAcmPath = variables.get('ACM_PATH')?.toLowerCase();
   const acmPath =
@@ -267,25 +278,14 @@ export function makeAcmEvent(icalEvent: ICALResolvable): AcmEvent | null {
             ? acmDev
             : acmGeneral;
 
-  const googleCalendarLink = makeGoogleCalendarLink(
-    title,
-    summary,
-    selfLink,
-    dtStart,
-    dtEnd,
-    'America/Los_Angeles'
-  );
-
-  const dtNow = Temporal.Now.plainDate('iso8601');
-  const hasStarted = Temporal.PlainDateTime.compare(dtNow, dtStart) >= 0;
-  const hasEnded = Temporal.PlainDateTime.compare(dtNow, dtEnd) >= 0;
-  const duration = dtEnd.since(dtStart).minutes + ' minutes';
-  const date = dtStart.toString();
+  const calendarLinks = {
+    google: makeGoogleCalendarLink(title, summary, selfLink, dtStart, dtEnd).toString(),
+  };
 
   return {
-    month: dtStart.toLocaleString('en-US', { month: 'long' }),
-    day: dtStart.day,
-    time: dtStart.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric' }),
+    month,
+    day,
+    time,
     date,
     hasStarted,
     hasEnded,
@@ -299,16 +299,18 @@ export function makeAcmEvent(icalEvent: ICALResolvable): AcmEvent | null {
     selfLink,
     recurring,
     acmPath,
-    calendarLinks: { google: googleCalendarLink.toString() },
+    calendarLinks,
   };
 }
 
 export function parse(rawICAL: string, options?: ICALParseOptions): AcmEvent[] {
   const acmEvents: AcmEvent[] = [];
 
+  const refDate = Temporal.Now.zonedDateTimeISO('America/Los_Angeles');
+
   for (const icalEvent of walkICAL(rawICAL)) {
-    const acmEvent = makeAcmEvent(icalEvent);
-    console.log({ acmEvent });
+    const acmEvent = makeAcmEvent(icalEvent, refDate);
+    if (!acmEvent.duration.startsWith('0')) console.log({ acmEvent });
     if (!acmEvent.hasEnded) {
       acmEvents.push(acmEvent);
     }

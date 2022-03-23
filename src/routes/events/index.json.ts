@@ -1,6 +1,8 @@
 import type { RequestHandlerOutput } from '@sveltejs/kit/types/internal';
-import type { AcmEvent } from '$lib/ical/common';
-import { parse } from '$lib/ical/parse';
+// import type { AcmEvent } from '$lib/ical/common';
+// import { parse } from '$lib/ical/parse';
+import type { AcmEvent } from '$lib/ical/utils';
+import { parse } from '$lib/ical/utils';
 import { DEBUG } from '$lib/constants';
 
 // Constants
@@ -15,7 +17,7 @@ let events: AcmEvent[] = [];
 
 async function setCache(timestamp: number): Promise<AcmEvent[]> {
   const data = await fetch(ICAL_TARGET_URL).then((response) => response.text());
-  events = parse(data, DEBUG ? 10 : undefined);
+  events = parse(data, { maxEvents: DEBUG ? 10 : undefined });
   eventExpirationTimestamp = timestamp + expirationTimeout;
   return events;
 }
