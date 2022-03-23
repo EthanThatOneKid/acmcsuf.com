@@ -98,16 +98,16 @@ export function* walkICAL(rawICAL: string) {
   }
 }
 
-// export function parseRRULE(rawRRULE: string): boolean {
-//   if (rawRRULE === undefined) return false;
+export function parseRRULE(rawRRULE: string): boolean {
+  if (rawRRULE === undefined) return false;
 
-//   try {
-//     const recurrence = RRule.fromString(rawRRULE);
-//     return recurrence.isFullyConvertibleToText();
-//   } catch {
-//     return false;
-//   }
-// }
+  try {
+    const recurrence = RRule.fromString(rawRRULE);
+    return recurrence.isFullyConvertibleToText();
+  } catch {
+    return false;
+  }
+}
 
 export function makeEventSlug(title: string, date: Temporal.ZonedDateTime): string {
   const normalizedTitle = title.replace(/[^\w\s-_]/g, '').replace(/(\s|-|_)+/g, '-');
@@ -241,7 +241,7 @@ export function makeAcmEvent(
   const title =
     icalEvent['SUMMARY'] !== undefined ? icalEvent['SUMMARY'].replace(/\\/g, '') : 'Unnamed Event';
 
-  const recurring = false; // parseRRULE(icalEvent['RRULE']);
+  const recurring = parseRRULE(icalEvent['RRULE']);
 
   const dtStart = zonedDateFromICALDateTime(icalEvent['DTSTART']);
   const dtEnd = zonedDateFromICALDateTime(icalEvent['DTEND']);
