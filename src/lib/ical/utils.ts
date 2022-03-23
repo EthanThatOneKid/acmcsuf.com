@@ -28,7 +28,7 @@ export interface AcmEvent {
 export type ICALResolvable = string | string[] | ICALResolvable[] | { [k: string]: ICALResolvable };
 
 export interface ICALParseOptions {
-  referenceDate?: Temporal.ZonedDateTime;
+  referenceDate?: Temporal.ZonedDateTimeLike;
   maxEvents?: number;
 }
 
@@ -108,7 +108,7 @@ export function parseRRULE(rawRRULE: string): boolean {
   }
 }
 
-export function makeEventSlug(title: string, date: Temporal.PlainDateTime): string {
+export function makeEventSlug(title: string, date: Temporal.ZonedDateTime): string {
   const normalizedTitle = title.replace(/[^\w\s-_]/g, '').replace(/(\s|-|_)+/g, '-');
   return [
     normalizedTitle,
@@ -227,23 +227,40 @@ export function parseLocation(
     return { location: defaultLocation, meetingLink: rawLocation };
   }
 
+  if (rawLocation?.length > 0) {
+    return { location: rawLocation, meetingLink: defaultLink };
+  }
+
   return { location: defaultLocation, meetingLink: defaultLink };
 }
 
-export function plainDateTimeFromICALDateTime(dtICAL: string): Temporal.PlainDateTime {
-  return Temporal.PlainDateTime.from({
+export function zonedDateTimeFromICALDateTime(
+  dtICAL: string,
+  timeZone: Temporal.TimeZoneLike
+): Temporal.ZonedDateTime {
+  const options = {
     year: Number(dtICAL.slice(0, 4)),
     month: Number(dtICAL.slice(4, 6)),
     day: Number(dtICAL.slice(6, 8)),
     hour: Number(dtICAL.slice(9, 11)),
     minute: Number(dtICAL.slice(11, 13)),
     second: Number(dtICAL.slice(13, 15)),
-  });
+  };
+
+  if (dtICAL[15] === 'Z') {
+    const YOOOO = dtICAL;
+    console.log({ YOOOO, timeZone });
+    return Temporal.ZonedDateTime.from({
+      ...options,
+    }).withTimeZone(timeZone);
+  }
+
+  return Temporal.PlainDateTime.from(options).toZonedDateTime(timeZone);
 }
 
 export function makeAcmEvent(
   icalEvent: ICALResolvable,
-  referenceDate: Temporal.PlainDateTime
+  referenceDate: Temporal.ZonedDateTimeLike
 ): AcmEvent | null {
   if (icalEvent['DTSTART'] === undefined || icalEvent['DTEND'] === undefined) {
     return null;
@@ -254,15 +271,17 @@ export function makeAcmEvent(
 
   const recurring = parseRRULE(icalEvent['RRULE']);
 
-  const dtStart = plainDateTimeFromICALDateTime(icalEvent['DTSTART']);
-  const dtEnd = plainDateTimeFromICALDateTime(icalEvent['DTEND']);
-  console.log({ dtStart, dtEnd });
+  const dtStart = zonedDateTimeFromICALDateTime(icalEvent['DTSTART'], referenceDate.timeZone);
+  const dtEnd = zonedDateTimeFromICALDateTime(icalEvent['DTEND'], referenceDate.timeZone);
   const date = dtStart.toString();
   const month = dtStart.toLocaleString('en-US', { month: 'long' });
   const day = dtStart.day;
-  const time = dtStart.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric' });
-  const hasStarted = Temporal.PlainDateTime.compare(referenceDate, dtStart) >= 0;
-  const hasEnded = Temporal.PlainDateTime.compare(referenceDate, dtEnd) >= 0;
+  const time =
+    icalEvent['DTSTART'] +
+    ',' +
+    dtStart.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric' });
+  const hasStarted = Temporal.ZonedDateTime.compare(referenceDate, dtStart) >= 0;
+  const hasEnded = Temporal.ZonedDateTime.compare(referenceDate, dtEnd) >= 0;
   const duration = dtEnd.since(dtStart).minutes + ' minutes';
 
   const { description, variables } = parseDescription(icalEvent['DESCRIPTION']);
@@ -291,13 +310,7 @@ export function makeAcmEvent(
       : acmGeneral;
 
   const calendarLinks = {
-    google: makeGoogleCalendarLink(
-      title,
-      summary,
-      selfLink,
-      dtStart.toZonedDateTime('America/Los_Angeles'),
-      dtEnd.toZonedDateTime('America/Los_Angeles')
-    ).toString(),
+    google: makeGoogleCalendarLink(title, summary, selfLink, dtStart, dtEnd).toString(),
   };
 
   return {
