@@ -1,104 +1,30 @@
-import { Time, ACM_LOCALE } from '$lib/constants/time';
-import { acmAlgo, acmCreate, acmDev, acmGeneral } from '$lib/constants/acm-paths';
-import type { IcalOutput, AcmEvent } from './common';
-import {
-  parseDescription,
-  computeIcalDatetime,
-  slugifyEvent,
-  makeEventLink,
-  checkForRecurrence,
-  sortByDate,
-  filterIfPassed,
-  cleanTitle,
-  produceSummary,
-  makeCalendarLink,
-} from './common';
+import { Temporal } from '@js-temporal/polyfill';
+import { DEBUG } from '$lib/constants';
+import { walkICAL, makeAcmEvent, AcmEvent, ICALParseOptions } from './utils';
 
-// TODO(etok): Refactor this to be more readable.
-export function parse(icalData: string, maxEvents?: number): AcmEvent[] {
-  const now = Date.now();
-  const output = parseRawIcal(icalData);
+export function parse(rawICAL: string, options?: ICALParseOptions): AcmEvent[] {
+  const acmEvents: AcmEvent[] = [];
 
-  const allEvents = output['VCALENDAR'][0]['VEVENT'].reduce(
-    (collection: AcmEvent[], event: IcalOutput) => {
-      if (event['DTSTART'] === undefined || event['DTEND'] === undefined) {
-        return collection;
-      }
+  const refDate = options.referenceDate ?? Temporal.Now.zonedDateTimeISO('America/Los_Angeles');
 
-      const recurring = checkForRecurrence(String(event['RRULE']));
-      const date = computeIcalDatetime(event);
-      const year = date.toLocaleString(ACM_LOCALE, { year: 'numeric' });
-      const month = date.toLocaleString(ACM_LOCALE, { month: 'long' });
-      const day = date.getDate();
-      const time = date.toLocaleTimeString(ACM_LOCALE, { hour: 'numeric', minute: 'numeric' });
+  for (const icalEvent of walkICAL(rawICAL)) {
+    const acmEvent = makeAcmEvent(icalEvent, refDate);
 
-      const title = cleanTitle(String(event['SUMMARY']));
-      const slug = slugifyEvent(title, year, month, day);
-      const selfLink = makeEventLink(slug);
-      const rawDescription = String(event['DESCRIPTION']);
-      const { description, variables } = parseDescription(rawDescription);
-      const summary = produceSummary(title, description, selfLink);
-
-      const rawLocation = String(event['LOCATION']);
-      const isZoomMeeting = rawLocation.startsWith('https://fullerton.zoom.us');
-      const customLocationName = variables.get('ACM_LOCATION') ?? rawLocation;
-      const location = isZoomMeeting ? 'Zoom' : customLocationName;
-      const meetingLink = isZoomMeeting
-        ? rawLocation
-        : location.startsWith('https://')
-          ? location
-          : '/discord';
-
-      const rawAcmPath = variables.get('ACM_PATH')?.toLowerCase();
-      const acmPath =
-        rawAcmPath === undefined
-          ? acmGeneral
-          : rawAcmPath === acmAlgo.slug
-            ? acmAlgo
-            : rawAcmPath === acmCreate.slug
-              ? acmCreate
-              : rawAcmPath === acmDev.slug
-                ? acmDev
-                : acmGeneral;
-
-      const calendarLinks = (['google', 'outlook'] as const).reduce((links, service) => {
-        links[service] = makeCalendarLink(service, title, description, selfLink, date);
-        return links;
-      }, {} as AcmEvent['calendarLinks']);
-
-      const item: AcmEvent = {
-        month,
-        day,
-        time,
-        location,
-        title,
-        summary,
-        description,
-        meetingLink,
-        date,
-        slug,
-        selfLink,
-        recurring,
-        acmPath,
-        calendarLinks,
-      };
-
-      collection.push(item);
-
-      return collection;
-    },
-    []
-  );
-
-  const sortedEvents = allEvents.sort(sortByDate());
-
-  // Show sample events in debug mode
-  if (maxEvents !== undefined) {
-    return sortedEvents.slice(sortedEvents.length - maxEvents);
+    // skip events that have already ended (except when in debug mode)
+    if (!acmEvent.hasEnded || DEBUG) {
+      acmEvents.push(acmEvent);
+    }
   }
 
-  // Filter out events that have passed if not in debug mode
-  return sortedEvents.filter(filterIfPassed(now, Time.Day / 2));
-}
+  const sortedAcmEvents = acmEvents.sort((one, two) =>
+    Temporal.ZonedDateTime.compare(one.date, two.date)
+  );
 
-export type { AcmEvent };
+  // serve a set amount of events when in debug mode
+  // @see <https://etok.codes/acmcsuf.com/pull/329>
+  if (DEBUG) {
+    return sortedAcmEvents.slice(-1 * (options.maxEvents ?? 5));
+  }
+
+  return sortedAcmEvents;
+}
