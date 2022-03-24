@@ -3,7 +3,7 @@ import { beforeEach, expect, test } from 'vitest';
 import { cleanup, render } from '@testing-library/svelte';
 
 import Events from './index.svelte';
-import { parse } from '$lib/ical/parse';
+import { parse } from '$lib/ical';
 
 beforeEach(cleanup);
 

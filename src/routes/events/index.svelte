@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-  import type { AcmEvent } from '$lib/ical/utils';
+  import type { AcmEvent } from '$lib/ical';
   import CommonHero from '$lib/components/sections/common-hero.svelte';
   import Spacing from '$lib/components/sections/spacing.svelte';
   import EventCarousel from '$lib/components/events/event-list.svelte';

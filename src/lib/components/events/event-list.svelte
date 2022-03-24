@@ -1,6 +1,6 @@
 <script lang="ts">
   import EventItem from './event-item.svelte';
-  import type { AcmEvent } from '$lib/ical/utils';
+  import type { AcmEvent } from '$lib/ical';
 
   export let events: AcmEvent[] = [];
 </script>
