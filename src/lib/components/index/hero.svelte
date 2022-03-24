@@ -1,8 +1,8 @@
 <script lang="ts">
   import AcmButton from '$lib/components/utils/acm-button.svelte';
 
-  var num = 0;
-  export let photo: string = 'assets/png/hero-illustration.png';
+  let num = 0;
+  export let photo = 'assets/png/hero-illustration.png';
 
   function click() {
     num++;
