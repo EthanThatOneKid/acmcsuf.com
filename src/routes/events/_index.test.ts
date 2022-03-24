@@ -19,6 +19,6 @@ test('can find the correct page title', () => {
 test('renders 10 event items', async () => {
   const MAX_EVENTS = 10;
   const TEST_DATA = readFileSync('./src/routes/events/_testdata/events.ics', 'utf-8');
-  const { container } = render(Events, { events: parse(TEST_DATA, MAX_EVENTS) });
+  const { container } = render(Events, { events: parse(TEST_DATA, { maxEvents: MAX_EVENTS }) });
   expect(container.querySelectorAll('.event-box').length).toBe(MAX_EVENTS);
 });

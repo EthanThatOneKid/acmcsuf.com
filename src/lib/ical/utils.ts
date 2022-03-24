@@ -36,7 +36,7 @@ export interface ICALParseOptions {
 /**
  * The code in this function is derived from
  * <https://github.com/adrianlee44/ical2json>.
- * @param source The raw calendar data in ICAL format.
+ * @param rawICAL The raw calendar data in ICAL format.
  * @returns The parsed ICAL data.
  */
 export function* walkICAL(rawICAL: string) {
