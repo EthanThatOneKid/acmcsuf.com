@@ -22,6 +22,7 @@ export interface AcmEvent {
   acmPath: AcmPath;
   calendarLinks: {
     google: string;
+    outlook: string;
   };
 }
 
@@ -184,32 +185,52 @@ export function parseDescription(
   return { description, variables };
 }
 
+export function thirdPartyCalendarDateTimeFromZonedDateTime(
+  dt: Temporal.ZonedDateTimeLike
+): string {
+  const yyyyMMdd = [dt.year, dt.month, dt.day].map((d) => d.toString().padStart(2, '0')).join('');
+  const hhMMss = [dt.hour, dt.minute, dt.day].map((d) => d.toString().padStart(2, '0')).join('');
+  const yyyyMMddThhMMss = yyyyMMdd + 'T' + hhMMss;
+  return yyyyMMddThhMMss;
+}
+
 export function makeGoogleCalendarLink(
   title: string,
   summary: string,
-  selfLink: string,
+  location: string,
   dtStart: Temporal.ZonedDateTime,
   dtEnd: Temporal.ZonedDateTime
 ) {
   const url = new URL('https://calendar.google.com/calendar/render');
+
   url.searchParams.set('action', 'TEMPLATE');
   url.searchParams.set('text', title);
   url.searchParams.set('details', summary);
-  url.searchParams.set('location', selfLink);
-  url.searchParams.set(
-    'dates',
-    [dtStart, dtEnd]
-      .map((d) => {
-        const yyyyMMddThhMMssZ =
-          [d.year, d.month, d.day].map((dd) => dd.toString().padStart(2, '0')).join('-') +
-          'T' +
-          [d.hour, d.minute, d.day].map((dd) => dd.toString().padStart(2, '0')).join(':') +
-          'Z';
+  url.searchParams.set('location', location);
 
-        return yyyyMMddThhMMssZ;
-      })
-      .join('/')
-  );
+  const dateOne = thirdPartyCalendarDateTimeFromZonedDateTime(dtStart);
+  const dateTwo = thirdPartyCalendarDateTimeFromZonedDateTime(dtEnd);
+  url.searchParams.set('dates', dateOne + '/' + dateTwo);
+
+  return url;
+}
+
+export function makeOutlookCalendarLink(
+  title: string,
+  summary: string,
+  location: string,
+  dtStart: Temporal.ZonedDateTime,
+  dtEnd: Temporal.ZonedDateTime
+) {
+  const url = new URL('https://outlook.live.com/calendar/0/deeplink/compose');
+
+  url.searchParams.set('path', '/calendar/action/compose');
+  url.searchParams.set('rru', 'addevent');
+  url.searchParams.set('startdt', thirdPartyCalendarDateTimeFromZonedDateTime(dtStart));
+  url.searchParams.set('enddt', thirdPartyCalendarDateTimeFromZonedDateTime(dtEnd));
+  url.searchParams.set('subject', title);
+  url.searchParams.set('body', summary);
+  url.searchParams.set('location', location);
 
   return url;
 }
@@ -247,14 +268,13 @@ export function zonedDateTimeFromICALDateTime(
     second: Number(dtICAL.slice(13, 15)),
   };
 
+  // dtICAL is in terms of +00:00 when 'Z' is present
   if (dtICAL[15] === 'Z') {
-    const YOOOO = dtICAL;
-    console.log({ YOOOO, timeZone });
-    return Temporal.ZonedDateTime.from({
-      ...options,
-    }).withTimeZone(timeZone);
+    options['timeZone'] = Temporal.TimeZone.from('+00:00');
+    return Temporal.ZonedDateTime.from(options).withTimeZone(timeZone);
   }
 
+  // dtICAL is often already in terms of our desired timeZone
   return Temporal.PlainDateTime.from(options).toZonedDateTime(timeZone);
 }
 
@@ -276,10 +296,7 @@ export function makeAcmEvent(
   const date = dtStart.toString();
   const month = dtStart.toLocaleString('en-US', { month: 'long' });
   const day = dtStart.day;
-  const time =
-    icalEvent['DTSTART'] +
-    ',' +
-    dtStart.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric' });
+  const time = dtStart.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric' });
   const hasStarted = Temporal.ZonedDateTime.compare(referenceDate, dtStart) >= 0;
   const hasEnded = Temporal.ZonedDateTime.compare(referenceDate, dtEnd) >= 0;
   const duration = dtEnd.since(dtStart).minutes + ' minutes';
@@ -309,8 +326,18 @@ export function makeAcmEvent(
       ? acmDev
       : acmGeneral;
 
+  const thirdPartyCalendarLocation = location === 'Discord' ? selfLink : location;
+  const thirdPartyCalendarArgs = [
+    title,
+    summary,
+    thirdPartyCalendarLocation,
+    dtStart,
+    dtEnd,
+  ] as const;
+
   const calendarLinks = {
-    google: makeGoogleCalendarLink(title, summary, selfLink, dtStart, dtEnd).toString(),
+    google: makeGoogleCalendarLink(...thirdPartyCalendarArgs).toString(),
+    outlook: makeOutlookCalendarLink(...thirdPartyCalendarArgs).toString(),
   };
 
   return {
