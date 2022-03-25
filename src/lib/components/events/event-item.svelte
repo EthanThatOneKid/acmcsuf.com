@@ -293,6 +293,7 @@
     .action-item {
       --size: 40px;
 
+      color: var(--highlights);
       width: var(--size);
       height: var(--size);
       padding: calc(var(--size) * 0.15);
