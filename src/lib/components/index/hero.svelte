@@ -8,11 +8,12 @@
     num++;
     if (num == 3) {
       photo = 'assets/png/hero-new.png';
+      /* There's a better way to do this but I've never read the Svelte docs LOL */
       document.getElementById('txt').innerHTML = `
         <div style="display: flex; flex-direction: column;">
-          <h4 class="headers size-md">Happy 21st birthday to the 🐐</h4>
-          <h3 class="brand-em brand-blue">Ethan Davidson 🎂🎉</h3> 
-          <p class="brand-med size-sm">We ❤️ You - ACM Board :)</p>
+          <h4 class="headers size-md">EVERYONE BOW TO OUR PRESIDENT</h4>
+          <h3 class="brand-em brand-blue">AARON IS 21 YEARS OLD</h3> 
+          <p class="brand-med size-sm">HAPPY BIRTHDAY 👑 - ACM board :)</p>
         </div>
       `;
     }
