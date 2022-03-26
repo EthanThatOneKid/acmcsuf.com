@@ -9,19 +9,15 @@ body {
 html,
 body,
 #svelte {
-  color: #101315;
   font-family: 'Poppins', sans-serif;
   padding: 0;
   margin: 0;
 }
 
+html,
 body {
-  background: #f8f8f8;
-}
-
-.info-screen {
-  display: block;
-  height: 100vh;
+  color: var(--acm-dark);
+  background: var(--acm-light);
 }
 
 :root {
@@ -31,34 +27,12 @@ body {
   --acm-purple: #9d35e7;
   --acm-red: #d41153;
   --acm-sky: #38b6ff;
-  --acm-dark: #101315;
-  --acm-light: #f8f8f8;
+  --acm-gray: #292c2f;
 
   --acm-general-rgb: 44, 145, 198;
   --acm-algo-rgb: 157, 53, 231;
   --acm-create-rgb: 255, 67, 101;
   --acm-dev-rgb: 30, 108, 255;
-
-  --desktop-breakpoint: 768px;
-  --navbar-height: 82px;
-
-  /* Fluid font size is the magical numbers for fluid font sizing. It should be
-   * put into parent containers. */
-  --fluid-font-size: clamp(1vw, 0.7em, 3vw);
-
-  --p-font-size: 2em;
-  --h-font-size-med: 3em;
-
-  --min-p-font-size: 18px;
-  --max-p-font-size: 36px;
-  --min-h-font-size: 22px;
-  --max-h-font-size: 86px;
-  --max-h-font-size-med: 64px;
-
-  --heading-font-size: 48px;
-  --subheading-font-size: 24px;
-  --body-font-size: 18px;
-  --margin-text-font-size: 12px;
 
   --size-xs: 16px;
   --size-sm: 18px;
@@ -152,4 +126,36 @@ body {
 
 .brand-sky {
   color: var(--acm-sky);
+}
+
+.light {
+  --acm-dark: #101315;
+  --acm-light: #f8f8f8;
+  --navbar-bg: var(--acm-light);
+  --footer-bg: var(--acm-dark);
+}
+
+.dark {
+  --acm-dark: #dddddd;
+  --acm-light: #101315;
+  --navbar-bg: var(--acm-gray);
+  --footer-bg: var(--acm-gray);
+}
+
+@media (prefers-color-scheme: light) {
+  body:not(.dark) {
+    --acm-dark: #101315;
+    --acm-light: #f8f8f8;
+    --navbar-bg: var(--acm-light);
+    --footer-bg: var(--acm-dark);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not(.light) {
+    --acm-dark: #dddddd;
+    --acm-light: #101315;
+    --navbar-bg: var(--acm-gray);
+    --footer-bg: var(--acm-gray);
+  }
 }

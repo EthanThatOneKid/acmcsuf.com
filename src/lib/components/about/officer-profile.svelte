@@ -11,9 +11,9 @@
   const officerPicture = info.picture ?? placeholderPicture;
 
   $: titleHTML = info.positions[VISIBLE_TERMS[$termIndex]].title
-    .replace(/Create/, `<span class="brand-em brand-pink">Create</span>`)
-    .replace(/Algo/, `<span class="brand-em brand-purple">Algo</span>`)
-    .replace(/Dev/, `<span class="brand-em brand-bluer">Dev</span>`)
+    .replace(/Create\s/, `<span class="brand-em brand-pink">Create </span>`)
+    .replace(/Algo\s/, `<span class="brand-em brand-purple">Algo </span>`)
+    .replace(/Dev\s/, `<span class="brand-em brand-bluer">Dev </span>`)
     .replace(
       /NodeBuds/,
       `<span class="headers">node<span class="brand-em brand-red">Buds</span></span>`

@@ -1,11 +1,29 @@
-<script>
+<script lang="ts">
   import AcmButton from '$lib/components/utils/acm-button.svelte';
+
+  let num = 0;
+  export let photo = 'assets/png/hero-illustration.png';
+
+  function click() {
+    num++;
+    if (num == 3) {
+      photo = 'assets/png/hero-new.png';
+      /* There's a better way to do this but I've never read the Svelte docs LOL */
+      document.getElementById('txt').innerHTML = `
+        <div style="display: flex; flex-direction: column;">
+          <h4 class="headers size-md">EVERYONE BOW TO OUR PRESIDENT</h4>
+          <h3 class="brand-em brand-blue">AARON IS 21 YEARS OLD</h3> 
+          <p class="brand-med size-sm">HAPPY BIRTHDAY 👑 - ACM board :)</p>
+        </div>
+      `;
+    }
+  }
 </script>
 
 <section>
   <div class="container">
     <div class="left-content">
-      <div class="main-text headers size-xl">
+      <div class="main-text headers size-xl" id="txt" on:click={click}>
         We are the largest tech community at
         <span class="brand-em brand-blue">CSUF</span>
       </div>
@@ -14,7 +32,8 @@
     </div>
 
     <img
-      src="assets/png/hero-illustration.png"
+      src={photo}
+      id="image"
       alt="Frank the shark (ACM CSUF's mascot) is holding a flag that says 'I ♥ ACM'"
     />
   </div>
@@ -40,7 +59,7 @@
       justify-content: center;
 
       .main-text {
-        max-width: 570px;
+        max-width: 650px;
       }
     }
 
