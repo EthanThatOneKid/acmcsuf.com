@@ -1,22 +1,36 @@
-import { assert, expect, test } from 'vitest';
+import { assert, test, expect } from 'vitest';
+import { Temporal } from '@js-temporal/polyfill';
+import { readFileSync } from 'fs';
+import { parse } from './parse';
+import { makeEventSlug, parseDescription, makeEventLink, wrapText, walkICAL } from './utils';
 
-import {
-  slugifyEvent,
-  parseDescription,
-  sortByDate,
-  filterIfPassed,
-  makeEventLink,
-  wrapText,
-} from './common';
+test('parses sample ICAL payload', () => {
+  const rawICAL = readFileSync('./src/routes/events/_testdata/events.ics', 'utf-8');
+  expect([...walkICAL(rawICAL)].length).toBeGreaterThan(0);
+});
+
+test('parses sample ICAL payload into AcmEvent', () => {
+  const rawICAL = readFileSync('./src/routes/events/_testdata/events.ics', 'utf-8');
+  const acmEvents = parse(rawICAL, {
+    referenceDate: Temporal.Now.zonedDateTimeISO().subtract(Temporal.Duration.from({ years: 1 })),
+  });
+  expect(acmEvents.length).toBeGreaterThan(0);
+});
 
 test('slugifies simple event details', () => {
-  const actual = slugifyEvent('test-event', '2000', 'january', 1);
+  const actual = makeEventSlug(
+    'test-event',
+    Temporal.ZonedDateTime.from({ timeZone: 'UTC', year: 2000, month: 1, day: 1 })
+  );
   const expected = 'test-event-2000-january-1';
   expect(actual).toBe(expected);
 });
 
 test('slugifies capitalized event details', () => {
-  const actual = slugifyEvent('Test Event', '2000', 'January', 1);
+  const actual = makeEventSlug(
+    'Test Event',
+    Temporal.ZonedDateTime.from({ timeZone: 'UTC', year: 2000, month: 1, day: 1 })
+  );
   const expected = 'test-event-2000-january-1';
   expect(actual).toBe(expected);
 });
@@ -43,19 +57,6 @@ test('parses variables and text in event description', () => {
   const { description, variables } = parseDescription('Hello, world! ACM_TEST=test');
   expect(description).toBe('Hello, world!');
   expect(variables).toEqual(new Map([['ACM_TEST', 'test']]));
-});
-
-test('sorts array by date', () => {
-  const testEventsAscending = Array.from({ length: 5 }, (_, i) => ({ date: new Date(i) }));
-  const result = testEventsAscending.sort(sortByDate());
-  const expected = testEventsAscending.reverse();
-  expect(result, 'latest events are shown first').toEqual(expected);
-});
-
-test('filters if event has passed', () => {
-  const testEvents = Array.from({ length: 5 }, () => ({ date: new Date(0) }));
-  const result = testEvents.filter(filterIfPassed(1));
-  expect(result, 'only events in the future are shown').toEqual([]);
 });
 
 test('makes a link out of event slug and base URL', () => {
