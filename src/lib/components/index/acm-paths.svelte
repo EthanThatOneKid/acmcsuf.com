@@ -17,7 +17,7 @@
     {#each pinnedPaths as { title, slug, picture, color } (slug)}
       <a class="path-item" target="_self" href={`/paths#${slug}`}>
         <img src={picture} alt={`${slug}-logo`} />
-        <p class="size-md headers">
+        <p class="size-md brand-dark headers">
           acm<span class="brand-em" style={`--brand-color: ${color}`}>
             {title}
           </span>
