@@ -92,12 +92,14 @@
   nav .full-logomark .logo-text {
     font-size: 24px;
     padding-left: 8px;
+    color: var(--acm-dark);
   }
 
   nav .pages a {
     font-size: 18px;
     margin-left: 64px;
     transition: color 0.25s ease-in-out;
+    color: var(--acm-dark);
   }
 
   nav .page-about:hover,
