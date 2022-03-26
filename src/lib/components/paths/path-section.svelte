@@ -13,7 +13,7 @@
       <div>
         <h2>
           <span class="headers size-lg">
-            acm<span style={`--font-color: ${info.color}`}>
+            acm<span style:--font-color={info.color}>
               <span class="brand-em">{info.title}</span>
             </span>
           </span>

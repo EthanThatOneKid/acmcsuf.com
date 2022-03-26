@@ -36,7 +36,7 @@
   });
 </script>
 
-<div class="event-box" style={`--highlights: var(--acm-${info.acmPath.slug}-rgb)`}>
+<div class="event-box" style:--highlights={`var(--acm-${info.acmPath.slug}-rgb)`}>
   <!-- Workaround for the top panel covering the event card's anchor. -->
   <div class="anchor" id={info.slug} bind:this={anchor} />
   <details class="event-card" bind:this={details}>
