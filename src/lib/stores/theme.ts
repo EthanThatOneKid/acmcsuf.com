@@ -20,10 +20,12 @@ function save(value: AcmTheme) {
   switch (value) {
     case AcmTheme.Dark: {
       document.body.classList.add(AcmTheme.Dark);
+      document.body.classList.remove(AcmTheme.Light);
       return;
     }
     default: {
       document.body.classList.remove(AcmTheme.Dark);
+      document.body.classList.add(AcmTheme.Light);
       return;
     }
   }

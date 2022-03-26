@@ -23,7 +23,12 @@
   <h2 slot="headline" class="size-lg">Who are we?</h2>
   <p slot="text" class="size-xs">
     acmCSUF is a student chapter of the
-    <a href="https://acm.org" class="brand-med" target="_blank" rel="noopener noreferrer">
+    <a
+      href="https://acm.org"
+      class="brand-dark brand-med"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       Association for Computing Machinery</a
     >, an international organization based in New York that advocates for the advancement of
     computer science as a science and profession. Our chapter based in California State University,
