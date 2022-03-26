@@ -39,6 +39,7 @@
 <div class="event-box" style={`--highlights: var(--acm-${info.acmPath.slug}-rgb)`}>
   <!-- Workaround for the top panel covering the event card's anchor. -->
   <div class="anchor" id={info.slug} bind:this={anchor} />
+
   <details class="event-card" bind:this={details}>
     <summary class="event-body">
       <div class="event-name">
@@ -63,7 +64,7 @@
       </p>
 
       <a
-        class="event-join size-sm"
+        class="event-join size-sm brand-header"
         href={info.meetingLink}
         role="button"
         target="_blank"
@@ -152,20 +153,21 @@
   .event-card {
     margin: 32px 64px;
     padding: 0;
-    box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.25);
-    transition: all 0.15s ease-in-out;
-    border-radius: 30px;
-    border: 2px solid var(--acm-dark);
+    background-color: var(--card-bg);
+    box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.5);
+    transition: 0.25s ease-in-out;
+    border-radius: 25px;
   }
 
-  .event-card:hover {
+  .event-card:hover,
+  .event-card[open] {
     box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.65);
   }
 
-  .event-card[open] {
+  /* .event-card[open] {
     box-shadow: 0 6px 24px rgba(var(--highlights, --acm-general-rgb), 0.75);
     border: 2px solid rgb(var(--highlights, --acm-general-rgb));
-  }
+  } */
 
   .event-card:hover h2,
   .event-card[open] h2 {
@@ -174,7 +176,7 @@
 
   .event-box > .anchor:target + .event-card {
     box-shadow: 0 6px 24px rgba(var(--highlights, --acm-general-rgb), 0.75);
-    border: 2px solid rgb(var(--highlights, --acm-general-rgb));
+    /* border: 2px solid rgb(var(--highlights, --acm-general-rgb)); */
   }
 
   .event-card hr {
@@ -216,7 +218,7 @@
     }
 
     .event-join:hover {
-      color: rgb(var(--highlights, --acm-general-rgb));
+      background-color: rgb(var(--highlights, --acm-general-rgb));
     }
   }
 

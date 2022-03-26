@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700');
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+*,
+html,
+body,
+#svelte {
+  color: var(--acm-dark);
+  font-family: 'Poppins', sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: var(--acm-light);
+}
+
+.dark {
+  --acm-dark: #dddddd;
+  --acm-light: #101315;
+  --navbar-bg: var(--acm-gray);
+  --footer-bg: var(--acm-gray);
+}
+
+.info-screen {
+  display: block;
+  height: 100vh;
+}
+
+:root {
+  --acm-blue: #2c91c6;
+  --acm-bluer: #1e6cff;
+  --acm-pink: #ff4365;
+  --acm-purple: #9d35e7;
+  --acm-red: #d41153;
+  --acm-sky: #38b6ff;
+  --acm-gray: #292c2f;
+  --acm-dark: #101315;
+  --acm-light: #f8f8f8;
+
+  --acm-general-rgb: 44, 145, 198;
+  --acm-algo-rgb: 157, 53, 231;
+  --acm-create-rgb: 255, 67, 101;
+  --acm-dev-rgb: 30, 108, 255;
+
+  --desktop-breakpoint: 768px;
+  --navbar-height: 82px;
+  --navbar-bg: var(--acm-light);
+  --footer-bg: var(--acm-dark);
+
+  /* Fluid font size is the magical numbers for fluid font sizing. It should be
+   * put into parent containers. */
+  --fluid-font-size: clamp(1vw, 0.7em, 3vw);
+
+  --p-font-size: 2em;
+  --h-font-size-med: 3em;
+
+  --min-p-font-size: 18px;
+  --max-p-font-size: 36px;
+  --min-h-font-size: 22px;
+  --max-h-font-size: 86px;
+  --max-h-font-size-med: 64px;
+
+  --heading-font-size: 48px;
+  --subheading-font-size: 24px;
+  --body-font-size: 18px;
+  --margin-text-font-size: 12px;
+
+  --size-xs: 16px;
+  --size-sm: 18px;
+  --size-md: 24px;
+  --size-lg: 36px;
+  --size-xl: 48px;
+}
+
+.ita {
+  font-style: italic;
+}
+
+/* Branding Macros */
+.brand-em {
+  /* `em` is short for "emphasis" */
+  font-weight: 700;
+  text-transform: none;
+}
+
+.brand-med {
+  font-weight: 500;
+}
+
+.brand-alert {
+  color: var(--acm-light);
+}
+
+.headers {
+  font-weight: 600;
+}
+
+/* Font Sizes */
+.size-xs {
+  font-size: var(--size-xs);
+}
+
+.size-sm {
+  font-size: var(--size-sm);
+}
+
+.size-md {
+  font-size: var(--size-md);
+}
+
+.size-lg {
+  font-size: var(--size-lg);
+}
+
+.size-xl {
+  font-size: var(--size-xl);
+}
+
+/* We use the following to avoid the <https://github.com/twbs/rfs> dependency */
+@media screen and (max-width: 1000px) {
+  :root {
+    --size-xl: calc(1.425rem + 2.1vw);
+    --size-lg: calc(1.35rem + 1.2vw);
+    --size-md: calc(1.275rem + 0.3vw);
+    --size-sm: calc(1.175rem + 0.1vw);
+    --size-xs: calc(1.075rem + 0.05vw);
+  }
+}
+
+.brand-blue {
+  color: var(--acm-blue);
+}
+
+.brand-bluer {
+  color: var(--acm-bluer);
+}
+
+.brand-pink {
+  color: var(--acm-pink);
+}
+
+.brand-purple {
+  color: var(--acm-purple);
+}
+
+.brand-red {
+  color: var(--acm-red);
+}
+
+.brand-dark {
+  color: var(--acm-dark);
+}
+
+.brand-light {
+  color: var(--acm-light);
+}
+
+.brand-sky {
+  color: var(--acm-sky);
+}

@@ -10,6 +10,7 @@
   {#if info !== undefined}
     <section id={info.slug} class:👈={textAlign === TextAlignment.Left}>
       <img src={info.picture} alt={`acm${info.title} Logo`} />
+
       <div>
         <h2>
           <span class="headers size-lg">
@@ -18,6 +19,7 @@
             </span>
           </span>
         </h2>
+        
         <slot name="content" tag="p" />
       </div>
     </section>

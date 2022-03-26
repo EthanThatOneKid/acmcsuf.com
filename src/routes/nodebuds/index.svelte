@@ -22,13 +22,16 @@
   <section>
     <div>
       <h2 class="headers size-lg">Personalized for your success</h2>
-      <p class="size-xs">
-        <span class="headers"> node buds </span>
+
+      <p class="size-sm">
+        <span class="headers">Node Buds</span>
         is our exclusive program in partnership with
         <a href="/acm-w" class="headers w-text" target="_blank" rel="noopener noreferrer"> ACM-W</a>
         that exposes students to various opportunities that encourage connection, skill building, as
         well as both personal and technical development.
+
         <br /><br />
+
         Everone under this program will get paired with student-mentors, called
         <span class="brand-med">Buddies</span>, who will be there to help students prepare for their
         successful journeys through the tech industry.
@@ -39,12 +42,6 @@
 </div>
 
 <Spacing --min="100px" --med="175px" --max="200px" />
-
-<div class="container">
-  <h2 class="headers size-lg">Buddies</h2>
-</div>
-
-<Spacing --min="16px" --med="16px" --max="16px" />
 
 <OfficerProfileList filter={filterNodeBuddies} />
 

@@ -1,257 +1,189 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  import Instagram from '$lib/components/icons/instagram.svelte';
-  import Discord from '$lib/components/icons/discord.svelte';
-  import Youtube from '$lib/components/icons/youtube.svelte';
-  import Linkedin from '$lib/components/icons/linkedin.svelte';
-  import AcmToggle from '$lib/components/utils/acm-toggle.svelte';
-  import { AcmTheme, theme } from '$lib/stores/theme';
+  import Instagram from '../icons/instagram.svelte';
+  import Discord from '../icons/discord.svelte';
+  import YouTube from '../icons/youtube.svelte';
+  import LinkedIn from '../icons/linkedin.svelte';
 
-  let jsEnabled = false;
-  onMount(() => (jsEnabled = true));
+  const footItem = [
+    { title: 'Source Code', path: '/github' },
+    { title: 'Report a Bug', path: '/bug' },
+    { title: 'COVID-19 Policy', path: '/covid-19' },
+    { title: 'frankBot Privacy', path: '/privacy' },
+  ];
 </script>
 
 <footer>
   <div class="container">
-    <div class="left">
-      <h1 class="headers footer-text">Stay connected</h1>
+    <div class="connect">
+      <h3 class="brand-header size-md">Stay connected</h3>
 
-      <div class="socials">
-        <span>
-          <a href="/instagram" class="links" target="_blank" rel="noopener noreferrer">
-            <Instagram />
-          </a>
-        </span>
-
-        <span>
-          <a href="/discord" class="links" target="_blank" rel="noopener noreferrer">
+      <ul class="socials">
+        <li>
+          <a href="/discord" target="_blank" rel="noopener noreferrer">
             <Discord />
           </a>
-        </span>
+        </li>
 
-        <span>
-          <a href="/youtube" class="links" target="_blank" rel="noopener noreferrer">
-            <Youtube />
+        <li>
+          <a href="/instagram" target="_blank" rel="noopener noreferrer">
+            <Instagram />
           </a>
-        </span>
+        </li>
 
-        <span>
-          <a href="/linkedin" class="links" target="_blank" rel="noopener noreferrer">
-            <Linkedin />
+        <li>
+          <a href="/youtube" target="_blank" rel="noopener noreferrer">
+            <YouTube />
           </a>
-        </span>
-      </div>
+        </li>
+
+        <li>
+          <a href="/linkedin" target="_blank" rel="noopener noreferrer">
+            <LinkedIn />
+          </a>
+        </li>
+      </ul>
     </div>
 
-    <div class="mid">
-      <div class="top">
-        <h1 class="brand-med footer-text">
-          &copy; 2022
-          <span class="headers footer-text">
-            acm<span class="brand-em footer-text">CSUF</span>
-          </span>
-        </h1>
+    <div class="legal">
+      <h3 class="brand-header size-md">
+        &copy; 2022 acm<span class="brand-bold">CSUF</span>
+      </h3>
 
-        <div class="links footer-text">
-          <a href="/privacy" class="footer-text" rel="noopener noreferrer"> frankBot Privacy </a>
-
-          /
-
-          <a href="/bug" class="footer-text" target="_blank" rel="noopener noreferrer">
-            Report a Bug
-          </a>
-        </div>
-      </div>
-
-      <div class="bottom">
-        <h2 class="headers footer-text">Get in touch</h2>
-
-        <a
-          href="mailto:acmcsufullerton@gmail.com"
-          class="footer-text"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          acmcsufullerton@gmail.com
-        </a>
-      </div>
+      <a
+        href="mailto:acmcsufullerton@gmail.com"
+        class="brand-med size-sm"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Get in Touch
+      </a>
     </div>
 
-    <div class="right">
-      <h1 class="headers footer-text">More from us</h1>
+    <div class="more">
+      <h3 class="brand-header size-md">More from us</h3>
 
-      <div class="links">
-        <span>
-          <a href="/blog" class="footer-text" rel="noopener noreferrer">Blog</a>
-        </span>
-
-        <span>
-          <a href="/covid-19" class="footer-text" target="_blank" rel="noopener noreferrer">
-            COVID-19 Policy
-          </a>
-        </span>
-
-        <span>
-          <a href="/github" class="footer-text" target="_blank" rel="noopener noreferrer">
-            Source Code
-          </a>
-        </span>
-
-        {#if jsEnabled}
-          <span>
-            <!-- true is dark -->
-            <AcmToggle
-              checked={$theme === AcmTheme.Dark}
-              on:toggle={(event) => ($theme = event.detail ? AcmTheme.Dark : AcmTheme.Light)}
-            >
-              <span class="footer-text darkmode-label">Darkmode</span>
-            </AcmToggle>
-          </span>
-        {/if}
-      </div>
+      <ul class="links">
+        {#each footItem as { title, path } (path)}
+          <li>
+            <a href={path} class="brand-med size-sm" target="_blank" rel="noopener noreferrer">
+              {@html title}
+            </a>
+          </li>
+        {/each}
+      </ul>
     </div>
   </div>
 </footer>
 
 <style lang="scss">
   footer {
-    --ever-white: #f8f8f8; /* does not change with theme */
-
     display: flex;
+    width: 100%;
     justify-content: center;
-    align-items: center;
-    background-color: var(--footer-bg);
     padding: 24px 0;
-    width: 100vw;
-
-    .footer-text {
-      color: var(--ever-white);
-    }
+    background-color: var(--footer-bg);
 
     .container {
       display: flex;
       justify-content: space-between;
-      margin: 0 24px;
+      padding: 0 24px;
       width: 1280px;
 
-      .left,
-      .mid,
-      .right {
-        width: 250px;
+      ul,
+      li {
+        list-style: none;
+      }
 
-        h1 {
-          font-size: 24px;
-          padding-bottom: 8px;
+      a {
+        color: var(--perma-light);
+        text-decoration: none;
+        transition: 0.25s ease-in-out;
+
+        &:hover {
+          color: var(--acm-blue);
         }
       }
 
-      .left {
-        text-align: left;
+      .connect,
+      .legal,
+      .more {
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        gap: 4px;
+
+        h3,
+        h3 span {
+          color: var(--perma-light);
+        }
+      }
+
+      .connect {
+        align-items: flex-start;
 
         .socials {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
+          display: flex;
+          gap: 32px;
 
-          .links {
-            & :global(svg) {
-              height: 32px;
-              width: 32px;
-            }
+          a {
+            display: flex;
+            padding-top: 6px;
 
-            & :global(path) {
-              fill: var(--ever-white);
-              transition: fill 0.25s ease-in-out;
-            }
-
-            &:hover :global(path) {
-              fill: var(--acm-blue);
-            }
-          }
-        }
-      }
-
-      .mid {
-        text-align: center;
-
-        .top {
-          margin-bottom: 32px;
-
-          .links {
-            font-size: 14px;
-
-            a {
-              text-decoration: none;
-              transition: 0.25s ease-in-out;
-
-              &:hover {
-                color: var(--acm-blue);
+            &:hover {
+              & :global(path) {
+                fill: var(--acm-blue);
               }
             }
           }
-        }
 
-        .bottom {
-          h2 {
-            font-size: 16px;
+          & :global(svg) {
+            height: 32px;
+            width: auto;
           }
 
-          a {
-            text-decoration: none;
-            font-size: 14px;
+          & :global(path) {
+            fill: var(--perma-light);
             transition: 0.25s ease-in-out;
-
-            &:hover {
-              color: var(--acm-blue);
-            }
           }
         }
       }
 
-      .right {
+      .legal {
+        align-items: center;
+        text-align: center;
+      }
+
+      .more {
+        align-items: flex-end;
         text-align: right;
-
-        .links {
-          display: flex;
-          flex-direction: column;
-
-          a,
-          .darkmode-label {
-            text-decoration: none;
-            font-size: 14px;
-            transition: 0.25s ease-in-out;
-
-            &:hover {
-              color: var(--acm-blue);
-              cursor: pointer;
-            }
-          }
-        }
       }
     }
   }
 
-  @media (max-width: 900px) {
-    .container {
-      flex-direction: column;
-      align-items: center;
+  @media screen and (max-width: 900px) {
+    footer {
+      .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
 
-      .left,
-      .mid,
-      .right {
-        text-align: center !important;
-      }
+        a {
+          font-size: var(--size-sm);
+        }
 
-      .left {
-        order: 2;
-        margin: 64px 0;
-      }
+        .legal {
+          order: 1;
+        }
 
-      .mid {
-        order: 1;
-      }
+        .connect {
+          order: 2;
+          align-items: center;
+        }
 
-      .right {
-        order: 3;
+        .more {
+          order: 3;
+          align-items: center;
+          text-align: center;
+        }
       }
     }
   }
