@@ -84,10 +84,9 @@
     text-align: left;
     padding: 4em 4em 3em;
     margin: 0;
-    background-color: var(--acm-light);
+    background-color: var(--card-bg);
     border-radius: 3em;
-    filter: drop-shadow(0 8px 40px rgba(16, 19, 21, 0.1));
-    -webkit-filter: drop-shadow(0 8px 40px rgba(16, 19, 21, 0.1));
+    border: 4px solid var(--acm-sky);
     width: min(1000px, 70vw);
 
     .markdown-body {

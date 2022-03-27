@@ -1,5 +1,6 @@
 <script lang="ts" context="module">
   import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/internal';
+  import Readme from '$lib/components/icons/readme.svelte';
 
   export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
     const response = await fetch(`/blog.json`);
@@ -21,15 +22,16 @@
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <section>
-  <img src="assets/readme-logomark.svg" alt="README by acmCSUF" />
+  <Readme />
 
-  <h2 class="subtitle headers">
-    The official acmCSUF blog.<a href="/blog.xml"
-      ><img src="assets/badges/feed-icon.svg" alt="RSS feed logo" /></a
-    >
+  <h2 class="subtitle brand-med size-md">
+    The official acmCSUF blog.
+    <!-- <a href="/blog.xml">
+      <img src="assets/badges/feed-icon.svg" alt="RSS feed logo" />
+    </a> -->
   </h2>
 
-  <Spacing --min="100px" --med="175px" --max="200px" />
+  <Spacing --min="100px" --med="120px" --max="150px" />
 
   <ul>
     {#each posts as post (post.id)}
@@ -49,7 +51,7 @@
 <Spacing --min="40px" --med="95px" --max="120px" />
 
 <style lang="scss">
-  .subtitle {
+  /* .subtitle {
     a {
       display: inline-block;
       padding-left: 2.5vw;
@@ -60,7 +62,7 @@
         height: 18px;
       }
     }
-  }
+  } */
 
   section {
     display: flex;
@@ -73,11 +75,11 @@
       transition: 0.25s ease-in-out;
     }
 
-    img {
+    :global(svg) {
       max-width: 600px;
       width: 100%;
       height: auto;
-      margin-left: -2.2vw;
+      margin-left: -3vw;
       margin-bottom: 8px;
     }
 
@@ -85,10 +87,9 @@
       list-style: none;
       padding: 3em 4em 2.5em;
       margin: 0;
-      background-color: var(--acm-light);
-      border-radius: 3em;
-      filter: drop-shadow(0 8px 40px rgba(16, 19, 21, 0.1));
-      -webkit-filter: drop-shadow(0 8px 40px rgba(16, 19, 21, 0.1));
+      background-color: var(--card-bg);
+      border-radius: 2.5em;
+      border: 4px solid var(--acm-sky);
       width: min(1000px, 70vw);
 
       li {
