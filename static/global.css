@@ -1,131 +1,121 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700');
 
-html,
-body {
-  overflow-x: hidden;
-}
-
-*,
-html,
-body,
-#svelte {
-  font-family: 'Poppins', sans-serif;
-  padding: 0;
-  margin: 0;
-}
-
-html,
-body {
-  color: var(--acm-dark);
-  background: var(--acm-light);
-}
-
 :root {
   --acm-blue: #2c91c6;
   --acm-bluer: #1e6cff;
+  --acm-dark: #101315;
+  --acm-gray: #292c2f;
+  --acm-light: #f8f8f8;
   --acm-pink: #ff4365;
   --acm-purple: #9d35e7;
   --acm-red: #d41153;
   --acm-sky: #38b6ff;
-  --acm-gray: #292c2f;
 
   --acm-general-rgb: 44, 145, 198;
   --acm-algo-rgb: 157, 53, 231;
   --acm-create-rgb: 255, 67, 101;
   --acm-dev-rgb: 30, 108, 255;
 
-  --size-xs: 16px;
-  --size-sm: 18px;
-  --size-md: 24px;
-  --size-lg: 36px;
-  --size-xl: 48px;
+  --perma-light: #f8f8f8;
+
+  --size-xl: clamp(2rem, 1.7545rem + 1.0909vw, 3.5rem);
+  --size-lg: clamp(1.5rem, 1.3773rem + 0.5455vw, 2.25rem);
+  --size-md: clamp(1.125rem, 1.0636rem + 0.2727vw, 1.5rem);
+  --size-sm: clamp(1rem, 0.9795rem + 0.0909vw, 1.125rem);
+  --size-xs: clamp(0.75rem, 0.7295rem + 0.0909vw, 0.875rem);
 }
 
-.ita {
-  font-style: italic;
+*,
+html,
+body,
+#svelte {
+  font-family: 'Poppins';
+  color: var(--acm-dark);
+  padding: 0;
+  margin: 0;
 }
 
-/* Branding Macros */
+body {
+  background-color: var(--acm-light);
+}
+
+.brand-bold,
 .brand-em {
-  /* `em` is short for "emphasis" */
   font-weight: 700;
-  text-transform: none;
+}
+
+.brand-header,
+.headers {
+  font-weight: 600;
 }
 
 .brand-med {
   font-weight: 500;
 }
 
-.brand-alert {
+.acm-blue,
+.brand-blue {
+  color: var(--acm-blue);
+}
+
+.acm-bluer,
+.brand-bluer {
+  color: var(--acm-bluer);
+}
+
+.acm-dark,
+.brand-dark {
+  color: var(--acm-dark);
+}
+
+.acm-gray,
+.brand-gray {
+  color: var(--acm-gray);
+}
+
+.acm-light,
+.brand-light {
   color: var(--acm-light);
 }
 
-.headers {
-  font-weight: 600;
+.acm-pink,
+.brand-pink {
+  color: var(--acm-pink);
 }
 
-/* Font Sizes */
-.size-xs {
-  font-size: var(--size-xs);
+.acm-purple,
+.brand-purple {
+  color: var(--acm-purple);
 }
 
-.size-sm {
-  font-size: var(--size-sm);
+.acm-red,
+.brand-red {
+  color: var(--acm-red);
 }
 
-.size-md {
-  font-size: var(--size-md);
-}
-
-.size-lg {
-  font-size: var(--size-lg);
+.acm-sky,
+.brand-sky {
+  color: var(--acm-sky);
 }
 
 .size-xl {
   font-size: var(--size-xl);
 }
 
-/* We use the following to avoid the <https://github.com/twbs/rfs> dependency */
-@media screen and (max-width: 1000px) {
-  :root {
-    --size-xl: calc(1.425rem + 2.1vw);
-    --size-lg: calc(1.35rem + 1.2vw);
-    --size-md: calc(1.275rem + 0.3vw);
-    --size-sm: calc(1.175rem + 0.1vw);
-    --size-xs: calc(1.075rem + 0.05vw);
-  }
+.size-lg {
+  font-size: var(--size-lg);
 }
 
-.brand-blue {
-  color: var(--acm-blue);
+.size-md {
+  font-size: var(--size-md);
 }
 
-.brand-bluer {
-  color: var(--acm-bluer);
+.size-sm {
+  font-size: var(--size-sm);
 }
 
-.brand-pink {
-  color: var(--acm-pink);
-}
-
-.brand-purple {
-  color: var(--acm-purple);
-}
-
-.brand-red {
-  color: var(--acm-red);
-}
-
-.brand-dark {
-  color: var(--acm-dark);
-}
-
-.brand-light {
-  color: var(--acm-light);
-}
-
-.brand-sky {
-  color: var(--acm-sky);
+.size-xs {
+  font-size: var(--size-xs);
 }
 
 .light {
@@ -133,13 +123,19 @@ body {
   --acm-light: #f8f8f8;
   --navbar-bg: var(--acm-light);
   --footer-bg: var(--acm-dark);
+  --card-bg: var(--acm-light);
+  --button-bg: var(--acm-dark);
+  --button-hover: var(--acm-blue);
 }
 
 .dark {
-  --acm-dark: #dddddd;
+  --acm-dark: #f8f8f8;
   --acm-light: #101315;
-  --navbar-bg: var(--acm-gray);
+  --navbar-bg: var(--acm-light);
   --footer-bg: var(--acm-gray);
+  --card-bg: var(--acm-gray);
+  --button-bg: var(--acm-gray);
+  --button-hover: #3d4043;
 }
 
 @media (prefers-color-scheme: light) {
@@ -148,14 +144,20 @@ body {
     --acm-light: #f8f8f8;
     --navbar-bg: var(--acm-light);
     --footer-bg: var(--acm-dark);
+    --card-bg: var(--acm-light);
+    --button-bg: var(--acm-dark);
+    --button-hover: var(--acm-blue);
   }
 }
 
 @media (prefers-color-scheme: dark) {
   body:not(.light) {
-    --acm-dark: #dddddd;
+    --acm-dark: #f8f8f8;
     --acm-light: #101315;
-    --navbar-bg: var(--acm-gray);
+    --navbar-bg: var(--acm-light);
     --footer-bg: var(--acm-gray);
+    --card-bg: var(--acm-gray);
+    --button-bg: var(--acm-gray);
+    --button-hover: #3d4043;
   }
 }
