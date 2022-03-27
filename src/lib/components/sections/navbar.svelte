@@ -178,12 +178,13 @@
         .pages {
           position: fixed;
           flex-direction: column;
-          justify-content: center;
+          justify-content: space-evenly;
           align-items: center;
           top: 0;
           right: 0;
           height: 0;
           width: 100%;
+          gap: 0;
           background-color: var(--acm-light);
           overflow: hidden;
           z-index: 9;
