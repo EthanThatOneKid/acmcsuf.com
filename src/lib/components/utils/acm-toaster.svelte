@@ -38,20 +38,21 @@
 
   .toast-item {
     display: flex;
+    align-items: center;
     flex-direction: row;
-    gap: 1em;
+    gap: 1.5em;
     margin: 32px 32px;
     padding: 2em;
-    transition: all 0.15s ease-in-out;
-    box-shadow: 0 6px 24px rgba(var(--highlights, --acm-general-rgb), 0.75);
-    border: 2px solid rgb(var(--highlights, --acm-general-rgb));
     transition: all 0.25s ease-in-out;
-    border-radius: 30px;
+    box-shadow: 0 6px 24px rgba(var(--highlights, --acm-general-rgb), 0.5);
+    border: 3px solid rgb(var(--highlights, --acm-general-rgb));
+    transition: 0.25s ease-in-out;
+    border-radius: 20px;
     background-color: var(--acm-light);
   }
 
   .toast-item img {
-    --img-width: 50px;
+    --img-width: 75px;
     width: var(--img-width);
     height: calc(var(--img-width) * 0.56);
     align-self: center;
