@@ -3,7 +3,6 @@
   import Discord from '../icons/discord.svelte';
   import YouTube from '../icons/youtube.svelte';
   import LinkedIn from '../icons/linkedin.svelte';
-  import { links } from '$lib/constants/links';
 
   const footItem = [
     { title: 'Source Code', path: '/github' },
@@ -13,10 +12,10 @@
   ];
 
   const socialItems = [
-    { icon: Discord, path: links.discord },
-    { icon: Instagram, path: links.instagram },
-    { icon: YouTube, path: links.youtube },
-    { icon: LinkedIn, path: links.linkedin },
+    { icon: Discord, path: '/discord' },
+    { icon: Instagram, path: '/instagram' },
+    { icon: YouTube, path: '/youtube' },
+    { icon: LinkedIn, path: '/linkedin' },
   ];
 </script>
 
