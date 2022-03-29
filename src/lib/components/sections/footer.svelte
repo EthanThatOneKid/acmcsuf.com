@@ -3,12 +3,20 @@
   import Discord from '../icons/discord.svelte';
   import YouTube from '../icons/youtube.svelte';
   import LinkedIn from '../icons/linkedin.svelte';
+  import { links } from '$lib/constants/links';
 
   const footItem = [
     { title: 'Source Code', path: '/github' },
     { title: 'Report a Bug', path: '/bug' },
     { title: 'COVID-19 Policy', path: '/covid-19' },
     { title: 'frankBot Privacy', path: '/privacy' },
+  ];
+
+  const socialItems = [
+    { icon: Discord, path: links.discord },
+    { icon: Instagram, path: links.instagram },
+    { icon: YouTube, path: links.youtube },
+    { icon: LinkedIn, path: links.linkedin },
   ];
 </script>
 
@@ -18,29 +26,13 @@
       <h3 class="brand-header size-md">Stay connected</h3>
 
       <ul class="socials">
-        <li>
-          <a href="/discord" target="_blank" rel="noopener noreferrer">
-            <Discord />
-          </a>
-        </li>
-
-        <li>
-          <a href="/instagram" target="_blank" rel="noopener noreferrer">
-            <Instagram />
-          </a>
-        </li>
-
-        <li>
-          <a href="/youtube" target="_blank" rel="noopener noreferrer">
-            <YouTube />
-          </a>
-        </li>
-
-        <li>
-          <a href="/linkedin" target="_blank" rel="noopener noreferrer">
-            <LinkedIn />
-          </a>
-        </li>
+        {#each socialItems as { path, icon } (path)}
+          <li>
+            <a href={path} target="_blank" rel="noopener noreferrer">
+              <svelte:component this={icon} />
+            </a>
+          </li>
+        {/each}
       </ul>
     </div>
 
