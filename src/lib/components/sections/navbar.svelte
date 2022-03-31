@@ -59,11 +59,13 @@
           checked={$theme === AcmTheme.Dark}
           on:toggle={(event) => ($theme = event.detail ? AcmTheme.Dark : AcmTheme.Light)}
         >
-          {#if $theme === AcmTheme.Dark}
-            <span class="dark-toggle"><LightMode /></span>
-          {:else}
-            <span class="dark-toggle"><DarkMode /></span>
-          {/if}
+          <span class="dark-toggle">
+            {#if $theme === AcmTheme.Dark}
+              <LightMode />
+            {:else}
+              <DarkMode />
+            {/if}
+          </span>
         </AcmToggle>
       </div>
     {/if}
