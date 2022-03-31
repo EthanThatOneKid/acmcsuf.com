@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import LightMode from '../icons/light-mode.svelte';
-  import DarkMode from '../icons/dark-mode.svelte';
+  import LightMode from '$lib/components/icons/light-mode.svelte';
+  import DarkMode from '$lib/components/icons/dark-mode.svelte';
   import AcmToggle from '$lib/components/utils/acm-toggle.svelte';
   import { AcmTheme, theme } from '$lib/stores/theme';
   import { onMount } from 'svelte';
@@ -9,7 +9,7 @@
   let jsEnabled = false;
   onMount(() => (jsEnabled = true));
 
-  const navItem = [
+  const navItems = [
     { title: 'About', path: '/about' },
     { title: 'Events', path: '/events' },
     { title: 'Paths', path: '/paths' },
@@ -37,7 +37,7 @@
     </div>
 
     <ul class="pages">
-      {#each navItem as { title, path } (path)}
+      {#each navItems as { title, path } (path)}
         <li>
           <a
             on:click={() => handleClose()}
@@ -59,11 +59,13 @@
           checked={$theme === AcmTheme.Dark}
           on:toggle={(event) => ($theme = event.detail ? AcmTheme.Dark : AcmTheme.Light)}
         >
-          {#if $theme === AcmTheme.Dark}
-            <span class="dark-toggle"><LightMode /></span>
-          {:else}
-            <span class="dark-toggle"><DarkMode /></span>
-          {/if}
+          <span class="dark-toggle">
+            {#if $theme === AcmTheme.Dark}
+              <LightMode />
+            {:else}
+              <DarkMode />
+            {/if}
+          </span>
         </AcmToggle>
       </div>
     {/if}
@@ -178,12 +180,13 @@
         .pages {
           position: fixed;
           flex-direction: column;
-          justify-content: center;
+          justify-content: space-evenly;
           align-items: center;
           top: 0;
           right: 0;
           height: 0;
           width: 100%;
+          gap: 0;
           background-color: var(--acm-light);
           overflow: hidden;
           z-index: 9;
