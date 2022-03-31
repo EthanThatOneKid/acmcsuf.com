@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Instagram from '../icons/instagram.svelte';
-  import Discord from '../icons/discord.svelte';
-  import YouTube from '../icons/youtube.svelte';
-  import LinkedIn from '../icons/linkedin.svelte';
+  import Instagram from '$lib/components/icons/instagram.svelte';
+  import Discord from '$lib/components/icons/discord.svelte';
+  import YouTube from '$lib/components/icons/youtube.svelte';
+  import LinkedIn from '$lib/components/icons/linkedin.svelte';
 
   const footerItems = [
     { title: 'Source Code', path: '/github' },

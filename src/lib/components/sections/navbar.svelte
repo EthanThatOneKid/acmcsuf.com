@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import LightMode from '../icons/light-mode.svelte';
-  import DarkMode from '../icons/dark-mode.svelte';
+  import LightMode from '$lib/components/icons/light-mode.svelte';
+  import DarkMode from '$lib/components/icons/dark-mode.svelte';
   import AcmToggle from '$lib/components/utils/acm-toggle.svelte';
   import { AcmTheme, theme } from '$lib/stores/theme';
   import { onMount } from 'svelte';
