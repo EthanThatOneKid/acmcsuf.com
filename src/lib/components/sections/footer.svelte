@@ -1,14 +1,21 @@
 <script lang="ts">
-  import Instagram from '../icons/instagram.svelte';
-  import Discord from '../icons/discord.svelte';
-  import YouTube from '../icons/youtube.svelte';
-  import LinkedIn from '../icons/linkedin.svelte';
+  import Instagram from '$lib/components/icons/instagram.svelte';
+  import Discord from '$lib/components/icons/discord.svelte';
+  import YouTube from '$lib/components/icons/youtube.svelte';
+  import LinkedIn from '$lib/components/icons/linkedin.svelte';
 
-  const footItem = [
+  const footerItems = [
     { title: 'Source Code', path: '/github' },
     { title: 'Report a Bug', path: '/bug' },
     { title: 'COVID-19 Policy', path: '/covid-19' },
     { title: 'frankBot Privacy', path: '/privacy' },
+  ];
+
+  const socialItems = [
+    { icon: Discord, path: '/discord' },
+    { icon: Instagram, path: '/instagram' },
+    { icon: YouTube, path: '/youtube' },
+    { icon: LinkedIn, path: '/linkedin' },
   ];
 </script>
 
@@ -18,29 +25,13 @@
       <h3 class="brand-header size-md">Stay connected</h3>
 
       <ul class="socials">
-        <li>
-          <a href="/discord" target="_blank" rel="noopener noreferrer">
-            <Discord />
-          </a>
-        </li>
-
-        <li>
-          <a href="/instagram" target="_blank" rel="noopener noreferrer">
-            <Instagram />
-          </a>
-        </li>
-
-        <li>
-          <a href="/youtube" target="_blank" rel="noopener noreferrer">
-            <YouTube />
-          </a>
-        </li>
-
-        <li>
-          <a href="/linkedin" target="_blank" rel="noopener noreferrer">
-            <LinkedIn />
-          </a>
-        </li>
+        {#each socialItems as { path, icon } (path)}
+          <li>
+            <a href={path} target="_blank" rel="noopener noreferrer">
+              <svelte:component this={icon} />
+            </a>
+          </li>
+        {/each}
       </ul>
     </div>
 
@@ -62,7 +53,7 @@
       <h3 class="brand-header size-md">More from us</h3>
 
       <ul class="links">
-        {#each footItem as { title, path } (path)}
+        {#each footerItems as { title, path } (path)}
           <li>
             <a href={path} class="brand-med size-sm" target="_blank" rel="noopener noreferrer">
               {@html title}
