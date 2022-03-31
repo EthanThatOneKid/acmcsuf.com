@@ -4,7 +4,7 @@
   import YouTube from '../icons/youtube.svelte';
   import LinkedIn from '../icons/linkedin.svelte';
 
-  const footItem = [
+  const footerItems = [
     { title: 'Source Code', path: '/github' },
     { title: 'Report a Bug', path: '/bug' },
     { title: 'COVID-19 Policy', path: '/covid-19' },
@@ -53,7 +53,7 @@
       <h3 class="brand-header size-md">More from us</h3>
 
       <ul class="links">
-        {#each footItem as { title, path } (path)}
+        {#each footerItems as { title, path } (path)}
           <li>
             <a href={path} class="brand-med size-sm" target="_blank" rel="noopener noreferrer">
               {@html title}

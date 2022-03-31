@@ -9,7 +9,7 @@
   let jsEnabled = false;
   onMount(() => (jsEnabled = true));
 
-  const navItem = [
+  const navItems = [
     { title: 'About', path: '/about' },
     { title: 'Events', path: '/events' },
     { title: 'Paths', path: '/paths' },
@@ -37,7 +37,7 @@
     </div>
 
     <ul class="pages">
-      {#each navItem as { title, path } (path)}
+      {#each navItems as { title, path } (path)}
         <li>
           <a
             on:click={() => handleClose()}
