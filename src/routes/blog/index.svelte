@@ -24,12 +24,7 @@
 <section>
   <Readme />
 
-  <h2 class="subtitle brand-med size-md">
-    The official acmCSUF blog.
-    <!-- <a href="/blog.xml">
-      <img src="assets/badges/feed-icon.svg" alt="RSS feed logo" />
-    </a> -->
-  </h2>
+  <h2 class="subtitle brand-med size-md">The official acmCSUF blog.</h2>
 
   <Spacing --min="100px" --med="120px" --max="150px" />
 
@@ -51,19 +46,6 @@
 <Spacing --min="40px" --med="95px" --max="120px" />
 
 <style lang="scss">
-  /* .subtitle {
-    a {
-      display: inline-block;
-      padding-left: 2.5vw;
-      vertical-align: baseline;
-
-      img {
-        width: 18px;
-        height: 18px;
-      }
-    }
-  } */
-
   section {
     display: flex;
     flex-direction: column;
