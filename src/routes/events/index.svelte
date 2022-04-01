@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-  import type { AcmEvent } from '$lib/ical/parse';
+  import type { AcmEvent } from '$lib/ical/utils';
   import CommonHero from '$lib/components/sections/common-hero.svelte';
   import Spacing from '$lib/components/sections/spacing.svelte';
   import EventCarousel from '$lib/components/events/event-list.svelte';
@@ -21,7 +21,7 @@
 
 <CommonHero>
   <h2 slot="headline" class="size-lg">Curated events for growth and success</h2>
-  <p slot="text" class="size-xs">
+  <p slot="text" class="size-sm">
     Our student chapter hosts a multitude of events throughout each school semester, consisting of
     workshops, info sessions, community building events, and much more!
     <br /><br />
@@ -35,13 +35,13 @@
 
 <h2 class="size-lg headers">This week's events 📅</h2>
 
-<Spacing --med="16px" />
+<Spacing --min="16px" --med="16px" --max="16px" />
 
 {#if events.length > 0}
   <EventCarousel {events} />
 {:else}
   <AcmEmpty>
-    <p slot="content">There are no events scheduled!</p>
+    <p slot="content" class="brand-med">There are no events scheduled!</p>
   </AcmEmpty>
 {/if}
 

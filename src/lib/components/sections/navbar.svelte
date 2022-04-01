@@ -1,18 +1,23 @@
 <script lang="ts">
   import { page } from '$app/stores';
+  import LightMode from '$lib/components/icons/light-mode.svelte';
+  import DarkMode from '$lib/components/icons/dark-mode.svelte';
+  import AcmToggle from '$lib/components/utils/acm-toggle.svelte';
+  import { AcmTheme, theme } from '$lib/stores/theme';
+  import { onMount } from 'svelte';
 
-  let checkbox: HTMLInputElement;
+  let jsEnabled = false;
+  onMount(() => (jsEnabled = true));
 
-  const menuItems = [
+  const navItems = [
     { title: 'About', path: '/about' },
     { title: 'Events', path: '/events' },
     { title: 'Paths', path: '/paths' },
-    {
-      title: 'Mentorship',
-      path: '/nodebuds',
-    },
+    { title: 'Node Buds', path: '/nodebuds' },
+    { title: 'Blog', path: '/blog' },
   ];
 
+  let checkbox: HTMLInputElement;
   function handleClose() {
     if (checkbox.checked) {
       checkbox.checked = false;
@@ -21,20 +26,23 @@
 </script>
 
 <nav>
-  <input type="checkbox" id="navToggle" bind:this={checkbox} />
-  <div class="content">
-    <a href="/" class="full-logomark">
-      <img src="/assets/badges/general.svg" width="48" class="logo-badge" alt="acmCSUF badge" />
-      <span class="logo-text brand-em">CSUF</span>
-    </a>
+  <input type="checkbox" id="navToggle" class="toggle" bind:this={checkbox} />
+
+  <div class="container">
+    <div class="logo-container">
+      <a href="/" class="logo">
+        <img src="assets/badges/general.svg" class="badge" alt="acmCSUF logo" />
+        <h3>CSUF</h3>
+      </a>
+    </div>
 
     <ul class="pages">
-      {#each menuItems as { title, path } (path)}
+      {#each navItems as { title, path } (path)}
         <li>
           <a
             on:click={() => handleClose()}
             href={path}
-            class="{`page page-${path.replace(/^\//, '')}`} headers"
+            class="brand-header size-sm"
             aria-current={path === $page.url.pathname}
             sveltekit:prefetch
           >
@@ -43,6 +51,24 @@
         </li>
       {/each}
     </ul>
+
+    {#if jsEnabled}
+      <div class="toggle-container">
+        <!-- true is dark -->
+        <AcmToggle
+          checked={$theme === AcmTheme.Dark}
+          on:toggle={(event) => ($theme = event.detail ? AcmTheme.Dark : AcmTheme.Light)}
+        >
+          <span class="dark-toggle">
+            {#if $theme === AcmTheme.Dark}
+              <LightMode />
+            {:else}
+              <DarkMode />
+            {/if}
+          </span>
+        </AcmToggle>
+      </div>
+    {/if}
   </div>
 
   <label for="navToggle" class="menu">
@@ -52,129 +78,178 @@
   </label>
 </nav>
 
-<style>
+<style lang="scss">
   nav {
-    position: fixed;
     display: flex;
-    z-index: 1000;
+    position: fixed;
     width: 100%;
     justify-content: center;
+    padding: 16px 0;
     background-color: var(--navbar-bg);
-    filter: drop-shadow(0 2px 8px rgba(16, 19, 21, 0.1));
-    -webkit-filter: drop-shadow(0 2px 8px rgba(16, 19, 21, 0.1));
-  }
+    box-shadow: 0 3px 12px rgba(16, 19, 21, 0.1);
+    z-index: 10;
 
-  nav .content,
-  nav .full-logomark,
-  nav .pages {
-    display: flex;
-    align-items: center;
-  }
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      width: 1280px;
 
-  nav li,
-  nav a {
-    list-style: none;
-    text-decoration: none;
-  }
+      .logo-container {
+        width: 150px;
 
-  nav .content {
-    justify-content: space-between;
-    padding: 24px 0;
-    margin: 0 24px;
-    width: 1280px;
-  }
+        .logo {
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          gap: 9px;
 
-  nav .full-logomark .logo-badge {
-    filter: drop-shadow(0 1.5px 4.5px rgba(44, 145, 198, 0.5));
-    -webkit-filter: drop-shadow(0 1.5px 4.5px rgba(44, 145, 198, 0.5));
-  }
+          .badge {
+            height: 64px;
+            width: auto;
+            filter: drop-shadow(0 1.5px 4.5px rgba(44, 145, 198, 0.5));
+          }
 
-  nav .full-logomark .logo-text {
-    font-size: 24px;
-    padding-left: 8px;
-  }
+          h3 {
+            font-size: clamp(1.25rem, 1.1635rem + 0.3846vw, 1.625rem);
+          }
+        }
+      }
 
-  nav .pages a {
-    font-size: 18px;
-    margin-left: 64px;
-    transition: color 0.25s ease-in-out;
-  }
+      .pages {
+        display: flex;
+        gap: 64px;
+        list-style: none;
 
-  nav .page-about:hover,
-  nav .page-about[aria-current='true'],
-  nav .page-events:hover,
-  nav .page-events[aria-current='true'],
-  nav .page-paths:hover,
-  nav .page-paths[aria-current='true'],
-  nav .page-nodebuds:hover,
-  nav .page-nodebuds[aria-current='true'] {
-    color: var(--acm-blue);
-  }
+        a {
+          text-decoration: none;
+          transition: 0.25s ease-in-out;
 
-  #navToggle,
-  nav .menu {
-    display: none;
-  }
+          &:hover,
+          &[aria-current='true'] {
+            color: var(--acm-blue);
+          }
+        }
+      }
 
-  nav .menu {
-    position: absolute;
-    z-index: 100;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 18px;
-    cursor: pointer;
-  }
+      .toggle-container {
+        display: flex;
+        justify-content: flex-end;
+        width: 150px;
 
-  nav .menu .menuLine {
-    width: 24px;
-    height: 2px;
-    margin: 6px;
-    border-radius: 8px;
-    background-color: var(--acm-dark);
-    transition: all 0.25s ease-in-out;
-  }
-
-  @media (max-width: 900px) {
-    nav .content {
-      padding: 12px 0;
+        .dark-toggle {
+          display: flex;
+          align-items: center;
+          max-width: fit-content;
+          padding: 6px 12px;
+          background-color: var(--acm-gray);
+          border-radius: 8px;
+          gap: 4px;
+          transition: 0.25s ease-in-out;
+          &:hover {
+            cursor: pointer;
+            background-color: #3d4043;
+          }
+        }
+      }
     }
 
-    nav .pages {
-      position: fixed;
-      z-index: 90;
-      top: 0;
-      right: 0;
-      width: 100vw;
-      height: 0;
-      flex-direction: column;
-      justify-content: space-evenly;
-      overflow: hidden;
-      background-color: var(--acm-light);
-      transition: all 0.25s ease-in-out;
+    .toggle,
+    .menu {
+      display: none;
+      z-index: 10;
     }
+  }
 
-    nav .pages a {
-      margin: 0;
-    }
+  @media screen and (max-width: 900px) {
+    nav {
+      .container {
+        .logo-container {
+          width: unset;
 
-    nav .menu {
-      display: block;
-    }
+          .logo {
+            gap: 7px;
 
-    nav :checked ~ .content .pages {
-      height: 100vh;
-    }
+            .badge {
+              height: 48px;
+            }
+          }
+        }
 
-    nav :checked ~ .menu .menuLine:nth-child(1) {
-      transform: translateY(8px) rotate(45deg);
-    }
+        .pages {
+          position: fixed;
+          flex-direction: column;
+          justify-content: space-evenly;
+          align-items: center;
+          top: 0;
+          right: 0;
+          height: 0;
+          width: 100%;
+          gap: 0;
+          background-color: var(--acm-light);
+          overflow: hidden;
+          z-index: 9;
+          transition: 0.25s ease-in-out;
+          a {
+            font-size: var(--size-md);
+          }
+        }
+      }
 
-    nav :checked ~ .menu .menuLine:nth-child(2) {
-      opacity: 0;
-    }
+      .toggle-container {
+        .dark-toggle {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 72px;
+        }
+      }
 
-    nav :checked ~ .menu .menuLine:nth-child(3) {
-      transform: translateY(-8px) rotate(-45deg);
+      .menu {
+        display: block;
+        position: absolute;
+        padding: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 16px;
+        cursor: pointer;
+
+        .menuLine {
+          width: 24px;
+          height: 2px;
+          margin: 6px 0;
+          background-color: var(--acm-dark);
+          transition: 0.25s ease-in-out;
+        }
+
+        &:hover {
+          .menuLine {
+            background-color: var(--acm-blue);
+          }
+        }
+      }
+
+      & :checked ~ .container {
+        .pages {
+          height: 100vh;
+        }
+      }
+
+      & :checked ~ .menu {
+        .menuLine {
+          background-color: var(--acm-blue);
+          &:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+          }
+          &:nth-child(2) {
+            opacity: 0;
+          }
+          &:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+          }
+        }
+      }
     }
   }
 </style>
