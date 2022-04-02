@@ -4,7 +4,6 @@
   import { OFFICERS, VISIBLE_TERMS } from '$lib/constants/officers';
   import type { Officer } from '$lib/constants/officers';
   import { termIndex } from '$lib/stores/term-index';
-
   export let placeholderPicture: string | undefined = undefined;
   export let filter: (officer: Officer) => boolean;
 
@@ -44,12 +43,12 @@
 </script>
 
 <section>
-  <div class="school-year-input-container">
-    <AcmSelect bind:defaultValue={currentFormattedTerm} options={formattedTerms} />
-  </div>
-
   <div class="container">
-    <div class="officer-profile-list">
+    <div class="button">
+      <AcmSelect bind:defaultValue={currentFormattedTerm} options={formattedTerms} />
+    </div>
+
+    <div class="officer-list">
       {#each filteredOfficers as officer ($termIndex + officer.fullName)}
         <OfficerProfile info={officer} {placeholderPicture} />
       {/each}
@@ -63,24 +62,24 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
+    gap: 16px;
 
-  .school-year-input-container {
-    text-align: center;
-    z-index: 100;
-  }
+    .container {
+      width: 100%;
+      max-width: 1280px;
 
-  .container {
-    z-index: 1;
-    margin-top: -64px;
-    width: 100%;
-    max-width: 1280px;
-  }
+      .button {
+        display: flex;
+        justify-content: center;
+      }
 
-  .officer-profile-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    justify-content: center;
-    align-items: center;
+      .officer-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        justify-content: center;
+        align-items: center;
+        row-gap: 64px;
+      }
+    }
   }
 </style>

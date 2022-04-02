@@ -20,3 +20,9 @@
   <input type="checkbox" bind:this={input} bind:checked />
   <slot />
 </label>
+
+<style>
+  input[type='checkbox'] {
+    display: none;
+  }
+</style>
