@@ -22,12 +22,10 @@
   <section>
     <div>
       <h2 class="headers size-lg">Personalized for your success</h2>
-      <p class="size-sm">
-        <span class="headers">Node Buds</span>
+      <p class="size-xs">
+        <span class="headers"> node buds </span>
         is our exclusive program in partnership with
-        <a href="/acm-w" class="brand-med w-text" target="_blank" rel="noopener noreferrer">
-          ACM-W</a
-        >
+        <a href="/acm-w" class="headers w-text" target="_blank" rel="noopener noreferrer"> ACM-W</a>
         that exposes students to various opportunities that encourage connection, skill building, as
         well as both personal and technical development.
         <br /><br />

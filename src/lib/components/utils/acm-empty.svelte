@@ -10,7 +10,7 @@
   }
 
   section :global(p) {
-    font-size: var(--size-md);
-    margin: 16px;
+    font-size: var(--size-lg);
+    margin: 20px;
   }
 </style>

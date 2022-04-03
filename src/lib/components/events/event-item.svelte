@@ -58,12 +58,12 @@
         <time>
           {info.month}
           {info.day} at {info.time}
-          {#if isRecurring}<br />Recurring{/if}
+          {#if isRecurring}(recurring){/if}
         </time>
       </p>
 
       <a
-        class="event-join size-sm brand-header"
+        class="event-join size-sm"
         href={info.meetingLink}
         role="button"
         target="_blank"
@@ -152,17 +152,19 @@
   .event-card {
     margin: 32px 64px;
     padding: 0;
-    background-color: var(--card-bg);
-    box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.65);
-    transition: 0.25s ease-in-out;
-    border-radius: 25px;
-    border: 3px solid rgb(var(--highlights, --acm-general-rgb));
+    box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.25);
+    transition: all 0.15s ease-in-out;
+    border-radius: 30px;
+    border: 2px solid var(--acm-dark);
   }
 
-  .event-card:hover,
+  .event-card:hover {
+    box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.65);
+  }
+
   .event-card[open] {
-    transform: scale(1.025);
-    box-shadow: 0 6px 30px rgba(var(--highlights, --acm-general-rgb), 0.35);
+    box-shadow: 0 6px 24px rgba(var(--highlights, --acm-general-rgb), 0.75);
+    border: 2px solid rgb(var(--highlights, --acm-general-rgb));
   }
 
   .event-card:hover h2,
@@ -171,8 +173,8 @@
   }
 
   .event-box > .anchor:target + .event-card {
-    box-shadow: 0 6px 30px rgba(var(--highlights, --acm-general-rgb), 0.25);
-    border: 3px solid rgb(var(--highlights, --acm-general-rgb));
+    box-shadow: 0 6px 24px rgba(var(--highlights, --acm-general-rgb), 0.75);
+    border: 2px solid rgb(var(--highlights, --acm-general-rgb));
   }
 
   .event-card hr {
@@ -194,6 +196,7 @@
     cursor: pointer;
     list-style: none;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
   }
@@ -213,7 +216,7 @@
     }
 
     .event-join:hover {
-      background-color: rgb(var(--highlights, --acm-general-rgb));
+      color: rgb(var(--highlights, --acm-general-rgb));
     }
   }
 
@@ -221,7 +224,7 @@
     position: relative;
     user-select: none;
     color: var(--acm-dark);
-    transition: 0.25s ease-in-out;
+    transition: all 0.15s ease-in-out;
   }
 
   .event-date {
@@ -264,8 +267,8 @@
     text-decoration: none;
     text-align: center;
     border-radius: 12px;
-    background-color: #101315;
-    color: var(--perma-light);
+    background-color: var(--acm-dark);
+    color: var(--acm-light);
     transition: background-color 0.25s ease-in-out;
   }
 
@@ -302,7 +305,7 @@
     }
 
     .action-item:hover {
-      box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.65);
+      box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.66);
     }
   }
 
@@ -321,7 +324,6 @@
       margin-top: 10px;
       margin-bottom: 12px;
       margin-right: 0;
-      text-align: center;
     }
   }
 </style>
