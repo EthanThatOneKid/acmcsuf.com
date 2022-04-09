@@ -47,6 +47,10 @@
         rel="noopener noreferrer"
         >Get in Touch
       </a>
+
+      <a href="/algo" class="brand-med size-sm" target="_blank" rel="noopener noreferrer"
+        >acm<span class="brand-purple brand-em">Algo</span>
+      </a>
     </div>
 
     <div class="more">

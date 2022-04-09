@@ -23,5 +23,6 @@
 
   section div :global(p) {
     margin-top: 16px;
+    font-size: var(--size-sm);
   }
 </style>
