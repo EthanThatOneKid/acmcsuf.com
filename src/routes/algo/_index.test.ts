@@ -11,5 +11,7 @@ test('can render', () => {
 
 test('can find the correct page title', () => {
   const { getByText } = render(Algo);
-  expect(getByText('What is acmAlgo?')).toBeDefined();
+  expect(
+    getByText('This path is dedicated to building the programming proficiency of students.')
+  ).toBeDefined();
 });
