@@ -23,7 +23,7 @@ export interface AlgoResource {
  */
 export const newslettersQuery = `{
   repository(owner: "ethanthatonekid", name: "acmcsuf.com") {
-    discussions(first: 100, categoryId: "${import.meta.env.VITE_GH_ALGO_DISCUSSION_CATEGORY_ID}") {
+    discussions(first: 100, categoryId: "${import.meta.env.VITE_GH_ALGO_CATEGORY_ID}") {
       nodes {
         title
         url
