@@ -48,8 +48,8 @@
         >Get in Touch
       </a>
 
-      <a href="/algo" class="brand-med size-sm" target="_blank" rel="noopener noreferrer"
-        >acm<span class="brand-purple brand-em">Algo</span>
+      <a href="/algo" class="brand-med size-sm">
+        acm<span class="brand-purple brand-em">Algo</span>
       </a>
     </div>
 
