@@ -2,7 +2,7 @@
 
 ## Getting Started 🦕
 
-Getting started with this project is similar to any other NodeJS project.
+Getting started with this project is similar to any other Node.js project.
 There really are only a handful of simple steps.
 
 1. Make sure [Node.js is installed][node_dl] on your machine.
