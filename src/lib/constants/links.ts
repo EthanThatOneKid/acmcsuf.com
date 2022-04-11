@@ -13,5 +13,5 @@ export const links = {
     'https://github.com/EthanThatOneKid/acmcsuf.com/issues/new?assignees=&labels=enhancement&template=feature_request.yaml',
   'history-of-rss': 'https://acmcsuf.com/blog/269',
   v2: 'https://acmcsuf.com/blog/262',
-  'create-html': 'https://github.com/mikeploythai/create-html',
+  'create-survey': 'https://forms.gle/19T4sSZiRxqxwSx58',
 } as const;

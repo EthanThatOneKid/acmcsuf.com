@@ -6,7 +6,7 @@
 
 ## Develop [👩‍💻][figma_design]
 
-> 💡 This project runs on Node.js; [install the latest long-term support version][node_download].
+> 💡 This project runs on NodeJS; [install the latest long-term support version][node_download].
 
 To get started, clone this repository to your machine and run `npm i` in the root of this project.
 Then, run `npm run dev` to spin up the [development server][dev_server].
