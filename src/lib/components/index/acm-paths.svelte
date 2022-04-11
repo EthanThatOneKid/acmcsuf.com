@@ -18,10 +18,8 @@
       {#each pinnedPaths as { title, slug, picture, color } (slug)}
         <a class="path-item" target="_self" href={`/paths#${slug}`}>
           <img src={picture} alt={`${slug}-logo`} />
-          <p class="size-md brand-header">
-            acm<span class="brand-bold" style:--brand-color={color}>
-              {title}
-            </span>
+          <p class="size-md brand-bold">
+            {title}
           </p>
         </a>
       {/each}
@@ -41,7 +39,7 @@
       text-align: center;
       align-items: center;
       justify-content: space-between;
-      padding: 0 24px;
+      padding: 0 16px;
       width: 1280px;
       gap: 64px;
 
@@ -65,7 +63,7 @@
           }
 
           img {
-            width: clamp(9.375rem, 8.8636rem + 2.2727vw, 12.5rem);
+            width: clamp(9.375rem, 8.9912rem + 2.193vw, 12.5rem);
             transition: 0.25s ease-in-out;
           }
 

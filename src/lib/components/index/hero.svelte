@@ -6,7 +6,7 @@
   <div class="container">
     <div class="left">
       <h1 class="brand-header size-xl">
-        We are the largest tech community at
+        The largest CS community at
         <span class="brand-bold acm-blue">CSUF</span>
       </h1>
 
@@ -30,7 +30,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 24px;
+      padding: 0 16px;
       width: 1280px;
 
       .left {
@@ -40,12 +40,12 @@
         gap: 64px;
 
         h1 {
-          max-width: clamp(25rem, 21.4205rem + 15.9091vw, 46.875rem);
+          max-width: clamp(25rem, 22.3136rem + 15.3509vw, 46.875rem);
         }
       }
 
       img {
-        width: clamp(18.75rem, 16.7045rem + 9.0909vw, 31.25rem);
+        width: clamp(15.625rem, 13.7061rem + 10.9649vw, 31.25rem);
         margin-left: 32px;
         filter: drop-shadow(0 10px 40px rgba(44, 145, 198, 0.5));
       }
