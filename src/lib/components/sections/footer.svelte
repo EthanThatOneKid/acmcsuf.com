@@ -76,7 +76,7 @@
     .container {
       display: flex;
       justify-content: space-between;
-      padding: 0 24px;
+      padding: 0 16px;
       width: 1280px;
 
       ul,
@@ -156,6 +156,7 @@
         flex-direction: column;
         align-items: center;
         gap: 32px;
+        padding: unset;
 
         a {
           font-size: var(--size-sm);

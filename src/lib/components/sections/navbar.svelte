@@ -32,7 +32,7 @@
     <div class="logo-container">
       <a href="/" class="logo">
         <img src="assets/badges/general.svg" class="badge" alt="acmCSUF logo" />
-        <h3>CSUF</h3>
+        <span class="brand-header size-md">at <b>CSUF</b></span>
       </a>
     </div>
 
@@ -93,73 +93,68 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 24px;
+      padding: 0 16px;
       width: 1280px;
 
-      .logo-container {
-        width: 150px;
-
-        .logo {
-          display: flex;
-          align-items: center;
-          text-decoration: none;
-          gap: 9px;
-
-          .badge {
-            height: 64px;
-            width: auto;
-            filter: drop-shadow(0 1.5px 4.5px rgba(44, 145, 198, 0.5));
-          }
-
-          h3 {
-            font-size: clamp(1.25rem, 1.1635rem + 0.3846vw, 1.625rem);
-          }
-        }
-      }
-
-      .pages {
+      .logo-container .logo {
         display: flex;
-        gap: 64px;
-        list-style: none;
+        align-items: center;
+        text-decoration: none;
+        gap: 4px;
 
-        a {
-          text-decoration: none;
-          transition: 0.25s ease-in-out;
-
-          &:hover,
-          &[aria-current='true'] {
-            color: var(--acm-blue);
-          }
+        .badge {
+          height: 64px;
+          width: auto;
+          filter: drop-shadow(0 1.5px 4.5px rgba(44, 145, 198, 0.5));
         }
-      }
 
-      .toggle-container {
-        display: flex;
-        justify-content: flex-end;
-        width: 150px;
-
-        .dark-toggle {
-          display: flex;
-          align-items: center;
-          max-width: fit-content;
-          padding: 6px 12px;
-          background-color: var(--acm-gray);
-          border-radius: 8px;
-          gap: 4px;
-          transition: 0.25s ease-in-out;
-          &:hover {
-            cursor: pointer;
-            background-color: #3d4043;
-          }
+        h3 {
+          font-size: clamp(1.25rem, 1.2039rem + 0.2632vw, 1.625rem);
         }
       }
     }
 
-    .toggle,
-    .menu {
-      display: none;
-      z-index: 10;
+    .pages {
+      display: flex;
+      gap: 64px;
+      list-style: none;
+
+      a {
+        text-decoration: none;
+        transition: 0.25s ease-in-out;
+
+        &:hover,
+        &[aria-current='true'] {
+          color: var(--acm-blue);
+        }
+      }
     }
+
+    .toggle-container {
+      display: flex;
+      justify-content: flex-end;
+
+      .dark-toggle {
+        display: flex;
+        align-items: center;
+        max-width: fit-content;
+        padding: 6px 12px;
+        background-color: var(--acm-gray);
+        border-radius: 8px;
+        gap: 4px;
+        transition: 0.25s ease-in-out;
+        &:hover {
+          cursor: pointer;
+          background-color: #3d4043;
+        }
+      }
+    }
+  }
+
+  .toggle,
+  .menu {
+    display: none;
+    z-index: 10;
   }
 
   @media screen and (max-width: 900px) {
@@ -168,12 +163,8 @@
         .logo-container {
           width: unset;
 
-          .logo {
-            gap: 7px;
-
-            .badge {
-              height: 48px;
-            }
+          .logo .badge {
+            height: 48px;
           }
         }
 
@@ -202,7 +193,7 @@
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          right: 72px;
+          right: 56px;
         }
       }
 
@@ -212,7 +203,7 @@
         padding: 8px;
         top: 50%;
         transform: translateY(-50%);
-        right: 16px;
+        right: 8px;
         cursor: pointer;
 
         .menuLine {
