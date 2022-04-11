@@ -3,23 +3,29 @@
   export let text = 'Submit';
 </script>
 
-<a class="brand-header size-md" role="button" href={link} target="_blank" rel="noopener norefferer"
-  >{text}</a
+<a
+  class="call-to-action headers"
+  role="button"
+  href={link}
+  target="_blank"
+  rel="noopener norefferer">{text}</a
 >
 
 <style lang="scss">
-  a {
+  .call-to-action {
     display: block;
     text-align: center;
-    padding: 12px 24px;
-    background-color: var(--button-bg);
-    color: var(--perma-light);
-    border-radius: 12px;
-    text-decoration: none;
+    cursor: pointer;
     user-select: none;
-    transition: 0.25s ease-in-out;
-    &:hover {
-      background-color: var(--button-hover);
-    }
+    text-decoration: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    margin-top: 64px;
+    background-color: var(--acm-dark);
+    color: var(--acm-light);
+    transition: color 0.25s ease-in-out;
+  }
+  .call-to-action:hover {
+    color: var(--acm-blue);
   }
 </style>

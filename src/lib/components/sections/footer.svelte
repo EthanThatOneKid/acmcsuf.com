@@ -157,7 +157,7 @@
         align-items: center;
         gap: 32px;
         padding: unset;
-
+        
         a {
           font-size: var(--size-sm);
         }

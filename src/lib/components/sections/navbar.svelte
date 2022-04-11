@@ -162,7 +162,7 @@
       .container {
         .logo-container {
           width: unset;
-
+          
           .logo .badge {
             height: 48px;
           }
