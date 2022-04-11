@@ -11,5 +11,5 @@ test('can render', () => {
 
 test('can find the correct page title', () => {
   const { getByText } = render(Blog);
-  expect(getByText('The official acmCSUF blog.')).toBeDefined();
+  expect(getByText('What is acmAlgo?')).toBeDefined();
 });
