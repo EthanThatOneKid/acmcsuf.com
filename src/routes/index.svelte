@@ -6,7 +6,7 @@
   import ReadyUp from '$lib/components/index/ready-up.svelte';
 </script>
 
-<!-- <Spacing --min="175px" --med="200px" --max="200px" />
+<Spacing --min="175px" --med="200px" --max="200px" />
 
 <Hero />
 
@@ -22,4 +22,4 @@
 
 <ReadyUp />
 
-<Spacing --min="75px" --med="100px" --max="120px" /> -->
+<Spacing --min="75px" --med="100px" --max="120px" />
