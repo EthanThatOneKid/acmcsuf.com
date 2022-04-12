@@ -11,8 +11,12 @@
   import type { AlgoResource } from './_query';
   import Spacing from '$lib/components/sections/spacing.svelte';
   import CommonHero from '$lib/components/sections/common-hero.svelte';
+  import HashTable from '$lib/components/algo/hash-table.svelte';
 
   export let posts: AlgoResource[] = [];
+
+  // Show the HashMap component temporarily until tomorrow
+  const showAlgoOfTheWeek = new Date('2022-04-11T12:00Z') > new Date();
 </script>
 
 <svelte:head>
@@ -36,7 +40,17 @@
     </p>
   </CommonHero>
 
-  <Spacing --min="100px" --med="175px" --max="200px" />
+  <Spacing --min="100px" --med="125px" --max="150px" />
+
+  {#if showAlgoOfTheWeek}
+    <h2 class="size-lg headers">This week's data structure: <b>Hash Map</b></h2>
+
+    <Spacing --min="50px" --med="50px" --max="50px" />
+
+    <HashTable />
+  {/if}
+
+  <Spacing --min="100px" --med="125px" --max="150px" />
 
   <ul>
     {#each posts as post (post.id)}
