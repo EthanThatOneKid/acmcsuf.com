@@ -10,14 +10,14 @@
   $: arr = Array(capacity).fill(0);
   $: key = key_to_insert;
   $: value = value_to_insert;
-  const run = () => {
+  function run() {
     let index = 0;
     eval(code_block);
     index = index % capacity;
     arr[index] = value;
     key_to_insert = '';
     value_to_insert = '';
-  };
+  }
   let example_01 =
     'let total = 0;\n\
 for(let i = 0; i < key.length; ++i) {\n\
