@@ -150,7 +150,7 @@ export function produceSummary(title: string, description: string, selfLink: str
     : title + ' — ' + selfLink;
 }
 
-function assertHtmlHasAllExternalLinks(html: string): string {
+function replaceHtmlWithExternalLinks(html: string): string {
   return html.replace(/<a.*href=".*">/gm, (match: string): string => {
     if (match.includes('target="_blank"')) return match;
     return match.replace(/target=“_.*”/g, '').slice(0, match.length - 1) + ' target="_blank">';
@@ -189,7 +189,7 @@ export function parseDescription(
     description = (description.substring(0, start) + description.substring(end)).trim();
   }
 
-  description = assertHtmlHasAllExternalLinks(description);
+  description = replaceHtmlWithExternalLinks(description);
 
   return { description, variables };
 }
