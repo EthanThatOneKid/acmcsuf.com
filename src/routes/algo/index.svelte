@@ -16,7 +16,7 @@
   export let posts: AlgoResource[] = [];
 
   // Show the HashMap component temporarily until tomorrow
-  const showAlgoOfTheWeek = new Date('2022-04-11T12:00Z') > new Date();
+  const showAlgoOfTheWeek = new Date('2022-04-13T12:00Z') > new Date();
 </script>
 
 <svelte:head>
