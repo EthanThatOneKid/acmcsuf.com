@@ -150,10 +150,11 @@ export function produceSummary(title: string, description: string, selfLink: str
     : title + ' — ' + selfLink;
 }
 
-function replaceHtmlWithExternalLinks(html: string): string {
-  return html.replace(/<a.*href=".*">/gm, (match: string): string => {
+export function replaceHtmlWithExternalLinks(html: string): string {
+  return html.replace(/<a.*href=".*".*>/gm, (match: string): string => {
     if (match.includes('target="_blank"')) return match;
-    return match.replace(/target=“_.*”/g, '').slice(0, match.length - 1) + ' target="_blank">';
+    match = match.replace(/target="_.*"/g, '');
+    return match.slice(0, match.length - 1) + ' target="_blank">';
   });
 }
 

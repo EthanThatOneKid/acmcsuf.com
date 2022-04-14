@@ -2,7 +2,14 @@ import { assert, test, expect } from 'vitest';
 import { Temporal } from '@js-temporal/polyfill';
 import { readFileSync } from 'fs';
 import { parse } from './parse';
-import { makeEventSlug, parseDescription, makeEventLink, wrapText, walkICAL } from './utils';
+import {
+  makeEventSlug,
+  parseDescription,
+  makeEventLink,
+  wrapText,
+  walkICAL,
+  replaceHtmlWithExternalLinks,
+} from './utils';
 
 test('parses sample ICAL payload', () => {
   const rawICAL = readFileSync('./src/routes/events/_testdata/events.ics', 'utf-8');
@@ -68,4 +75,19 @@ test('wraps long text into lines broken at column 100 3 times', () => {
   const lines = wrapText('*'.repeat(301), 100);
   assert(lines.length === 4, 'wraps text into 3 times, making 4 lines');
   assert(lines.at(-1).length === 1, 'where the last line is a single asterisk');
+});
+
+test('replaces HTML with external links', () => {
+  const actual = replaceHtmlWithExternalLinks(`<a href="https://example.com/">
+  <a>
+  <a title="example" href="https://example.com/">
+  <a title="example" target="_self" href="https://example.com/">
+  <a title="example" target="_blank" href="https://example.com/">
+  example`);
+  expect(actual).toBe(`<a href="https://example.com/" target="_blank">
+  <a>
+  <a title="example" href="https://example.com/" target="_blank">
+  <a title="example" target="_self" href="https://example.com/" target="_blank">
+  <a title="example" target="_blank" href="https://example.com/">
+  example`);
 });
