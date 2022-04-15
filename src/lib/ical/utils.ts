@@ -153,7 +153,7 @@ export function produceSummary(title: string, description: string, selfLink: str
 export function replaceHtmlWithExternalLinks(html: string): string {
   return html.replace(/<a.*href=".*".*>/gm, (match: string): string => {
     if (match.includes('target="_blank"')) return match;
-    match = match.replace(/target="_.*"/g, '');
+    match = match.replace(/target=".*?"\W*/g, '');
     return match.slice(0, match.length - 1) + ' target="_blank">';
   });
 }

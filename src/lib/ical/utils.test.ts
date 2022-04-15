@@ -87,7 +87,21 @@ test('replaces HTML with external links', () => {
   expect(actual).toBe(`<a href="https://example.com/" target="_blank">
   <a>
   <a title="example" href="https://example.com/" target="_blank">
-  <a title="example" target="_self" href="https://example.com/" target="_blank">
+  <a title="example" href="https://example.com/" target="_blank">
   <a title="example" target="_blank" href="https://example.com/">
+  example`);
+});
+
+test('additional replaces HTML with external links tests', () => {
+  const actual =
+    replaceHtmlWithExternalLinks(`<a title="example" target="_self"  href="https://example.com/">
+  <a title="example" target="_self"href="https://example.com/">
+  <a target="_self" title="example" href="https://example.com/">
+  <a title="example" target="_self" target="poggers" target="not poggers"  href="https://example.com/">
+  example`);
+  expect(actual).toBe(`<a title="example" href="https://example.com/" target="_blank">
+  <a title="example" href="https://example.com/" target="_blank">
+  <a title="example" href="https://example.com/" target="_blank">
+  <a title="example" href="https://example.com/" target="_blank">
   example`);
 });
