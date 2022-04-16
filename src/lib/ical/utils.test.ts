@@ -100,8 +100,10 @@ test('additional replaces HTML with external links tests', () => {
   <a title="example" target="_self"href="https://example.com/">
   <a target="_self" title="example" href="https://example.com/">
   <a title="example" target="_self" target="poggers" target="not poggers"  href="https://example.com/">
+  <a title="example" target="" href="https://example.com/">
   example`);
   expect(actual).toBe(`<a title="example" href="https://example.com/" target="_blank">
+  <a title="example" href="https://example.com/" target="_blank">
   <a title="example" href="https://example.com/" target="_blank">
   <a title="example" href="https://example.com/" target="_blank">
   <a title="example" href="https://example.com/" target="_blank">
