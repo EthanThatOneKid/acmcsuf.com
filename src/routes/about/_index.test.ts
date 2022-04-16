@@ -11,5 +11,5 @@ test('can render', () => {
 
 test('can find the correct page title', () => {
   const { getByText } = render(About);
-  expect(getByText('About us')).toBeDefined();
+  expect(getByText('Who are we?')).toBeDefined();
 });
