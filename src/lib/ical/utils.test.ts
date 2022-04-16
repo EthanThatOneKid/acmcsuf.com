@@ -83,12 +83,14 @@ test('replaces HTML with external links', () => {
   <a title="example" href="https://example.com/">
   <a title="example" target="_self" href="https://example.com/">
   <a title="example" target="_blank" href="https://example.com/">
+  <article href="https://example.com/">example</article>
   example`);
   expect(actual).toBe(`<a href="https://example.com/" target="_blank">
   <a>
   <a title="example" href="https://example.com/" target="_blank">
   <a title="example" href="https://example.com/" target="_blank">
   <a title="example" target="_blank" href="https://example.com/">
+  <article href="https://example.com/">example</article>
   example`);
 });
 
