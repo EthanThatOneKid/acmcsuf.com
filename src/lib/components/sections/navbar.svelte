@@ -31,7 +31,7 @@
   <div class="container">
     <div class="logo-container">
       <a href="/" class="logo">
-        <img src="assets/badges/general.svg" class="badge" alt="acmCSUF logo" />
+        <img src="/assets/badges/general.svg" class="badge" alt="acmCSUF logo" />
         <h3>CSUF</h3>
       </a>
     </div>
