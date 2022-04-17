@@ -40,7 +40,7 @@
       text-align: center;
       align-items: center;
       justify-content: space-between;
-      padding: 0 8px;
+      padding: 0 16px;
       width: 1280px;
       gap: 64px;
 
@@ -83,9 +83,13 @@
   }
 
   @media screen and (max-width: 900px) {
-    section .container .paths-list {
-      flex-direction: column;
-      gap: 48px;
+    section .container {
+      padding: 0 8px;
+
+      .paths-list {
+        flex-direction: column;
+        gap: 48px;
+      }
     }
   }
 </style>

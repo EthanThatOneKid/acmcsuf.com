@@ -30,7 +30,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 8px;
+      padding: 0 16px;
       width: 1280px;
 
       .left {
@@ -54,6 +54,7 @@
 
   @media screen and (max-width: 900px) {
     section .container {
+      padding: 0 8px;
       flex-direction: column-reverse;
 
       .left {

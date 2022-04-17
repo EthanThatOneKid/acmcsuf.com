@@ -26,7 +26,7 @@
       align-items: center;
       text-align: right;
       justify-content: space-between;
-      padding: 0 8px;
+      padding: 0 16px;
       width: 1280px;
 
       img {
@@ -51,6 +51,7 @@
     section .container {
       flex-direction: column;
       text-align: center;
+      padding: 0 8px;
       gap: 64px;
 
       img {
