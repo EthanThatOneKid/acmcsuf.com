@@ -10,7 +10,7 @@
     { title: 'COVID-19 Policy', path: '/covid-19' },
     { title: 'frankBot Privacy', path: '/privacy' },
   ];
-  
+
   const socialItems = [
     { icon: Discord, path: '/discord' },
     { icon: Instagram, path: '/instagram' },
