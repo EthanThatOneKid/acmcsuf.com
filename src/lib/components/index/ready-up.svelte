@@ -1,39 +1,51 @@
 <script lang="ts">
   import AcmButton from '$lib/components/utils/acm-button.svelte';
-  import Spacing from '$lib/components/sections/spacing.svelte';
 </script>
 
 <section>
-  <div class="main-text">
-    <h2 class="headers size-lg">Ready to get started?</h2>
-    <p class="size-xs">
-      If you want to improve your skills, want to learn how to break into the industry, or just got
-      a passion for technology, then we are the perfect organization for you!
-      <br />
-      <Spacing --min="16px" --med="16px" --max="0" />
-      <span class="brand-med"
-        >Our student-chapter with 600+ members is forever free and open for anyone to join,
-        regardless of major or technical ability.
-      </span>
-    </p>
+  <div class="container">
+    <div class="main">
+      <h2 class="brand-header size-lg">Ready to get started?</h2>
+
+      <p class="size-sm">
+        If you want to improve your coding skills, find out how to break into the tech industry,
+        connect with other people, pick up a new hobby, or just want to be involved in the tech
+        space, then this is the place to be.
+
+        <br /><br />
+
+        <span class="brand-med">
+          Our chapter of 700+ members is forever free and open for anyone to join, regardless of
+          major or technical ability.
+        </span>
+      </p>
+    </div>
+
+    <AcmButton text="Join us today!" link="/discord" />
   </div>
-  <AcmButton text="Join us today!" link="/discord" />
 </section>
 
 <style lang="scss">
   section {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    text-align: center;
-    margin: 0 24px;
-  }
 
-  section .main-text {
-    max-width: 1280px;
-  }
+    .container {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      width: 1280px;
+      gap: 64px;
 
-  section p {
-    margin-top: 16px;
+      .main {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
   }
 </style>
