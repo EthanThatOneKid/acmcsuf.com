@@ -13,7 +13,6 @@
     { title: 'About', path: '/about' },
     { title: 'Events', path: '/events' },
     { title: 'Paths', path: '/paths' },
-    { title: 'Node Buds', path: '/nodebuds' },
     { title: 'Blog', path: '/blog' },
   ];
 
@@ -31,8 +30,8 @@
   <div class="container">
     <div class="logo-container">
       <a href="/" class="logo">
-        <img src="assets/badges/general.svg" class="badge" alt="acmCSUF logo" />
-        <h3>CSUF</h3>
+        <img src="assets/badges/general-badge.svg" class="badge" alt="ACM Chapter Badge" />
+        <h3 class="brand-header">at <b>CSUF</b></h3>
       </a>
     </div>
 
@@ -97,18 +96,17 @@
       width: 1280px;
 
       .logo-container {
-        width: 150px;
+        width: 175px;
 
         .logo {
           display: flex;
           align-items: center;
           text-decoration: none;
-          gap: 9px;
+          gap: 4px;
 
           .badge {
             height: 64px;
             width: auto;
-            filter: drop-shadow(0 1.5px 4.5px rgba(44, 145, 198, 0.5));
           }
 
           h3 {
@@ -136,7 +134,7 @@
       .toggle-container {
         display: flex;
         justify-content: flex-end;
-        width: 150px;
+        width: 175px;
 
         .dark-toggle {
           display: flex;
@@ -147,6 +145,7 @@
           border-radius: 8px;
           gap: 4px;
           transition: 0.25s ease-in-out;
+
           &:hover {
             cursor: pointer;
             background-color: #3d4043;
@@ -168,12 +167,8 @@
         .logo-container {
           width: unset;
 
-          .logo {
-            gap: 7px;
-
-            .badge {
-              height: 48px;
-            }
+          .logo .badge {
+            height: 48px;
           }
         }
 
@@ -191,19 +186,18 @@
           overflow: hidden;
           z-index: 9;
           transition: 0.25s ease-in-out;
+
           a {
             font-size: var(--size-md);
           }
         }
       }
 
-      .toggle-container {
-        .dark-toggle {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          right: 72px;
-        }
+      .toggle-container .dark-toggle {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 72px;
       }
 
       .menu {
