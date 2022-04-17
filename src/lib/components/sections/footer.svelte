@@ -10,7 +10,7 @@
     { title: 'COVID-19 Policy', path: '/covid-19' },
     { title: 'frankBot Privacy', path: '/privacy' },
   ];
-
+  
   const socialItems = [
     { icon: Discord, path: '/discord' },
     { icon: Instagram, path: '/instagram' },
@@ -37,7 +37,7 @@
 
     <div class="legal">
       <h3 class="brand-header size-md">
-        &copy; 2022 acm<span class="brand-bold">CSUF</span>
+        &copy; 2022 ACM Chapter at <span class="brand-bold">CSUF</span>
       </h3>
 
       <a
@@ -76,7 +76,7 @@
     .container {
       display: flex;
       justify-content: space-between;
-      padding: 0 24px;
+      padding: 0 16px;
       width: 1280px;
 
       ul,
@@ -99,7 +99,6 @@
       .more {
         display: flex;
         flex-direction: column;
-        width: 250px;
         gap: 4px;
 
         h3,
@@ -109,6 +108,7 @@
       }
 
       .connect {
+        width: 250px;
         align-items: flex-start;
 
         .socials {
@@ -144,6 +144,7 @@
       }
 
       .more {
+        width: 250px;
         align-items: flex-end;
         text-align: right;
       }
@@ -151,30 +152,29 @@
   }
 
   @media screen and (max-width: 900px) {
-    footer {
-      .container {
-        flex-direction: column;
+    footer .container {
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      padding: unset;
+
+      a {
+        font-size: var(--size-sm);
+      }
+
+      .legal {
+        order: 1;
+      }
+
+      .connect {
+        order: 2;
         align-items: center;
-        gap: 32px;
+      }
 
-        a {
-          font-size: var(--size-sm);
-        }
-
-        .legal {
-          order: 1;
-        }
-
-        .connect {
-          order: 2;
-          align-items: center;
-        }
-
-        .more {
-          order: 3;
-          align-items: center;
-          text-align: center;
-        }
+      .more {
+        order: 3;
+        align-items: center;
+        text-align: center;
       }
     }
   }
