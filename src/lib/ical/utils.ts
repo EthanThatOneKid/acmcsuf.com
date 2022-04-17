@@ -150,6 +150,14 @@ export function produceSummary(title: string, description: string, selfLink: str
     : title + ' — ' + selfLink;
 }
 
+export function replaceHtmlWithExternalLinks(html: string): string {
+  return html.replace(/<a .*href=".*".*>/gm, (match: string): string => {
+    if (match.includes('target="_blank"')) return match;
+    match = match.replace(/target=".*?"\W*/g, '');
+    return match.slice(0, match.length - 1) + ' target="_blank">';
+  });
+}
+
 export function parseDescription(
   content?: string,
   varPrefix = 'ACM_'
@@ -181,6 +189,8 @@ export function parseDescription(
     variables.set(key, value);
     description = (description.substring(0, start) + description.substring(end)).trim();
   }
+
+  description = replaceHtmlWithExternalLinks(description);
 
   return { description, variables };
 }
