@@ -32,7 +32,7 @@
     <div class="logo-container">
       <a href="/" class="logo">
         <img src="assets/badges/general.svg" class="badge" alt="acmCSUF badge" />
-        <h3>CSUF</h3>
+        <h3 class="brand-header">at <b>CSUF</b></h3>
       </a>
     </div>
 
@@ -103,7 +103,7 @@
           display: flex;
           align-items: center;
           text-decoration: none;
-          gap: 9px;
+          gap: 4px;
 
           .badge {
             height: 64px;
@@ -171,12 +171,8 @@
   @media screen and (max-width: 900px) {
     nav {
       .container {
-        .logo-container .logo {
-          gap: 7px;
-
-          .badge {
-            height: 48px;
-          }
+        .logo-container .logo .badge {
+          height: 48px;
         }
 
         .pages {
