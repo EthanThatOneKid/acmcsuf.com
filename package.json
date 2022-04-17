@@ -27,8 +27,10 @@
   "dependencies": {
     "@js-temporal/polyfill": "^0.4.0",
     "html-to-text": "^8.1.0",
+    "qr-code-styling": "^1.6.0-rc.1",
     "rrule": "^2.6.9",
-    "rss": "^1.2.2"
+    "rss": "^1.2.2",
+    "svelte-qrcode": "^1.0.0"
   },
   "devDependencies": {
     "@size-limit/file": "^7.0.8",
