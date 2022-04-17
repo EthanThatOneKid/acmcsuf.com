@@ -30,7 +30,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 16px;
+      padding: 0 8px;
       width: 1280px;
 
       .left {

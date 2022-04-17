@@ -26,11 +26,11 @@
       align-items: center;
       text-align: right;
       justify-content: space-between;
-      padding: 0 16px;
+      padding: 0 8px;
       width: 1280px;
 
       img {
-        width: clamp(15.625rem, 14.2955rem + 5.9091vw, 23.75rem);
+        width: clamp(12.5rem, 11.1184rem + 7.8947vw, 23.75rem);
         margin-right: 32px;
         filter: drop-shadow(0 10px 40px rgba(44, 145, 198, 0.5));
       }
