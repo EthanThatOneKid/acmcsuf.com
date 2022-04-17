@@ -112,6 +112,7 @@
           }
 
           h3 {
+            /* None of the CSS sizing tags are used here because the logo text scales to very specific px sizes */
             font-size: clamp(1.25rem, 1.2039rem + 0.2632vw, 1.625rem);
           }
         }
