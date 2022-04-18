@@ -49,7 +49,7 @@
       width: 200px;
       height: auto;
     }
-    
+
     p {
       max-width: 250px;
     }
