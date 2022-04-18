@@ -14,5 +14,5 @@ export const links = {
   'history-of-rss': 'https://acmcsuf.com/blog/269',
   v2: 'https://acmcsuf.com/blog/262',
   'create-html': 'https://github.com/mikeploythai/create-html',
-  'apply': 'https://forms.gle/eFpFuiDW6fyRrbUN6',
+  apply: 'https://forms.gle/eFpFuiDW6fyRrbUN6',
 } as const;
