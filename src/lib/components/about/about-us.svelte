@@ -6,7 +6,7 @@
       <h1 class="size-lg brand-header">About us</h1>
 
       <p class="size-sm">
-        acmCSUF is a student chapter of the
+        We are a student chapter of the
         <a href="https://acm.org" class="brand-med" target="_blank" rel="noopener noreferrer">
           Association for Computing Machinery</a
         >, an international organization based in New York that advocates for the advancement of
