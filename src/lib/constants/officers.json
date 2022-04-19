@@ -15,7 +15,7 @@
         "tier": 14
       }
     },
-    "picture": "armanul-ambia.png"
+    "picture": "armanul-ambia.webp"
   },
   {
     "fullName": "Jason Anthony",
@@ -25,7 +25,7 @@
         "tier": 3
       }
     },
-    "picture": "jason-anthony.png"
+    "picture": "jason-anthony.webp"
   },
   {
     "fullName": "Angel Armendariz",
@@ -35,7 +35,7 @@
         "tier": 22
       }
     },
-    "picture": "angel-armendariz.png"
+    "picture": "angel-armendariz.webp"
   },
   {
     "fullName": "Sami Bajwa",
@@ -49,7 +49,7 @@
         "tier": 15
       }
     },
-    "picture": "sami-bajwa.png"
+    "picture": "sami-bajwa.webp"
   },
   {
     "fullName": "Johnathan Carranza",
@@ -59,7 +59,7 @@
         "tier": 21
       }
     },
-    "picture": "johnathan-carranza.png"
+    "picture": "johnathan-carranza.webp"
   },
   {
     "fullName": "Alan Cortez",
@@ -69,7 +69,7 @@
         "tier": 17
       }
     },
-    "picture": "alan-cortez.png"
+    "picture": "alan-cortez.webp"
   },
   {
     "fullName": "Wesley Chou",
@@ -87,7 +87,7 @@
         "tier": 20
       }
     },
-    "picture": "wesley-chou.png"
+    "picture": "wesley-chou.webp"
   },
   {
     "fullName": "Ethan Davidson",
@@ -105,7 +105,7 @@
         "tier": 5
       }
     },
-    "picture": "ethan-davidson.png"
+    "picture": "ethan-davidson.webp"
   },
   {
     "fullName": "Kevin Dillon",
@@ -115,7 +115,7 @@
         "tier": 15
       }
     },
-    "picture": "kevin-dillon.png"
+    "picture": "kevin-dillon.webp"
   },
   {
     "fullName": "Duc Dinh",
@@ -125,7 +125,7 @@
         "tier": 22
       }
     },
-    "picture": "duc-dinh.png"
+    "picture": "duc-dinh.webp"
   },
   {
     "fullName": "Eduardo Gomez",
@@ -135,7 +135,7 @@
         "tier": 23
       }
     },
-    "picture": "eduardo-gomez.png"
+    "picture": "eduardo-gomez.webp"
   },
   {
     "fullName": "Nurhaliza Hassan",
@@ -145,7 +145,7 @@
         "tier": 12
       }
     },
-    "picture": "nurhaliza-hassan.png"
+    "picture": "nurhaliza-hassan.webp"
   },
   {
     "fullName": "Lisa Hong",
@@ -155,7 +155,7 @@
         "tier": 17
       }
     },
-    "picture": "lisa-hong.png"
+    "picture": "lisa-hong.webp"
   },
   {
     "fullName": "Joshua Hughes",
@@ -165,7 +165,7 @@
         "tier": 8
       }
     },
-    "picture": "joshua-hughes.png"
+    "picture": "joshua-hughes.webp"
   },
   {
     "fullName": "Iftekharul Islam",
@@ -175,7 +175,7 @@
         "tier": 15
       }
     },
-    "picture": "iftekharul-islam.png"
+    "picture": "iftekharul-islam.webp"
   },
   {
     "fullName": "Ibrahim Israr",
@@ -185,7 +185,7 @@
         "tier": 3
       }
     },
-    "picture": "ibrahim-israr.png"
+    "picture": "ibrahim-israr.webp"
   },
   {
     "fullName": "Joel Anil John",
@@ -195,7 +195,7 @@
         "tier": 21
       }
     },
-    "picture": "joel-anil-john.png"
+    "picture": "joel-anil-john.webp"
   },
   {
     "fullName": "Andy Lasso",
@@ -205,7 +205,7 @@
         "tier": 21
       }
     },
-    "picture": "andy-lasso.png"
+    "picture": "andy-lasso.webp"
   },
   {
     "fullName": "Andrew Lau",
@@ -215,7 +215,7 @@
         "tier": 4
       }
     },
-    "picture": "andrew-lau.png"
+    "picture": "andrew-lau.webp"
   },
   {
     "fullName": "Minh Le",
@@ -225,7 +225,7 @@
         "tier": 21
       }
     },
-    "picture": "minh-le.png"
+    "picture": "minh-le.webp"
   },
   {
     "fullName": "Nguyen Le",
@@ -235,7 +235,7 @@
         "tier": 7
       }
     },
-    "picture": "nguyen-le.png"
+    "picture": "nguyen-le.webp"
   },
   {
     "fullName": "Tommy Le",
@@ -249,7 +249,7 @@
         "tier": 4
       }
     },
-    "picture": "tommy-le.png"
+    "picture": "tommy-le.webp"
   },
   {
     "fullName": "Eugene Lee",
@@ -267,7 +267,7 @@
         "tier": 23
       }
     },
-    "picture": "eugene-lee.png"
+    "picture": "eugene-lee.webp"
   },
   {
     "fullName": "Nolan Lee",
@@ -277,7 +277,7 @@
         "tier": 13
       }
     },
-    "picture": "nolan-lee.png"
+    "picture": "nolan-lee.webp"
   },
   {
     "fullName": "Aaron Lieberman",
@@ -295,7 +295,7 @@
         "tier": 0
       }
     },
-    "picture": "aaron-lieberman.png"
+    "picture": "aaron-lieberman.webp"
   },
   {
     "fullName": "Shaleen Mathur",
@@ -305,7 +305,7 @@
         "tier": 6
       }
     },
-    "picture": "shaleen-mathur.png"
+    "picture": "shaleen-mathur.webp"
   },
   {
     "fullName": "Ean McGilvery",
@@ -315,7 +315,7 @@
         "tier": 23
       }
     },
-    "picture": "ean-mcgilvery.png"
+    "picture": "ean-mcgilvery.webp"
   },
   {
     "fullName": "Jorge Mejia",
@@ -329,7 +329,7 @@
         "tier": 21
       }
     },
-    "picture": "jorge-mejia.png"
+    "picture": "jorge-mejia.webp"
   },
   {
     "fullName": "Serena Naranjo",
@@ -343,7 +343,7 @@
         "tier": 17
       }
     },
-    "picture": "serena-naranjo.png"
+    "picture": "serena-naranjo.webp"
   },
   {
     "fullName": "Dalisa Nguyen",
@@ -353,7 +353,7 @@
         "tier": 23
       }
     },
-    "picture": "dalisa-nguyen.png"
+    "picture": "dalisa-nguyen.webp"
   },
   {
     "fullName": "Kayla Nguyen",
@@ -363,7 +363,7 @@
         "tier": 17
       }
     },
-    "picture": "kayla-nguyen.png"
+    "picture": "kayla-nguyen.webp"
   },
   {
     "fullName": "Jacob Nguyen",
@@ -373,7 +373,7 @@
         "tier": 0
       }
     },
-    "picture": "jacob-nguyen.png"
+    "picture": "jacob-nguyen.webp"
   },
   {
     "fullName": "Taylor Noh",
@@ -391,7 +391,7 @@
         "tier": 23
       }
     },
-    "picture": "taylor-noh.png"
+    "picture": "taylor-noh.webp"
   },
   {
     "fullName": "Kirsten Ochoa",
@@ -401,7 +401,7 @@
         "tier": 18
       }
     },
-    "picture": "kirsten-ochoa.png"
+    "picture": "kirsten-ochoa.webp"
   },
   {
     "fullName": "Mike Ploythai",
@@ -419,7 +419,7 @@
         "tier": 16
       }
     },
-    "picture": "mike-ploythai.png"
+    "picture": "mike-ploythai.webp"
   },
   {
     "fullName": "Stephanie Pocci",
@@ -429,7 +429,7 @@
         "tier": 9
       }
     },
-    "picture": "stephanie-pocci.png"
+    "picture": "stephanie-pocci.webp"
   },
   {
     "fullName": "Nicolas Renteria",
@@ -439,7 +439,7 @@
         "tier": 12
       }
     },
-    "picture": "nicolas-renteria.png"
+    "picture": "nicolas-renteria.webp"
   },
   {
     "fullName": "Wilbert Rodriguez",
@@ -449,7 +449,7 @@
         "tier": 11
       }
     },
-    "picture": "wilbert-rodriguez.png"
+    "picture": "wilbert-rodriguez.webp"
   },
   {
     "fullName": "Samuel Sandoval",
@@ -459,7 +459,7 @@
         "tier": 1
       }
     },
-    "picture": "samuel-sandoval.png"
+    "picture": "samuel-sandoval.webp"
   },
   {
     "fullName": "Kavit Sanghavi",
@@ -469,7 +469,7 @@
         "tier": 11
       }
     },
-    "picture": "kavit-sanghavi.png"
+    "picture": "kavit-sanghavi.webp"
   },
   {
     "fullName": "Parth Sharma",
@@ -479,7 +479,7 @@
         "tier": 15
       }
     },
-    "picture": "parth-sharma.png"
+    "picture": "parth-sharma.webp"
   },
   {
     "fullName": "Justin Stitt",
@@ -489,7 +489,7 @@
         "tier": 15
       }
     },
-    "picture": "justin-stitt.png"
+    "picture": "justin-stitt.webp"
   },
   {
     "fullName": "Johnson Tong",
@@ -499,7 +499,7 @@
         "tier": 6
       }
     },
-    "picture": "johnson-tong.png"
+    "picture": "johnson-tong.webp"
   },
   {
     "fullName": "Alex Truong",
@@ -509,7 +509,7 @@
         "tier": 15
       }
     },
-    "picture": "alex-truong.png"
+    "picture": "alex-truong.webp"
   },
   {
     "fullName": "Daniel Truong",
@@ -519,7 +519,7 @@
         "tier": 22
       }
     },
-    "picture": "daniel-truong.png"
+    "picture": "daniel-truong.webp"
   },
   {
     "fullName": "Samuel Valls",
@@ -537,7 +537,7 @@
         "tier": 19
       }
     },
-    "picture": "samuel-valls.png"
+    "picture": "samuel-valls.webp"
   },
   {
     "fullName": "Karnikaa Velumani",
@@ -551,7 +551,7 @@
         "tier": 1
       }
     },
-    "picture": "karnikaa-velumani.png"
+    "picture": "karnikaa-velumani.webp"
   },
   {
     "fullName": "Rina Watanabe",
@@ -561,7 +561,7 @@
         "tier": 22
       }
     },
-    "picture": "rina-watanabe.png"
+    "picture": "rina-watanabe.webp"
   },
   {
     "fullName": "Jason Wong",
@@ -571,6 +571,6 @@
         "tier": 13
       }
     },
-    "picture": "jason-wong.png"
+    "picture": "jason-wong.webp"
   }
 ]

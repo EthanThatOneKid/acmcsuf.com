@@ -4,7 +4,7 @@
   import { termIndex } from '$lib/stores/term-index';
 
   export let info: Officer;
-  export let placeholderPicture = 'placeholder.png';
+  export let placeholderPicture = 'placeholder.webp';
   export let dev = false;
 
   const officerName = info.fullName ?? '';
