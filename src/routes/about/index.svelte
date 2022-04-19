@@ -1,6 +1,6 @@
 <script lang="ts">
   import Spacing from '$lib/components/sections/spacing.svelte';
-  import About from '$lib/components/about/about-us.svelte';
+  import AboutUs from '$lib/components/about/about-us.svelte';
   import OfficerProfileList from '$lib/components/about/officer-profile-list.svelte';
   import { VISIBLE_TERMS } from '$lib/constants/officers';
   import type { Officer } from '$lib/constants/officers';
@@ -14,7 +14,7 @@
 
 <Spacing --min="175px" --med="200px" --max="200px" />
 
-<About />
+<AboutUs />
 
 <Spacing --min="120px" --med="150px" --max="200px" />
 
