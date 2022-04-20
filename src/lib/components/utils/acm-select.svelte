@@ -19,6 +19,7 @@
 <div class="term" name="school-year">
   <div class="option-box" class:active>
     <div class="selected" on:click={toggleDropdown}>{currentValue}</div>
+
     <div class="option">
       {#each options as optionValue (optionValue)}
         <div class="option-choice" on:click={() => handleOption(optionValue)}>
@@ -32,63 +33,58 @@
 <style lang="scss">
   .term {
     font-weight: 600;
-
     .option-box {
       flex-direction: column;
       display: flex;
       justify-content: center;
-      font-size: 18px;
-    }
-  }
+      font-size: var(--size-sm);
+      user-select: none;
 
-  .option-choice,
-  .selected {
-    color: var(--acm-light);
-  }
+      .option-choice,
+      .selected {
+        color: var(--perma-light);
+      }
 
-  .selected {
-    background-color: var(--acm-dark);
-    padding: 8px 24px;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: 0.25s ease-in-out;
+      .selected {
+        background-color: var(--button-bg);
+        padding: 8px 24px;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: 0.25s ease-in-out;
 
-    &:hover {
-      background-color: var(--acm-blue);
-    }
-  }
+        &:hover {
+          background-color: var(--button-hover);
+        }
+      }
+      .option {
+        cursor: pointer;
+        opacity: 0;
+        transition: 0.25s ease-in-out;
 
-  .active > .selected {
-    border-radius: 8px 8px 0 0;
-  }
+        .option-choice {
+          text-align: center;
+          cursor: pointer;
+          transition: 0.25s ease-in-out;
 
-  .option {
-    cursor: pointer;
-    visibility: hidden;
-    transition: 0.25s ease-in-out;
-
-    .option-choice {
-      cursor: pointer;
-
-      &:hover {
-        color: var(--acm-light);
+          &:hover {
+            color: var(--acm-blue);
+          }
+        }
       }
     }
-  }
 
-  .active > .option {
-    visibility: visible;
-    background-color: var(--acm-dark);
-    padding: 8px 24px;
-    margin-top: 0.2rem;
-    border-radius: 0 0 8px 8px;
-    transition: 0.25s ease-in-out;
+    .active {
+      & > .selected {
+        border-radius: 8px 8px 0 0;
+      }
 
-    .option-choice {
-      transition: 0.25s ease-in-out;
-
-      &:hover {
-        color: var(--acm-blue);
+      & > .option {
+        opacity: 100%;
+        background-color: var(--button-bg);
+        padding: 8px 24px;
+        margin-top: 0.2rem;
+        border-radius: 0 0 8px 8px;
+        transition: 0.25s ease-in-out;
       }
     }
   }
