@@ -33,7 +33,7 @@
 
 <Spacing --min="100px" --med="175px" --max="200px" />
 
-<h2 class="size-lg headers">This week's events 📅</h2>
+<h2 class="size-lg headers">Upcoming events 📅</h2>
 
 <Spacing --med="16px" />
 
