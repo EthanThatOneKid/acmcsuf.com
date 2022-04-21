@@ -4,6 +4,10 @@
   import PrivacyPolicy from '$lib/components/privacy/privacy-policy.svelte';
 </script>
 
+<svelte:head>
+  <title>frankBot Privacy / ACM Chapter at CSUF</title>
+</svelte:head>
+
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <CommonHero>
