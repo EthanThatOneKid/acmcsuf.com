@@ -22,7 +22,7 @@
     "positions": {
       "S21": {
         "title": "Secretary",
-        "tier": 3
+        "tier": 4
       }
     },
     "picture": "jason-anthony.webp"
@@ -182,7 +182,7 @@
     "positions": {
       "S22": {
         "title": "Secretary",
-        "tier": 3
+        "tier": 4
       }
     },
     "picture": "ibrahim-israr.webp"
@@ -212,7 +212,7 @@
     "positions": {
       "S21": {
         "title": "Treasurer",
-        "tier": 4
+        "tier": 3
       }
     },
     "picture": "andrew-lau.webp"
@@ -242,11 +242,11 @@
     "positions": {
       "F21": {
         "title": "Treasurer",
-        "tier": 4
+        "tier": 3
       },
       "S22": {
         "title": "Treasurer",
-        "tier": 4
+        "tier": 3
       }
     },
     "picture": "tommy-le.webp"

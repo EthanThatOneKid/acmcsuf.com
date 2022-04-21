@@ -49,8 +49,8 @@ body:
       options:
         - 'President'
         - 'Vice President'
-        - 'Secretary'
         - 'Treasurer'
+        - 'Secretary'
         - 'Webmaster'
         - 'Data Analyst'
         - 'Event Coordinator'
