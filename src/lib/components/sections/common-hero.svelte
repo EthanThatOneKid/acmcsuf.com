@@ -10,11 +10,11 @@
     display: flex;
     justify-content: center;
     text-align: center;
-    margin: 0 24px;
+    margin: 0 16px;
   }
 
   section div {
-    width: min(1150px, calc(70% + 100px));
+    width: 1100px;
   }
 
   section div :global(h2) {
@@ -23,5 +23,11 @@
 
   section div :global(p) {
     margin-top: 16px;
+  }
+
+  @media screen and (max-width: 900px) {
+    section {
+      margin: 0 8px;
+    }
   }
 </style>
