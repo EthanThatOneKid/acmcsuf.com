@@ -286,7 +286,7 @@
 
   @media screen and (max-width: 900px) {
     .event-box .event-card {
-      margin: 32px 24px;
+      margin: 32px 8px;
 
       .event-body {
         flex-direction: column;
@@ -303,6 +303,16 @@
           margin-right: 0;
           text-align: center;
         }
+      }
+
+      .event-actionbar {
+        justify-content: center;
+        gap: 0.75em;
+      }
+
+      &:hover,
+      &[open] {
+        transform: unset;
       }
     }
   }
