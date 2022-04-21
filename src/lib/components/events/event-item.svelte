@@ -6,7 +6,6 @@
   import CopyTextIcon from '$lib/components/icons/copy-text.svelte';
   import GoogleCalendarIcon from '$lib/components/icons/google-calendar.svelte';
   import MsOutlookIcon from '$lib/components/icons/ms-outlook.svelte';
-
   export let info: AcmEvent;
 
   let isRecurring: boolean = info.recurring;
@@ -39,6 +38,7 @@
 <div class="event-box" style:--highlights={`var(--acm-${info.acmPath.slug}-rgb)`}>
   <!-- Workaround for the top panel covering the event card's anchor. -->
   <div class="anchor" id={info.slug} bind:this={anchor} />
+
   <details class="event-card" bind:this={details}>
     <summary class="event-body">
       <div class="event-name">
@@ -46,10 +46,12 @@
           {info.title}
         </h2>
 
-        <p class="event-location">
-          {info.location === 'Discord' || info.location === 'Zoom'
-            ? `Hosted on ${info.location}`
-            : info.location}
+        <p class="event-location brand-med acm-gray">
+          {#if info.location == 'Discord'}
+            TBA
+          {:else}
+            {info.location}
+          {/if}
         </p>
       </div>
 
@@ -58,12 +60,12 @@
         <time>
           {info.month}
           {info.day} at {info.time}
-          {#if isRecurring}(recurring){/if}
+          {#if isRecurring}<br />Recurring{/if}
         </time>
       </p>
 
       <a
-        class="event-join size-sm"
+        class="event-join size-sm brand-header"
         href={info.meetingLink}
         role="button"
         target="_blank"
@@ -140,190 +142,168 @@
 <style lang="scss">
   .event-box {
     position: relative;
-  }
 
-  .event-box > .anchor {
-    visibility: hidden;
-    position: absolute;
-    /* 200px from the top of the screen for the anchor workaround. */
-    top: -200px;
-  }
-
-  .event-card {
-    margin: 32px 64px;
-    padding: 0;
-    box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.25);
-    transition: all 0.15s ease-in-out;
-    border-radius: 30px;
-    border: 2px solid var(--acm-dark);
-  }
-
-  .event-card:hover {
-    box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.65);
-  }
-
-  .event-card[open] {
-    box-shadow: 0 6px 24px rgba(var(--highlights, --acm-general-rgb), 0.75);
-    border: 2px solid rgb(var(--highlights, --acm-general-rgb));
-  }
-
-  .event-card:hover h2,
-  .event-card[open] h2 {
-    color: rgb(var(--highlights, --acm-general-rgb));
-  }
-
-  .event-box > .anchor:target + .event-card {
-    box-shadow: 0 6px 24px rgba(var(--highlights, --acm-general-rgb), 0.75);
-    border: 2px solid rgb(var(--highlights, --acm-general-rgb));
-  }
-
-  .event-card hr {
-    border-width: 1px;
-    border-color: var(--acm-dark);
-    background-color: var(--acm-dark);
-    opacity: 0.5;
-    margin: 24px 0;
-  }
-
-  .event-card > hr,
-  .event-description {
-    margin: 0 30px;
-  }
-
-  .event-body {
-    /* Do this whole dance so the user can click on the padding. */
-    padding: 24px 30px;
-    cursor: pointer;
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  /* Safari workaround for list-style: none. */
-  summary.event-body::-webkit-details-marker {
-    display: none;
-  }
-
-  .event-body .event-name {
-    transition: all 0.15s ease-in-out;
-  }
-
-  .event-body:hover {
-    .event-name {
-      color: rgb(var(--highlights, --acm-general-rgb));
+    & > .anchor {
+      visibility: hidden;
+      position: absolute;
+      /* 200px from the top of the screen for the anchor workaround. */
+      top: -200px;
     }
 
-    .event-join:hover {
-      color: rgb(var(--highlights, --acm-general-rgb));
-    }
-  }
+    .event-card {
+      margin: 32px 64px;
+      background-color: var(--card-bg);
+      box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.5);
+      transition: 0.25s ease-in-out;
+      border-radius: 20px;
 
-  .event-body h2 {
-    position: relative;
-    user-select: none;
-    color: var(--acm-dark);
-    transition: all 0.15s ease-in-out;
-  }
+      .event-body {
+        /* Do this whole dance so the user can click on the padding. */
+        padding: 24px 30px;
+        cursor: pointer;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-  .event-date {
-    flex: 0;
-    user-select: none;
-    text-align: right;
-    white-space: nowrap;
-  }
+        .event-name {
+          flex: 1;
+          text-align: left;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          margin-right: 16px;
 
-  .event-name {
-    flex: 1;
-    text-align: left;
+          h2 {
+            position: relative;
+            line-height: 1.2em;
+            user-select: none;
+            color: var(--acm-dark);
+            transition: 0.25s ease-in-out;
+          }
 
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
+          .event-location:not(:empty) {
+            margin-top: 4px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: var(--acm-dark);
+            /* Required for ellipsizing. */
+            max-width: 300px;
+          }
+        }
 
-  .event-name,
-  .event-date {
-    margin-right: 16px;
-  }
+        .event-date {
+          flex: 0;
+          user-select: none;
+          text-align: right;
+          white-space: nowrap;
+          margin-right: 16px;
+        }
 
-  .event-name h2 {
-    line-height: 1.2em;
-  }
+        .event-join {
+          margin: 0;
+          padding: 12px 24px;
+          text-decoration: none;
+          text-align: center;
+          border-radius: 12px;
+          background-color: #101315;
+          color: var(--perma-light);
+          transition: background-color 0.25s ease-in-out;
+        }
 
-  .event-location:not(:empty) {
-    margin-top: 10px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    /* Required for ellipsizing. */
-    max-width: 300px;
-  }
+        &:hover {
+          .event-name h2 {
+            color: rgb(var(--highlights, --acm-general-rgb));
+          }
 
-  .event-join {
-    margin: 0;
-    padding: 12px 24px;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 12px;
-    background-color: var(--acm-dark);
-    color: var(--acm-light);
-    transition: background-color 0.25s ease-in-out;
-  }
+          .event-join:hover {
+            background-color: rgb(var(--highlights, --acm-general-rgb));
+          }
+        }
+      }
 
-  .event-description {
-    margin-top: 24px;
-    margin-bottom: 24px;
-    overflow-wrap: break-word;
-  }
+      hr {
+        border-width: 0.5px;
+        border-radius: 8px;
+        border-color: var(--acm-gray);
+        background-color: var(--acm-gray);
+        margin: 0 30px;
+      }
 
-  .event-description:empty::after {
-    content: 'No description.';
-    opacity: 0.75;
-    font-style: italic;
-  }
+      .event-description {
+        margin: 24px 30px;
+        overflow-wrap: break-word;
 
-  .event-actionbar {
-    display: flex;
-    flex-direction: row-reverse;
-    padding: 0 2em 2em 2em;
-    gap: 1em;
+        &:empty::after {
+          content: 'No description.';
+          opacity: 0.75;
+          font-style: italic;
+        }
+      }
 
-    .action-item {
-      --size: 40px;
+      .event-actionbar {
+        display: flex;
+        flex-direction: row-reverse;
+        padding: 0 2em 2em 2em;
+        gap: 1.5em;
 
-      color: var(--highlights);
-      width: var(--size);
-      height: var(--size);
-      padding: calc(var(--size) * 0.15);
-      box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.25);
-      transition: all 0.25s ease-in-out;
-      border-radius: 30px;
-      border: 2px solid var(--acm-dark);
-      background-color: var(--acm-light);
-    }
+        .action-item {
+          --size: 40px;
+          color: var(--highlights);
+          width: var(--size);
+          height: var(--size);
+          padding: calc(var(--size) * 0.25);
+          box-shadow: 0 3px 9px rgba(var(--highlights, --acm-general-rgb), 0.5);
+          transition: 0.25s ease-in-out;
+          border-radius: 50%;
+          border: none;
+          background-color: var(--acm-light);
 
-    .action-item:hover {
-      box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.66);
+          &:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+            box-shadow: 0 3px 18px rgba(var(--highlights, --acm-general-rgb), 0.3);
+          }
+        }
+      }
+
+      &:hover,
+      &[open] {
+        transform: scale(1.05);
+        box-shadow: 0 6px 36px rgba(var(--highlights, --acm-general-rgb), 0.3);
+
+        .event-body .event-name h2 {
+          color: rgb(var(--highlights, --acm-general-rgb));
+        }
+      }
+
+      & > .anchor:target + .event-card {
+        box-shadow: 0 6px 36px rgba(var(--highlights, --acm-general-rgb), 0.3);
+      }
     }
   }
 
-  @media (max-width: 799px) {
-    .event-body {
-      flex-direction: column;
-    }
+  @media screen and (max-width: 900px) {
+    .event-box .event-card {
+      margin: 32px 24px;
 
-    .event-name {
-      text-align: center;
-      margin-right: 0;
-      align-items: center;
-    }
+      .event-body {
+        flex-direction: column;
 
-    .event-date {
-      margin-top: 10px;
-      margin-bottom: 12px;
-      margin-right: 0;
+        .event-name {
+          text-align: center;
+          margin-right: 0;
+          align-items: center;
+        }
+
+        .event-date {
+          margin-top: 10px;
+          margin-bottom: 12px;
+          margin-right: 0;
+          text-align: center;
+        }
+      }
     }
   }
 </style>
