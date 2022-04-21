@@ -14,8 +14,8 @@
       out:fly={{ y: -20 }}
       style:--highlights={`var(--acm-${toastItem.path}-rgb)`}
     >
-      <img src="/assets/png/acm-shark.png" alt="acmCSUF Mascot: Frank the Shark" />
-      <p>{@html toastItem.content}</p>
+      <img src="/assets/png/acm-shark.png" alt="ACM Chapter Mascot: Frank the Shark" />
+      <p class="brand-med">{@html toastItem.content}</p>
     </div>
   {/each}
 </section>
@@ -45,7 +45,6 @@
     padding: 2em;
     transition: all 0.25s ease-in-out;
     box-shadow: 0 6px 24px rgba(var(--highlights, --acm-general-rgb), 0.5);
-    border: 3px solid rgb(var(--highlights, --acm-general-rgb));
     transition: 0.25s ease-in-out;
     border-radius: 20px;
     background-color: var(--acm-light);
@@ -58,7 +57,7 @@
     align-self: center;
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 900px) {
     section {
       right: 0;
       transform: translateX(0);
