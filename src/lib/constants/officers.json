@@ -22,7 +22,7 @@
     "positions": {
       "S21": {
         "title": "Secretary",
-        "tier": 4
+        "tier": 5
       }
     },
     "picture": "jason-anthony.webp"
@@ -94,15 +94,15 @@
     "positions": {
       "S21": {
         "title": "Webmaster",
-        "tier": 5
+        "tier": 3
       },
       "F21": {
         "title": "Webmaster",
-        "tier": 5
+        "tier": 3
       },
       "S22": {
         "title": "Webmaster",
-        "tier": 5
+        "tier": 3
       }
     },
     "picture": "ethan-davidson.webp"
@@ -142,7 +142,7 @@
     "positions": {
       "S22": {
         "title": "Marketing Director",
-        "tier": 12
+        "tier": 8
       }
     },
     "picture": "nurhaliza-hassan.webp"
@@ -162,7 +162,7 @@
     "positions": {
       "S21": {
         "title": "ICC Representative",
-        "tier": 8
+        "tier": 13
       }
     },
     "picture": "joshua-hughes.webp"
@@ -182,7 +182,7 @@
     "positions": {
       "S22": {
         "title": "Secretary",
-        "tier": 4
+        "tier": 5
       }
     },
     "picture": "ibrahim-israr.webp"
@@ -212,7 +212,7 @@
     "positions": {
       "S21": {
         "title": "Treasurer",
-        "tier": 3
+        "tier": 4
       }
     },
     "picture": "andrew-lau.webp"
@@ -232,7 +232,7 @@
     "positions": {
       "S22": {
         "title": "Data Analyst",
-        "tier": 7
+        "tier": 10
       }
     },
     "picture": "nguyen-le.webp"
@@ -242,11 +242,11 @@
     "positions": {
       "F21": {
         "title": "Treasurer",
-        "tier": 3
+        "tier": 4
       },
       "S22": {
         "title": "Treasurer",
-        "tier": 3
+        "tier": 4
       }
     },
     "picture": "tommy-le.webp"
@@ -274,7 +274,7 @@
     "positions": {
       "S22": {
         "title": "Historian",
-        "tier": 13
+        "tier": 9
       }
     },
     "picture": "nolan-lee.webp"
@@ -288,11 +288,11 @@
       },
       "F21": {
         "title": "President, nodebuds Officer",
-        "tier": 0
+        "tier": 1
       },
       "S22": {
         "title": "President, nodebuds Officer",
-        "tier": 0
+        "tier": 1
       }
     },
     "picture": "aaron-lieberman.webp"
@@ -302,7 +302,7 @@
     "positions": {
       "S21": {
         "title": "Workshop Manager",
-        "tier": 6
+        "tier": 7
       }
     },
     "picture": "shaleen-mathur.webp"
@@ -370,7 +370,7 @@
     "positions": {
       "S21": {
         "title": "President, Create Director, nodebuds Officer",
-        "tier": 0
+        "tier": 1
       }
     },
     "picture": "jacob-nguyen.webp"
@@ -426,7 +426,7 @@
     "positions": {
       "S22": {
         "title": "Event Coordinator",
-        "tier": 9
+        "tier": 6
       }
     },
     "picture": "stephanie-pocci.webp"
@@ -436,7 +436,7 @@
     "positions": {
       "S21": {
         "title": "Marketing Chair",
-        "tier": 12
+        "tier": 8
       }
     },
     "picture": "nicolas-renteria.webp"
@@ -456,7 +456,7 @@
     "positions": {
       "S21": {
         "title": "Vice President, Dev Director",
-        "tier": 1
+        "tier": 2
       }
     },
     "picture": "samuel-sandoval.webp"
@@ -466,7 +466,7 @@
     "positions": {
       "S21": {
         "title": "Algo Director",
-        "tier": 11
+        "tier": 14
       }
     },
     "picture": "kavit-sanghavi.webp"
@@ -496,7 +496,7 @@
     "positions": {
       "S21": {
         "title": "Workshop Manager",
-        "tier": 6
+        "tier": 7
       }
     },
     "picture": "johnson-tong.webp"
@@ -526,7 +526,7 @@
     "positions": {
       "S21": {
         "title": "Community Manager",
-        "tier": 10
+        "tier": 12
       },
       "F21": {
         "title": "Create Officer",
@@ -544,11 +544,11 @@
     "positions": {
       "F21": {
         "title": "Vice President",
-        "tier": 1
+        "tier": 2
       },
       "S22": {
         "title": "Vice President",
-        "tier": 1
+        "tier": 2
       }
     },
     "picture": "karnikaa-velumani.webp"
@@ -568,7 +568,7 @@
     "positions": {
       "S22": {
         "title": "Historian",
-        "tier": 13
+        "tier": 9
       }
     },
     "picture": "jason-wong.webp"
