@@ -1,9 +1,9 @@
 import type { ParamMatcher } from '@sveltejs/kit';
 import { links } from '$lib/constants/links';
-import { clean } from '$lib/constants/utils';
+import { normalizeLinkName } from '$lib/qr/utils';
 
 function makeLinkMatcher(): ParamMatcher {
-  return (param: string): boolean => clean(param) in links;
+  return (param: string): boolean => normalizeLinkName(param) in links;
 }
 
 export function match(param: string): boolean {

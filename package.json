@@ -27,7 +27,6 @@
   "dependencies": {
     "@js-temporal/polyfill": "^0.4.0",
     "html-to-text": "^8.1.0",
-    "qr-code-styling": "^1.6.0-rc.1",
     "qrcode": "^1.5.0",
     "rrule": "^2.6.9",
     "rss": "^1.2.2",

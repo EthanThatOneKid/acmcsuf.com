@@ -1,7 +1,7 @@
 import { test, expect } from 'vitest';
-import { clean } from '$lib/constants/utils';
+import { normalizeLinkName } from '$lib/qr/utils';
 
 test('cleans shortlinks', () => {
-  const actual = clean('My-Example');
+  const actual = normalizeLinkName('My-Example');
   expect(actual).toBe('my-example');
 });
