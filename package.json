@@ -29,8 +29,7 @@
     "html-to-text": "^8.1.0",
     "qrcode": "^1.5.0",
     "rrule": "^2.6.9",
-    "rss": "^1.2.2",
-    "svelte-qrcode": "^1.0.0"
+    "rss": "^1.2.2"
   },
   "devDependencies": {
     "@size-limit/file": "^7.0.8",
