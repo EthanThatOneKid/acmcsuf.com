@@ -33,7 +33,7 @@
 
   <ul>
     {#each posts as post (post.id)}
-      <li>
+      <li class="blog-post">
         <a href={`/blog/${post.id}`} sveltekit:prefetch>
           <h2 class="headers">{post.title}</h2>
           <div class="markdown-body">
