@@ -77,35 +77,72 @@ test('wraps long text into lines broken at column 100 3 times', () => {
   assert(lines.at(-1).length === 1, 'where the last line is a single asterisk');
 });
 
-test('replaces HTML with external links', () => {
-  const actual = replaceHtmlWithExternalLinks(`<a href="https://example.com/">
+// test('replaces HTML with external links', () => {
+//   const actual = replaceHtmlWithExternalLinks(`<a href="https://example.com/">
+//   <a>
+//   <a title="example" href="https://example.com/">
+//   <a title="example" target="_self" href="https://example.com/">
+//   <a title="example" target="_blank" href="https://example.com/">
+//   <article href="https://example.com/">example</article>
+//   example`);
+//   expect(actual).toBe(`<a href="https://example.com/" target="_blank">
+//   <a>
+//   <a title="example" href="https://example.com/" target="_blank">
+//   <a title="example" href="https://example.com/" target="_blank">
+//   <a title="example" target="_blank" href="https://example.com/">
+//   <article href="https://example.com/">example</article>
+//   example`);
+// });
+
+// test('additional replaces HTML with external links tests', () => {
+//   const actual =
+//     replaceHtmlWithExternalLinks(`<a title="example" target="_self"  href="https://example.com/">
+//   <a title="example" target="_self"href="https://example.com/">
+//   <a target="_self" title="example" href="https://example.com/">
+//   <a title="example" target="_self" target="poggers" target="not poggers"  href="https://example.com/">
+//   <a title="example" target="" href="https://example.com/">
+//   <a href="https://forms.gle/eFpFuiDW6fyRrbUN6">https://forms.gle/eFpFuiDW6fyRrbUN6</a>
+//   <a title="example"></a>
+//   example`);
+//   expect(actual).toBe(`<a title="example" href="https://example.com/" target="_blank">
+//   <a title="example" href="https://example.com/" target="_blank">
+//   <a title="example" href="https://example.com/" target="_blank">
+//   <a title="example" href="https://example.com/" target="_blank">
+//   <a title="example" href="https://example.com/" target="_blank">
+//   <a href="https://forms.gle/eFpFuiDW6fyRrbUN6" target="_blank">https://forms.gle/eFpFuiDW6fyRrbUN6</a>
+//   <a title="example" target="_blank"></a>
+//   example`);
+// });
+
+test('additional replaces HTML with external links tests', () => {
+  const actual =
+    replaceHtmlWithExternalLinks(`<a title="example" target="_self"  href="https://example.com/">Example Link</a>
+  <a title="example" target="_self"href="https://example.com/">Example Link</a>
+  <a target="_self" title="example" href="https://example.com/">Example Link</a>
+  <a title="example" target="_self" target="poggers" target="not poggers"  href="https://example.com/">Example Link</a>
+  <a title="example" target="" href="https://example.com/">Example Link</a>
+  <a href="https://forms.gle/eFpFuiDW6fyRrbUN6">https://forms.gle/eFpFuiDW6fyRrbUN6</a>
+  <a title="example">Example Link</a>
+  <a href="https://example.com/">
   <a>
   <a title="example" href="https://example.com/">
   <a title="example" target="_self" href="https://example.com/">
   <a title="example" target="_blank" href="https://example.com/">
   <article href="https://example.com/">example</article>
   example`);
-  expect(actual).toBe(`<a href="https://example.com/" target="_blank">
+  expect(actual)
+    .toBe(`<a title="example" href="https://example.com/" target="_blank">Example Link</a>
+  <a title="example" href="https://example.com/" target="_blank">Example Link</a>
+  <a title="example" href="https://example.com/" target="_blank">Example Link</a>
+  <a title="example" href="https://example.com/" target="_blank">Example Link</a>
+  <a title="example" href="https://example.com/" target="_blank">Example Link</a>
+  <a href="https://forms.gle/eFpFuiDW6fyRrbUN6" target="_blank">https://forms.gle/eFpFuiDW6fyRrbUN6</a>
+  <a title="example" target="_blank">Example Link</a>
+  <a href="https://example.com/" target="_blank">
   <a>
   <a title="example" href="https://example.com/" target="_blank">
   <a title="example" href="https://example.com/" target="_blank">
   <a title="example" target="_blank" href="https://example.com/">
   <article href="https://example.com/">example</article>
-  example`);
-});
-
-test('additional replaces HTML with external links tests', () => {
-  const actual =
-    replaceHtmlWithExternalLinks(`<a title="example" target="_self"  href="https://example.com/">
-  <a title="example" target="_self"href="https://example.com/">
-  <a target="_self" title="example" href="https://example.com/">
-  <a title="example" target="_self" target="poggers" target="not poggers"  href="https://example.com/">
-  <a title="example" target="" href="https://example.com/">
-  example`);
-  expect(actual).toBe(`<a title="example" href="https://example.com/" target="_blank">
-  <a title="example" href="https://example.com/" target="_blank">
-  <a title="example" href="https://example.com/" target="_blank">
-  <a title="example" href="https://example.com/" target="_blank">
-  <a title="example" href="https://example.com/" target="_blank">
   example`);
 });
