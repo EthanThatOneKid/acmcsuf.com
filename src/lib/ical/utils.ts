@@ -151,7 +151,7 @@ export function produceSummary(title: string, description: string, selfLink: str
 }
 
 export function replaceHtmlWithExternalLinks(html: string): string {
-  return html.replace(/<a\W.*?.*?>/gm, (match: string): string => {
+  return html.replace(/<a\W.*?href=".*?".*?>/gm, (match: string): string => {
     match = match.replace(/target=".*?"\W*/gm, '');
     return match.slice(0, match.length - 1) + ' target="_blank">';
   });

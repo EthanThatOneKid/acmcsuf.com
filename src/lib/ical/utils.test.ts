@@ -100,7 +100,7 @@ test('additional replaces HTML with external links tests 2.0', () => {
   <a title="example" href="https://example.com/" target="_blank">Example Link</a>
   <a title="example" href="https://example.com/" target="_blank">Example Link</a>
   <a href="https://forms.gle/eFpFuiDW6fyRrbUN6" target="_blank">https://forms.gle/eFpFuiDW6fyRrbUN6</a>
-  <a title="example" target="_blank">Example Link</a>
+  <a title="example">Example Link</a>
   <a href="https://example.com/" target="_blank">
   <a>
   <a title="example" href="https://example.com/" target="_blank">
