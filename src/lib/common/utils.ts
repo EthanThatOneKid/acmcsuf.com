@@ -1,5 +1,5 @@
-export function isStringTruthy(str: string) : boolean {
-  if (str === null) {
+export function isStringTruthy(str: string): boolean {
+  if (str == null) {
     return false;
   }
 
