@@ -83,6 +83,26 @@ Notice that the value `768px` is constant.
 The next most common breakpoint for larger desktop screens would be `1440px`.
 Really, the situation may affect your choice of breakpoint value, but the goal is to try to use only `768px` or `1440px` wherever possible for consistency-purposes.
 
+## .env File 📄
+
+The only way to test the /blog page endpoint locally is to set specific environment variables in the root `.env` file. The blog page requires access to a [Github Personal Access Token](https://github.com/settings/tokens) and access to the Github discussion category ID. Never commit secret information in a file that is not block listed by .gitignore. That is why `.env` files are not shared, so you will have to create your own in the root directory. Note that the value in `VITE_GH_ACCESS_TOKEN` should be your Github personal access token, and `VITE_DEBUG` should always be false by default.
+
+```
+VITE_GH_ACCESS_TOKEN=YOUR_PAT
+VITE_GH_DISCUSSION_CATEGORY_ID=DIC_kwDOE7ysSc4CAC0o
+VITE_GH_ALGO_CATEGORY_ID=DIC_kwDOE7ysSc4COe-m
+VITE_DEBUG=0
+```
+
+Variables specifically for the Gitcord script
+
+```
+DISCORD_BOT_TOKEN=YOUR_BOT_TOKEN
+GUILD_ID=YOUR_GUILD_ID
+HUB_ID=YOUR_HUB_CHANNEL_ID
+ARCHIVE_CHANNEL_ID=YOUR_ARCHIVE_CHANNEL_ID
+```
+
 ## Custom Workflows
 
 In this repository, we use GitHub Actions to _automate all the things_ 😎
