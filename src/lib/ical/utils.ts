@@ -150,7 +150,7 @@ export function produceSummary(title: string, description: string, selfLink: str
     : title + ' — ' + selfLink;
 }
 
-export function replaceHtmlWithExternalLinks(html: string): string {
+export function replaceHtmlLinkTargets(html: string, withTarget = '_blank'): string {
   return html.replace(/<a\W.*?href=".*?".*?>/gm, (match: string): string => {
     match = match.replace(/target=".*?"\W*/gm, '');
     return match.slice(0, match.length - 1) + ' target="_blank">';
@@ -189,7 +189,7 @@ export function parseDescription(
     description = (description.substring(0, start) + description.substring(end)).trim();
   }
 
-  description = replaceHtmlWithExternalLinks(description);
+  description = replaceHtmlLinkTargets(description);
 
   return { description, variables };
 }

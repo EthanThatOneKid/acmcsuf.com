@@ -8,7 +8,7 @@ import {
   makeEventLink,
   wrapText,
   walkICAL,
-  replaceHtmlWithExternalLinks,
+  replaceHtmlLinkTargets,
 } from './utils';
 
 test('parses sample ICAL payload', () => {
@@ -79,7 +79,7 @@ test('wraps long text into lines broken at column 100 3 times', () => {
 
 test('additional replaces HTML with external links tests 2.0', () => {
   const actual =
-    replaceHtmlWithExternalLinks(`<a title="example" target="_self"  href="https://example.com/">Example Link</a>
+    replaceHtmlLinkTargets(`<a title="example" target="_self"  href="https://example.com/">Example Link</a>
   <a title="example" target="_self"href="https://example.com/">Example Link</a>
   <a target="_self" title="example" href="https://example.com/">Example Link</a>
   <a title="example" target="_self" target="poggers" target="not poggers"  href="https://example.com/">Example Link</a>
