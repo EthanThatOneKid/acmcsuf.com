@@ -77,7 +77,7 @@ test('wraps long text into lines broken at column 100 3 times', () => {
   assert(lines.at(-1).length === 1, 'where the last line is a single asterisk');
 });
 
-test('additional replaces HTML with external links tests 2.0', () => {
+test('additional replaces HTML with external links tests', () => {
   const actual =
     replaceHtmlLinkTargets(`<a title="example" target="_self"  href="https://example.com/">Example Link</a>
   <a title="example" target="_self"href="https://example.com/">Example Link</a>

@@ -17,6 +17,10 @@
   export let events: AcmEvent[] = [];
 </script>
 
+<svelte:head>
+  <title>Events | ACM at CSUF</title>
+</svelte:head>
+
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <CommonHero>
@@ -33,7 +37,7 @@
 
 <Spacing --min="100px" --med="175px" --max="200px" />
 
-<h2 class="size-lg headers">This week's events 📅</h2>
+<h2 class="size-lg headers">Upcoming Events 📅</h2>
 
 <Spacing --med="16px" />
 

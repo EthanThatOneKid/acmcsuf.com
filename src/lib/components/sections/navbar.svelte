@@ -31,44 +31,46 @@
   <div class="container">
     <div class="logo-container">
       <a href="/" class="logo">
-        <img src="assets/badges/general.svg" class="badge" alt="acmCSUF logo" />
-        <h3>CSUF</h3>
+        <img src="/assets/badges/general.svg" class="badge" alt="acmCSUF badge" />
+        <h3 class="brand-header">at <b>CSUF</b></h3>
       </a>
     </div>
 
-    <ul class="pages">
-      {#each navItems as { title, path } (path)}
-        <li>
-          <a
-            on:click={() => handleClose()}
-            href={path}
-            class="brand-header size-sm"
-            aria-current={path === $page.url.pathname}
-            sveltekit:prefetch
-          >
-            {@html title}
-          </a>
-        </li>
-      {/each}
-    </ul>
+    <section>
+      <ul class="pages">
+        {#each navItems as { title, path } (path)}
+          <li>
+            <a
+              on:click={() => handleClose()}
+              href={path}
+              class="brand-header size-sm"
+              aria-current={path === $page.url.pathname}
+              sveltekit:prefetch
+            >
+              {@html title}
+            </a>
+          </li>
+        {/each}
+      </ul>
 
-    {#if jsEnabled}
-      <div class="toggle-container">
-        <!-- true is dark -->
-        <AcmToggle
-          checked={$theme === AcmTheme.Dark}
-          on:toggle={(event) => ($theme = event.detail ? AcmTheme.Dark : AcmTheme.Light)}
-        >
-          <span class="dark-toggle">
-            {#if $theme === AcmTheme.Dark}
-              <LightMode />
-            {:else}
-              <DarkMode />
-            {/if}
-          </span>
-        </AcmToggle>
-      </div>
-    {/if}
+      {#if jsEnabled}
+        <div class="toggle-container">
+          <!-- true is dark -->
+          <AcmToggle
+            checked={$theme === AcmTheme.Dark}
+            on:toggle={(event) => ($theme = event.detail ? AcmTheme.Dark : AcmTheme.Light)}
+          >
+            <span class="dark-toggle">
+              {#if $theme === AcmTheme.Dark}
+                <LightMode />
+              {:else}
+                <DarkMode />
+              {/if}
+            </span>
+          </AcmToggle>
+        </div>
+      {/if}
+    </section>
   </div>
 
   <label for="navToggle" class="menu">
@@ -93,17 +95,15 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 24px;
+      padding: 0 16px;
       width: 1280px;
 
       .logo-container {
-        width: 150px;
-
         .logo {
           display: flex;
           align-items: center;
           text-decoration: none;
-          gap: 9px;
+          gap: 4px;
 
           .badge {
             height: 64px;
@@ -112,44 +112,51 @@
           }
 
           h3 {
-            font-size: clamp(1.25rem, 1.1635rem + 0.3846vw, 1.625rem);
+            /* None of the CSS sizing tags are used here because the logo text scales to very specific px sizes */
+            font-size: clamp(1.25rem, 1.2039rem + 0.2632vw, 1.625rem);
           }
         }
       }
 
-      .pages {
+      section {
         display: flex;
+        align-items: center;
         gap: 64px;
-        list-style: none;
 
-        a {
-          text-decoration: none;
-          transition: 0.25s ease-in-out;
+        .pages {
+          display: flex;
+          gap: 64px;
+          list-style: none;
 
-          &:hover,
-          &[aria-current='true'] {
-            color: var(--acm-blue);
+          a {
+            text-decoration: none;
+            transition: 0.25s ease-in-out;
+
+            &:hover,
+            &[aria-current='true'] {
+              color: var(--acm-blue);
+            }
           }
         }
-      }
 
-      .toggle-container {
-        display: flex;
-        justify-content: flex-end;
-        width: 150px;
-
-        .dark-toggle {
+        .toggle-container {
           display: flex;
-          align-items: center;
-          max-width: fit-content;
-          padding: 6px 12px;
-          background-color: var(--acm-gray);
-          border-radius: 8px;
-          gap: 4px;
-          transition: 0.25s ease-in-out;
-          &:hover {
-            cursor: pointer;
-            background-color: #3d4043;
+          justify-content: flex-end;
+
+          .dark-toggle {
+            display: flex;
+            align-items: center;
+            max-width: fit-content;
+            padding: 6px 12px;
+            background-color: var(--acm-gray);
+            border-radius: 8px;
+            gap: 4px;
+            transition: 0.25s ease-in-out;
+
+            &:hover {
+              cursor: pointer;
+              background-color: #3d4043;
+            }
           }
         }
       }
@@ -165,22 +172,14 @@
   @media screen and (max-width: 900px) {
     nav {
       .container {
-        .logo-container {
-          width: unset;
-
-          .logo {
-            gap: 7px;
-
-            .badge {
-              height: 48px;
-            }
-          }
+        .logo-container .logo .badge {
+          height: 48px;
         }
 
         .pages {
           position: fixed;
           flex-direction: column;
-          justify-content: space-evenly;
+          justify-content: center;
           align-items: center;
           top: 0;
           right: 0;
@@ -191,19 +190,18 @@
           overflow: hidden;
           z-index: 9;
           transition: 0.25s ease-in-out;
+
           a {
             font-size: var(--size-md);
           }
         }
       }
 
-      .toggle-container {
-        .dark-toggle {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          right: 72px;
-        }
+      .toggle-container .dark-toggle {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 56px;
       }
 
       .menu {
@@ -212,7 +210,7 @@
         padding: 8px;
         top: 50%;
         transform: translateY(-50%);
-        right: 16px;
+        right: 8px;
         cursor: pointer;
 
         .menuLine {
