@@ -84,7 +84,7 @@ test('replaces link targets with "_blank" in HTML string', () => {
   <a target="_self" title="example" href="https://example.com/">Example Link</a>
   <a title="example" target="_self" target="poggers" target="not poggers"  href="https://example.com/">Example Link</a>
   <a title="example" target="" href="https://example.com/">Example Link</a>
-  <a href="https://forms.gle/eFpFuiDW6fyRrbUN6">https://forms.gle/eFpFuiDW6fyRrbUN6</a>
+  <a href="https://example.com/example/">https://example.com/example/</a>
   <a title="example">Example Link</a>
   <a href="https://example.com/">
   <a>
