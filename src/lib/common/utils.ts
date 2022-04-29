@@ -1,5 +1,6 @@
 export function isStringTruthy(payload?: string | null, defaultValue = false): boolean {
-  if (!payload) return false;
+  if (!payload) return defaultValue;
 
-  return !['0', 'false'].includes(payload.trim().toLowerCase());
+  // unlikely NaN will be passed, but included to be safe
+  return !['0', 'false', 'nan'].includes(payload.trim().toLowerCase());
 }
