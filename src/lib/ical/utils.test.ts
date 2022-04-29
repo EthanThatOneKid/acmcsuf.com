@@ -99,7 +99,7 @@ test('replaces link targets with "_blank" in HTML string', () => {
   <a title="example" href="https://example.com/" target="_blank">Example Link</a>
   <a title="example" href="https://example.com/" target="_blank">Example Link</a>
   <a title="example" href="https://example.com/" target="_blank">Example Link</a>
-  <a href="https://forms.gle/eFpFuiDW6fyRrbUN6" target="_blank">https://forms.gle/eFpFuiDW6fyRrbUN6</a>
+  <a href="https://example.com/example/" target="_blank">https://example.com/example/</a>
   <a title="example">Example Link</a>
   <a href="https://example.com/" target="_blank">
   <a>
