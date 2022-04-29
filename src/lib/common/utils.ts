@@ -1,4 +1,4 @@
-export function isStringTruthy(str: string): boolean {
+export function isStringTruthy(payload?: string | null, defaultValue = false): boolean {
   if (str == null) {
     return false;
   }
