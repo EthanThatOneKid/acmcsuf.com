@@ -17,6 +17,10 @@ export interface Newsletter {
   };
 }
 
+export interface NewsletterFetchOptions {
+  labels: string[];
+}
+
 /**
  * GraphQL query to get all the blog posts from the newsletters category.
  * @see https://docs.github.com/en/graphql/overview/explorer
@@ -94,7 +98,7 @@ function formatNewsletters(output: any): Newsletter[] {
   });
 }
 
-export async function fetchNewsletters(): Promise<Newsletter[]> {
+export async function fetchNewsletters(options: NewsletterFetchOptions): Promise<Newsletter[]> {
   const ghAccessToken = import.meta.env.VITE_GH_ACCESS_TOKEN;
 
   const response = await fetch('https://api.github.com/graphql', {
@@ -104,5 +108,9 @@ export async function fetchNewsletters(): Promise<Newsletter[]> {
   });
 
   const newsletters = formatNewsletters(await response.json());
-  return newsletters;
+  if (!options.labels.length) {
+    return newsletters;
+  } else {
+    return newsletters.filter((post) => post.labels.some((item) => options.labels.includes(item)));
+  }
 }

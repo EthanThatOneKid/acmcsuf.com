@@ -1,8 +1,12 @@
 <script lang="ts" context="module">
   import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/internal';
 
-  export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
-    const response = await fetch(`/blog.json`);
+  export async function load(event: LoadInput): Promise<LoadOutput> {
+    const target = new URL('/blog.json', event.url);
+    if (event.url.searchParams.has('l')) {
+      target.searchParams.set('l', event.url.searchParams.get('l'));
+    }
+    const response = await fetch(target.toString());
     return { props: { posts: await response.json() } };
   }
 </script>
@@ -30,6 +34,13 @@
   </h2>
 
   <Spacing --min="100px" --med="175px" --max="200px" />
+
+  <div>
+    [Testing] Filter by Tag:
+    <a title="" href="?l=algo">algo</a>
+    <a title="" href="?l=release">release</a>
+    <a title="" href="?l=algo,release">algo & release</a>
+  </div>
 
   <ul>
     {#each posts as post (post.id)}
