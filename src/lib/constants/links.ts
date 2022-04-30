@@ -15,4 +15,5 @@ export const links = {
   v2: 'https://acmcsuf.com/blog/262',
   'create-html': 'https://github.com/mikeploythai/create-html',
   apply: 'https://forms.gle/eFpFuiDW6fyRrbUN6',
+  election: 'https://forms.gle/m2MrswqTuxUsdb4y5',
 } as const;
