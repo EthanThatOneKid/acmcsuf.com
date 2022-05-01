@@ -83,20 +83,46 @@ Notice that the value `768px` is constant.
 The next most common breakpoint for larger desktop screens would be `1440px`.
 Really, the situation may affect your choice of breakpoint value, but the goal is to try to use only `768px` or `1440px` wherever possible for consistency-purposes.
 
-## .env File 📄
+## Setting up your `.env` file
 
-The only way to test the /blog page endpoint locally is to set specific environment variables in the root `.env` file. The blog page requires access to a [Github Personal Access Token](https://github.com/settings/tokens) and access to the Github discussion category ID. Never commit secret information in a file that is not block listed by .gitignore. That is why `.env` files are not shared, so you will have to create your own in the root directory. Note that the value in `VITE_GH_ACCESS_TOKEN` should be your Github personal access token, and `VITE_DEBUG` should always be false by default.
+To interact with data from GitHub (or any third-party service), a file named `.env` must be created in the root of your local repository instance.
+
+```sh
+touch .env
+```
+
+**Note**: If touch is not recognized as a command and you are using node js, you can run the following line below in the command line or integrated terminal.
 
 ```
+npm install touch-cli -g
+```
+
+Some environment variables are necessary to gain access to data from third-party services.
+We use the `VITE_GH_ACCESS_TOKEN` environment variable to authenticate our requests to GitHub (and [prevent rate limiting](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#increasing-the-unauthenticated-rate-limit-for-oauth-apps)).
+Below is how `VITE_GH_ACCESS_TOKEN` should be defined in your `.env` file, where `YOUR_PAT` should be replaced with your own generated [personal GitHub access token](https://github.com/settings/tokens).
+
+```sh
 VITE_GH_ACCESS_TOKEN=YOUR_PAT
+```
+
+**Fair Warning**: Never commit your _PAT_ (or any sensitive information) in files that are not ignored by our [`.gitignore`](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/.gitignore) file (`.env` being one of them).
+
+Other environment variables are needed to provide information that allows the program to fetch data from the correct place. It is okay to copy and paste the additional variables into your `.env` file as defined below because they are already public.
+
+```sh
+# General discussion on GitHub: <https://github.com/EthanThatOneKid/acmcsuf.com/discussions/categories/newsletter>
 VITE_GH_DISCUSSION_CATEGORY_ID=DIC_kwDOE7ysSc4CAC0o
+
+# Algo discussion on GitHub: <https://github.com/EthanThatOneKid/acmcsuf.com/discussions/categories/algo>
 VITE_GH_ALGO_CATEGORY_ID=DIC_kwDOE7ysSc4COe-m
+
+# Switch to 1 to turn on debug mode.
 VITE_DEBUG=0
 ```
 
-Variables specifically for the Gitcord script
+Some environment variables are needed to run scripts that are used for purposes indirectly related to `acmcsuf.com` (such as the Gitcord scripts).
 
-```
+```sh
 DISCORD_BOT_TOKEN=YOUR_BOT_TOKEN
 GUILD_ID=YOUR_GUILD_ID
 HUB_ID=YOUR_HUB_CHANNEL_ID
