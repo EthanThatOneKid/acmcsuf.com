@@ -30,7 +30,7 @@
   section em {
     font-size: 50px;
     font-family: Impact, sans-serif;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
   }
 
   section img {
