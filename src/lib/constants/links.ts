@@ -16,4 +16,5 @@ export const links = {
   'create-html': 'https://github.com/mikeploythai/create-html',
   apply: 'https://forms.gle/eFpFuiDW6fyRrbUN6',
   election: 'https://forms.gle/m2MrswqTuxUsdb4y5',
+  f22positions: 'https://www.notion.so/jn42/2022-23-Board-Elections-3bbf4851a9334b199b512bd5a5c4b5f7',
 } as const;
