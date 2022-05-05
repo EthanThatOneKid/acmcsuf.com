@@ -87,16 +87,6 @@ Really, the situation may affect your choice of breakpoint value, but the goal i
 
 To interact with data from GitHub (or any third-party service), a file named `.env` must be created in the root of your local repository instance.
 
-```sh
-touch .env
-```
-
-**Note**: If touch is not recognized as a command and you are using node js, you can run the following line below in the command line or integrated terminal.
-
-```
-npm install touch-cli -g
-```
-
 Some environment variables are necessary to gain access to data from third-party services.
 We use the `VITE_GH_ACCESS_TOKEN` environment variable to authenticate our requests to GitHub (and [prevent rate limiting](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#increasing-the-unauthenticated-rate-limit-for-oauth-apps)).
 Below is how `VITE_GH_ACCESS_TOKEN` should be defined in your `.env` file, where `YOUR_PAT` should be replaced with your own generated [personal GitHub access token](https://github.com/settings/tokens).
