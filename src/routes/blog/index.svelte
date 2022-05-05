@@ -1,11 +1,19 @@
 <script lang="ts" context="module">
   import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/internal';
+  import TagField from '$lib/components/utils/acm-tagfield.svelte';
+
+  let selectedTags: string[] = [];
 
   export async function load(event: LoadInput): Promise<LoadOutput> {
     const target = new URL('/blog.json', event.url);
-    if (event.url.searchParams.has('l')) {
+
+    if (event.url.searchParams.has('l') && event.url.searchParams.get('l').length > 0) {
       target.searchParams.set('l', event.url.searchParams.get('l'));
+      selectedTags = event.url.searchParams.get('l').split(',');
+    } else {
+      selectedTags = [];
     }
+
     const response = await fetch(target.toString());
     return { props: { posts: await response.json() } };
   }
@@ -16,6 +24,14 @@
   import Spacing from '$lib/components/sections/spacing.svelte';
 
   export let posts: Newsletter[] = [];
+
+  async function filterPosts(tags: string[]) {
+    window.history.replaceState({}, '', `${window.location.pathname}?l=${tags.join(',')}`);
+    const target = new URL('/blog.json', window.location.origin);
+    target.searchParams.set('l', tags.join(','));
+    const response = await fetch(target.toString());
+    posts = await response.json();
+  }
 </script>
 
 <svelte:head>
@@ -35,12 +51,13 @@
 
   <Spacing --min="100px" --med="175px" --max="200px" />
 
-  <div>
-    [Testing] Filter by Tag:
-    <a title="" href="?l=algo">algo</a>
-    <a title="" href="?l=release">release</a>
-    <a title="" href="?l=algo,release">algo & release</a>
-  </div>
+  <TagField
+    tags={['algo', 'release', 'news', 'announcement', 'event', 'workshop', 'talk']}
+    selected={selectedTags}
+    onChange={filterPosts}
+    label="Filter by Tags"
+    resetButton="✖ Clear Filter"
+  />
 
   <ul>
     {#each posts as post (post.id)}
