@@ -26,11 +26,13 @@
   }
   section h1 {
     margin-bottom: 2em;
+    align-items: center;
+    text-align: center;
   }
   section em {
+    align-items: center;
     font-size: 50px;
-    font-family: Impact, sans-serif;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
   }
 
   section img {
