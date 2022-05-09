@@ -31,8 +31,10 @@
   }
   section em {
     align-items: center;
+    text-align: center;
     font-size: 50px;
     margin-bottom: 0.5em;
+    margin-top: 2em;
   }
 
   section img {
