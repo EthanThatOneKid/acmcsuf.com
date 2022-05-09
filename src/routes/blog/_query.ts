@@ -98,7 +98,7 @@ function formatNewsletters(output: any): Newsletter[] {
   });
 }
 
-export async function fetchNewsletters(options: NewsletterFetchOptions): Promise<Newsletter[]> {
+export async function fetchNewsletters(options?: NewsletterFetchOptions): Promise<Newsletter[]> {
   const ghAccessToken = import.meta.env.VITE_GH_ACCESS_TOKEN;
 
   const response = await fetch('https://api.github.com/graphql', {

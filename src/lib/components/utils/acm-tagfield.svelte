@@ -1,10 +1,13 @@
 <script lang="ts">
+  import { createEventDispatcher } from 'svelte';
+
   export let tags: string[] = [];
   export let selected: string[] = [];
-  export let label: string = '';
-  export let resetButton: string = '';
-  export let onChange: (tags: string[]) => void;
-  let hasSelectedTags = false;
+  export let label = '';
+  export let resetButton = '';
+
+  const dispatch = createEventDispatcher();
+  let hasSelectedTags = selected.length > 0;
 
   function selectTag(event: any) {
     if (selected.includes(event.target.innerText)) {
@@ -15,13 +18,13 @@
 
     event.target.classList.toggle('selected');
     hasSelectedTags = selected.length > 0;
-    onChange(selected);
+    dispatch('change', selected);
   }
 
   function clearFilter() {
     selected = [];
     hasSelectedTags = false;
-    onChange(selected);
+    dispatch('change', selected);
   }
 </script>
 

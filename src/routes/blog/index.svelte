@@ -2,6 +2,7 @@
   import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/internal';
   import TagField from '$lib/components/utils/acm-tagfield.svelte';
 
+  let allTags = ['algo', 'release']; // TODO: get tags from backend
   let selectedTags: string[] = [];
 
   export async function load(event: LoadInput): Promise<LoadOutput> {
@@ -25,17 +26,21 @@
 
   export let posts: Newsletter[] = [];
 
-  async function filterPosts(tags: string[]) {
+  async function filterPosts(event: CustomEvent) {
+    const tags = event.detail;
+
     window.history.replaceState({}, '', `${window.location.pathname}?l=${tags.join(',')}`);
+
     const target = new URL('/blog.json', window.location.origin);
     target.searchParams.set('l', tags.join(','));
+
     const response = await fetch(target.toString());
     posts = await response.json();
   }
 </script>
 
 <svelte:head>
-  <title>acmCSUF / README</title>
+  <title>Blog | ACM at CSUF</title>
 </svelte:head>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
@@ -52,9 +57,9 @@
   <Spacing --min="100px" --med="175px" --max="200px" />
 
   <TagField
-    tags={['algo', 'release', 'news', 'announcement', 'event', 'workshop', 'talk']}
+    tags={allTags}
     selected={selectedTags}
-    onChange={filterPosts}
+    on:change={filterPosts}
     label="Filter by Tags"
     resetButton="✖ Clear Filter"
   />
