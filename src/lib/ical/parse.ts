@@ -1,5 +1,4 @@
 import { Temporal } from '@js-temporal/polyfill';
-import { DEBUG } from '$lib/constants';
 import { walkICAL, makeAcmEvent, AcmEvent } from './utils';
 
 export interface ICALParseOptions {
