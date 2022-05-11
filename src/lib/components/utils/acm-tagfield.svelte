@@ -2,42 +2,64 @@
   import { createEventDispatcher } from 'svelte';
 
   export let tags: string[] = [];
-  export let selected: string[] = [];
+  export let selectedTags: string[] = [];
   export let label = '';
   export let resetButton = '';
+  export let urlSearchParamKey = '';
 
   const dispatch = createEventDispatcher();
-  let hasSelectedTags = selected.length > 0;
+  let hasSelectedTags = selectedTags.length > 0;
 
-  function selectTag(event: any) {
-    if (selected.includes(event.target.innerText)) {
-      selected = selected.filter((t) => t !== event.target.innerText);
+  function selectTag(event: MouseEvent) {
+    event.preventDefault();
+
+    if (selectedTags.includes(this.innerText)) {
+      selectedTags = selectedTags.filter((t) => t !== this.innerText);
     } else {
-      selected.push(event.target.innerText);
+      selectedTags.push(this.innerText);
     }
 
-    event.target.classList.toggle('selected');
-    hasSelectedTags = selected.length > 0;
-    dispatch('change', selected);
+    this.classList.toggle('selected');
+    hasSelectedTags = selectedTags.length > 0;
+    dispatch('change', selectedTags);
   }
 
-  function clearFilter() {
-    selected = [];
+  function deselectAll(event: MouseEvent) {
+    event.preventDefault();
+    selectedTags = [];
     hasSelectedTags = false;
-    dispatch('change', selected);
+    dispatch('change', selectedTags);
+  }
+
+  function createTagURL(tag: string) {
+    if (urlSearchParamKey) {
+      if (selectedTags.includes(tag)) {
+        return `?${urlSearchParamKey}=${selectedTags.filter((t) => t !== tag).join(',')}`;
+      } else {
+        return `?${urlSearchParamKey}=${[...selectedTags, tag].join(',')}`;
+      }
+    } else {
+      return '';
+    }
   }
 </script>
 
 <div class="tag-box">
   <div class="tag-title" class:hidden={hasSelectedTags}>{label}</div>
-  <div class="tag-clear-button" class:hidden={!hasSelectedTags} on:click={clearFilter}>
+  <a href="?" class="tag-clear-button" class:hidden={!hasSelectedTags} on:click={deselectAll}>
     {resetButton}
-  </div>
+  </a>
+
   <div class="tag-list">
     {#each tags as tag}
-      <div class="tag" class:selected={selected.includes(tag)} on:click={selectTag}>
+      <a
+        href={createTagURL(tag)}
+        class="tag"
+        class:selected={selectedTags.includes(tag)}
+        on:click={selectTag}
+      >
         {tag}
-      </div>
+      </a>
     {/each}
   </div>
 </div>
@@ -47,6 +69,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 0.2em;
     .tag-title {
       font-size: 1em;
       font-weight: bold;
@@ -59,7 +82,6 @@
     .tag-clear-button {
       margin-right: 1em;
       font-size: small;
-      color: #424242;
       text-decoration: underline;
       cursor: pointer;
     }
@@ -67,7 +89,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      // justify-content: space-around;
+      margin-bottom: 0.2em;
       .tag {
         margin-bottom: 0.2em;
         margin-right: var(--size-sm);
@@ -78,12 +100,10 @@
         border: 2px solid #e0e0e0;
         cursor: pointer;
         transition: 0.25s ease-in-out;
-
+        text-decoration: none;
         &:hover {
-          // background-color: #b0bec5;
           border-color: #b0bec5;
         }
-
         &.selected {
           transition: 1s ease-in-out;
           background-color: #81d4fa;

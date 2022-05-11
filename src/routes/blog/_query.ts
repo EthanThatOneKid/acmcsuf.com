@@ -1,5 +1,11 @@
 import type { Officer } from '$lib/constants';
 import { OFFICERS } from '$lib/constants';
+import { discernTags } from '$lib/common/utils';
+
+export interface BlogOutput {
+  tags: string[];
+  posts: Newsletter[];
+}
 
 export interface Newsletter {
   id: number;
@@ -98,7 +104,7 @@ function formatNewsletters(output: any): Newsletter[] {
   });
 }
 
-export async function fetchNewsletters(options?: NewsletterFetchOptions): Promise<Newsletter[]> {
+export async function fetchNewsletters(options?: NewsletterFetchOptions): Promise<BlogOutput> {
   const ghAccessToken = import.meta.env.VITE_GH_ACCESS_TOKEN;
 
   const response = await fetch('https://api.github.com/graphql', {
@@ -107,10 +113,14 @@ export async function fetchNewsletters(options?: NewsletterFetchOptions): Promis
     body: JSON.stringify({ query: newslettersQuery }),
   });
 
-  const newsletters = formatNewsletters(await response.json());
-  if (!options.labels.length) {
-    return newsletters;
-  } else {
-    return newsletters.filter((post) => post.labels.some((item) => options.labels.includes(item)));
+  let newsletters = formatNewsletters(await response.json());
+  const tags = discernTags(newsletters);
+
+  if (options && options.labels.length > 0) {
+    newsletters = newsletters.filter((post) =>
+      post.labels.some((item) => options.labels.includes(item))
+    );
   }
+
+  return { tags: tags, posts: newsletters };
 }

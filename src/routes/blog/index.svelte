@@ -2,7 +2,7 @@
   import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/internal';
   import TagField from '$lib/components/utils/acm-tagfield.svelte';
 
-  let allTags = ['algo', 'release']; // TODO: get tags from backend
+  let tags = [];
   let selectedTags: string[] = [];
 
   export async function load(event: LoadInput): Promise<LoadOutput> {
@@ -16,7 +16,10 @@
     }
 
     const response = await fetch(target.toString());
-    return { props: { posts: await response.json() } };
+    const blogOutput = await response.json();
+    tags = blogOutput.tags;
+
+    return { props: { posts: blogOutput.posts } };
   }
 </script>
 
@@ -35,12 +38,13 @@
     target.searchParams.set('l', tags.join(','));
 
     const response = await fetch(target.toString());
-    posts = await response.json();
+    const blogOutput = await response.json();
+    posts = blogOutput.posts;
   }
 </script>
 
 <svelte:head>
-  <title>Blog | ACM at CSUF</title>
+  <title>Blog / ACM at CSUF</title>
 </svelte:head>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
@@ -57,11 +61,12 @@
   <Spacing --min="100px" --med="175px" --max="200px" />
 
   <TagField
-    tags={allTags}
-    selected={selectedTags}
-    on:change={filterPosts}
+    {tags}
+    {selectedTags}
     label="Filter by Tags"
     resetButton="✖ Clear Filter"
+    urlSearchParamKey="l"
+    on:change={filterPosts}
   />
 
   <ul>

@@ -6,7 +6,7 @@ async function getCache(id: number, origin: string) {
 
   try {
     const response = await fetch(target);
-    const data = await response.json();
+    const data = (await response.json()).posts;
     const newsletter = (data as Newsletter[]).find((item) => {
       return item.id === id;
     });
