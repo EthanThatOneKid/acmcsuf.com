@@ -32,15 +32,14 @@
   }
 
   function createTagURL(tag: string) {
-    if (urlSearchParamKey) {
-      if (selectedTags.includes(tag)) {
-        return `?${urlSearchParamKey}=${selectedTags.filter((t) => t !== tag).join(',')}`;
-      } else {
-        return `?${urlSearchParamKey}=${[...selectedTags, tag].join(',')}`;
-      }
-    } else {
+    if (urlSearchParamKey === '') {
       return '';
     }
+    const nextTags = selectedTags.includes(tag)
+      ? selectedTags.filter((t) => t !== tag)
+      : selectedTags.concat([tag]);
+    const params = new URLSearchParams([[urlSearchParamKey, nextTags.join(',')]]);
+    return '?' + params.toString();
   }
 </script>
 
