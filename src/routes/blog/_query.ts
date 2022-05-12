@@ -102,7 +102,8 @@ export async function fetchNewsletters(): Promise<Newsletter[]> {
     headers: { Authorization: `token ${ghAccessToken}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({ query: newslettersQuery }),
   });
-
   const newsletters = formatNewsletters(await response.json());
-  return newsletters;
+  return newsletters.sort((a, b) => {
+    return new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf();
+  });
 }
