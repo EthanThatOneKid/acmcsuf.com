@@ -1,4 +1,11 @@
-export function discernTags(posts: { labels: string[] }[]): string[] {
-  const tags = posts.map((post) => post.labels).flat();
-  return tags.sort();
+interface WithLabels {
+  labels: string[];
+}
+
+export function discernTags(posts: WithLabels[]): string[] {
+  const tags = new Set([]);
+  for (const post of posts) {
+    post.labels.forEach((label) => tags.add(label));
+  }
+  return Array.from(tags).sort();
 }
