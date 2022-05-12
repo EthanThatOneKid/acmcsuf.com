@@ -95,11 +95,12 @@
         cursor: pointer;
         background-color: rgba(56, 182, 255, 0.25);
         border-radius: 1em;
-        padding: 2em;
         margin: 2em 0;
 
         a {
           text-decoration: none;
+          padding: 2em;
+          display: block;
 
           .markdown-body {
             max-height: 100px;
