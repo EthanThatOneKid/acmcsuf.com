@@ -17,7 +17,7 @@
 </script>
 
 <svelte:head>
-  <title>Node Buds | ACM at CSUF</title>
+  <title>Node Buds / ACM Chapter at CSUF</title>
 </svelte:head>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
