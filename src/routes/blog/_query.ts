@@ -113,14 +113,12 @@ export async function fetchNewsletters(options?: NewsletterFetchOptions): Promis
     body: JSON.stringify({ query: newslettersQuery }),
   });
 
-  let newsletters = formatNewsletters(await response.json());
-  const tags = discernTags(newsletters);
+  let posts = formatNewsletters(await response.json());
+  const tags = discernTags(posts);
 
-  if (options && options.labels.length > 0) {
-    newsletters = newsletters.filter((post) =>
-      post.labels.some((item) => options.labels.includes(item))
-    );
+  if (options?.labels.length > 0) {
+    posts = posts.filter((post) => post.labels.some((item) => options.labels.includes(item)));
   }
 
-  return { tags: tags, posts: newsletters };
+  return { tags, posts };
 }

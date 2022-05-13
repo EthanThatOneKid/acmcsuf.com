@@ -1,45 +1,43 @@
 <script lang="ts" context="module">
   import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/internal';
-  import TagField from '$lib/components/utils/acm-tagfield.svelte';
 
-  let tags = [];
-  let selectedTags: string[] = [];
+  export async function load({ url }: LoadInput): Promise<LoadOutput> {
+    const target = new URL('/blog.json', url);
+    const rawLabels = url.searchParams.get('l');
+    const selectedTags = [];
 
-  export async function load(event: LoadInput): Promise<LoadOutput> {
-    const target = new URL('/blog.json', event.url);
-
-    if (event.url.searchParams.has('l') && event.url.searchParams.get('l').length > 0) {
-      target.searchParams.set('l', event.url.searchParams.get('l'));
-      selectedTags = event.url.searchParams.get('l').split(',');
-    } else {
-      selectedTags = [];
+    if (rawLabels !== null && rawLabels.length > 0) {
+      target.searchParams.set('l', rawLabels);
+      selectedTags.push(...rawLabels.split(','));
     }
 
     const response = await fetch(target.toString());
-    const blogOutput = await response.json();
-    tags = blogOutput.tags;
+    const { posts, tags } = await response.json();
 
-    return { props: { posts: blogOutput.posts } };
+    return { props: { posts, tags, selectedTags } };
   }
 </script>
 
 <script lang="ts">
   import type { Newsletter } from './_query';
   import Spacing from '$lib/components/sections/spacing.svelte';
+  import TagField from '$lib/components/utils/acm-tagfield.svelte';
 
   export let posts: Newsletter[] = [];
+  export let tags: string[] = [];
+  export let selectedTags: string[] = [];
 
   async function filterPosts(event: CustomEvent) {
     const tags = event.detail;
 
-    window.history.replaceState({}, '', `${window.location.pathname}?l=${tags.join(',')}`);
+    history.replaceState({}, '', location.pathname + '?l=' + tags.join(','));
 
-    const target = new URL('/blog.json', window.location.origin);
+    const target = new URL('/blog.json', location.origin);
     target.searchParams.set('l', tags.join(','));
 
     const response = await fetch(target.toString());
-    const blogOutput = await response.json();
-    posts = blogOutput.posts;
+    const { posts: blogPosts } = await response.json();
+    posts = blogPosts;
   }
 </script>
 
