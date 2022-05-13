@@ -1,75 +1,75 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
 
-  export let tags: string[] = [];
-  export let selectedTags: string[] = [];
+  export let labels: string[] = [];
+  export let selectedLabels: string[] = [];
   export let urlSearchParamKey = '';
 
   const dispatch = createEventDispatcher();
-  let hasSelectedTags = selectedTags.length > 0;
+  let hasSelectedLabels = selectedLabels.length > 0;
 
-  function selectTag(event: MouseEvent) {
+  function selectLabel(event: MouseEvent) {
     event.preventDefault();
 
-    if (selectedTags.includes(this.innerText)) {
-      selectedTags = selectedTags.filter((t) => t !== this.innerText);
+    if (selectedLabels.includes(this.innerText)) {
+      selectedLabels = selectedLabels.filter((t) => t !== this.innerText);
     } else {
-      selectedTags.push(this.innerText);
+      selectedLabels.push(this.innerText);
     }
 
     this.classList.toggle('selected');
-    hasSelectedTags = selectedTags.length > 0;
-    dispatch('change', selectedTags);
+    hasSelectedLabels = selectedLabels.length > 0;
+    dispatch('change', selectedLabels);
   }
 
   function deselectAll(event: MouseEvent) {
     event.preventDefault();
-    selectedTags = [];
-    hasSelectedTags = false;
-    dispatch('change', selectedTags);
+    selectedLabels = [];
+    hasSelectedLabels = false;
+    dispatch('change', selectedLabels);
   }
 
-  function createTagURL(tag: string) {
+  function createLabelURL(label: string) {
     if (urlSearchParamKey === '') {
       return '';
     }
-    const nextTags = selectedTags.includes(tag)
-      ? selectedTags.filter((t) => t !== tag)
-      : selectedTags.concat([tag]);
-    const params = new URLSearchParams([[urlSearchParamKey, nextTags.join(',')]]);
+    const nextLabels = selectedLabels.includes(label)
+      ? selectedLabels.filter((t) => t !== label)
+      : selectedLabels.concat([label]);
+    const params = new URLSearchParams([[urlSearchParamKey, nextLabels.join(',')]]);
     return '?' + params.toString();
   }
 </script>
 
-<div class="tag-box">
-  <div class="tag-title" class:hidden={hasSelectedTags}>
+<div class="label-box">
+  <div class="title" class:hidden={hasSelectedLabels}>
     <slot name="title" />
   </div>
-  <a href="?" class="tag-clear-button" class:hidden={!hasSelectedTags} on:click={deselectAll}>
+  <a href="?" class="reset-button" class:hidden={!hasSelectedLabels} on:click={deselectAll}>
     <slot name="resetButton" />
   </a>
 
-  <div class="tag-list">
-    {#each tags as tag}
+  <div class="label-list">
+    {#each labels as label}
       <a
-        href={createTagURL(tag)}
-        class="tag"
-        class:selected={selectedTags.includes(tag)}
-        on:click={selectTag}
+        href={createLabelURL(label)}
+        class="label"
+        class:selected={selectedLabels.includes(label)}
+        on:click={selectLabel}
       >
-        {tag}
+        {label}
       </a>
     {/each}
   </div>
 </div>
 
 <style lang="scss">
-  .tag-box {
+  .label-box {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 0.2em;
-    .tag-title {
+    .title {
       font-size: 1em;
       font-weight: bold;
       margin-right: 1em;
@@ -78,18 +78,18 @@
     .hidden {
       display: none;
     }
-    .tag-clear-button {
+    .reset-button {
       margin-right: 1em;
       font-size: small;
       text-decoration: underline;
       cursor: pointer;
     }
-    .tag-list {
+    .label-list {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       margin-bottom: 0.2em;
-      .tag {
+      .label {
         margin-bottom: 0.2em;
         margin-right: var(--size-sm);
         padding: 0.25em 0.8em 0.25em 0.8em;
@@ -117,10 +117,10 @@
       }
     }
     @media screen and (max-width: 900px) {
-      .tag-title {
+      .title {
         display: none;
       }
-      .tag-clear-button {
+      .reset-button {
         display: none;
       }
     }

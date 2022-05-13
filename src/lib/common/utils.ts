@@ -2,10 +2,10 @@ interface WithLabels {
   labels: string[];
 }
 
-export function discernTags(posts: WithLabels[]): string[] {
-  const tags = new Set([]);
+export function discernLabels(posts: WithLabels[]): string[] {
+  const labels = new Set([]);
   for (const post of posts) {
-    post.labels.forEach((label) => tags.add(label));
+    post.labels.forEach((label) => labels.add(label));
   }
-  return Array.from(tags).sort();
+  return Array.from(labels).sort();
 }

@@ -1,9 +1,9 @@
 import type { Officer } from '$lib/constants';
 import { OFFICERS } from '$lib/constants';
-import { discernTags } from '$lib/common/utils';
+import { discernLabels } from '$lib/common/utils';
 
 export interface BlogOutput {
-  tags: string[];
+  labels: string[];
   posts: Newsletter[];
 }
 
@@ -114,11 +114,11 @@ export async function fetchNewsletters(options?: NewsletterFetchOptions): Promis
   });
 
   let posts = formatNewsletters(await response.json());
-  const tags = discernTags(posts);
+  const labels = discernLabels(posts);
 
   if (options?.labels.length > 0) {
     posts = posts.filter((post) => post.labels.some((item) => options.labels.includes(item)));
   }
 
-  return { tags, posts };
+  return { labels, posts };
 }
