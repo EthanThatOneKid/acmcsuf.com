@@ -58,14 +58,10 @@
 
   <Spacing --min="100px" --med="175px" --max="200px" />
 
-  <TagField
-    {tags}
-    {selectedTags}
-    label="Filter by Tags"
-    resetButton="✖ Clear Filter"
-    urlSearchParamKey="l"
-    on:change={filterPosts}
-  />
+  <TagField {tags} {selectedTags} urlSearchParamKey="l" on:change={filterPosts}>
+    <div slot="title">Filter by Tags</div>
+    <div slot="resetButton">✖ Clear all</div>
+  </TagField>
 
   <ul>
     {#each posts as post (post.id)}

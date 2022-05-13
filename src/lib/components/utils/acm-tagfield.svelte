@@ -3,8 +3,6 @@
 
   export let tags: string[] = [];
   export let selectedTags: string[] = [];
-  export let label = '';
-  export let resetButton = '';
   export let urlSearchParamKey = '';
 
   const dispatch = createEventDispatcher();
@@ -44,9 +42,11 @@
 </script>
 
 <div class="tag-box">
-  <div class="tag-title" class:hidden={hasSelectedTags}>{label}</div>
+  <div class="tag-title" class:hidden={hasSelectedTags}>
+    <slot name="title" />
+  </div>
   <a href="?" class="tag-clear-button" class:hidden={!hasSelectedTags} on:click={deselectAll}>
-    {resetButton}
+    <slot name="resetButton" />
   </a>
 
   <div class="tag-list">
