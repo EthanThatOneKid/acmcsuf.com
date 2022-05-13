@@ -1,5 +1,6 @@
 <script lang="ts" context="module">
   import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/internal';
+
   export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
     const response = await fetch(`/events.json`);
     return { props: { events: await response.json() } };
@@ -55,6 +56,7 @@
     justify-content: center;
     text-align: center;
   }
+  
   p {
     text-align: center;
   }

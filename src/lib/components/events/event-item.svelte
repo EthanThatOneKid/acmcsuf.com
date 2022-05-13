@@ -6,6 +6,7 @@
   import CopyTextIcon from '$lib/components/icons/copy-text.svelte';
   import GoogleCalendarIcon from '$lib/components/icons/google-calendar.svelte';
   import MsOutlookIcon from '$lib/components/icons/ms-outlook.svelte';
+  
   export let info: AcmEvent;
 
   let isRecurring: boolean = info.recurring;
