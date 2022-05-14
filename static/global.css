@@ -18,7 +18,7 @@
 
   --perma-light: #f8f8f8;
 
-  /* Generator: https://xgkft.csb.app/ */
+  /* Generator: https://xgkft.csb.app/ (280px-1000px viewport-width, 1rem=16px) */
   --size-xxl: clamp(2.8125rem, 1.8403rem + 5.5556vw, 5.3125rem);
   --size-xl: clamp(2rem, 1.7545rem + 1.0909vw, 3.5rem);
   --size-lg: clamp(1.5rem, 1.3773rem + 0.5455vw, 2.25rem);
