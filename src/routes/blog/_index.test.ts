@@ -1,6 +1,6 @@
-import { readFileSync } from 'fs';
 import { beforeEach, test, expect } from 'vitest';
 import { cleanup, render } from '@testing-library/svelte';
+import { posts as SAMPLE_POSTS } from './_testdata/posts';
 
 import Blog from './index.svelte';
 
@@ -17,8 +17,7 @@ test('can find the correct page title', () => {
 
 test('can render 3 blog posts', () => {
   const MAX_POSTS = 3;
-  const TEST_DATA = readFileSync('./src/routes/blog/_testdata/posts.json', 'utf-8');
-  const { container } = render(Blog, { posts: JSON.parse(TEST_DATA) });
+  const { container } = render(Blog, { posts: SAMPLE_POSTS });
   const actual = container.querySelectorAll('.blog-post').length;
   expect(actual).toBe(MAX_POSTS);
 });
