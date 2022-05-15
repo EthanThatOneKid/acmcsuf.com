@@ -1,6 +1,7 @@
 import { beforeEach, test, expect } from 'vitest';
 import { cleanup, render } from '@testing-library/svelte';
 import { posts as SAMPLE_POSTS } from './_testdata/posts';
+
 import Blog from './index.svelte';
 
 beforeEach(cleanup);
