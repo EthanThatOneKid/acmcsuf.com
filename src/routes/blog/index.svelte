@@ -21,7 +21,7 @@
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <section class="main-header">
-  <img src="assets/readme-logomark.svg" alt="README by acmCSUF" />
+  <img src="/assets/readme-logomark.svg" alt="README by acmCSUF" />
 
   <div>
     <h1 class="size-xxl">README</h1>
