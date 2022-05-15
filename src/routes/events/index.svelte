@@ -65,8 +65,8 @@
     img {
       display: block;
       margin-left: 10px;
-      width: 48px;
-      height: 48px;
+      width: 30px;
+      height: 30px;
     }
   }
 
