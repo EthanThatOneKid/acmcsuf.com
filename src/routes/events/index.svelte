@@ -18,14 +18,14 @@
 </script>
 
 <svelte:head>
-  <title>Events | ACM at CSUF</title>
+  <title>Events / ACM at CSUF</title>
 </svelte:head>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <CommonHero>
   <h2 slot="headline" class="size-lg">Curated events for growth and success</h2>
-  <p slot="text" class="size-xs">
+  <p slot="text" class="size-md">
     Our student chapter hosts a multitude of events throughout each school semester, consisting of
     workshops, info sessions, community building events, and much more!
     <br /><br />
@@ -37,7 +37,10 @@
 
 <Spacing --min="100px" --med="175px" --max="200px" />
 
-<h2 class="size-lg headers">Upcoming Events 📅</h2>
+<div class="main-header">
+  <h2 class="size-lg headers">Upcoming Events</h2>
+  <img src="assets/bluecalender.svg" alt="Blue Calender" />
+</div>
 
 <Spacing --med="16px" />
 
@@ -52,13 +55,30 @@
 <Spacing --min="8px" --med="63px" --max="88px" />
 
 <style lang="scss">
-  h2 {
+  .main-header {
     display: flex;
     justify-content: center;
     text-align: center;
+    align-items: center;
+    flex-direction: row;
+
+    img {
+      display: block;
+      margin-left: 10px;
+      width: 30px;
+      height: 30px;
+    }
   }
 
   p {
     text-align: center;
+  }
+
+  @media (max-width: 300px) {
+    .main-header {
+      img {
+        display: none;
+      }
+    }
   }
 </style>
