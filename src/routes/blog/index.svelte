@@ -28,12 +28,12 @@
   export let selectedLabels: string[] = [];
 
   async function filterPosts(event: CustomEvent) {
-    const items = event.detail;
+    const searchValue = event.detail.join(',');
 
-    history.replaceState({}, '', location.pathname + '?l=' + items.join(','));
+    history.replaceState({}, '', location.pathname + '?l=' + searchValue);
 
     const target = new URL('/blog.json', location.origin);
-    target.searchParams.set('l', items.join(','));
+    target.searchParams.set('l', searchValue);
 
     const response = await fetch(target.toString());
     const { posts: blogPosts } = await response.json();
