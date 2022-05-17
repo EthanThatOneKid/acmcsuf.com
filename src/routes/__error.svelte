@@ -41,6 +41,7 @@
     width: 100%;
     max-width: 1000px;
     height: auto;
+    margin-bottom: 3em;
   }
 
   @media (min-width: 900px) {
