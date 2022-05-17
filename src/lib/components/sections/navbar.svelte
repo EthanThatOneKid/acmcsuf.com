@@ -53,23 +53,21 @@
         {/each}
       </ul>
 
-      {#if jsEnabled}
-        <div class="toggle-container">
-          <!-- true is dark -->
-          <AcmToggle
-            checked={$theme === AcmTheme.Dark}
-            on:toggle={(event) => ($theme = event.detail ? AcmTheme.Dark : AcmTheme.Light)}
-          >
-            <span class="dark-toggle">
-              {#if $theme === AcmTheme.Dark}
-                <LightMode />
-              {:else}
-                <DarkMode />
-              {/if}
-            </span>
-          </AcmToggle>
-        </div>
-      {/if}
+      <div class="toggle-container" class:hidden={!jsEnabled}>
+        <!-- true is dark -->
+        <AcmToggle
+          checked={$theme === AcmTheme.Dark}
+          on:toggle={(event) => ($theme = event.detail ? AcmTheme.Dark : AcmTheme.Light)}
+        >
+          <span class="dark-toggle">
+            {#if $theme === AcmTheme.Dark}
+              <LightMode />
+            {:else}
+              <DarkMode />
+            {/if}
+          </span>
+        </AcmToggle>
+      </div>
     </section>
   </div>
 
@@ -139,9 +137,18 @@
           }
         }
 
+        .hidden {
+          opacity: 0;
+        }
+
+        .toggle-container::not(.hidden) {
+          opacity: 1;
+        }
+
         .toggle-container {
           display: flex;
           justify-content: flex-end;
+          transition: opacity 0.35s;
 
           .dark-toggle {
             display: flex;
