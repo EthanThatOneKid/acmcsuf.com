@@ -33,7 +33,7 @@
 
   <ul>
     {#each posts as post (post.id)}
-      <li>
+      <li class="blog-post">
         <a href={`/blog/${post.id}`} sveltekit:prefetch>
           <h2 class="headers">{post.title}</h2>
           <div class="markdown-body">
@@ -95,11 +95,12 @@
         cursor: pointer;
         background-color: rgba(56, 182, 255, 0.25);
         border-radius: 1em;
-        padding: 2em;
         margin: 2em 0;
 
         a {
           text-decoration: none;
+          padding: 2em;
+          display: block;
 
           .markdown-body {
             max-height: 100px;
