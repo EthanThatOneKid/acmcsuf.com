@@ -30,11 +30,6 @@ export interface AcmEvent {
 
 export type ICALResolvable = string | string[] | ICALResolvable[] | { [k: string]: ICALResolvable };
 
-export interface ICALParseOptions {
-  referenceDate?: Temporal.ZonedDateTimeLike;
-  maxEvents?: number;
-}
-
 /**
  * The code in this function is derived from
  * <https://github.com/adrianlee44/ical2json>.
@@ -152,11 +147,10 @@ export function produceSummary(title: string, description: string, selfLink: str
     : title + ' — ' + selfLink;
 }
 
-export function replaceHtmlWithExternalLinks(html: string): string {
-  return html.replace(/<a .*href=".*".*>/gm, (match: string): string => {
-    if (match.includes('target="_blank"')) return match;
-    match = match.replace(/target=".*?"\W*/g, '');
-    return match.slice(0, match.length - 1) + ' target="_blank">';
+export function replaceHtmlLinkTargets(html: string, withTarget = '_blank'): string {
+  return html.replace(/<a\W.*?href=".*?".*?>/gm, (match: string): string => {
+    match = match.replace(/target=".*?"\W*/gm, '');
+    return match.slice(0, match.length - 1) + ` target="${withTarget}">`;
   });
 }
 
@@ -192,7 +186,7 @@ export function parseDescription(
     description = (description.substring(0, start) + description.substring(end)).trim();
   }
 
-  description = replaceHtmlWithExternalLinks(description);
+  description = replaceHtmlLinkTargets(description);
 
   return { description, variables };
 }
