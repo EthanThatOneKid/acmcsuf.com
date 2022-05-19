@@ -1,6 +1,10 @@
-export function isStringTruthy(payload?: string | null, defaultValue = false): boolean {
+export function determineTruthyString(payload?: string | null, defaultValue = false): boolean {
   if (!payload) return defaultValue;
 
+  payload = payload.trim().toLowerCase();
+
   // unlikely NaN will be passed, but included to be safe
-  return !['0', 'false', 'nan'].includes(payload.trim().toLowerCase());
+  const stringsOtherwiseTruthy = [0, false, NaN].map((v) => String(v).toLowerCase());
+
+  return !stringsOtherwiseTruthy.includes(payload);
 }
