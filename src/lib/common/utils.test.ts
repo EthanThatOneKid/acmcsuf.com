@@ -8,17 +8,7 @@ for (const input of TRUTHY_INPUT_DATA) {
   });
 }
 
-const FALSY_INPUT_DATA = [
-  'FALSE',
-  '',
-  ``,
-  null,
-  undefined,
-  String(false),
-  String(NaN),
-  String(0),
-  String(-0),
-];
+const FALSY_INPUT_DATA = ['FALSE', '', null, undefined, String(false), String(NaN), String(0)];
 for (const input of FALSY_INPUT_DATA) {
   test(`correctly determines input value '${input}' as falsy`, () => {
     expect(utils.determineTruthyString(input)).toBe(false);
