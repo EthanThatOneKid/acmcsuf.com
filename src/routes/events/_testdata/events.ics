@@ -63,7 +63,7 @@ RECURRENCE-ID;TZID=America/Los_Angeles:20220318T160000
 CREATED:20220311T160434Z
 DESCRIPTION:<html-blob>acmDev members assemble to collaboratively work on o
  ur semester projects to grow our development skills. This semester\, we are
-  hosting 4 different projects each with their own teams!<br>ACM_PATH=dev</h
+  hosting 4 different projects each with their own teams!<br>ACM_PATH=dev<br>ACM_PINNED=true</h
  tml-blob>
 LAST-MODIFIED:20220314T172514Z
 LOCATION:CS - 104
