@@ -46,7 +46,7 @@ UID:2de44koejp43a72omlir81756n_R20220318T230000@google.com
 CREATED:20220311T160434Z
 DESCRIPTION:acmDev members assemble to collaboratively work on our semester
   projects to grow our development skills. This semester\, we are hosting 4 
- different projects each with their own teams!\nACM_PATH=dev
+ different projects each with their own teams!\nACM_PATH=dev\nACM_PINNED=1
 LAST-MODIFIED:20220314T172514Z
 LOCATION:CS - 104
 SEQUENCE:1
