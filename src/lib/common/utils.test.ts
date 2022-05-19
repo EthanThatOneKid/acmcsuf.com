@@ -1,19 +1,26 @@
 import { test, expect } from 'vitest';
 import * as utils from './utils';
 
-test('checks correct isStringTruthy output for falsy and truthy values', () => {
-  expect(utils.isStringTruthy('FALSE') === false);
-  expect(utils.isStringTruthy('') === false);
-  expect(utils.isStringTruthy('') === false);
-  expect(utils.isStringTruthy(``) === false);
-  expect(utils.isStringTruthy(null) === false);
-  expect(utils.isStringTruthy(undefined) === false);
-  expect(utils.isStringTruthy(String(false)) === false);
-  expect(utils.isStringTruthy(String(NaN)) === false);
-  expect(utils.isStringTruthy(String(0)) === false);
-  expect(utils.isStringTruthy(String(-0)) === false);
-  // truthy values
-  expect(utils.isStringTruthy('TRUE') === true);
-  expect(utils.isStringTruthy(String(true)) === true);
-  expect(utils.isStringTruthy(String(1)) === true);
-});
+const TRUTHY_INPUT_DATA = ['TRUE', String(true), String(1)];
+for (const input of TRUTHY_INPUT_DATA) {
+  test(`correctly determines input value '${input}' as truthy`, () => {
+    expect(utils.determineTruthyString(input)).toBe(true);
+  });
+}
+
+const FALSY_INPUT_DATA = [
+  'FALSE',
+  '',
+  ``,
+  null,
+  undefined,
+  String(false),
+  String(NaN),
+  String(0),
+  String(-0),
+];
+for (const input of FALSY_INPUT_DATA) {
+  test(`correctly determines input value '${input}' as falsy`, () => {
+    expect(utils.determineTruthyString(input)).toBe(false);
+  });
+}
