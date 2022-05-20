@@ -15,6 +15,17 @@
   import AcmEmpty from '$lib/components/utils/acm-empty.svelte';
 
   export let events: AcmEvent[] = [];
+
+  let unpinnedEvents: AcmEvent[] = [];
+  let pinnedEvents: AcmEvent[] = [];
+
+  $: {
+    [unpinnedEvents, pinnedEvents] = [[], []];
+    events.forEach((event) => {
+      if (event.hasEnded && event.isPinned) pinnedEvents.push(event);
+      else unpinnedEvents.push(event);
+    });
+  }
 </script>
 
 <svelte:head>
@@ -45,11 +56,24 @@
 <Spacing --med="16px" />
 
 {#if events.length > 0}
-  <EventCarousel {events} />
+  <EventCarousel events={unpinnedEvents} />
 {:else}
   <AcmEmpty>
     <p slot="content">There are no events scheduled!</p>
   </AcmEmpty>
+{/if}
+
+{#if pinnedEvents.length > 0}
+  <Spacing --min="8px" --med="63px" --max="88px" />
+
+  <div class="main-header">
+    <h2 class="size-lg headers">Recent Events</h2>
+    <img src="assets/bluecalender.svg" alt="Blue Calender" />
+  </div>
+
+  <Spacing --med="16px" />
+
+  <EventCarousel events={pinnedEvents} />
 {/if}
 
 <Spacing --min="8px" --med="63px" --max="88px" />
