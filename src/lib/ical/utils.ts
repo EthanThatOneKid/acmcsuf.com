@@ -2,7 +2,7 @@ import * as RRule from 'rrule/dist/es5/rrule.min.js';
 import { Temporal } from '@js-temporal/polyfill';
 import type { AcmPath } from '$lib/constants/acm-paths';
 import { acmAlgo, acmCreate, acmDev, acmGeneral } from '$lib/constants/acm-paths';
-import { determineTruthyString } from '$lib/common/utils';
+import { parseBool } from '$lib/common/utils';
 
 export interface AcmEvent {
   month: string;
@@ -314,7 +314,7 @@ export function makeAcmEvent(
     variables.get('ACM_LOCATION')
   );
 
-  const isPinned = determineTruthyString(variables.get('ACM_PINNED'));
+  const isPinned = parseBool(variables.get('ACM_PINNED'));
 
   const slug = makeEventSlug(title, dtStart);
 

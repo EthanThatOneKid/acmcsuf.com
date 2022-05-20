@@ -1,4 +1,4 @@
-export function determineTruthyString(payload?: string | null, defaultValue = false): boolean {
+export function parseBool(payload?: string | null, defaultValue = false): boolean {
   if (!payload) return defaultValue;
 
   payload = payload.trim().toLowerCase();
