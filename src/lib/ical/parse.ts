@@ -17,7 +17,7 @@ export function parse(rawICAL: string, options?: ICALParseOptions): AcmEvent[] {
     const acmEvent = makeAcmEvent(icalEvent, refDate);
 
     // skip events that have already ended (except when in debug mode)
-    if (filterBefore && acmEvent.hasEnded) {
+    if (filterBefore && acmEvent.hasEnded && !acmEvent.isPinned) {
       continue;
     }
 

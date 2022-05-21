@@ -3,7 +3,19 @@
 
   export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
     const response = await fetch(`/events.json`);
-    return { props: { events: await response.json() } };
+    const allEvents = await response.json();
+
+    // Seperate pinned events from unpinned events
+    const [events, pinnedEvents] = allEvents.reduce(
+      ([events, pinnedEvents], event: AcmEvent) => {
+        if (event.isPinned) pinnedEvents.push(event);
+        else events.push(event);
+        return [events, pinnedEvents];
+      },
+      [[], []]
+    );
+
+    return { props: { events, pinnedEvents } };
   }
 </script>
 
@@ -15,17 +27,7 @@
   import AcmEmpty from '$lib/components/utils/acm-empty.svelte';
 
   export let events: AcmEvent[] = [];
-
-  let unpinnedEvents: AcmEvent[] = [];
-  let pinnedEvents: AcmEvent[] = [];
-
-  $: {
-    [unpinnedEvents, pinnedEvents] = [[], []];
-    events.forEach((event) => {
-      if (event.hasEnded && event.isPinned) pinnedEvents.push(event);
-      else unpinnedEvents.push(event);
-    });
-  }
+  export let pinnedEvents: AcmEvent[] = [];
 </script>
 
 <svelte:head>
@@ -56,7 +58,7 @@
 <Spacing --med="16px" />
 
 {#if events.length > 0}
-  <EventCarousel events={unpinnedEvents} />
+  <EventCarousel {events} />
 {:else}
   <AcmEmpty>
     <p slot="content">There are no events scheduled!</p>
