@@ -49,6 +49,8 @@
         <p class="event-location">
           {info.location === 'Discord' || info.location === 'Zoom'
             ? `Hosted on ${info.location}`
+            : info.location == null || info.location.match(/^ *$/) !== null
+            ? 'TBD'
             : info.location}
         </p>
       </div>
