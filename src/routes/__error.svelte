@@ -45,11 +45,6 @@
     margin-bottom: 3em;
   }
 
-  @media (min-width: 900px) {
-    section .mobile {
-      display: none;
-    }
-  }
 
   @media (max-width: 900px) {
     section .wide {
