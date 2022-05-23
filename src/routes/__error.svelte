@@ -10,8 +10,7 @@
 <section>
   <em>404</em>
   <h1>Frank can't find where you're going!</h1>
-  <img src="/assets/png/lost-frank.png" class="wide" alt="404 - Page Not Found" />
-  <img src="/assets/png/lost-frank.png" class="mobile" alt="404 - Page Not Found" />
+  <img src="/assets/png/lost-frank.png" alt="404 - Page Not Found" />
 </section>
 
 <style>
