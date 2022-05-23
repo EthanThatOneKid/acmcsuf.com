@@ -29,6 +29,7 @@
     align-items: center;
     text-align: center;
   }
+  
   section em {
     align-items: center;
     text-align: center;
