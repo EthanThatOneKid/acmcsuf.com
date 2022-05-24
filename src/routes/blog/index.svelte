@@ -17,16 +17,22 @@
 </script>
 
 <svelte:head>
-  <title>acmCSUF / README</title>
+  <title>README / ACM at CSUF</title>
 </svelte:head>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <section>
-  <img src="assets/readme-logomark.svg" alt="README by acmCSUF" />
+  <div id="logo">
+    <img src="assets/readme-logomark.svg" alt="README by acmCSUF" />
+    <div>
+      <h1>README</h1>
+      <p>by ACM at <span>CSUF</span></p>
+    </div>
+  </div>
 
   <h2 class="subtitle headers">
-    The official acmCSUF blog.<a href="/blog.xml"
+    The official ACM at CSUF blog.<a href="/blog.xml"
       ><img src="assets/badges/feed-icon.svg" alt="RSS feed logo" /></a
     >
   </h2>
@@ -134,7 +140,8 @@
         }
       }
     }
-    #author {
+    #author,
+    #logo {
       display: flex;
       gap: 1em;
       margin-bottom: 1em;
@@ -158,6 +165,25 @@
       }
       a:hover {
         text-decoration: underline;
+      }
+    }
+    #logo {
+      gap: 2em;
+      h1 {
+        font-size: calc(2 * var(--size-xl));
+        font-weight: 600;
+        line-height: 1em;
+      }
+      p {
+        font-size: var(--size-lg);
+        font-weight: 600;
+        span {
+          color: var(--acm-blue);
+        }
+      }
+      img {
+        height: 100%;
+        width: calc(4 * var(--size-xl));
       }
     }
   }
