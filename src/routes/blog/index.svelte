@@ -22,23 +22,26 @@
 
 <Spacing --min="175px" --med="200px" --max="200px" />
 
-<section>
-  <div id="logo">
-    <img src="assets/readme-logomark.svg" alt="README by acmCSUF" />
-    <div>
-      <h1>README</h1>
-      <p>by ACM at <span>CSUF</span></p>
-    </div>
-  </div>
+<section class="main-header">
+  <img src="/assets/readme-logomark.svg" alt="README by acmCSUF" />
 
-  <h2 class="subtitle headers">
+  <div>
+    <h1 class="size-xxl">README</h1>
+    <h2 class="size-md">by ACM at <b class="acm-blue">CSUF</b></h2>
+  </div>
+</section>
+
+<section>
+  <h2 class="subtitle headers size-md">
     The official ACM at CSUF blog.<a href="/blog.xml"
       ><img src="assets/badges/feed-icon.svg" alt="RSS feed logo" /></a
     >
   </h2>
+</section>
 
-  <Spacing --min="100px" --med="175px" --max="200px" />
+<Spacing --min="175px" --med="200px" --max="200px" />
 
+<section>
   <ul>
     {#each posts as post (post.id)}
       <li class="blog-post">
@@ -77,7 +80,8 @@
   .subtitle {
     a {
       display: inline-block;
-      padding-left: 2.5vw;
+      padding-left: 0em;
+      margin-top: 3vw;
       vertical-align: baseline;
 
       img {
@@ -89,7 +93,7 @@
 
   section {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     margin: 0 24px;
@@ -98,12 +102,26 @@
       transition: 0.25s ease-in-out;
     }
 
+    div {
+      h1 {
+        font-weight: 550;
+        height: 95px;
+        line-height: 100px;
+      }
+
+      h2 {
+        font-weight: 600;
+        margin-left: 5px;
+      }
+    }
+
     img {
-      max-width: 600px;
+      max-width: 200px;
       width: 100%;
       height: auto;
-      margin-left: -2.2vw;
+
       margin-bottom: 8px;
+      margin-right: 2vw;
     }
 
     ul {
@@ -140,8 +158,7 @@
         }
       }
     }
-    #author,
-    #logo {
+    #author {
       display: flex;
       gap: 1em;
       margin-bottom: 1em;
@@ -167,24 +184,20 @@
         text-decoration: underline;
       }
     }
-    #logo {
-      gap: 2em;
-      h1 {
-        font-size: calc(2 * var(--size-xl));
-        font-weight: 600;
-        line-height: 1em;
+  }
+
+  @media (max-width: 600px) {
+    .main-header {
+      flex-direction: column;
+
+      div h2 {
+        text-align: center;
       }
-      p {
-        font-size: var(--size-lg);
-        font-weight: 600;
-        span {
-          color: var(--acm-blue);
-        }
-      }
-      img {
-        height: 100%;
-        width: calc(4 * var(--size-xl));
-      }
+    }
+
+    .subtitle {
+      text-align: center;
+      padding-top: 1em;
     }
   }
 
