@@ -16,6 +16,8 @@
 <script lang="ts">
   import type { Newsletter } from './_query';
   import Spacing from '$lib/components/sections/spacing.svelte';
+  import { readingTime } from '$lib/blog/util';
+  import { Temporal } from '@js-temporal/polyfill';
 
   export let post: Newsletter;
 </script>
@@ -30,7 +32,8 @@
   <h1 class="headers size-lg">{post.title}</h1>
 
   <Spacing --min="16px" --med="16px" --max="16px" />
-
+  <img src={post.author.picture} alt="" />
+  <Spacing --min="16px" --med="16px" --max="16px" />
   <p>
     by
     <a
@@ -40,6 +43,15 @@
     >
       @{post.author.displayname}
     </a>
+  </p>
+  <p>
+    {Temporal.Instant.from(post.createdAt).toLocaleString('en-US', {
+      calendar: 'gregory',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })} •
+    {readingTime(post.html)} min read
   </p>
 
   <Spacing --min="75px" --med="100px" --max="150px" />
@@ -97,5 +109,10 @@
         margin-bottom: 16px;
       }
     }
+  }
+  img {
+    height: 100%;
+    width: 5em;
+    border-radius: 50%;
   }
 </style>

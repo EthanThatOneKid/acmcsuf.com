@@ -10,6 +10,8 @@
 <script lang="ts">
   import type { Newsletter } from './_query';
   import Spacing from '$lib/components/sections/spacing.svelte';
+  import { Temporal } from '@js-temporal/polyfill';
+import { readingTime } from '$lib/blog/util';
 
   export let posts: Newsletter[] = [];
 </script>
@@ -38,6 +40,23 @@
           <h2 class="headers">{post.title}</h2>
           <div class="markdown-body">
             {@html post.html}
+          </div>
+          <div id="author">
+            <a href={post.author.url}>
+              <img src={post.author.picture} alt="" />
+            </a>
+            <div id="author-info">
+              <a href={post.author.url}>{post.author.displayname}</a>
+              <p>
+                {Temporal.Instant.from(post.createdAt).toLocaleString('en-US', {
+                  calendar: 'gregory',
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })} •
+                {readingTime(post.html)} min read
+              </p>
+            </div>
           </div>
           <small class="ita">{post.labels.join(', ')}</small>
         </a>
@@ -100,7 +119,8 @@
         a {
           text-decoration: none;
           padding: 2em;
-          display: block;
+          display: flex;
+          flex-direction: column;
 
           .markdown-body {
             max-height: 100px;
@@ -112,6 +132,32 @@
         &:hover {
           background-color: rgba(56, 182, 255, 0.5);
         }
+      }
+    }
+    #author {
+      display: flex;
+      gap: 1em;
+      margin-bottom: 1em;
+      align-items: center;
+      img {
+        border-radius: 50%;
+        width: 2.5em;
+        height: 100%;
+        margin: 0;
+      }
+      div {
+        display: flex;
+        flex-direction: column;
+      }
+      p {
+        font-size: 0.8em;
+      }
+      a {
+        padding: 0;
+        font-weight: 600;
+      }
+      a:hover {
+        text-decoration: underline;
       }
     }
   }
