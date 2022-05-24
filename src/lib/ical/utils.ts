@@ -307,10 +307,21 @@ export function makeAcmEvent(
 
   const { description, variables } = parseDescription(icalEvent['DESCRIPTION']);
 
-  const { location, meetingLink } = parseLocation(
-    icalEvent['LOCATION'],
-    variables.get('ACM_LOCATION')
-  );
+  const locations = parseLocation(icalEvent['LOCATION'], variables.get('ACM_LOCATION'));
+
+  let location = locations.location;
+  const meetingLink = locations.meetingLink;
+
+  location?.trim() || 'TBD';
+
+  const hosted = ['Discord', 'Zoom'];
+
+  location =
+    location in hosted
+      ? `Hosted on ${location}`
+      : location === null || location === undefined || location.trim() !== ''
+      ? 'TBD'
+      : location;
 
   const slug = makeEventSlug(title, dtStart);
 
