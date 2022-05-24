@@ -23,12 +23,13 @@
     margin: 0 24px;
     color: var(--acm-light);
   }
+
   section h1 {
     margin-bottom: 2em;
     align-items: center;
     text-align: center;
   }
-  
+
   section em {
     align-items: center;
     text-align: center;
@@ -43,15 +44,5 @@
     max-width: 1000px;
     height: auto;
     margin-bottom: 3em;
-  }
-
-
-  @media (max-width: 900px) {
-    section .wide {
-      display: none;
-    }
-    section .mobile {
-      display: unset;
-    }
   }
 </style>
