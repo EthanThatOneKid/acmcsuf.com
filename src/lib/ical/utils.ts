@@ -28,11 +28,6 @@ export interface AcmEvent {
 
 export type ICALResolvable = string | string[] | ICALResolvable[] | { [k: string]: ICALResolvable };
 
-export interface ICALParseOptions {
-  referenceDate?: Temporal.ZonedDateTimeLike;
-  maxEvents?: number;
-}
-
 /**
  * The code in this function is derived from
  * <https://github.com/adrianlee44/ical2json>.
