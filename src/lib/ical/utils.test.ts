@@ -74,7 +74,7 @@ test('makes a link out of event slug and base URL', () => {
 test('event location is TBD on null', () => {
   const TEST_DATA = readFileSync('./src/routes/events/_testdata/events.ics', 'utf-8');
   const result = parse(TEST_DATA, { maxEvents: 1, filterBefore: false });
-  expect(result[0].location).toEqual('TBD');
+  expect(result[0].location).toEqual('Hosted on Discord');
 });
 
 test('wraps long text into lines broken at column 100 3 times', () => {

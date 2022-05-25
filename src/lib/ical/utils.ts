@@ -312,16 +312,13 @@ export function makeAcmEvent(
   let location = locations.location;
   const meetingLink = locations.meetingLink;
 
-  location?.trim() || 'TBD';
-
   const hosted = ['Discord', 'Zoom'];
 
-  location =
-    location in hosted
+  location = location?.trim()
+    ? hosted.includes(location.trim())
       ? `Hosted on ${location}`
-      : location === null || location === undefined || location.trim() !== ''
-      ? 'TBD'
-      : location;
+      : location
+    : 'TBD';
 
   const slug = makeEventSlug(title, dtStart);
 
