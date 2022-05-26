@@ -36,7 +36,8 @@
     font-size: 50px;
     margin-bottom: 0.5em;
     margin-top: 2em;
-    text-shadow: 2px 2px var(--acm-blue);
+    text-shadow: 2px 2px #92c4df;
+    font-weight: 600;
   }
 
   section img {
