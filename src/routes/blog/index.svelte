@@ -163,23 +163,28 @@
       gap: 1em;
       margin-bottom: 1em;
       align-items: center;
+      
       img {
         border-radius: 50%;
         width: 2.5em;
         height: 100%;
         margin: 0;
       }
+      
       div {
         display: flex;
         flex-direction: column;
       }
+      
       p {
         font-size: 0.8em;
       }
+      
       a {
         padding: 0;
         font-weight: 600;
       }
+      
       a:hover {
         text-decoration: underline;
       }
