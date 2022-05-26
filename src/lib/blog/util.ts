@@ -6,9 +6,9 @@
  * @param blogContent The string containing the blog text
  * @param wpm (Optional) defines words per minute to assume the reader reads at
  * @returns The estimated read time of an article in minutes
- * @see <https://stackoverflow.com/a/5002161>
  */
 export function readingTime(blogContent: string, wpm = 225) {
+  // Regex taken from https://stackoverflow.com/a/5002161 to parse out HTML tags
   const text = blogContent.replace(/<\/?[^>]+(>|$)/, '').trim();
   return Math.ceil(text.split(/\s+/).length / wpm);
 }
