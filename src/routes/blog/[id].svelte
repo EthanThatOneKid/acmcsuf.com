@@ -16,7 +16,7 @@
 <script lang="ts">
   import type { Newsletter } from './_query';
   import Spacing from '$lib/components/sections/spacing.svelte';
-  import { readingTime } from '$lib/blog/util';
+  import { readingTime } from '$lib/blog/utils';
   import { Temporal } from '@js-temporal/polyfill';
 
   export let post: Newsletter;
