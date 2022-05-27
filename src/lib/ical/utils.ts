@@ -241,9 +241,13 @@ export function makeOutlookCalendarLink(
 
 export function parseLocation(
   rawLocation?: string,
-  defaultLocation = 'Discord',
+  defaultLocation = 'TBD',
   defaultLink = '/discord'
 ): { location: string; meetingLink: string } {
+  if (!rawLocation) {
+    rawLocation = rawLocation.trim();
+  }
+
   if (rawLocation?.includes('zoom.us')) {
     return { location: 'Zoom', meetingLink: rawLocation };
   }
@@ -307,9 +311,10 @@ export function makeAcmEvent(
 
   const { description, variables } = parseDescription(icalEvent['DESCRIPTION']);
 
-  const locations = parseLocation(icalEvent['LOCATION'], variables.get('ACM_LOCATION'));
-  const location = locations.location?.trim() || 'TBD';
-  const meetingLink = locations.meetingLink;
+  const { location, meetingLink } = parseLocation(
+    icalEvent['LOCATION'],
+    variables.get('ACM_LOCATION')
+  );
 
   const slug = makeEventSlug(title, dtStart);
 
