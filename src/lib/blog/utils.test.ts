@@ -3,7 +3,7 @@ import { readingTime } from './utils';
 import fs from 'fs';
 
 test('properly times plain text strings', () => {
-  const string = fs.readFileSync('src/lib/blog/beeMovie.txt').toString();
+  const string = fs.readFileSync('src/lib/blog/bee-movie.txt').toString();
   expect(readingTime(string)).toBe(41);
 });
 
