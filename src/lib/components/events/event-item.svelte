@@ -21,6 +21,10 @@
       .catch(() => toast({ path, type: ToastType.Error, content: errorMessage }));
   }
 
+  function formatLocation(location: string, hosted = ['Discord', 'Zoom']): string {
+    return hosted.includes(info.location) ? `Hosted on ${location}` : location;
+  }
+
   onMount(() => {
     if (location.hash === `#${info.slug}`) {
       anchor.scrollIntoView({
@@ -47,7 +51,7 @@
         </h2>
 
         <p class="event-location">
-          {info.location?.trim() || 'TBD'}
+          {formatLocation(info.location)}
         </p>
       </div>
 
