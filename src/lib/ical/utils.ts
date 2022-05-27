@@ -309,16 +309,14 @@ export function makeAcmEvent(
 
   const locations = parseLocation(icalEvent['LOCATION'], variables.get('ACM_LOCATION'));
 
-  let location = locations.location;
+  let location = locations.location?.trim() || 'TBD';
   const meetingLink = locations.meetingLink;
 
   const hosted = ['Discord', 'Zoom'];
 
-  location = location?.trim()
-    ? hosted.includes(location.trim())
-      ? `Hosted on ${location}`
-      : location
-    : 'TBD';
+  if (hosted.includes(location)) {
+    location = `Hosted on ${location}`;
+  }
 
   const slug = makeEventSlug(title, dtStart);
 
