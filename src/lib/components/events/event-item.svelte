@@ -21,8 +21,10 @@
       .catch(() => toast({ path, type: ToastType.Error, content: errorMessage }));
   }
 
-  function formatLocation(location: string, hosted = ['Discord', 'Zoom']): string {
-    return hosted.includes(info.location) ? `Hosted on ${location}` : location;
+  function formatLocation(location?: string | null, hosted = ['Discord', 'Zoom']): string {
+    // Whitespace, null, and undefined are all TBD
+    if (!location) return 'TBD';
+    return hosted.includes(location) ? `Hosted on ${location}` : location;
   }
 
   onMount(() => {
