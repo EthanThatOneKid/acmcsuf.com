@@ -22,7 +22,7 @@
   }
 
   function formatLocation(location?: string | null, hosted = ['Discord', 'Zoom']): string {
-    // Whitespace, null, and undefined are all TBD
+    // '', null, and undefined are all TBD
     if (!location) return 'TBD';
     return hosted.includes(location) ? `Hosted on ${location}` : location;
   }
