@@ -46,7 +46,7 @@
     <slot name="title" />
   </div>
   <a href="?" class="reset-button" class:hidden={!hasSelectedLabels} on:click={deselectAll}>
-    <slot name="resetButton" />
+    <slot name="reset-button" />
   </a>
 
   <div class="label-list">

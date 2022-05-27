@@ -60,7 +60,7 @@
 
   <LabelField {labels} {selectedLabels} urlSearchParamKey="l" on:change={filterPosts}>
     <div slot="title">Filter by Tags</div>
-    <div slot="resetButton">✖ Clear all</div>
+    <div slot="reset-button">✖ Clear all</div>
   </LabelField>
 
   <ul>
