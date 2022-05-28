@@ -3,9 +3,10 @@ import { fetchNewsletters, NewsletterFetchOptions } from './_query';
 
 export async function get(event: RequestEvent): Promise<RequestHandlerOutput> {
   const fetchOptions: NewsletterFetchOptions = { labels: [] };
+  const rawLabels = event.url.searchParams.get('l');
 
-  if (event.url.searchParams.has('l') === true && event.url.searchParams.get('l').length > 0) {
-    fetchOptions.labels = event.url.searchParams.get('l').split(',');
+  if (rawLabels?.length > 0) {
+    fetchOptions.labels = rawLabels.split(',');
   }
 
   return new Response(JSON.stringify(await fetchNewsletters(fetchOptions)), {
