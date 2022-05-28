@@ -6,7 +6,7 @@
     const rawLabels = url.searchParams.get('l');
     const selectedLabels = [];
 
-    if (rawLabels !== null && rawLabels.length > 0) {
+    if (rawLabels?.length > 0) {
       target.searchParams.set('l', rawLabels);
       selectedLabels.push(...rawLabels.split(','));
     }
