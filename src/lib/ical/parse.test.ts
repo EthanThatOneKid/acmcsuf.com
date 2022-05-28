@@ -15,19 +15,5 @@ test('ICAL parser integration test', () => {
   //   `export const events = ${JSON.stringify(events)};`
   // );
 
-  let i = 0;
-  events.forEach((element) => {
-    for (const prop in element) {
-      if (
-        Object.prototype.hasOwnProperty.call(element, prop) &&
-        prop !== 'location' &&
-        prop !== 'calendarLinks'
-      ) {
-        expect(element[prop]).toEqual(EVENT_DATA[i][prop]);
-      }
-    }
-    i += 1;
-  });
-
-  //expect(JSON.stringify(events)).toBe(JSON.stringify(EVENT_DATA));
+  expect(events).toEqual(EVENT_DATA);
 });

@@ -244,19 +244,17 @@ export function parseLocation(
   defaultLocation = 'TBD',
   defaultLink = '/discord'
 ): { location: string; meetingLink: string } {
-  if (!rawLocation) {
-    rawLocation = rawLocation.trim();
-  }
+  rawLocation = rawLocation?.trim() ?? '';
 
-  if (rawLocation?.includes('zoom.us')) {
+  if (rawLocation.includes('zoom.us')) {
     return { location: 'Zoom', meetingLink: rawLocation };
   }
 
-  if (rawLocation?.startsWith('https://')) {
+  if (rawLocation.startsWith('https://')) {
     return { location: defaultLocation, meetingLink: rawLocation };
   }
 
-  if (rawLocation?.length > 0) {
+  if (rawLocation.length > 0) {
     return { location: rawLocation, meetingLink: defaultLink };
   }
 
