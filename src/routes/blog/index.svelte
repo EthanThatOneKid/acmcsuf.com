@@ -206,6 +206,21 @@
     }
   }
 
+  @media (max-width: 600px) {
+    .main-header {
+      flex-direction: column;
+
+      div h2 {
+        text-align: center;
+      }
+    }
+
+    .subtitle {
+      text-align: center;
+      padding-top: 1em;
+    }
+  }
+
   @media (max-width: 900px) {
     section {
       ul {
