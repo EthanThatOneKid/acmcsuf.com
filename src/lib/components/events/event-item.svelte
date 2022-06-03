@@ -6,27 +6,13 @@
   import CopyTextIcon from '$lib/components/icons/copy-text.svelte';
   import GoogleCalendarIcon from '$lib/components/icons/google-calendar.svelte';
   import MsOutlookIcon from '$lib/components/icons/ms-outlook.svelte';
+  import { formatLocation, copy } from './utils';
 
   export let info: AcmEvent;
 
   let isRecurring: boolean = info.recurring;
   let anchor: HTMLElement;
   let details: HTMLDetailsElement;
-
-  /** @see <https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText> */
-  function copy(link: string, successMessage: string, errorMessage: string, path: string) {
-    navigator.clipboard
-      .writeText(link)
-      .then(() => toast({ content: successMessage, path }))
-      .catch(() => toast({ path, type: ToastType.Error, content: errorMessage }));
-  }
-
-  function formatLocation(location?: string | null, hosted = ['Discord', 'Zoom']): string {
-    // '', null, and undefined are all TBD
-    location = location?.trim() ?? '';
-    if (location === '') return 'TBD';
-    return hosted.includes(location) ? `Hosted on ${location}` : location;
-  }
 
   onMount(() => {
     if (location.hash === `#${info.slug}`) {
