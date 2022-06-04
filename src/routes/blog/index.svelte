@@ -12,6 +12,7 @@
   import Spacing from '$lib/components/sections/spacing.svelte';
   import { Temporal } from '@js-temporal/polyfill';
   import { readingTime } from '$lib/blog/utils';
+  import Tags from './tags.svelte';
 
   export let posts: Newsletter[] = [];
 </script>
@@ -50,6 +51,7 @@
           <div class="markdown-body">
             {@html post.html}
           </div>
+          <Tags labels={post.labels} />
           <div id="author">
             <a href={post.author.url}>
               <img src={post.author.picture} alt="" />
@@ -67,7 +69,6 @@
               </p>
             </div>
           </div>
-          <small class="ita">{post.labels.join(', ')}</small>
         </a>
       </li>
     {/each}
