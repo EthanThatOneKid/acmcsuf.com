@@ -10,12 +10,14 @@
 <script lang="ts">
   import type { Newsletter } from './_query';
   import Spacing from '$lib/components/sections/spacing.svelte';
+  import { Temporal } from '@js-temporal/polyfill';
+  import { readingTime } from '$lib/blog/utils';
 
   export let posts: Newsletter[] = [];
 </script>
 
 <svelte:head>
-  <title>Blog / ACM at CSUF</title>
+  <title>README / ACM at CSUF</title>
 </svelte:head>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
@@ -25,13 +27,13 @@
 
   <div>
     <h1 class="size-xxl">README</h1>
-    <h2 class="size-md">by acm<b class="acm-blue">CSUF</b></h2>
+    <h2 class="size-md">by ACM at <b class="acm-blue">CSUF</b></h2>
   </div>
 </section>
 
 <section>
   <h2 class="subtitle headers size-md">
-    The official acmCSUF blog.<a href="/blog.xml"
+    The official ACM at CSUF blog.<a href="/blog.xml"
       ><img src="assets/badges/feed-icon.svg" alt="RSS feed logo" /></a
     >
   </h2>
@@ -47,6 +49,23 @@
           <h2 class="headers">{post.title}</h2>
           <div class="markdown-body">
             {@html post.html}
+          </div>
+          <div id="author">
+            <a href={post.author.url}>
+              <img src={post.author.picture} alt="" />
+            </a>
+            <div id="author-info">
+              <a href={post.author.url}>{post.author.displayname}</a>
+              <p>
+                {Temporal.Instant.from(post.createdAt).toLocaleString('en-US', {
+                  calendar: 'gregory',
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })} •
+                {readingTime(post.html)} min read
+              </p>
+            </div>
           </div>
           <small class="ita">{post.labels.join(', ')}</small>
         </a>
@@ -124,7 +143,8 @@
         a {
           text-decoration: none;
           padding: 2em;
-          display: block;
+          display: flex;
+          flex-direction: column;
 
           .markdown-body {
             max-height: 100px;
@@ -137,6 +157,52 @@
           background-color: rgba(56, 182, 255, 0.5);
         }
       }
+    }
+    #author {
+      display: flex;
+      gap: 1em;
+      margin-bottom: 1em;
+      align-items: center;
+
+      img {
+        border-radius: 50%;
+        width: 2.5em;
+        height: 100%;
+        margin: 0;
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+      }
+
+      p {
+        font-size: 0.8em;
+      }
+
+      a {
+        padding: 0;
+        font-weight: 600;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .main-header {
+      flex-direction: column;
+
+      div h2 {
+        text-align: center;
+      }
+    }
+
+    .subtitle {
+      text-align: center;
+      padding-top: 1em;
     }
   }
 
