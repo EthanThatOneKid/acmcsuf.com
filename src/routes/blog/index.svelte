@@ -50,11 +50,11 @@
           <div class="markdown-body">
             {@html post.html}
           </div>
-          <div id="author">
+          <div class="author">
             <a href={post.author.url}>
               <img src={post.author.picture} alt="" />
             </a>
-            <div id="author-info">
+            <div>
               <a href={post.author.url}>{post.author.displayname}</a>
               <p>
                 {Temporal.Instant.from(post.createdAt).toLocaleString('en-US', {
@@ -158,7 +158,7 @@
         }
       }
     }
-    #author {
+    .author {
       display: flex;
       gap: 1em;
       margin-bottom: 1em;
