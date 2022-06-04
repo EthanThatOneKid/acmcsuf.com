@@ -18,7 +18,6 @@
   import Spacing from '$lib/components/sections/spacing.svelte';
   import { readingTime } from '$lib/blog/utils';
   import { Temporal } from '@js-temporal/polyfill';
-  import Tags from './tags.svelte';
 
   export let post: Newsletter;
 </script>
@@ -61,7 +60,12 @@
     <div class="markdown-body">
       {@html post.html}
     </div>
-    <Tags labels={post.labels} />
+
+    {#if post.labels.length > 0}
+      <small class="ita">Tags: {post.labels.join(', ')}</small>
+      <br />
+    {/if}
+
     <small class="ita">Read as TXT: <a href={`${post.url}.txt`}>{post.url}.txt</a></small>
   </div>
 
