@@ -1,10 +1,10 @@
-<script>
-  export let labels;
+<script lang="ts">
+  export let data: string[] = [];
 </script>
 
-{#if labels.length > 0}
+{#if data.length > 0}
   <div class="labels">
-    {#each labels as label}
+    {#each data as label}
       <small class="label">#{label}</small>
     {/each}
   </div>

@@ -12,7 +12,7 @@
   import Spacing from '$lib/components/sections/spacing.svelte';
   import { Temporal } from '@js-temporal/polyfill';
   import { readingTime } from '$lib/blog/utils';
-  import Tags from '../../lib/components/blog/tags.svelte';
+  import Labels from '$lib/components/blog/labels.svelte';
 
   export let posts: Newsletter[] = [];
 </script>
@@ -67,7 +67,7 @@
               day: 'numeric',
             })} •
             {readingTime(post.html)} min read
-            <Tags labels={post.labels} />
+            <Labels data={post.labels} />
           </p>
         </a>
       </li>
