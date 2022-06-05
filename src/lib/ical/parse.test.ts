@@ -15,5 +15,5 @@ test('ICAL parser integration test', () => {
   //   `export const events = ${JSON.stringify(events)};`
   // );
 
-  expect(JSON.stringify(events)).toBe(JSON.stringify(EVENT_DATA));
+  expect(events).toEqual(EVENT_DATA);
 });
