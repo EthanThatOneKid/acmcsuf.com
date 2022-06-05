@@ -12,7 +12,7 @@ test('can render', () => {
 
 test('can find the correct page title', () => {
   const { getByText } = render(Blog);
-  expect(getByText('The official acmCSUF blog.')).toBeDefined();
+  expect(getByText('The official ACM at CSUF blog.')).toBeDefined();
 });
 
 test('can render 3 blog posts', () => {
