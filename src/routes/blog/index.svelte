@@ -47,28 +47,28 @@
     {#each posts as post (post.id)}
       <li class="blog-post">
         <a href={`/blog/${post.id}`} sveltekit:prefetch>
-          <h2 class="headers">{post.title}</h2>
-          <div class="markdown-body">
-            {@html post.html}
-          </div>
-          <Tags labels={post.labels} />
           <div class="author">
             <a href={post.author.url}>
               <img src={post.author.picture} alt="" />
             </a>
             <div>
               <a href={post.author.url}>{post.author.displayname}</a>
-              <p>
-                {Temporal.Instant.from(post.createdAt).toLocaleString('en-US', {
-                  calendar: 'gregory',
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })} •
-                {readingTime(post.html)} min read
-              </p>
             </div>
           </div>
+          <h2 class="headers">{post.title}</h2>
+          <div class="markdown-body">
+            {@html post.html}
+          </div>
+          <p class="read-time">
+            {Temporal.Instant.from(post.createdAt).toLocaleString('en-US', {
+              calendar: 'gregory',
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })} •
+            {readingTime(post.html)} min read
+            <Tags labels={post.labels} />
+          </p>
         </a>
       </li>
     {/each}
@@ -177,10 +177,6 @@
         flex-direction: column;
       }
 
-      p {
-        font-size: 0.8em;
-      }
-
       a {
         padding: 0;
         font-weight: 600;
@@ -189,6 +185,13 @@
       a:hover {
         text-decoration: underline;
       }
+    }
+    .read-time {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      font-size: 1em;
+      gap: 1em;
     }
   }
 

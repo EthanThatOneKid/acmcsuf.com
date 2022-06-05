@@ -16,7 +16,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 0.2em;
-    padding-bottom: 0.5em;
+    font-size: 1em;
     small {
       background-color: var(--acm-light);
       border-radius: 5px;
