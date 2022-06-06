@@ -110,14 +110,17 @@
         font-family: monospace;
         font-size: 1.5em;
         background-color: var(--acm-canvas);
-        border-radius: 0.7em;
+        border-radius: 0.5em;
         overflow-y: scroll;
+        margin: 0.5em 0;
       }
       :global(pre) {
         padding: 16px;
       }
       :global(code) {
-        padding: 0.2em 0.5em;
+        border-radius: 0.3em;
+        padding: 0.1em 0.5em;
+        margin: 0 0.3em;
       }
     }
   }
