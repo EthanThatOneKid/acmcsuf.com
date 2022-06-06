@@ -111,6 +111,7 @@
         font-size: 1.5em;
         background-color: var(--acm-canvas);
         border-radius: 0.7em;
+        overflow-y: scroll;
       }
       :global(pre) {
         padding: 16px;
