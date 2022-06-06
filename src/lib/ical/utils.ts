@@ -28,11 +28,6 @@ export interface AcmEvent {
 
 export type ICALResolvable = string | string[] | ICALResolvable[] | { [k: string]: ICALResolvable };
 
-export interface ICALParseOptions {
-  referenceDate?: Temporal.ZonedDateTimeLike;
-  maxEvents?: number;
-}
-
 /**
  * The code in this function is derived from
  * <https://github.com/adrianlee44/ical2json>.
@@ -246,18 +241,20 @@ export function makeOutlookCalendarLink(
 
 export function parseLocation(
   rawLocation?: string,
-  defaultLocation = 'Discord',
+  defaultLocation = 'TBD',
   defaultLink = '/discord'
 ): { location: string; meetingLink: string } {
-  if (rawLocation?.includes('zoom.us')) {
+  rawLocation = rawLocation?.trim() ?? '';
+
+  if (rawLocation.includes('zoom.us')) {
     return { location: 'Zoom', meetingLink: rawLocation };
   }
 
-  if (rawLocation?.startsWith('https://')) {
+  if (rawLocation.startsWith('https://')) {
     return { location: defaultLocation, meetingLink: rawLocation };
   }
 
-  if (rawLocation?.length > 0) {
+  if (rawLocation.length > 0) {
     return { location: rawLocation, meetingLink: defaultLink };
   }
 

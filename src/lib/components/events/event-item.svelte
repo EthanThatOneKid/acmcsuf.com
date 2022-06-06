@@ -1,25 +1,17 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import type { AcmEvent } from '$lib/ical';
-  import { toast, ToastType } from '$lib/stores/toasts';
   import CopyLinkIcon from '$lib/components/icons/copy-link.svelte';
   import CopyTextIcon from '$lib/components/icons/copy-text.svelte';
   import GoogleCalendarIcon from '$lib/components/icons/google-calendar.svelte';
   import MsOutlookIcon from '$lib/components/icons/ms-outlook.svelte';
+  import { formatLocation, copy } from './utils';
 
   export let info: AcmEvent;
 
   let isRecurring: boolean = info.recurring;
   let anchor: HTMLElement;
   let details: HTMLDetailsElement;
-
-  /** @see <https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText> */
-  function copy(link: string, successMessage: string, errorMessage: string, path: string) {
-    navigator.clipboard
-      .writeText(link)
-      .then(() => toast({ content: successMessage, path }))
-      .catch(() => toast({ path, type: ToastType.Error, content: errorMessage }));
-  }
 
   onMount(() => {
     if (location.hash === `#${info.slug}`) {
@@ -47,9 +39,7 @@
         </h2>
 
         <p class="event-location">
-          {info.location === 'Discord' || info.location === 'Zoom'
-            ? `Hosted on ${info.location}`
-            : info.location}
+          {formatLocation(info.location)}
         </p>
       </div>
 

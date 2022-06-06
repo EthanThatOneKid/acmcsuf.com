@@ -13,8 +13,8 @@ export interface Newsletter {
   discussionUrl: string;
   title: string;
   html: string;
-  createdAt: number | null;
-  lastEdited: number | null;
+  createdAt: string | null;
+  lastEdited: string | null;
   labels: string[];
   author: {
     displayname: string;
@@ -119,6 +119,10 @@ export async function fetchNewsletters(options?: NewsletterFetchOptions): Promis
   if (options?.labels.length > 0) {
     posts = posts.filter((post) => post.labels.some((item) => options.labels.includes(item)));
   }
-
+  
+  posts = posts.sort((a, b) => {
+    return new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf();
+  });
+  
   return { labels, posts };
 }

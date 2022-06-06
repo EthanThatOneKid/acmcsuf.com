@@ -16,6 +16,9 @@
 <script lang="ts">
   import type { Newsletter } from './_query';
   import Spacing from '$lib/components/sections/spacing.svelte';
+  import { readingTime } from '$lib/blog/utils';
+  import { Temporal } from '@js-temporal/polyfill';
+  import Labels from '$lib/components/blog/labels.svelte';
 
   export let post: Newsletter;
 </script>
@@ -30,7 +33,8 @@
   <h1 class="headers size-lg">{post.title}</h1>
 
   <Spacing --min="16px" --med="16px" --max="16px" />
-
+  <img src={post.author.picture} alt="" />
+  <Spacing --min="16px" --med="16px" --max="16px" />
   <p>
     by
     <a
@@ -41,6 +45,15 @@
       @{post.author.displayname}
     </a>
   </p>
+  <p>
+    {Temporal.Instant.from(post.createdAt).toLocaleString('en-US', {
+      calendar: 'gregory',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })} •
+    {readingTime(post.html)} min read
+  </p>
 
   <Spacing --min="75px" --med="100px" --max="150px" />
 
@@ -48,12 +61,7 @@
     <div class="markdown-body">
       {@html post.html}
     </div>
-
-    {#if post.labels.length > 0}
-      <small class="ita">Tags: {post.labels.join(', ')}</small>
-      <br />
-    {/if}
-
+    <Labels data={post.labels} />
     <small class="ita">Read as TXT: <a href={`${post.url}.txt`}>{post.url}.txt</a></small>
   </div>
 
@@ -97,5 +105,10 @@
         margin-bottom: 16px;
       }
     }
+  }
+  img {
+    height: 100%;
+    width: 5em;
+    border-radius: 50%;
   }
 </style>
