@@ -69,6 +69,7 @@
 </section>
 
 <style lang="scss">
+  @import '$lib/blog/syntax-highlight.css';
   section {
     display: flex;
     flex-direction: column;
@@ -103,6 +104,19 @@
 
       :global(p) {
         margin-bottom: 16px;
+      }
+      :global(code),
+      :global(pre) {
+        font-family: monospace;
+        font-size: 1.5em;
+        background-color: var(--acm-canvas);
+        border-radius: 0.7em;
+      }
+      :global(pre) {
+        padding: 16px;
+      }
+      :global(code) {
+        padding: 0.2em 0.5em;
       }
     }
   }
