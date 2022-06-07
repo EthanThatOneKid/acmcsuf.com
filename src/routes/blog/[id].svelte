@@ -19,6 +19,7 @@
   import { readingTime } from '$lib/blog/utils';
   import { Temporal } from '@js-temporal/polyfill';
   import Labels from '$lib/components/blog/labels.svelte';
+  import BlogBody from '$lib/blog/blog-body.svelte';
 
   export let post: Newsletter;
 </script>
@@ -58,9 +59,7 @@
   <Spacing --min="75px" --med="100px" --max="150px" />
 
   <div class="container">
-    <div class="markdown-body">
-      {@html post.html}
-    </div>
+    <BlogBody data={post.html} />
     <Labels data={post.labels} />
     <small class="ita">Read as TXT: <a href={`${post.url}.txt`}>{post.url}.txt</a></small>
   </div>
@@ -69,7 +68,8 @@
 </section>
 
 <style lang="scss">
-  @import '$lib/blog/syntax-highlight.css';
+  // @import '$lib/blog/syntax-highlight.css';
+
   section {
     display: flex;
     flex-direction: column;
@@ -99,30 +99,30 @@
     -webkit-filter: drop-shadow(0 8px 40px rgba(16, 19, 21, 0.1));
     width: min(1000px, 70vw);
 
-    .markdown-body {
-      text-align: left;
+    // .markdown-body {
+    //   text-align: left;
 
-      :global(p) {
-        margin-bottom: 16px;
-      }
-      :global(code),
-      :global(pre) {
-        font-family: monospace;
-        font-size: 1.5em;
-        background-color: var(--acm-canvas);
-        border-radius: 0.5em;
-        overflow-y: scroll;
-        margin: 0.5em 0;
-      }
-      :global(pre) {
-        padding: 16px;
-      }
-      :global(code) {
-        border-radius: 0.3em;
-        padding: 0.1em 0.5em;
-        margin: 0 0.3em;
-      }
-    }
+    //   :global(p) {
+    //     margin-bottom: 16px;
+    //   }
+    //   :global(code),
+    //   :global(pre) {
+    //     font-family: monospace;
+    //     font-size: 1.5em;
+    //     background-color: var(--acm-canvas);
+    //     border-radius: 0.5em;
+    //     overflow-y: scroll;
+    //     margin: 0.5em 0;
+    //   }
+    //   :global(pre) {
+    //     padding: 16px;
+    //   }
+    //   :global(code) {
+    //     border-radius: 0.3em;
+    //     padding: 0.1em 0.5em;
+    //     margin: 0 0.3em;
+    //   }
+    // }
   }
   img {
     height: 100%;

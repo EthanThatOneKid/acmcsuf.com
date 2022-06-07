@@ -13,6 +13,7 @@
   import { Temporal } from '@js-temporal/polyfill';
   import { readingTime } from '$lib/blog/utils';
   import Labels from '$lib/components/blog/labels.svelte';
+  import BlogBody from '$lib/blog/blog-body.svelte';
 
   export let posts: Newsletter[] = [];
 </script>
@@ -57,7 +58,7 @@
           </div>
           <h2 class="headers">{post.title}</h2>
           <div class="markdown-body">
-            {@html post.html}
+            <BlogBody data={post.html} />
           </div>
           <p class="read-time">
             {Temporal.Instant.from(post.createdAt).toLocaleString('en-US', {
