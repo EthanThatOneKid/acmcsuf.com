@@ -17,7 +17,7 @@ export async function get(event: RequestEvent): Promise<RequestHandlerOutput> {
   const isSatisfied =
     import.meta.env.VITE_GH_ACCESS_TOKEN !== undefined &&
     import.meta.env.VITE_GH_DISCUSSION_CATEGORY_ID !== undefined;
-  
+
   return new Response(
     DEBUG || !isSatisfied ? SAMPLE_POSTS : JSON.stringify(await fetchNewsletters(fetchOptions)),
     {

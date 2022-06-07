@@ -119,10 +119,10 @@ export async function fetchNewsletters(options?: NewsletterFetchOptions): Promis
   if (options?.labels.length > 0) {
     posts = posts.filter((post) => post.labels.some((item) => options.labels.includes(item)));
   }
-  
+
   posts = posts.sort((a, b) => {
     return new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf();
   });
-  
+
   return { labels, posts };
 }

@@ -80,20 +80,20 @@
     .hidden {
       display: none;
     }
-    
+
     .reset-button {
       margin-right: 1em;
       font-size: small;
       text-decoration: underline;
       cursor: pointer;
     }
-    
+
     .label-list {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       margin-bottom: 0.2em;
-      
+
       .label {
         margin-bottom: 0.2em;
         margin-right: var(--size-sm);
@@ -105,32 +105,32 @@
         cursor: pointer;
         transition: 0.25s ease-in-out;
         text-decoration: none;
-        
+
         &:hover {
           border-color: #b0bec5;
         }
-        
+
         &.selected {
           transition: 1s ease-in-out;
           background-color: #81d4fa;
           border-color: #4fc3f7;
-          
+
           &:before {
             content: '✓ ';
           }
-          
+
           &:hover {
             border-color: #2196f3;
           }
         }
       }
     }
-    
+
     @media screen and (max-width: 900px) {
       .title {
         display: none;
       }
-      
+
       .reset-button {
         display: none;
       }

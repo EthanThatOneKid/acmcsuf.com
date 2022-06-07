@@ -26,7 +26,6 @@
   import { readingTime } from '$lib/blog/utils';
   import Labels from '$lib/components/blog/labels.svelte';
 
-
   export let posts: Newsletter[] = [];
   export let labels: string[] = [];
   export let selectedLabels: string[] = [];
