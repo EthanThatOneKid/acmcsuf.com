@@ -56,7 +56,7 @@
     {readingTime(post.html)} min read
   </p>
 
-  <Spacing --min="75px" --med="100px" --max="150px" />
+  <Spacing --min="40px" --med="40px" --max="40px" />
 
   <div class="container">
     <BlogBody data={post.html} />
