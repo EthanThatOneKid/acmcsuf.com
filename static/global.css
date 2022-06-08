@@ -10,6 +10,7 @@
   --acm-purple: #9d35e7;
   --acm-red: #d41153;
   --acm-sky: #38b6ff;
+  --acm-canvas: #eaeaea;
 
   --acm-general-rgb: 44, 145, 198;
   --acm-algo-rgb: 157, 53, 231;
@@ -31,10 +32,14 @@
 html,
 body,
 #svelte {
-  font-family: 'Poppins';
   color: var(--acm-dark);
   padding: 0;
   margin: 0;
+}
+html,
+body,
+#svelte {
+  font-family: 'Poppins';
 }
 
 body {
@@ -127,6 +132,7 @@ body {
 .light {
   --acm-dark: #101315;
   --acm-light: #f8f8f8;
+  --acm-canvas: #eaeaea;
   --navbar-bg: var(--acm-light);
   --footer-bg: var(--acm-dark);
   --card-bg: var(--acm-light);
@@ -137,6 +143,7 @@ body {
 .dark {
   --acm-dark: #f8f8f8;
   --acm-light: #101315;
+  --acm-canvas: #161b22;
   --navbar-bg: var(--acm-light);
   --footer-bg: var(--acm-gray);
   --card-bg: var(--acm-gray);
@@ -148,6 +155,7 @@ body {
   body:not(.dark) {
     --acm-dark: #101315;
     --acm-light: #f8f8f8;
+    --acm-canvas: #eaeaea;
     --navbar-bg: var(--acm-light);
     --footer-bg: var(--acm-dark);
     --card-bg: var(--acm-light);
@@ -160,6 +168,7 @@ body {
   body:not(.light) {
     --acm-dark: #f8f8f8;
     --acm-light: #101315;
+    --acm-canvas: #161b22;
     --navbar-bg: var(--acm-light);
     --footer-bg: var(--acm-gray);
     --card-bg: var(--acm-gray);
