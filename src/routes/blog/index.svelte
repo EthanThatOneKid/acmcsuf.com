@@ -152,6 +152,7 @@
             max-height: 100px;
             overflow: hidden;
             margin: 16px 0;
+            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
           }
         }
 
