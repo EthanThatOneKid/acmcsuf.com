@@ -67,47 +67,49 @@
   </h2>
 </section>
 
-<Spacing --min="175px" --med="200px" --max="200px" />
+{#if posts.length > 0}
+  <Spacing --min="175px" --med="200px" --max="200px" />
 
-<LabelField {labels} {selectedLabels} urlSearchParamKey="l" on:change={filterPosts}>
-  <div slot="title">Filter by Tags</div>
-  <div slot="reset-button">✖ Clear all</div>
-</LabelField>
+  <LabelField {labels} {selectedLabels} urlSearchParamKey="l" on:change={filterPosts}>
+    <div slot="title">Filter by Tags</div>
+    <div slot="reset-button">✖ Clear all</div>
+  </LabelField>
 
-<section>
-  <ul>
-    {#each posts as post (post.id)}
-      <li class="blog-post">
-        <a href={`/blog/${post.id}`} sveltekit:prefetch>
-          <div class="author">
-            <a href={post.author.url}>
-              <img src={post.author.picture} alt="" />
-            </a>
-            <div>
-              <a href={post.author.url}>{post.author.displayname}</a>
+  <section>
+    <ul>
+      {#each posts as post (post.id)}
+        <li class="blog-post">
+          <a href={`/blog/${post.id}`} sveltekit:prefetch>
+            <div class="author">
+              <a href={post.author.url}>
+                <img src={post.author.picture} alt="" />
+              </a>
+              <div>
+                <a href={post.author.url}>{post.author.displayname}</a>
+              </div>
             </div>
-          </div>
-          <h2 class="headers">{post.title}</h2>
-          <div class="markdown-body">
-            {@html post.html}
-          </div>
-          <p class="read-time">
-            {Temporal.Instant.from(post.createdAt).toLocaleString('en-US', {
-              calendar: 'gregory',
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })} •
-            {readingTime(post.html)} min read
-            <Labels data={post.labels} />
-          </p>
-        </a>
-      </li>
-    {/each}
-  </ul>
-</section>
+            <h2 class="headers">{post.title}</h2>
+            <div class="markdown-body">
+              {@html post.html}
+            </div>
+            <p class="read-time">
+              {Temporal.Instant.from(post.createdAt).toLocaleString('en-US', {
+                calendar: 'gregory',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })} •
+              {readingTime(post.html)} min read
+              <Labels data={post.labels} />
+            </p>
+          </a>
+        </li>
+      {/each}
+    </ul>
+  </section>
 
-<Spacing --min="40px" --med="95px" --max="120px" />
+  <Spacing --min="40px" --med="95px" --max="120px" />
+{/if}
 
 <style lang="scss">
   .subtitle {

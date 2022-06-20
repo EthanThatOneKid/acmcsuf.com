@@ -41,27 +41,29 @@
   }
 </script>
 
-<div class="label-box">
-  <div class="title" class:hidden={hasSelectedLabels}>
-    <slot name="title" />
-  </div>
-  <a href="?" class="reset-button" class:hidden={!hasSelectedLabels} on:click={deselectAll}>
-    <slot name="reset-button" />
-  </a>
+{#if labels.length > 0}
+  <div class="label-box">
+    <div class="title" class:hidden={hasSelectedLabels}>
+      <slot name="title" />
+    </div>
+    <a href="?" class="reset-button" class:hidden={!hasSelectedLabels} on:click={deselectAll}>
+      <slot name="reset-button" />
+    </a>
 
-  <div class="label-list">
-    {#each labels as label}
-      <a
-        href={createLabelURL(label)}
-        class="label"
-        class:selected={selectedLabels.includes(label)}
-        on:click={selectLabel}
-      >
-        {label}
-      </a>
-    {/each}
+    <div class="label-list">
+      {#each labels as label}
+        <a
+          href={createLabelURL(label)}
+          class="label"
+          class:selected={selectedLabels.includes(label)}
+          on:click={selectLabel}
+        >
+          {label}
+        </a>
+      {/each}
+    </div>
   </div>
-</div>
+{/if}
 
 <style lang="scss">
   .label-box {
