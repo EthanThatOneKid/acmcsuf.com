@@ -22,6 +22,7 @@
     "test": "vitest --run",
     "test:watch": "vitest",
     "test:size": "npm i && size-limit",
+    "test:coverage": "vitest run --coverage",
     "all": "npm run lint && npm run check && npm t && npm run build && npm run preview"
   },
   "dependencies": {
@@ -43,6 +44,7 @@
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
     "axios": "^0.26.1",
+    "c8": "^7.11.3",
     "discord.js": "^13.6.0",
     "dotenv": "^16.0.0",
     "eslint": "^8.12.0",
