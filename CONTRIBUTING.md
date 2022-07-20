@@ -32,6 +32,7 @@ npm run lint # Careful, this might mutate your files.
 npm run check # Use this command to find bugs in your website code.
 npm run build # Use this to make sure your code builds successfully.
 npm t # Run all our unit tests (or with `npm run test`)
+npm run test:coverage # Runs all our unit tests and generates a code coverage report
 
 # Or, run the following to check everything you'd normally want to check.
 npm run all
