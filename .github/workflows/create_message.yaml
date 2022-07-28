@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: '16'
       - run: npm ci
-      - run: node scripts/create-message.js ${{ github.event.issue.number }}
+      - run: node scripts/create-message.js ${{github.event.issue.number }} ${{ github.event.issue.title}}"
         env:
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
           MESSAGE: ${{ github.event.comment.body }}
