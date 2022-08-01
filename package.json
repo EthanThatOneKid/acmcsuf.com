@@ -45,7 +45,7 @@
     "@typescript-eslint/parser": "^5.31.0",
     "axios": "^0.27.2",
     "c8": "^7.12.0",
-    "discord.js": "^14.1.2",
+    "discord.js": "13.6.0",
     "dotenv": "^16.0.1",
     "eslint": "^8.21.0",
     "eslint-plugin-svelte3": "^4.0.0",
