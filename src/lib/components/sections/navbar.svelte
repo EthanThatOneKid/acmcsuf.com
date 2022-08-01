@@ -59,6 +59,13 @@
           checked={$theme === AcmTheme.Dark}
           on:toggle={(event) => ($theme = event.detail ? AcmTheme.Dark : AcmTheme.Light)}
         >
+          <noscript>
+            <style>
+              .dark-toggle {
+                opacity: ;
+              }
+            </style>
+          </noscript>
           <span class="dark-toggle">
             {#if $theme === AcmTheme.Dark}
               <LightMode />
@@ -148,7 +155,6 @@
         .toggle-container {
           display: flex;
           justify-content: flex-end;
-          transition: opacity 0.35s;
 
           .dark-toggle {
             display: flex;
@@ -158,7 +164,6 @@
             background-color: var(--acm-gray);
             border-radius: 8px;
             gap: 4px;
-            transition: 0.25s ease-in-out;
 
             &:hover {
               cursor: pointer;
