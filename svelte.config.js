@@ -9,7 +9,6 @@ const config = {
 
   kit: {
     adapter: adapter(),
-    vite: { test: { environment: 'jsdom' } },
     prerender: {
       // Provide a custom error message when the prerender fails on pages
       // beyond /blog. See <https://kit.svelte.dev/docs#configuration-prerender>.
