@@ -14,7 +14,7 @@
     </div>
 
     <img
-      src="assets/png/hero-illustration.png"
+      src="assets/png/hero-photo.png"
       alt="Frank the Shark holding a flag that says 'I Love ACM'"
     />
   </div>
