@@ -1,9 +1,6 @@
 <section>
   <div class="container">
-    <img 
-      src="assets/png/join-photo.png"
-      alt="Social event with ACM Chapter members." 
-    />
+    <img src="assets/png/join-photo.png" alt="Social event with ACM Chapter members." />
 
     <div class="right">
       <h2 class="size-lg brand-header">Your journey into tech starts here</h2>
