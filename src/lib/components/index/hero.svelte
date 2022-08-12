@@ -6,7 +6,7 @@
   <div class="container">
     <div class="left">
       <h1 class="brand-header size-xl">
-        We are the largest tech community at
+        We are the largest computer science community at
         <b class="acm-blue">CSUF</b>
       </h1>
 
