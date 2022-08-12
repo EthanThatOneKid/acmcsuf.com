@@ -15,7 +15,7 @@
         <br /><br />
 
         <span class="brand-med">
-          Our chapter of 700+ members is forever free and open for anyone to join, regardless of
+          Our chapter of 800+ members is forever free and open for anyone to join, regardless of
           major or technical ability.
         </span>
       </p>
