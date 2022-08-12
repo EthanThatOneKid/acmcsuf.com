@@ -30,7 +30,7 @@
       width: 1280px;
 
       img {
-        width: clamp(12.5rem, 11.1184rem + 7.8947vw, 23.75rem);
+        width: clamp(15rem, 13.006rem + 7.59vw, 22.5rem);
         margin-right: 32px;
         filter: drop-shadow(0 10px 40px rgba(44, 145, 198, 0.5));
       }

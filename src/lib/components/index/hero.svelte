@@ -45,7 +45,7 @@
       }
 
       img {
-        width: clamp(15.625rem, 13.7061rem + 10.9649vw, 31.25rem);
+        width: clamp(20rem, 17.342rem + 10.13vw, 30rem);
         margin-left: 32px;
         filter: drop-shadow(0 10px 40px rgba(44, 145, 198, 0.5));
       }
