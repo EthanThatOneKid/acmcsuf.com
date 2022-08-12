@@ -13,10 +13,10 @@
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <CommonHero>
-  <h2 slot="headline" class="size-xl">What are paths?</h2>
+  <h2 slot="headline" class="size-xl">Meet the Teams</h2>
   <p slot="text" class="size-md">
-    Paths are committees that specialize in specific fields in the tech industry. We’ve designed
-    paths to be gateways for students to explore new fields, develop new interests, and enhance
+    Teams are committees that specialize in specific fields in the tech industry. We’ve designed
+    teams to be gateways for students to explore new fields, develop new interests, and enhance
     skills that’ll benefit in the industry.
   </p>
 </CommonHero>
