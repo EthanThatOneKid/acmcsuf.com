@@ -1,6 +1,6 @@
 <section>
   <div class="container">
-    <img src="assets/png/GroupPhoto.png" alt="acmCSUF badges" />
+    <img src="assets/png/GroupPhoto.png" alt="ACM family" />
 
     <div class="text">
       <h1 class="size-lg brand-header">About us</h1>
