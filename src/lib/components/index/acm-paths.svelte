@@ -16,7 +16,7 @@
 
     <div class="paths-list">
       {#each pinnedPaths as { title, slug, picture, color } (slug)}
-        <a class="path-item" target="_self" href={`/paths#${slug}`}>
+        <a class="path-item" target="_self" href={`/teams#${slug}`}>
           <img src={picture} alt={`${slug} badge`} />
 
           <p class="size-md brand-bold" style:--brand-color={color}>
