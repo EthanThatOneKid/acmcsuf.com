@@ -8,15 +8,15 @@
       <h2 class="brand-header size-lg">Discover your own path</h2>
 
       <p class="size-sm">
-        Paths were designed to allow students to explore the various fields within tech, and
-        discover what aligns with their interests the most. Our paths offer interactive workshops
-        that enhance technical knowledge, as well as fun projects to strengthen their abilities.
+        Each team was designed to allow students to explore the various fields within tech, and
+        discover what aligns with their interests. Our teams offer interactive workshops that
+        enhance technical knowledge, as well as fun projects to strengthen their abilities.
       </p>
     </div>
 
     <div class="paths-list">
       {#each pinnedPaths as { title, slug, picture, color } (slug)}
-        <a class="path-item" target="_self" href={`/paths#${slug}`}>
+        <a class="path-item" target="_self" href={`/teams#${slug}`}>
           <img src={picture} alt={`${slug} badge`} />
 
           <p class="size-md brand-bold" style:--brand-color={color}>
