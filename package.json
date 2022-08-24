@@ -24,7 +24,7 @@
     "test:size": "npm i && size-limit",
     "test:coverage": "vitest run --coverage",
     "all": "npm run lint && npm run check && npm t && npm run build",
-    "host": "npm run lint && npm run check && npm t && npm run build && npm run preview"
+    "host": "npm run all && npm run preview"
   },
   "dependencies": {
     "@js-temporal/polyfill": "^0.4.0",
