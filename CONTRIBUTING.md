@@ -24,7 +24,7 @@ Now that you've got everything up-and-running, you are free to contribute to you
 
 ## Submitting your own Contributions 🎉
 
-Before publishing a PR, it is required that you run `npm run release` to make sure that you are complying with our style guidelines and passing all checks.
+Before publishing a PR, it is required that you run `npm run all` to make sure that you are complying with our style guidelines and passing all checks.
 
 ```bash
 # Runs the autoformatter, WARNING: this might mutate your files.

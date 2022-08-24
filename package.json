@@ -23,7 +23,7 @@
     "test:watch": "vitest",
     "test:size": "npm i && size-limit",
     "test:coverage": "vitest run --coverage",
-    "release": "npm run lint && npm run check && npm t && npm run build",
+    "all": "npm run lint && npm run check && npm t && npm run build",
     "host": "npm run lint && npm run check && npm t && npm run build && npm run preview"
   },
   "dependencies": {
