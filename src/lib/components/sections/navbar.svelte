@@ -62,7 +62,7 @@
           <noscript>
             <style>
               .dark-toggle {
-                opacity: ;
+                opacity: 0;
               }
             </style>
           </noscript>
