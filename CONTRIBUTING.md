@@ -32,6 +32,7 @@ npm run lint # Careful, this might mutate your files.
 npm run check # Use this command to find bugs in your website code.
 npm run build # Use this to make sure your code builds successfully.
 npm t # Run all our unit tests (or with `npm run test`)
+npm run test:coverage # Runs all our unit tests and generates a code coverage report
 
 # Or, run the following to check everything you'd normally want to check.
 npm run all
@@ -82,6 +83,42 @@ So, to update the styling for desktop sizes, overwrite your styles inside the fo
 Notice that the value `768px` is constant.
 The next most common breakpoint for larger desktop screens would be `1440px`.
 Really, the situation may affect your choice of breakpoint value, but the goal is to try to use only `768px` or `1440px` wherever possible for consistency-purposes.
+
+## Setting up your `.env` file
+
+To interact with data from GitHub (or any third-party service), a file named `.env` must be created in the root of your local repository instance.
+
+Some environment variables are necessary to gain access to data from third-party services.
+We use the `VITE_GH_ACCESS_TOKEN` environment variable to authenticate our requests to GitHub (and [prevent rate limiting](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#increasing-the-unauthenticated-rate-limit-for-oauth-apps)).
+Below is how `VITE_GH_ACCESS_TOKEN` should be defined in your `.env` file, where `YOUR_PAT` should be replaced with your own generated [personal GitHub access token](https://github.com/settings/tokens).
+
+```sh
+VITE_GH_ACCESS_TOKEN=YOUR_PAT
+```
+
+**Fair Warning**: Never commit your _PAT_ (or any sensitive information) in files that are not ignored by our [`.gitignore`](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/.gitignore) file (`.env` being one of them).
+
+Other environment variables are needed to provide information that allows the program to fetch data from the correct place. It is okay to copy and paste the additional variables into your `.env` file as defined below because they are already public.
+
+```sh
+# General discussion on GitHub: <https://github.com/EthanThatOneKid/acmcsuf.com/discussions/categories/newsletter>
+VITE_GH_DISCUSSION_CATEGORY_ID=DIC_kwDOE7ysSc4CAC0o
+
+# Algo discussion on GitHub: <https://github.com/EthanThatOneKid/acmcsuf.com/discussions/categories/algo>
+VITE_GH_ALGO_CATEGORY_ID=DIC_kwDOE7ysSc4COe-m
+
+# Switch to 1 to turn on debug mode.
+VITE_DEBUG=0
+```
+
+Some environment variables are needed to run scripts that are used for purposes indirectly related to `acmcsuf.com` (such as the Gitcord scripts).
+
+```sh
+DISCORD_BOT_TOKEN=YOUR_BOT_TOKEN
+GUILD_ID=YOUR_GUILD_ID
+HUB_ID=YOUR_HUB_CHANNEL_ID
+ARCHIVE_CHANNEL_ID=YOUR_ARCHIVE_CHANNEL_ID
+```
 
 ## Custom Workflows
 
