@@ -41,7 +41,7 @@ npm run build
 # Runs all of the above checks necessary for a release deployment
 npm run all
 
-# Runs the above and hosts the production version locally
+# Runs `npm run all` and hosts the production version locally
 npm run host
 
 # Runs all our unit tests and generates a code coverage report
