@@ -29,12 +29,16 @@ Before publishing a PR, it is required that you run `npm run all` to make sure t
 ```bash
 # Runs the autoformatter, WARNING: this might mutate your files.
 npm run format
+
 # Runs the linter, WARNING: this might mutate your files.
 npm run lint
+
 # Runs the checks for type errors, unused css, and more (See: https://github.com/sveltejs/language-tools/tree/master/packages/svelte-check)
 npm run check
+
 # Run all our unit tests (or with `npm t`)
 npm run test
+
 # Builds the website
 npm run build
 
