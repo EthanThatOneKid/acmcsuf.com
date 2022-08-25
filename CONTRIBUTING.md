@@ -40,7 +40,7 @@ npm run build
 
 
 # Runs all of the above checks necessary for a release deployment
-npm run release
+npm run all
 
 # Runs the above and hosts the production version locally
 npm run host
