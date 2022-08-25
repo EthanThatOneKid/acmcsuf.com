@@ -38,7 +38,6 @@ npm run test
 # Builds the website
 npm run build
 
-
 # Runs all of the above checks necessary for a release deployment
 npm run all
 
