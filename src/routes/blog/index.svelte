@@ -1,20 +1,9 @@
 <script lang="ts" context="module">
   import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/internal';
 
-  export async function load({ url }: LoadInput): Promise<LoadOutput> {
-    const target = new URL('/blog.json', url);
-    const rawLabels = url.searchParams.get('l');
-    const selectedLabels = [];
-
-    if (rawLabels?.length > 0) {
-      target.searchParams.set('l', rawLabels);
-      selectedLabels.push(...rawLabels.split(','));
-    }
-
-    const response = await fetch(target.toString());
-    const { posts, labels } = await response.json();
-
-    return { props: { posts, labels, selectedLabels } };
+  export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
+    const response = await fetch(`/blog.json`);
+    return { props: { posts: await response.json() } };
   }
 </script>
 
@@ -25,6 +14,7 @@
   import { Temporal } from '@js-temporal/polyfill';
   import { readingTime } from '$lib/blog/utils';
   import Labels from '$lib/components/blog/labels.svelte';
+  import BlogBody from '$lib/blog/blog-body.svelte';
 
   export let posts: Newsletter[] = [];
   export let labels: string[] = [];
@@ -185,6 +175,8 @@
             max-height: 100px;
             overflow: hidden;
             margin: 16px 0;
+            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
           }
         }
 

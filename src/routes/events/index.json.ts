@@ -2,6 +2,7 @@ import type { RequestHandlerOutput } from '@sveltejs/kit/types/internal';
 import type { AcmEvent } from '$lib/ical';
 import { parse } from '$lib/ical';
 import { DEBUG } from '$lib/constants';
+import { events as SAMPLE_EVENTS } from '../../routes/events/_testdata/events';
 
 // Constants
 const caching = false; // Make this false to disable server-side caching in development.
@@ -16,6 +17,11 @@ let events: AcmEvent[] = [];
 async function setCache(timestamp: number): Promise<AcmEvent[]> {
   const data = await fetch(ICAL_TARGET_URL).then((response) => response.text());
   events = parse(data, { maxEvents: DEBUG ? 10 : undefined });
+
+  if (DEBUG && events.length === 0) {
+    events = SAMPLE_EVENTS as AcmEvent[];
+  }
+
   eventExpirationTimestamp = timestamp + expirationTimeout;
   return events;
 }

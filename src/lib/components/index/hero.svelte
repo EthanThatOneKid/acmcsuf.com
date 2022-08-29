@@ -6,7 +6,7 @@
   <div class="container">
     <div class="left">
       <h1 class="brand-header size-xl">
-        We are the largest tech community at
+        We are the largest computer science community at
         <b class="acm-blue">CSUF</b>
       </h1>
 
@@ -14,7 +14,7 @@
     </div>
 
     <img
-      src="assets/png/hero-illustration.png"
+      src="assets/png/hero-photo.png"
       alt="Frank the Shark holding a flag that says 'I Love ACM'"
     />
   </div>
@@ -45,7 +45,7 @@
       }
 
       img {
-        width: clamp(15.625rem, 13.7061rem + 10.9649vw, 31.25rem);
+        width: clamp(20rem, 17.342rem + 10.13vw, 30rem);
         margin-left: 32px;
         filter: drop-shadow(0 10px 40px rgba(44, 145, 198, 0.5));
       }

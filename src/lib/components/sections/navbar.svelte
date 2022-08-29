@@ -12,7 +12,7 @@
   const navItems = [
     { title: 'About', path: '/about' },
     { title: 'Events', path: '/events' },
-    { title: 'Paths', path: '/paths' },
+    { title: 'Teams', path: '/teams' },
     { title: 'Node Buds', path: '/nodebuds' },
     { title: 'Blog', path: '/blog' },
   ];
@@ -53,23 +53,28 @@
         {/each}
       </ul>
 
-      {#if jsEnabled}
-        <div class="toggle-container">
-          <!-- true is dark -->
-          <AcmToggle
-            checked={$theme === AcmTheme.Dark}
-            on:toggle={(event) => ($theme = event.detail ? AcmTheme.Dark : AcmTheme.Light)}
-          >
-            <span class="dark-toggle">
-              {#if $theme === AcmTheme.Dark}
-                <LightMode />
-              {:else}
-                <DarkMode />
-              {/if}
-            </span>
-          </AcmToggle>
-        </div>
-      {/if}
+      <div class="toggle-container" class:hidden={!jsEnabled}>
+        <!-- true is dark -->
+        <AcmToggle
+          checked={$theme === AcmTheme.Dark}
+          on:toggle={(event) => ($theme = event.detail ? AcmTheme.Dark : AcmTheme.Light)}
+        >
+          <noscript>
+            <style>
+              .dark-toggle {
+                opacity: 0;
+              }
+            </style>
+          </noscript>
+          <span class="dark-toggle">
+            {#if $theme === AcmTheme.Dark}
+              <LightMode />
+            {:else}
+              <DarkMode />
+            {/if}
+          </span>
+        </AcmToggle>
+      </div>
     </section>
   </div>
 
@@ -139,6 +144,14 @@
           }
         }
 
+        .hidden {
+          opacity: 0;
+        }
+
+        .toggle-container::not(.hidden) {
+          opacity: 1;
+        }
+
         .toggle-container {
           display: flex;
           justify-content: flex-end;
@@ -151,7 +164,6 @@
             background-color: var(--acm-gray);
             border-radius: 8px;
             gap: 4px;
-            transition: 0.25s ease-in-out;
 
             &:hover {
               cursor: pointer;

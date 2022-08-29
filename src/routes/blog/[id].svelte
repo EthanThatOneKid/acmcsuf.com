@@ -19,6 +19,7 @@
   import { readingTime } from '$lib/blog/utils';
   import { Temporal } from '@js-temporal/polyfill';
   import Labels from '$lib/components/blog/labels.svelte';
+  import BlogBody from '$lib/blog/blog-body.svelte';
 
   export let post: Newsletter;
 </script>
@@ -55,12 +56,10 @@
     {readingTime(post.html)} min read
   </p>
 
-  <Spacing --min="75px" --med="100px" --max="150px" />
+  <Spacing --min="40px" --med="40px" --max="40px" />
 
   <div class="container">
-    <div class="markdown-body">
-      {@html post.html}
-    </div>
+    <BlogBody data={post.html} />
     <Labels data={post.labels} />
     <small class="ita">Read as TXT: <a href={`${post.url}.txt`}>{post.url}.txt</a></small>
   </div>
@@ -97,14 +96,6 @@
     filter: drop-shadow(0 8px 40px rgba(16, 19, 21, 0.1));
     -webkit-filter: drop-shadow(0 8px 40px rgba(16, 19, 21, 0.1));
     width: min(1000px, 70vw);
-
-    .markdown-body {
-      text-align: left;
-
-      :global(p) {
-        margin-bottom: 16px;
-      }
-    }
   }
   img {
     height: 100%;

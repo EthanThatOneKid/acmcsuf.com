@@ -1,6 +1,6 @@
 <section>
   <div class="container">
-    <img src="assets/about-illustration.svg" alt="acmCSUF badges" />
+    <img src="assets/jpg/group-photo.jpeg" alt="ACM family" />
 
     <div class="text">
       <h1 class="size-lg brand-header">About us</h1>
@@ -34,8 +34,9 @@
 
       img {
         min-width: 250px;
-        max-width: 800px;
+        max-width: 1200px;
         width: 100%;
+        border-radius: 20px;
       }
 
       .text {

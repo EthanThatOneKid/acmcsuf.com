@@ -24,17 +24,32 @@ Now that you've got everything up-and-running, you are free to contribute to you
 
 ## Submitting your own Contributions 🎉
 
-Before publishing a PR, it is recommended that you run a few commands to make sure that you are complying with our style guidelines.
+Before publishing a PR, it is required that you run `npm run all` to make sure that you are complying with our style guidelines and passing all checks.
 
 ```bash
-npm run format # Careful, this command might mutate your files.
-npm run lint # Careful, this might mutate your files.
-npm run check # Use this command to find bugs in your website code.
-npm run build # Use this to make sure your code builds successfully.
-npm t # Run all our unit tests (or with `npm run test`)
+# Runs the autoformatter, WARNING: this might mutate your files.
+npm run format
 
-# Or, run the following to check everything you'd normally want to check.
+# Runs the linter, WARNING: this might mutate your files.
+npm run lint
+
+# Runs the checks for type errors, unused css, and more (See: https://github.com/sveltejs/language-tools/tree/master/packages/svelte-check)
+npm run check
+
+# Run all our unit tests (or with `npm t`)
+npm run test
+
+# Builds the website
+npm run build
+
+# Runs all of the above checks necessary for a release deployment
 npm run all
+
+# Runs `npm run all` and hosts the production version locally
+npm run host
+
+# Runs all our unit tests and generates a code coverage report
+npm run test:coverage
 ```
 
 ### NPM Bloat
