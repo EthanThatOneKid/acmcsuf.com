@@ -12,9 +12,9 @@ export const acmAlgo: AcmPath = {
   color: 'var(--acm-purple)',
 };
 
-export const acmCreate: AcmPath = {
-  title: 'Create',
-  slug: 'create',
+export const acmDesign: AcmPath = {
+  title: 'Design',
+  slug: 'design',
   picture: './assets/badges/design-team.svg',
   color: 'var(--acm-pink)',
 };
@@ -26,6 +26,13 @@ export const acmDev: AcmPath = {
   color: 'var(--acm-bluer)',
 };
 
+export const acmAI: AcmPath = {
+  title: 'AI',
+  slug: 'ai',
+  picture: './assets/badges/AI-team.svg',
+  color: 'var(--acm-emerald)',
+};
+
 export const acmGeneral: AcmPath = {
   title: 'General',
   slug: 'general',
@@ -33,7 +40,7 @@ export const acmGeneral: AcmPath = {
   color: 'var(--acm-blue)',
 };
 
-export const acmPaths = [acmAlgo, acmCreate, acmDev, acmGeneral] as const;
+export const acmPaths = [acmAlgo, acmDesign, acmDev, acmGeneral] as const;
 
 /** Pinned paths are featured on the landing page. */
-export const pinnedPaths = [acmAlgo, acmCreate, acmDev] as const;
+export const pinnedPaths = [acmAI, acmAlgo, acmDesign, acmDev] as const;
