@@ -1,10 +1,15 @@
-export function parseBool(payload?: string | null, defaultValue = false): boolean {
-  if (!payload) return defaultValue;
+/** List of JavaScript expressions that evaluate to falsy. */
+const FALSY_PRIMITIVES = ['0', '0.0', '0x0', 'null', 'undefined', 'false', 'NaN', "''", '""', '``'];
 
-  payload = payload.trim().toLowerCase();
+const FALSY_PATTERN = new RegExp(`^(${FALSY_PRIMITIVES.join('|')})$`, 'i');
 
-  // unlikely NaN will be passed, but included to be safe
-  const stringsOtherwiseTruthy = [0, false, NaN].map((v) => String(v).toLowerCase());
-
-  return !stringsOtherwiseTruthy.includes(payload);
+/**
+ * parseBool checks the boolean representation of a given string.
+ * @see https://developer.mozilla.org/en-US/docs/Glossary/Falsy
+ */
+export function parseBool(payload?: string | null): boolean {
+  // It is easier to first check if the string is falsy, to determine the
+  // boolean value of the string.
+  const isFalsy = !payload || FALSY_PATTERN.test(payload);
+  return !isFalsy;
 }
