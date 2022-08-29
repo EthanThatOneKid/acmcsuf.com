@@ -57,9 +57,9 @@
   </h2>
 </section>
 
-{#if posts.length > 0}
-  <Spacing --min="175px" --med="200px" --max="200px" />
+<Spacing --min="175px" --med="200px" --max="200px" />
 
+{#if posts.length > 0}
   <LabelField {labels} {selectedLabels} urlSearchParamKey="l" on:change={filterPosts}>
     <div slot="title">Filter by Tags</div>
     <div slot="reset-button">✖ Clear all</div>
@@ -97,9 +97,13 @@
       {/each}
     </ul>
   </section>
-
-  <Spacing --min="40px" --med="95px" --max="120px" />
+{:else}
+  <section>
+    <h2 class="size-lg">There are no posts yet.</h2>
+  </section>
 {/if}
+
+<Spacing --min="40px" --med="95px" --max="120px" />
 
 <style lang="scss">
   .subtitle {
