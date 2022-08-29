@@ -13,7 +13,9 @@
   $: titleHTML = info.positions[VISIBLE_TERMS[$termIndex]].title
     .replace(/Algo\s/, `<b class="acm-purple">Algo&nbsp;</b>`)
     .replace(/Create\s/, `<b class="acm-pink">Create&nbsp;</b>`)
+    .replace(/Design\s/, `<b class="acm-pink">Design&nbsp;</b>`)
     .replace(/Dev\s/, `<b class="acm-bluer">Dev&nbsp;</b>`)
+    .replace(/AI\s/, `<b class="acm-emerald">AI&nbsp;</b>`)
     .replace(/nodebuds\s/, `<span class="brand-header">Node Buds&nbsp;</span>`);
   $: officerTier = dev ? TIERS[info.positions[VISIBLE_TERMS[$termIndex]].tier] : '';
 </script>

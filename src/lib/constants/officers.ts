@@ -22,7 +22,7 @@ export interface Officer {
   };
 }
 
-export const VISIBLE_TERMS = [Term.Spring22, Term.Fall21, Term.Spring21];
+export const VISIBLE_TERMS = [Term.Fall22, Term.Spring22, Term.Fall21, Term.Spring21];
 
 export const OFFICERS: Officer[] = [...OFFICERS_JSON];
 
