@@ -660,5 +660,15 @@
       }
     },
     "picture": "angel-santoyo.webp"
+  },
+  {
+    "fullName": "Charlie Taylor",
+    "positions": {
+      "F22": {
+        "title": "Dev Team Lead",
+        "tier": 20
+      }
+    },
+    "picture": "charlie-taylor.webp"
   }
 ]
