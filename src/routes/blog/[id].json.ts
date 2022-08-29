@@ -4,7 +4,7 @@ import type { Newsletter } from './_query';
 async function getCache(id: number, origin: string) {
   const target = new URL('/blog.json', origin);
 
-  const response = await fetch(target);
+  const response = await fetch(target.toString());
   const payload = await response.json();
 
   if (payload.posts && payload.posts.length > 0) {
