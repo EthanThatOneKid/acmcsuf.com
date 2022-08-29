@@ -12,12 +12,11 @@ test('can render', () => {
 
 test('can find the correct page title', () => {
   const { getByText } = render(Blog);
-  expect(getByText('The official acmCSUF blog.')).toBeDefined();
+  expect(getByText('The official ACM at CSUF blog.')).toBeDefined();
 });
 
-test('can render 3 blog posts', () => {
-  const MAX_POSTS = 3;
+test('can render blog posts', () => {
   const { container } = render(Blog, { posts: SAMPLE_POSTS });
   const actual = container.querySelectorAll('.blog-post').length;
-  expect(actual).toBe(MAX_POSTS);
+  expect(actual).toBeGreaterThan(0);
 });

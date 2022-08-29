@@ -11,5 +11,5 @@ test('can render', () => {
 
 test('can find the correct page title', () => {
   const { getByText } = render(Paths);
-  expect(getByText('What are paths?')).toBeDefined();
+  expect(getByText('Meet the Teams')).toBeDefined();
 });

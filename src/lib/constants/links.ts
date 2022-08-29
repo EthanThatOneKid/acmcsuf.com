@@ -11,13 +11,5 @@ export const links = {
   bug: 'https://github.com/EthanThatOneKid/acmcsuf.com/issues/new?assignees=&labels=bug&template=bug_report.yaml',
   enhance:
     'https://github.com/EthanThatOneKid/acmcsuf.com/issues/new?assignees=&labels=enhancement&template=feature_request.yaml',
-  'history-of-rss': 'https://acmcsuf.com/blog/269',
-  v2: 'https://acmcsuf.com/blog/262',
-  'create-html': 'https://github.com/mikeploythai/create-html',
-  apply: 'https://forms.gle/eFpFuiDW6fyRrbUN6',
-  election: 'https://forms.gle/m2MrswqTuxUsdb4y5',
-  f22positions:
-    'https://www.notion.so/jn42/2022-23-Board-Elections-3bbf4851a9334b199b512bd5a5c4b5f7',
-  f22apply:
-    'https://docs.google.com/forms/d/e/1FAIpQLSfK16Y3REQza6_5mHeCIr6vLo8-bcCvU6_xR-bCUgERBq86bg/viewform?usp=sf_link',
+  gfi: 'https://github.com/EthanThatOneKid/acmcsuf.com/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22',
 } as const;

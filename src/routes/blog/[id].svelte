@@ -16,6 +16,10 @@
 <script lang="ts">
   import type { Newsletter } from './_query';
   import Spacing from '$lib/components/sections/spacing.svelte';
+  import { readingTime } from '$lib/blog/utils';
+  import { Temporal } from '@js-temporal/polyfill';
+  import Labels from '$lib/components/blog/labels.svelte';
+  import BlogBody from '$lib/blog/blog-body.svelte';
 
   export let post: Newsletter;
 </script>
@@ -30,7 +34,8 @@
   <h1 class="headers size-lg">{post.title}</h1>
 
   <Spacing --min="16px" --med="16px" --max="16px" />
-
+  <img src={post.author.picture} alt="" />
+  <Spacing --min="16px" --med="16px" --max="16px" />
   <p>
     by
     <a
@@ -41,19 +46,21 @@
       @{post.author.displayname}
     </a>
   </p>
+  <p>
+    {Temporal.Instant.from(post.createdAt).toLocaleString('en-US', {
+      calendar: 'gregory',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })} •
+    {readingTime(post.html)} min read
+  </p>
 
-  <Spacing --min="75px" --med="100px" --max="150px" />
+  <Spacing --min="40px" --med="40px" --max="40px" />
 
   <div class="container">
-    <div class="markdown-body">
-      {@html post.html}
-    </div>
-
-    {#if post.labels.length > 0}
-      <small class="ita">Tags: {post.labels.join(', ')}</small>
-      <br />
-    {/if}
-
+    <BlogBody data={post.html} />
+    <Labels data={post.labels} />
     <small class="ita">Read as TXT: <a href={`${post.url}.txt`}>{post.url}.txt</a></small>
   </div>
 
@@ -89,13 +96,10 @@
     filter: drop-shadow(0 8px 40px rgba(16, 19, 21, 0.1));
     -webkit-filter: drop-shadow(0 8px 40px rgba(16, 19, 21, 0.1));
     width: min(1000px, 70vw);
-
-    .markdown-body {
-      text-align: left;
-
-      :global(p) {
-        margin-bottom: 16px;
-      }
-    }
+  }
+  img {
+    height: 100%;
+    width: 5em;
+    border-radius: 50%;
   }
 </style>

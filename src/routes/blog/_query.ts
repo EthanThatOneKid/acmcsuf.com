@@ -7,8 +7,8 @@ export interface Newsletter {
   discussionUrl: string;
   title: string;
   html: string;
-  createdAt: number | null;
-  lastEdited: number | null;
+  createdAt: string | null;
+  lastEdited: string | null;
   labels: string[];
   author: {
     displayname: string;

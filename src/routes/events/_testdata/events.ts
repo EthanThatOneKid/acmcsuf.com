@@ -8,7 +8,7 @@ export const events = [
     hasEnded: true,
     isPinned: false,
     duration: '0 minutes',
-    location: 'Discord',
+    location: 'TBD',
     title: 'ACM & ACM-W Meeting',
     summary: 'ACM & ACM-W Meeting — https://acmcsuf.com/events#acm-acm-w-meeting-2018-august-17',
     description: '',
@@ -24,9 +24,9 @@ export const events = [
     },
     calendarLinks: {
       google:
-        'https://calendar.google.com/calendar/render?action=TEMPLATE&text=ACM+%26+ACM-W+Meeting&details=ACM+%26+ACM-W+Meeting+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23acm-acm-w-meeting-2018-august-17&location=https%3A%2F%2Facmcsuf.com%2Fevents%23acm-acm-w-meeting-2018-august-17&dates=20180817T120017%2F20180817T130017',
+        'https://calendar.google.com/calendar/render?action=TEMPLATE&text=ACM+%26+ACM-W+Meeting&details=ACM+%26+ACM-W+Meeting+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23acm-acm-w-meeting-2018-august-17&location=TBD&dates=20180817T120017%2F20180817T130017',
       outlook:
-        'https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20180817T120017&enddt=20180817T130017&subject=ACM+%26+ACM-W+Meeting&body=ACM+%26+ACM-W+Meeting+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23acm-acm-w-meeting-2018-august-17&location=https%3A%2F%2Facmcsuf.com%2Fevents%23acm-acm-w-meeting-2018-august-17',
+        'https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20180817T120017&enddt=20180817T130017&subject=ACM+%26+ACM-W+Meeting&body=ACM+%26+ACM-W+Meeting+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23acm-acm-w-meeting-2018-august-17&location=TBD',
     },
   },
   {
@@ -38,7 +38,7 @@ export const events = [
     hasEnded: true,
     isPinned: false,
     duration: '0 minutes',
-    location: 'Discord',
+    location: 'TBD',
     title: 'ACM Board Meeting',
     summary: 'ACM Board Meeting — https://acmcsuf.com/events#acm-board-meeting-2018-august-17',
     description: '',
@@ -54,9 +54,9 @@ export const events = [
     },
     calendarLinks: {
       google:
-        'https://calendar.google.com/calendar/render?action=TEMPLATE&text=ACM+Board+Meeting&details=ACM+Board+Meeting+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23acm-board-meeting-2018-august-17&location=https%3A%2F%2Facmcsuf.com%2Fevents%23acm-board-meeting-2018-august-17&dates=20180817T170017%2F20180817T190017',
+        'https://calendar.google.com/calendar/render?action=TEMPLATE&text=ACM+Board+Meeting&details=ACM+Board+Meeting+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23acm-board-meeting-2018-august-17&location=TBD&dates=20180817T170017%2F20180817T190017',
       outlook:
-        'https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20180817T170017&enddt=20180817T190017&subject=ACM+Board+Meeting&body=ACM+Board+Meeting+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23acm-board-meeting-2018-august-17&location=https%3A%2F%2Facmcsuf.com%2Fevents%23acm-board-meeting-2018-august-17',
+        'https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20180817T170017&enddt=20180817T190017&subject=ACM+Board+Meeting&body=ACM+Board+Meeting+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23acm-board-meeting-2018-august-17&location=TBD',
     },
   },
   {
@@ -68,7 +68,7 @@ export const events = [
     hasEnded: true,
     isPinned: false,
     duration: '0 minutes',
-    location: 'Discord',
+    location: 'TBD',
     title: 'Personal Website Workshop Planning',
     summary:
       'Personal Website Workshop Planning — https://acmcsuf.com/events#personal-website-workshop-planning-2018-august-21',
@@ -85,9 +85,9 @@ export const events = [
     },
     calendarLinks: {
       google:
-        'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Personal+Website+Workshop+Planning&details=Personal+Website+Workshop+Planning+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23personal-website-workshop-planning-2018-august-21&location=https%3A%2F%2Facmcsuf.com%2Fevents%23personal-website-workshop-planning-2018-august-21&dates=20180821T120021%2F20180821T150021',
+        'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Personal+Website+Workshop+Planning&details=Personal+Website+Workshop+Planning+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23personal-website-workshop-planning-2018-august-21&location=TBD&dates=20180821T120021%2F20180821T150021',
       outlook:
-        'https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20180821T120021&enddt=20180821T150021&subject=Personal+Website+Workshop+Planning&body=Personal+Website+Workshop+Planning+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23personal-website-workshop-planning-2018-august-21&location=https%3A%2F%2Facmcsuf.com%2Fevents%23personal-website-workshop-planning-2018-august-21',
+        'https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20180821T120021&enddt=20180821T150021&subject=Personal+Website+Workshop+Planning&body=Personal+Website+Workshop+Planning+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23personal-website-workshop-planning-2018-august-21&location=TBD',
     },
   },
   {
@@ -99,7 +99,7 @@ export const events = [
     hasEnded: true,
     isPinned: false,
     duration: '0 minutes',
-    location: 'Discord',
+    location: 'TBD',
     title: 'Leadcon',
     summary: 'Leadcon — https://acmcsuf.com/events#leadcon-2018-august-24',
     description: '',
@@ -115,9 +115,9 @@ export const events = [
     },
     calendarLinks: {
       google:
-        'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Leadcon&details=Leadcon+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23leadcon-2018-august-24&location=https%3A%2F%2Facmcsuf.com%2Fevents%23leadcon-2018-august-24&dates=20180824T090024%2F20180824T160024',
+        'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Leadcon&details=Leadcon+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23leadcon-2018-august-24&location=TBD&dates=20180824T090024%2F20180824T160024',
       outlook:
-        'https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20180824T090024&enddt=20180824T160024&subject=Leadcon&body=Leadcon+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23leadcon-2018-august-24&location=https%3A%2F%2Facmcsuf.com%2Fevents%23leadcon-2018-august-24',
+        'https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20180824T090024&enddt=20180824T160024&subject=Leadcon&body=Leadcon+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23leadcon-2018-august-24&location=TBD',
     },
   },
   {
@@ -161,7 +161,7 @@ export const events = [
     hasEnded: true,
     isPinned: false,
     duration: '0 minutes',
-    location: 'Discord',
+    location: 'TBD',
     title: 'Project Jam Meeting',
     summary:
       'Project Jam Meeting — https://acmcsuf.com/events#project-jam-meeting-2018-september-14',
@@ -178,9 +178,9 @@ export const events = [
     },
     calendarLinks: {
       google:
-        'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Project+Jam+Meeting&details=Project+Jam+Meeting+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23project-jam-meeting-2018-september-14&location=https%3A%2F%2Facmcsuf.com%2Fevents%23project-jam-meeting-2018-september-14&dates=20180914T190014%2F20180914T210014',
+        'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Project+Jam+Meeting&details=Project+Jam+Meeting+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23project-jam-meeting-2018-september-14&location=TBD&dates=20180914T190014%2F20180914T210014',
       outlook:
-        'https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20180914T190014&enddt=20180914T210014&subject=Project+Jam+Meeting&body=Project+Jam+Meeting+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23project-jam-meeting-2018-september-14&location=https%3A%2F%2Facmcsuf.com%2Fevents%23project-jam-meeting-2018-september-14',
+        'https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20180914T190014&enddt=20180914T210014&subject=Project+Jam+Meeting&body=Project+Jam+Meeting+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23project-jam-meeting-2018-september-14&location=TBD',
     },
   },
   {
@@ -192,7 +192,7 @@ export const events = [
     hasEnded: true,
     isPinned: false,
     duration: '0 minutes',
-    location: 'ROOM SGSR212 CSUF Pollak Library ',
+    location: 'ROOM SGSR212 CSUF Pollak Library',
     title: 'Personal Website Workshop Mock Presentation',
     summary:
       'Personal Website Workshop Mock Presentation\n===========================================\n\nLink to slides: https://goo.gl/uQCu5u\n\nhttps://acmcsuf.com/events#personal-website-workshop-mock-presentation-2018-september-19',
@@ -210,9 +210,9 @@ export const events = [
     },
     calendarLinks: {
       google:
-        'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Personal+Website+Workshop+Mock+Presentation&details=Personal+Website+Workshop+Mock+Presentation%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0ALink+to+slides%3A+https%3A%2F%2Fgoo.gl%2FuQCu5u%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23personal-website-workshop-mock-presentation-2018-september-19&location=ROOM+SGSR212+CSUF+Pollak+Library+&dates=20180919T120019%2F20180919T140019',
+        'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Personal+Website+Workshop+Mock+Presentation&details=Personal+Website+Workshop+Mock+Presentation%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0ALink+to+slides%3A+https%3A%2F%2Fgoo.gl%2FuQCu5u%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23personal-website-workshop-mock-presentation-2018-september-19&location=ROOM+SGSR212+CSUF+Pollak+Library&dates=20180919T120019%2F20180919T140019',
       outlook:
-        'https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20180919T120019&enddt=20180919T140019&subject=Personal+Website+Workshop+Mock+Presentation&body=Personal+Website+Workshop+Mock+Presentation%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0ALink+to+slides%3A+https%3A%2F%2Fgoo.gl%2FuQCu5u%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23personal-website-workshop-mock-presentation-2018-september-19&location=ROOM+SGSR212+CSUF+Pollak+Library+',
+        'https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20180919T120019&enddt=20180919T140019&subject=Personal+Website+Workshop+Mock+Presentation&body=Personal+Website+Workshop+Mock+Presentation%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0ALink+to+slides%3A+https%3A%2F%2Fgoo.gl%2FuQCu5u%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23personal-website-workshop-mock-presentation-2018-september-19&location=ROOM+SGSR212+CSUF+Pollak+Library',
     },
   },
   {
@@ -256,7 +256,7 @@ export const events = [
     hasEnded: true,
     isPinned: false,
     duration: '0 minutes',
-    location: 'Discord',
+    location: 'TBD',
     title: 'Website Meeting',
     summary: 'Website Meeting — https://acmcsuf.com/events#website-meeting-2019-february-5',
     description: '',
@@ -272,9 +272,9 @@ export const events = [
     },
     calendarLinks: {
       google:
-        'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Website+Meeting&details=Website+Meeting+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23website-meeting-2019-february-5&location=https%3A%2F%2Facmcsuf.com%2Fevents%23website-meeting-2019-february-5&dates=20190205T183005%2F20190205T193005',
+        'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Website+Meeting&details=Website+Meeting+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23website-meeting-2019-february-5&location=TBD&dates=20190205T183005%2F20190205T193005',
       outlook:
-        'https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20190205T183005&enddt=20190205T193005&subject=Website+Meeting&body=Website+Meeting+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23website-meeting-2019-february-5&location=https%3A%2F%2Facmcsuf.com%2Fevents%23website-meeting-2019-february-5',
+        'https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20190205T183005&enddt=20190205T193005&subject=Website+Meeting&body=Website+Meeting+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23website-meeting-2019-february-5&location=TBD',
     },
   },
   {
@@ -286,7 +286,7 @@ export const events = [
     hasEnded: true,
     isPinned: false,
     duration: '0 minutes',
-    location: 'Discord',
+    location: 'TBD',
     title: 'Workshop meeting',
     summary: 'Workshop meeting — https://acmcsuf.com/events#workshop-meeting-2019-february-6',
     description: '',
@@ -302,9 +302,9 @@ export const events = [
     },
     calendarLinks: {
       google:
-        'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Workshop+meeting&details=Workshop+meeting+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23workshop-meeting-2019-february-6&location=https%3A%2F%2Facmcsuf.com%2Fevents%23workshop-meeting-2019-february-6&dates=20190206T103006%2F20190206T113006',
+        'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Workshop+meeting&details=Workshop+meeting+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23workshop-meeting-2019-february-6&location=TBD&dates=20190206T103006%2F20190206T113006',
       outlook:
-        'https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20190206T103006&enddt=20190206T113006&subject=Workshop+meeting&body=Workshop+meeting+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23workshop-meeting-2019-february-6&location=https%3A%2F%2Facmcsuf.com%2Fevents%23workshop-meeting-2019-february-6',
+        'https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20190206T103006&enddt=20190206T113006&subject=Workshop+meeting&body=Workshop+meeting+%E2%80%94+https%3A%2F%2Facmcsuf.com%2Fevents%23workshop-meeting-2019-february-6&location=TBD',
     },
   },
 ];
