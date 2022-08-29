@@ -29,7 +29,7 @@ export const acmDev: AcmPath = {
 export const acmAI: AcmPath = {
   title: 'AI',
   slug: 'ai',
-  picture: './assets/badges/AI-team.svg',
+  picture: './assets/badges/ai-team.svg',
   color: 'var(--acm-emerald)',
 };
 
