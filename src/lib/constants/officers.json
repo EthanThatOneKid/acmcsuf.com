@@ -542,7 +542,7 @@
       },
       "F22": {
         "title": "AI Team Lead",
-        "tier": 13
+        "tier": 12
       }
     },
     "picture": "justin-stitt.webp"
@@ -636,7 +636,7 @@
       },
       "F22": {
         "title": "Historian",
-        "tier": 12
+        "tier": 11
       }
     },
     "picture": "jason-wong.webp"
@@ -670,5 +670,25 @@
       }
     },
     "picture": "charlie-taylor.webp"
+  },
+  {
+    "fullName": "Yao Lin",
+    "positions": {
+      "F22": {
+        "title": "AI Officer",
+        "tier": 13
+      }
+    },
+    "picture": "yao-lin.webp"
+  },
+  {
+    "fullName": "Sara Sadek",
+    "positions": {
+      "F22": {
+        "title": "AI Officer",
+        "tier": 13
+      }
+    },
+    "picture": "placeholder.webp"
   }
 ]
