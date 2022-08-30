@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { acmAlgo, acmCreate, acmDev } from '$lib/constants/acm-paths';
+  import { acmAI, acmAlgo, acmDesign, acmDev } from '$lib/constants/acm-paths';
   import { TextAlignment } from '$lib/constants/text-alignment';
   import CommonHero from '$lib/components/sections/common-hero.svelte';
   import PathSection from '$lib/components/paths/path-section.svelte';
@@ -23,9 +23,19 @@
 
 <Spacing --min="100px" --med="175px" --max="200px" />
 
-<PathSection info={acmAlgo} textAlign={TextAlignment.Right}>
+<PathSection info={acmAI} textAlign={TextAlignment.Right}>
   <p slot="content" class="size-md">
-    This team is dedicated to building the programming proficiency of students.
+    This team is dedicated to providing accessible information about artificial intelligence and
+    machine learning to all. <span class="brand-emerald brand-em">AI</span> focuses on fun projects geared
+    towards beginners in the field.
+  </p>
+</PathSection>
+
+<Spacing --med="64px" />
+
+<PathSection info={acmAlgo} textAlign={TextAlignment.Left}>
+  <p slot="content" class="size-md">
+    This team is dedicated to building programming fundamentals within students.
     <span class="brand-purple brand-em">Algo</span> focuses on mastering data structures and algorithms,
     enhancing problem solving abilities, and exploration of competitive programming.
   </p>
@@ -33,10 +43,10 @@
 
 <Spacing --med="64px" />
 
-<PathSection info={acmCreate} textAlign={TextAlignment.Left}>
+<PathSection info={acmDesign} textAlign={TextAlignment.Right}>
   <p slot="content" class="size-md">
     This team is dedicated to emphasizing the importance of product design and product management in
-    the tech industry. <span class="brand-pink brand-em">Create</span> focuses on educating students
+    the tech industry. <span class="brand-pink brand-em">Design</span> focuses on educating students
     about design principles, design tools, and the intricacies of conceptualization, development, and
     management of a product.
   </p>
@@ -44,7 +54,7 @@
 
 <Spacing --med="64px" />
 
-<PathSection info={acmDev} textAlign={TextAlignment.Right}>
+<PathSection info={acmDev} textAlign={TextAlignment.Left}>
   <p slot="content" class="size-md">
     This team is dedicated to giving students the opportunity to explore tech via hands-on projects
     and activities. <span class="brand-em brand-bluer">Dev</span> focuses on introducing students to

@@ -1,7 +1,7 @@
 import * as RRule from 'rrule/dist/es5/rrule.min.js';
 import { Temporal } from '@js-temporal/polyfill';
 import type { AcmPath } from '$lib/constants/acm-paths';
-import { acmAlgo, acmCreate, acmDev, acmGeneral } from '$lib/constants/acm-paths';
+import { acmAlgo, acmDesign, acmDev, acmGeneral } from '$lib/constants/acm-paths';
 import { parseBool } from '$lib/common/utils';
 
 export interface AcmEvent {
@@ -330,8 +330,8 @@ export function makeAcmEvent(
       ? acmGeneral
       : rawAcmPath === acmAlgo.slug
       ? acmAlgo
-      : rawAcmPath === acmCreate.slug
-      ? acmCreate
+      : rawAcmPath === acmDesign.slug
+      ? acmDesign
       : rawAcmPath === acmDev.slug
       ? acmDev
       : acmGeneral;
