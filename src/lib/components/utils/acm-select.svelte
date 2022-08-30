@@ -39,6 +39,8 @@
       justify-content: center;
       font-size: var(--size-sm);
       user-select: none;
+      text-align: center;
+      width: 9em;
 
       .option-choice,
       .selected {

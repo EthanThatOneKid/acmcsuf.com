@@ -13,6 +13,10 @@
       "S22": {
         "title": "Algo President",
         "tier": 14
+      },
+      "F22": {
+        "title": "Algo Team Lead",
+        "tier": 14
       }
     },
     "picture": "armanul-ambia.webp"
@@ -47,6 +51,10 @@
       "S22": {
         "title": "Algo Officer, nodebuds Officer",
         "tier": 15
+      },
+      "F22": {
+        "title": "Algo Officer",
+        "tier": 15
       }
     },
     "picture": "sami-bajwa.webp"
@@ -67,6 +75,10 @@
       "S22": {
         "title": "Create Officer",
         "tier": 17
+      },
+      "F22": {
+        "title": "Design Team Lead",
+        "tier": 17
       }
     },
     "picture": "alan-cortez.webp"
@@ -85,6 +97,10 @@
       "S22": {
         "title": "Dev President",
         "tier": 20
+      },
+      "F22": {
+        "title": "Marketing Co-Lead",
+        "tier": 23
       }
     },
     "picture": "wesley-chou.webp"
@@ -103,6 +119,10 @@
       "S22": {
         "title": "Webmaster",
         "tier": 5
+      },
+      "F22": {
+        "title": "Vice President/Webmaster",
+        "tier": 2
       }
     },
     "picture": "ethan-davidson.webp"
@@ -123,6 +143,10 @@
       "S22": {
         "title": "Dev Project Manager",
         "tier": 22
+      },
+      "F22": {
+        "title": "Special Events Officer",
+        "tier": 25
       }
     },
     "picture": "duc-dinh.webp"
@@ -143,6 +167,10 @@
       "S22": {
         "title": "Marketing Director",
         "tier": 12
+      },
+      "F22": {
+        "title": "Marketing Co-Lead",
+        "tier": 23
       }
     },
     "picture": "nurhaliza-hassan.webp"
@@ -193,6 +221,10 @@
       "S22": {
         "title": "Dev Officer",
         "tier": 21
+      },
+      "F22": {
+        "title": "Algo Officer",
+        "tier": 15
       }
     },
     "picture": "joel-anil-john.webp"
@@ -274,7 +306,7 @@
     "positions": {
       "S22": {
         "title": "Historian",
-        "tier": 13
+        "tier": 12
       }
     },
     "picture": "nolan-lee.webp"
@@ -293,6 +325,10 @@
       "S22": {
         "title": "President, nodebuds Officer",
         "tier": 0
+      },
+      "F22": {
+        "title": "Special Events Team Lead",
+        "tier": 24
       }
     },
     "picture": "aaron-lieberman.webp"
@@ -327,6 +363,10 @@
       "S22": {
         "title": "Dev Officer",
         "tier": 21
+      },
+      "F22": {
+        "title": "Design Officer",
+        "tier": 17
       }
     },
     "picture": "jorge-mejia.webp"
@@ -371,6 +411,10 @@
       "S21": {
         "title": "President, Create Director, nodebuds Officer",
         "tier": 0
+      },
+      "F22": {
+        "title": "Treasurer",
+        "tier": 4
       }
     },
     "picture": "jacob-nguyen.webp"
@@ -399,6 +443,10 @@
       "S22": {
         "title": "Create Project Developer",
         "tier": 18
+      },
+      "F22": {
+        "title": "Design Officer",
+        "tier": 18
       }
     },
     "picture": "kirsten-ochoa.webp"
@@ -425,6 +473,10 @@
     "fullName": "Stephanie Pocci",
     "positions": {
       "S22": {
+        "title": "Event Coordinator",
+        "tier": 9
+      },
+      "F22": {
         "title": "Event Coordinator",
         "tier": 9
       }
@@ -487,6 +539,10 @@
       "S22": {
         "title": "Algo Officer",
         "tier": 15
+      },
+      "F22": {
+        "title": "AI Team Lead",
+        "tier": 12
       }
     },
     "picture": "justin-stitt.webp"
@@ -515,6 +571,10 @@
     "fullName": "Daniel Truong",
     "positions": {
       "S22": {
+        "title": "Dev Project Manager",
+        "tier": 22
+      },
+      "F22": {
         "title": "Dev Project Manager",
         "tier": 22
       }
@@ -549,6 +609,10 @@
       "S22": {
         "title": "Vice President",
         "tier": 1
+      },
+      "F22": {
+        "title": "President",
+        "tier": 1
       }
     },
     "picture": "karnikaa-velumani.webp"
@@ -569,8 +633,62 @@
       "S22": {
         "title": "Historian",
         "tier": 13
+      },
+      "F22": {
+        "title": "Historian",
+        "tier": 11
       }
     },
     "picture": "jason-wong.webp"
+  },
+  {
+    "fullName": "Alejandro Ramos",
+    "positions": {
+      "F22": {
+        "title": "Design Officer",
+        "tier": 17
+      }
+    },
+    "picture": "alejandro-ramos.webp"
+  },
+  {
+    "fullName": "Angel Santoyo",
+    "positions": {
+      "F22": {
+        "title": "Dev Officer",
+        "tier": 21
+      }
+    },
+    "picture": "angel-santoyo.webp"
+  },
+  {
+    "fullName": "Charlie Taylor",
+    "positions": {
+      "F22": {
+        "title": "Dev Team Lead",
+        "tier": 20
+      }
+    },
+    "picture": "charlie-taylor.webp"
+  },
+  {
+    "fullName": "Yao Lin",
+    "positions": {
+      "F22": {
+        "title": "AI Officer",
+        "tier": 13
+      }
+    },
+    "picture": "yao-lin.webp"
+  },
+  {
+    "fullName": "Sara Sadek",
+    "positions": {
+      "F22": {
+        "title": "AI Officer",
+        "tier": 13
+      }
+    },
+    "picture": "placeholder.webp"
   }
 ]
