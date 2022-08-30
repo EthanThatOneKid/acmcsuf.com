@@ -13,9 +13,10 @@
       <div>
         <h2>
           <span class="headers size-lg">
-            acm<span style:--font-color={info.color}>
+            <span style:--font-color={info.color}>
               <span class="brand-em">{info.title}</span>
             </span>
+            <span class="brand-em">Team</span>
           </span>
         </h2>
         <slot name="content" tag="p" />
