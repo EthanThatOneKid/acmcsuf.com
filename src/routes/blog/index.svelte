@@ -3,7 +3,8 @@
 
   export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
     const response = await fetch(`/blog.json`);
-    return { props: { posts: await response.json() } };
+    const blogOutput = await response.json();
+    return { props: { posts: blogOutput.posts, labels: blogOutput.labels } };
   }
 </script>
 
@@ -28,8 +29,8 @@
     target.searchParams.set('l', searchValue);
 
     const response = await fetch(target.toString());
-    const { posts: blogPosts } = await response.json();
-    posts = blogPosts;
+    const blogOutput = await response.json();
+    if (blogOutput.posts) posts = blogOutput.posts;
   }
 </script>
 
