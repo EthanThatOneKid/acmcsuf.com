@@ -1,10 +1,19 @@
 <script lang="ts" context="module">
   import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/internal';
 
-  export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
-    const response = await fetch(`/blog.json`);
+  export async function load({ fetch, url }: LoadInput): Promise<LoadOutput> {
+    const target = new URL('/blog.json', url);
+    const rawLabels = url.searchParams.get('l');
+    const selectedLabels = [];
+
+    if (rawLabels?.length > 0) {
+      target.searchParams.set('l', rawLabels);
+      selectedLabels.push(...rawLabels.split(','));
+    }
+
+    const response = await fetch(target.toString());
     const blogOutput = await response.json();
-    return { props: { posts: blogOutput.posts, labels: blogOutput.labels } };
+    return { props: { posts: blogOutput.posts, labels: blogOutput.labels, selectedLabels } };
   }
 </script>
 
