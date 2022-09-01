@@ -1,5 +1,13 @@
 import type { Officer } from '$lib/constants';
 import { OFFICERS } from '$lib/constants';
+import { discernLabels } from '$lib/common/utils';
+import { DEBUG } from '$lib/constants';
+import { posts as SAMPLE_POSTS } from './_testdata/posts';
+
+export interface BlogOutput {
+  labels: string[];
+  posts: Newsletter[];
+}
 
 export interface Newsletter {
   id: number;
@@ -15,6 +23,10 @@ export interface Newsletter {
     url: string;
     picture: string;
   };
+}
+
+export interface NewsletterFetchOptions {
+  labels: string[];
 }
 
 /**
@@ -94,16 +106,44 @@ function formatNewsletters(output: any): Newsletter[] {
   });
 }
 
-export async function fetchNewsletters(): Promise<Newsletter[]> {
-  const ghAccessToken = import.meta.env.VITE_GH_ACCESS_TOKEN;
+export async function fetchNewsletters(options?: NewsletterFetchOptions): Promise<BlogOutput> {
+  // By default, set posts to default sample data.
+  let allPosts = SAMPLE_POSTS;
 
-  const response = await fetch('https://api.github.com/graphql', {
-    method: 'POST',
-    headers: { Authorization: `token ${ghAccessToken}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ query: newslettersQuery }),
-  });
-  const newsletters = formatNewsletters(await response.json());
-  return newsletters.sort((a, b) => {
+  // If debug mode is disabled, fetch the real data.
+  if (!DEBUG) {
+    allPosts = [];
+
+    const ghAccessToken = import.meta.env.VITE_GH_ACCESS_TOKEN;
+    const ghDiscussionCategoryId = import.meta.env.VITE_GH_DISCUSSION_CATEGORY_ID;
+
+    // Uses sample data when DEBUG = 1 or env variables are not satisfied.
+    if (!ghAccessToken || !ghDiscussionCategoryId) {
+      return { posts: [], labels: [] };
+    }
+
+    const response = await fetch('https://api.github.com/graphql', {
+      method: 'POST',
+      headers: { Authorization: `token ${ghAccessToken}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query: newslettersQuery }),
+    });
+
+    allPosts = formatNewsletters(await response.json());
+  }
+
+  // These labels are always derived from **all** the published posts.
+  const labels = discernLabels(allPosts);
+
+  // If no options are provided, return all posts.
+  // Otherwise, return only posts with the specified labels.
+  const filteredPosts =
+    options?.labels.length > 0
+      ? allPosts.filter((post) => post.labels.some((item) => options.labels.includes(item)))
+      : allPosts;
+
+  const sortedPosts = filteredPosts.sort((a, b) => {
     return new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf();
   });
+
+  return { labels, posts: sortedPosts };
 }
