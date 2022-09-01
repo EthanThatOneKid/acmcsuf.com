@@ -44,7 +44,7 @@
 </script>
 
 <svelte:head>
-  <title>Blog / ACM at CSUF</title>
+  <title>README | ACM at CSUF</title>
 </svelte:head>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
