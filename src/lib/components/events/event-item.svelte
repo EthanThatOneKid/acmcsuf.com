@@ -13,15 +13,6 @@
   let anchor: HTMLElement;
   let details: HTMLDetailsElement;
 
-  // Slicing the date param to extract the end time
-  function addingEndTime(endTime) {
-    endTime = endTime.slice(endTime.length - 25, endTime.length - 21);
-    endTime += ' PM';
-    return endTime;
-  }
-
-  const endTime = addingEndTime(info.date);
-
   onMount(() => {
     if (location.hash === `#${info.slug}`) {
       anchor.scrollIntoView({
@@ -56,7 +47,7 @@
         <!-- TODO: RFC3339 timestamp for datetime -->
         <time>
           {info.month}
-          {info.day} at {info.time} - {endTime}
+          {info.day} at {info.startTime} - {info.endTime}
           {#if isRecurring}(recurring){/if}
         </time>
       </p>
