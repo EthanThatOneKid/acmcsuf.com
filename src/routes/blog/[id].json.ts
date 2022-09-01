@@ -2,14 +2,18 @@ import type { RequestEvent, RequestHandlerOutput } from '@sveltejs/kit/types/int
 import type { Newsletter } from './_query';
 
 async function getCache(id: number, origin: string) {
-  const target = new URL('/blog.json', origin);
+  const target = origin + `/blog.json`;
 
-  const response = await fetch(target.toString());
-  const payload = await response.json();
-
-  if (payload.posts && payload.posts.length > 0) {
-    const posts = payload.posts as Newsletter[];
-    return posts.find((item) => item.id === id);
+  try {
+    const response = await fetch(target);
+    const data = await response.json();
+    const newsletter = (data as Newsletter[]).find((item) => {
+      return item.id === id;
+    });
+    return newsletter;
+  } catch (err) {
+    console.error(err);
+    return undefined;
   }
 }
 
