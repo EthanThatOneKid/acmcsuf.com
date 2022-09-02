@@ -1,6 +1,5 @@
 <script>
   import Spacing from '$lib/components/sections/spacing.svelte';
-  import AcmItinerary from '$lib/components/utils/acm-itinerary.svelte';
 </script>
 
 <svelte:head>
@@ -15,46 +14,8 @@
 
 <Spacing --min="100px" --med="175px" --max="200px" />
 
-<section class="itin-section">
-  <AcmItinerary
-    data={[
-      {
-        title: 'Opening Remarks',
-        location: 'ECS Quad',
-        formattedStartingTime: '3:00 PM',
-      },
-      {
-        title: 'Lunch + Club Discovery',
-        location: 'ECS Quad',
-        formattedStartingTime: '3:30 PM',
-      },
-      {
-        title: "Let's Git Technical",
-        location: 'CS 102A',
-        formattedStartingTime: '4:00 PM',
-      },
-      {
-        title: 'Computer Science as a Career',
-        location: 'CS 102B',
-        formattedStartingTime: '4:00 PM',
-      },
-      {
-        title: 'Learning Linux',
-        location: 'CS 110A',
-        formattedStartingTime: '4:00 PM',
-      },
-      {
-        title: 'Closing Remarks',
-        location: 'ECS Quad',
-        formattedStartingTime: '6:00 PM',
-      },
-    ]}
-  >
-    <div slot="title">
-      <h1 class="size-lg">CS Survival Guide Itinerary</h1>
-      <p class="size-md">An introduction to CS at CSUF For students, by students</p>
-    </div>
-  </AcmItinerary>
+<section class="img-section">
+  <img src="/assets/cssg/itinerary.png" alt="Workshop details" />
 </section>
 
 <Spacing --min="100px" --med="175px" --max="200px" />
