@@ -47,7 +47,7 @@
         <!-- TODO: RFC3339 timestamp for datetime -->
         <time>
           {info.month}
-          {info.day} at {info.time}
+          {info.day} at {info.startTime} - {info.endTime}
           {#if isRecurring}(recurring){/if}
         </time>
       </p>
