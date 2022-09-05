@@ -82,7 +82,8 @@ export const QUIZ_DATA: QuizData = {
           match: 'algoChoice',
         },
         {
-          content: 'design 3',
+          content:
+            'design 3aaaaaaaa aaaa aaaaa aaaaaaaaa aaaa aaaaaaaa aaaaaa aaaa aaaaa aaaaaaaaaa aaaa aaaaaaa aaaa aaaaa aaaaaaa aaaaaaa',
           color: '#FF4365',
           match: 'designChoice',
         },
