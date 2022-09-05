@@ -11,6 +11,9 @@ interface Choice {
   content: string;
   // Where color is a valid HTML color
   color: string;
+  // Where the choice is an index number for use in quiz.svelte
+  // ai => 0, dev => 1, design => 2, algo => 3, N/A => 4
+  match: string;
 }
 
 export const QUIZ_DATA: QuizData = {
@@ -19,20 +22,24 @@ export const QUIZ_DATA: QuizData = {
       prompt: "What's your favorite color",
       choices: [
         {
-          content: 'purple',
-          color: 'rebeccapurple',
+          content: 'ai',
+          color: '#21D19F',
+          match: 'aiChoice',
         },
         {
-          content: 'pink',
-          color: 'taylorpink',
+          content: 'algo',
+          color: '#9D35E7',
+          match: 'algoChoice',
         },
         {
-          content: 'orange',
-          color: 'coral',
+          content: 'design',
+          color: '#FF4365',
+          match: 'designChoice',
         },
         {
-          content: 'off-white',
-          color: 'aliceblue',
+          content: 'dev',
+          color: '#1E6CFF',
+          match: 'devChoice',
         },
       ],
     },
@@ -40,20 +47,24 @@ export const QUIZ_DATA: QuizData = {
       prompt: 'What is your favorite bruh moment',
       choices: [
         {
-          content: '1',
-          color: 'rebeccapurple',
+          content: 'ai 2',
+          color: '#21D19F',
+          match: 'aiChoice',
         },
         {
-          content: '2',
-          color: 'taylorpink',
+          content: 'algo 2',
+          color: '#9D35E7',
+          match: 'algoChoice',
         },
         {
-          content: '3',
-          color: 'coral',
+          content: 'design 2',
+          color: '#FF4365',
+          match: 'designChoice',
         },
         {
-          content: 'off-4',
-          color: 'aliceblue',
+          content: 'dev 2',
+          color: '#1E6CFF',
+          match: 'devChoice',
         },
       ],
     },
@@ -61,20 +72,24 @@ export const QUIZ_DATA: QuizData = {
       prompt: 'What should our third question be',
       choices: [
         {
-          content: 'yeah',
-          color: 'rebeccapurple',
+          content: 'ai 3',
+          color: '#21D19F',
+          match: 'aiChoice',
         },
         {
-          content: 'nah',
-          color: 'taylorpink',
+          content: 'algo 3',
+          color: '#9D35E7',
+          match: 'algoChoice',
         },
         {
-          content: 'orange',
-          color: 'coral',
+          content: 'design 3',
+          color: '#FF4365',
+          match: 'designChoice',
         },
         {
-          content: 'wa-white',
-          color: 'aliceblue',
+          content: 'dev 3',
+          color: '#1E6CFF',
+          match: 'devChoice',
         },
       ],
     },
