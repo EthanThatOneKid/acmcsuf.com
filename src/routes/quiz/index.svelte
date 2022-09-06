@@ -1,6 +1,6 @@
 <script lang="ts">
   import Quiz from '$lib/components/quiz/quiz.svelte';
-  import { QUIZ_DATA } from '$lib/constants/quiz';
+  import { QUIZ_DATA } from '$lib/quiz';
   import Spacing from '$lib/components/sections/spacing.svelte';
 </script>
 

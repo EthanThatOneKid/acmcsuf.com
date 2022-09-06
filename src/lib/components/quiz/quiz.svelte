@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { QuizData, TeamMatch } from '$lib/constants/quiz';
+  import type { QuizData, TeamMatch } from '$lib/quiz';
   import LeftArrow from '$lib/components/icons/left-arrow.svelte';
   import RightArrow from '$lib/components/icons/right-arrow.svelte';
   import MoreInfo from './more-info.svelte';
