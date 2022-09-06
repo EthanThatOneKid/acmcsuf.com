@@ -1,25 +1,31 @@
 <script lang="ts">
   import type { QuizData, TeamMatch } from '$lib/constants/quiz';
+  import ProgressBar from '$lib/components/quiz/team-match-box.svelte';
   import LeftArrow from '$lib/components/icons/left-arrow.svelte';
   import RightArrow from '$lib/components/icons/right-arrow.svelte';
   import MoreInfo from './more-info.svelte';
 
   export let data: QuizData;
 
-  $: index = 0;
-  let response: TeamMatch[] = [];
+  let index = 0;
+  let responses: TeamMatch[] = [];
   $: answeredAllQuestions =
-    response.length === data.questions.length && !response.includes(undefined);
+    responses.length === data.questions.length && !responses.includes(undefined);
   let showResults = false;
   let showMoreInfo = false;
   let showTeam: string;
-  $: talliedResponses = response.reduce((tallies, match) => {
+  $: talliedResponses = responses.reduce((tallies, match) => {
     if (tallies[match]) tallies[match]++;
     else tallies[match] = 1;
     return tallies;
-  }, {});
+  }, {} as Record<TeamMatch, number>);
+  $: match = Object.entries(talliedResponses)
+    .sort(([, a], [, b]) => b - a)
+    ?.shift()
+    ?.shift();
   let teams = ['Algo', 'Dev', 'Design', 'AI'];
-  let match: string;
+  // let colors = ['#9D35E7', '#1E6CFF', '#FF4365', '#21D19F'];
+  // let match: string;
 
   function goLeft() {
     if (index > 0) {
@@ -38,27 +44,18 @@
   }
 
   function recordAnswer(match: TeamMatch) {
-    console.log(match);
-
-    response[index] = match;
-    // if answered all questions and no more questions then submitResponses
-    if (!answeredAllQuestions) {
-      goRight();
-    }
+    responses[index] = match;
+    goRight();
   }
 
   function submitResponses() {
-    let totalTallyKey: string[] = Object.keys(talliedResponses);
-    let totalTallyValue: number[] = Object.values(talliedResponses);
-    match = totalTallyKey[totalTallyValue.indexOf(Math.max(...totalTallyValue))];
     console.log(match);
-    // save to localstorage
     // show results and hide the question
     showResults = true;
   }
 
   function restartQuiz() {
-    response = [];
+    responses = [];
     index = 0;
     showResults = false;
   }
@@ -78,7 +75,7 @@
     <h1>ACM PATH QUIZ</h1>
     <div class="question">
       <h2>{data.questions[index].prompt}</h2>
-      {#if response[index]}
+      {#if responses[index]}
         <p>answered</p>
       {/if}
       <section class="answers">
@@ -111,22 +108,28 @@
     <button on:click={goBackToResults}>Go Back</button>
     <!-- DISPLAY THE RESULTS -->
   {:else}
-    <h1>Results!!!</h1>
+    <h1>Results</h1>
     <p>You Matched</p>
-    <h2>{match}</h2>
+    <!-- <h2>{match}</h2> -->
     <p>Click the teams below to see your next step</p>
     <div class="result-grid">
       <div on:click={() => showTeamDetails(match)} class="result-grid-box">
         <h3>{match}</h3>
-        <p>{talliedResponses[match]}% match!</p>
+        <ProgressBar
+          progress={(talliedResponses[match] / data.questions.length) * 100}
+          fillColor={'blue'}
+        />
       </div>
       {#each teams as otherMatches (otherMatches)}
         {#if otherMatches !== match}
           <div on:click={() => showTeamDetails(otherMatches)} class="result-grid-box">
             <h3>{otherMatches}</h3>
-            <p>
-              {talliedResponses[otherMatches] ? talliedResponses[otherMatches] : 0}% match!
-            </p>
+            <ProgressBar
+              progress={talliedResponses[otherMatches]
+                ? (talliedResponses[otherMatches] / data.questions.length) * 100
+                : 0}
+              fillColor={'blue'}
+            />
           </div>
         {/if}
       {/each}
@@ -166,7 +169,7 @@
     flex-direction: column;
     gap: 25px;
     width: 350px;
-    height: 400px;
+    height: 350px;
   }
 
   .answers button {
@@ -202,6 +205,7 @@
   .submitBTN,
   .action-btn {
     margin-top: 15px;
+    margin-bottom: 15px;
     font-size: 24px;
     font-weight: 500;
     padding: 8px 28px;
