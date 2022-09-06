@@ -1,31 +1,29 @@
 <script lang="ts">
-  import type { QuizData } from '$lib/constants/quiz';
-  import LeftArrow from '../icons/leftArrow.svelte';
-  import RightArrow from '../icons/rightArrow.svelte';
-  import MoreInfo from './moreInfo.svelte';
+  import type { QuizData, TeamMatch } from '$lib/constants/quiz';
+  import LeftArrow from '$lib/components/icons/left-arrow.svelte';
+  import RightArrow from '$lib/components/icons/right-arrow.svelte';
+  import MoreInfo from './more-info.svelte';
 
   export let data: QuizData;
 
   $: index = 0;
-  let response: string[] = [];
-  let noMoreQuestions: boolean = false;
-  let answeredEveryQuestion: boolean = false;
-  let showResults: boolean = false;
-  let showMoreInfo: boolean = false;
+  let response: TeamMatch[] = [];
+  $: answeredAllQuestions =
+    response.length === data.questions.length && !response.includes(undefined);
+  let showResults = false;
+  let showMoreInfo = false;
   let showTeam: string;
-  let tallyChoices = {
-    aiChoice: 0,
-    algoChoice: 0,
-    designChoice: 0,
-    devChoice: 0,
-  };
-  let teams = ['aiChoice', 'algoChoice', 'designChoice', 'devChoice'];
+  $: talliedResponses = response.reduce((tallies, match) => {
+    if (tallies[match]) tallies[match]++;
+    else tallies[match] = 1;
+    return tallies;
+  }, {});
+  let teams = ['Algo', 'Dev', 'Design', 'AI'];
   let match: string;
 
   function goLeft() {
     if (index > 0) {
       index--;
-      noMoreQuestions = false;
     }
   }
 
@@ -33,35 +31,27 @@
     if (index < data.questions.length - 1) {
       index++;
     }
-    if (index === data.questions.length - 1) {
-      noMoreQuestions = true;
-
+    if (index === data.questions.length) {
+      // need to display text at the bottom that says:
       console.log('please answer all questions');
     }
   }
 
-  function recordAnswer(choiceIndex: number) {
-    response[index] = data.questions[index].choices[choiceIndex].match;
+  function recordAnswer(match: TeamMatch) {
+    console.log(match);
+
+    response[index] = match;
     // if answered all questions and no more questions then submitResponses
-    if (!response.includes(undefined) && response.length === data.questions.length) {
-      answeredEveryQuestion = true;
-    } else {
+    if (!answeredAllQuestions) {
       goRight();
     }
   }
 
   function submitResponses() {
-    // tally up response choices once it is locked in and the user cant go back
-    // below will condense the total number of clicks for its respective button
-    // ex: {ai: 1, algo: 2, dev: 0, design: 0}
-    response.forEach((choice) => {
-      tallyChoices[choice] += (1 / data.questions.length) * 100;
-    });
-    // calculate best match
-    let totalTallyValues = Object.values(tallyChoices);
-    let totalTallyKey = Object.keys(tallyChoices);
-    // first we find the biggest number => get index of that => find corresponding key to that index
-    match = totalTallyKey[totalTallyValues.indexOf(Math.max(...totalTallyValues))];
+    let totalTallyKey: string[] = Object.keys(talliedResponses);
+    let totalTallyValue: number[] = Object.values(talliedResponses);
+    match = totalTallyKey[totalTallyValue.indexOf(Math.max(...totalTallyValue))];
+    console.log(match);
     // save to localstorage
     // show results and hide the question
     showResults = true;
@@ -71,14 +61,6 @@
     response = [];
     index = 0;
     showResults = false;
-    noMoreQuestions = false;
-    answeredEveryQuestion = false;
-    tallyChoices = {
-      aiChoice: 0,
-      algoChoice: 0,
-      designChoice: 0,
-      devChoice: 0,
-    };
   }
 
   function showTeamDetails(currentTeam: string) {
@@ -100,8 +82,8 @@
         <p>answered</p>
       {/if}
       <section class="answers">
-        {#each data.questions[index].choices as choice, j (choice.content)}
-          <button on:click={() => recordAnswer(j)} style={`--color: ${choice.color}`}>
+        {#each data.questions[index].choices as choice (choice.content)}
+          <button on:click={() => recordAnswer(choice.match)} style={`--color: ${choice.color}`}>
             <h3>{choice.content}</h3>
           </button>
         {/each}
@@ -109,18 +91,20 @@
     </div>
     <div class="arrow-wrapper">
       <!-- this scary tenary thing for the classes just determines when to show and not -->
-      <button on:click={goLeft} class={`${!(index === 0) ? 'arrow ' : 'hidden'}`}
+      <button on:click={goLeft} class={`${index === 0 && 'disable-arrow'} arrow`}
         ><LeftArrow /></button
       >
       <button
         on:click={goRight}
-        class={`${!(index === data.questions.length - 1) ? 'arrow ' : 'hidden'}`}
+        class={`${index === data.questions.length - 1 && 'disable-arrow'} arrow`}
         ><RightArrow /></button
       >
     </div>
-    {#if answeredEveryQuestion}
-      <button on:click={submitResponses} class="submitBTN">Submit</button>
-    {/if}
+    <button
+      on:click={submitResponses}
+      class={`${!answeredAllQuestions && 'disable-submitBTN'} submitBTN`}>Submit</button
+    >
+
     <!-- DISPLAY ADDIONTAL TEAM INFORMATION -->
   {:else if showMoreInfo}
     <MoreInfo teamPage={showTeam} />
@@ -128,20 +112,27 @@
     <!-- DISPLAY THE RESULTS -->
   {:else}
     <h1>Results!!!</h1>
-    <div>
-      <h3 on:click={() => showTeamDetails(match)}>{match}</h3>
-      <p>{tallyChoices[match].toFixed(0)}% match!</p>
+    <p>You Matched</p>
+    <h2>{match}</h2>
+    <p>Click the teams below to see your next step</p>
+    <div class="result-grid">
+      <div on:click={() => showTeamDetails(match)} class="result-grid-box">
+        <h3>{match}</h3>
+        <p>{talliedResponses[match]}% match!</p>
+      </div>
+      {#each teams as otherMatches (otherMatches)}
+        {#if otherMatches !== match}
+          <div on:click={() => showTeamDetails(otherMatches)} class="result-grid-box">
+            <h3>{otherMatches}</h3>
+            <p>
+              {talliedResponses[otherMatches] ? talliedResponses[otherMatches] : 0}% match!
+            </p>
+          </div>
+        {/if}
+      {/each}
     </div>
-    {#each teams as otherMatches (otherMatches)}
-      {#if otherMatches !== match}
-        <div>
-          <h3 on:click={() => showTeamDetails(otherMatches)}>{otherMatches}</h3>
-          <p>{tallyChoices[otherMatches].toFixed(0)}% match!</p>
-        </div>
-      {/if}
-    {/each}
-    <button on:click={restartQuiz}>Take Quiz Again</button>
-    <button on:click={() => showTeamDetails('help')}>Want to help out?</button>
+    <button on:click={restartQuiz} class="action-btn">Take Quiz Again</button>
+    <button on:click={() => showTeamDetails('help')} class="action-btn">Want to help out?</button>
   {/if}
 </div>
 
@@ -153,6 +144,8 @@
     flex-direction: column;
     gap: 10px;
   }
+
+  // Quiz Styles
 
   .question {
     width: 600px;
@@ -206,8 +199,8 @@
   .arrow:hover {
     box-shadow: 0px 0px 4px var(--acm-dark);
   }
-
-  .submitBTN {
+  .submitBTN,
+  .action-btn {
     margin-top: 15px;
     font-size: 24px;
     font-weight: 500;
@@ -215,19 +208,42 @@
     min-height: 42px;
     background-color: var(--acm-gray);
     border-radius: 8px;
-    border: none;
+    border: var(--acm-blue) 3px solid;
     cursor: pointer;
     transition: box-shadow 0.25s ease-in-out;
   }
-  .submitBTN:hover {
+  .submitBTN:hover,
+  .action-btn:hover {
     box-shadow: 0px 0px 10px var(--acm-blue);
   }
 
-  .hidden {
-    opacity: 0;
-    background: none;
-    border: var(--acm-dark) 3px solid;
-    border-radius: 18px;
-    padding: 8px;
+  .disable-submitBTN,
+  .disable-arrow {
+    opacity: 0.5;
+    pointer-events: none;
+    border: none;
+  }
+
+  // Result Styles
+
+  .result-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .result-grid-box {
+    padding: 8px 28px;
+    min-height: 42px;
+    background-color: var(--acm-gray);
+    border-radius: 8px;
+    border: var(--color) 3px solid;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
   }
 </style>
