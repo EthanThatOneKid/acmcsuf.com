@@ -75,11 +75,18 @@
       >
     </summary>
 
+    <noscript>
+      <p class="event-description">
+        {@html info.description}
+      </p>
+    </noscript>
+
     {#if shown}
       <p class="event-description" transition:slide>
         {@html info.description}
       </p>
     {/if}
+
     <div class="event-actionbar">
       <button
         class="action-item"
