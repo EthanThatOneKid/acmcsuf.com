@@ -3,12 +3,14 @@
   import type { ClubEvent } from '$lib/public/events/event';
   import { copy } from '$lib/public/copy/copy';
   import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
+  import { slide } from 'svelte/transition';
 
   export let info: ClubEvent;
 
   let isRecurring: boolean = info.recurring;
   let anchor: HTMLElement;
   let details: HTMLDetailsElement;
+  let shown = false;
 
   function formatLocation(location?: string | null, hosted = ['Discord', 'Zoom']): string {
     // '', null, and undefined are all TBD
@@ -36,7 +38,12 @@
   <!-- Workaround for the top panel covering the event card's anchor. -->
   <div class="anchor" id={info.id} bind:this={anchor} />
   <details class="event-card" bind:this={details}>
-    <summary class="event-body">
+    <summary
+      class="event-body"
+      on:click={() => {
+        shown = !shown;
+      }}
+    >
       <div class="event-name">
         <h2 class="headers">
           {info.title}
@@ -61,16 +68,18 @@
         href={info.meetingLink}
         role="button"
         target="_blank"
-        rel="noopener noreferrer">Join</a
+        rel="noopener noreferrer"
+        on:click={(/* janky hack */) => {
+          shown = !shown;
+        }}>Join</a
       >
     </summary>
 
-    <hr />
-
-    <p class="event-description">
-      {@html info.description}
-    </p>
-
+    {#if shown}
+      <p class="event-description" transition:slide>
+        {@html info.description}
+      </p>
+    {/if}
     <div class="event-actionbar">
       <button
         class="action-item"
