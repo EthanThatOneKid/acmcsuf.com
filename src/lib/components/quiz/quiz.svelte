@@ -1,11 +1,12 @@
 <script lang="ts">
   import { QuizData, QuizStorage, TeamMatch } from '$lib/quiz';
-  import { acmAlgo, acmDev, acmDesign, acmAI } from '$lib/constants/acm-paths';
+  import { AcmPath, acmAlgo, acmDev, acmDesign, acmAI, acmGeneral } from '$lib/constants/acm-paths';
   import { onMount } from 'svelte';
   import ProgressBar from '$lib/components/quiz/progress-bar.svelte';
   import LeftArrow from '$lib/components/icons/left-arrow.svelte';
   import RightArrow from '$lib/components/icons/right-arrow.svelte';
   import MoreInfo from './more-info.svelte';
+  import AcmPaths from '../index/acm-paths.svelte';
 
   export let data: QuizData;
 
@@ -15,6 +16,7 @@
     [TeamMatch.DESIGN]: acmDesign,
     [TeamMatch.ALGO]: acmAlgo,
   };
+  const TEAMLESS = { [TeamMatch.TEAMLESS]: acmGeneral };
   //  [acmAlgo.title, acmDev.title, acmDesign.title, acmAI.title]
   let index = 0;
   let responses: TeamMatch[] = [];
@@ -29,7 +31,7 @@
   }
   let showResults = false;
   let showMoreInfo = false;
-  let showTeam: TeamMatch;
+  let showTeam: AcmPath;
   $: talliedResponses = responses.reduce((tallies, match) => {
     if (tallies[match]) tallies[match]++;
     else tallies[match] = 1;
@@ -71,7 +73,7 @@
     quizStorage.clearResponses();
   }
 
-  function showTeamDetails(currentTeam: TeamMatch) {
+  function showTeamDetails(currentTeam: AcmPath) {
     showMoreInfo = true;
     showTeam = currentTeam;
   }
@@ -125,29 +127,47 @@
 
     <!-- DISPLAY ADDIONTAL TEAM INFORMATION -->
   {:else if showMoreInfo}
-    <!-- <MoreInfo teamPage={showTeam} /> -->
-    <button on:click={goBackToResults}>Go Back</button>
+    <MoreInfo teamMatch={showTeam} />
+    <button
+      on:click={goBackToResults}
+      disabled={index === 0}
+      class={`${index === 0 && 'disable-arrow'} arrow return-to-results`}
+      ><LeftArrow />
+      <h3>Check out other teams</h3></button
+    >
     <!-- DISPLAY THE RESULTS -->
   {:else}
     <h1>Results</h1>
     <p>You Matched</p>
-    <h2>{match}</h2>
+    <h2 class="match-title" style={`--team-color: ${TEAMS[match].color}`}>
+      {match} <span>Team</span>
+    </h2>
     <p>Click the teams below to see your next step</p>
     <div class="result-grid">
-      <!-- PUT INSIDE THE DIV ONCE YOU FIX IT on:click={() => showTeamDetails(otherMatch)} MORE-INFO.SVELTE-->
-      <div class="result-grid-box" style={`--border-color: ${TEAMS[match].color}`}>
-        <h3>{match}</h3>
-        <img src={TEAMS[match].picture} alt={`${match} icon`} />
+      <div
+        class="result-grid-box"
+        on:click={() => showTeamDetails(TEAMS[match])}
+        style={`--border-color: ${TEAMS[match].color}`}
+      >
+        <h2 class="team-title" style={`--team-color: ${TEAMS[match].color}`}>
+          {match} <span>Team</span>
+        </h2>
+        <img src={TEAMS[match].picture} alt={`${match} icon`} class="team-icon" />
         <ProgressBar
           progress={(talliedResponses[match] / data.questions.length) * 100}
           fillColor={TEAMS[match].color}
         />
       </div>
       {#each Object.entries(TEAMS).filter(([otherMatch]) => otherMatch !== match) as [otherMatch, team] (otherMatch)}
-        <!-- PUT INSIDE THE DIV ONCE YOU FIX IT on:click={() => showTeamDetails(otherMatch)} MORE-INFO.SVELTE-->
-        <div class="result-grid-box" style={`--border-color: ${team.color}`}>
-          <h3>{otherMatch}</h3>
-          <img src={team.picture} alt={`${otherMatch} icon`} />
+        <div
+          class="result-grid-box"
+          style={`--border-color: ${team.color}`}
+          on:click={() => showTeamDetails(team)}
+        >
+          <h2 class="team-title" style={`--team-color: ${team.color}`}>
+            {otherMatch} <span>Team</span>
+          </h2>
+          <img src={team.picture} alt={`${otherMatch} icon`} class="team-icon" />
 
           <ProgressBar
             progress={talliedResponses[otherMatch]
@@ -160,18 +180,25 @@
     </div>
     <button on:click={restartQuiz} class="action-btn">Take Quiz Again</button>
     <!-- PUT INSIDE THE DIV ONCE YOU FIX IT on:click={() => showTeamDetails(help)} MORE-INFO.SVELTE-->
-    <button class="action-btn">Want to help out?</button>
+    <button class="action-btn" on:click={() => showTeamDetails(TEAMLESS['N/A'])}
+      >Want to help out?</button
+    >
   {/if}
 </div>
 
 <style lang="scss">
   .container {
     --quiz-bg: rgba(102, 102, 102, 0.274);
+    padding: 0 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 10px;
+  }
+
+  .container p {
+    text-align: center;
   }
 
   // Quiz Styles
@@ -262,6 +289,19 @@
 
   // Result Styles
 
+  .team-title {
+    color: var(--team-color);
+  }
+
+  .match-title {
+    color: var(--team-color);
+    font-size: 42px;
+  }
+
+  span {
+    color: var(--acm-dark);
+  }
+
   .result-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -270,7 +310,7 @@
   }
 
   .result-grid-box {
-    padding: 8px 28px;
+    padding: 16px 24px;
     min-height: 42px;
     background-color: var(--quiz-bg);
     border-radius: 8px;
@@ -284,7 +324,34 @@
     transition: box-shadow 0.25s ease-in-out;
   }
 
+  .team-icon {
+    width: 50%;
+    height: 50%;
+  }
+
   .result-grid-box:hover {
     box-shadow: 0px 0px 10px var(--border-color);
+  }
+
+  .return-to-results {
+    margin-top: 20px;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  @media screen and (max-width: 740px) {
+    .result-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+    .result-grid-box {
+      width: 200px;
+      height: 150px;
+    }
   }
 </style>
