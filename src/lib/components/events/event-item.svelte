@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { slide } from 'svelte/transition';
   import type { AcmEvent } from '$lib/ical';
   import CopyLinkIcon from '$lib/components/icons/copy-link.svelte';
   import CopyTextIcon from '$lib/components/icons/copy-text.svelte';
@@ -12,6 +13,7 @@
   let isRecurring: boolean = info.recurring;
   let anchor: HTMLElement;
   let details: HTMLDetailsElement;
+  let shown = false;
 
   onMount(() => {
     if (location.hash === `#${info.slug}`) {
@@ -32,7 +34,12 @@
   <!-- Workaround for the top panel covering the event card's anchor. -->
   <div class="anchor" id={info.slug} bind:this={anchor} />
   <details class="event-card" bind:this={details}>
-    <summary class="event-body">
+    <summary
+      class="event-body"
+      on:click={() => {
+        shown = !shown;
+      }}
+    >
       <div class="event-name">
         <h2 class="headers">
           {info.title}
@@ -57,16 +64,18 @@
         href={info.meetingLink}
         role="button"
         target="_blank"
-        rel="noopener noreferrer">Join</a
+        rel="noopener noreferrer"
+        on:click={(/* janky hack */) => {
+          shown = !shown;
+        }}>Join</a
       >
     </summary>
 
-    <hr />
-
-    <p class="event-description">
-      {@html info.description}
-    </p>
-
+    {#if shown}
+      <p class="event-description" transition:slide>
+        {@html info.description}
+      </p>
+    {/if}
     <div class="event-actionbar">
       <button
         class="action-item"
