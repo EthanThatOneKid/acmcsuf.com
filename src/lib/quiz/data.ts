@@ -1,28 +1,4 @@
-export interface QuizData {
-  questions: Question[];
-}
-
-interface Question {
-  prompt: string;
-  choices: Choice[];
-}
-
-export enum TeamMatch {
-  ALGO,
-  DEV,
-  DESIGN,
-  AI,
-  TEAMLESS,
-}
-
-interface Choice {
-  content: string;
-  // Where color is a valid HTML color
-  color: string;
-  // Where the choice is an index number for use in quiz.svelte
-  // ai => 0, dev => 1, design => 2, algo => 3, N/A => 4
-  match: TeamMatch;
-}
+import { QuizData, TeamMatch } from './types';
 
 export const QUIZ_DATA: QuizData = {
   questions: [

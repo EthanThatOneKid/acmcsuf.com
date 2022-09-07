@@ -1,5 +1,6 @@
 <script lang="ts">
-  import type { QuizData, TeamMatch } from '$lib/constants/quiz';
+  import type { QuizData, TeamMatch } from '$lib/quiz';
+  import { acmAlgo, acmDev, acmDesign, acmAI } from '$lib/constants/acm-paths';
   import ProgressBar from '$lib/components/quiz/team-match-box.svelte';
   import LeftArrow from '$lib/components/icons/left-arrow.svelte';
   import RightArrow from '$lib/components/icons/right-arrow.svelte';
@@ -23,7 +24,19 @@
     .sort(([, a], [, b]) => b - a)
     ?.shift()
     ?.shift();
-  let teams = ['Algo', 'Dev', 'Design', 'AI'];
+  let teams = [acmAlgo.title, acmDev.title, acmDesign.title, acmAI.title];
+  $: teamColor = (team) => {
+    switch (team) {
+      case 'Design':
+        return acmDesign.color;
+      case 'Dev':
+        return acmDev.color;
+      case 'Algo':
+        return acmAlgo.color;
+      case 'AI':
+        return acmAI.color;
+    }
+  };
   // let colors = ['#9D35E7', '#1E6CFF', '#FF4365', '#21D19F'];
   // let match: string;
 
@@ -49,7 +62,7 @@
   }
 
   function submitResponses() {
-    console.log(match);
+    console.log('final:', match, talliedResponses);
     // show results and hide the question
     showResults = true;
   }
@@ -110,25 +123,36 @@
   {:else}
     <h1>Results</h1>
     <p>You Matched</p>
-    <!-- <h2>{match}</h2> -->
+    <h2>{match}</h2>
     <p>Click the teams below to see your next step</p>
     <div class="result-grid">
-      <div on:click={() => showTeamDetails(match)} class="result-grid-box">
+      <div
+        on:click={() => showTeamDetails(match)}
+        class="result-grid-box"
+        style={`--border-color: ${teamColor(match)}`}
+      >
         <h3>{match}</h3>
+        <p>logo</p>
         <ProgressBar
           progress={(talliedResponses[match] / data.questions.length) * 100}
-          fillColor={'blue'}
+          fillColor={teamColor(match)}
         />
       </div>
       {#each teams as otherMatches (otherMatches)}
         {#if otherMatches !== match}
-          <div on:click={() => showTeamDetails(otherMatches)} class="result-grid-box">
+          <div
+            on:click={() => showTeamDetails(otherMatches)}
+            class="result-grid-box"
+            style={`--border-color: ${teamColor(otherMatches)}`}
+          >
             <h3>{otherMatches}</h3>
+            <p>logo</p>
+
             <ProgressBar
               progress={talliedResponses[otherMatches]
                 ? (talliedResponses[otherMatches] / data.questions.length) * 100
                 : 0}
-              fillColor={'blue'}
+              fillColor={teamColor(otherMatches)}
             />
           </div>
         {/if}
@@ -216,6 +240,12 @@
     cursor: pointer;
     transition: box-shadow 0.25s ease-in-out;
   }
+
+  .action-btn {
+    font-weight: 600;
+    font-size: 18px;
+  }
+
   .submitBTN:hover,
   .action-btn:hover {
     box-shadow: 0px 0px 10px var(--acm-blue);
@@ -242,12 +272,17 @@
     min-height: 42px;
     background-color: var(--acm-gray);
     border-radius: 8px;
-    border: var(--color) 3px solid;
+    border: var(--border-color) 3px solid;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 15px;
+    transition: box-shadow 0.25s ease-in-out;
+  }
+
+  .result-grid-box:hover {
+    box-shadow: 0px 0px 10px var(--border-color);
   }
 </style>
