@@ -1,6 +1,7 @@
 <script lang="ts">
-  import type { QuizData, TeamMatch } from '$lib/quiz';
+  import { QuizData, QuizStorage, TeamMatch } from '$lib/quiz';
   import { acmAlgo, acmDev, acmDesign, acmAI } from '$lib/constants/acm-paths';
+  import { onMount } from 'svelte';
   import ProgressBar from '$lib/components/quiz/progress-bar.svelte';
   import LeftArrow from '$lib/components/icons/left-arrow.svelte';
   import RightArrow from '$lib/components/icons/right-arrow.svelte';
@@ -8,42 +9,39 @@
 
   export let data: QuizData;
 
+  const TEAMS = {
+    [TeamMatch.AI]: acmAI,
+    [TeamMatch.DEV]: acmDev,
+    [TeamMatch.DESIGN]: acmDesign,
+    [TeamMatch.ALGO]: acmAlgo,
+  };
+  //  [acmAlgo.title, acmDev.title, acmDesign.title, acmAI.title]
   let index = 0;
   let responses: TeamMatch[] = [];
-  $: answeredAllQuestions =
-    responses.length === data.questions.length && !responses.includes(undefined);
+  let answeredAllQuestions = false;
+  // local storage stuff
+  let quizStorage: QuizStorage | undefined;
+  $: {
+    answeredAllQuestions =
+      responses.length === data.questions.length && !responses.includes(undefined);
+    // Updates local storage whenever `responses` changes.
+    quizStorage && quizStorage.setResponses(responses);
+  }
   let showResults = false;
   let showMoreInfo = false;
-  let showTeam: string;
+  let showTeam: TeamMatch;
   $: talliedResponses = responses.reduce((tallies, match) => {
     if (tallies[match]) tallies[match]++;
     else tallies[match] = 1;
     return tallies;
   }, {} as Record<TeamMatch, number>);
-  $: match = Object.entries(talliedResponses)
+  $: match = (Object.entries(talliedResponses)
     .sort(([, a], [, b]) => b - a)
     ?.shift()
-    ?.shift();
-  let teams = [acmAlgo.title, acmDev.title, acmDesign.title, acmAI.title];
-  $: teamColor = (team) => {
-    switch (team) {
-      case 'Design':
-        return acmDesign.color;
-      case 'Dev':
-        return acmDev.color;
-      case 'Algo':
-        return acmAlgo.color;
-      case 'AI':
-        return acmAI.color;
-    }
-  };
-  // let colors = ['#9D35E7', '#1E6CFF', '#FF4365', '#21D19F'];
-  // let match: string;
+    ?.shift() ?? TeamMatch.TEAMLESS) as TeamMatch;
 
   function goLeft() {
-    if (index > 0) {
-      index--;
-    }
+    if (index > 0) index--;
   }
 
   function goRight() {
@@ -62,7 +60,6 @@
   }
 
   function submitResponses() {
-    console.log('final:', match, talliedResponses);
     // show results and hide the question
     showResults = true;
   }
@@ -71,21 +68,28 @@
     responses = [];
     index = 0;
     showResults = false;
+    quizStorage.clearResponses();
   }
 
-  function showTeamDetails(currentTeam: string) {
+  function showTeamDetails(currentTeam: TeamMatch) {
     showMoreInfo = true;
     showTeam = currentTeam;
   }
+
   function goBackToResults() {
     showMoreInfo = false;
   }
+
+  onMount(() => {
+    // hypothetically change this to QuizStorage.init()
+    quizStorage = new QuizStorage();
+  });
 </script>
 
 <div class="container">
   <!-- DISPLAY THE QUIZ QUESTIONS -->
   {#if !showResults}
-    <h1>ACM PATH QUIZ</h1>
+    <h1>ACM TEAM QUIZ</h1>
     <div class="question">
       <h2>{data.questions[index].prompt}</h2>
       {#if responses[index]}
@@ -101,23 +105,27 @@
     </div>
     <div class="arrow-wrapper">
       <!-- this scary tenary thing for the classes just determines when to show and not -->
-      <button on:click={goLeft} class={`${index === 0 && 'disable-arrow'} arrow`}
-        ><LeftArrow /></button
+      <button
+        on:click={goLeft}
+        disabled={index === 0}
+        class={`${index === 0 && 'disable-arrow'} arrow`}><LeftArrow /></button
       >
       <button
         on:click={goRight}
+        disabled={index === data.questions.length - 1}
         class={`${index === data.questions.length - 1 && 'disable-arrow'} arrow`}
         ><RightArrow /></button
       >
     </div>
     <button
       on:click={submitResponses}
+      disabled={!answeredAllQuestions}
       class={`${!answeredAllQuestions && 'disable-submitBTN'} submitBTN`}>Submit</button
     >
 
     <!-- DISPLAY ADDIONTAL TEAM INFORMATION -->
   {:else if showMoreInfo}
-    <MoreInfo teamPage={showTeam} />
+    <!-- <MoreInfo teamPage={showTeam} /> -->
     <button on:click={goBackToResults}>Go Back</button>
     <!-- DISPLAY THE RESULTS -->
   {:else}
@@ -126,45 +134,39 @@
     <h2>{match}</h2>
     <p>Click the teams below to see your next step</p>
     <div class="result-grid">
-      <div
-        on:click={() => showTeamDetails(match)}
-        class="result-grid-box"
-        style={`--border-color: ${teamColor(match)}`}
-      >
+      <!-- PUT INSIDE THE DIV ONCE YOU FIX IT on:click={() => showTeamDetails(otherMatch)} MORE-INFO.SVELTE-->
+      <div class="result-grid-box" style={`--border-color: ${TEAMS[match].color}`}>
         <h3>{match}</h3>
-        <p>logo</p>
+        <img src={TEAMS[match].picture} alt={`${match} icon`} />
         <ProgressBar
           progress={(talliedResponses[match] / data.questions.length) * 100}
-          fillColor={teamColor(match)}
+          fillColor={TEAMS[match].color}
         />
       </div>
-      {#each teams as otherMatches (otherMatches)}
-        {#if otherMatches !== match}
-          <div
-            on:click={() => showTeamDetails(otherMatches)}
-            class="result-grid-box"
-            style={`--border-color: ${teamColor(otherMatches)}`}
-          >
-            <h3>{otherMatches}</h3>
-            <p>logo</p>
+      {#each Object.entries(TEAMS).filter(([otherMatch]) => otherMatch !== match) as [otherMatch, team] (otherMatch)}
+        <!-- PUT INSIDE THE DIV ONCE YOU FIX IT on:click={() => showTeamDetails(otherMatch)} MORE-INFO.SVELTE-->
+        <div class="result-grid-box" style={`--border-color: ${team.color}`}>
+          <h3>{otherMatch}</h3>
+          <img src={team.picture} alt={`${otherMatch} icon`} />
 
-            <ProgressBar
-              progress={talliedResponses[otherMatches]
-                ? (talliedResponses[otherMatches] / data.questions.length) * 100
-                : 0}
-              fillColor={teamColor(otherMatches)}
-            />
-          </div>
-        {/if}
+          <ProgressBar
+            progress={talliedResponses[otherMatch]
+              ? (talliedResponses[otherMatch] / data.questions.length) * 100
+              : 0}
+            fillColor={team.color}
+          />
+        </div>
       {/each}
     </div>
     <button on:click={restartQuiz} class="action-btn">Take Quiz Again</button>
-    <button on:click={() => showTeamDetails('help')} class="action-btn">Want to help out?</button>
+    <!-- PUT INSIDE THE DIV ONCE YOU FIX IT on:click={() => showTeamDetails(help)} MORE-INFO.SVELTE-->
+    <button class="action-btn">Want to help out?</button>
   {/if}
 </div>
 
 <style lang="scss">
   .container {
+    --quiz-bg: rgba(102, 102, 102, 0.274);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -199,7 +201,7 @@
   .answers button {
     padding: 8px 28px;
     min-height: 42px;
-    background-color: var(--acm-gray);
+    background-color: var(--quiz-bg);
     border-radius: 8px;
     border: var(--color) 3px solid;
     cursor: pointer;
@@ -234,7 +236,7 @@
     font-weight: 500;
     padding: 8px 28px;
     min-height: 42px;
-    background-color: var(--acm-gray);
+    background-color: var(--quiz-bg);
     border-radius: 8px;
     border: var(--acm-blue) 3px solid;
     cursor: pointer;
@@ -270,7 +272,7 @@
   .result-grid-box {
     padding: 8px 28px;
     min-height: 42px;
-    background-color: var(--acm-gray);
+    background-color: var(--quiz-bg);
     border-radius: 8px;
     border: var(--border-color) 3px solid;
     cursor: pointer;

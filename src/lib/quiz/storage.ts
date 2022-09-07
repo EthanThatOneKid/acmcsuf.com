@@ -14,6 +14,8 @@ export class QuizStorage {
     const responses = this.storage.getItem(this.storageKey);
     return responses ? JSON.parse(responses) : [];
   }
-}
 
-export const quizStorage = new QuizStorage();
+  clearResponses() {
+    this.storage.removeItem(this.storageKey);
+  }
+}
