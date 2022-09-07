@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { QuizData, TeamMatch } from '$lib/quiz';
   import { acmAlgo, acmDev, acmDesign, acmAI } from '$lib/constants/acm-paths';
-  import ProgressBar from '$lib/components/quiz/team-match-box.svelte';
+  import ProgressBar from '$lib/components/quiz/progress-bar.svelte';
   import LeftArrow from '$lib/components/icons/left-arrow.svelte';
   import RightArrow from '$lib/components/icons/right-arrow.svelte';
   import MoreInfo from './more-info.svelte';
