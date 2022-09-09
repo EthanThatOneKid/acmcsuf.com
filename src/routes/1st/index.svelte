@@ -281,8 +281,8 @@ git push origin -u <add-your-branch-name /></code
     </p>
 
     <p dir="auto">
-      Soon I'll be merging all your changes into the master branch of this project. You will get a
-      notification email once the changes have been merged.
+      Soon, someone will be merging all your changes into the master branch of this project. You
+      will get a notification email once the changes have been merged.
     </p>
 
     <hr />
