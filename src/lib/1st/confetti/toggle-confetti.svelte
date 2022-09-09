@@ -1,20 +1,13 @@
 <script>
   import { tick } from 'svelte';
 
-  export let toggleOnce = false;
   export let relative = true;
 
   let active = true;
 
   async function click() {
-    if (toggleOnce) {
-      active = !active;
-      return;
-    }
-
-    active = false;
     await tick();
-    active = true;
+    active = !active;
   }
 </script>
 
@@ -31,8 +24,6 @@
 <style>
   .relative {
     position: relative;
-    width: 100vw;
-    height: 100vh;
   }
 
   .relative .confetti {
