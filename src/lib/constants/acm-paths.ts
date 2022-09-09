@@ -49,7 +49,7 @@ export const acmDesign: AcmPath = {
       link: 'https://developer.mozilla.org/en-US/',
     },
   ],
-  workshopPictures: ['./quiz/design-workshop.jpg', './quiz/Figma-collage.PNG'],
+  workshopPictures: ['./quiz/design-workshop.jpg', './quiz/figma-collage.PNG'],
 };
 
 export const acmDev: AcmPath = {

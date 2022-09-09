@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { QuizData, QuizStorage, TeamMatch, Choice } from '$lib/quiz';
+  import { QuizData, QuizStorage, TeamMatch } from '$lib/quiz';
   import { AcmPath, acmAlgo, acmDev, acmDesign, acmAI, acmGeneral } from '$lib/constants/acm-paths';
   import { onMount } from 'svelte';
   import ProgressBar from '$lib/components/quiz/progress-bar.svelte';
@@ -31,11 +31,13 @@
   let showResults = false;
   let showMoreInfo = false;
   let showTeam: AcmPath;
+
   $: talliedResponses = (responses ?? []).reduce((tallies, match) => {
     if (tallies[match]) tallies[match]++;
     else tallies[match] = 1;
     return tallies;
   }, {} as Record<TeamMatch, number>);
+
   $: match = (Object.entries(talliedResponses)
     .sort(([, a], [, b]) => b - a)
     ?.shift()
@@ -48,10 +50,6 @@
   function goRight() {
     if (index < data.questions.length - 1) {
       index++;
-    }
-    if (index === data.questions.length) {
-      // need to display text at the bottom that says:
-      console.log('please answer all questions');
     }
   }
 
@@ -107,7 +105,6 @@
       </section>
     </div>
     <div class="arrow-wrapper">
-      <!-- this scary tenary thing for the classes just determines when to show and not -->
       <button
         on:click={goLeft}
         disabled={index === 0}
@@ -176,12 +173,10 @@
         </div>
       {/each}
     </div>
-
     <button on:click={restartQuiz} class="arrow action-btn restart-btn">
       <h3>Take Quiz Again?</h3>
       <p class="italic">This will wipe your current results</p>
     </button>
-    <!-- PUT INSIDE THE DIV ONCE YOU FIX IT on:click={() => showTeamDetails(help)} MORE-INFO.SVELTE-->
     <button class="arrow action-btn" on:click={() => showTeamDetails(TEAMLESS['N/A'])}
       >Want to help out ACM?</button
     >
@@ -233,13 +228,13 @@
     min-height: 42px;
     background-color: var(--quiz-bg);
     border-radius: 8px;
-    border: var(--acm-blue) 3px solid; // --color
+    border: var(--acm-blue) 3px solid;
     cursor: pointer;
     transition: 0.25s ease-in-out;
   }
 
   .answers button:hover {
-    box-shadow: 0px 0px 10px var(--acm-blue); // --color
+    box-shadow: 0px 0px 10px var(--acm-blue);
   }
 
   .selected-response {
