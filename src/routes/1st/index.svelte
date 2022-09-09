@@ -4,61 +4,71 @@
 
 <script lang="ts">
   import ToggleConfetti from '$lib/1st/confetti/toggle-confetti.svelte';
-  import CommonHero from '$lib/components/sections/common-hero.svelte';
   import Spacing from '$lib/components/sections/spacing.svelte';
   import { Confetti } from 'svelte-confetti';
 
   const colorArray: string[] = Object.keys(confetti).map((key) => confetti[key].default);
 </script>
 
-<ToggleConfetti>
-  <div
-    style="position: fixed; top: -50px; left: 0; height: 100vh; width: 100vw; display: flex; justify-content: center; overflow: hidden;"
-  >
-    <Confetti
-      size={20}
-      x={[-5, 5]}
-      y={[0, 0.1]}
-      delay={[500, 2000]}
-      {colorArray}
-      infinite
-      duration={5000}
-      amount={200}
-      fallDistance="100vh"
-    />
-  </div>
-</ToggleConfetti>
-
 <Spacing --min="175px" --med="200px" --max="200px" />
 
-<CommonHero>
-  <h2 slot="headline" class="size-lg">First Contributions</h2>
-  <p slot="text" class="size-sm">
-    <code>acmcsuf.com/1st</code> aims to simplify and guide the way beginners make their first
-    contribution. If you are looking to make your first contribution, follow the steps below.
-    <br />
-    If you're not comfortable with command line,
-    <a
-      href="https://github.com/firstcontributions/first-contributions/blob/main/README.md#tutorials-using-other-tools"
-      >here are tutorials using GUI tools</a
-    >.
-    <br />
-    If you don't have Git on your machine,
-    <a href="https://help.github.com/articles/set-up-git/">install it</a>.
-    <br />
-    Last updated September 9th, 2022
-  </p>
-</CommonHero>
-
-<Spacing --med="64px" />
-
 <main>
+  <section id="top">
+    <h1 class="size-lg">First Contributions</h1>
+
+    <ToggleConfetti>
+      <button slot="label" class="confetti-toggle">Toggle confetti</button>
+      <div
+        style="position: fixed; top: -50px; left: 0; height: 100vh; width: 100vw; display: flex; justify-content: center; overflow: hidden;"
+      >
+        <Confetti
+          size={20}
+          x={[-5, 5]}
+          y={[0, 0.1]}
+          delay={[500, 2000]}
+          {colorArray}
+          infinite
+          duration={5000}
+          amount={200}
+          fallDistance="100vh"
+        />
+      </div>
+    </ToggleConfetti>
+
+    <p>
+      <code>acmcsuf.com/1st</code> aims to simplify and guide the way beginners make their first
+      contribution. If you are looking to make your first contribution, follow the steps below. If
+      you're not comfortable with command line,
+      <a
+        href="https://github.com/firstcontributions/first-contributions/blob/main/README.md#tutorials-using-other-tools"
+        >here are tutorials using GUI tools</a
+      >. If you don't have Git on your machine,
+      <a href="https://help.github.com/articles/set-up-git/">install it</a>.
+      <br />
+      <br />
+      Last updated September 9th, 2022
+    </p>
+  </section>
+
   <section id="welcome">
     <h2 class="headers">Welcome to ACM!</h2>
 
     <p>
-      acmCSUF provides a social online platform, Discord, that brings passionate Titans together to
-      engage in multiple conversations regarding our community, the tech field, and many more. Join
+      ACM at CSUF provides a social online platform, Discord, that brings passionate Titans together
+      to engage in multiple conversations regarding our community, the tech field, and many more.
+      Join
+      <a href="/discord">our Discord server</a> to learn more about future events, meet new people, and
+      get involved with the community!
+    </p>
+  </section>
+
+  <section id="welcome">
+    <h2 class="headers">Welcome to ACM!</h2>
+
+    <p>
+      ACM at CSUF provides a social online platform, Discord, that brings passionate Titans together
+      to engage in multiple conversations regarding our community, the tech field, and many more.
+      Join
       <a href="/discord">our Discord server</a> to learn more about future events, meet new people, and
       get involved with the community!
     </p>
@@ -154,8 +164,8 @@ git clone https://github.com/this-is-you/acmcsuf.com.git
     <p>
       Step 1: Add your SVG or PNG in <code>/static/assets/1st/your-new-thing.(svg|png)</code> (See:
       <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes"
-        >Basic shapes
-      </a>).
+        >Basic shapes</a
+      >).
       <br />
       Step 2: In a text editor, make some changes by adding some code to show off the new thing you added.
       <code>/src/lib/1st/confetti/your-new-thing.ts</code>, and save it.
@@ -234,8 +244,8 @@ git push origin -u <add-your-branch-name /></code
     <h2 class="headers">Submit your changes for review</h2>
 
     <p>
-      Please feel free to contact us if you have any questions about acmCSUF&rsquo;s Privacy Policy
-      by reaching out to any of our Officers via Discord or email us at <a
+      Please feel free to contact us if you have any questions about ACM at CSUF&rsquo;s Privacy
+      Policy by reaching out to any of our Officers via Discord or email us at <a
         href="mailto:acmcsufullerton@gmail.com"
         class="brand-med"
         target="_blank"
@@ -290,12 +300,21 @@ git push origin -u <add-your-branch-name /></code
 <Spacing --min="40px" --med="95px" --max="120px" />
 
 <style lang="scss">
+  .responsive-width {
+    width: min(800px, 80vw);
+  }
+
   main {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    code {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
 
     section {
       width: min(800px, 80vw);
@@ -318,5 +337,17 @@ git push origin -u <add-your-branch-name /></code
         }
       }
     }
+  }
+
+  .confetti-toggle {
+    background: none;
+    border: var(--acm-dark) 3px solid;
+    border-radius: 18px;
+    padding: 4px 8px;
+    transition: 0.25s ease-in-out;
+  }
+
+  .confetti-toggle:hover {
+    box-shadow: 0px 0px 4px var(--acm-dark);
   }
 </style>

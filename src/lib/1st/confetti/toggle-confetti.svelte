@@ -31,6 +31,8 @@
 <style>
   .relative {
     position: relative;
+    width: 100vw;
+    height: 100vh;
   }
 
   .relative .confetti {
