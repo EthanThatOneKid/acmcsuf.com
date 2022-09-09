@@ -5,7 +5,7 @@ export interface AcmPath {
   color: string;
   blurp: string;
   blurpRecommend: string;
-  recommendations: string[];
+  recommendations: Array<{ title: string; link: string }>;
   workshopPictures: string[];
 }
 
@@ -32,10 +32,22 @@ export const acmDesign: AcmPath = {
   blurpRecommend:
     "Figma is everyone's friend when it comes to designing, but sometimes it's hard to translate that onto code. That's why it is important to get a really good understanding of HTML, CSS, and Javascript. Below are some recommended resources for your journey.",
   recommendations: [
-    'Kevin Powell on Youtube',
-    'The Net Ninja on Youtube',
-    'W3Schools Information',
-    'MDN Resources',
+    {
+      title: "Kevin Powell's neat css tricks",
+      link: 'https://www.youtube.com/kepowob',
+    },
+    {
+      title: "The Net Ninja's beginner playlists",
+      link: 'https://www.youtube.com/c/TheNetNinja',
+    },
+    {
+      title: 'W3Schools CSS',
+      link: 'https://www.w3schools.com/w3css/',
+    },
+    {
+      title: 'MDN Resources',
+      link: 'https://developer.mozilla.org/en-US/',
+    },
   ],
   workshopPictures: ['./quiz/design-workshop.jpg', './quiz/Figma-collage.PNG'],
 };
@@ -45,9 +57,16 @@ export const acmDev: AcmPath = {
   slug: 'dev',
   picture: './assets/badges/dev-team.svg',
   color: 'var(--acm-bluer)',
-  blurp: 'monke monke monek monek',
-  blurpRecommend: 'THE AGONY AHHHHHHHHHHH',
-  recommendations: ['amongus'],
+  blurp:
+    'acmDev aims to have weekly meetings to work on projects as a way to improve our members’ skills at working in groups as well as introduce them to new technologies to make their ideas into software.',
+  blurpRecommend:
+    'The Dev hosts weekly project workshops this semester that go over various practices and ideas, more info about those can be found on our socials. However, below will be some resources which the Dev team recommends to kick off your project career.',
+  recommendations: [
+    {
+      title: 'Svelte Basics',
+      link: 'https://svelte.dev/tutorial/basics',
+    },
+  ],
   workshopPictures: ['./quiz/dev-workshop.jpg'],
 };
 
@@ -56,9 +75,11 @@ export const acmAI: AcmPath = {
   slug: 'ai',
   picture: './assets/badges/ai-team.svg',
   color: 'var(--acm-emerald)',
-  blurp: 'MMMM MM MMMMMM MMMMMM MMMM MMM MMMMM MMM M MMMM MM M MM MMMM MMM MMA HHHHH HHHH H',
-  blurpRecommend: 'BIG BRAIN TIME',
-  recommendations: ['GOOGLE IT LOL'],
+  blurp:
+    'acmAI is focused on introducing Artificial Intelligence and Machine Learning in a beginner friendly way. Workshops are project based and are centered around interactivity. We have a keen eye for problem solving and solution-based programming.',
+  blurpRecommend:
+    'AI events are coming soon this semester, in the mean time keep an eye out for those and futher resources listed on this page. Addionally, becoming actively involved in our #ai-chat on the Discord will surely help in the long-run.',
+  recommendations: [],
   workshopPictures: [],
 };
 

@@ -15,7 +15,7 @@ export enum TeamMatch {
   TEAMLESS = 'N/A',
 }
 
-interface Choice {
+export interface Choice {
   content: string;
   // Where color is a valid HTML color
   color: string;

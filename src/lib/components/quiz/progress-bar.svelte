@@ -13,7 +13,7 @@
     position: relative;
     width: 200px;
     height: 25px;
-    background-color: gray;
+    background-color: var(--progress-bg);
     border-radius: 8px;
   }
   .progress-fill {
@@ -21,7 +21,7 @@
     height: 100%;
     background-color: var(--color-fill);
     border-radius: 8px;
-    animation: progressMove 2.5s ease-in-out;
+    animation: progressMove 2s ease-in-out;
   }
 
   h3 {
@@ -37,12 +37,33 @@
     }
     to {
       width: var(--progress-status);
+      border-radius: 8px;
     }
   }
 
   @media screen and (max-width: 740px) {
     .progress-bar {
       height: 30px;
+    }
+  }
+
+  :global(.light) {
+    --progress-bg: rgba(224, 224, 224, 0.918);
+  }
+
+  :global(.dark) {
+    --progress-bg: #808080;
+  }
+
+  @media (prefers-color-scheme: light) {
+    body:not(.dark) {
+      --progress-bg: rgba(224, 224, 224, 0.918);
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body:not(.light) {
+      --progress-bg: #808080;
     }
   }
 </style>

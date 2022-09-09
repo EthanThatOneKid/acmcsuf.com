@@ -8,24 +8,22 @@
   {#if teamMatch.title === 'General'}
     <img src={teamMatch.picture} alt="img" />
     <h3>We are currently not accepting any board member applications...</h3>
-    <h1>However</h1>
-    <h3>This community is built on student’s knowledge that is not taught in class.</h3>
-    <h3>
-      If you have solid knowledge on things like Git, JavaScript, 3D Modeling please [do something],
-      and we will get you a role on discord to display your understanding so others can reach you
-      for help.
-    </h3>
+    <h1 class="underline">However</h1>
+    <p>This community is built on student’s knowledge that is not taught in class.</p>
+    <p>KARNI PUT SOMETHING HERE</p>
     <img src="./quiz/frank-js-emote.svg" alt="frank love" />
   {:else}
-    <h1>{teamMatch.title} <span>TEAM</span></h1>
-    <h3>{teamMatch.blurp}</h3>
+    <h1>{teamMatch.title} <span>Team</span></h1>
+    <p>{teamMatch.blurp}</p>
     {#if teamMatch.title === 'AI'}
       <div>
-        <h2>Stay Tuned for Events</h2>
+        <h2 class="large-screen-display">Stay Tuned for Events</h2>
+        <h2 class="mobile-screen-display">Coming Soon</h2>
         <img src={teamMatch.picture} alt="img" />
       </div>
     {:else}
-      <h2>Previous Projects and Workshops</h2>
+      <h2 class="large-screen-display">Previous Projects and Workshops</h2>
+      <h2 class="mobile-screen-display">Previous Events</h2>
       <div class="image-layout">
         {#each teamMatch.workshopPictures as picture (picture)}
           <img src={picture} alt={picture} class="team-pictures" />
@@ -36,13 +34,20 @@
     <h4>{teamMatch.blurpRecommend}</h4>
     <ul>
       {#each teamMatch.recommendations as recommendation (recommendation)}
-        <li>{recommendation}</li>
+        <li><a href={recommendation.link} target="_blank">{recommendation.title}</a></li>
       {/each}
     </ul>
   {/if}
 </section>
 
 <style lang="scss">
+  .large-screen-display {
+    display: block;
+  }
+  .mobile-screen-display {
+    display: none;
+  }
+
   .container {
     --quiz-bg: rgba(102, 102, 102, 0.274);
     width: 450px;
@@ -60,7 +65,8 @@
     color: var(--team-color);
   }
 
-  h2 {
+  h2,
+  .underline {
     color: var(--team-color);
     position: relative;
   }
@@ -73,6 +79,17 @@
     bottom: -5px;
     width: 100%;
     height: 4px;
+    border-radius: 20px;
+  }
+
+  .underline::after {
+    content: '';
+    background-color: var(--team-color);
+    position: absolute;
+    right: 0;
+    bottom: 5px;
+    width: 100%;
+    height: 6px;
     border-radius: 20px;
   }
 
@@ -103,8 +120,30 @@
   }
 
   ul {
-    list-style-type: none;
+    list-style: none;
     font-style: italic;
     font-weight: 600;
+  }
+
+  a {
+    color: var(--team-color);
+  }
+
+  @media screen and (max-width: 740px) {
+    .large-screen-display {
+      display: none;
+    }
+    .mobile-screen-display {
+      display: block;
+    }
+    .container {
+      width: 325px;
+    }
+    h1 {
+      font-size: 48px;
+    }
+    h2 {
+      font-size: 36px;
+    }
   }
 </style>
