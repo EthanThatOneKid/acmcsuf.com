@@ -690,5 +690,15 @@
       }
     },
     "picture": "placeholder.webp"
+  },
+  {
+    "fullName": "Arish Imam",
+    "positions": {
+      "F22": {
+        "title": "AI Officer",
+        "tier": 13
+      }
+    },
+    "picture": "placeholder.webp"
   }
 ]
