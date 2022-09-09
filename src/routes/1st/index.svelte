@@ -62,18 +62,6 @@
     </p>
   </section>
 
-  <section id="welcome">
-    <h2 class="headers">Welcome to ACM!</h2>
-
-    <p>
-      ACM at CSUF provides a social online platform, Discord, that brings passionate Titans together
-      to engage in multiple conversations regarding our community, the tech field, and many more.
-      Join
-      <a href="/discord">our Discord server</a> to learn more about future events, meet new people, and
-      get involved with the community!
-    </p>
-  </section>
-
   <section id="fork">
     <h2 class="headers">Fork <code>acmcsuf.com</code></h2>
 
