@@ -108,25 +108,27 @@
       <button
         on:click={goLeft}
         disabled={index === 0}
-        class={`${index === 0 && 'disable-arrow'} arrow`}><LeftArrow /></button
+        class:disable-arrow={index === 0}
+        class="arrow"><LeftArrow /></button
       >
       <button
         on:click={goRight}
-        disabled={index === data.questions.length - 1}
-        class={`${index === data.questions.length - 1 && 'disable-arrow'} arrow`}
-        ><RightArrow /></button
+        disabled={index === data.questions.length - 1 || !(responses ?? [])[index]}
+        class:disable-arrow={index === data.questions.length - 1 || !(responses ?? [])[index]}
+        class="arrow"><RightArrow /></button
       >
     </div>
     <button
       on:click={submitResponses}
       disabled={!answeredAllQuestions}
-      class={`${!answeredAllQuestions && 'disable-submitBTN'} submitBTN`}>Submit</button
+      class:disable-submitBTN={!answeredAllQuestions}
+      class="submitBTN">Submit</button
     >
 
     <!-- DISPLAY ADDIONTAL TEAM INFORMATION -->
   {:else if showMoreInfo}
     <MoreInfo teamMatch={showTeam} />
-    <button on:click={goBackToResults} class={`arrow return-to-results`}
+    <button on:click={goBackToResults} class="arrow return-to-results"
       ><LeftArrow />
       <h3>Check out other teams</h3></button
     >
