@@ -1,39 +1,46 @@
 <script lang="ts">
-  import type { AcmPath } from '$lib/constants/acm-paths';
-
-  export let teamMatch: AcmPath;
+  export let title = '';
+  export let picture = '';
+  export let color = '';
+  export let blurp = '';
+  export let blurpRecommend = '';
+  export let recommendations: Array<{ title: string; link: string }> = [];
+  export let workshopPictures: string[] = [];
 </script>
 
-<section class="container" style={`--team-color: ${teamMatch.color}`}>
-  {#if teamMatch.title === 'General'}
-    <img src={teamMatch.picture} alt="img" />
+<section class="container" style={`--team-color: ${color}`}>
+  {#if title === 'General'}
+    <img src={picture} alt="img" />
     <h3>We are currently not accepting any board member applications...</h3>
     <h1 class="underline">However</h1>
-    <p>This community is built on student’s knowledge that is not taught in class.</p>
-    <p>KARNI PUT SOMETHING HERE</p>
+    <p>
+      This community is built on student’s knowledge that is not taught in class. When someone needs
+      help in something you know, offer a hand. It's people like you that make our community
+      stronger.
+    </p>
     <img src="./quiz/frank-js-emote.svg" alt="frank love" />
   {:else}
-    <h1>{teamMatch.title} <span>Team</span></h1>
-    <p>{teamMatch.blurp}</p>
-    {#if teamMatch.title === 'AI'}
+    <h1>{title} <span>Team</span></h1>
+    <p>{blurp}</p>
+    {#if title === 'AI'}
       <div>
         <h2 class="large-screen-display">Stay Tuned for Events</h2>
         <h2 class="mobile-screen-display">Coming Soon</h2>
-        <img src={teamMatch.picture} alt="img" />
+        <img src={picture} alt="img" />
       </div>
     {:else}
       <h2 class="large-screen-display">Previous Projects and Workshops</h2>
       <h2 class="mobile-screen-display">Previous Events</h2>
       <div class="image-layout">
-        {#each teamMatch.workshopPictures as picture (picture)}
+        {#each workshopPictures as picture (picture)}
           <img src={picture} alt={picture} class="team-pictures" />
         {/each}
       </div>
     {/if}
     <h2>Get Started Now</h2>
-    <h4>{teamMatch.blurpRecommend}</h4>
+    <h4>{blurpRecommend}</h4>
     <ul>
-      {#each teamMatch.recommendations as recommendation (recommendation)}
+      {#each recommendations as recommendation (recommendation)}
         <li><a href={recommendation.link} target="_blank">{recommendation.title}</a></li>
       {/each}
     </ul>

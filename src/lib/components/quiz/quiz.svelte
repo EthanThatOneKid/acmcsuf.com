@@ -127,7 +127,7 @@
 
     <!-- DISPLAY ADDIONTAL TEAM INFORMATION -->
   {:else if showMoreInfo}
-    <MoreInfo teamMatch={showTeam} />
+    <MoreInfo {...showTeam} />
     <button on:click={goBackToResults} class="arrow return-to-results"
       ><LeftArrow />
       <h3>Check out other teams</h3></button
