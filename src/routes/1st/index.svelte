@@ -231,18 +231,6 @@ git push origin -u <add-your-branch-name /></code
   <section id="review">
     <h2 class="headers">Submit your changes for review</h2>
 
-    <p>
-      Please feel free to contact us if you have any questions about ACM at CSUF&rsquo;s Privacy
-      Policy by reaching out to any of our Officers via Discord or email us at <a
-        href="mailto:acmcsufullerton@gmail.com"
-        class="brand-med"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        acmcsufullerton@gmail.com</a
-      >.
-    </p>
-
     <p dir="auto">
       If you go to your repository on GitHub, you'll see a <code>Compare &amp; pull request</code> button.
       Click on that button.
