@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.25.0",
+    "@size-limit/file": "^8.1.0",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
@@ -46,5 +47,11 @@
     "vite": "^3.1.0",
     "vitest": "^0.23.2"
   },
+  "size-limit": [
+    {
+      "path": "node_modules",
+      "limit": "50 MB"
+    }
+  ],
   "type": "module"
 }
