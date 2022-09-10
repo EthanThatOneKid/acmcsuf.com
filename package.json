@@ -50,7 +50,7 @@
   "size-limit": [
     {
       "path": "node_modules",
-      "limit": "50 MB"
+      "limit": "256 MB"
     }
   ],
   "type": "module"
