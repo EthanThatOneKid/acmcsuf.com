@@ -3,7 +3,7 @@
 </script>
 
 <script lang="ts">
-  import ToggleConfetti from '$lib/1st/confetti/toggle-confetti.svelte';
+  import ToggleConfetti from '$lib/1st/toggle-confetti.svelte';
   import Spacing from '$lib/components/sections/spacing.svelte';
   import { Confetti } from 'svelte-confetti';
 
