@@ -1,0 +1,17 @@
+name: Bug Report
+description: Report a bug you've found
+labels: 'bug'
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ![banner](https://raw.githubusercontent.com/EthanThatOneKid/acmcsuf.com/main/static/assets/about-illustration.svg)
+        <small>note: banner not included in your published bug report.</small>
+  - type: textarea
+    attributes:
+      label: What happened?
+      description: |
+        Can you please explain what happened, what you saw, what you expected to see, and any other relevant information? Please drag and drop any screenshots here.
+      placeholder: Type away! Feel free to drag-and-drop any screenshots here.
+    validations:
+      required: false

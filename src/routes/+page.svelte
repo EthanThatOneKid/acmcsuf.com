@@ -1,13 +1,13 @@
 <script>
-	import Spacing from '$lib/legacy/spacing.svelte';
-	import Hero from './hero.svelte';
-	import WhyJoin from './why-join.svelte';
-	import AcmPaths from './acm-paths.svelte';
-	import ReadyUp from './ready-up.svelte';
+  import Spacing from '$lib/legacy/spacing.svelte';
+  import Hero from './hero.svelte';
+  import WhyJoin from './why-join.svelte';
+  import AcmPaths from './acm-paths.svelte';
+  import ReadyUp from './ready-up.svelte';
 </script>
 
 <svelte:head>
-	<title>ACM at CSUF</title>
+  <title>ACM at CSUF</title>
 </svelte:head>
 
 <Spacing --min="175px" --med="200px" --max="200px" />

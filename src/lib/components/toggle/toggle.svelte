@@ -1,28 +1,28 @@
 <script lang="ts">
-	import { createEventDispatcher, onMount } from 'svelte';
+  import { createEventDispatcher, onMount } from 'svelte';
 
-	export let checked: boolean;
+  export let checked: boolean;
 
-	const dispatch = createEventDispatcher();
-	let input: HTMLInputElement;
+  const dispatch = createEventDispatcher();
+  let input: HTMLInputElement;
 
-	function toggle(event: Event) {
-		dispatch('toggle', (checked = (event.target as typeof input).checked));
-	}
+  function toggle(event: Event) {
+    dispatch('toggle', (checked = (event.target as typeof input).checked));
+  }
 
-	onMount(() => {
-		input.addEventListener('change', toggle);
-		return () => input.removeEventListener('change', toggle);
-	});
+  onMount(() => {
+    input.addEventListener('change', toggle);
+    return () => input.removeEventListener('change', toggle);
+  });
 </script>
 
 <label>
-	<input type="checkbox" bind:this={input} bind:checked />
-	<slot />
+  <input type="checkbox" bind:this={input} bind:checked />
+  <slot />
 </label>
 
 <style>
-	input[type='checkbox'] {
-		display: none;
-	}
+  input[type='checkbox'] {
+    display: none;
+  }
 </style>
