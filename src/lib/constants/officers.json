@@ -123,9 +123,10 @@
       "F22": {
         "title": "Vice President/Webmaster",
         "tier": 2
-      }
+      },
+      "null": {}
     },
-    "picture": "ethan-davidson.webp"
+    "picture": "ethan-davidson.png"
   },
   {
     "fullName": "Kevin Dillon",
