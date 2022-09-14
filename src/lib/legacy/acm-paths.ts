@@ -19,7 +19,7 @@ export const acmAlgo: AcmPath = {
   blurpRecommend:
     'Attending our events is half the battle, practice is what takes it to the next level. We recommend practicing on LeetCode and getting a good grip on the famous "The Grind 75" questions.',
   recommendations: [],
-  workshopPictures: ['./quiz/algo-workshop.jpg'],
+  workshopPictures: ['/assets/quiz/algo-workshop.jpg'],
 };
 
 export const acmDesign: AcmPath = {
@@ -49,7 +49,7 @@ export const acmDesign: AcmPath = {
       link: 'https://developer.mozilla.org/en-US/',
     },
   ],
-  workshopPictures: ['./quiz/design-workshop.jpg', './quiz/figma-collage.png'],
+  workshopPictures: ['/assets/quiz/design-workshop.jpg', '/assets/quiz/figma-collage.png'],
 };
 
 export const acmDev: AcmPath = {
@@ -67,7 +67,7 @@ export const acmDev: AcmPath = {
       link: 'https://svelte.dev/tutorial/basics',
     },
   ],
-  workshopPictures: ['./quiz/dev-workshop.jpg'],
+  workshopPictures: ['/assets/quiz/dev-workshop.jpg'],
 };
 
 export const acmAI: AcmPath = {
