@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-  <title>ACM at CSUF / {status}</title>
+  <title>ACM at CSUF | {status}</title>
   <link rel="stylesheet" href="/global.css" />
 </svelte:head>
 
