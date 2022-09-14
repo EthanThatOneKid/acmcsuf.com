@@ -18,7 +18,7 @@
 </script>
 
 <svelte:head>
-  <title>Events / ACM at CSUF</title>
+  <title>Events | ACM at CSUF</title>
 </svelte:head>
 
 <Spacing --min="175px" --med="200px" --max="200px" />

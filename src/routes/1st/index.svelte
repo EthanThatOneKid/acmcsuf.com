@@ -12,6 +12,10 @@
 
 <Spacing --min="175px" --med="200px" --max="200px" />
 
+<svelte:head>
+  <title>1st Contributions | ACM at CSUF</title>
+</svelte:head>
+
 <main>
   <section id="top">
     <h1 class="size-lg">First Contributions</h1>
