@@ -53,5 +53,8 @@
       "limit": "256 MB"
     }
   ],
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "svelte-confetti": "^1.2.0"
+  }
 }
