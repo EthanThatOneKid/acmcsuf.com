@@ -1,8 +1,8 @@
+import { DEBUG } from '$env/static/private';
 import type { Officer } from '$lib/constants';
 import { OFFICERS } from '$lib/constants';
 import { discernLabels } from '$lib/common/utils';
-import { DEBUG } from '$env/static/private';
-import { SAMPLE_POSTS } from './data';
+import { SAMPLE_POSTS } from '../../server/blog/data';
 
 interface WithLabels {
   labels: string[];

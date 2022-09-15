@@ -1,6 +1,6 @@
 import type { PageLoad } from './$types';
 
-const DATA_URL = '/blog.json';
+const DATA_URL = '/blog/all.json';
 
 export const load = loader();
 
