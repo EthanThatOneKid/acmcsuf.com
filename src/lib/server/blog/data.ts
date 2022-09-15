@@ -1,4 +1,4 @@
-export const SAMPLE_POSTS = [
+export const SAMPLE_BLOG_POSTS = [
   {
     id: 491,
     url: '/blog/491',

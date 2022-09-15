@@ -1,12 +1,12 @@
 <script lang="ts">
-  import type { Newsletter } from './_query';
-  import Spacing from '$lib/components/sections/spacing.svelte';
-  import LabelField from '$lib/components/utils/acm-labelfield.svelte';
   import { Temporal } from '@js-temporal/polyfill';
-  import { readingTime } from '$lib/blog/utils';
-  import Labels from '$lib/components/blog/labels.svelte';
+  import type { BlogPost } from '$lib/public/blog/types';
+  import { readingTime } from '$lib/public/blog/utils';
+  import Spacing from '$lib/legacy/spacing.svelte';
+  import LabelField from './labelfield.svelte';
+  import Labels from './labels.svelte';
 
-  export let posts: Newsletter[] = [];
+  export let posts: BlogPost[] = [];
   export let labels: string[] = [];
   export let selectedLabels: string[] = [];
 
@@ -73,12 +73,13 @@
               {@html post.html}
             </div>
             <p class="read-time">
-              {Temporal.Instant.from(post.createdAt).toLocaleString('en-US', {
-                calendar: 'gregory',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              })} •
+              {post.createdAt &&
+                Temporal.Instant.from(post.createdAt).toLocaleString('en-US', {
+                  calendar: 'gregory',
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })} •
               {readingTime(post.html)} min read
               <Labels data={post.labels} />
             </p>

@@ -53,5 +53,8 @@
       "limit": "256 MB"
     }
   ],
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@js-temporal/polyfill": "^0.4.2"
+  }
 }

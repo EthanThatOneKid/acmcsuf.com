@@ -1,9 +1,9 @@
 export interface BlogOutput {
   labels: string[];
-  posts: Newsletter[];
+  posts: BlogPost[];
 }
 
-export interface Newsletter {
+export interface BlogPost {
   id: number;
   url: string;
   discussionUrl: string;
@@ -19,6 +19,6 @@ export interface Newsletter {
   };
 }
 
-export interface NewsletterFetchOptions {
+export interface BlogFetchOptions {
   labels: string[];
 }
