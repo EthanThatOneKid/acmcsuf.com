@@ -18,7 +18,7 @@
     "test:watch": "vitest",
     "test:size": "npm i && size-limit",
     "test:coverage": "vitest run --coverage",
-    "test:browser": "playwright test",
+    "test:browser": "playwright test /tests",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --compiler-warnings \"css-unused-selector:ignore,unused-export-let:error\"",
     "lint": "prettier --check . && eslint .",
     "format": "prettier --write .",
