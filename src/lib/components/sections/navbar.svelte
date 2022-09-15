@@ -205,6 +205,9 @@
 
           a {
             font-size: var(--size-md);
+            display: block;
+            padding: 30px 900px;
+            margin-top: -50px;
           }
         }
       }
@@ -242,7 +245,7 @@
 
       & :checked ~ .container {
         .pages {
-          height: 100vh;
+          height: 140vh;
         }
       }
 
