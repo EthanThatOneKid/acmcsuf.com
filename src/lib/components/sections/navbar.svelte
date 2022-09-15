@@ -245,7 +245,7 @@
 
       & :checked ~ .container {
         .pages {
-          height: 140vh;
+          height: 100vh;
         }
       }
 
