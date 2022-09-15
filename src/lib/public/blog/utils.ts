@@ -1,8 +1,7 @@
 import { DEBUG } from '$env/static/private';
-import type { Officer } from '$lib/constants';
-import { OFFICERS } from '$lib/constants';
-import { discernLabels } from '$lib/common/utils';
-import { SAMPLE_POSTS } from '../../server/blog/data';
+// import type { Officer } from '$lib/constants';
+// import { OFFICERS } from '$lib/server/';
+import { SAMPLE_POSTS } from '$lib/server/blog/data';
 
 interface WithLabels {
   labels: string[];
@@ -14,31 +13,6 @@ export function discernLabels(posts: WithLabels[]): string[] {
     post.labels.forEach((label) => labels.add(label));
   }
   return Array.from(labels).sort();
-}
-
-export interface BlogOutput {
-  labels: string[];
-  posts: Newsletter[];
-}
-
-export interface Newsletter {
-  id: number;
-  url: string;
-  discussionUrl: string;
-  title: string;
-  html: string;
-  createdAt: string | null;
-  lastEdited: string | null;
-  labels: string[];
-  author: {
-    displayname: string;
-    url: string;
-    picture: string;
-  };
-}
-
-export interface NewsletterFetchOptions {
-  labels: string[];
 }
 
 function getOfficerByGhUsername(ghUsername: string): Officer | null {

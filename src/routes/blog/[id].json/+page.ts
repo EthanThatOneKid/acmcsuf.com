@@ -1,5 +1,5 @@
-import type { RequestHandlerOutput, RequestEvent } from '@sveltejs/kit/types/internal';
-import { fetchNewsletters, NewsletterFetchOptions } from './_query';
+import type { RequestHandlerOutput, RequestEvent } from './$types';
+import { fetchNewsletters, NewsletterFetchOptions } from '$lib/';
 
 export async function get(event: RequestEvent): Promise<RequestHandlerOutput> {
   const fetchOptions: NewsletterFetchOptions = { labels: [] };
