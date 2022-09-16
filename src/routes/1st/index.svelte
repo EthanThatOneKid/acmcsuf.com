@@ -3,11 +3,20 @@
 </script>
 
 <script lang="ts">
-  import ToggleConfetti from '$lib/1st/toggle-confetti.svelte';
-  import Spacing from '$lib/components/sections/spacing.svelte';
+  import { onMount } from 'svelte';
   import { Confetti } from 'svelte-confetti';
+  import Spacing from '$lib/components/sections/spacing.svelte';
 
   const colorArray: string[] = Object.keys(confetti).map((key) => confetti[key].default);
+
+  let raining = true;
+  let jsEnabled = false;
+
+  async function toggleConfetti() {
+    raining = !raining;
+  }
+
+  onMount(() => (jsEnabled = true));
 </script>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
@@ -16,28 +25,41 @@
   <title>1st Contributions | ACM at CSUF</title>
 </svelte:head>
 
-<main>
+<main class="wrapper">
   <section id="top">
-    <h1 class="size-lg">First Contributions</h1>
+    <div class="header">
+      <h1 class="size-lg">
+        {#if raining}
+          <Confetti
+            infinite
+            amount="10"
+            x={[-0.5, -0.25]}
+            y={[0.25, 0.5]}
+            delay={[500, 2000]}
+            {colorArray}
+          />
+        {/if}
 
-    <ToggleConfetti>
-      <button slot="label" class="confetti-toggle">Toggle confetti</button>
-      <div
-        style="position: fixed; top: -50px; left: 0; height: 100vh; width: 100vw; display: flex; justify-content: center; overflow: hidden;"
+        First&nbsp;Contributions
+
+        {#if raining}
+          <Confetti
+            infinite
+            amount="10"
+            x={[0.25, 0.5]}
+            y={[0.25, 0.5]}
+            delay={[500, 2000]}
+            {colorArray}
+          />
+        {/if}
+      </h1>
+    </div>
+
+    <div>
+      <button class="confetti-toggle" class:invisible={!jsEnabled} on:click={toggleConfetti}
+        >Toggle confetti</button
       >
-        <Confetti
-          size={20}
-          x={[-5, 5]}
-          y={[0, 0.1]}
-          delay={[500, 2000]}
-          {colorArray}
-          infinite
-          duration={5000}
-          amount={200}
-          fallDistance="100vh"
-        />
-      </div>
-    </ToggleConfetti>
+    </div>
 
     <p>
       <code>acmcsuf.com/1st</code> aims to simplify and guide the way beginners make their first
@@ -71,10 +93,8 @@
 
     <p dir="auto">
       <img
-        width="300"
-        src="https://camo.githubusercontent.com/fcf9a4ed664cc63de2fcb14d1135072ba6d4c74a8e9bdb224ad6ab1e72600c3b/68747470733a2f2f6669727374636f6e747269627574696f6e732e6769746875622e696f2f6173736574732f526561646d652f666f726b2e706e67"
+        src="https://user-images.githubusercontent.com/31261035/190828429-ed3ed214-f63a-442f-9edb-a51bd44f9b1e.png"
         alt="fork this repository"
-        data-canonical-src="https://firstcontributions.github.io/assets/Readme/fork.png"
         style="max-width: 100%;"
       />
     </p>
@@ -92,10 +112,8 @@
 
     <p dir="auto">
       <img
-        width="300"
-        src="https://camo.githubusercontent.com/4c3f7f1bec4f04db40ecf58dc2e19c2d8992f100f3bbbc4767a9d20b29f4a43d/68747470733a2f2f6669727374636f6e747269627574696f6e732e6769746875622e696f2f6173736574732f526561646d652f636c6f6e652e706e67"
+        src="https://user-images.githubusercontent.com/31261035/190828651-d7246405-cbca-4904-9523-fc9262c6dfad.png"
         alt="clone this repository"
-        data-canonical-src="https://firstcontributions.github.io/assets/Readme/clone.png"
         style="max-width: 100%;"
       />
     </p>
@@ -114,9 +132,8 @@
     <p>
       <img
         width="300"
-        src="https://camo.githubusercontent.com/1c0cf8056422ff414eee75142b213c5970e085c2e33c0a6d69dc2639d98216f1/68747470733a2f2f6669727374636f6e747269627574696f6e732e6769746875622e696f2f6173736574732f526561646d652f636f70792d746f2d636c6970626f6172642e706e67"
+        src="https://user-images.githubusercontent.com/31261035/190829430-2c4af5f9-ab7f-42f3-9ff3-325abb4b8aac.png"
         alt="copy URL to clipboard"
-        data-canonical-src="https://firstcontributions.github.io/assets/Readme/copy-to-clipboard.png"
         style="max-width: 100%;"
       />
     </p>
@@ -284,6 +301,28 @@ git push origin -u <add-your-branch-name /></code
     width: min(800px, 80vw);
   }
 
+  :global(.header svg) {
+    width: 100%;
+    height: 5px;
+  }
+
+  .wrapper {
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 0 1rem 6rem;
+  }
+
+  h1 {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    color: var(--text-color-lightest);
+  }
+
+  .invisible {
+    visibility: hidden;
+  }
+
   main {
     width: 100%;
     display: flex;
@@ -298,6 +337,9 @@ git push origin -u <add-your-branch-name /></code
 
     section {
       width: min(800px, 80vw);
+      max-width: 540px;
+      margin: 0 auto;
+      // padding: 0 1rem 6rem;
       margin-bottom: 50px;
 
       h2 {
