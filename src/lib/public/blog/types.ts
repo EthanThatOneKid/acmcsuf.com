@@ -9,7 +9,7 @@ export interface BlogPost {
   discussionUrl: string;
   title: string;
   html: string;
-  createdAt: string | null;
+  createdAt: string;
   lastEdited: string | null;
   labels: string[];
   author: {
@@ -20,5 +20,6 @@ export interface BlogPost {
 }
 
 export interface BlogFetchOptions {
+  id?: number;
   labels: string[];
 }

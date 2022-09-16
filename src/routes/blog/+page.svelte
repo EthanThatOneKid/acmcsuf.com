@@ -1,26 +1,22 @@
 <script lang="ts">
   import { Temporal } from '@js-temporal/polyfill';
-  import type { BlogPost } from '$lib/public/blog/types';
+  import type { PageData } from './$types';
   import { readingTime } from '$lib/public/blog/utils';
   import Spacing from '$lib/legacy/spacing.svelte';
   import LabelField from './labelfield.svelte';
   import Labels from './labels.svelte';
 
-  export let posts: BlogPost[] = [];
-  export let labels: string[] = [];
-  export let selectedLabels: string[] = [];
+  export let data: PageData;
 
   async function filterPosts(event: CustomEvent) {
-    const searchValue = event.detail.join(',');
+    const query = event.detail.join(';') || 'all';
 
-    history.replaceState({}, '', location.pathname + '?l=' + searchValue);
+    history.replaceState({}, '', location.pathname + (query === 'all' ? '?l=' + query : ''));
 
-    const target = new URL('/blog.json', location.origin);
-    target.searchParams.set('l', searchValue);
-
+    const target = new URL(`/blog/${query}.json`, location.origin);
     const response = await fetch(target.toString());
     const blogOutput = await response.json();
-    if (blogOutput.posts) posts = blogOutput.posts;
+    if (blogOutput.posts) data.posts = blogOutput.posts;
   }
 </script>
 
@@ -49,17 +45,22 @@
 
 <Spacing --min="175px" --med="200px" --max="200px" />
 
-{#if posts.length > 0}
-  <LabelField {labels} {selectedLabels} urlSearchParamKey="l" on:change={filterPosts}>
+{#if data.posts.length > 0}
+  <LabelField
+    labels={data.labels}
+    selectedLabels={data.selectedLabels}
+    urlSearchParamKey="l"
+    on:change={filterPosts}
+  >
     <div slot="title">Filter by Tags</div>
     <div slot="reset-button">✖ Clear all</div>
   </LabelField>
 
   <section>
     <ul>
-      {#each posts as post (post.id)}
+      {#each data.posts as post (post.id)}
         <li class="blog-post">
-          <a href={`/blog/${post.id}`} sveltekit:prefetch>
+          <a href={`/blog/${post.id}`} data-sveltekit-prefetch>
             <div class="author">
               <a href={post.author.url}>
                 <img src={post.author.picture} alt="" />

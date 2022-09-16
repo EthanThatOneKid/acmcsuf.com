@@ -1,24 +1,21 @@
-import type { PageLoad } from './$types';
+import type { LoadEvent } from '@sveltejs/kit';
+import type { BlogPost } from '$lib/public/blog/types';
+import { parseQuery, ALL } from '$lib/public/blog/utils';
 
-const DATA_URL = '/blog/all.json';
+export async function load({ fetch, url }: LoadEvent) {
+  const query = url.searchParams.get('l');
+  const target = `/blog/${query ?? ALL}.json`;
 
-export const load = loader();
+  const response = await fetch(target);
+  const blogOutput = await response.json();
 
-function loader(): PageLoad {
-  return async function load({ fetch, depends, url }) {
-    depends(DATA_URL);
+  const { labels: selectedLabels } = parseQuery(query ?? ALL);
+  const posts = (blogOutput.posts ?? []) as BlogPost[];
+  const labels = (blogOutput.labels ?? []) as string[];
 
-    const target = new URL(DATA_URL, url);
-    const rawLabels = url.searchParams.get('l');
-    const selectedLabels = [];
-
-    if (rawLabels && rawLabels.length > 0) {
-      target.searchParams.set('l', rawLabels);
-      selectedLabels.push(...rawLabels.split(','));
-    }
-
-    const response = await fetch(target.toString());
-    const blogOutput = await response.json();
-    return { posts: blogOutput.posts, labels: blogOutput.labels, selectedLabels };
+  return {
+    posts,
+    labels,
+    selectedLabels,
   };
 }

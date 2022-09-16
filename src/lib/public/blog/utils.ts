@@ -1,3 +1,5 @@
+import type { BlogFetchOptions } from './types';
+
 interface WithLabels {
   labels: string[];
 }
@@ -23,4 +25,16 @@ export function readingTime(blogContent: string, wpm = 225) {
   // Regex taken from https://stackoverflow.com/a/5002161 to parse out HTML tags
   const text = blogContent.replace(/<\/?[^>]+(>|$)/, '').trim();
   return Math.ceil(text.split(/\s+/).length / wpm);
+}
+
+export const ALL = 'all';
+
+export function parseQuery(query: string): BlogFetchOptions {
+  if (query === ALL) return { labels: [] };
+
+  if (Number.isInteger(+query)) {
+    return { labels: [], id: Math.abs(+query) };
+  }
+
+  return { labels: query.split(';') };
 }
