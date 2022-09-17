@@ -3,9 +3,8 @@
 </script>
 
 <script lang="ts">
-  import ToggleConfetti from '$lib/1st/toggle-confetti.svelte';
-  import Spacing from '$lib/components/sections/spacing.svelte';
   import { Confetti } from 'svelte-confetti';
+  import Spacing from '$lib/components/sections/spacing.svelte';
 
   const colorArray: string[] = Object.keys(confetti).map((key) => confetti[key].default);
 </script>
@@ -16,28 +15,37 @@
   <title>1st Contributions | ACM at CSUF</title>
 </svelte:head>
 
-<main>
+<main class="wrapper">
   <section id="top">
-    <h1 class="size-lg">First Contributions</h1>
-
-    <ToggleConfetti>
-      <button slot="label" class="confetti-toggle">Toggle confetti</button>
-      <div
-        style="position: fixed; top: -50px; left: 0; height: 100vh; width: 100vw; display: flex; justify-content: center; overflow: hidden;"
-      >
+    <div class="header">
+      <h1 class="size-lg">
         <Confetti
-          size={20}
-          x={[-5, 5]}
-          y={[0, 0.1]}
+          infinite
+          amount="10"
+          x={[-0.5, -0.25]}
+          y={[0.25, 0.5]}
           delay={[500, 2000]}
           {colorArray}
-          infinite
-          duration={5000}
-          amount={200}
-          fallDistance="100vh"
         />
-      </div>
-    </ToggleConfetti>
+
+        First&nbsp;Contributions
+
+        <Confetti
+          infinite
+          amount="10"
+          x={[0.25, 0.5]}
+          y={[0.25, 0.5]}
+          delay={[500, 2000]}
+          {colorArray}
+        />
+      </h1>
+    </div>
+
+    <!-- <div>
+      <button class="confetti-toggle" class:invisible={!jsEnabled} on:click={toggleConfetti}
+        >Toggle confetti</button
+      >
+    </div> -->
 
     <p>
       <code>acmcsuf.com/1st</code> aims to simplify and guide the way beginners make their first
@@ -69,12 +77,10 @@
   <section id="fork">
     <h2 class="headers">Fork <code>acmcsuf.com</code></h2>
 
-    <p dir="auto">
+    <p>
       <img
-        width="300"
-        src="https://camo.githubusercontent.com/fcf9a4ed664cc63de2fcb14d1135072ba6d4c74a8e9bdb224ad6ab1e72600c3b/68747470733a2f2f6669727374636f6e747269627574696f6e732e6769746875622e696f2f6173736574732f526561646d652f666f726b2e706e67"
+        src="https://user-images.githubusercontent.com/31261035/190828429-ed3ed214-f63a-442f-9edb-a51bd44f9b1e.png"
         alt="fork this repository"
-        data-canonical-src="https://firstcontributions.github.io/assets/Readme/fork.png"
         style="max-width: 100%;"
       />
     </p>
@@ -90,22 +96,20 @@
   <section id="clone">
     <h2 class="headers">Clone the repository</h2>
 
-    <p dir="auto">
+    <p>
       <img
-        width="300"
-        src="https://camo.githubusercontent.com/4c3f7f1bec4f04db40ecf58dc2e19c2d8992f100f3bbbc4767a9d20b29f4a43d/68747470733a2f2f6669727374636f6e747269627574696f6e732e6769746875622e696f2f6173736574732f526561646d652f636c6f6e652e706e67"
+        src="https://user-images.githubusercontent.com/31261035/190828651-d7246405-cbca-4904-9523-fc9262c6dfad.png"
         alt="clone this repository"
-        data-canonical-src="https://firstcontributions.github.io/assets/Readme/clone.png"
         style="max-width: 100%;"
       />
     </p>
 
-    <p dir="auto">
+    <p>
       Now clone the forked repository to your machine. Go to your GitHub account, open the forked
       repository, click on the code button and then click the <em>copy to clipboard</em> icon.
     </p>
 
-    <p dir="auto">
+    <p>
       Open a terminal and run the following git command: <code>git clone "url you just copied"</code
       > where "url you just copied" (without the quotation marks) is the url to this repository (your
       fork of this project). See the previous steps to obtain the url.
@@ -114,9 +118,8 @@
     <p>
       <img
         width="300"
-        src="https://camo.githubusercontent.com/1c0cf8056422ff414eee75142b213c5970e085c2e33c0a6d69dc2639d98216f1/68747470733a2f2f6669727374636f6e747269627574696f6e732e6769746875622e696f2f6173736574732f526561646d652f636f70792d746f2d636c6970626f6172642e706e67"
+        src="https://user-images.githubusercontent.com/31261035/190829430-2c4af5f9-ab7f-42f3-9ff3-325abb4b8aac.png"
         alt="copy URL to clipboard"
-        data-canonical-src="https://firstcontributions.github.io/assets/Readme/copy-to-clipboard.png"
         style="max-width: 100%;"
       />
     </p>
@@ -170,12 +173,12 @@ git clone https://github.com/this-is-you/acmcsuf.com.git
 export default 'url(/assets/1st/your-new-thing.(svg|png))';
     </code></pre>
 
-    <p dir="auto">
+    <p>
       If you go to the project directory and execute the command <code>git status</code>, you'll see
       there are changes.
     </p>
 
-    <p dir="auto">
+    <p>
       Add those changes to the branch you just created using the <code>git add</code> command:
     </p>
     <pre><code>
@@ -186,88 +189,49 @@ git add -A && git commit -m "Your Message"
   <section id="push">
     <h2 class="headers">Push changes to GitHub</h2>
 
-    <p dir="auto">Push your changes using the command <code>git push</code>:</p>
+    <p>Push your changes using the command <code>git push</code>:</p>
 
-    <pre><code>
-git push origin -u <add-your-branch-name /></code
-      ></pre>
+    <pre><code>git push origin -u add-your-branch-name</code></pre>
 
-    <p dir="auto">
+    <p>
       replacing <code>&lt;add-your-branch-name&gt;</code> with the name of the branch you created earlier.
     </p>
-
-    <details>
-      <summary> <strong>If you get any errors while pushing, click here:</strong> </summary>
-      <ul dir="auto">
-        <li>
-          <h3 dir="auto">
-            <a
-              id="user-content-authentication-error"
-              class="anchor"
-              aria-hidden="true"
-              href="#authentication-error"
-              ><svg
-                class="octicon octicon-link"
-                viewBox="0 0 16 16"
-                version="1.1"
-                width="16"
-                height="16"
-                aria-hidden="true"
-                ><path
-                  fill-rule="evenodd"
-                  d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"
-                /></svg
-              ></a
-            >Authentication Error
-          </h3>
-          <pre>remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
-      remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
-      fatal: Authentication failed for 'https://github.com//first-contributions.git/'</pre>
-          Go to<a
-            href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account"
-            >GitHub's tutorial</a
-          > on generating and configuring an SSH key to your account.
-        </li>
-      </ul>
-    </details>
   </section>
 
   <section id="review">
     <h2 class="headers">Submit your changes for review</h2>
 
-    <p dir="auto">
+    <p>
       If you go to your repository on GitHub, you'll see a <code>Compare &amp; pull request</code> button.
       Click on that button.
     </p>
 
     <p>
       <img
-        src="https://camo.githubusercontent.com/ca3b1cefece5f3b9b3435020e6a357ca024cda5bd2b1e140a15170fcd1ec5381/68747470733a2f2f6669727374636f6e747269627574696f6e732e6769746875622e696f2f6173736574732f526561646d652f636f6d706172652d616e642d70756c6c2e706e67"
+        src="https://user-images.githubusercontent.com/31261035/190830317-077f7a1e-1ae3-4686-bf79-09928e509ccc.png"
         alt="create a pull request"
-        data-canonical-src="https://firstcontributions.github.io/assets/Readme/compare-and-pull.png"
         style="max-width: 100%;"
       />
     </p>
 
-    <p dir="auto">Now submit the pull request.</p>
+    <p>Now submit the pull request.</p>
 
     <p>
       <img
-        src="https://camo.githubusercontent.com/71401ba5551a64aeac3838825a52ce7a7597cd8b54a0d7200d9454e2cbfbb13f/68747470733a2f2f6669727374636f6e747269627574696f6e732e6769746875622e696f2f6173736574732f526561646d652f7375626d69742d70756c6c2d726571756573742e706e67"
+        src="https://user-images.githubusercontent.com/31261035/190830699-c684751a-df82-4da4-822d-d21bd84a8e43.png"
         alt="submit pull request"
-        data-canonical-src="https://firstcontributions.github.io/assets/Readme/submit-pull-request.png"
         style="max-width: 100%;"
       />
     </p>
 
-    <p dir="auto">
+    <p>
       Soon, someone will be merging all your changes into the master branch of this project. You
       will get a notification email once the changes have been merged.
     </p>
 
     <hr />
 
-    <p dir="auto" class="brand-em">CONGRATULATIONS ON MAKING YOUR FIRST CONTRIUBUTION</p>
+    <p class="brand-em">CONGRATULATIONS ON MAKING YOUR FIRST CONTRIUBUTION</p>
 
     <p>
       Inspired by <a href="https://github.com/firstcontributions/first-contributions#readme"
@@ -284,6 +248,28 @@ git push origin -u <add-your-branch-name /></code
     width: min(800px, 80vw);
   }
 
+  :global(.header svg) {
+    width: 100%;
+    height: 5px;
+  }
+
+  .wrapper {
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 0 1rem 6rem;
+  }
+
+  h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .invisible {
+    visibility: hidden;
+  }
+
   main {
     width: 100%;
     display: flex;
@@ -298,6 +284,9 @@ git push origin -u <add-your-branch-name /></code
 
     section {
       width: min(800px, 80vw);
+      max-width: 540px;
+      margin: 0 auto;
+      // padding: 0 1rem 6rem;
       margin-bottom: 50px;
 
       h2 {
@@ -317,17 +306,5 @@ git push origin -u <add-your-branch-name /></code
         }
       }
     }
-  }
-
-  .confetti-toggle {
-    background: none;
-    border: var(--acm-dark) 3px solid;
-    border-radius: 18px;
-    padding: 4px 8px;
-    transition: 0.25s ease-in-out;
-  }
-
-  .confetti-toggle:hover {
-    box-shadow: 0px 0px 4px var(--acm-dark);
   }
 </style>
