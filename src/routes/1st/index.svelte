@@ -3,20 +3,10 @@
 </script>
 
 <script lang="ts">
-  import { onMount } from 'svelte';
   import { Confetti } from 'svelte-confetti';
   import Spacing from '$lib/components/sections/spacing.svelte';
 
   const colorArray: string[] = Object.keys(confetti).map((key) => confetti[key].default);
-
-  let raining = true;
-  let jsEnabled = false;
-
-  async function toggleConfetti() {
-    raining = !raining;
-  }
-
-  onMount(() => (jsEnabled = true));
 </script>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
@@ -29,37 +19,33 @@
   <section id="top">
     <div class="header">
       <h1 class="size-lg">
-        {#if raining}
-          <Confetti
-            infinite
-            amount="10"
-            x={[-0.5, -0.25]}
-            y={[0.25, 0.5]}
-            delay={[500, 2000]}
-            {colorArray}
-          />
-        {/if}
+        <Confetti
+          infinite
+          amount="10"
+          x={[-0.5, -0.25]}
+          y={[0.25, 0.5]}
+          delay={[500, 2000]}
+          {colorArray}
+        />
 
         First&nbsp;Contributions
 
-        {#if raining}
-          <Confetti
-            infinite
-            amount="10"
-            x={[0.25, 0.5]}
-            y={[0.25, 0.5]}
-            delay={[500, 2000]}
-            {colorArray}
-          />
-        {/if}
+        <Confetti
+          infinite
+          amount="10"
+          x={[0.25, 0.5]}
+          y={[0.25, 0.5]}
+          delay={[500, 2000]}
+          {colorArray}
+        />
       </h1>
     </div>
 
-    <div>
+    <!-- <div>
       <button class="confetti-toggle" class:invisible={!jsEnabled} on:click={toggleConfetti}
         >Toggle confetti</button
       >
-    </div>
+    </div> -->
 
     <p>
       <code>acmcsuf.com/1st</code> aims to simplify and guide the way beginners make their first
@@ -276,8 +262,8 @@ git add -A && git commit -m "Your Message"
   h1 {
     display: flex;
     align-items: center;
+    justify-content: center;
     margin: 0;
-    color: var(--text-color-lightest);
   }
 
   .invisible {
@@ -320,17 +306,5 @@ git add -A && git commit -m "Your Message"
         }
       }
     }
-  }
-
-  .confetti-toggle {
-    background: none;
-    border: var(--acm-dark) 3px solid;
-    border-radius: 18px;
-    padding: 4px 8px;
-    transition: 0.25s ease-in-out;
-  }
-
-  .confetti-toggle:hover {
-    box-shadow: 0px 0px 4px var(--acm-dark);
   }
 </style>
