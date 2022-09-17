@@ -20,10 +20,10 @@
     "test:coverage": "vitest run --coverage",
     "test:browser": "playwright test /tests",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --compiler-warnings \"css-unused-selector:ignore,unused-export-let:error\"",
-    "lint": "prettier --check . && eslint .",
+    "lint": "eslint . --fix",
     "format": "prettier --write .",
     "host": "npm run all && npm run preview",
-    "all": "npm run format && npm run lint && npm run check && npm t && npm run build"
+    "all": "npm run lint && npm run format && npm run check && npm t && npm run build"
   },
   "devDependencies": {
     "@playwright/test": "^1.25.0",
@@ -57,8 +57,9 @@
   ],
   "type": "module",
   "dependencies": {
-    "@js-temporal/polyfill": "^0.4.2",
+    "@js-temporal/polyfill": "^0.4.1",
     "html-to-text": "^8.2.1",
+    "rrule": "^2.6.9",
     "rss": "^1.2.2"
   }
 }

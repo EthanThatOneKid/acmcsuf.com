@@ -12,3 +12,5 @@ declare namespace App {
     GH_DISCUSSION_CATEGORY_ID: string;
   }
 }
+
+declare module 'rrule/dist/es5/rrule.min.js';
