@@ -22,6 +22,11 @@ export const events = [
       slug: 'general',
       picture: './assets/badges/general.svg',
       color: 'var(--acm-blue)',
+      blurp:
+        'Coding and classes can be a lot sometimes so blow off some steam with weekly Friday socials where we do various things.',
+      blurpRecommend: 'hehe',
+      recommendations: [],
+      workshopPictures: [],
     },
     calendarLinks: {
       google:
@@ -53,6 +58,11 @@ export const events = [
       slug: 'general',
       picture: './assets/badges/general.svg',
       color: 'var(--acm-blue)',
+      blurp:
+        'Coding and classes can be a lot sometimes so blow off some steam with weekly Friday socials where we do various things.',
+      blurpRecommend: 'hehe',
+      recommendations: [],
+      workshopPictures: [],
     },
     calendarLinks: {
       google:
@@ -85,6 +95,11 @@ export const events = [
       slug: 'general',
       picture: './assets/badges/general.svg',
       color: 'var(--acm-blue)',
+      blurp:
+        'Coding and classes can be a lot sometimes so blow off some steam with weekly Friday socials where we do various things.',
+      blurpRecommend: 'hehe',
+      recommendations: [],
+      workshopPictures: [],
     },
     calendarLinks: {
       google:
@@ -116,6 +131,11 @@ export const events = [
       slug: 'general',
       picture: './assets/badges/general.svg',
       color: 'var(--acm-blue)',
+      blurp:
+        'Coding and classes can be a lot sometimes so blow off some steam with weekly Friday socials where we do various things.',
+      blurpRecommend: 'hehe',
+      recommendations: [],
+      workshopPictures: [],
     },
     calendarLinks: {
       google:
@@ -149,6 +169,11 @@ export const events = [
       slug: 'general',
       picture: './assets/badges/general.svg',
       color: 'var(--acm-blue)',
+      blurp:
+        'Coding and classes can be a lot sometimes so blow off some steam with weekly Friday socials where we do various things.',
+      blurpRecommend: 'hehe',
+      recommendations: [],
+      workshopPictures: [],
     },
     calendarLinks: {
       google:
@@ -181,6 +206,11 @@ export const events = [
       slug: 'general',
       picture: './assets/badges/general.svg',
       color: 'var(--acm-blue)',
+      blurp:
+        'Coding and classes can be a lot sometimes so blow off some steam with weekly Friday socials where we do various things.',
+      blurpRecommend: 'hehe',
+      recommendations: [],
+      workshopPictures: [],
     },
     calendarLinks: {
       google:
@@ -214,6 +244,11 @@ export const events = [
       slug: 'general',
       picture: './assets/badges/general.svg',
       color: 'var(--acm-blue)',
+      blurp:
+        'Coding and classes can be a lot sometimes so blow off some steam with weekly Friday socials where we do various things.',
+      blurpRecommend: 'hehe',
+      recommendations: [],
+      workshopPictures: [],
     },
     calendarLinks: {
       google:
@@ -247,6 +282,11 @@ export const events = [
       slug: 'general',
       picture: './assets/badges/general.svg',
       color: 'var(--acm-blue)',
+      blurp:
+        'Coding and classes can be a lot sometimes so blow off some steam with weekly Friday socials where we do various things.',
+      blurpRecommend: 'hehe',
+      recommendations: [],
+      workshopPictures: [],
     },
     calendarLinks: {
       google:
@@ -278,6 +318,11 @@ export const events = [
       slug: 'general',
       picture: './assets/badges/general.svg',
       color: 'var(--acm-blue)',
+      blurp:
+        'Coding and classes can be a lot sometimes so blow off some steam with weekly Friday socials where we do various things.',
+      blurpRecommend: 'hehe',
+      recommendations: [],
+      workshopPictures: [],
     },
     calendarLinks: {
       google:
@@ -309,6 +354,11 @@ export const events = [
       slug: 'general',
       picture: './assets/badges/general.svg',
       color: 'var(--acm-blue)',
+      blurp:
+        'Coding and classes can be a lot sometimes so blow off some steam with weekly Friday socials where we do various things.',
+      blurpRecommend: 'hehe',
+      recommendations: [],
+      workshopPictures: [],
     },
     calendarLinks: {
       google:

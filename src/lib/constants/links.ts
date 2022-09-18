@@ -12,4 +12,8 @@ export const links = {
   enhance:
     'https://github.com/EthanThatOneKid/acmcsuf.com/issues/new?assignees=&labels=enhancement&template=feature_request.yaml',
   gfi: 'https://github.com/EthanThatOneKid/acmcsuf.com/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22',
+  devform: 'https://forms.gle/W7zE9DEhnE8Vhpcr9',
+  devdeck:
+    'https://docs.google.com/presentation/d/1I2iuN2h1awuqtd2osNo3kYuxdsYGOEwGYC1zn9zHtvs/edit?usp=sharing',
+  devproposal: 'https://forms.gle/xoYQKRRTtJBLsrJF8',
 } as const;

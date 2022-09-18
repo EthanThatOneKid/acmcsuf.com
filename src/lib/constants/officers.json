@@ -639,7 +639,8 @@
         "tier": 11
       }
     },
-    "picture": "jason-wong.webp"
+    "picture": "jason-wong.webp",
+    "displayName": "jaasonw"
   },
   {
     "fullName": "Alejandro Ramos",
@@ -683,6 +684,16 @@
   },
   {
     "fullName": "Sara Sadek",
+    "positions": {
+      "F22": {
+        "title": "AI Officer",
+        "tier": 13
+      }
+    },
+    "picture": "placeholder.webp"
+  },
+  {
+    "fullName": "Arish Imam",
     "positions": {
       "F22": {
         "title": "AI Officer",
