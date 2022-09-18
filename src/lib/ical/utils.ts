@@ -1,13 +1,14 @@
 import * as RRule from 'rrule/dist/es5/rrule.min.js';
 import { Temporal } from '@js-temporal/polyfill';
 import type { AcmPath } from '$lib/constants/acm-paths';
-import { acmAlgo, acmCreate, acmDev, acmGeneral } from '$lib/constants/acm-paths';
+import { acmAlgo, acmDesign, acmDev, acmGeneral } from '$lib/constants/acm-paths';
 import { parseBool } from '$lib/common/utils';
 
 export interface AcmEvent {
   month: string;
   day: number;
-  time: string;
+  startTime: string;
+  endTime: string;
   hasStarted: boolean;
   hasEnded: boolean;
   isPinned: boolean;
@@ -304,7 +305,10 @@ export function makeAcmEvent(
   const date = dtStart.toString();
   const month = dtStart.toLocaleString('en-US', { month: 'long' });
   const day = dtStart.day;
-  const time = dtStart.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric' });
+
+  const startTime = dtStart.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric' });
+  const endTime = dtEnd.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric' });
+
   const hasStarted = Temporal.ZonedDateTime.compare(referenceDate, dtStart) >= 0;
   const hasEnded = Temporal.ZonedDateTime.compare(referenceDate, dtEnd) >= 0;
   const duration = dtEnd.since(dtStart).minutes + ' minutes';
@@ -330,8 +334,8 @@ export function makeAcmEvent(
       ? acmGeneral
       : rawAcmPath === acmAlgo.slug
       ? acmAlgo
-      : rawAcmPath === acmCreate.slug
-      ? acmCreate
+      : rawAcmPath === acmDesign.slug
+      ? acmDesign
       : rawAcmPath === acmDev.slug
       ? acmDev
       : acmGeneral;
@@ -353,7 +357,8 @@ export function makeAcmEvent(
   return {
     month,
     day,
-    time,
+    startTime,
+    endTime,
     date,
     hasStarted,
     hasEnded,

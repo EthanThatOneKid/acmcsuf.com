@@ -1,25 +1,50 @@
 <script lang="ts" context="module">
   import type { LoadInput, LoadOutput } from '@sveltejs/kit/types/internal';
 
-  export async function load({ fetch }: LoadInput): Promise<LoadOutput> {
-    const response = await fetch(`/blog.json`);
-    return { props: { posts: await response.json() } };
+  export async function load({ fetch, url }: LoadInput): Promise<LoadOutput> {
+    const target = new URL('/blog.json', url);
+    const rawLabels = url.searchParams.get('l');
+    const selectedLabels = [];
+
+    if (rawLabels?.length > 0) {
+      target.searchParams.set('l', rawLabels);
+      selectedLabels.push(...rawLabels.split(','));
+    }
+
+    const response = await fetch(target.toString());
+    const blogOutput = await response.json();
+    return { props: { posts: blogOutput.posts, labels: blogOutput.labels, selectedLabels } };
   }
 </script>
 
 <script lang="ts">
   import type { Newsletter } from './_query';
   import Spacing from '$lib/components/sections/spacing.svelte';
+  import LabelField from '$lib/components/utils/acm-labelfield.svelte';
   import { Temporal } from '@js-temporal/polyfill';
   import { readingTime } from '$lib/blog/utils';
   import Labels from '$lib/components/blog/labels.svelte';
-  import BlogBody from '$lib/blog/blog-body.svelte';
 
   export let posts: Newsletter[] = [];
+  export let labels: string[] = [];
+  export let selectedLabels: string[] = [];
+
+  async function filterPosts(event: CustomEvent) {
+    const searchValue = event.detail.join(',');
+
+    history.replaceState({}, '', location.pathname + '?l=' + searchValue);
+
+    const target = new URL('/blog.json', location.origin);
+    target.searchParams.set('l', searchValue);
+
+    const response = await fetch(target.toString());
+    const blogOutput = await response.json();
+    if (blogOutput.posts) posts = blogOutput.posts;
+  }
 </script>
 
 <svelte:head>
-  <title>README / ACM at CSUF</title>
+  <title>README | ACM at CSUF</title>
 </svelte:head>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
@@ -43,38 +68,49 @@
 
 <Spacing --min="175px" --med="200px" --max="200px" />
 
-<section>
-  <ul>
-    {#each posts as post (post.id)}
-      <li class="blog-post">
-        <a href={`/blog/${post.id}`} sveltekit:prefetch>
-          <div class="author">
-            <a href={post.author.url}>
-              <img src={post.author.picture} alt="" />
-            </a>
-            <div>
-              <a href={post.author.url}>{post.author.displayname}</a>
+{#if posts.length > 0}
+  <LabelField {labels} {selectedLabels} urlSearchParamKey="l" on:change={filterPosts}>
+    <div slot="title">Filter by Tags</div>
+    <div slot="reset-button">✖ Clear all</div>
+  </LabelField>
+
+  <section>
+    <ul>
+      {#each posts as post (post.id)}
+        <li class="blog-post">
+          <a href={`/blog/${post.id}`} sveltekit:prefetch>
+            <div class="author">
+              <a href={post.author.url}>
+                <img src={post.author.picture} alt="" />
+              </a>
+              <div>
+                <a href={post.author.url}>{post.author.displayname}</a>
+              </div>
             </div>
-          </div>
-          <h2 class="headers">{post.title}</h2>
-          <div class="markdown-body">
-            <BlogBody data={post.html} />
-          </div>
-          <p class="read-time">
-            {Temporal.Instant.from(post.createdAt).toLocaleString('en-US', {
-              calendar: 'gregory',
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })} •
-            {readingTime(post.html)} min read
-            <Labels data={post.labels} />
-          </p>
-        </a>
-      </li>
-    {/each}
-  </ul>
-</section>
+            <h2 class="headers">{post.title}</h2>
+            <div class="markdown-body">
+              {@html post.html}
+            </div>
+            <p class="read-time">
+              {Temporal.Instant.from(post.createdAt).toLocaleString('en-US', {
+                calendar: 'gregory',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })} •
+              {readingTime(post.html)} min read
+              <Labels data={post.labels} />
+            </p>
+          </a>
+        </li>
+      {/each}
+    </ul>
+  </section>
+{:else}
+  <section>
+    <h2 class="size-lg">There are no posts yet.</h2>
+  </section>
+{/if}
 
 <Spacing --min="40px" --med="95px" --max="120px" />
 

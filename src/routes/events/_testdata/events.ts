@@ -2,7 +2,8 @@ export const events = [
   {
     month: 'August',
     day: 17,
-    time: '12:00 PM',
+    startTime: '12:00 PM',
+    endTime: '1:00 PM',
     date: '2018-08-17T12:00:00-07:00[America/Los_Angeles]',
     hasStarted: true,
     hasEnded: true,
@@ -21,6 +22,11 @@ export const events = [
       slug: 'general',
       picture: './assets/badges/general.svg',
       color: 'var(--acm-blue)',
+      blurp:
+        'Coding and classes can be a lot sometimes so blow off some steam with weekly Friday socials where we do various things.',
+      blurpRecommend: 'hehe',
+      recommendations: [],
+      workshopPictures: [],
     },
     calendarLinks: {
       google:
@@ -32,7 +38,8 @@ export const events = [
   {
     month: 'August',
     day: 17,
-    time: '5:00 PM',
+    startTime: '5:00 PM',
+    endTime: '7:00 PM',
     date: '2018-08-17T17:00:00-07:00[America/Los_Angeles]',
     hasStarted: true,
     hasEnded: true,
@@ -51,6 +58,11 @@ export const events = [
       slug: 'general',
       picture: './assets/badges/general.svg',
       color: 'var(--acm-blue)',
+      blurp:
+        'Coding and classes can be a lot sometimes so blow off some steam with weekly Friday socials where we do various things.',
+      blurpRecommend: 'hehe',
+      recommendations: [],
+      workshopPictures: [],
     },
     calendarLinks: {
       google:
@@ -62,7 +74,8 @@ export const events = [
   {
     month: 'August',
     day: 21,
-    time: '12:00 PM',
+    startTime: '12:00 PM',
+    endTime: '3:00 PM',
     date: '2018-08-21T12:00:00-07:00[America/Los_Angeles]',
     hasStarted: true,
     hasEnded: true,
@@ -82,6 +95,11 @@ export const events = [
       slug: 'general',
       picture: './assets/badges/general.svg',
       color: 'var(--acm-blue)',
+      blurp:
+        'Coding and classes can be a lot sometimes so blow off some steam with weekly Friday socials where we do various things.',
+      blurpRecommend: 'hehe',
+      recommendations: [],
+      workshopPictures: [],
     },
     calendarLinks: {
       google:
@@ -93,7 +111,8 @@ export const events = [
   {
     month: 'August',
     day: 24,
-    time: '9:00 AM',
+    startTime: '9:00 AM',
+    endTime: '4:00 PM',
     date: '2018-08-24T09:00:00-07:00[America/Los_Angeles]',
     hasStarted: true,
     hasEnded: true,
@@ -112,6 +131,11 @@ export const events = [
       slug: 'general',
       picture: './assets/badges/general.svg',
       color: 'var(--acm-blue)',
+      blurp:
+        'Coding and classes can be a lot sometimes so blow off some steam with weekly Friday socials where we do various things.',
+      blurpRecommend: 'hehe',
+      recommendations: [],
+      workshopPictures: [],
     },
     calendarLinks: {
       google:
@@ -123,7 +147,8 @@ export const events = [
   {
     month: 'September',
     day: 10,
-    time: '5:30 PM',
+    startTime: '5:30 PM',
+    endTime: '6:45 PM',
     date: '2018-09-10T17:30:00-07:00[America/Los_Angeles]',
     hasStarted: true,
     hasEnded: true,
@@ -144,6 +169,11 @@ export const events = [
       slug: 'general',
       picture: './assets/badges/general.svg',
       color: 'var(--acm-blue)',
+      blurp:
+        'Coding and classes can be a lot sometimes so blow off some steam with weekly Friday socials where we do various things.',
+      blurpRecommend: 'hehe',
+      recommendations: [],
+      workshopPictures: [],
     },
     calendarLinks: {
       google:
@@ -155,7 +185,8 @@ export const events = [
   {
     month: 'September',
     day: 14,
-    time: '7:00 PM',
+    startTime: '7:00 PM',
+    endTime: '9:00 PM',
     date: '2018-09-14T19:00:00-07:00[America/Los_Angeles]',
     hasStarted: true,
     hasEnded: true,
@@ -175,6 +206,11 @@ export const events = [
       slug: 'general',
       picture: './assets/badges/general.svg',
       color: 'var(--acm-blue)',
+      blurp:
+        'Coding and classes can be a lot sometimes so blow off some steam with weekly Friday socials where we do various things.',
+      blurpRecommend: 'hehe',
+      recommendations: [],
+      workshopPictures: [],
     },
     calendarLinks: {
       google:
@@ -186,7 +222,8 @@ export const events = [
   {
     month: 'September',
     day: 19,
-    time: '12:00 PM',
+    startTime: '12:00 PM',
+    endTime: '2:00 PM',
     date: '2018-09-19T12:00:00-07:00[America/Los_Angeles]',
     hasStarted: true,
     hasEnded: true,
@@ -207,6 +244,11 @@ export const events = [
       slug: 'general',
       picture: './assets/badges/general.svg',
       color: 'var(--acm-blue)',
+      blurp:
+        'Coding and classes can be a lot sometimes so blow off some steam with weekly Friday socials where we do various things.',
+      blurpRecommend: 'hehe',
+      recommendations: [],
+      workshopPictures: [],
     },
     calendarLinks: {
       google:
@@ -218,7 +260,8 @@ export const events = [
   {
     month: 'October',
     day: 2,
-    time: '4:00 PM',
+    startTime: '4:00 PM',
+    endTime: '5:00 PM',
     date: '2018-10-02T16:00:00-07:00[America/Los_Angeles]',
     hasStarted: true,
     hasEnded: true,
@@ -239,6 +282,11 @@ export const events = [
       slug: 'general',
       picture: './assets/badges/general.svg',
       color: 'var(--acm-blue)',
+      blurp:
+        'Coding and classes can be a lot sometimes so blow off some steam with weekly Friday socials where we do various things.',
+      blurpRecommend: 'hehe',
+      recommendations: [],
+      workshopPictures: [],
     },
     calendarLinks: {
       google:
@@ -250,7 +298,8 @@ export const events = [
   {
     month: 'February',
     day: 5,
-    time: '6:30 PM',
+    startTime: '6:30 PM',
+    endTime: '7:30 PM',
     date: '2019-02-05T18:30:00-08:00[America/Los_Angeles]',
     hasStarted: true,
     hasEnded: true,
@@ -269,6 +318,11 @@ export const events = [
       slug: 'general',
       picture: './assets/badges/general.svg',
       color: 'var(--acm-blue)',
+      blurp:
+        'Coding and classes can be a lot sometimes so blow off some steam with weekly Friday socials where we do various things.',
+      blurpRecommend: 'hehe',
+      recommendations: [],
+      workshopPictures: [],
     },
     calendarLinks: {
       google:
@@ -280,7 +334,8 @@ export const events = [
   {
     month: 'February',
     day: 6,
-    time: '10:30 AM',
+    startTime: '10:30 AM',
+    endTime: '11:30 AM',
     date: '2019-02-06T10:30:00-08:00[America/Los_Angeles]',
     hasStarted: true,
     hasEnded: true,
@@ -299,6 +354,11 @@ export const events = [
       slug: 'general',
       picture: './assets/badges/general.svg',
       color: 'var(--acm-blue)',
+      blurp:
+        'Coding and classes can be a lot sometimes so blow off some steam with weekly Friday socials where we do various things.',
+      blurpRecommend: 'hehe',
+      recommendations: [],
+      workshopPictures: [],
     },
     calendarLinks: {
       google:
