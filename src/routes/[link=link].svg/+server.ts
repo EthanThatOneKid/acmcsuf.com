@@ -1,23 +1,20 @@
-import type { RequestHandler } from './$types';
+import { error } from '@sveltejs/kit';
+import type { RequestEvent } from './$types';
 import { LINKS } from '$lib/links/data';
-import { parseLink, genQRCodeSvg } from '$lib/links/utils';
+import { parseLinkId, genQRCodeSvg } from '$lib/links/utils';
 
-export const GET = handler();
+export async function GET(event: RequestEvent) {
+  const id = parseLinkId(event.params.link);
 
-function handler(): RequestHandler {
-  return async function (event) {
-    const link = parseLink(event.params.link);
+  if (!id) {
+    throw error(404, 'Invalid link');
+  }
 
-    if (!link) {
-      throw new Error('Invalid link');
-    }
+  const destination = LINKS[id];
+  const qrCodeSvg = await genQRCodeSvg(destination);
 
-    const destination = LINKS[link];
-    const qrCodeSvg = await genQRCodeSvg(destination);
-
-    return new Response(qrCodeSvg, {
-      status: 200,
-      headers: { 'Content-Type': 'image/svg+xml' },
-    });
-  };
+  return new Response(qrCodeSvg, {
+    status: 200,
+    headers: { 'Content-Type': 'image/svg+xml' },
+  });
 }

@@ -1,7 +1,7 @@
 import QRCode from 'qrcode';
 import { LINKS } from './data';
 
-export function parseLink(link: string): keyof typeof LINKS | undefined {
+export function parseLinkId(link: string): keyof typeof LINKS | undefined {
   const cleanedLinkName = link
     .replace(/^\/+|\/+$/g, '')
     .replace(/[^a-zA-Z0-9-/]/g, '')

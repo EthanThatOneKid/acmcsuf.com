@@ -1,7 +1,7 @@
 import { test, expect } from 'vitest';
-import { parseLink } from './utils';
+import { parseLinkId } from './utils';
 
 test('parses shortlinks', () => {
-  expect(parseLink('missing-link')).toBe(undefined);
-  expect(parseLink('GitHub')).toBe('github');
+  expect(parseLinkId('missing-link')).toBe(undefined);
+  expect(parseLinkId('GitHub')).toBe('github');
 });

@@ -1,8 +1,8 @@
 import type { ParamMatcher } from '@sveltejs/kit';
-import { parseLink } from '$lib/links/utils';
+import { parseLinkId } from '$lib/links/utils';
 
 function makeLinkMatcher(): ParamMatcher {
-  return (param: string): boolean => !!parseLink(param);
+  return (param: string): boolean => !!parseLinkId(param);
 }
 
 export function match(param: string): boolean {
