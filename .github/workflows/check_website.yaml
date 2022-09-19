@@ -47,6 +47,7 @@ jobs:
         run: npm run check
 
       - name: Test
+        uses: microsoft/playwright-github-action@v1
         run: npm run test
 
       # info: https://etok.codes/acmcsuf.com/blob/main/CONTRIBUTING.md#npm-bloat
