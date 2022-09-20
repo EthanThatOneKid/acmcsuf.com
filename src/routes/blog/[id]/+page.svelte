@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { PageData } from './$types';
-  import Spacing from '$lib/legacy/spacing.svelte';
+  import Spacing from '$lib/public/legacy/spacing.svelte';
   import { readingTime } from '$lib/public/blog/utils';
   import { Temporal } from '@js-temporal/polyfill';
   import Labels from '../labels.svelte';
