@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { acmAI, acmAlgo, acmDesign, acmDev } from '$lib/legacy/acm-paths';
-  import { TextAlignment } from '$lib/legacy/text-alignment';
-  import PathSection from '$lib/legacy/path-section.svelte';
-  import Spacing from '$lib/legacy/spacing.svelte';
+  import { TextAlignment } from '$lib/public/text-alignment/text-alignment';
+  import { acmAI, acmAlgo, acmDesign, acmDev } from '$lib/public/legacy/acm-paths';
+  import Spacing from '$lib/public/legacy/spacing.svelte';
   import Block from '$lib/components/block/block.svelte';
+  import PathSection from './path-section.svelte';
 </script>
 
 <svelte:head>
@@ -13,7 +13,7 @@
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <Block>
-  <h2 slot="headline" class="size-xl">Meet the Teams</h2>
+  <h1 slot="headline" class="size-xl">Meet the Teams</h1>
   <p slot="text" class="size-md">
     Teams are committees that specialize in specific fields in the tech industry. We’ve designed the
     teams to be gateways for students to explore new fields, develop new interests, and learn new
