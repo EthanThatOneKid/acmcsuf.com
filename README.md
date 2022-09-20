@@ -1,38 +1,36 @@
-# create-svelte
+# [`acmcsuf.com`][demo_url] 🐘
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+> Official website of CSUF's ACM club.
 
-## Creating a project
+[![Website Check](https://github.com/EthanThatOneKid/acmcsuf.com/actions/workflows/check_website.yaml/badge.svg)](https://github.com/EthanThatOneKid/acmcsuf.com/actions/workflows/check_website.yaml)
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Develop [👩‍💻][figma_design]
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+> 💡 This project runs on Node.js; [install the latest long-term support version][node_download].
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+To get started, clone this repository to your machine and run `npm i` in the root of this project.
+Then, run `npm start` to spin up the [development server][dev_server].
 
-## Developing
+## Contributing 🤝
 
-Once you've created a project and installed dependencies with `npm install` (or `npm i` or `pnpm install` or `yarn`), start a development server:
+If you're interested in contributing to this project, I'd recommend checking out the [`CONTRIBUTING.md`](CONTRIBUTING.md) document.
+For a more detailed overview of this repository's structure, feel free to review the [`ARCHITECTURE.md`](ARCHITECTURE.md) document.
 
-```bash
-npm run dev
+## Deployment 🚀
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+Whenever a push is made to the main branch, Vercel builds the site, tests it, and if there are no errors, it will deploy a preview site.
+Once an admin approves the preview site, it gets promoted to production.
 
-## Building
+---
 
-To create a production version of your app:
+Maintained with 💖 by [**acmcsuf.com hub**][team_doc]
 
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+[node_download]: https://nodejs.org/en/download/
+[github_action_deploy]: .github/workflows/deploy.yaml
+[demo_url]: https://acmcsuf.com/
+[acm_officers]: https://acmcsuf.com/about/
+[webmaster_url]: https://github.com/EthanThatOneKid/
+[figma_design]: https://www.figma.com/file/9cvuO69WgNGuCjf2JGDPfq/ACM-Website-Mockup---Mike-Ploythai?node-id=1%3A26
+[dev_server]: http://localhost:3000/
+[vercel_dashboard]: https://vercel.com/ethanthatonekid/acm-csuf-site
+[team_doc]: https://docs.google.com/document/d/11GoIBTAAnIOgmWuG1TsgXUE3MMkweQ8V6bB9TbrY0Hs/edit?usp=sharing
