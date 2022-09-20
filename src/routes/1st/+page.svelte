@@ -253,11 +253,6 @@ git add -A && git commit -m "Your Message"
     margin: 0 auto;
   }
 
-  :global(.header svg) {
-    width: 100%;
-    height: 5vh;
-  }
-
   h1 {
     display: flex;
     align-items: center;
