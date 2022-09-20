@@ -59,7 +59,7 @@
   ],
   "type": "module",
   "dependencies": {
-    "@js-temporal/polyfill": "^0.4.2",
+    "@js-temporal/polyfill": "^0.4.1",
     "html-to-text": "^8.2.1",
     "qrcode": "^1.5.1",
     "rrule": "^2.6.9",
