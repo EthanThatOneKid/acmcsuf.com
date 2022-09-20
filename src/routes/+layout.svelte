@@ -2,7 +2,7 @@
   import Navbar from '$lib/components/nav/bar.svelte';
   import Footer from '$lib/components/footer/footer.svelte';
   import AcmToaster from '$lib/components/toaster/toaster.svelte';
-  import { AcmTheme, theme } from '$lib/legacy/theme';
+  import { AcmTheme, theme } from '$lib/public/legacy/theme';
   import { onMount } from 'svelte';
 
   function changeTheme(event: MediaQueryListEvent) {

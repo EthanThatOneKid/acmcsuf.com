@@ -4,7 +4,7 @@
   import Toggle from '$lib/components/toggle/toggle.svelte';
   import ThemeLight from '$lib/components/svg/theme-light.svelte';
   import ThemeDark from '$lib/components/svg/theme-dark.svelte';
-  import { AcmTheme, theme } from '$lib/legacy/theme';
+  import { AcmTheme, theme } from '$lib/public/legacy/theme';
 
   let jsEnabled = false;
   onMount(() => (jsEnabled = true));
