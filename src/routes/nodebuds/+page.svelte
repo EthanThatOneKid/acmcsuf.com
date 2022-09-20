@@ -1,9 +1,9 @@
 <script lang="ts">
-  import Spacing from '$lib/legacy/spacing.svelte';
+  import Spacing from '$lib/public/legacy/spacing.svelte';
+  import type { Officer } from '$lib/public/board/types';
+  import { VISIBLE_TERMS } from '$lib/public/board/data';
+  import { termIndex } from '$lib/public/board/utils';
   import OfficerProfileList from '../about/officer-profile-list.svelte';
-  import { VISIBLE_TERMS } from '../about/officers';
-  import type { Officer } from '../about/officers';
-  import { termIndex } from '../about/term-index';
 
   function filterNodeBuddies(officer: Officer): boolean {
     const position = officer.positions[VISIBLE_TERMS[$termIndex]];
@@ -25,7 +25,7 @@
 <div class="container">
   <section>
     <div>
-      <h2 class="headers size-lg">Personalized for your success</h2>
+      <h1 class="headers size-lg">Personalized for your success</h1>
       <p class="size-xs">
         <span class="headers"> node buds </span>
         is our exclusive program in partnership with
