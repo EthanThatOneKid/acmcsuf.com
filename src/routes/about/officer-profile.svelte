@@ -1,6 +1,10 @@
 <script lang="ts">
-  import { getOfficerTierByTermIndex, getPositionByTermIndex, type Officer } from './officers';
-  import { termIndex } from './term-index';
+  import type { Officer } from '$lib/public/board/types';
+  import {
+    termIndex,
+    getOfficerTierByTermIndex,
+    getPositionByTermIndex,
+  } from '$lib/public/board/utils';
 
   export let info: Officer;
   export let placeholderPicture = 'placeholder.webp';
