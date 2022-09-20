@@ -1,12 +1,14 @@
-<script context="module">
-  const confetti = import.meta.globEager('$lib/1st/confetti/*.ts');
+<script context="module" lang="ts">
+  const confetti: Record<string, { default: string }> = import.meta.globEager(
+    '$lib/1st/confetti/*.ts'
+  );
 </script>
 
 <script lang="ts">
   import { Confetti } from 'svelte-confetti';
   import Spacing from '$lib/public/legacy/spacing.svelte';
 
-  const colorArray: string[] = Object.keys(confetti).map((key) => confetti[key].default);
+  const colorArray = Object.keys(confetti).map((key) => confetti[key].default);
 </script>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
@@ -15,7 +17,7 @@
   <title>1st Contributions | ACM at CSUF</title>
 </svelte:head>
 
-<main class="wrapper">
+<main class="wrapper responsive-width">
   <section id="top">
     <div class="header">
       <h1 class="size-lg">
@@ -264,10 +266,6 @@ git add -A && git commit -m "Your Message"
     align-items: center;
     justify-content: center;
     margin: 0;
-  }
-
-  .invisible {
-    visibility: hidden;
   }
 
   main {
