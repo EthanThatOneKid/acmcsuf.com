@@ -12,7 +12,6 @@ on:
 jobs:
   website_check:
     runs-on: ubuntu-latest
-    uses: microsoft/playwright-github-action@v1
 
     strategy:
       matrix:
@@ -46,6 +45,9 @@ jobs:
 
       - name: Check
         run: npm run check
+
+      - name: npx playwright install
+        run: npx playwright install
 
       - name: Test
         run: npm run test
