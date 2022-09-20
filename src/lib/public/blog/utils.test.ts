@@ -32,6 +32,5 @@ test('properly times plain text strings', () => {
 });
 
 test('properly times html strings', () => {
-  console.log({ TXT_ENCHANTED_BY_TAYLOR_SWIFT });
   expect(readingTime(TXT_ENCHANTED_BY_TAYLOR_SWIFT)).toBe(3);
 });
