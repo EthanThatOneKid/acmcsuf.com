@@ -11,10 +11,11 @@
     "url": "https://github.com/EthanThatOneKid/acmcsuf.com.git/"
   },
   "scripts": {
+    "start": "npm run dev",
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest --run",
+    "test": "vitest --run && npm run test:browser",
     "test:watch": "vitest",
     "test:size": "npm i && size-limit",
     "test:coverage": "vitest run --coverage",
@@ -23,7 +24,7 @@
     "lint": "eslint . --fix",
     "format": "prettier --write .",
     "host": "npm run all && npm run preview",
-    "all": "npm run lint && npm run format && npm run check && npm t && npm run build"
+    "all": "npm run lint && npm run format && npm run check && npm run build && npm t"
   },
   "devDependencies": {
     "@playwright/test": "^1.25.0",
@@ -31,6 +32,7 @@
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
     "@types/html-to-text": "^8.1.1",
+    "@types/qrcode": "^1.5.0",
     "@types/rss": "^0.0.29",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
@@ -57,9 +59,10 @@
   ],
   "type": "module",
   "dependencies": {
-    "@js-temporal/polyfill": "^0.4.1",
+    "@js-temporal/polyfill": "^0.4.2",
     "html-to-text": "^8.2.1",
-    "rrule": "^2.6.9",
-    "rss": "^1.2.2"
+    "qrcode": "^1.5.1",
+    "rss": "^1.2.2",
+    "svelte-confetti": "^1.2.0"
   }
 }

@@ -30,14 +30,14 @@ function makeRssFeed(posts: BlogPost[]): string {
     ttl: 60,
   });
 
-  for (const newsletter of posts) {
+  for (const p of posts) {
     feed.item({
-      title: newsletter.title,
-      description: truncateDescription(newsletter.html, /* length=*/ 250),
-      url: newsletter.url,
-      categories: newsletter.labels,
-      author: newsletter.author.displayname,
-      date: new Date(newsletter.createdAt).toISOString(),
+      title: p.title,
+      description: truncateDescription(p.html, /* length=*/ 250),
+      url: p.url,
+      categories: p.labels,
+      author: p.author.displayname,
+      date: new Date(p.createdAt).toISOString(),
     });
   }
 

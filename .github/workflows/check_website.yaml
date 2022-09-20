@@ -46,6 +46,9 @@ jobs:
       - name: Check
         run: npm run check
 
+      - name: npx playwright install
+        run: npx playwright install
+
       - name: Test
         run: npm run test
 

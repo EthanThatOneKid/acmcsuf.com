@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { Temporal } from '@js-temporal/polyfill';
   import type { PageData } from './$types';
+  import { Temporal } from '@js-temporal/polyfill';
   import { readingTime } from '$lib/public/blog/utils';
-  import Spacing from '$lib/legacy/spacing.svelte';
+  import Spacing from '$lib/public/legacy/spacing.svelte';
   import LabelField from './labelfield.svelte';
   import Labels from './labels.svelte';
 

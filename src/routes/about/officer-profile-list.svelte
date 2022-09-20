@@ -1,9 +1,9 @@
 <script lang="ts">
   import Select from '$lib/components/select/select.svelte';
+  import type { Officer, Term } from '$lib/public/board/types';
+  import { OFFICERS, VISIBLE_TERMS } from '$lib/public/board/data';
+  import { termIndex } from '$lib/public/board/utils';
   import OfficerProfile from './officer-profile.svelte';
-  import type { Officer, Term } from './officers';
-  import { OFFICERS, VISIBLE_TERMS } from './officers';
-  import { termIndex } from './term-index';
 
   export let placeholderPicture: string | undefined = undefined;
   export let filter: (officer: Officer) => boolean;

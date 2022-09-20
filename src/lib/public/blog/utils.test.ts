@@ -1,6 +1,6 @@
 import { test, expect } from 'vitest';
-import fs from 'node:fs';
 import { discernLabels, readingTime } from './utils';
+import { TXT_BEE_MOVIE, TXT_ENCHANTED_BY_TAYLOR_SWIFT } from './data';
 
 test('discerns no labels from empty input', () => {
   const output = discernLabels([]);
@@ -28,11 +28,10 @@ test('discerns unique labels from list in alphabetical order', () => {
 });
 
 test('properly times plain text strings', () => {
-  const sampleText = fs.readFileSync('src/lib/public/blog/bee-movie.txt').toString();
-  expect(readingTime(sampleText)).toBe(41);
+  expect(readingTime(TXT_BEE_MOVIE)).toBe(41);
 });
 
 test('properly times html strings', () => {
-  const sampleText = fs.readFileSync('src/lib/public/blog/enchanted.txt').toString();
-  expect(readingTime(sampleText)).toBe(3);
+  console.log({ TXT_ENCHANTED_BY_TAYLOR_SWIFT });
+  expect(readingTime(TXT_ENCHANTED_BY_TAYLOR_SWIFT)).toBe(3);
 });

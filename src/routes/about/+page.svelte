@@ -1,9 +1,9 @@
 <script lang="ts">
-  import Spacing from '$lib/legacy/spacing.svelte';
+  import Spacing from '$lib/public/legacy/spacing.svelte';
+  import type { Officer } from '$lib/public/board/types';
+  import { getPositionByTermIndex, termIndex } from '$lib/public/board/utils';
   import AboutUs from './about-us.svelte';
   import OfficerProfileList from './officer-profile-list.svelte';
-  import { getPositionByTermIndex, type Officer } from './officers';
-  import { termIndex } from './term-index';
 
   function filterOfficers(officer: Officer): boolean {
     const isCurrentTerm = getPositionByTermIndex(officer, $termIndex) !== undefined;
