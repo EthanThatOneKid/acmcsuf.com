@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { pinnedPaths } from '$lib/legacy/acm-paths';
+  import { pinnedPaths } from '$lib/public/legacy/acm-paths';
 </script>
 
 <section>

@@ -44,7 +44,7 @@ jobs:
 
       - name: Create Pull Request
         id: pull_request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v4.1.1
         with:
           commit-message: Updated officer data
           title: 'Add/Update officer ${{ steps.officer-name.outputs.result }}'

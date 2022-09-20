@@ -1,12 +1,12 @@
 <script lang="ts">
-  import { TextAlignment } from '$lib/legacy/text-alignment';
+  import { TextAlignment } from '$lib/public/text-alignment/text-alignment';
 
   export let align: TextAlignment = TextAlignment.CENTER;
 </script>
 
 <section style:--alignment={align}>
   <div>
-    <slot name="headline" tag="h2" class="headline" />
+    <slot name="headline" tag="h1" class="headline" />
     <slot name="text" tag="p" class="text" />
   </div>
 </section>

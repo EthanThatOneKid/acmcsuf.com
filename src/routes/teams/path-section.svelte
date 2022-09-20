@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { AcmPath } from '$lib/legacy/acm-paths';
-  import { TextAlignment } from '$lib/legacy/text-alignment';
+  import type { AcmPath } from '$lib/public/legacy/acm-paths';
+  import { TextAlignment } from '$lib/public/text-alignment/text-alignment';
 
   export let textAlign: TextAlignment = TextAlignment.RIGHT;
   export let info: AcmPath | undefined;
