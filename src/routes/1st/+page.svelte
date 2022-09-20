@@ -17,37 +17,24 @@
   <title>1st Contributions | ACM at CSUF</title>
 </svelte:head>
 
-<main class="wrapper responsive-width">
+<main class="responsive-width">
+  <div class="confetti-wrapper">
+    <Confetti
+      x={[-5, 5]}
+      y={[0, 0.1]}
+      delay={[500, 2000]}
+      infinite
+      duration="5000"
+      amount="200"
+      fallDistance="100vh"
+      {colorArray}
+    />
+  </div>
+
   <section id="top">
     <div class="header">
-      <h1 class="size-lg">
-        <Confetti
-          infinite
-          amount="10"
-          x={[-0.5, -0.25]}
-          y={[0.25, 0.5]}
-          delay={[500, 2000]}
-          {colorArray}
-        />
-
-        First&nbsp;Contributions
-
-        <Confetti
-          infinite
-          amount="10"
-          x={[0.25, 0.5]}
-          y={[0.25, 0.5]}
-          delay={[500, 2000]}
-          {colorArray}
-        />
-      </h1>
+      <h1 class="size-lg">First Contributions</h1>
     </div>
-
-    <!-- <div>
-      <button class="confetti-toggle" class:invisible={!jsEnabled} on:click={toggleConfetti}
-        >Toggle confetti</button
-      >
-    </div> -->
 
     <p>
       <code>acmcsuf.com/1st</code> aims to simplify and guide the way beginners make their first
@@ -248,17 +235,27 @@ git add -A && git commit -m "Your Message"
 <style lang="scss">
   .responsive-width {
     width: min(800px, 80vw);
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .confetti-wrapper {
+    position: absolute;
+    overflow-x: hidden;
+    top: -50px;
+    left: 0;
+    right: 0;
+    height: 70vh;
+    width: 75vw;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    margin: 0 auto;
   }
 
   :global(.header svg) {
     width: 100%;
-    height: 5px;
-  }
-
-  .wrapper {
-    max-width: 540px;
-    margin: 0 auto;
-    padding: 0 1rem 6rem;
+    height: 5vh;
   }
 
   h1 {
