@@ -1,7 +1,7 @@
 import { error } from '@sveltejs/kit';
 import type { RequestEvent } from './$types';
-import { LINKS } from '$lib/links/data';
-import { parseLinkId, genQRCodeSvg } from '$lib/links/utils';
+import { LINKS } from '$lib/server/links/data';
+import { parseLinkId, genQRCodeSvg } from '$lib/server/links/utils';
 
 export async function GET(event: RequestEvent) {
   const id = parseLinkId(event.params.link);

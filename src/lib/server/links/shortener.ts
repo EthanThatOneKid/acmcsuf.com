@@ -1,5 +1,5 @@
-import { LINKS } from '$lib/links/data';
-import { parseLinkId } from '$lib/links/utils';
+import { LINKS } from '$lib/server/links/data';
+import { parseLinkId } from '$lib/server/links/utils';
 import type { Handle } from '@sveltejs/kit';
 
 export function shortener(): Handle {
