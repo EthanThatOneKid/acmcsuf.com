@@ -1,4 +1,4 @@
-import { acmGeneral } from '$lib/legacy/acm-paths';
+import { acmGeneral } from '$lib/public/legacy/acm-paths';
 import { writable } from 'svelte/store';
 
 const MAX_TOASTS = 4;

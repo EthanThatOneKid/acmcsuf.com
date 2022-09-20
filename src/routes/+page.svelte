@@ -1,5 +1,5 @@
 <script>
-  import Spacing from '$lib/legacy/spacing.svelte';
+  import Spacing from '$lib/public/legacy/spacing.svelte';
   import Hero from './hero.svelte';
   import WhyJoin from './why-join.svelte';
   import AcmPaths from './acm-paths.svelte';
