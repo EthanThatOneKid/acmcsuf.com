@@ -36,8 +36,11 @@ npm run lint
 # Runs the checks for type errors, unused css, and more (See: https://github.com/sveltejs/language-tools/tree/master/packages/svelte-check)
 npm run check
 
-# Run all our unit tests (or with `npm t`)
-npm run test
+# Run all our unit tests and Playwrite tests (or `npm run test`)
+npm t
+
+# Run only our Playwrite tests
+npm run test:browser
 
 # Builds the website
 npm run build
@@ -101,13 +104,14 @@ Really, the situation may affect your choice of breakpoint value, but the goal i
 ## Setting up your `.env` file
 
 To interact with data from GitHub (or any third-party service), a file named `.env` must be created in the root of your local repository instance.
+Begin by renaming a cloned [`.env.example`](.env.example) to `.env`.
 
-Some environment variables are necessary to gain access to data from third-party services.
-We use the `VITE_GH_ACCESS_TOKEN` environment variable to authenticate our requests to GitHub (and [prevent rate limiting](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#increasing-the-unauthenticated-rate-limit-for-oauth-apps)).
-Below is how `VITE_GH_ACCESS_TOKEN` should be defined in your `.env` file, where `YOUR_PAT` should be replaced with your own generated [personal GitHub access token](https://github.com/settings/tokens).
+Some environment variables are necessary to gain access to data from third-party services, for example, `/blog`.
+We use the `GH_ACCESS_TOKEN` environment variable to authenticate our requests to GitHub (and [prevent rate limiting](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#increasing-the-unauthenticated-rate-limit-for-oauth-apps)).
+Below is how `GH_ACCESS_TOKEN` should be defined in your `.env` file, where `YOUR_PAT` should be replaced with your own generated [personal GitHub access token](https://github.com/settings/tokens).
 
 ```sh
-VITE_GH_ACCESS_TOKEN=YOUR_PAT
+GH_ACCESS_TOKEN=YOUR_PAT
 ```
 
 **Fair Warning**: Never commit your _PAT_ (or any sensitive information) in files that are not ignored by our [`.gitignore`](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/.gitignore) file (`.env` being one of them).
@@ -116,13 +120,13 @@ Other environment variables are needed to provide information that allows the pr
 
 ```sh
 # General discussion on GitHub: <https://github.com/EthanThatOneKid/acmcsuf.com/discussions/categories/newsletter>
-VITE_GH_DISCUSSION_CATEGORY_ID=DIC_kwDOE7ysSc4CAC0o
+GH_DISCUSSION_CATEGORY_ID=DIC_kwDOE7ysSc4CAC0o
 
 # Algo discussion on GitHub: <https://github.com/EthanThatOneKid/acmcsuf.com/discussions/categories/algo>
-VITE_GH_ALGO_CATEGORY_ID=DIC_kwDOE7ysSc4COe-m
+GH_ALGO_CATEGORY_ID=DIC_kwDOE7ysSc4COe-m
 
 # Switch to 1 to turn on debug mode.
-VITE_DEBUG=0
+DEBUG=0
 ```
 
 Some environment variables are needed to run scripts that are used for purposes indirectly related to `acmcsuf.com` (such as the Gitcord scripts).
