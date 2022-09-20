@@ -17,8 +17,8 @@ Clone this repository by [directly downloading it][ddl] or via git: `git clone h
 
 Open the repository in your code editor or terminal of choice and enter `npm i` to **install** the project's dependencies.
 After that, enter `npm run dev` to spin up the development server.
-As the development server is running, open up [`http://localhost:3000/`](http://localhost:3000/).
-Every update made to the source code will trigger your `http://localhost:3000/` page to reload automatically.
+As the development server is running, open up [`http://localhost:5173/`](http://localhost:5173/).
+Every update made to the source code will trigger your `http://localhost:5173/` page to reload automatically.
 
 Now that you've got everything up-and-running, you are free to contribute to your heart's content.
 

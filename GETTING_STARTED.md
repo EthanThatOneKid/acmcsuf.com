@@ -11,7 +11,7 @@
 
 1. Create a local clone of your **FORKED** repository
 2. Open a terminal inside your local clone and run `npm install` to install the required dependencies (We use svelte for much of the codebase along with Typescript and some utility libraries)
-3. Run `npm run dev` to boot up the local development server and navigate to `localhost:3000` in your web browser and you should have a local copy of the website
+3. Run `npm run dev` to boot up the local development server and navigate to `localhost:5173` in your web browser and you should have a local copy of the website
 
 ## Pushing a code change
 
