@@ -79,7 +79,7 @@
     max-width: 600px;
   }
 
-  section h2 {
+  section h1 {
     padding-bottom: 16px;
   }
 

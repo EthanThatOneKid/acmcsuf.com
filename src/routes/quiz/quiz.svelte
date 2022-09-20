@@ -1,12 +1,12 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import type { AcmPath } from '$lib/legacy/acm-paths';
-  import { acmAlgo, acmDev, acmDesign, acmAI, acmGeneral } from '$lib/legacy/acm-paths';
   import ArrowLeft from '$lib/components/svg/arrow-left.svelte';
   import ArrowRight from '$lib/components/svg/arrow-right.svelte';
-  import type { QuizData } from './types';
-  import { TeamMatch } from './types';
-  import { QuizStorage } from './storage';
+  import type { AcmPath } from '$lib/public/legacy/acm-paths';
+  import { acmAlgo, acmDev, acmDesign, acmAI, acmGeneral } from '$lib/public/legacy/acm-paths';
+  import type { QuizData } from '$lib/public/quiz/questions/types';
+  import { TeamMatch } from '$lib/public/quiz/questions/types';
+  import { QuizStorage } from '$lib/public/quiz/responses/storage';
   import ProgressBar from './progress-bar.svelte';
   import MoreInfo from './more-info.svelte';
 
@@ -411,13 +411,13 @@
   }
 
   @media (prefers-color-scheme: light) {
-    body:not(.dark) {
+    :global(body:not(.dark)) {
       --quiz-bg: rgba(243, 243, 243, 0.795);
     }
   }
 
   @media (prefers-color-scheme: dark) {
-    body:not(.light) {
+    :global(body:not(.light)) {
       --quiz-bg: #6868682a;
     }
   }

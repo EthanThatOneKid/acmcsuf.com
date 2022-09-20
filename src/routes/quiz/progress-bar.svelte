@@ -56,13 +56,13 @@
   }
 
   @media (prefers-color-scheme: light) {
-    body:not(.dark) {
+    :global(body:not(.dark)) {
       --progress-bg: rgba(224, 224, 224, 0.918);
     }
   }
 
   @media (prefers-color-scheme: dark) {
-    body:not(.light) {
+    :global(body:not(.light)) {
       --progress-bg: #808080;
     }
   }

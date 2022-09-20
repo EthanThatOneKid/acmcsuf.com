@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Spacing from '$lib/legacy/spacing.svelte';
+  import Spacing from '$lib/public/legacy/spacing.svelte';
 
-  import { QUIZ_DATA } from './data';
+  import { QUIZ_DATA } from '$lib/public/quiz/questions/data';
   import Quiz from './quiz.svelte';
 </script>
 
