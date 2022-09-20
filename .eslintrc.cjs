@@ -16,6 +16,8 @@ module.exports = {
     indent: ['error', 2, { SwitchCase: 1 }],
     'func-style': ['error', 'declaration', { allowArrowFunctions: false }],
     'prefer-arrow-callback': 'error',
+    'comma-dangle': 'off',
+    '@typescript-eslint/comma-dangle': ['error', 'only-multiline'],
     '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
   },
