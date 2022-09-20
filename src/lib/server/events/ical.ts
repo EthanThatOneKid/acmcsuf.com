@@ -1,6 +1,6 @@
 import * as RRule from 'rrule/dist/es5/rrule.min.js';
 import { Temporal } from '@js-temporal/polyfill';
-import { acmAlgo, acmDesign, acmDev, acmGeneral } from '$lib/legacy/acm-paths';
+import { acmAlgo, acmDesign, acmDev, acmGeneral } from '$lib/public/legacy/acm-paths';
 import { parseBool } from '$lib/server/parse-bool/parse-bool';
 import type { ClubEvent } from '$lib/public/events/event';
 

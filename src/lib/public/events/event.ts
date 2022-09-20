@@ -1,4 +1,4 @@
-import type { AcmPath } from '$lib/legacy/acm-paths';
+import type { AcmPath } from '$lib/public/legacy/acm-paths';
 
 export interface ClubEvent {
   month: string;

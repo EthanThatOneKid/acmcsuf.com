@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { PageData } from './$types';
   import Block from '$lib/components/block/block.svelte';
-  import Spacing from '$lib/legacy/spacing.svelte';
-  import EmptyContainer from '$lib/legacy/empty-container.svelte';
+  import Spacing from '$lib/public/legacy/spacing.svelte';
+  import EmptyContainer from './empty-container.svelte';
   import EventList from './list.svelte';
 
   export let data: PageData;

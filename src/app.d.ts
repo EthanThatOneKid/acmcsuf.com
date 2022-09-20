@@ -9,3 +9,4 @@ declare namespace App {
 }
 
 declare module 'svelte-confetti';
+declare module 'rrule/dist/es5/rrule.min.js';
