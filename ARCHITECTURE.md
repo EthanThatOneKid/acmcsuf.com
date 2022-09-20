@@ -5,55 +5,43 @@ This project was created using a library called [SvelteKit][sveltekit_home] whic
 ## `/src/routes/` 📁
 
 The website's pages are located under the [`routes` directory](src/routes).
-In that directory, each file represents one page of the website.
+In that directory, each file with a prefix <kbd>+</kbd> represents endpoint of the website.
 
 | Path of File                     | Production URL               |
 | -------------------------------- | ---------------------------- |
-| `/src/routes/index.svelte`       | `https://acmcsuf.com/`       |
-| `/src/routes/about.svelte`       | `https://acmcsuf.com/about/` |
-| `/src/routes/paths/index.svelte` | `https://acmcsuf.com/paths/` |
+| `/src/routes/+page.svelte`       | `https://acmcsuf.com/`       |
+| `/src/routes/about/+page.svelte` | `https://acmcsuf.com/about/` |
+| `/src/routes/paths/+page.svelte` | `https://acmcsuf.com/paths/` |
 
 > ℹ more info: <https://kit.svelte.dev/docs/routing#advanced-routing>
 
-### `/src/routes/__layout.svelte` 📄
+### `/src/routes/+layout.svelte` 📄
 
-The [`__layout.svelte file`](src/routes/__layout.svelte) at the root of the `/routes` directory is used in the background of every page of the site.
+The [`layout.svelte file`](src/routes/+layout.svelte) at the root of the `/routes` directory is used in the background of every page of the site.
 
 > ...But in many apps, there are elements that should be visible on every page, such as top-level navigation or a footer. Instead of repeating them in every page, we can use layout components.
 
-Read more about how layouts are used in the [SvelteKit documentation](https://kit.svelte.dev/docs#layouts).
+Read more about how layouts are used in the [SvelteKit documentation](https://kit.svelte.dev/docs/routing#layout).
 
-### `/src/routes/__error.svelte` 📄
+### `/src/routes/+error.svelte` 📄
 
 This page is rendered when there are any errors on any page of the website.
 If a page on our site cannot render properly due to an error, our site will render this page instead in order to provide the user with any information about the error.
 This page should be happy since errors are normally frustrating for users.
 
-> In addition to regular pages, there is a 'special' page that SvelteKit expects to find — `src/routes/__error.svelte`. This will be shown when an error occurs while rendering a page.
+> In addition to regular pages, there is a 'special' page that SvelteKit expects to find — `/src/routes/+error.svelte`. This will be shown when an error occurs while rendering a page.
 
-Read more about how error pages are used in the [SvelteKit documentation](https://kit.svelte.dev/docs#layouts-error-pages).
+Read more about how error pages are used in the [SvelteKit documentation](https://kit.svelte.dev/docs/routing#error).
 
 ## `/src/lib/components/` 📁
 
 Other components of the website can be organized into the [`/lib/components/` directory](src/lib/components).
 These files are like pieces of the website that can be composed together in the `/routes` components.
-For example, the [`/lib/components/index/hero.svelte`](src/lib/components/index/hero.svelte) and [`/lib/components/index/acm-paths.svelte`](src/lib/components/index/acm-paths.svelte) components are used in [`/routes/index.svelte`](src/routes/index.svelte).
+For example, the [`/src/lib/components/footer/footer.svelte`](src/lib/components/footer/footer.svelte) and [`src/lib/components/nav/bar.svelte`](src/lib/components/nav/bar.svelte) components are used in [`/routes/+page.svelte`](src/routes/+page.svelte).
 
-If you take a look at the [`lib/components` directory](src/lib/components), you will find a list of several more directories within.
-Most of these directories share the name of a route in the [`/routes/` directory](src/routes).
-For example, all components under [`/lib/components/events/`](src/lib/components/events) are used in the `/events/` route of the website.
-Additionally, all components under [`/components/index/`](src/lib/components/index) are used in the `/` route.
+### `/src/lib/components/svg/` 📁
 
-### `/src/lib/components/utils/` 📁
-
-There are a couple of directories in the components directory that do not fit the `/lib/components/[route_name]/[component_name].svelte` pattern.
-One of them is the [`/lib/components/utils/` directory](src/lib/components/utils).
-This directory contains utility components that are used by multiple routes.
-This includes `acm-button.svelte` and `acm-select.svelte`, for example.
-
-### `/src/lib/components/icons/` 📁
-
-The [`/lib/components/icons/` directory](src/lib/components/icons) contains several Svelte files that contain SVG data.
+The [`/lib/components/sbg/` directory](src/lib/components/svg) contains several Svelte files that contain SVG data.
 These icons can be used in the website in multiple places.
 
 ## `/static/` 📁
