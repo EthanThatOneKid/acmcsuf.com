@@ -14,3 +14,8 @@ test('error page has expected em', async ({ page }) => {
   await page.goto('/this-page/does-not/exist');
   expect(await page.textContent('em')).toBe('404');
 });
+
+test('teams page has expected h1', async ({ page }) => {
+  await page.goto('/teams');
+  expect(await page.textContent('h1')).toBe('Meet the Teams');
+});
