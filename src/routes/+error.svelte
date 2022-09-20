@@ -8,7 +8,7 @@
 
 <section title={$page.error?.message}>
   <em>404</em>
-  <h1 >Frank can't find where you're going!</h1>
+  <h1>Frank can't find where you're going!</h1>
   <img src="/assets/png/lost-frank.png" alt="404 - Page Not Found" />
 </section>
 

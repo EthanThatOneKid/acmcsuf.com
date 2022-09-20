@@ -9,3 +9,8 @@ test('about page has expected h1', async ({ page }) => {
   await page.goto('/about');
   expect(await page.textContent('h1')).toBe('About us');
 });
+
+test('error page has expected em', async ({ page }) => {
+  await page.goto('/this-page/does-not/exist');
+  expect(await page.textContent('em')).toBe('404');
+});
