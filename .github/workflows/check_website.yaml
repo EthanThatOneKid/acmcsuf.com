@@ -46,8 +46,10 @@ jobs:
       - name: Check
         run: npm run check
 
+      - name: npx playwright install
+        run: npx playwright install
+
       - name: Test
-        uses: microsoft/playwright-github-action@v1
         run: npm run test
 
       # info: https://etok.codes/acmcsuf.com/blob/main/CONTRIBUTING.md#npm-bloat
