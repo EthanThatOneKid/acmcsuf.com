@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { PageData } from './$types';
   import { Temporal } from '@js-temporal/polyfill';
-  import { readingTime } from '$lib/public/blog/utils';
+  import { ALL, readingTime } from '$lib/public/blog/utils';
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import LabelField from './labelfield.svelte';
   import Labels from './labels.svelte';
@@ -9,9 +9,9 @@
   export let data: PageData;
 
   async function filterPosts(event: CustomEvent) {
-    const query = event.detail.join(';') || 'all';
+    const query = event.detail.join(';') || ALL;
 
-    history.replaceState({}, '', location.pathname + (query === 'all' ? '?l=' + query : ''));
+    history.replaceState({}, '', location.pathname + (query === ALL ? '?l=' + query : ''));
 
     const target = new URL(`/blog/${query}.json`, location.origin);
     const response = await fetch(target.toString());

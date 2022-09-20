@@ -1,7 +1,7 @@
 import { test, expect, assert } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { Temporal } from '@js-temporal/polyfill';
-import { SAMPLE_EVENTS } from './data';
+import { SAMPLE_EVENTS } from './data/sample-events';
 import {
   makeEventSlug,
   parseDescription,
@@ -12,15 +12,16 @@ import {
   parse,
 } from './ical';
 
-const ICAL_DATA = readFileSync('./src/lib/server/events/data.ics', 'utf-8');
+const ICAL_DATA = readFileSync('src/lib/server/events/data/sample-events.ics', 'utf-8');
 
 test('ICAL parser integration test', () => {
   const events = parse(ICAL_DATA, { maxEvents: 10, filterBefore: false });
 
-  // To generate './src/lib/server/events/data.ts', uncomment the
+  // To generate 'src/lib/server/events/data/sample-events.ts', uncomment the
   // following lines of code then run 'npm t' (and 'npm run all'):
+  //
   // writeFileSync(
-  //   './src/lib/server/events/data.ts',
+  //   'src/lib/server/events/data/sample-events.ts',
   //   `export const SAMPLE_EVENTS = ${JSON.stringify(events)};`
   // );
 

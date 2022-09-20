@@ -1,9 +1,10 @@
 import type { RequestEvent } from '@sveltejs/kit';
 import type { RouteParams } from './$types';
-import { SAMPLE_EVENTS } from '$lib/server/events/data';
+import { DEBUG_FLAG_ENABLED } from '$env/static/private';
+import { SAMPLE_EVENTS } from '$lib/server/events/data/sample-events';
 import { parse } from '$lib/server/events/ical';
 import { allEvents } from '$lib/server/events/cache';
-import { DEBUG_FLAG_ENABLED } from '$env/static/private';
+import { ALL } from '$lib/public/blog/utils';
 
 const ICAL_TARGET_URL =
   'https://calendar.google.com/calendar/ical/738lnit63cr2lhp7jtduvj0c9g%40group.calendar.google.com/public/basic.ics';
@@ -14,7 +15,7 @@ export async function GET({ params }: RequestEvent<RouteParams>) {
     : allEvents.get() ?? parse(await fetch(ICAL_TARGET_URL).then((r) => r.text()));
 
   const filteredEvents =
-    params.query === 'all' ? events : events.filter((event) => event.slug === params.query);
+    params.query === ALL ? events : events.filter((event) => event.slug === params.query);
 
   return new Response(JSON.stringify(filteredEvents), {
     status: 200,
