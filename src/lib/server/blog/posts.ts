@@ -1,4 +1,5 @@
-import { DEBUG_FLAG_ENABLED, GH_ACCESS_TOKEN, GH_DISCUSSION_CATEGORY_ID } from '../env';
+import { GH_ACCESS_TOKEN, GH_DISCUSSION_CATEGORY_ID } from '$lib/server/env';
+import { DEBUG_FLAG_ENABLED } from '$lib/server/flags';
 import type { BlogFetchOptions, BlogOutput, BlogPost } from '$lib/public/blog/types';
 import { discernLabels } from '$lib/public/blog/utils';
 import type { Officer } from '$lib/public/board/types';
