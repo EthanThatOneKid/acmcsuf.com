@@ -5,15 +5,20 @@
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import LabelField from './labelfield.svelte';
   import Labels from './labels.svelte';
+  import {
+    makeBlogPostsJsonUrl,
+    makeBlogPostsPageUrl,
+    makeBlogPostPageUrl,
+  } from '$lib/public/blog/urls';
 
   export let data: PageData;
 
   async function filterPosts(event: CustomEvent) {
-    const query = event.detail.join(';') || 'all';
+    const pageUrl = makeBlogPostsPageUrl(event.detail);
+    history.replaceState({}, '', pageUrl);
 
-    history.replaceState({}, '', location.pathname + (query === 'all' ? '?l=' + query : ''));
-
-    const target = new URL(`/blog/${query}.json`, location.origin);
+    const jsonUrl = makeBlogPostsJsonUrl(event.detail);
+    const target = new URL(jsonUrl, location.origin);
     const response = await fetch(target.toString());
     const blogOutput = await response.json();
     if (blogOutput.posts) data.posts = blogOutput.posts;
@@ -60,7 +65,7 @@
     <ul>
       {#each data.posts as post (post.id)}
         <li class="blog-post">
-          <a href={`/blog/${post.id}`} data-sveltekit-prefetch>
+          <a href={makeBlogPostPageUrl(post.id)} data-sveltekit-prefetch>
             <div class="author">
               <a href={post.author.url}>
                 <img src={post.author.picture} alt="" />
@@ -82,7 +87,7 @@
                   day: 'numeric',
                 })} •
               {readingTime(post.html)} min read
-              <Labels data={post.labels} />
+              <Labels data={post.labels} selectedLabels={data.selectedLabels} />
             </p>
           </a>
         </li>
