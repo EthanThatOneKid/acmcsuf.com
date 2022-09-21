@@ -5,15 +5,24 @@
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import LabelField from './labelfield.svelte';
   import Labels from './labels.svelte';
+  import {
+    makeBlogPostsJsonUrl,
+    makeBlogPostsPageUrl,
+    makeBlogPostPageUrl,
+  } from '$lib/public/blog/urls';
 
   export let data: PageData;
 
+  let selectedLabels: string[] = [...data.selectedLabels];
+
   async function filterPosts(event: CustomEvent) {
-    const query = event.detail.join(';') || ALL;
+    selectedLabels = event.detail;
 
-    history.replaceState({}, '', location.pathname + (query === ALL ? '?l=' + query : ''));
+    const pageUrl = makeBlogPostsPageUrl(selectedLabels);
+    history.replaceState({}, '', pageUrl);
 
-    const target = new URL(`/blog/${query}.json`, location.origin);
+    const jsonUrl = makeBlogPostsJsonUrl(selectedLabels);
+    const target = new URL(jsonUrl, location.origin);
     const response = await fetch(target.toString());
     const blogOutput = await response.json();
     if (blogOutput.posts) data.posts = blogOutput.posts;
@@ -37,7 +46,7 @@
 
 <section>
   <h2 class="subtitle headers size-md">
-    The official ACM at CSUF blog.<a href="/blog.xml"
+    The official ACM at CSUF blog.<a href="/feed.xml"
       ><img src="assets/badges/feed-icon.svg" alt="RSS feed logo" /></a
     >
   </h2>
@@ -46,12 +55,7 @@
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 {#if data.posts.length > 0}
-  <LabelField
-    labels={data.labels}
-    selectedLabels={data.selectedLabels}
-    urlSearchParamKey="l"
-    on:change={filterPosts}
-  >
+  <LabelField labels={data.labels} {selectedLabels} on:change={filterPosts}>
     <div slot="title">Filter by Tags</div>
     <div slot="reset-button">✖ Clear all</div>
   </LabelField>
@@ -60,7 +64,7 @@
     <ul>
       {#each data.posts as post (post.id)}
         <li class="blog-post">
-          <a href={`/blog/${post.id}`} data-sveltekit-prefetch>
+          <a href={makeBlogPostPageUrl(post.id)} data-sveltekit-prefetch>
             <div class="author">
               <a href={post.author.url}>
                 <img src={post.author.picture} alt="" />
@@ -82,7 +86,7 @@
                   day: 'numeric',
                 })} •
               {readingTime(post.html)} min read
-              <Labels data={post.labels} />
+              <Labels data={post.labels} {selectedLabels} />
             </p>
           </a>
         </li>
