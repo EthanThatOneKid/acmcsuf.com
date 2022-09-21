@@ -13,11 +13,15 @@
 
   export let data: PageData;
 
+  let selectedLabels: string[] = [...data.selectedLabels];
+
   async function filterPosts(event: CustomEvent) {
-    const pageUrl = makeBlogPostsPageUrl(event.detail);
+    selectedLabels = event.detail;
+
+    const pageUrl = makeBlogPostsPageUrl(selectedLabels);
     history.replaceState({}, '', pageUrl);
 
-    const jsonUrl = makeBlogPostsJsonUrl(event.detail);
+    const jsonUrl = makeBlogPostsJsonUrl(selectedLabels);
     const target = new URL(jsonUrl, location.origin);
     const response = await fetch(target.toString());
     const blogOutput = await response.json();
@@ -51,12 +55,7 @@
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 {#if data.posts.length > 0}
-  <LabelField
-    labels={data.labels}
-    selectedLabels={data.selectedLabels}
-    urlSearchParamKey="l"
-    on:change={filterPosts}
-  >
+  <LabelField labels={data.labels} {selectedLabels} on:change={filterPosts}>
     <div slot="title">Filter by Tags</div>
     <div slot="reset-button">✖ Clear all</div>
   </LabelField>
@@ -87,7 +86,7 @@
                   day: 'numeric',
                 })} •
               {readingTime(post.html)} min read
-              <Labels data={post.labels} selectedLabels={data.selectedLabels} />
+              <Labels data={post.labels} {selectedLabels} />
             </p>
           </a>
         </li>

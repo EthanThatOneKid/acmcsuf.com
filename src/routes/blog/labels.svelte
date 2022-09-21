@@ -15,12 +15,12 @@
 {#if data.length > 0}
   <div class="labels">
     {#each data as label}
-      {@const isActive = selectedLabels.includes(label)}
-      {#if isActive}
-        <a href={makeBlogPostsPageUrl([label])} data-sveltekit-prefetch>#{label}</a>
-      {:else}
-        <span class="selected">#{label}</span>
-      {/if}
+      <a
+        href={makeBlogPostsPageUrl([label])}
+        class:selected={selectedLabels.includes(label)}
+        data-sveltekit-prefetch
+        target="_blank">#{label}</a
+      >
     {/each}
   </div>
 {/if}
@@ -33,8 +33,7 @@
     gap: 0.2em;
     font-size: 1em;
 
-    a,
-    span {
+    a {
       background-color: var(--acm-light);
       border-radius: 5px;
       padding: 0.3em;
