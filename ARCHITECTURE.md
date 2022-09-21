@@ -41,7 +41,7 @@ For example, the [`/src/lib/components/footer/footer.svelte`](src/lib/components
 
 ### `/src/lib/components/svg/` 📁
 
-The [`/lib/components/sbg/` directory](src/lib/components/svg) contains several Svelte files that contain SVG data.
+The [`/lib/components/svg/` directory](src/lib/components/svg) contains several Svelte files that contain SVG data.
 These icons can be used in the website in multiple places.
 
 ## `/static/` 📁
