@@ -5,7 +5,7 @@ This project was created using a library called [SvelteKit][sveltekit_home] whic
 ## `/src/routes/` 📁
 
 The website's pages are located under the [`routes` directory](src/routes).
-In that directory, each file with a prefix <kbd>+</kbd> represents endpoint of the website.
+In that directory, each file with a prefix <kbd>+</kbd> represents an endpoint of the website.
 
 | Path of File                     | Production URL               |
 | -------------------------------- | ---------------------------- |
