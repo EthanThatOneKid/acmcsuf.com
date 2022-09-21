@@ -5,7 +5,7 @@ This project was created using a library called [SvelteKit][sveltekit_home] whic
 ## `/src/routes/` 📁
 
 The website's pages are located under the [`routes` directory](src/routes).
-In that directory, each file with a prefix <kbd>+</kbd> represents endpoint of the website.
+In that directory, each file with a prefix <kbd>+</kbd> represents an endpoint of the website.
 
 | Path of File                     | Production URL               |
 | -------------------------------- | ---------------------------- |
@@ -17,7 +17,7 @@ In that directory, each file with a prefix <kbd>+</kbd> represents endpoint of t
 
 ### `/src/routes/+layout.svelte` 📄
 
-The [`layout.svelte file`](src/routes/+layout.svelte) at the root of the `/routes` directory is used in the background of every page of the site.
+The [`+layout.svelte file`](src/routes/+layout.svelte) at the root of the `/routes` directory is used in the background of every page of the site.
 
 > ...But in many apps, there are elements that should be visible on every page, such as top-level navigation or a footer. Instead of repeating them in every page, we can use layout components.
 
@@ -41,7 +41,7 @@ For example, the [`/src/lib/components/footer/footer.svelte`](src/lib/components
 
 ### `/src/lib/components/svg/` 📁
 
-The [`/lib/components/sbg/` directory](src/lib/components/svg) contains several Svelte files that contain SVG data.
+The [`/lib/components/svg/` directory](src/lib/components/svg) contains several Svelte files that contain SVG data.
 These icons can be used in the website in multiple places.
 
 ## `/static/` 📁
