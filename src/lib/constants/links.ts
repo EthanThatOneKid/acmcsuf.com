@@ -15,4 +15,5 @@ export const links = {
   devform: 'https://forms.gle/W7zE9DEhnE8Vhpcr9',
   devdeck:
     'https://docs.google.com/presentation/d/1I2iuN2h1awuqtd2osNo3kYuxdsYGOEwGYC1zn9zHtvs/edit?usp=sharing',
+  devproposal: 'https://forms.gle/xoYQKRRTtJBLsrJF8',
 } as const;
