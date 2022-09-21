@@ -347,16 +347,11 @@ export function makeClubEvent(
   const summary = produceSummary(title, description, selfLink);
 
   const rawAcmPath = variables.get('ACM_PATH')?.toLowerCase();
-  const acmPath =
-    rawAcmPath === undefined
-      ? acmGeneral
-      : rawAcmPath === acmAlgo.slug
-      ? acmAlgo
-      : rawAcmPath === acmDesign.slug
-      ? acmDesign
-      : rawAcmPath === acmDev.slug
-      ? acmDev
-      : acmGeneral;
+
+  let acmPath = acmGeneral;
+  if (rawAcmPath === acmAlgo.slug) acmPath = acmAlgo;
+  else if (rawAcmPath === acmDesign.slug) acmPath = acmDesign;
+  else if (rawAcmPath === acmDev.slug) acmPath = acmDev;
 
   const thirdPartyCalendarLocation = location === 'Discord' ? selfLink : location;
   const thirdPartyCalendarArgs = [
