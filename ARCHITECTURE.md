@@ -17,7 +17,7 @@ In that directory, each file with a prefix <kbd>+</kbd> represents an endpoint o
 
 ### `/src/routes/+layout.svelte` 📄
 
-The [`layout.svelte file`](src/routes/+layout.svelte) at the root of the `/routes` directory is used in the background of every page of the site.
+The [`+layout.svelte file`](src/routes/+layout.svelte) at the root of the `/routes` directory is used in the background of every page of the site.
 
 > ...But in many apps, there are elements that should be visible on every page, such as top-level navigation or a footer. Instead of repeating them in every page, we can use layout components.
 
