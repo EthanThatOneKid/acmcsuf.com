@@ -119,14 +119,14 @@ GH_ACCESS_TOKEN=YOUR_PAT
 Other environment variables are needed to provide information that allows the program to fetch data from the correct place. It is okay to copy and paste the additional variables into your `.env` file as defined below because they are already public.
 
 ```sh
+# Your personal GitHub access token
+GH_ACCESS_TOKEN=YOUR_PAT
+
 # General discussion on GitHub: <https://github.com/EthanThatOneKid/acmcsuf.com/discussions/categories/newsletter>
 GH_DISCUSSION_CATEGORY_ID=DIC_kwDOE7ysSc4CAC0o
 
-# Algo discussion on GitHub: <https://github.com/EthanThatOneKid/acmcsuf.com/discussions/categories/algo>
-GH_ALGO_CATEGORY_ID=DIC_kwDOE7ysSc4COe-m
-
 # Switch to 1 to turn on debug mode.
-DEBUG=0
+DEBUG_MODE_ENABLED=0
 ```
 
 Some environment variables are needed to run scripts that are used for purposes indirectly related to `acmcsuf.com` (such as the Gitcord scripts).
