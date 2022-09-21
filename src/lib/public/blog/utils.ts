@@ -29,6 +29,8 @@ export function readingTime(blogContent: string, wpm = 225) {
 
 export const ALL = 'all';
 
+export const LABEL_SEPARATOR = ';';
+
 export function parseQuery(query: string): BlogFetchOptions {
   if (query === ALL) return { labels: [] };
 
@@ -36,5 +38,9 @@ export function parseQuery(query: string): BlogFetchOptions {
     return { labels: [], id: Math.abs(+query) };
   }
 
-  return { labels: query.split(';') };
+  return { labels: query.split(LABEL_SEPARATOR) };
+}
+
+export function queryFromLabels(labels: string[]): string {
+  return labels.length ? labels.join(LABEL_SEPARATOR) : ALL;
 }

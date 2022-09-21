@@ -1,9 +1,9 @@
 <script lang="ts">
+  import { makeBlogPostsPageUrl } from '$lib/public/blog/urls';
   import { createEventDispatcher } from 'svelte';
 
   export let labels: string[] = [];
   export let selectedLabels: string[] = [];
-  export let urlSearchParamKey = '';
 
   const dispatch = createEventDispatcher();
   let hasSelectedLabels = selectedLabels.length > 0;
@@ -30,17 +30,6 @@
     hasSelectedLabels = false;
     dispatch('change', selectedLabels);
   }
-
-  function createLabelURL(label: string) {
-    if (urlSearchParamKey === '') {
-      return '';
-    }
-    const nextLabels = selectedLabels.includes(label)
-      ? selectedLabels.filter((t) => t !== label)
-      : selectedLabels.concat([label]);
-    const params = new URLSearchParams([[urlSearchParamKey, nextLabels.join(',')]]);
-    return '?' + params.toString();
-  }
 </script>
 
 {#if labels.length > 0}
@@ -55,7 +44,7 @@
     <div class="label-list">
       {#each labels as label}
         <a
-          href={createLabelURL(label)}
+          href={makeBlogPostsPageUrl([label])}
           class="label"
           class:selected={selectedLabels.includes(label)}
           on:click={selectLabel}
