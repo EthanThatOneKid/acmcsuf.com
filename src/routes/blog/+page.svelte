@@ -42,7 +42,7 @@
 
 <section>
   <h2 class="subtitle headers size-md">
-    The official ACM at CSUF blog.<a href="/blog.xml"
+    The official ACM at CSUF blog.<a href="/feed.xml"
       ><img src="assets/badges/feed-icon.svg" alt="RSS feed logo" /></a
     >
   </h2>
