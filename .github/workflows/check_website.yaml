@@ -39,12 +39,18 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      - name: Touch .env
+        run: cp .env.example .env
+
       # checks for lint errors AND format errors
       - name: Lint
         run: npm run lint && git diff --exit-code
 
       - name: Check
         run: npm run check
+
+      - name: npx playwright install
+        run: npx playwright install
 
       - name: Test
         run: npm run test

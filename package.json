@@ -1,6 +1,7 @@
 {
   "name": "acmcsuf.com",
-  "type": "module",
+  "version": "3.0.0",
+  "private": true,
   "homepage": "https://acmcsuf.com/",
   "author": {
     "name": "EthanThatOneKid",
@@ -9,66 +10,60 @@
   "repository": {
     "url": "https://github.com/EthanThatOneKid/acmcsuf.com.git/"
   },
-  "version": "2.0.0",
   "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
-    "preview": "svelte-kit preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json --compiler-warnings \"css-unused-selector:ignore,unused-export-let:error\"",
-    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-    "format": "prettier --ignore-path .gitignore --list-different --write --plugin-search-dir=. .",
-    "lint": "eslint --ignore-path .gitignore . --fix && npm run format",
-    "tabs": "node scripts/seek-tabs.js",
-    "test": "vitest --run",
+    "start": "npm run dev",
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest --run && npm run test:browser",
     "test:watch": "vitest",
     "test:size": "npm i && size-limit",
     "test:coverage": "vitest run --coverage",
-    "all": "npm run lint && npm run check && npm t && npm run build",
-    "host": "npm run all && npm run preview"
-  },
-  "dependencies": {
-    "@js-temporal/polyfill": "^0.4.0",
-    "html-to-text": "^8.1.0",
-    "qrcode": "^1.5.0",
-    "rrule": "^2.6.9",
-    "rss": "^1.2.2",
-    "svelte-confetti": "^1.2.0"
+    "test:browser": "playwright test /tests",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --compiler-warnings \"css-unused-selector:ignore,unused-export-let:error\"",
+    "lint": "eslint . --fix",
+    "format": "prettier --write .",
+    "host": "npm run all && npm run preview",
+    "all": "npm run lint && npm run format && npm run check && npm run build && npm t"
   },
   "devDependencies": {
-    "@size-limit/file": "^7.0.8",
-    "@sveltejs/adapter-static": "next",
-    "@sveltejs/adapter-vercel": "next",
-    "@sveltejs/kit": "^1.0.0-next.320",
-    "@testing-library/svelte": "^3.1.0",
-    "@types/html-to-text": "^8.1.0",
-    "@types/qrcode": "^1.4.2",
+    "@playwright/test": "^1.25.0",
+    "@size-limit/file": "^8.1.0",
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/kit": "next",
+    "@types/html-to-text": "^8.1.1",
+    "@types/qrcode": "^1.5.0",
     "@types/rss": "^0.0.29",
-    "@typescript-eslint/eslint-plugin": "^5.16.0",
-    "@typescript-eslint/parser": "^5.16.0",
-    "axios": "^0.26.1",
-    "c8": "^7.11.3",
-    "discord.js": "^13.6.0",
-    "dotenv": "^16.0.0",
-    "eslint": "^8.12.0",
-    "eslint-plugin-svelte3": "^3.4.1",
-    "jsdom": "^19.0.0",
-    "node-fetch": "^3.2.3",
-    "prettier": "^2.6.1",
-    "prettier-plugin-svelte": "^2.6.0",
-    "sass": "^1.49.9",
-    "size-limit": "^7.0.8",
-    "svelte": "^3.46.4",
-    "svelte-check": "^2.4.6",
-    "svelte-preprocess": "^4.10.4",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-svelte3": "^4.0.0",
+    "prettier": "^2.6.2",
+    "prettier-plugin-svelte": "^2.7.0",
+    "sass": "^1.54.9",
+    "size-limit": "^8.1.0",
+    "svelte": "^3.44.0",
+    "svelte-check": "^2.7.1",
+    "svelte-preprocess": "^4.10.6",
     "tslib": "^2.3.1",
-    "typescript": "^4.6.3",
-    "vitest": "^0.7.11",
-    "vitest-svelte-kit": "^0.0.6"
+    "typescript": "^4.7.4",
+    "vite": "^3.1.0",
+    "vitest": "^0.23.2"
   },
   "size-limit": [
     {
       "path": "node_modules",
-      "limit": "50 MB"
+      "limit": "256 MB"
     }
-  ]
+  ],
+  "type": "module",
+  "dependencies": {
+    "@js-temporal/polyfill": "^0.4.1",
+    "html-to-text": "^8.2.1",
+    "qrcode": "^1.5.1",
+    "rrule": "^2.6.9",
+    "rss": "^1.2.2",
+    "svelte-confetti": "^1.2.0"
+  }
 }

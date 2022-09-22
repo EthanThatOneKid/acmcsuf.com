@@ -17,8 +17,8 @@ Clone this repository by [directly downloading it][ddl] or via git: `git clone h
 
 Open the repository in your code editor or terminal of choice and enter `npm i` to **install** the project's dependencies.
 After that, enter `npm run dev` to spin up the development server.
-As the development server is running, open up [`http://localhost:3000/`](http://localhost:3000/).
-Every update made to the source code will trigger your `http://localhost:3000/` page to reload automatically.
+As the development server is running, open up [`http://localhost:5173/`](http://localhost:5173/).
+Every update made to the source code will trigger your `http://localhost:5173/` page to reload automatically.
 
 Now that you've got everything up-and-running, you are free to contribute to your heart's content.
 
@@ -36,8 +36,11 @@ npm run lint
 # Runs the checks for type errors, unused css, and more (See: https://github.com/sveltejs/language-tools/tree/master/packages/svelte-check)
 npm run check
 
-# Run all our unit tests (or with `npm t`)
-npm run test
+# Run all our unit tests and Playwrite tests (or `npm run test`)
+npm t
+
+# Run only our Playwrite tests
+npm run test:browser
 
 # Builds the website
 npm run build
@@ -101,13 +104,14 @@ Really, the situation may affect your choice of breakpoint value, but the goal i
 ## Setting up your `.env` file
 
 To interact with data from GitHub (or any third-party service), a file named `.env` must be created in the root of your local repository instance.
+Begin by renaming a cloned [`.env.example`](.env.example) to `.env`.
 
-Some environment variables are necessary to gain access to data from third-party services.
-We use the `VITE_GH_ACCESS_TOKEN` environment variable to authenticate our requests to GitHub (and [prevent rate limiting](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#increasing-the-unauthenticated-rate-limit-for-oauth-apps)).
-Below is how `VITE_GH_ACCESS_TOKEN` should be defined in your `.env` file, where `YOUR_PAT` should be replaced with your own generated [personal GitHub access token](https://github.com/settings/tokens).
+Some environment variables are necessary to gain access to data from third-party services, for example, `/blog`.
+We use the `GH_ACCESS_TOKEN` environment variable to authenticate our requests to GitHub (and [prevent rate limiting](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#increasing-the-unauthenticated-rate-limit-for-oauth-apps)).
+Below is how `GH_ACCESS_TOKEN` should be defined in your `.env` file, where `YOUR_PAT` should be replaced with your own generated [personal GitHub access token](https://github.com/settings/tokens).
 
 ```sh
-VITE_GH_ACCESS_TOKEN=YOUR_PAT
+GH_ACCESS_TOKEN=YOUR_PAT
 ```
 
 **Fair Warning**: Never commit your _PAT_ (or any sensitive information) in files that are not ignored by our [`.gitignore`](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/.gitignore) file (`.env` being one of them).
@@ -115,14 +119,14 @@ VITE_GH_ACCESS_TOKEN=YOUR_PAT
 Other environment variables are needed to provide information that allows the program to fetch data from the correct place. It is okay to copy and paste the additional variables into your `.env` file as defined below because they are already public.
 
 ```sh
-# General discussion on GitHub: <https://github.com/EthanThatOneKid/acmcsuf.com/discussions/categories/newsletter>
-VITE_GH_DISCUSSION_CATEGORY_ID=DIC_kwDOE7ysSc4CAC0o
+# Your personal GitHub access token
+GH_ACCESS_TOKEN=YOUR_PAT
 
-# Algo discussion on GitHub: <https://github.com/EthanThatOneKid/acmcsuf.com/discussions/categories/algo>
-VITE_GH_ALGO_CATEGORY_ID=DIC_kwDOE7ysSc4COe-m
+# General discussion on GitHub: <https://github.com/EthanThatOneKid/acmcsuf.com/discussions/categories/newsletter>
+GH_DISCUSSION_CATEGORY_ID=DIC_kwDOE7ysSc4CAC0o
 
 # Switch to 1 to turn on debug mode.
-VITE_DEBUG=0
+DEBUG_MODE_ENABLED=0
 ```
 
 Some environment variables are needed to run scripts that are used for purposes indirectly related to `acmcsuf.com` (such as the Gitcord scripts).
