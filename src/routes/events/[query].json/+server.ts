@@ -1,6 +1,6 @@
 import type { RequestEvent } from '@sveltejs/kit';
 import type { RouteParams } from './$types';
-import { DEBUG_FLAG_ENABLED } from '$env/static/private';
+import { DEBUG_FLAG_ENABLED } from '$lib/server/flags';
 import { SAMPLE_EVENTS } from '$lib/server/events/data/sample-events';
 import { parse } from '$lib/server/events/ical';
 import { allEvents } from '$lib/server/events/cache';
