@@ -15,4 +15,6 @@ export const LINKS = {
   devform: 'https://forms.gle/W7zE9DEhnE8Vhpcr9',
   devdeck:
     'https://docs.google.com/presentation/d/1I2iuN2h1awuqtd2osNo3kYuxdsYGOEwGYC1zn9zHtvs/edit?usp=sharing',
+  'design-template': 'https://www.figma.com/file/MED3kRKmIxcoKblNTveEZZ/acmDesign-Challenge-Sheet?node-id=0%3A1',
+  'live-walk': 'https://www.figma.com/file/PtYSxzB8BbKh3L46dQSjf1/Live-Interaction?node-id=0%3A1',
 } as const;
