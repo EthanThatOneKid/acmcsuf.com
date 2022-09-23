@@ -42,7 +42,8 @@ body,
 html,
 body,
 #svelte {
-  font-family: 'Poppins';
+  font-family: 'Poppins', 'Verdana', 'Helvetica', sans-serif;
+  font-display: fallback;
 }
 
 body {
