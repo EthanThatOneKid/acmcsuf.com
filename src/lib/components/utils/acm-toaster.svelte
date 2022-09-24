@@ -33,7 +33,7 @@
     bottom: 0;
     right: 50%;
     transform: translateX(50%);
-    min-width: min(390px, 100%);
+    min-width: 40%;
   }
 
   .toast-item {
