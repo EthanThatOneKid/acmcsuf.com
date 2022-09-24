@@ -5,6 +5,5 @@
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"
   },
-  "editor.formatOnSave": true,
-  "deno.enable": false
+  "editor.formatOnSave": true
 }

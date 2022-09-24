@@ -1,27 +1,25 @@
 /// <reference lib="webworker" />
-import { CURRENT_CACHE_NAME, BUILD_FILES } from './common';
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/naming-convention */
 
-self.addEventListener('activate', (event: ExtendableEvent) => {
-  event.waitUntil(
-    caches.keys().then((cacheNames) =>
-      Promise.all(
-        // Delete old caches with an expired cache name
-        cacheNames.map((cacheName) => cacheName !== CURRENT_CACHE_NAME && caches.delete(cacheName))
-      )
-    )
-  );
-});
+import { handleActivate } from './activate';
+import { handleInstall } from './install';
+import { handleFetch } from './fetch';
 
-self.addEventListener('install', (event: ExtendableEvent) => {
-  event.waitUntil(
-    // Cache known build output and static files
-    // @see <https://kit.svelte.dev/docs/modules#$service-worker-build>
-    caches.open(CURRENT_CACHE_NAME).then((cache) => cache.addAll(BUILD_FILES))
-  );
-});
+// has to be var, because we need function scope
+declare var self: ServiceWorkerGlobalScope;
 
-self.addEventListener('fetch', (event: FetchEvent) => {
-  // If online, try to fetch from network with a timeout.
-  // If anything fails, try to serve from cache.
-  event.respondWith(fetch(event.request));
-});
+/**
+ * Takes care of the installation of the service worker, as well as the creation of the cache.
+ */
+self.addEventListener('install', handleInstall);
+
+/**
+ * Intercepts requests made by the page so we can decide what to do with each one.
+ */
+self.addEventListener('fetch', handleFetch);
+
+/**
+ * Takes care of the activation of the service worker, as well as the deletion of old caches.
+ */
+self.addEventListener('activate', handleActivate);
