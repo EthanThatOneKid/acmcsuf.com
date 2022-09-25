@@ -35,6 +35,8 @@
       </a>
     </div>
 
+    <div class="backdrop" on:click={handleClose} />
+
     <section>
       <ul class="pages">
         {#each navItems as { title, path } (path)}
@@ -91,7 +93,7 @@
     width: 100%;
     justify-content: center;
     padding: 16px 0;
-    background-color: var(--navbar-bg);
+    background-color: var(--acm-gray);
     box-shadow: 0 3px 12px rgba(16, 19, 21, 0.1);
     z-index: 10;
 
@@ -190,12 +192,12 @@
         .pages {
           position: fixed;
           flex-direction: column;
-          justify-content: center;
+          justify-content: flex-end;
           align-items: center;
           top: 0;
           right: 0;
-          height: 0;
-          width: 100%;
+          height: 100vh;
+          width: 0;
           gap: 0;
           background-color: var(--acm-light);
           overflow: hidden;
@@ -203,10 +205,24 @@
           transition: 0.25s ease-in-out;
 
           a {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             font-size: var(--size-md);
-            display: block;
-            padding: 30px 900px;
+            height: 10vh;
+            width: 100%;
+            margin-bottom: 2em;
             margin-top: -50px;
+          }
+
+          li {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-self: flex-end;
+            width: 100%;
           }
         }
       }
@@ -244,7 +260,22 @@
 
       & :checked ~ .container {
         .pages {
+          width: 60%;
+          overflow: visible;
+          background-color: var(--acm-light);
+        }
+
+        .backdrop {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          width: 100vw;
           height: 100vh;
+          opacity: 0.7;
+          z-index: 4;
+          background-color: var(--perma-dark);
         }
       }
 

@@ -20,6 +20,7 @@
   --acm-dev-rgb: 30, 108, 255;
 
   --perma-light: #f8f8f8;
+  --perma-dark: #101315;
 
   /* Generator: https://xgkft.csb.app/ (280px-1000px viewport-width, 1rem=16px) */
   --size-xxl: clamp(2.8125rem, 1.8403rem + 5.5556vw, 5.3125rem);
