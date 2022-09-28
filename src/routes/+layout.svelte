@@ -18,8 +18,8 @@
       mediaList.addEventListener('change', changeTheme);
       return () => mediaList.removeEventListener('change', changeTheme);
     }
-    
-    // prefetch used here because of the load time of events query, see #530
+
+    // refetch used here to improve the load time of the events page, see #530
     // https://kit.svelte.dev/docs/modules#$app-navigation-prefetch
     prefetch('/events');
   });
