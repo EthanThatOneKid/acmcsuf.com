@@ -71,6 +71,10 @@
   },
   {
     "fullName": "Alan Cortez",
+    "socials": {
+      "website": "alancortez1337.github.io/portfolio/",
+      "github": "alancortez1337"
+    },
     "positions": {
       "S22": {
         "title": "Create Officer",
@@ -107,6 +111,13 @@
   },
   {
     "fullName": "Ethan Davidson",
+    "socials": {
+      "website": "ethandavidson.com",
+      "github": "EthanThatOneKid",
+      "discord": "EthanThatOneKid#3456",
+      "linkedin": "etok",
+      "instagram": "ethanthatonekid"
+    },
     "positions": {
       "S21": {
         "title": "Webmaster",
@@ -139,6 +150,9 @@
   },
   {
     "fullName": "Diamond Dinh",
+    "socials": {
+      "github": "diamondburned"
+    },
     "positions": {
       "S22": {
         "title": "Dev Project Manager",

@@ -6,11 +6,20 @@ export enum Term {
   Spring23 = 'S23',
 }
 
+export enum Social {
+  website = 'Website',
+  github = 'GitHub',
+  discord = 'Discord',
+  linkedin = 'LinkedIn',
+  instagram = 'Instagram',
+}
+
 export interface Officer {
   fullName: string;
   picture: string;
-  displayName?: string;
-
+  socials?: {
+    [s in Social]?: string;
+  };
   positions: {
     [t in Term]?: {
       title: string;
