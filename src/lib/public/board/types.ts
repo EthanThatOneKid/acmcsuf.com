@@ -9,7 +9,11 @@ export enum Term {
 export interface Officer {
   fullName: string;
   picture: string;
-  displayName?: string;
+  socials?: {
+    website?: string;
+    github?: string;
+    linkedin?: string;
+  };
 
   positions: {
     [t in Term]?: {
