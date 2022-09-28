@@ -1,9 +1,10 @@
 <script lang="ts">
+  import { prefetch } from '$app/navigation';
+  import { onMount } from 'svelte';
   import Navbar from '$lib/components/nav/bar.svelte';
   import Footer from '$lib/components/footer/footer.svelte';
   import AcmToaster from '$lib/components/toaster/toaster.svelte';
   import { AcmTheme, theme } from '$lib/public/legacy/theme';
-  import { onMount } from 'svelte';
 
   function changeTheme(event: MediaQueryListEvent) {
     theme.set(event.matches ? AcmTheme.Dark : AcmTheme.Light);
@@ -17,6 +18,10 @@
       mediaList.addEventListener('change', changeTheme);
       return () => mediaList.removeEventListener('change', changeTheme);
     }
+    
+    // prefetch used here because of the load time of events query, see #530
+    // https://kit.svelte.dev/docs/modules#$app-navigation-prefetch
+    prefetch('/events');
   });
 </script>
 
