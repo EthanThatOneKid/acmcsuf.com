@@ -7,11 +7,11 @@ export enum Term {
 }
 
 export enum Social {
-  website = 'Website',
-  github = 'GitHub',
-  discord = 'Discord',
-  linkedin = 'LinkedIn',
-  instagram = 'Instagram',
+  Website = 'website',
+  GitHub = 'github',
+  Discord = 'discord',
+  LinkedIn = 'linkedin',
+  Instagram = 'instagram',
 }
 
 export interface Officer {
