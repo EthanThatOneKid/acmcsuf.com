@@ -46,6 +46,7 @@
   a {
     text-decoration: none;
   }
+  .author a:hover,
   a h2:hover {
     text-decoration: underline;
   }
