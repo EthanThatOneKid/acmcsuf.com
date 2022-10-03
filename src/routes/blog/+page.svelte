@@ -1,15 +1,9 @@
 <script lang="ts">
   import type { PageData } from './$types';
-  import { Temporal } from '@js-temporal/polyfill';
-  import { readingTime } from '$lib/public/blog/utils';
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import LabelField from './labelfield.svelte';
-  import Labels from './labels.svelte';
-  import {
-    makeBlogPostsJsonUrl,
-    makeBlogPostsPageUrl,
-    makeBlogPostPageUrl,
-  } from '$lib/public/blog/urls';
+  import { makeBlogPostsJsonUrl, makeBlogPostsPageUrl } from '$lib/public/blog/urls';
+  import BlogEntry from '$lib/components/blog/blog-entry.svelte';
 
   export let data: PageData;
 
@@ -64,31 +58,7 @@
     <ul>
       {#each data.posts as post (post.id)}
         <li class="blog-post">
-          <a href={makeBlogPostPageUrl(post.id)} data-sveltekit-prefetch>
-            <div class="author">
-              <a href={post.author.url}>
-                <img src={post.author.picture} alt="" />
-              </a>
-              <div>
-                <a href={post.author.url}>{post.author.displayname}</a>
-              </div>
-            </div>
-            <h2 class="headers">{post.title}</h2>
-            <div class="markdown-body">
-              {@html post.html}
-            </div>
-            <p class="read-time">
-              {post.createdAt &&
-                Temporal.Instant.from(post.createdAt).toLocaleString('en-US', {
-                  calendar: 'gregory',
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })} •
-              {readingTime(post.html)} min read
-              <Labels data={post.labels} {selectedLabels} />
-            </p>
-          </a>
+          <BlogEntry {post} {selectedLabels} />
         </li>
       {/each}
     </ul>
@@ -165,21 +135,6 @@
         border-radius: 1em;
         margin: 2em 0;
 
-        a {
-          text-decoration: none;
-          padding: 2em;
-          display: flex;
-          flex-direction: column;
-
-          .markdown-body {
-            max-height: 100px;
-            overflow: hidden;
-            margin: 16px 0;
-            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-          }
-        }
-
         a > h2 {
           overflow: hidden;
           text-overflow: ellipsis;
@@ -189,40 +144,6 @@
           background-color: rgba(56, 182, 255, 0.5);
         }
       }
-    }
-    .author {
-      display: flex;
-      gap: 1em;
-      margin-bottom: 1em;
-      align-items: center;
-
-      img {
-        border-radius: 50%;
-        width: 2.5em;
-        height: 100%;
-        margin: 0;
-      }
-
-      div {
-        display: flex;
-        flex-direction: column;
-      }
-
-      a {
-        padding: 0;
-        font-weight: 600;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-    }
-    .read-time {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      font-size: 1em;
-      gap: 1em;
     }
   }
 
