@@ -1,9 +1,9 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { slide } from 'svelte/transition';
   import type { ClubEvent } from '$lib/public/events/event';
   import { copy } from '$lib/public/copy/copy';
   import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
-  import { slide } from 'svelte/transition';
 
   export let info: ClubEvent;
 
