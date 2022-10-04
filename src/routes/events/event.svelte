@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { slide } from 'svelte/transition';
   import type { ClubEvent } from '$lib/public/events/event';
   import { toast, ToastType } from '$lib/components/toaster/toasts';
   import CopyLink from '$lib/components/svg/copy-link.svelte';
