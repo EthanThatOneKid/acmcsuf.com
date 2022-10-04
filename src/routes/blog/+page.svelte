@@ -3,7 +3,7 @@
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import LabelField from './labelfield.svelte';
   import { makeBlogPostsJsonUrl, makeBlogPostsPageUrl } from '$lib/public/blog/urls';
-  import BlogEntry from '$lib/components/blog/blog-entry.svelte';
+  import BlogPostPreview from '$lib/components/blog/blog-post-preview.svelte';
 
   export let data: PageData;
 
@@ -58,7 +58,7 @@
     <ul>
       {#each data.posts as post (post.id)}
         <li class="blog-post">
-          <BlogEntry {post} {selectedLabels} />
+          <BlogPostPreview {post} {selectedLabels} />
         </li>
       {/each}
     </ul>

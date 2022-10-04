@@ -1,12 +1,12 @@
 <script lang="ts">
+  import type { BlogPost } from '$lib/public/blog/types';
   import { makeBlogPostPageUrl } from '$lib/public/blog/urls';
   import { readingTime } from '$lib/public/blog/utils';
   import { Temporal } from '@js-temporal/polyfill';
-  import Labels from '../../../routes/blog/labels.svelte';
+  import Labels from '$lib/components/blog/labels.svelte';
 
-  export let post: any;
-  export let selectedLabels: any;
-  console.log(post);
+  export let post: BlogPost;
+  export let selectedLabels: string[];
 </script>
 
 <div class="post">
@@ -43,27 +43,33 @@
   .post {
     padding: 2em;
   }
+
   a {
     text-decoration: none;
   }
+
   .author a:hover,
   a h2:hover {
     text-decoration: underline;
   }
+
   .author {
     display: flex;
     flex-direction: row;
     margin-bottom: 1em;
     align-items: center;
   }
+
   .author a {
     padding: 0;
     font-weight: 600;
   }
+
   .author div {
     display: flex;
     flex-direction: column;
   }
+
   .author img {
     border-radius: 50%;
     width: 2.5em;
@@ -77,6 +83,7 @@
     mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
   }
+
   .read-time {
     display: flex;
     flex-wrap: wrap;
