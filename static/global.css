@@ -154,17 +154,19 @@ body {
   --card-bg: var(--acm-light);
   --button-bg: var(--acm-dark);
   --button-hover: var(--acm-blue);
+  --button-toggle: var(--acm-dark);
 }
 
 .dark {
   --acm-dark: #f8f8f8;
   --acm-light: #101315;
   --acm-canvas: #161b22;
-  --navbar-bg: var(--acm-light);
+  --navbar-bg: var(--acm-gray);
   --footer-bg: var(--acm-gray);
   --card-bg: var(--acm-gray);
-  --button-bg: var(--acm-gray);
+  --button-bg: var(--acm-dark);
   --button-hover: #3d4043;
+  --button-toggle: var(--acm-light);
 }
 
 @media (prefers-color-scheme: light) {
@@ -177,6 +179,7 @@ body {
     --card-bg: var(--acm-light);
     --button-bg: var(--acm-dark);
     --button-hover: var(--acm-blue);
+    --button-toggle: var(--acm-dark);
   }
 }
 
@@ -185,10 +188,11 @@ body {
     --acm-dark: #f8f8f8;
     --acm-light: #101315;
     --acm-canvas: #161b22;
-    --navbar-bg: var(--acm-light);
+    --navbar-bg: var(--acm-gray);
     --footer-bg: var(--acm-gray);
     --card-bg: var(--acm-gray);
     --button-bg: var(--acm-gray);
     --button-hover: #3d4043;
+    --button-toggle: var(--acm-light);
   }
 }

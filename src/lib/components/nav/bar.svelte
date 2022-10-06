@@ -92,7 +92,7 @@
     width: 100%;
     justify-content: center;
     padding: 16px 0;
-    background-color: var(--acm-gray);
+    background-color: var(--navbar-bg);
     box-shadow: 0 3px 12px rgba(16, 19, 21, 0.1);
     z-index: 10;
 
@@ -125,17 +125,28 @@
 
       section {
         display: flex;
+        justify-content: center;
         align-items: center;
         gap: 64px;
+        height: 100%;
+
+        .pages,
+        li,
+        a {
+          display: flex;
+          align-items: center;
+          height: 100%;
+        }
 
         .pages {
-          display: flex;
-          gap: 64px;
+          gap: 50px;
           list-style: none;
 
           a {
             text-decoration: none;
             transition: 0.25s ease-in-out;
+            padding-left: 8px;
+            padding-right: 8px;
 
             &:hover,
             &[aria-current='true'] {
@@ -161,7 +172,7 @@
             align-items: center;
             max-width: fit-content;
             padding: 6px 12px;
-            background-color: var(--acm-gray);
+            background-color: var(--button-toggle);
             border-radius: 8px;
             gap: 4px;
 
@@ -191,7 +202,7 @@
         .pages {
           position: fixed;
           flex-direction: column;
-          justify-content: flex-end;
+          justify-content: center;
           align-items: center;
           top: 0;
           right: 0;
@@ -204,24 +215,18 @@
           transition: 0.25s ease-in-out;
 
           a {
-            display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            font-size: var(--size-md);
-            height: 10vh;
+            font-size: var(--size-lg);
+            padding: 0 !important;
             width: 100%;
-            margin-bottom: 2em;
-            margin-top: -50px;
+            text-align: center;
           }
 
           li {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            align-self: flex-end;
             width: 100%;
+            height: 10vh;
           }
         }
       }
