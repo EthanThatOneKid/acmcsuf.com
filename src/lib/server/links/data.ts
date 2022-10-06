@@ -18,4 +18,7 @@ export const LINKS = {
   'design-template':
     'https://www.figma.com/file/MED3kRKmIxcoKblNTveEZZ/acmDesign-Challenge-Sheet?node-id=0%3A1',
   'live-walk': 'https://www.figma.com/file/PtYSxzB8BbKh3L46dQSjf1/Live-Interaction?node-id=0%3A1',
+  'css-basics': 'https://codepen.io/alancortez1337/pen/BaxmJWL',
+  'grid-play': 'https://codepen.io/jorgeemejia/pen/MWGBdQj',
+  'frank-grid': 'https://codepen.io/alancortez1337/pen/xxjPVbG',
 } as const;
