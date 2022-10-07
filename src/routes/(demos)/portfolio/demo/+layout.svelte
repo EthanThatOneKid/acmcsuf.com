@@ -7,11 +7,12 @@
   <link rel="stylesheet" href="/assets/portfolio/demo/portfolio.css" />
 </svelte:head>
 
-<NavBar />
-
-<main>
-  <slot />
-</main>
+<div id="app">
+  <NavBar />
+  <main>
+    <slot />
+  </main>
+</div>
 
 <style>
   main {
