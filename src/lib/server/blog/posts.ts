@@ -36,7 +36,7 @@ export async function fetchBlogPosts(options?: BlogFetchOptions): Promise<BlogOu
       body: JSON.stringify({ query: gql(GH_DISCUSSION_CATEGORY_ID) }),
     });
 
-    allPosts = cacheBlogPosts(await response.json());
+    allPosts = await cacheBlogPosts(await response.json());
   }
 
   // These labels are always derived from **all** the published posts.
@@ -61,7 +61,7 @@ export async function fetchBlogPosts(options?: BlogFetchOptions): Promise<BlogOu
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function cacheBlogPosts(output: any): BlogPost[] {
+async function cacheBlogPosts(output: any): Promise<BlogPost[]> {
   const discussions = output.data.repository.discussions.nodes;
 
   /**
@@ -69,7 +69,7 @@ function cacheBlogPosts(output: any): BlogPost[] {
    * based on the GraphQL {@link gql}.
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const posts = discussions.map((discussion: any): BlogPost => {
+  const posts = await Promise.all(discussions.map(async (discussion: any): Promise<BlogPost> => {
     const {
       title,
       author,
@@ -81,10 +81,9 @@ function cacheBlogPosts(output: any): BlogPost[] {
     } = discussion;
 
     const url = `/blog/${id}`;
-    const officer = getOfficerByGhUsername(author.login);
     const authorUrl: string = author.url;
-    const displayname: string = officer?.fullName ?? author.login;
-    const picture: string = officer?.picture ?? author.avatarUrl;
+    const displayname: string = await tryGetGhFullName(author.login);
+    const picture: string = author.avatarUrl;
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const labels = discussion.labels.nodes.map(({ name }: any) => name);
@@ -102,7 +101,7 @@ function cacheBlogPosts(output: any): BlogPost[] {
     };
 
     return post;
-  });
+  }));
 
   cache.setAllPosts(posts);
 
@@ -113,4 +112,23 @@ function getOfficerByGhUsername(ghUsername: string): Officer | null {
   // get author by GitHub username
   const officer = OFFICERS.find((o) => o.displayName !== undefined && o.displayName === ghUsername);
   return officer ?? null;
+}
+
+async function tryGetGhFullName(login: string): Promise<string> {
+  try {
+    const result: Response = await fetch(`https://api.github.com/users/${login}`,
+      {
+        method: 'GET',
+        headers: new Headers({
+          'Authorization': `Bearer ${GH_ACCESS_TOKEN}`
+        })
+      });
+
+    const body = await result.json();
+
+    return body?.name ?? login;
+  } catch (error) {
+    console.error(`Could not retrieve author name: ${error}`);
+    return login;
+  }
 }

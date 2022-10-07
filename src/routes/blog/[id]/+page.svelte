@@ -28,7 +28,7 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      @{data.post.author.displayname}
+      {data.post.author.displayname}
     </a>
   </p>
   <p>
