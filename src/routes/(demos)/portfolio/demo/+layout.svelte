@@ -15,6 +15,13 @@
 </div>
 
 <style>
+  #app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 2em auto;
+  }
+
   main {
     margin: 1rem;
     font-size: 1.25rem;
