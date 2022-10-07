@@ -110,11 +110,11 @@ async function cacheBlogPosts(output: any): Promise<BlogPost[]> {
   return posts;
 }
 
-function getOfficerByGhUsername(ghUsername: string): Officer | null {
-  // get author by GitHub username
-  const officer = OFFICERS.find((o) => o.displayName !== undefined && o.displayName === ghUsername);
-  return officer ?? null;
-}
+// function getOfficerByGhUsername(ghUsername: string): Officer | null {
+//   // get author by GitHub username
+//   const officer = OFFICERS.find((o) => o.displayName !== undefined && o.displayName === ghUsername);
+//   return officer ?? null;
+// }
 
 async function tryGetGhFullName(login: string): Promise<string> {
   try {
