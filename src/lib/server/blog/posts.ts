@@ -69,39 +69,41 @@ async function cacheBlogPosts(output: any): Promise<BlogPost[]> {
    * based on the GraphQL {@link gql}.
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const posts = await Promise.all(discussions.map(async (discussion: any): Promise<BlogPost> => {
-    const {
-      title,
-      author,
-      createdAt,
-      lastEditedAt: lastEdited,
-      number: id,
-      bodyHTML: html,
-      url: discussionUrl,
-    } = discussion;
+  const posts = await Promise.all(
+    discussions.map(async (discussion: any): Promise<BlogPost> => {
+      const {
+        title,
+        author,
+        createdAt,
+        lastEditedAt: lastEdited,
+        number: id,
+        bodyHTML: html,
+        url: discussionUrl,
+      } = discussion;
 
-    const url = `/blog/${id}`;
-    const authorUrl: string = author.url;
-    const displayname: string = await tryGetGhFullName(author.login);
-    const picture: string = author.avatarUrl;
+      const url = `/blog/${id}`;
+      const authorUrl: string = author.url;
+      const displayname: string = await tryGetGhFullName(author.login);
+      const picture: string = author.avatarUrl;
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const labels = discussion.labels.nodes.map(({ name }: any) => name);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const labels = discussion.labels.nodes.map(({ name }: any) => name);
 
-    const post = {
-      id,
-      url,
-      discussionUrl,
-      title,
-      html,
-      createdAt,
-      lastEdited,
-      labels,
-      author: { url: authorUrl, displayname, picture },
-    };
+      const post = {
+        id,
+        url,
+        discussionUrl,
+        title,
+        html,
+        createdAt,
+        lastEdited,
+        labels,
+        author: { url: authorUrl, displayname, picture },
+      };
 
-    return post;
-  }));
+      return post;
+    })
+  );
 
   cache.setAllPosts(posts);
 
@@ -116,13 +118,12 @@ function getOfficerByGhUsername(ghUsername: string): Officer | null {
 
 async function tryGetGhFullName(login: string): Promise<string> {
   try {
-    const result: Response = await fetch(`https://api.github.com/users/${login}`,
-      {
-        method: 'GET',
-        headers: new Headers({
-          'Authorization': `Bearer ${GH_ACCESS_TOKEN}`
-        })
-      });
+    const result: Response = await fetch(`https://api.github.com/users/${login}`, {
+      method: 'GET',
+      headers: new Headers({
+        Authorization: `Bearer ${GH_ACCESS_TOKEN}`,
+      }),
+    });
 
     const body = await result.json();
 
