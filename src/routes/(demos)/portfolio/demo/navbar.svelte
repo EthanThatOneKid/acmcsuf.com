@@ -27,6 +27,10 @@
 </nav>
 
 <style>
+  /* The BEM CSS class naming convention is used in this demo. For
+  small projects, BEM may feel overkill. BEM works best in larger
+  projects as a way of preventing CSS class naming conflicts. */
+
   .container__nav {
     display: flex;
     justify-content: center;
@@ -50,8 +54,20 @@
     color: #1a1a1a;
     font-weight: 700;
     background-color: #2c91c6;
-    padding: 0.35rem;
+    padding: 0.1rem 0.45rem;
     margin: 0 2rem;
     border-radius: 12px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .container__nav {
+      flex-direction: column;
+      align-items: end;
+    }
+
+    .container__nav,
+    .nav__item {
+      font-size: 1.2rem;
+    }
   }
 </style>
