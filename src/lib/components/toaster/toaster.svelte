@@ -31,9 +31,8 @@
     position: fixed;
     z-index: 10000;
     bottom: 0;
-    right: 50%;
-    transform: translateX(50%);
-    min-width: min(390px, 100%);
+    right: 0;
+    width: 700px;
   }
 
   .toast-item {
@@ -58,10 +57,9 @@
     align-self: center;
   }
 
-  @media (min-width: 800px) {
+  @media screen and (max-width: 800px) {
     section {
-      right: 0;
-      transform: translateX(0);
+      width: 100%;
     }
   }
 </style>

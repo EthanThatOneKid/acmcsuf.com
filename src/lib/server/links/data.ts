@@ -12,9 +12,13 @@ export const LINKS = {
   enhance:
     'https://github.com/EthanThatOneKid/acmcsuf.com/issues/new?assignees=&labels=enhancement&template=feature_request.yaml',
   gfi: 'https://github.com/EthanThatOneKid/acmcsuf.com/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22',
-  devform: 'https://forms.gle/W7zE9DEhnE8Vhpcr9',
+  devform: 'https://forms.gle/Uu8bbHkuVCRspxZK8',
   devdeck:
     'https://docs.google.com/presentation/d/1I2iuN2h1awuqtd2osNo3kYuxdsYGOEwGYC1zn9zHtvs/edit?usp=sharing',
-  'design-template': 'https://www.figma.com/file/MED3kRKmIxcoKblNTveEZZ/acmDesign-Challenge-Sheet?node-id=0%3A1',
+  'design-template':
+    'https://www.figma.com/file/MED3kRKmIxcoKblNTveEZZ/acmDesign-Challenge-Sheet?node-id=0%3A1',
   'live-walk': 'https://www.figma.com/file/PtYSxzB8BbKh3L46dQSjf1/Live-Interaction?node-id=0%3A1',
+  'css-basics': 'https://codepen.io/alancortez1337/pen/BaxmJWL',
+  'grid-play': 'https://codepen.io/jorgeemejia/pen/MWGBdQj',
+  'frank-grid': 'https://codepen.io/alancortez1337/pen/xxjPVbG',
 } as const;

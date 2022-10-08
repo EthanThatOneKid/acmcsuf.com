@@ -3,7 +3,7 @@
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import { readingTime } from '$lib/public/blog/utils';
   import { Temporal } from '@js-temporal/polyfill';
-  import Labels from '../labels.svelte';
+  import Labels from '$lib/components/blog/labels.svelte';
   import BlogBody from './blog-body.svelte';
 
   export let data: PageData;
