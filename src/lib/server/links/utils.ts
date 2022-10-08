@@ -12,7 +12,7 @@ export function parseLink(url: string): ParsedLink | undefined {
   const queryBeginIdx = url.indexOf('?');
   let queryStr = '';
   if (queryBeginIdx !== -1) {
-    queryStr = queryBeginIdx === -1 ? '' : url.slice(queryBeginIdx + 1);
+    queryStr = url.slice(queryBeginIdx + 1);
     url = url.slice(0, queryBeginIdx);
   }
 
