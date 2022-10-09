@@ -62,50 +62,65 @@ export async function fetchBlogPosts(options?: BlogFetchOptions): Promise<BlogOu
 async function cacheBlogPosts(output: any): Promise<BlogPost[]> {
   const discussions = output.data.repository.discussions.nodes;
 
+  let users: { [name: string]: string } = {};
+  for (const d of discussions) {
+    const { author } = d;
+    if (author in users) {
+      continue;
+    }
+
+    const fullname = await tryGetGhFullName(author.login);
+    if (fullname !== author.login) {
+      users[author.login] = fullname;
+    }
+  }
   /**
    * No types exist for the discussion object, as the structure is generated
    * based on the GraphQL {@link gql}.
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const posts = await Promise.all(
-    discussions.map(async (discussion: any): Promise<BlogPost> => {
-      const {
-        title,
-        author,
-        createdAt,
-        lastEditedAt: lastEdited,
-        number: id,
-        bodyHTML: html,
-        url: discussionUrl,
-      } = discussion;
-
-      const url = `/blog/${id}`;
-      const authorUrl: string = author.url;
-      const displayname: string = await tryGetGhFullName(author.login);
-      const picture: string = author.avatarUrl;
-
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const labels = discussion.labels.nodes.map(({ name }: any) => name);
-
-      const post = {
-        id,
-        url,
-        discussionUrl,
-        title,
-        html,
-        createdAt,
-        lastEdited,
-        labels,
-        author: { url: authorUrl, displayname, picture },
-      };
-
-      return post;
-    })
-  );
+  const posts = await Promise.all(discussions.map(async (d: any) => mapDiscussion(d, users)));
 
   cache.setAllPosts(posts);
 
   return posts;
+}
+
+async function mapDiscussion(
+  discussion: any,
+  users: { [name: string]: string }
+): Promise<BlogPost> {
+  const {
+    title,
+    author,
+    createdAt,
+    lastEditedAt: lastEdited,
+    number: id,
+    bodyHTML: html,
+    url: discussionUrl,
+  } = discussion;
+
+  const url = `/blog/${id}`;
+  const authorUrl: string = author.url;
+  const displayname: string = users[author.login];
+  const picture: string = author.avatarUrl;
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const labels = discussion.labels.nodes.map(({ name }: any) => name);
+
+  const post = {
+    id,
+    url,
+    discussionUrl,
+    title,
+    html,
+    createdAt,
+    lastEdited,
+    labels,
+    author: { url: authorUrl, displayname, picture },
+  };
+
+  return post;
 }
 
 // function getOfficerByGhUsername(ghUsername: string): Officer | null {
