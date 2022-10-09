@@ -74,6 +74,7 @@ const PARSE_LINK_ID_TESTS: [string, ReturnType<typeof parseLinkId>][] = [
       hash: '',
     },
   ],
+  ['/unknown', undefined],
   [
     '/example?foo=bar',
     {
