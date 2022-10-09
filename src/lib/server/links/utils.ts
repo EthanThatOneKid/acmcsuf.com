@@ -1,7 +1,7 @@
 import QRCode from 'qrcode';
 import type { Link, ParsedLink } from './types';
 
-export function parseLink(url: string): ParsedLink | undefined {
+export function parseLink(url: string): ParsedLink {
   const hashBeginIdx = url.lastIndexOf('#');
   let hashStr = '';
   if (hashBeginIdx !== -1) {
@@ -48,9 +48,8 @@ export function parseLinkId<ID extends string>(
   separator = '/'
 ): Link<ID> | undefined {
   const link = parseLink(url);
-  if (!link) return;
-
-  const id = findLinkId(link.relativePathname.split(separator), subCollection, separator);
+  const segments = link.relativePathname.split(separator);
+  const id = findLinkId(segments, subCollection, separator);
   if (id === undefined) return;
 
   const relativePathname = link.relativePathname.slice(id.length);
