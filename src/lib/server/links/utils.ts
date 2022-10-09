@@ -1,6 +1,7 @@
 import QRCode from 'qrcode';
 import type { Link, ParsedLink } from './types';
 
+// parseLink parses the incoming link from a request.
 export function parseLink(url: string): ParsedLink {
   const hashBeginIdx = url.lastIndexOf('#');
   let hashStr = '';
@@ -24,6 +25,8 @@ export function parseLink(url: string): ParsedLink {
   return { relativePathname: relativePathnameStr, query: queryStr, hash: hashStr };
 }
 
+// findLinkId finds the highest priority link ID for the given path segments and a collection of
+// links.
 export function findLinkId<ID extends string>(
   segments: string[],
   subCollection: Record<ID, string>,
@@ -37,7 +40,11 @@ export function findLinkId<ID extends string>(
 }
 
 /**
- * Converts a URL to a link object.
+ * parseLinkId parses the incoming link from a request and finds the highest priority link ID for
+ * the given path segments and a collection of links. If no link ID is found, undefined is returned.
+ *
+ * This function is useful for SvelteKit's server-side routes and hooks.
+ *
  * @param url The URL to convert.
  * @param subCollection The collection of links to search.
  * @returns The link object.
