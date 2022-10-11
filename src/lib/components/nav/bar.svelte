@@ -27,6 +27,9 @@
 <nav>
   <input type="checkbox" id="navToggle" class="toggle" bind:this={checkbox} />
 
+  <div class="blurrybar" />
+
+  <div class="backdrop" on:click={handleClose} />
   <div class="container">
     <div class="logo-container">
       <a href="/" class="logo">
@@ -34,8 +37,6 @@
         <h3 class="brand-header">at <b>CSUF</b></h3>
       </a>
     </div>
-
-    <div class="backdrop" on:click={handleClose} />
 
     <section>
       <ul class="pages">
@@ -89,12 +90,21 @@
   nav {
     display: flex;
     position: fixed;
-    width: 100%;
+    width: 100vw;
     justify-content: center;
     padding: 16px 0;
-    background-color: var(--navbar-bg);
-    box-shadow: 0 3px 12px rgba(16, 19, 21, 0.1);
     z-index: 10;
+
+    .blurrybar {
+      position: absolute;
+      width: 100%;
+      height: 100px;
+      margin-top: -16px;
+      background-color: var(--navbar-bg);
+      box-shadow: var(--nav-shadow);
+      z-index: -1;
+      backdrop-filter: blur(10px);
+    }
 
     .container {
       display: flex;
@@ -125,7 +135,6 @@
 
       section {
         display: flex;
-        justify-content: center;
         align-items: center;
         gap: 64px;
         height: 100%;
@@ -139,14 +148,15 @@
         }
 
         .pages {
+          justify-content: center;
           gap: 50px;
           list-style: none;
 
           a {
+            justify-content: center;
             text-decoration: none;
             transition: 0.25s ease-in-out;
-            padding-left: 8px;
-            padding-right: 8px;
+            padding: 8px 8px;
 
             &:hover,
             &[aria-current='true'] {
@@ -194,6 +204,16 @@
 
   @media screen and (max-width: 900px) {
     nav {
+      .backdrop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        opacity: 0;
+        transition: all 1s ease-in-out;
+      }
+
       .container {
         .logo-container .logo .badge {
           height: 48px;
@@ -206,9 +226,7 @@
           align-items: center;
           top: 0;
           right: 0;
-          height: 100vh;
           width: 0;
-          gap: 0;
           background-color: var(--acm-light);
           overflow: hidden;
           z-index: 9;
@@ -216,17 +234,18 @@
 
           a {
             justify-content: center;
-            align-items: center;
             font-size: var(--size-lg);
-            padding: 0 !important;
             width: 100%;
             text-align: center;
           }
 
           li {
-            display: flex;
-            width: 100%;
             height: 10vh;
+          }
+
+          li,
+          a {
+            width: 100%;
           }
         }
       }
@@ -262,24 +281,21 @@
         }
       }
 
+      & :checked ~ .backdrop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        opacity: 0.7;
+        background-color: var(--perma-dark);
+      }
+
       & :checked ~ .container {
         .pages {
           width: 60%;
           overflow: visible;
           background-color: var(--acm-light);
-        }
-
-        .backdrop {
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          width: 100vw;
-          height: 100vh;
-          opacity: 0.7;
-          z-index: 4;
-          background-color: var(--perma-dark);
         }
       }
 
