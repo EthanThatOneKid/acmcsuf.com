@@ -30,6 +30,7 @@
   <div class="blurrybar" />
 
   <div class="backdrop" on:click={handleClose} />
+
   <div class="container">
     <div class="logo-container">
       <a href="/" class="logo">
@@ -99,7 +100,7 @@
       position: absolute;
       width: 100%;
       height: 100px;
-      margin-top: -16px;
+      margin-top: -20px;
       background-color: var(--navbar-bg);
       box-shadow: var(--nav-shadow);
       z-index: -1;
@@ -211,12 +212,13 @@
         width: 100vw;
         height: 100vh;
         opacity: 0;
-        transition: all 1s ease-in-out;
+        transition: all 0.25s ease-in-out;
+        z-index: 9;
       }
 
       .container {
         .logo-container .logo .badge {
-          height: 48px;
+          height: 64px;
         }
 
         .pages {
