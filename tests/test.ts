@@ -1,18 +1,23 @@
 import { expect, test } from '@playwright/test';
 
-test('index page has expected h1', async ({ page }) => {
+// test.afterEach(async ({ page }, t) => {
+//   const path = t.snapshotPath('screenshot.png');
+//   const scrot = await page.screenshot({ path, fullPage: true });
+//   await expect(scrot).toMatchSnapshot(path, {
+//     threshold: 0.1,
+//   });
+// });
+
+test('index page has expected h1', async ({ page }, t) => {
   await page.goto('/');
-  expect(await page.textContent('h1')).toContain('We are the largest computer science community');
+  expect(await page.locator('h1')).toHaveText(
+    'We are the largest computer science community at CSUF'
+  );
 });
 
 test('about page has expected h1', async ({ page }) => {
   await page.goto('/about');
   expect(await page.textContent('h1')).toBe('About us');
-});
-
-test('error page has expected em', async ({ page }) => {
-  await page.goto('/this-page/does-not/exist');
-  expect(await page.textContent('em')).toBe('404');
 });
 
 test('teams page has expected h1', async ({ page }) => {
@@ -38,4 +43,9 @@ test('quiz page has expected h1', async ({ page }) => {
 test('first contributions page has expected h1', async ({ page }) => {
   await page.goto('/1st');
   expect(await page.textContent('h1')).toBe('First Contributions');
+});
+
+test('error page has expected em', async ({ page }) => {
+  await page.goto('/this-page/does-not/exist');
+  expect(await page.textContent('em')).toBe('404');
 });
