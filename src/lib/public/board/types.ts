@@ -6,6 +6,33 @@ export enum Term {
   Spring23 = 'S23',
 }
 
+// TODO: Warn if the tier does not appear in the officer data.
+export enum Tier {
+  PRESIDENT,
+  VICE_PRESIDENT,
+  WEBMASTER,
+  SECRETARY,
+  TREASURER,
+  DATA_ANALYST,
+  SPECIAL_EVENTS_LEADER,
+  SPECIAL_EVENTS_OFFICER,
+  MARKETING_LEADER,
+  HISTORIAN,
+  EVENT_COORDINATOR,
+  ALGO_LEADER,
+  ALGO_OFFICER,
+  DESIGN_LEADER,
+  DESIGN_OFFICER,
+  DESIGN_PROJECT_MANAGER,
+  DESIGN_OPERATIONS_MANAGER,
+  DEV_LEADER,
+  DEV_PROJECT_MANAGER,
+  DEV_OFFICER,
+  AI_LEADER,
+  AI_OFFICER,
+  NODEBUDS_OFFICER,
+}
+
 export interface Officer {
   fullName: string;
   picture: string;
@@ -14,7 +41,7 @@ export interface Officer {
   positions: {
     [t in Term]?: {
       title: string;
-      tier: number;
+      tier: Tier;
     };
   };
 }
