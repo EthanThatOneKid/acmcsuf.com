@@ -213,7 +213,7 @@
         height: 100vh;
         opacity: 0;
         transition: all 0.25s ease-in-out;
-        z-index: 9;
+        z-index: 7;
       }
 
       .container {
@@ -257,6 +257,7 @@
         top: 50%;
         transform: translateY(-50%);
         right: 56px;
+        z-index: 8;
       }
 
       .menu {
@@ -284,7 +285,7 @@
       }
 
       & :checked ~ .backdrop {
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
@@ -302,6 +303,9 @@
       }
 
       & :checked ~ .menu {
+        :global(body) {
+          overflow: hidden;
+        }
         .menuLine {
           background-color: var(--acm-blue);
           &:nth-child(1) {

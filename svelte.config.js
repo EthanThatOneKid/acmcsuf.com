@@ -10,17 +10,6 @@ const config = {
   kit: {
     adapter: adapter(),
   },
-
-  vitePlugin: {
-    experimental: {
-      inspector: {
-        toggleKeyCombo: 'meta-shift',
-        boldMode: true,
-        showToggleButton: 'always',
-        toggleButtonPosition: 'bottom-left',
-      },
-    },
-  },
 };
 
 export default config;
