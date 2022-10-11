@@ -33,11 +33,20 @@ export enum Tier {
   NODEBUDS_OFFICER,
 }
 
+export enum Social {
+  Website = 'website',
+  GitHub = 'github',
+  Discord = 'discord',
+  LinkedIn = 'linkedin',
+  Instagram = 'instagram',
+}
+
 export interface Officer {
   fullName: string;
   picture: string;
-  displayName?: string;
-
+  socials?: {
+    [s in Social]?: string;
+  };
   positions: {
     [t in Term]?: {
       title: string;
