@@ -27,9 +27,13 @@ const config: PlaywrightTestConfig = {
   outputDir: '.playwright_output',
 };
 
-export default config;
-
-function projectsFromMatrix<
+/**
+ * projectsFromMatrix is a helper function that returns an array of projects
+ * based on a matrix of dimensions. Each dimension is an object with a name
+ * and a value. The name is used to name the project, and the value is used
+ * to set the project's use property.
+ */
+export function projectsFromMatrix<
   TestArgs = PlaywrightTestOptions,
   WorkerArgs = PlaywrightWorkerOptions,
   ProjectArgs = Project<TestArgs, WorkerArgs>['use']
@@ -40,12 +44,12 @@ function projectsFromMatrix<
   const combinations: Project<TestArgs, WorkerArgs>[] = [];
 
   for (let i = 0; i < propNames.length; i++) {
-    const propName = propNames[i];
-    const dimensionNames = Object.keys(matrix[propNames[i]]);
+    const propName = propNames[i] as keyof Partial<ProjectArgs>;
+    const dimensionNames = Object.keys(matrix[propName]);
 
     for (let j = i + 1; j < propNames.length; j++) {
-      const propName2 = propNames[j];
-      const dimensionNames2 = Object.keys(matrix[propNames[j]]);
+      const propName2 = propNames[j] as keyof Partial<ProjectArgs>;
+      const dimensionNames2 = Object.keys(matrix[propName2]);
 
       for (const dimensionName of dimensionNames) {
         for (const dimensionName2 of dimensionNames2) {
@@ -67,3 +71,5 @@ function projectsFromMatrix<
 
   return combinations;
 }
+
+export default config;

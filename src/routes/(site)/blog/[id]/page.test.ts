@@ -29,12 +29,12 @@ export function setupSnapshot(testInfo: TestInfo) {
   };
 }
 
-test('error page has expected em', async ({ page }) => {
-  await page.goto('/this-page/does-not/exist');
-  expect(await page.textContent('em')).toBe('404');
+test('blog post h1 matches page title', async ({ page }) => {
+  await page.goto('/blog/272');
+  expect(await page.title()).toContain(await page.textContent('h1'));
 });
 
-test('error page matches screenshot', async ({ page }, testInfo) => {
+test('blog post page matches screenshot', async ({ page }, testInfo) => {
   const { cleanupSnapshot, data } = setupSnapshot(testInfo);
 
   if (testInfo.project.use.viewport) {
@@ -47,10 +47,9 @@ test('error page matches screenshot', async ({ page }, testInfo) => {
     });
   }
 
-  await page.goto('/this-page/does-not/exist');
-
+  await page.goto('/blog/272');
   expect(await page.screenshot({ fullPage: true, scale: 'css' })).toMatchSnapshot({
-    name: `error-${data.projectName}.png`,
+    name: `page-${data.projectName}.png`,
     threshold: 0.1,
   });
 

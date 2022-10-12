@@ -27,7 +27,7 @@
     "all": "npm run lint && npm run format && npm run check && npm run build && npm t"
   },
   "devDependencies": {
-    "@playwright/test": "^1.27.0",
+    "@playwright/test": "^1.28.0-alpha-oct-12-2022",
     "@size-limit/file": "^8.1.0",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
