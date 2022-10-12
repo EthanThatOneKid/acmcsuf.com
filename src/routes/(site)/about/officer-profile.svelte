@@ -8,15 +8,10 @@
   import Instagram from '$lib/components/svg/instagram.svelte';
   import { toast } from '$lib/components/toaster/toasts';
   import { onMount } from 'svelte';
-  import {
-    termIndex,
-    getOfficerTierByTermIndex,
-    getPositionByTermIndex,
-  } from '$lib/public/board/utils';
+  import { termIndex, getPositionByTermIndex } from '$lib/public/board/utils';
 
   export let info: Officer;
   export let placeholderPicture = 'placeholder.webp';
-  export let dev = false;
   export let hasBuggyAnimations = false;
 
   // earliestTerm returns the earliest term of the current officer. Blame Ethan
@@ -31,11 +26,40 @@
     return 'null';
   }
 
-  const officerID = info.fullName.toLowerCase().replace(/[^a-z0-9]/g, '-') + '-' + earliestTerm();
+  // teamClasses maps team names to CSS class names. We call Object.entries on
+  // it to make it easier to iterate and search.
+  const teamClasses = Object.entries({
+    Algo: 'acm-purple',
+    Create: 'acm-pink',
+    Design: 'acm-pink',
+    Dev: 'acm-bluer',
+    AI: 'acm-emerald',
+    Marketing: 'acm-red',
+    'Special Events': 'acm-yellow',
+    nodebuds: 'brand-header',
+  });
+
   const officerName = info.fullName ?? '';
   const officerPicture = info.picture ?? placeholderPicture;
   const officerSocials = info.socials ?? {};
+
+  // officerTeam is the team that the officer is on. It is used as an ID for
+  // the officer's card.
+  //
+  // Example:
+  // - sample input: info.fullName = 'Frank Mascot', earliestTerm() = Term.Fall2020
+  // - expected value: 'frank-mascot-f22'
+  const officerID = `${info.fullName.replace(/[^a-z0-9]/g, '-')}-${earliestTerm()}`.toLowerCase();
+
   $: officerPosition = getPositionByTermIndex(info, $termIndex)?.title || '';
+
+  $: [teamName, teamClass] = teamClasses.find((e) => {
+    return officerPosition.startsWith(e[0]);
+  }) || [null, 'acm-dark'];
+
+  $: titleHTML = teamName
+    ? officerPosition.replace(teamName, `<b class="${teamClass}">${teamName}</b>`)
+    : officerPosition;
 
   /** @see <https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText> */
   function copyDiscord() {
@@ -57,29 +81,6 @@
       hasBuggyAnimations = true;
     }
   });
-
-  // teamClasses maps team names to CSS class names. We call Object.entries on
-  // it to make it easier to iterate and search.
-  const teamClasses = Object.entries({
-    Algo: 'acm-purple',
-    Create: 'acm-pink',
-    Design: 'acm-pink',
-    Dev: 'acm-bluer',
-    AI: 'acm-emerald',
-    Marketing: 'acm-red',
-    'Special Events': 'acm-yellow',
-    nodebuds: 'brand-header',
-  });
-
-  $: [teamName, teamClass] = teamClasses.find((e) => {
-    return officerPosition.startsWith(e[0]);
-  }) || [null, 'acm-dark'];
-
-  $: titleHTML = teamName
-    ? officerPosition.replace(teamName, `<b class="${teamClass}">${teamName}</b>`)
-    : officerPosition;
-
-  $: officerTier = dev ? getOfficerTierByTermIndex(info, $termIndex) : '';
 </script>
 
 <label
@@ -87,14 +88,14 @@
   class="officer-container"
   class:officer-has-socials={info.socials !== undefined}
   class:has-buggy-animations={hasBuggyAnimations}
-  style="--accent: var(--{teamClass})"
+  style:--accent="var(--{teamClass})"
 >
   <input type="checkbox" id="{officerID}-flipcard" />
   <div class="officer-3d-flipcard">
     <div class="officer-flipcard">
       <img
         class="officer-image"
-        src={`../assets/authors/${officerPicture}`}
+        src={`/assets/authors/${officerPicture}`}
         alt={`Image of ${officerName}.`}
       />
       <div class="officer-socials-box">
@@ -170,13 +171,8 @@
     </div>
   </div>
   <div class="officer-placard">
-    <h3 class="brand-header">
-      {officerName}
-      {#if officerTier}<br />{officerTier}<br />{/if}
-    </h3>
-    <p class="brand-med">
-      {@html titleHTML}
-    </p>
+    <h3 class="brand-header">{officerName}</h3>
+    <p class="brand-med">{@html titleHTML}</p>
   </div>
 </label>
 
