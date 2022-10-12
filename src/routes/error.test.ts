@@ -51,7 +51,6 @@ test('error page matches screenshot', async ({ page }, testInfo) => {
 
   expect(await page.screenshot({ fullPage: true, scale: 'css' })).toMatchSnapshot({
     name: `error-${data.projectName}.png`,
-    threshold: 0.1,
   });
 
   cleanupSnapshot();

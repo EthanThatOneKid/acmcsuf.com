@@ -50,7 +50,6 @@ test('blog post page matches screenshot', async ({ page }, testInfo) => {
   await page.goto('/blog/272');
   expect(await page.screenshot({ fullPage: true, scale: 'css' })).toMatchSnapshot({
     name: `page-${data.projectName}.png`,
-    threshold: 0.1,
   });
 
   cleanupSnapshot();
