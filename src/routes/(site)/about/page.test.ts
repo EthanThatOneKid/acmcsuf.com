@@ -50,6 +50,7 @@ test('about page matches screenshot', async ({ page }, testInfo) => {
   await page.goto('/about', { waitUntil: 'networkidle' });
   expect(await page.screenshot({ fullPage: true, scale: 'css' })).toMatchSnapshot({
     name: `page-${data.projectName}.png`,
+    threshold: 0.3,
   });
 
   cleanupSnapshot();
