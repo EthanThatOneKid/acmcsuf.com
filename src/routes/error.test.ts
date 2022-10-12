@@ -47,7 +47,7 @@ test('error page matches screenshot', async ({ page }, testInfo) => {
     });
   }
 
-  await page.goto('/this-page/does-not/exist');
+  await page.goto('/this-page/does-not/exist', { waitUntil: 'networkidle' });
 
   expect(await page.screenshot({ fullPage: true, scale: 'css' })).toMatchSnapshot({
     name: `error-${data.projectName}.png`,
