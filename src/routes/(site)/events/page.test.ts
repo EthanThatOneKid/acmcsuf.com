@@ -48,9 +48,10 @@ test('events page matches screenshot', async ({ page }, testInfo) => {
   }
 
   await page.goto('/events', { waitUntil: 'networkidle' });
-  expect(await page.screenshot({ fullPage: true, scale: 'css' })).toMatchSnapshot({
+  expect(await page.screenshot({ fullPage: true })).toMatchSnapshot({
     name: `page-${data.projectName}.png`,
-    threshold: 0.3,
+    maxDiffPixelRatio: 0.1,
+    threshold: 1,
   });
 
   cleanupSnapshot();
