@@ -13,6 +13,10 @@ const config: PlaywrightTestConfig = {
       tablet: { width: 768, height: 1024 },
       desktop: { width: 1920, height: 1080 },
     },
+    javaScriptEnabled: {
+      jsenabled: true,
+      jsdisabled: false,
+    },
   }),
   webServer: {
     command: 'npm run build && npm run preview',
@@ -32,6 +36,36 @@ const config: PlaywrightTestConfig = {
  * based on a matrix of dimensions. Each dimension is an object with a name
  * and a value. The name is used to name the project, and the value is used
  * to set the project's use property.
+ *
+ * Sample matrix:
+ * {
+ *   colorScheme: { light: 'light', dark: 'dark' },
+ *   viewport: {
+ *     mobile: { width: 375, height: 667 },
+ *     tablet: { width: 768, height: 1024 },
+ *     desktop: { width: 1920, height: 1080 },
+ *   },
+ *   javaScriptEnabled: {
+ *     jsenabled: true,
+ *     jsdisabled: false,
+ *   },
+ * }
+ *
+ * Expected output given the above sample matrix:
+ * [
+ *   { name: 'light-mobile-jsenabled', use: { colorScheme: 'light', viewport: { width: 375, height: 667 }, javaScriptEnabled: true } },
+ *   { name: 'light-mobile-jsdisabled', use: { colorScheme: 'light', viewport: { width: 375, height: 667 }, javaScriptEnabled: false } },
+ *   { name: 'light-tablet-jsenabled', use: { colorScheme: 'light', viewport: { width: 768, height: 1024 }, javaScriptEnabled: true } },
+ *   { name: 'light-tablet-jsdisabled', use: { colorScheme: 'light', viewport: { width: 768, height: 1024 }, javaScriptEnabled: false } },
+ *   { name: 'light-desktop-jsenabled', use: { colorScheme: 'light', viewport: { width: 1920, height: 1080 }, javaScriptEnabled: true } },
+ *   { name: 'light-desktop-jsdisabled', use: { colorScheme: 'light', viewport: { width: 1920, height: 1080 }, javaScriptEnabled: false } },
+ *   { name: 'dark-mobile-jsenabled', use: { colorScheme: 'dark', viewport: { width: 375, height: 667 }, javaScriptEnabled: true } },
+ *   { name: 'dark-mobile-jsdisabled', use: { colorScheme: 'dark', viewport: { width: 375, height: 667 }, javaScriptEnabled: false } },
+ *   { name: 'dark-tablet-jsenabled', use: { colorScheme: 'dark', viewport: { width: 768, height: 1024 }, javaScriptEnabled: true } },
+ *   { name: 'dark-tablet-jsdisabled', use: { colorScheme: 'dark', viewport: { width: 768, height: 1024 }, javaScriptEnabled: false } },
+ *   { name: 'dark-desktop-jsenabled', use: { colorScheme: 'dark', viewport: { width: 1920, height: 1080 }, javaScriptEnabled: true } },
+ *   { name: 'dark-desktop-jsdisabled', use: { colorScheme: 'dark', viewport: { width: 1920, height: 1080 }, javaScriptEnabled: false } },
+ * ]
  */
 export function projectsFromMatrix<
   TestArgs = PlaywrightTestOptions,
@@ -43,32 +77,24 @@ export function projectsFromMatrix<
   const propNames = Object.keys(matrix);
   const combinations: Project<TestArgs, WorkerArgs>[] = [];
 
-  for (let i = 0; i < propNames.length; i++) {
-    const propName = propNames[i] as keyof Partial<ProjectArgs>;
-    const dimensionNames = Object.keys(matrix[propName]);
+  function addCombination(index: number, name: string, use: Partial<ProjectArgs>) {
+    if (index === propNames.length) {
+      combinations.push({ name, use: use as unknown as Project<TestArgs, WorkerArgs>['use'] });
+      return;
+    }
 
-    for (let j = i + 1; j < propNames.length; j++) {
-      const propName2 = propNames[j] as keyof Partial<ProjectArgs>;
-      const dimensionNames2 = Object.keys(matrix[propName2]);
-
-      for (const dimensionName of dimensionNames) {
-        for (const dimensionName2 of dimensionNames2) {
-          // TODO: [Recursion] Allow for more than 2 dimensions.
-          const name = [dimensionName, dimensionName2].join('-').toLowerCase();
-          const data = {
-            [propName]: matrix[propName][dimensionName],
-            [propName2]: matrix[propName2][dimensionName2],
-          };
-
-          combinations.push({
-            name,
-            use: data as Project<TestArgs, WorkerArgs>['use'],
-          });
-        }
-      }
+    const propName = propNames[index];
+    const propValues = matrix[propName];
+    for (const [valueName, value] of Object.entries(propValues)) {
+      addCombination(
+        index + 1,
+        name + (name ? '-' : '') + valueName,
+        Object.assign({}, use, { [propName]: value })
+      );
     }
   }
 
+  addCombination(0, '', {});
   return combinations;
 }
 
