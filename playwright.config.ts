@@ -9,8 +9,8 @@ const config: PlaywrightTestConfig = {
   projects: projectsFromMatrix<PlaywrightTestOptions>({
     colorScheme: { light: 'light', dark: 'dark' },
     viewport: {
-      mobile: { width: 375, height: 667 },
-      tablet: { width: 768, height: 1024 },
+      mobile: { width: 360, height: 640 },
+      tablet: { width: 800, height: 1280 },
       desktop: { width: 1920, height: 1080 },
     },
     javaScriptEnabled: {
