@@ -6,9 +6,7 @@ const config = {
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
   preprocess: preprocess({
-    replace: [
-      ['$VERCEL_ANALYTICS_ID', process.env.VERCEL_ANALYTICS_ID],
-    ],
+    replace: [['$VERCEL_ANALYTICS_ID', process.env.VERCEL_ANALYTICS_ID]],
   }),
 
   kit: {
