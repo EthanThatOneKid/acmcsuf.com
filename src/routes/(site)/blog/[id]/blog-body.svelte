@@ -39,7 +39,7 @@
     }
 
     :global(pre) {
-      padding: 16px;
+      padding: 1em;
     }
 
     :global(code) {
