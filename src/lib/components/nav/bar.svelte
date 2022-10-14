@@ -115,7 +115,6 @@
       height: 100vh;
       opacity: 0;
       transition: all 0.25s ease-in-out;
-      background-color: red;
     }
 
     .container {
