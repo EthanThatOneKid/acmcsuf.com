@@ -11,7 +11,7 @@
 
   $: if (browser) {
     send({
-      id: "$VERCEL_ANALYTICS_ID",
+      id: '$VERCEL_ANALYTICS_ID',
       path: $page.url.pathname,
       params: $page.params,
       navigator,
