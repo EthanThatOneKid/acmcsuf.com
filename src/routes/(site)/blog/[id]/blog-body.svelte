@@ -32,6 +32,12 @@
       margin: 0.5em 0;
     }
 
+    :global(blockquote) {
+      margin: 0;
+      padding: 0 1em;
+      border-left: 0.25em solid #d0d7de;
+    }
+
     :global(pre) {
       padding: 16px;
     }
