@@ -107,6 +107,17 @@
       backdrop-filter: blur(10px);
     }
 
+    .backdrop {
+      position: absolute;
+      top: 100vh;
+      left: 100vw;
+      width: 100vw;
+      height: 100vh;
+      opacity: 0;
+      transition: all 0.25s ease-in-out;
+      background-color: red;
+    }
+
     .container {
       display: flex;
       align-items: center;
@@ -144,17 +155,16 @@
         li,
         a {
           display: flex;
+          justify-content: center;
           align-items: center;
           height: 100%;
         }
 
         .pages {
-          justify-content: center;
           gap: 50px;
           list-style: none;
 
           a {
-            justify-content: center;
             text-decoration: none;
             transition: 0.25s ease-in-out;
             padding: 8px 8px;
@@ -205,17 +215,6 @@
 
   @media screen and (max-width: 900px) {
     nav {
-      .backdrop {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        opacity: 0;
-        transition: all 0.25s ease-in-out;
-        z-index: 7;
-      }
-
       .container {
         .logo-container .logo .badge {
           height: 64px;
@@ -285,7 +284,6 @@
       }
 
       & :checked ~ .backdrop {
-        position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
@@ -303,9 +301,6 @@
       }
 
       & :checked ~ .menu {
-        :global(body) {
-          overflow: hidden;
-        }
         .menuLine {
           background-color: var(--acm-blue);
           &:nth-child(1) {
