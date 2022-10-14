@@ -75,6 +75,10 @@ export const OFFICERS: Officer[] = [
   {
     fullName: 'Alan Cortez',
     picture: 'alan-cortez.webp',
+    socials: {
+      website: 'alancortez1337.github.io/portfolio/',
+      github: 'alancortez1337',
+    },
     positions: {
       S22: {
         title: 'Create Officer',
@@ -111,6 +115,11 @@ export const OFFICERS: Officer[] = [
   {
     fullName: 'Ethan Davidson',
     picture: 'ethan-davidson.webp',
+    socials: {
+      github: 'EthanThatOneKid',
+      discord: 'EthanThatOneKid#3456',
+      linkedin: 'etok',
+    },
     positions: {
       S21: {
         title: 'Webmaster',
@@ -143,6 +152,9 @@ export const OFFICERS: Officer[] = [
   {
     fullName: 'Diamond Dinh',
     picture: 'diamond-dinh.webp',
+    socials: {
+      github: 'diamondburned',
+    },
     positions: {
       S22: {
         title: 'Dev Project Manager',
