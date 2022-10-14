@@ -42,8 +42,9 @@ export function findLinkId<ID extends string>(
 }
 
 /**
- * parseLinkId parses the incoming link from a request and finds the highest priority link ID for
- * the given path segments and a collection of links. If no link ID is found, undefined is returned.
+ * parseLinkId parses the relavent info (e.g. relative pathname, query string,
+ * and hash) from an absolute pathname. If no link ID is found, undefined
+ * is returned.
  *
  * This function is useful for SvelteKit's server-side routes and hooks.
  *
