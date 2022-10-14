@@ -21,4 +21,5 @@ export const LINKS = {
   'css-basics': 'https://codepen.io/alancortez1337/pen/BaxmJWL',
   'grid-play': 'https://codepen.io/jorgeemejia/pen/MWGBdQj',
   'frank-grid': 'https://codepen.io/alancortez1337/pen/xxjPVbG',
+  arch: 'https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/ARCHITECTURE.md',
 } as const;
