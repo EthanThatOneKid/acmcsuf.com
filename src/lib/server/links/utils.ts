@@ -1,7 +1,7 @@
 import QRCode from 'qrcode';
 import type { Link, ParsedLink } from './types';
 
-// parseLink parses the incoming link from a request.
+/** parseLink parses the incoming link from a request. */
 export function parseLink(url: string): ParsedLink {
   const hashBeginIdx = url.lastIndexOf('#');
   let hashStr = '';
@@ -25,8 +25,10 @@ export function parseLink(url: string): ParsedLink {
   return { relativePathname: relativePathnameStr, query: queryStr, hash: hashStr };
 }
 
-// findLinkId finds the highest priority link ID for the given path segments and a collection of
-// links.
+/**
+ * findLinkId finds the earliest occurring link ID in given collection of links
+ * for the given relative pathname segments.
+ */
 export function findLinkId<ID extends string>(
   segments: string[],
   subCollection: Record<ID, string>,
