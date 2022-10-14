@@ -1,5 +1,104 @@
 import type { Officer } from '$lib/public/board/types';
-import { Tier } from '$lib/public/board/types';
+
+// TODO: Fix
+export const TIERS = {
+  President: {
+    id: 0,
+    index: 100,
+  },
+  'Vice President': {
+    id: 1,
+    index: 150,
+  },
+  Webmaster: {
+    id: 2,
+    index: 200,
+  },
+  Secretary: {
+    id: 3,
+    index: 250,
+  },
+  Treasurer: {
+    id: 4,
+    index: 300,
+  },
+  'Data Analyst': {
+    id: 5,
+    index: 350,
+  },
+  'Special Events Leader': {
+    id: 6,
+    index: 400,
+  },
+  'Special Events Officer': {
+    id: 7,
+    index: 450,
+  },
+  'Marketing Leader': {
+    id: 8,
+    index: 500,
+  },
+  Historian: {
+    id: 9,
+    index: 550,
+  },
+  'Event Coordinator': {
+    id: 10,
+    index: 600,
+  },
+  'Algo Leader': {
+    id: 11,
+    index: 650,
+  },
+  'Algo Officer': {
+    id: 12,
+    index: 700,
+  },
+  'Design Leader': {
+    id: 13,
+    index: 750,
+  },
+  'Design Project Manager': {
+    id: 14,
+    index: 800,
+  },
+  'Design Operations Manager': {
+    id: 15,
+    index: 850,
+  },
+  'Design Officer': {
+    id: 16,
+    index: 900,
+  },
+  'Dev Leader': {
+    id: 17,
+    index: 950,
+  },
+  'Dev Project Manager': {
+    id: 18,
+    index: 1000,
+  },
+  'Dev Officer': {
+    id: 19,
+    index: 1050,
+  },
+  'AI Leader': {
+    id: 20,
+    index: 1100,
+  },
+  'AI Officer': {
+    id: 21,
+    index: 1150,
+  },
+  'Nodebuds Officer': {
+    id: 22,
+    index: 1200,
+  },
+  'ICC Representative': {
+    id: 23,
+    index: 1250,
+  },
+};
 
 export const OFFICERS: Officer[] = [
   {
@@ -8,19 +107,19 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'Dev Officer',
-        tier: Tier.DEV_OFFICER,
+        tier: TIERS['Dev Officer'].id,
       },
       F21: {
         title: 'Algo Director',
-        tier: Tier.ALGO_LEADER,
+        tier: TIERS['Algo Leader'].id,
       },
       S22: {
         title: 'Algo President',
-        tier: Tier.ALGO_LEADER,
+        tier: TIERS['Algo Leader'].id,
       },
       F22: {
         title: 'Algo Team Lead',
-        tier: Tier.ALGO_LEADER,
+        tier: TIERS['Algo Leader'].id,
       },
     },
   },
@@ -30,7 +129,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'Secretary',
-        tier: Tier.SECRETARY,
+        tier: TIERS['Secretary'].id,
       },
     },
   },
@@ -40,7 +139,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       S22: {
         title: 'Dev Project Manager',
-        tier: Tier.DEV_PROJECT_MANAGER,
+        tier: TIERS['Dev Project Manager'].id,
       },
     },
   },
@@ -50,15 +149,15 @@ export const OFFICERS: Officer[] = [
     positions: {
       F21: {
         title: 'nodebuds Officer',
-        tier: Tier.NODEBUDS_OFFICER,
+        tier: TIERS['Nodebuds Officer'].id,
       },
       S22: {
         title: 'Algo Officer, nodebuds Officer',
-        tier: Tier.NODEBUDS_OFFICER,
+        tier: TIERS['Nodebuds Officer'].id,
       },
       F22: {
         title: 'Algo Officer',
-        tier: Tier.ALGO_OFFICER,
+        tier: TIERS['Algo Officer'].id,
       },
     },
   },
@@ -68,7 +167,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       F21: {
         title: 'Dev Officer',
-        tier: Tier.DEV_OFFICER,
+        tier: TIERS['Dev Officer'].id,
       },
     },
   },
@@ -82,11 +181,11 @@ export const OFFICERS: Officer[] = [
     positions: {
       S22: {
         title: 'Create Officer',
-        tier: Tier.DESIGN_OFFICER,
+        tier: TIERS['Design Officer'].id,
       },
       F22: {
         title: 'Design Team Lead',
-        tier: Tier.DESIGN_LEADER,
+        tier: TIERS['Design Leader'].id,
       },
     },
   },
@@ -96,19 +195,19 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'Dev Officer',
-        tier: Tier.DEV_OFFICER,
+        tier: TIERS['Dev Officer'].id,
       },
       F21: {
         title: 'Dev Director',
-        tier: Tier.DESIGN_LEADER,
+        tier: TIERS['Dev Leader'].id,
       },
       S22: {
         title: 'Dev President',
-        tier: Tier.DEV_LEADER,
+        tier: TIERS['Dev Leader'].id,
       },
       F22: {
         title: 'Marketing Co-Lead',
-        tier: Tier.MARKETING_LEADER,
+        tier: TIERS['Marketing Leader'].id,
       },
     },
   },
@@ -123,19 +222,19 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'Webmaster',
-        tier: Tier.WEBMASTER,
+        tier: TIERS['Webmaster'].id,
       },
       F21: {
         title: 'Webmaster',
-        tier: Tier.WEBMASTER,
+        tier: TIERS['Webmaster'].id,
       },
       S22: {
         title: 'Webmaster',
-        tier: Tier.WEBMASTER,
+        tier: TIERS['Webmaster'].id,
       },
       F22: {
         title: 'Vice President/Webmaster',
-        tier: Tier.VICE_PRESIDENT,
+        tier: TIERS['Vice President'].id,
       },
     },
   },
@@ -145,7 +244,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'Algo Officer',
-        tier: Tier.ALGO_OFFICER,
+        tier: TIERS['Algo Officer'].id,
       },
     },
   },
@@ -158,11 +257,11 @@ export const OFFICERS: Officer[] = [
     positions: {
       S22: {
         title: 'Dev Project Manager',
-        tier: Tier.DEV_PROJECT_MANAGER,
+        tier: TIERS['Dev Project Manager'].id,
       },
       F22: {
         title: 'Special Events Officer',
-        tier: Tier.SPECIAL_EVENTS_OFFICER,
+        tier: TIERS['Special Events Officer'].id,
       },
     },
   },
@@ -172,7 +271,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'nodebuds Officer',
-        tier: Tier.NODEBUDS_OFFICER,
+        tier: TIERS['Nodebuds Officer'].id,
       },
     },
   },
@@ -182,11 +281,11 @@ export const OFFICERS: Officer[] = [
     positions: {
       S22: {
         title: 'Marketing Director',
-        tier: Tier.MARKETING_LEADER,
+        tier: TIERS['Marketing Leader'].id,
       },
       F22: {
         title: 'Marketing Co-Lead',
-        tier: Tier.MARKETING_LEADER,
+        tier: TIERS['Marketing Leader'].id,
       },
     },
   },
@@ -196,7 +295,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'Create Officer',
-        tier: Tier.DESIGN_OFFICER,
+        tier: TIERS['Design Officer'].id,
       },
     },
   },
@@ -206,7 +305,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'ICC Representative',
-        tier: Tier.SECRETARY,
+        tier: TIERS['ICC Representative'].id,
       },
     },
   },
@@ -216,7 +315,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       S22: {
         title: 'Algo Officer',
-        tier: Tier.ALGO_OFFICER,
+        tier: TIERS['Algo Officer'].id,
       },
     },
   },
@@ -226,7 +325,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       S22: {
         title: 'Secretary',
-        tier: Tier.SECRETARY,
+        tier: TIERS['Secretary'].id,
       },
     },
   },
@@ -236,11 +335,11 @@ export const OFFICERS: Officer[] = [
     positions: {
       S22: {
         title: 'Dev Officer',
-        tier: Tier.DEV_OFFICER,
+        tier: TIERS['Dev Officer'].id,
       },
       F22: {
         title: 'Algo Officer',
-        tier: Tier.ALGO_OFFICER,
+        tier: TIERS['Algo Officer'].id,
       },
     },
   },
@@ -250,7 +349,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       F21: {
         title: 'Dev Officer',
-        tier: Tier.DEV_OFFICER,
+        tier: TIERS['Dev Officer'].id,
       },
     },
   },
@@ -260,7 +359,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'Treasurer',
-        tier: Tier.TREASURER,
+        tier: TIERS['Treasurer'].id,
       },
     },
   },
@@ -270,7 +369,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       S22: {
         title: 'Dev Officer',
-        tier: Tier.DEV_OFFICER,
+        tier: TIERS['Dev Officer'].id,
       },
     },
   },
@@ -280,7 +379,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       S22: {
         title: 'Data Analyst',
-        tier: Tier.DATA_ANALYST,
+        tier: TIERS['Data Analyst'].id,
       },
     },
   },
@@ -290,11 +389,11 @@ export const OFFICERS: Officer[] = [
     positions: {
       F21: {
         title: 'Treasurer',
-        tier: Tier.TREASURER,
+        tier: TIERS['Treasurer'].id,
       },
       S22: {
         title: 'Treasurer',
-        tier: Tier.TREASURER,
+        tier: TIERS['Treasurer'].id,
       },
     },
   },
@@ -304,15 +403,15 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'nodebuds Officer',
-        tier: Tier.NODEBUDS_OFFICER,
+        tier: TIERS['Nodebuds Officer'].id,
       },
       F21: {
         title: 'nodebuds Officer',
-        tier: Tier.NODEBUDS_OFFICER,
+        tier: TIERS['Nodebuds Officer'].id,
       },
       S22: {
         title: 'nodebuds Officer',
-        tier: Tier.NODEBUDS_OFFICER,
+        tier: TIERS['Nodebuds Officer'].id,
       },
     },
   },
@@ -322,7 +421,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       S22: {
         title: 'Historian',
-        tier: Tier.HISTORIAN,
+        tier: TIERS['Historian'].id,
       },
     },
   },
@@ -332,19 +431,19 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'Internal Vice President, nodebuds Officer',
-        tier: Tier.VICE_PRESIDENT,
+        tier: TIERS['Vice President'].id,
       },
       F21: {
         title: 'President, nodebuds Officer',
-        tier: Tier.PRESIDENT,
+        tier: TIERS['President'].id,
       },
       S22: {
         title: 'President, nodebuds Officer',
-        tier: Tier.PRESIDENT,
+        tier: TIERS['President'].id,
       },
       F22: {
         title: 'Special Events Team Lead',
-        tier: Tier.SPECIAL_EVENTS_LEADER,
+        tier: TIERS['Special Events Leader'].id,
       },
     },
   },
@@ -354,7 +453,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'Workshop Manager',
-        tier: Tier.DEV_PROJECT_MANAGER,
+        tier: TIERS['Dev Project Manager'].id,
       },
     },
   },
@@ -364,7 +463,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'nodebuds Officer',
-        tier: Tier.NODEBUDS_OFFICER,
+        tier: TIERS['Nodebuds Officer'].id,
       },
     },
   },
@@ -374,15 +473,15 @@ export const OFFICERS: Officer[] = [
     positions: {
       F21: {
         title: 'Dev Officer',
-        tier: Tier.DEV_OFFICER,
+        tier: TIERS['Dev Officer'].id,
       },
       S22: {
         title: 'Dev Officer',
-        tier: Tier.DEV_OFFICER,
+        tier: TIERS['Dev Officer'].id,
       },
       F22: {
         title: 'Design Officer',
-        tier: Tier.DESIGN_OFFICER,
+        tier: TIERS['Design Officer'].id,
       },
     },
   },
@@ -392,11 +491,11 @@ export const OFFICERS: Officer[] = [
     positions: {
       F21: {
         title: 'Create Officer',
-        tier: Tier.DESIGN_OFFICER,
+        tier: TIERS['Design Officer'].id,
       },
       S22: {
         title: 'Create Officer',
-        tier: Tier.DESIGN_OFFICER,
+        tier: TIERS['Design Officer'].id,
       },
     },
   },
@@ -406,7 +505,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'nodebuds Officer',
-        tier: Tier.NODEBUDS_OFFICER,
+        tier: TIERS['Nodebuds Officer'].id,
       },
     },
   },
@@ -416,7 +515,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       F21: {
         title: 'Create Officer',
-        tier: Tier.DESIGN_OFFICER,
+        tier: TIERS['Design Officer'].id,
       },
     },
   },
@@ -426,11 +525,11 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'President, Create Director, nodebuds Officer',
-        tier: Tier.PRESIDENT,
+        tier: TIERS['President'].id,
       },
       F22: {
         title: 'Treasurer',
-        tier: Tier.TREASURER,
+        tier: TIERS['Treasurer'].id,
       },
     },
   },
@@ -440,15 +539,15 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'nodebuds Officer',
-        tier: Tier.NODEBUDS_OFFICER,
+        tier: TIERS['Nodebuds Officer'].id,
       },
       F21: {
         title: 'nodebuds Officer',
-        tier: Tier.NODEBUDS_OFFICER,
+        tier: TIERS['Nodebuds Officer'].id,
       },
       S22: {
         title: 'nodebuds Officer',
-        tier: Tier.NODEBUDS_OFFICER,
+        tier: TIERS['Nodebuds Officer'].id,
       },
     },
   },
@@ -458,11 +557,11 @@ export const OFFICERS: Officer[] = [
     positions: {
       S22: {
         title: 'Create Project Developer',
-        tier: Tier.DESIGN_PROJECT_MANAGER,
+        tier: TIERS['Design Project Manager'].id,
       },
       F22: {
         title: 'Design Officer',
-        tier: Tier.DESIGN_OFFICER,
+        tier: TIERS['Design Officer'].id,
       },
     },
   },
@@ -472,15 +571,15 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'Create Officer',
-        tier: Tier.DESIGN_OFFICER,
+        tier: TIERS['Design Officer'].id,
       },
       F21: {
         title: 'Create Director, Marketing Chair',
-        tier: Tier.DESIGN_LEADER,
+        tier: TIERS['Design Leader'].id,
       },
       S22: {
         title: 'Create President',
-        tier: Tier.DESIGN_LEADER,
+        tier: TIERS['Design Leader'].id,
       },
     },
   },
@@ -490,11 +589,11 @@ export const OFFICERS: Officer[] = [
     positions: {
       S22: {
         title: 'Event Coordinator',
-        tier: Tier.EVENT_COORDINATOR,
+        tier: TIERS['Event Coordinator'].id,
       },
       F22: {
         title: 'Event Coordinator',
-        tier: Tier.EVENT_COORDINATOR,
+        tier: TIERS['Event Coordinator'].id,
       },
     },
   },
@@ -504,7 +603,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'Marketing Chair',
-        tier: Tier.MARKETING_LEADER,
+        tier: TIERS['Marketing Leader'].id,
       },
     },
   },
@@ -514,7 +613,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'Intern Program Manager',
-        tier: Tier.DEV_PROJECT_MANAGER,
+        tier: TIERS['Nodebuds Officer'].id,
       },
     },
   },
@@ -524,7 +623,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'Vice President, Dev Director',
-        tier: Tier.VICE_PRESIDENT,
+        tier: TIERS['Vice President'].id,
       },
     },
   },
@@ -534,7 +633,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'Algo Director',
-        tier: Tier.ALGO_LEADER,
+        tier: TIERS['Algo Leader'].id,
       },
     },
   },
@@ -544,7 +643,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'Algo Officer',
-        tier: Tier.ALGO_OFFICER,
+        tier: TIERS['Algo Officer'].id,
       },
     },
   },
@@ -554,11 +653,11 @@ export const OFFICERS: Officer[] = [
     positions: {
       S22: {
         title: 'Algo Officer',
-        tier: Tier.ALGO_OFFICER,
+        tier: TIERS['Algo Officer'].id,
       },
       F22: {
         title: 'AI Team Lead',
-        tier: Tier.AI_LEADER,
+        tier: TIERS['Algo Leader'].id,
       },
     },
   },
@@ -568,7 +667,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'Workshop Manager',
-        tier: Tier.DEV_PROJECT_MANAGER,
+        tier: TIERS['Dev Project Manager'].id,
       },
     },
   },
@@ -577,7 +676,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       F21: {
         title: 'Algo Officer',
-        tier: Tier.ALGO_OFFICER,
+        tier: TIERS['Algo Officer'].id,
       },
     },
     picture: 'alex-truong.webp',
@@ -588,11 +687,11 @@ export const OFFICERS: Officer[] = [
     positions: {
       S22: {
         title: 'Dev Project Manager',
-        tier: Tier.DEV_PROJECT_MANAGER,
+        tier: TIERS['Dev Project Manager'].id,
       },
       F22: {
         title: 'Dev Project Manager',
-        tier: Tier.DEV_PROJECT_MANAGER,
+        tier: TIERS['Dev Project Manager'].id,
       },
     },
   },
@@ -602,15 +701,15 @@ export const OFFICERS: Officer[] = [
     positions: {
       S21: {
         title: 'Community Manager',
-        tier: Tier.MARKETING_LEADER,
+        tier: TIERS['Nodebuds Officer'].id,
       },
       F21: {
         title: 'Create Officer',
-        tier: Tier.DESIGN_OFFICER,
+        tier: TIERS['Design Officer'].id,
       },
       S22: {
         title: 'Create Operations Manager',
-        tier: Tier.DESIGN_OPERATIONS_MANAGER,
+        tier: TIERS['Design Operations Manager'].id,
       },
     },
   },
@@ -620,15 +719,15 @@ export const OFFICERS: Officer[] = [
     positions: {
       F21: {
         title: 'Vice President',
-        tier: Tier.VICE_PRESIDENT,
+        tier: TIERS['Vice President'].id,
       },
       S22: {
         title: 'Vice President',
-        tier: Tier.VICE_PRESIDENT,
+        tier: TIERS['Vice President'].id,
       },
       F22: {
         title: 'President',
-        tier: Tier.PRESIDENT,
+        tier: TIERS['President'].id,
       },
     },
   },
@@ -638,7 +737,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       F21: {
         title: 'Dev Project Manager',
-        tier: Tier.DEV_PROJECT_MANAGER,
+        tier: TIERS['Dev Project Manager'].id,
       },
     },
   },
@@ -648,11 +747,11 @@ export const OFFICERS: Officer[] = [
     positions: {
       S22: {
         title: 'Historian',
-        tier: Tier.HISTORIAN,
+        tier: TIERS['Historian'].id,
       },
       F22: {
         title: 'Historian',
-        tier: Tier.HISTORIAN,
+        tier: TIERS['Historian'].id,
       },
     },
   },
@@ -662,7 +761,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       F22: {
         title: 'Design Officer',
-        tier: Tier.DESIGN_OFFICER,
+        tier: TIERS['Design Officer'].id,
       },
     },
   },
@@ -672,7 +771,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       F22: {
         title: 'Dev Officer',
-        tier: Tier.DEV_OFFICER,
+        tier: TIERS['Dev Officer'].id,
       },
     },
   },
@@ -682,7 +781,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       F22: {
         title: 'Dev Team Lead',
-        tier: Tier.DEV_LEADER,
+        tier: TIERS['Dev Leader'].id,
       },
     },
   },
@@ -692,7 +791,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       F22: {
         title: 'AI Officer',
-        tier: Tier.AI_OFFICER,
+        tier: TIERS['AI Officer'].id,
       },
     },
   },
@@ -702,7 +801,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       F22: {
         title: 'AI Officer',
-        tier: Tier.AI_OFFICER,
+        tier: TIERS['AI Officer'].id,
       },
     },
   },
@@ -712,7 +811,7 @@ export const OFFICERS: Officer[] = [
     positions: {
       F22: {
         title: 'AI Officer',
-        tier: Tier.AI_OFFICER,
+        tier: TIERS['AI Officer'].id,
       },
     },
   },
