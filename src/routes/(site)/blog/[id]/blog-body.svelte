@@ -12,9 +12,16 @@
   .blog-body {
     text-align: left;
 
-    :global(p) {
-      margin-bottom: 16px;
+    :global(p),
+    :global(h1),
+    :global(h2),
+    :global(h3),
+    :global(h4),
+    :global(h5),
+    :global(h6) {
+      margin: 1.5rem 0 0.5rem;
     }
+
     :global(code),
     :global(pre) {
       font-family: monospace;
@@ -24,13 +31,25 @@
       overflow: auto;
       margin: 0.5em 0;
     }
+
     :global(pre) {
       padding: 16px;
     }
+
     :global(code) {
       border-radius: 0.3em;
       padding: 0.1em 0.5em;
       margin: 0 0.3em;
+    }
+
+    :global(ul),
+    :global(ol) {
+      margin: 1.5rem 0 0.5rem;
+      padding-left: 1.5rem;
+    }
+
+    :global(hr) {
+      margin: 2rem 0;
     }
   }
 </style>
