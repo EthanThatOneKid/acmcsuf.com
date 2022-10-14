@@ -346,7 +346,11 @@ export function makeClubEvent(
 
   const summary = produceSummary(title, description, selfLink);
 
-  const rawAcmPath = variables.get('ACM_PATH')?.toLowerCase();
+  /**
+   * ACM_TEAM is a preserved variable for the team that is hosting the event.
+   * ACM_TEAM takes precedence over ACM_PATH since ACM_PATH is deprecated.
+   */
+  const rawAcmPath = (variables.get('ACM_TEAM') || variables.get('ACM_PATH'))?.toLowerCase();
 
   let acmPath = acmGeneral;
   if (rawAcmPath === acmAlgo.slug) acmPath = acmAlgo;
