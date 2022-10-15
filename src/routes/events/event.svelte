@@ -1,6 +1,5 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { slide } from 'svelte/transition';
   import type { ClubEvent } from '$lib/public/events/event';
   import { toast, ToastType } from '$lib/components/toaster/toasts';
   import CopyLink from '$lib/components/svg/copy-link.svelte';
@@ -13,7 +12,6 @@
   let isRecurring: boolean = info.recurring;
   let anchor: HTMLElement;
   let details: HTMLDetailsElement;
-  let shown = false;
 
   /** @see <https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText> */
   function copy(link: string, successMessage: string, errorMessage: string, path: string) {
@@ -49,12 +47,7 @@
   <!-- Workaround for the top panel covering the event card's anchor. -->
   <div class="anchor" id={info.slug} bind:this={anchor} />
   <details class="event-card" bind:this={details}>
-    <summary
-      class="event-body"
-      on:click={() => {
-        shown = !shown;
-      }}
-    >
+    <summary class="event-body">
       <div class="event-name">
         <h2 class="headers">
           {info.title}
@@ -79,11 +72,9 @@
         href={info.meetingLink}
         role="button"
         target="_blank"
-        rel="noopener noreferrer"
-        on:click={(/* janky hack */) => {
-          shown = !shown;
-        }}>Join</a
+        rel="noopener noreferrer">Join</a
       >
+      <hr />
     </summary>
 
     <noscript>
@@ -91,12 +82,9 @@
         {@html info.description}
       </p>
     </noscript>
-
-    {#if shown}
-      <p class="event-description" transition:slide>
-        {@html info.description}
-      </p>
-    {/if}
+    <p class="event-description">
+      {@html info.description}
+    </p>
 
     <div class="event-actionbar">
       <button
@@ -188,6 +176,25 @@
     border: 2px solid rgb(var(--highlights, --acm-general-rgb));
   }
 
+  .event-card[open] summary ~ * {
+    animation: open 0.5s ease-in;
+  }
+
+  @keyframes open {
+    0% {
+      opacity: 0;
+      margin-top: -60px;
+      transform: translateX(-10px);
+    }
+    30% {
+      margin-top: 24px;
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+
   .event-card:hover h2,
   .event-card[open] h2 {
     color: rgb(var(--highlights, --acm-general-rgb));
@@ -203,7 +210,7 @@
     border-color: var(--acm-dark);
     background-color: var(--acm-dark);
     opacity: 0.5;
-    margin: 24px 0;
+    // margin: 24px 0;
   }
 
   .event-card > hr,
