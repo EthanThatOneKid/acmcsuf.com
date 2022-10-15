@@ -1,6 +1,17 @@
 <script lang="ts">
   import { fly } from 'svelte/transition';
   import { toasts, ToastType } from './toasts';
+  import type { Toast } from './toasts';
+
+  function toastHighlightStyle(toast: Toast): string {
+    switch (toast.type) {
+      case ToastType.Error:
+        return `--error-rgb`;
+      case ToastType.Success:
+      default:
+        return `--acm-${toast.path}-rgb`;
+    }
+  }
 </script>
 
 <section>
@@ -9,10 +20,9 @@
       class="toast-item"
       class:error={toastItem.type === ToastType.Error}
       class:success={toastItem.type === ToastType.Success}
-      class:info={toastItem.type === ToastType.Info}
       in:fly={{ y: 20 }}
       out:fly={{ y: -20 }}
-      style:--highlights={`var(--acm-${toastItem.path}-rgb)`}
+      style:--highlights={`var(${toastHighlightStyle(toastItem)})`}
     >
       <img src="/assets/png/acm-shark.png" alt="acmCSUF Mascot: Frank the Shark" />
       <p>{@html toastItem.content}</p>
@@ -22,7 +32,6 @@
 
 <style>
   :root {
-    --success-rgb: 157, 231, 53;
     --error-rgb: 255, 67, 101;
     --info-rgb: 30, 108, 255;
   }

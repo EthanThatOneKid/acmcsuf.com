@@ -63,7 +63,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 16px;
+    /* More padding is added in .officer-container for the underline. */
+    gap: 12px;
 
     .container {
       width: 100%;

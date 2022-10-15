@@ -19,7 +19,7 @@
     "test:watch": "vitest",
     "test:size": "npm i && size-limit",
     "test:coverage": "vitest run --coverage",
-    "test:browser": "playwright test /tests",
+    "test:browser": "playwright test",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --compiler-warnings \"css-unused-selector:ignore,unused-export-let:error\"",
     "lint": "eslint . --fix",
     "format": "prettier --write .",
@@ -27,7 +27,7 @@
     "all": "npm run lint && npm run format && npm run check && npm run build && npm t"
   },
   "devDependencies": {
-    "@playwright/test": "^1.25.0",
+    "@playwright/test": "^1.27.1",
     "@size-limit/file": "^8.1.0",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
@@ -67,6 +67,7 @@
     "qrcode": "^1.5.1",
     "rrule": "^2.6.9",
     "rss": "^1.2.2",
-    "svelte-confetti": "^1.2.0"
+    "svelte-confetti": "^1.2.0",
+    "web-vitals": "^3.0.3"
   }
 }
