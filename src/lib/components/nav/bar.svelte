@@ -110,11 +110,11 @@
     .backdrop {
       position: absolute;
       top: 0;
-      left: 100vw;
+      left: -100vw;
       width: 100vw;
       height: 100vh;
       opacity: 0;
-      transition: all 0.25s ease-in-out;
+      background-color: var(--perma-dark);
     }
 
     .container {
@@ -284,12 +284,9 @@
       }
 
       & :checked ~ .backdrop {
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
+        animation: 0.25s ease-in slide-left;
         opacity: 0.7;
-        background-color: var(--perma-dark);
+        left: 0;
       }
 
       & :checked ~ .container {
@@ -314,6 +311,17 @@
           }
         }
       }
+    }
+  }
+
+  @keyframes slide-left {
+    0% {
+      opacity: 0;
+      left: -100vw;
+    }
+    100% {
+      opacity: 0.7;
+      left: 0;
     }
   }
 </style>
