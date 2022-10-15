@@ -74,7 +74,6 @@
         target="_blank"
         rel="noopener noreferrer">Join</a
       >
-      <hr />
     </summary>
 
     <noscript>
@@ -203,19 +202,6 @@
   .event-box > .anchor:target + .event-card {
     box-shadow: 0 6px 24px rgba(var(--highlights, --acm-general-rgb), 0.75);
     border: 2px solid rgb(var(--highlights, --acm-general-rgb));
-  }
-
-  .event-card hr {
-    border-width: 1px;
-    border-color: var(--acm-dark);
-    background-color: var(--acm-dark);
-    opacity: 0.5;
-    // margin: 24px 0;
-  }
-
-  .event-card > hr,
-  .event-description {
-    margin: 0 30px;
   }
 
   .event-body {
