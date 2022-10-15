@@ -319,9 +319,11 @@
       opacity: 0;
       left: -100vw;
     }
+    1% {
+      left: 0;
+    }
     100% {
       opacity: 0.7;
-      left: 0;
     }
   }
 </style>
