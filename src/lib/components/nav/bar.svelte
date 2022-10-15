@@ -109,7 +109,7 @@
 
     .backdrop {
       position: absolute;
-      top: 100vh;
+      top: 0;
       left: 100vw;
       width: 100vw;
       height: 100vh;
@@ -135,6 +135,7 @@
             height: 64px;
             width: auto;
             filter: drop-shadow(0 1.5px 4.5px rgba(44, 145, 198, 0.5));
+            z-index: -1;
           }
 
           h3 {
