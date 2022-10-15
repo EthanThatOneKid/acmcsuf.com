@@ -36,6 +36,7 @@
     "@types/rss": "^0.0.29",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
+    "@vitest/coverage-c8": "^0.24.0",
     "discord.js": "^13.6.0",
     "dotenv": "^16.0.2",
     "eslint": "^8.16.0",
