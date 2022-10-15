@@ -17,8 +17,6 @@ export enum TeamMatch {
 
 export interface Choice {
   content: string;
-  // Where color is a valid HTML color
-  color: string;
   // Where the choice is an index number for use in quiz.svelte
   // ai => 0, dev => 1, design => 2, algo => 3, N/A => 4
   match: TeamMatch;
