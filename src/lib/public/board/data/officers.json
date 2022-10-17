@@ -12,7 +12,7 @@
   {
     "fullName": "Jason Anthony",
     "picture": "jason-anthony.webp",
-    "positions": { "S21": { "title": "Secretary", "tier": 3 } }
+    "positions": { "S21": { "title": "Secretary", "tier": 4 } }
   },
   {
     "fullName": "Angel Armendariz",
@@ -49,7 +49,7 @@
       "S21": { "title": "Dev Officer", "tier": 19 },
       "F21": { "title": "Dev Director", "tier": 17 },
       "S22": { "title": "Dev President", "tier": 17 },
-      "F22": { "title": "Marketing Co-Lead", "tier": 8 }
+      "F22": { "title": "Marketing Co-Lead", "tier": 9 }
     }
   },
   {
@@ -90,8 +90,8 @@
     "fullName": "Nurhaliza Hassan",
     "picture": "nurhaliza-hassan.webp",
     "positions": {
-      "S22": { "title": "Marketing Director", "tier": 8 },
-      "F22": { "title": "Marketing Co-Lead", "tier": 8 }
+      "S22": { "title": "Marketing Director", "tier": 9 },
+      "F22": { "title": "Marketing Co-Lead", "tier": 9 }
     }
   },
   {
@@ -112,7 +112,7 @@
   {
     "fullName": "Ibrahim Israr",
     "picture": "ibrahim-israr.webp",
-    "positions": { "S22": { "title": "Secretary", "tier": 3 } }
+    "positions": { "S22": { "title": "Secretary", "tier": 4 } }
   },
   {
     "fullName": "Joel Anil John",
@@ -130,7 +130,7 @@
   {
     "fullName": "Andrew Lau",
     "picture": "andrew-lau.webp",
-    "positions": { "S21": { "title": "Treasurer", "tier": 4 } }
+    "positions": { "S21": { "title": "Treasurer", "tier": 3 } }
   },
   {
     "fullName": "Minh Le",
@@ -146,8 +146,8 @@
     "fullName": "Tommy Le",
     "picture": "tommy-le.webp",
     "positions": {
-      "F21": { "title": "Treasurer", "tier": 4 },
-      "S22": { "title": "Treasurer", "tier": 4 }
+      "F21": { "title": "Treasurer", "tier": 3 },
+      "S22": { "title": "Treasurer", "tier": 3 }
     }
   },
   {
@@ -162,7 +162,7 @@
   {
     "fullName": "Nolan Lee",
     "picture": "nolan-lee.webp",
-    "positions": { "S22": { "title": "Historian", "tier": 9 } }
+    "positions": { "S22": { "title": "Historian", "tier": 10 } }
   },
   {
     "fullName": "Aaron Lieberman",
@@ -216,7 +216,7 @@
     "picture": "jacob-nguyen.webp",
     "positions": {
       "S21": { "title": "President, Create Director, nodebuds Officer", "tier": 0 },
-      "F22": { "title": "Treasurer", "tier": 4 }
+      "F22": { "title": "Treasurer", "tier": 3 }
     }
   },
   {
@@ -249,19 +249,19 @@
     "fullName": "Stephanie Pocci",
     "picture": "stephanie-pocci.webp",
     "positions": {
-      "S22": { "title": "Event Coordinator", "tier": 10 },
-      "F22": { "title": "Event Coordinator", "tier": 10 }
+      "S22": { "title": "Event Coordinator", "tier": 8 },
+      "F22": { "title": "Event Coordinator", "tier": 8 }
     }
   },
   {
     "fullName": "Nicolas Renteria",
     "picture": "nicolas-renteria.webp",
-    "positions": { "S21": { "title": "Marketing Chair", "tier": 8 } }
+    "positions": { "S21": { "title": "Marketing Chair", "tier": 9 } }
   },
   {
     "fullName": "Wilbert Rodriguez",
     "picture": "wilbert-rodriguez.webp",
-    "positions": { "S21": { "title": "Intern Program Manager", "tier": 22 } }
+    "positions": { "S21": { "title": "Intern Program Manager", "tier": 23 } }
   },
   {
     "fullName": "Samuel Sandoval",
@@ -283,7 +283,7 @@
     "picture": "justin-stitt.webp",
     "positions": {
       "S22": { "title": "Algo Officer", "tier": 12 },
-      "F22": { "title": "AI Team Lead", "tier": 11 }
+      "F22": { "title": "AI Team Lead", "tier": 20 }
     }
   },
   {
@@ -308,7 +308,7 @@
     "fullName": "Samuel Valls",
     "picture": "samuel-valls.webp",
     "positions": {
-      "S21": { "title": "Community Manager", "tier": 22 },
+      "S21": { "title": "Community Manager", "tier": 23 },
       "F21": { "title": "Create Officer", "tier": 16 },
       "S22": { "title": "Create Operations Manager", "tier": 15 }
     }
@@ -331,8 +331,8 @@
     "fullName": "Jason Wong",
     "picture": "jason-wong.webp",
     "positions": {
-      "S22": { "title": "Historian", "tier": 9 },
-      "F22": { "title": "Historian", "tier": 9 }
+      "S22": { "title": "Historian", "tier": 10 },
+      "F22": { "title": "Historian", "tier": 10 }
     }
   },
   {
