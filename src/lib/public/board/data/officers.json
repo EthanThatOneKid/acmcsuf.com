@@ -23,8 +23,8 @@
     "fullName": "Sami Bajwa",
     "picture": "sami-bajwa.webp",
     "positions": {
-      "F21": { "title": "nodebuds Officer", "tier": 22 },
-      "S22": { "title": "Algo Officer, nodebuds Officer", "tier": 22 },
+      "F21": { "title": "Nodebuds Officer", "tier": 22 },
+      "S22": { "title": "Algo Officer, Nodebuds Officer", "tier": 22 },
       "F22": { "title": "Algo Officer", "tier": 12 }
     }
   },
@@ -84,7 +84,7 @@
   {
     "fullName": "Eduardo Gomez",
     "picture": "eduardo-gomez.webp",
-    "positions": { "S21": { "title": "nodebuds Officer", "tier": 22 } }
+    "positions": { "S21": { "title": "Nodebuds Officer", "tier": 22 } }
   },
   {
     "fullName": "Nurhaliza Hassan",
@@ -154,9 +154,9 @@
     "fullName": "Eugene Lee",
     "picture": "eugene-lee.webp",
     "positions": {
-      "S21": { "title": "nodebuds Officer", "tier": 22 },
-      "F21": { "title": "nodebuds Officer", "tier": 22 },
-      "S22": { "title": "nodebuds Officer", "tier": 22 }
+      "S21": { "title": "Nodebuds Officer", "tier": 22 },
+      "F21": { "title": "Nodebuds Officer", "tier": 22 },
+      "S22": { "title": "Nodebuds Officer", "tier": 22 }
     }
   },
   {
@@ -168,9 +168,9 @@
     "fullName": "Aaron Lieberman",
     "picture": "aaron-lieberman.webp",
     "positions": {
-      "S21": { "title": "Internal Vice President, nodebuds Officer", "tier": 1 },
-      "F21": { "title": "President, nodebuds Officer", "tier": 0 },
-      "S22": { "title": "President, nodebuds Officer", "tier": 0 },
+      "S21": { "title": "Internal Vice President, Nodebuds Officer", "tier": 1 },
+      "F21": { "title": "President, Nodebuds Officer", "tier": 0 },
+      "S22": { "title": "President, Nodebuds Officer", "tier": 0 },
       "F22": { "title": "Special Events Team Lead", "tier": 6 }
     }
   },
@@ -182,7 +182,7 @@
   {
     "fullName": "Ean McGilvery",
     "picture": "ean-mcgilvery.webp",
-    "positions": { "S21": { "title": "nodebuds Officer", "tier": 22 } }
+    "positions": { "S21": { "title": "Nodebuds Officer", "tier": 22 } }
   },
   {
     "fullName": "Jorge Mejia",
@@ -204,7 +204,7 @@
   {
     "fullName": "Dalisa Nguyen",
     "picture": "dalisa-nguyen.webp",
-    "positions": { "S21": { "title": "nodebuds Officer", "tier": 22 } }
+    "positions": { "S21": { "title": "Nodebuds Officer", "tier": 22 } }
   },
   {
     "fullName": "Kayla Nguyen",
@@ -215,7 +215,7 @@
     "fullName": "Jacob Nguyen",
     "picture": "jacob-nguyen.webp",
     "positions": {
-      "S21": { "title": "President, Create Director, nodebuds Officer", "tier": 0 },
+      "S21": { "title": "President, Create Director, Nodebuds Officer", "tier": 0 },
       "F22": { "title": "Treasurer", "tier": 3 }
     }
   },
@@ -223,9 +223,9 @@
     "fullName": "Taylor Noh",
     "picture": "taylor-noh.webp",
     "positions": {
-      "S21": { "title": "nodebuds Officer", "tier": 22 },
-      "F21": { "title": "nodebuds Officer", "tier": 22 },
-      "S22": { "title": "nodebuds Officer", "tier": 22 }
+      "S21": { "title": "Nodebuds Officer", "tier": 22 },
+      "F21": { "title": "Nodebuds Officer", "tier": 22 },
+      "S22": { "title": "Nodebuds Officer", "tier": 22 }
     }
   },
   {
