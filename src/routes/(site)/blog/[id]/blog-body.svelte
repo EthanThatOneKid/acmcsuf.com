@@ -26,10 +26,15 @@
     :global(pre) {
       font-family: monospace;
       font-size: 1.2em;
-      background-color: var(--acm-canvas);
+      background-color: (--acm-canvas);
       border-radius: 0.5em;
       overflow: auto;
       margin: 0.5em 0;
+    }
+
+    :global(pre):hover {
+      cursor: pointer;
+      background-color: #424141;
     }
 
     :global(blockquote) {

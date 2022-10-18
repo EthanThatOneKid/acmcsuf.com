@@ -5,8 +5,22 @@
   import { Temporal } from '@js-temporal/polyfill';
   import Labels from '$lib/components/blog/labels.svelte';
   import BlogBody from './blog-body.svelte';
-
+  import { onMount } from 'svelte';
+  import { toast, ToastType } from '$lib/components/toaster/toasts';
   export let data: PageData;
+  onMount(() => {
+    document.body.addEventListener('click', (event: any) => {
+      if (event.target.matches('pre')) {
+        let content = event.target.parentElement.attributes.getNamedItem(
+          'data-snippet-clipboard-copy-content'
+        ).value;
+        navigator.clipboard
+          .writeText(content)
+          .then(() => toast({ content: 'Copied' }))
+          .catch(() => toast({ type: ToastType.Error, content: 'Failed to copy' }));
+      }
+    });
+  });
 </script>
 
 <svelte:head>
