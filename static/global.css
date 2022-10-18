@@ -13,6 +13,7 @@
   --acm-red: #d41153;
   --acm-sky: #38b6ff;
   --acm-canvas: #eaeaea;
+  --acm-codeblock-hover: #eaeaea;
 
   --acm-general-rgb: 44, 145, 198;
   --acm-algo-rgb: 157, 53, 231;
@@ -148,6 +149,7 @@ body {
   --acm-dark: #101315;
   --acm-light: #f8f8f8;
   --acm-canvas: #eaeaea;
+  --acm-codeblock-hover: #bababa;
   --navbar-bg: var(--acm-light);
   --footer-bg: var(--acm-dark);
   --card-bg: var(--acm-light);
@@ -159,6 +161,7 @@ body {
   --acm-dark: #f8f8f8;
   --acm-light: #101315;
   --acm-canvas: #161b22;
+  --acm-codeblock-hover: #eaeaea;
   --navbar-bg: var(--acm-light);
   --footer-bg: var(--acm-gray);
   --card-bg: var(--acm-gray);
@@ -171,6 +174,7 @@ body {
     --acm-dark: #101315;
     --acm-light: #f8f8f8;
     --acm-canvas: #eaeaea;
+    --acm-codeblock-hover: #eaeaea;
     --navbar-bg: var(--acm-light);
     --footer-bg: var(--acm-dark);
     --card-bg: var(--acm-light);
@@ -184,6 +188,7 @@ body {
     --acm-dark: #f8f8f8;
     --acm-light: #101315;
     --acm-canvas: #161b22;
+    --acm-codeblock-hover: #424141;
     --navbar-bg: var(--acm-light);
     --footer-bg: var(--acm-gray);
     --card-bg: var(--acm-gray);

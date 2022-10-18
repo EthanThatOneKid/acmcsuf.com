@@ -26,7 +26,7 @@
     :global(pre) {
       font-family: monospace;
       font-size: 1.2em;
-      background-color: (--acm-canvas);
+      background-color: var(--acm-canvas);
       border-radius: 0.5em;
       overflow: auto;
       margin: 0.5em 0;
@@ -34,7 +34,7 @@
 
     :global(pre):hover {
       cursor: pointer;
-      background-color: #424141;
+      background-color: var(--acm-codeblock-hover);
     }
 
     :global(blockquote) {
