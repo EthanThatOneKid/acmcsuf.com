@@ -9,17 +9,19 @@
   import { toast, ToastType } from '$lib/components/toaster/toasts';
   export let data: PageData;
   onMount(() => {
-    document.body.addEventListener('click', (event: any) => {
-      if (event.target.matches('pre')) {
-        let content = event.target.parentElement.attributes.getNamedItem(
+    const copyBtns = document.querySelectorAll('.copy-code');
+    for (let i = 0; i < copyBtns.length; i++) {
+      copyBtns[i].addEventListener('click', (event: any) => {
+        console.log(event.target);
+        let content = event.target.offsetParent.attributes.getNamedItem(
           'data-snippet-clipboard-copy-content'
         ).value;
         navigator.clipboard
           .writeText(content)
           .then(() => toast({ content: 'Copied' }))
           .catch(() => toast({ type: ToastType.Error, content: 'Failed to copy' }));
-      }
-    });
+      });
+    }
   });
 </script>
 
