@@ -39,7 +39,7 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Touch .env
+      - name: Copy .env from .env.example
         run: cp .env.example .env
 
       # checks for lint errors AND format errors
@@ -53,11 +53,8 @@ jobs:
         run: npx playwright install
 
       - name: Test
-        run: npm run test
+        run: npm t
 
       # info: https://etok.codes/acmcsuf.com/blob/main/CONTRIBUTING.md#npm-bloat
       - name: Test Dependency Size
         run: npm run test:size
-
-      - name: Build
-        run: npm run build
