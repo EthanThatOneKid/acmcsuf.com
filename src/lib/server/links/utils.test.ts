@@ -4,13 +4,15 @@ import { parseLinkId, parseLink, findLinkId } from './utils';
 const TEST_LINKS = {
   example: 'https://example.com',
   'example/abc': 'https://example.com/123/',
+  'example/xyz': '/example/789',
+  'example/double-redirect': '/example/xyz/456',
 };
 
 test('findLinkId finds the correct link ID', () => {
   expect(findLinkId(['example'], TEST_LINKS)).toBe('example');
   expect(findLinkId(['example', 'abc'], TEST_LINKS)).toBe('example/abc');
   expect(findLinkId(['example', 'abc', 'def'], TEST_LINKS)).toBe('example/abc');
-  expect(findLinkId(['example', 'xyz'], TEST_LINKS)).toBe('example');
+  expect(findLinkId(['example', 'unknown'], TEST_LINKS)).toBe('example');
 });
 
 const PARSE_LINK_TESTS: [string, ReturnType<typeof parseLink>][] = [
@@ -166,46 +168,196 @@ const PARSE_LINK_ID_TESTS: [string, ReturnType<typeof parseLinkId>][] = [
     },
   ],
   [
-    '/example/xyz',
+    '/example/path/to/greatness',
     {
       id: 'example',
-      relativePathname: '/xyz',
+      relativePathname: '/path/to/greatness',
       query: '',
       hash: '',
-      destination: 'https://example.com/xyz',
+      destination: 'https://example.com/path/to/greatness',
+    },
+  ],
+  [
+    '/example/path/to/greatness?foo=bar',
+    {
+      id: 'example',
+      relativePathname: '/path/to/greatness',
+      query: 'foo=bar',
+      hash: '',
+      destination: 'https://example.com/path/to/greatness?foo=bar',
+    },
+  ],
+  [
+    '/example/path/to/greatness?foo=bar&baz=qux',
+    {
+      id: 'example',
+      relativePathname: '/path/to/greatness',
+      query: 'foo=bar&baz=qux',
+      hash: '',
+      destination: 'https://example.com/path/to/greatness?foo=bar&baz=qux',
+    },
+  ],
+  [
+    '/example/path/to/greatness?foo=bar&baz=qux#hash',
+    {
+      id: 'example',
+      relativePathname: '/path/to/greatness',
+      query: 'foo=bar&baz=qux',
+      hash: 'hash',
+      destination: 'https://example.com/path/to/greatness?foo=bar&baz=qux#hash',
+    },
+  ],
+  ['/', undefined],
+  [
+    '/example/xyz',
+    {
+      id: 'example/xyz',
+      relativePathname: '',
+      query: '',
+      hash: '',
+      destination: 'https://example.com/789',
     },
   ],
   [
     '/example/xyz?foo=bar',
     {
-      id: 'example',
-      relativePathname: '/xyz',
+      id: 'example/xyz',
+      relativePathname: '',
       query: 'foo=bar',
       hash: '',
-      destination: 'https://example.com/xyz?foo=bar',
+      destination: 'https://example.com/789?foo=bar',
     },
   ],
   [
     '/example/xyz?foo=bar&baz=qux',
     {
-      id: 'example',
-      relativePathname: '/xyz',
+      id: 'example/xyz',
+      relativePathname: '',
       query: 'foo=bar&baz=qux',
       hash: '',
-      destination: 'https://example.com/xyz?foo=bar&baz=qux',
+      destination: 'https://example.com/789?foo=bar&baz=qux',
     },
   ],
   [
     '/example/xyz?foo=bar&baz=qux#hash',
     {
-      id: 'example',
-      relativePathname: '/xyz',
+      id: 'example/xyz',
+      relativePathname: '',
       query: 'foo=bar&baz=qux',
       hash: 'hash',
-      destination: 'https://example.com/xyz?foo=bar&baz=qux#hash',
+      destination: 'https://example.com/789?foo=bar&baz=qux#hash',
     },
   ],
-  ['/', undefined],
+  [
+    '/example/xyz#hash',
+    {
+      id: 'example/xyz',
+      relativePathname: '',
+      query: '',
+      hash: 'hash',
+      destination: 'https://example.com/789#hash',
+    },
+  ],
+  [
+    '/example/xyz/path/to/greatness',
+    {
+      id: 'example/xyz',
+      relativePathname: '/path/to/greatness',
+      query: '',
+      hash: '',
+      destination: 'https://example.com/789/path/to/greatness',
+    },
+  ],
+  [
+    '/example/xyz/path/to/greatness?foo=bar',
+    {
+      id: 'example/xyz',
+      relativePathname: '/path/to/greatness',
+      query: 'foo=bar',
+      hash: '',
+      destination: 'https://example.com/789/path/to/greatness?foo=bar',
+    },
+  ],
+  [
+    '/example/xyz/path/to/greatness?foo=bar&baz=qux',
+    {
+      id: 'example/xyz',
+      relativePathname: '/path/to/greatness',
+      query: 'foo=bar&baz=qux',
+      hash: '',
+      destination: 'https://example.com/789/path/to/greatness?foo=bar&baz=qux',
+    },
+  ],
+  [
+    '/example/xyz/path/to/greatness?foo=bar&baz=qux#hash',
+    {
+      id: 'example/xyz',
+      relativePathname: '/path/to/greatness',
+      query: 'foo=bar&baz=qux',
+      hash: 'hash',
+      destination: 'https://example.com/789/path/to/greatness?foo=bar&baz=qux#hash',
+    },
+  ],
+  [
+    '/example/xyz/path/to/greatness#hash',
+    {
+      id: 'example/xyz',
+      relativePathname: '/path/to/greatness',
+      query: '',
+      hash: 'hash',
+      destination: 'https://example.com/789/path/to/greatness#hash',
+    },
+  ],
+  [
+    '/example/double-redirect',
+    {
+      id: 'example/double-redirect',
+      relativePathname: '',
+      query: '',
+      hash: '',
+      destination: 'https://example.com/789/456',
+    },
+  ],
+  [
+    '/example/double-redirect?foo=bar',
+    {
+      id: 'example/double-redirect',
+      relativePathname: '',
+      query: 'foo=bar',
+      hash: '',
+      destination: 'https://example.com/789/456?foo=bar',
+    },
+  ],
+  [
+    '/example/double-redirect?foo=bar&baz=qux',
+    {
+      id: 'example/double-redirect',
+      relativePathname: '',
+      query: 'foo=bar&baz=qux',
+      hash: '',
+      destination: 'https://example.com/789/456?foo=bar&baz=qux',
+    },
+  ],
+  [
+    '/example/double-redirect?foo=bar&baz=qux#hash',
+    {
+      id: 'example/double-redirect',
+      relativePathname: '',
+      query: 'foo=bar&baz=qux',
+      hash: 'hash',
+      destination: 'https://example.com/789/456?foo=bar&baz=qux#hash',
+    },
+  ],
+  [
+    '/example/double-redirect#hash',
+    {
+      id: 'example/double-redirect',
+      relativePathname: '',
+      query: '',
+      hash: 'hash',
+      destination: 'https://example.com/789/456#hash',
+    },
+  ],
 ];
 
 test('parseLinkId parses known shortlinks', () => {
@@ -213,4 +365,32 @@ test('parseLinkId parses known shortlinks', () => {
     const out = parseLinkId(data, TEST_LINKS);
     expect(out, `failed on ${data}`).toStrictEqual(want);
   }
+});
+
+test('parseLinkId combines queries', () => {
+  expect(
+    parseLinkId('/example/abc?baz=qux', {
+      example: 'https://example.com?foo=bar',
+    })
+  ).toStrictEqual({
+    id: 'example',
+    relativePathname: '/abc',
+    query: 'baz=qux',
+    hash: '',
+    destination: 'https://example.com/abc?foo=bar&baz=qux',
+  });
+});
+
+test('parseLinkId overwrites hash', () => {
+  expect(
+    parseLinkId('/example/abc#overwrite_hash', {
+      example: 'https://example.com#default_hash',
+    })
+  ).toStrictEqual({
+    id: 'example',
+    relativePathname: '/abc',
+    query: '',
+    hash: 'overwrite_hash',
+    destination: 'https://example.com/abc#overwrite_hash',
+  });
 });

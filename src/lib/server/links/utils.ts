@@ -12,6 +12,7 @@ export function parseLink(url: string): ParsedLink {
 
   const queryBeginIdx = url.indexOf('?');
   let queryStr = '';
+
   if (queryBeginIdx !== -1) {
     queryStr = url.slice(queryBeginIdx + 1);
     url = url.slice(0, queryBeginIdx);
@@ -19,7 +20,7 @@ export function parseLink(url: string): ParsedLink {
 
   const relativePathnameStr = url
     .replace(/^\/+|\/+$/g, '')
-    .replace(/[^a-zA-Z0-9-/]/g, '')
+    .replace(/[^a-zA-Z0-9-:\./]/g, '')
     .toLowerCase();
 
   return { relativePathname: relativePathnameStr, query: queryStr, hash: hashStr };
@@ -57,15 +58,47 @@ export function parseLinkId<ID extends string>(
   subCollection: Record<ID, string>,
   separator = '/'
 ): Link<ID> | undefined {
+  if (!url.startsWith(separator)) return;
+
   const link = parseLink(url);
   const segments = link.relativePathname.split(separator);
   const id = findLinkId(segments, subCollection, separator);
   if (id === undefined) return;
 
-  const relativePathname = link.relativePathname.slice(id.length);
-  const { query, hash } = link;
+  const internalRedirect = parseLinkId(subCollection[id], subCollection, separator);
+
+  let query = link.query;
+  if (internalRedirect?.query) {
+    query = `${internalRedirect.query}&${query}`;
+  }
+
+  const hash = (link.hash || internalRedirect?.hash) ?? '';
+
+  let relativePathname = link.relativePathname.slice(id.length);
+  let precomputedDestination = subCollection[id];
+  if (internalRedirect) {
+    relativePathname = `${internalRedirect.relativePathname}${relativePathname}`;
+
+    precomputedDestination = internalRedirect.destination;
+    const lastQueryIndex = precomputedDestination.indexOf('?');
+    const lastHashIndex = precomputedDestination.indexOf('#');
+    if (lastQueryIndex !== -1 && lastHashIndex !== -1) {
+      precomputedDestination = precomputedDestination.slice(
+        0,
+        Math.min(lastQueryIndex, lastHashIndex)
+      );
+    } else if (lastQueryIndex !== -1) {
+      precomputedDestination = precomputedDestination.slice(0, lastQueryIndex);
+    } else if (lastHashIndex !== -1) {
+      precomputedDestination = precomputedDestination.slice(0, lastHashIndex);
+    }
+  }
+
   const destination =
-    subCollection[id] + relativePathname + (query ? `?${query}` : '') + (hash ? `#${hash}` : '');
+    precomputedDestination +
+    relativePathname +
+    (query ? `?${query}` : '') +
+    (hash ? `#${hash}` : '');
 
   return {
     id,
