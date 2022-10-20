@@ -84,7 +84,8 @@ function cacheBlogPosts(output: any): BlogPost[] {
     const officer = getOfficerByGhUsername(author.login);
     const authorUrl: string = author.url;
     const displayname: string = officer?.fullName ?? author.login;
-    const picture: string = author.avatarUrl ?? officer?.picture;
+    const picture: string =
+      author.avatarUrl ?? `/assets/authors/${officer?.picture || 'placeholder.webp'}`;
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const labels = discussion.labels.nodes.map(({ name }: any) => name);
