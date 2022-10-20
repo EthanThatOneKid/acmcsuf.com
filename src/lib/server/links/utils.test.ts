@@ -205,6 +205,7 @@ const PARSE_LINK_ID_TESTS: [string, ReturnType<typeof parseLinkId>][] = [
       destination: 'https://example.com/xyz?foo=bar&baz=qux#hash',
     },
   ],
+  ['/', undefined],
 ];
 
 test('parseLinkId parses known shortlinks', () => {
