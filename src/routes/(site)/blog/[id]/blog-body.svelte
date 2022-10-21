@@ -3,7 +3,7 @@
   export let data = '';
   onMount(() => {
     let pre = document.querySelectorAll('pre');
-    let svg = `<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"
   ><rect
     x="128"
     y="128"
@@ -24,7 +24,7 @@
     stroke-width="32"
   /></svg
 >`;
-    var svgCode = encodeURI(svg);
+    const svgCode = encodeURI(svg);
     for (let code of pre) {
       let parentDiv = code.parentElement;
       if (parentDiv) {
