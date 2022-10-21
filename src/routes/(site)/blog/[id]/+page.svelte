@@ -10,12 +10,13 @@
   export let data: PageData;
   onMount(() => {
     const copyBtns = document.querySelectorAll('.copy-code');
-    for (let i = 0; i < copyBtns.length; i++) {
-      copyBtns[i].addEventListener('click', (event: any) => {
-        console.log(event.target);
-        let content = event.target.offsetParent.attributes.getNamedItem(
-          'data-snippet-clipboard-copy-content'
-        ).value;
+    for (let button of copyBtns) {
+      button.addEventListener('click', (event: any) => {
+        const content =
+          (event.target as HTMLElement).offsetParent?.attributes.getNamedItem(
+            'data-snippet-clipboard-copy-content'
+          )?.value ?? '';
+
         navigator.clipboard
           .writeText(content)
           .then(() => toast({ content: 'Copied' }))
@@ -34,6 +35,10 @@
 <section>
   <h1 class="headers size-lg">{data.post.title}</h1>
 
+  const content = (event.target as HTMLElement).offsetParent?.attributes.getNamedItem(
+  'data-snippet-clipboard-copy-content' )?.value ?? '' const content = (event.target as
+  HTMLElement).offsetParent?.attributes.getNamedItem( 'data-snippet-clipboard-copy-content' )?.value
+  ?? '';;
   <Spacing --min="16px" --med="16px" --max="16px" />
   <img src={data.post.author.picture} alt="" />
   <Spacing --min="16px" --med="16px" --max="16px" />

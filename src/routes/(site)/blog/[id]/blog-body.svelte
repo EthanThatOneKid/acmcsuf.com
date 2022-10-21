@@ -25,9 +25,11 @@
   /></svg
 >`;
     var svgCode = encodeURI(svg);
-    for (let i = 0; i < pre.length; i++) {
-      let parentDiv = pre[i].parentElement;
-      parentDiv!.style.position = 'relative';
+    for (let code of pre) {
+      let parentDiv = code.parentElement;
+      if (parentDiv) {
+        parentDiv!.style.position = 'relative';
+      }
       let copyBtn = document.createElement('button');
       copyBtn.classList.add('copy-code');
       copyBtn.style.cssText =
