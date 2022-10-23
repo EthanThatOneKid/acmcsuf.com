@@ -1,4 +1,5 @@
-import { startBot, getNArg } from './common.js';
+import { Client, Intents } from 'discord.js';
+import { config } from 'dotenv';
 
 startBot(async (client) => {
   console.log(`Logged in as ${client.user.tag}`);
@@ -9,6 +10,25 @@ startBot(async (client) => {
   console.log(`Success: ${success}`);
   process.exit(success ? 0 : 1);
 });
+
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+function getNArg(n = 2) {
+  const payload = process.argv[n];
+  try {
+    return JSON.parse(payload);
+    // eslint-disable-next-line no-empty
+  } catch {}
+  return payload;
+}
+
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+function startBot(start) {
+  config();
+  const intents = [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES];
+  const client = new Client({ intents });
+  client.on('ready', async () => await start(client));
+  client.login(process.env.DISCORD_BOT_TOKEN);
+}
 
 /**
  * ### Close Issue Channel Script
