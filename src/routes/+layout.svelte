@@ -9,7 +9,7 @@
   import { browser } from '$app/environment';
   import { send } from '$lib/public/analytics/send';
 
-  $: if (browser) {
+  $: if (browser && process.env.VERCEL_ANALYTICS_ID) {
     send({
       id: '$VERCEL_ANALYTICS_ID',
       path: $page.url.pathname,
