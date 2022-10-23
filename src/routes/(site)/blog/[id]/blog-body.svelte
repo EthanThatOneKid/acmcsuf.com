@@ -26,11 +26,11 @@
 >`;
     const svgCode = encodeURI(svg);
     for (let code of pre) {
-      let parentDiv = code.parentElement;
+      const parentDiv = code.parentElement;
       if (parentDiv) {
-        parentDiv!.style.position = 'relative';
+        parentDiv.style.position = 'relative';
       }
-      let copyBtn = document.createElement('button');
+      const copyBtn = document.createElement('button');
       copyBtn.classList.add('copy-code');
       copyBtn.style.cssText =
         'position: absolute; padding: 1rem; top: 1rem; right: 1rem; outline: none; background-color: transparent; border:none; cursor: pointer';

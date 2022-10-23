@@ -6,7 +6,7 @@
   import Labels from '$lib/components/blog/labels.svelte';
   import BlogBody from './blog-body.svelte';
   import { onMount } from 'svelte';
-  import { toast, ToastType } from '$lib/components/toaster/toasts';
+  import copy from '$lib/public/copy/copy';
   export let data: PageData;
   onMount(() => {
     const copyBtns = document.querySelectorAll('.copy-code');
@@ -16,11 +16,7 @@
           (event.target as HTMLElement).offsetParent?.attributes.getNamedItem(
             'data-snippet-clipboard-copy-content'
           )?.value ?? '';
-
-        navigator.clipboard
-          .writeText(content)
-          .then(() => toast({ content: 'Copied' }))
-          .catch(() => toast({ type: ToastType.Error, content: 'Failed to copy' }));
+        copy(content, 'Copied', '', 'Failed to copy');
       });
     }
   });
@@ -34,11 +30,6 @@
 
 <section>
   <h1 class="headers size-lg">{data.post.title}</h1>
-
-  const content = (event.target as HTMLElement).offsetParent?.attributes.getNamedItem(
-  'data-snippet-clipboard-copy-content' )?.value ?? '' const content = (event.target as
-  HTMLElement).offsetParent?.attributes.getNamedItem( 'data-snippet-clipboard-copy-content' )?.value
-  ?? '';;
   <Spacing --min="16px" --med="16px" --max="16px" />
   <img src={data.post.author.picture} alt="" />
   <Spacing --min="16px" --med="16px" --max="16px" />

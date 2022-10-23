@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import type { ClubEvent } from '$lib/public/events/event';
-  import { toast, ToastType } from '$lib/components/toaster/toasts';
+  import copy from '$lib/public/copy/copy';
   import CopyLink from '$lib/components/svg/copy-link.svelte';
   import CopyText from '$lib/components/svg/copy-text.svelte';
   import CalendarGoogle from '$lib/components/svg/calendar-google.svelte';
@@ -12,14 +12,6 @@
   let isRecurring: boolean = info.recurring;
   let anchor: HTMLElement;
   let details: HTMLDetailsElement;
-
-  /** @see <https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText> */
-  function copy(link: string, successMessage: string, errorMessage: string, path: string) {
-    navigator.clipboard
-      .writeText(link)
-      .then(() => toast({ content: successMessage, path }))
-      .catch(() => toast({ path, type: ToastType.Error, content: errorMessage }));
-  }
 
   function formatLocation(location?: string | null, hosted = ['Discord', 'Zoom']): string {
     // '', null, and undefined are all TBD
