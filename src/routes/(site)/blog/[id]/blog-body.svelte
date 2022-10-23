@@ -6,7 +6,7 @@
     for (let code of pre) {
       const parentDiv = code.parentElement;
       if (parentDiv) {
-        parentDiv.style.position = 'relative';
+        parentDiv.classList.add('copy-code-parent');
       }
       const copyBtn = document.createElement('button');
       copyBtn.classList.add('copy-code');
@@ -33,6 +33,10 @@
     :global(h5),
     :global(h6) {
       margin: 1.5rem 0 0.5rem;
+    }
+
+    :global(.copy-code-parent) {
+      position: relative;
     }
 
     :global(.copy-code) {
