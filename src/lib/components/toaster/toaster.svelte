@@ -9,7 +9,7 @@
         return `--error-rgb`;
       case ToastType.Success:
       default:
-        return `--acm-${toast.path}-rgb`;
+        return `--acm-${toast.teamId}-rgb`;
     }
   }
 </script>

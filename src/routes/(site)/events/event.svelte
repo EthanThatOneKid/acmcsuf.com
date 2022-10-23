@@ -1,9 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import type { ClubEvent } from '$lib/public/events/event';
-  import copy from '$lib/public/copy/copy';
+  import { copy } from '$lib/public/copy/copy';
   import CopyLink from '$lib/components/svg/copy-link.svelte';
-  import CopyText from '$lib/components/svg/copy-text.svelte';
   import CalendarGoogle from '$lib/components/svg/calendar-google.svelte';
   import CalendarOutlook from '$lib/components/svg/calendar-outlook.svelte';
 
@@ -100,7 +99,7 @@
             info.acmPath.slug
           )}
       >
-        <CopyText />
+        <img src="/assets/svg/copy-text.svg" alt="copy text button" />
       </button>
 
       <button

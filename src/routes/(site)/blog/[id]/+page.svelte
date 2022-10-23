@@ -6,12 +6,12 @@
   import Labels from '$lib/components/blog/labels.svelte';
   import BlogBody from './blog-body.svelte';
   import { onMount } from 'svelte';
-  import copy from '$lib/public/copy/copy';
+  import { copy } from '$lib/public/copy/copy';
   export let data: PageData;
   onMount(() => {
     const copyBtns = document.querySelectorAll('.copy-code');
     for (let button of copyBtns) {
-      button.addEventListener('click', (event: any) => {
+      button.addEventListener('click', (event: Event) => {
         const content =
           (event.target as HTMLElement).offsetParent?.attributes.getNamedItem(
             'data-snippet-clipboard-copy-content'

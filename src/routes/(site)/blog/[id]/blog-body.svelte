@@ -3,28 +3,6 @@
   export let data = '';
   onMount(() => {
     let pre = document.querySelectorAll('pre');
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"
-  ><rect
-    x="128"
-    y="128"
-    width="336"
-    height="336"
-    rx="57"
-    ry="57"
-    fill="none"
-    stroke="currentColor"
-    stroke-linejoin="round"
-    stroke-width="32"
-  /><path
-    d="M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24"
-    fill="none"
-    stroke="currentColor"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    stroke-width="32"
-  /></svg
->`;
-    const svgCode = encodeURI(svg);
     for (let code of pre) {
       const parentDiv = code.parentElement;
       if (parentDiv) {
@@ -32,9 +10,6 @@
       }
       const copyBtn = document.createElement('button');
       copyBtn.classList.add('copy-code');
-      copyBtn.style.cssText =
-        'position: absolute; padding: 1rem; top: 1rem; right: 1rem; outline: none; background-color: transparent; border:none; cursor: pointer';
-      copyBtn.style.backgroundImage = 'url(data:image/svg+xml;utf8,' + svgCode + ')';
       parentDiv?.appendChild(copyBtn);
     }
   });
@@ -58,6 +33,18 @@
     :global(h5),
     :global(h6) {
       margin: 1.5rem 0 0.5rem;
+    }
+
+    :global(.copy-code) {
+      position: absolute;
+      padding: 1rem;
+      top: 1rem;
+      right: 1rem;
+      outline: none;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      background-image: url('/assets/svg/copy-text.svg');
     }
 
     :global(code),

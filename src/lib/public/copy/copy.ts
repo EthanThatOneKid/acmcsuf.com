@@ -1,13 +1,8 @@
 import { toast, ToastType } from '$lib/components/toaster/toasts';
 
-export default function copy(
-  link: string,
-  successMessage: string,
-  path: string,
-  errorMessage: string
-) {
+export function copy(link: string, successMessage: string, errorMessage: string, teamId: string) {
   navigator.clipboard
     .writeText(link)
-    .then(() => toast({ content: successMessage, path }))
-    .catch(() => toast({ path, type: ToastType.Error, content: errorMessage }));
+    .then(() => toast({ content: successMessage, teamId }))
+    .catch(() => toast({ teamId, type: ToastType.Error, content: errorMessage }));
 }
