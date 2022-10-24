@@ -34,7 +34,7 @@ test('about page has expected h1', async ({ page }) => {
   expect(await page.textContent('h1')).toBe('About us');
 });
 
-test('about page matches screenshot', async ({ page }, testInfo) => {
+test('about page matches screenshots of viewport height <= 5000px', async ({ page }, testInfo) => {
   const { cleanupSnapshot, data } = setupSnapshot(testInfo);
 
   if (testInfo.project.use.viewport) {
@@ -48,6 +48,8 @@ test('about page matches screenshot', async ({ page }, testInfo) => {
   }
 
   await page.goto('/about', { waitUntil: 'networkidle' });
+  if (page.viewportSize()?.height ?? 0 > 5000) return cleanupSnapshot();
+
   expect(await page.screenshot({ fullPage: true })).toMatchSnapshot({
     name: `page-${data.projectName}.png`,
     maxDiffPixelRatio: 0.1,
