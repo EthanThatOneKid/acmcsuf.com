@@ -1,3 +1,4 @@
+/** Term is a string that is used to identify a CSUF semester. */
 export enum Term {
   Spring21 = 'S21',
   Fall21 = 'F21',
@@ -6,6 +7,26 @@ export enum Term {
   Spring23 = 'S23',
 }
 
+/**
+ * Tier is used to determine the order of the board when displaying it in a
+ * list.
+ */
+export interface Tier {
+  /**
+   * The number associated with the tier. As new tiers are added, this number
+   * will increase.
+   */
+  id: number;
+
+  /**
+   * The index of the tier that is used to sort the tiers. This is used to
+   * determine the order of the tiers. The lower the index, the higher the
+   * tier. The higher the index, the lower the tier.
+   */
+  index: number;
+}
+
+/** Optional social media links for an officer. */
 export enum Social {
   Website = 'website',
   GitHub = 'github',
@@ -14,16 +35,29 @@ export enum Social {
   Instagram = 'instagram',
 }
 
+interface Position {
+  /**
+   * The title of the position that the officer holds. This value is what is
+   * displayed on the website.
+   */
+  title: string;
+
+  /**
+   * The tier that the position is associated with. This is used to determine
+   * the order of the positions when displaying them in a list.
+   *
+   * @see Tier.id
+   */
+  tier: number;
+}
+
 export interface Officer {
   fullName: string;
   picture: string;
-  socials?: {
-    [s in Social]?: string;
-  };
   positions: {
-    [t in Term]?: {
-      title: string;
-      tier: number;
-    };
+    [key in Term]?: Position;
+  };
+  socials?: {
+    [key in Social]?: string;
   };
 }

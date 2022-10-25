@@ -33,26 +33,3 @@ test('blog post h1 matches page title', async ({ page }) => {
   await page.goto('/blog/272');
   expect(await page.title()).toContain(await page.textContent('h1'));
 });
-
-test('blog post page matches screenshot', async ({ page }, testInfo) => {
-  const { cleanupSnapshot, data } = setupSnapshot(testInfo);
-
-  if (testInfo.project.use.viewport) {
-    await page.setViewportSize(testInfo.project.use.viewport);
-  }
-
-  if (testInfo.project.use.colorScheme) {
-    await page.emulateMedia({
-      colorScheme: testInfo.project.use.colorScheme,
-    });
-  }
-
-  await page.goto('/blog/272', { waitUntil: 'networkidle' });
-  expect(await page.screenshot({ fullPage: true, scale: 'css' })).toMatchSnapshot({
-    name: `page-${data.projectName}.png`,
-    maxDiffPixelRatio: 0.1,
-    threshold: 1,
-  });
-
-  cleanupSnapshot();
-});
