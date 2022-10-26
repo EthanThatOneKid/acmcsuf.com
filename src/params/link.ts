@@ -1,9 +1,8 @@
 import type { ParamMatcher } from '@sveltejs/kit';
-import { parseLinkId } from '$lib/server/links/utils';
 import { LINKS } from '$lib/server/links/data';
 
 function makeLinkMatcher(): ParamMatcher {
-  return (param: string): boolean => !!parseLinkId(param, LINKS);
+  return (param: string): boolean => Object.hasOwn(LINKS, param);
 }
 
 export function match(param: string): boolean {

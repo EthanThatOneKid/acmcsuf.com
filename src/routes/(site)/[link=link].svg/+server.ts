@@ -1,16 +1,17 @@
 import { error } from '@sveltejs/kit';
 import type { RequestEvent } from './$types';
 import { LINKS } from '$lib/server/links/data';
-import { parseLinkId, genQRCodeSvg } from '$lib/server/links/utils';
+import { resolve } from '$lib/server/links/resolve';
+import { genQRCodeSvg } from '$lib/server/links/qr';
 
 export async function GET(event: RequestEvent) {
-  const link = parseLinkId(event.params.link, LINKS);
+  const destination = resolve(event.params.link, LINKS);
 
-  if (!link) {
+  if (!destination) {
     throw error(404, 'Invalid link');
   }
 
-  const qrCodeSvg = await genQRCodeSvg(link.destination);
+  const qrCodeSvg = await genQRCodeSvg(destination);
 
   return new Response(qrCodeSvg, {
     status: 200,

@@ -1,5 +1,5 @@
 /**
- * Link interface for shortlinks.
+ * Recursive Link interface for shortlinks.
  *
  * Example 1: '/example' -> 'https://example.com'
  * Example 2: '/example?foo=bar' -> 'https://example.com?foo=bar'
@@ -18,7 +18,7 @@ export interface Link<ID extends string> {
    * Example 2: 'https://example.com'
    * Example 3: 'https://example.com'
    */
-  base: string;
+  origin: string;
 
   /**
    * Example 1: '/example'
@@ -47,4 +47,11 @@ export interface Link<ID extends string> {
    * Example 3: '#hash'
    */
   hash: string;
+
+  /**
+   * Example 1: undefined
+   * Example 2: undefined
+   * Example 3: undefined
+   */
+  next?: Link<ID>;
 }
