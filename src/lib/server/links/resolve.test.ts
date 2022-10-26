@@ -3,20 +3,17 @@ import { resolve } from './resolve';
 import { TESTLINKS } from './testdata';
 
 test('resolve throws for circularly recursive shortlinks', () => {
-  expect(() =>
-    resolve('/zig', {
-      zig: '/zag',
-      zag: '/zig',
-    })
-  ).toThrowError(/too many internal redirects \(max: \d+\)/);
+  expect(() => resolve('/zig', { zig: '/zag', zag: '/zig' })).toThrowError(
+    /too many internal redirects \(max: \d+\)/
+  );
 });
 
-test('resolve combines queries', () => {
+test('resolve properly combines queries', () => {
   const out = resolve('/example?foo=bar', { example: 'https://example.com?baz=qux' });
   expect(out).toBe('https://example.com/?baz=qux&foo=bar');
 });
 
-test('resolve overwrites hash', () => {
+test('resolve properly overwrites hash', () => {
   const out = resolve('/example#yin', { example: 'https://example.com#yang' });
   expect(out).toBe('https://example.com/#yin');
 });
@@ -51,7 +48,11 @@ test('resolve resolves valid shortlinks', () => {
   }
 });
 
-const TESTDATA_INVALID: Array<[string, RegExp]> = [['/unknown', /not found: \/unknown/]];
+const TESTDATA_INVALID: Array<[string, RegExp]> = [
+  ['', /invalid path: /],
+  ['/', /not found: \//],
+  ['/unknown', /not found: \/unknown/],
+];
 
 test('resolve throws validating invalid shortlinks', () => {
   for (const [invalidPath, expected] of TESTDATA_INVALID) {

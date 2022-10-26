@@ -34,8 +34,7 @@ export function resolve<ID extends string>(
     next = next.next;
   }
 
-  // @ts-ignore
-  const dst = `${next.origin}${next.pathname}${dstRelativePathname}${relativePathname}`;
+  const dst = `${next!.origin}${next!.pathname}${dstRelativePathname}`;
   return `${dst}${combineQueries(dstQuery, query)}${hash || dstHash}`;
 }
 
