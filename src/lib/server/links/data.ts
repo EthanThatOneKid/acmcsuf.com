@@ -23,4 +23,11 @@ export const LINKS = {
   'frank-grid': 'https://codepen.io/alancortez1337/pen/xxjPVbG',
   arch: 'https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/ARCHITECTURE.md',
   'game-night': 'https://discord.com/events/710225099923521558/1031436363259723817',
+  webdevform:
+    'https://docs.google.com/forms/d/e/1FAIpQLSflnzKjgYKmNOkwIYRVveGVGuzso4Fm9Ph0gxAULgt6w5Xx9A/viewform',
+  icpcform:
+    'https://docs.google.com/forms/d/e/1FAIpQLSf_z4XjkpKQMNBGWArGZswmTmn38teFjsx-MjtT8xV-cVW-sQ/viewform',
+  botform:
+    'https://docs.google.com/forms/d/e/1FAIpQLSe07zvJR8kfjWXWIDilIMdTzjenCeiFdAGTjX81dcI6XotE5Q/viewform',
+  'intro-to-python': 'https://colab.research.google.com/drive/1oXXibZCxEnFnyCfEnxk9x-Qcgp1n4zJa',
 } as const;
