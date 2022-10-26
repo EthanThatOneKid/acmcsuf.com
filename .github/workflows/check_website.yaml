@@ -42,6 +42,12 @@ jobs:
       - name: Copy .env from .env.example
         run: cp .env.example .env
 
+      - name: Build
+        run: npm run build
+
+      - name: Svelte check
+        run: npm run check
+
       # checks for lint errors AND format errors
       - name: Lint
         run: npm run lint && git diff --exit-code
@@ -51,9 +57,6 @@ jobs:
 
       - name: Test
         run: npm t
-
-      - name: Check
-        run: npm run check
 
       # info: https://etok.codes/acmcsuf.com/blob/main/CONTRIBUTING.md#npm-bloat
       - name: Test Dependency Size
