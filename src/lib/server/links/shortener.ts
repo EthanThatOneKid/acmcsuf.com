@@ -1,22 +1,26 @@
-import { LINKS } from '$lib/server/links/data';
-import { parseLinkId } from '$lib/server/links/utils';
 import type { Handle } from '@sveltejs/kit';
+import { LINKS } from '$lib/server/links/data';
+import { resolve as resolveShortlink } from '$lib/server/links/resolve';
 
 export function shortener(): Handle {
   return async ({ event, resolve }) => {
-    const { pathname } = new URL(event.request.url);
-    const id = parseLinkId(pathname);
-    if (!id) return resolve(event);
+    try {
+      const { pathname } = new URL(event.request.url);
 
-    const destination = LINKS[id];
-    const message = `Redirecting to ${destination}...`;
-    return new Response(message, {
-      status: 302,
-      headers: {
-        Location: destination,
-        'Content-Type': 'text/plain',
-        'Content-Length': message.length.toString(),
-      },
-    });
+      const destination = resolveShortlink(pathname, LINKS);
+      if (!destination) {
+        return resolve(event);
+      }
+
+      // Pass to QR code generation endpoint.
+      if (pathname.toLowerCase().endsWith('.svg')) {
+        return resolve(event);
+      }
+
+      // Redirect to destination.
+      return Response.redirect(destination, 302);
+    } catch (error) {
+      return resolve(event);
+    }
   };
 }
