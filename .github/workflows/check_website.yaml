@@ -46,14 +46,14 @@ jobs:
       - name: Lint
         run: npm run lint && git diff --exit-code
 
-      - name: Check
-        run: npm run check
-
       - name: npx playwright install
         run: npx playwright install
 
       - name: Test
         run: npm t
+
+      - name: Check
+        run: npm run check
 
       # info: https://etok.codes/acmcsuf.com/blob/main/CONTRIBUTING.md#npm-bloat
       - name: Test Dependency Size
