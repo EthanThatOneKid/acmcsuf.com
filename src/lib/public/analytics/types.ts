@@ -1,4 +1,4 @@
-export type { Metric } from 'web-vitals';
+export type { Metric, ReportHandler, ReportCallback, ReportOpts } from 'web-vitals';
 
 export interface AnalyticsOptions {
   id?: string;
