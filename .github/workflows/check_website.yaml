@@ -44,6 +44,10 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          DEBUG_FLAG_ENABLED: true
+          GH_ACCESS_TOKEN: ${{ github.token }}
+          GH_DISCUSSION_CATEGORY_ID: ${{ secrets.GH_DISCUSSION_CATEGORY_ID || 0 }}
 
       - name: Svelte check
         run: npm run check
