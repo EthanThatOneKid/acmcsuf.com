@@ -1,6 +1,35 @@
 import { test, expect } from 'vitest';
-import { TESTLINKS } from './testdata';
 import { resolve } from './resolve';
+import { TESTLINKS } from './testdata';
+
+test('resolve throws for circularly recursive shortlinks', () => {
+  expect(() =>
+    resolve('/zig', {
+      zig: '/zag',
+      zag: '/zig',
+    })
+  ).toThrowError(/too many internal redirects \(max: \d+\)/);
+});
+
+test('resolve combines queries', () => {
+  const out = resolve('/example?foo=bar', { example: 'https://example.com?baz=qux' });
+  expect(out).toBe('https://example.com/?baz=qux&foo=bar');
+});
+
+test('resolve overwrites hash', () => {
+  const out = resolve('/example#yin', { example: 'https://example.com#yang' });
+  expect(out).toBe('https://example.com/#yin');
+});
+
+test('resolve overwrites hash (2)', () => {
+  const out = resolve('/one#uno', {
+    example: 'https://example.com',
+    one: '/two',
+    two: '/three#dos',
+    three: '/example#tres',
+  });
+  expect(out).toBe('https://example.com/#uno');
+});
 
 const TESTDATA_VALID: Array<[string, ReturnType<typeof resolve>]> = [
   ['/github', 'https://github.com/ethanthatonekid/acmcsuf.com'],
@@ -22,12 +51,9 @@ test('resolve resolves valid shortlinks', () => {
   }
 });
 
-const TESTDATA_INVALID: Array<[string, RegExp]> = [
-  ['', /Invalid path: /],
-  ['invalid', /Invalid path: invalid/],
-];
+const TESTDATA_INVALID: Array<[string, RegExp]> = [['/unknown', /not found: \/unknown/]];
 
-test('resolve throws resolving invalid shortlinks', () => {
+test('resolve throws validating invalid shortlinks', () => {
   for (const [invalidPath, expected] of TESTDATA_INVALID) {
     expect(() => resolve(invalidPath, TESTLINKS)).toThrowError(expected);
   }

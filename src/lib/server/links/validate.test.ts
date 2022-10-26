@@ -3,6 +3,7 @@ import { TESTLINKS } from './testdata';
 import { validate } from './validate';
 
 const TESTDATA_VALID: Array<[string, ReturnType<typeof validate>]> = [
+  ['/unknown', undefined],
   [
     '/github',
     {
@@ -117,8 +118,9 @@ test('validate validates valid shortlinks', () => {
 });
 
 const TESTDATA_INVALID: Array<[string, RegExp]> = [
-  ['', /Invalid path: /],
-  ['invalid', /Invalid path: invalid/],
+  ['', /invalid path: /],
+  ['invalid', /invalid path: invalid/],
+  ['/zig', /too many internal redirects \(max: \d+\)/],
 ];
 
 test('validate throws validating invalid shortlinks', () => {

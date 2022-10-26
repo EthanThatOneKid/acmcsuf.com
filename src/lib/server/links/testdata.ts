@@ -4,4 +4,6 @@ export const TESTLINKS = {
   arch: '/github/blob/main/ARCHITECTURE.md',
   issues: '/github/issues',
   gfi: '/issues?q=is%3Aopen+is%3Aissue+label%3A"good+first+issue"',
+  zig: '/zag',
+  zag: '/zig',
 };

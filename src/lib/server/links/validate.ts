@@ -1,30 +1,35 @@
 import type { Link } from './types';
 
-/** Validate and construct recursive Link object given path and subCollection. */
+/**
+ * Validate and construct recursive Link object given path and subCollection.
+ * @returns type Link given valid input, undefined if path is invalid.
+ */
 export function validate<ID extends string>(
   path: string,
-  subCollection: Record<ID, string>
-): Link<ID> | null {
+  subCollection: Record<ID, string>,
+  maxInternalRedirects = 25,
+  internalRedirectsCount = 0
+): Link<ID> | undefined {
+  if (internalRedirectsCount > maxInternalRedirects) {
+    throw new Error(`too many internal redirects (max: ${maxInternalRedirects})`);
+  }
+
   const link = fromPath(path, subCollection);
   if (link.origin) {
     return link;
   }
 
   if (!link.id) {
-    return null;
+    return undefined;
   }
 
-  const destination = subCollection[link.id];
-  if (!destination) {
-    return null;
-  }
+  link.next = validate(
+    subCollection[link.id],
+    subCollection,
+    maxInternalRedirects,
+    internalRedirectsCount + 1
+  );
 
-  const next = validate(destination, subCollection);
-  if (!next) {
-    return link;
-  }
-
-  link.next = next;
   return link;
 }
 
@@ -37,7 +42,7 @@ function fromPath<ID extends string>(path: string, subCollection: Record<ID, str
   }
 
   if (!path.startsWith('/')) {
-    throw new Error(`Invalid path: ${path}`);
+    throw new Error(`invalid path: ${path}`);
   }
 
   const link = fromUrl<ID>(new URL(path, NULL_ORIGIN));
