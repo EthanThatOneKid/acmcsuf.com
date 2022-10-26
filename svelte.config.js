@@ -9,7 +9,8 @@ const config = {
 
   kit: {
     adapter: adapter(),
-    env: { publicPrefix: '' },
+    // See https://acmcsuf.com/pulls/630.
+    env: { publicPrefix: 'VERCEL_' },
   },
 
   vitePlugin: {
