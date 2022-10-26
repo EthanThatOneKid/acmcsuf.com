@@ -6,12 +6,13 @@
   // https://kit.svelte.dev/docs/advanced-routing#advanced-layouts
 
   import { page } from '$app/stores';
-  import { browser } from '$app/environment';
-  import { send } from '$lib/public/analytics/send';
+  import { browser, dev } from '$app/environment';
+  import { VERCEL_ANALYTICS_ID } from '$env/static/public';
+  import { send } from '$lib/public/analytics/vitals';
 
-  $: if (browser) {
+  $: if (browser && !dev && VERCEL_ANALYTICS_ID) {
     send({
-      id: '$VERCEL_ANALYTICS_ID',
+      id: VERCEL_ANALYTICS_ID,
       path: $page.url.pathname,
       params: $page.params,
       navigator,
