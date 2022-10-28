@@ -16,7 +16,7 @@
           (event.target as HTMLElement).offsetParent?.attributes.getNamedItem(
             'data-snippet-clipboard-copy-content'
           )?.value ?? '';
-        copy(content, 'Copied', 'Failed to copy', 'blog');
+        copy(content, 'Copied', 'Failed to copy', 'general');
       });
     }
   });
