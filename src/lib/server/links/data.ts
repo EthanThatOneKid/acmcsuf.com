@@ -30,4 +30,5 @@ export const LINKS = {
   botform:
     'https://docs.google.com/forms/d/e/1FAIpQLSe07zvJR8kfjWXWIDilIMdTzjenCeiFdAGTjX81dcI6XotE5Q/viewform',
   'intro-to-python': 'https://colab.research.google.com/drive/1oXXibZCxEnFnyCfEnxk9x-Qcgp1n4zJa',
+  'hash-table-visu': 'https://hash-table-visu.vercel.app',
 } as const;
