@@ -9,8 +9,7 @@
   import { copy } from '$lib/public/copy/copy';
   export let data: PageData;
   onMount(() => {
-    const copyBtns = document.querySelectorAll('.copy-code');
-    for (let button of copyBtns) {
+    for (let button of document.querySelectorAll('.copy-code')) {
       button.addEventListener('click', (event: Event) => {
         const content =
           (event.target as HTMLElement).offsetParent?.attributes.getNamedItem(

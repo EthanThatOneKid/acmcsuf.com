@@ -1,11 +1,22 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   export let data = '';
+  function observerCallback(body: HTMLBodyElement, copySvg: HTMLImageElement) {
+    return (mutationList: Array<MutationRecord>) => {
+      mutationList.forEach((mutation: MutationRecord) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+          // handle class change
+          copySvg.src = body?.classList.contains('light')
+            ? '/assets/svg/copy-text-dark.svg'
+            : '/assets/svg/copy-text-light.svg';
+        }
+      });
+    };
+  }
   onMount(() => {
-    let pre: NodeListOf<HTMLPreElement> | null = document.querySelectorAll('pre');
     const body: HTMLBodyElement | null = document.querySelector('body');
 
-    for (let code of pre) {
+    for (let code of document.querySelectorAll('pre')) {
       const parentDiv: HTMLElement | null = code.parentElement;
       const copySvg: HTMLImageElement = document.createElement('img');
       copySvg.src = body?.classList.contains('light')
@@ -15,25 +26,12 @@
       if (parentDiv) {
         parentDiv.classList.add('copy-code-parent');
       }
-      const options = {
-        attributes: true,
-      };
 
-      function callback(mutationList: Array<MutationRecord>) {
-        mutationList.forEach((mutation: MutationRecord) => {
-          if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-            // handle class change
-            copySvg.src = body?.classList.contains('light')
-              ? '/assets/svg/copy-text-dark.svg'
-              : '/assets/svg/copy-text-light.svg';
-          }
-        });
-      }
-
-      const observer = new MutationObserver(callback);
       if (body) {
-        observer.observe(body, options);
+        const observer = new MutationObserver(observerCallback(body, copySvg));
+        observer.observe(body, { attributes: true });
       }
+
       const copyBtn: HTMLButtonElement = document.createElement('button');
       copyBtn.classList.add('copy-code');
       copySvg.classList.add('copy-code-icon');
