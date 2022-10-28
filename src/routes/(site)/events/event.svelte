@@ -19,36 +19,33 @@
     return hosted.includes(location) ? `Hosted on ${location}` : location;
   }
 
+  function observerCallback(body: HTMLBodyElement, copySvg: HTMLImageElement) {
+    return (mutationList: Array<MutationRecord>) => {
+      mutationList.forEach((mutation: MutationRecord) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+          // handle class change
+          copySvg.src = body?.classList.contains('light')
+            ? '/assets/svg/copy-text-dark.svg'
+            : '/assets/svg/copy-text-light.svg';
+        }
+      });
+    };
+  }
+
   onMount(() => {
     const body: HTMLBodyElement | null = document.querySelector('body');
-    const copySvg: HTMLImageElement | null = document.querySelector('.copySvg');
-    if (copySvg) {
-      copySvg.src = body?.classList.contains('light')
+    const copySvgs: any = document.querySelectorAll('.copySvg');
+    if (copySvgs) {
+      copySvgs.src = body?.classList.contains('light')
         ? '/assets/svg/copy-text-dark.svg'
         : '/assets/svg/copy-text-light.svg';
     }
-    const options = {
-      attributes: true,
-    };
-
-    function callback(mutationList: Array<MutationRecord>) {
-      mutationList.forEach((mutation: any) => {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-          // handle class change
-          if (copySvg) {
-            copySvg.src = body?.classList.contains('light')
-              ? '/assets/svg/copy-text-dark.svg'
-              : '/assets/svg/copy-text-light.svg';
-          }
-        }
-      });
+    for (let copySvg of copySvgs) {
+      if (body) {
+        const observer = new MutationObserver(observerCallback(body, copySvg));
+        observer.observe(body, { attributes: true });
+      }
     }
-
-    const observer = new MutationObserver(callback);
-    if (body) {
-      observer.observe(body, options);
-    }
-
     if (location.hash === `#${info.slug}`) {
       anchor.scrollIntoView({
         behavior: 'smooth',
