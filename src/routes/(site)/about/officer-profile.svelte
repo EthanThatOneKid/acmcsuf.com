@@ -6,9 +6,9 @@
   import Discord from '$lib/components/svg/discord.svelte';
   import LinkedIn from '$lib/components/svg/linkedin.svelte';
   import Instagram from '$lib/components/svg/instagram.svelte';
-  import { toast } from '$lib/components/toaster/toasts';
   import { onMount } from 'svelte';
   import { termIndex, getPositionByTermIndex } from '$lib/public/board/utils';
+  import { copy } from '$lib/public/copy/copy';
 
   export let info: Officer;
   export let placeholderPicture = 'placeholder.webp';
@@ -61,17 +61,13 @@
     ? officerPosition.replace(teamName, `<b class="${teamClass}">${teamName}</b>`)
     : officerPosition;
 
-  /** @see <https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText> */
   function copyDiscord() {
-    toast(async () => {
-      try {
-        await navigator.clipboard.writeText(officerSocials.discord || '');
-        return `Copied ${officerName}'s Discord tag to clipboard!`;
-      } catch (err) {
-        console.error(err);
-        throw `Error occured while copy Discord tag to clipboard.`;
-      }
-    });
+    copy(
+      officerSocials.discord || '',
+      `Copied ${officerName}'s Discord tag to clipboard!`,
+      'Error occured while copy Discord tag to clipboard.',
+      ''
+    );
   }
 
   onMount(() => {
