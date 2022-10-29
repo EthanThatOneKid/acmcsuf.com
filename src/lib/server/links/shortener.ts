@@ -7,13 +7,13 @@ export function shortener(): Handle {
     try {
       const url = new URL(event.request.url);
 
-      const destination = resolveShortlink(url, LINKS);
-      if (!destination) {
+      // Pass to QR code generation endpoint.
+      if (url.pathname.toLowerCase().endsWith('.svg')) {
         return resolve(event);
       }
 
-      // Pass to QR code generation endpoint.
-      if (url.pathname.toLowerCase().endsWith('.svg')) {
+      const destination = resolveShortlink(url, LINKS);
+      if (!destination) {
         return resolve(event);
       }
 
