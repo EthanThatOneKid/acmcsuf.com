@@ -53,7 +53,7 @@ function findURL<ID extends string>(
     }
 
     if (!shortlinks[id]) {
-      throw new Error(`unknown path: ${pathname}`);
+      throw new Error(`no shortlink found`);
     }
 
     if (shortlinks[id].startsWith('http')) {
@@ -77,8 +77,6 @@ function findURL<ID extends string>(
 
       continue;
     }
-
-    throw new Error(`invalid path: ${shortlinks[id]}`);
   }
 
   throw new Error('too many internal redirects');
