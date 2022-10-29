@@ -9,13 +9,12 @@
     const body = document.querySelector('body');
     if (!body) return;
 
-    for (const codeblock of document.querySelectorAll('pre')) {
-      codeblock.parentElement?.classList.add('copy-code-parent');
-
+    for (const codeBlock of document.querySelectorAll('pre')) {
+      codeBlock.parentElement?.classList.add('copy-code-parent');
       const copyBtn: HTMLButtonElement = document.createElement('button');
       copyBtn.classList.add('copy-code');
       copyBtn.addEventListener('click', () => {
-        copy(codeblock.textContent ?? '', 'Code copied to clipboard', 'Failed to copy code');
+        copy(codeBlock.textContent ?? '', 'Code copied to clipboard', 'Failed to copy code');
       });
 
       new BwIcon({
@@ -26,7 +25,7 @@
         },
       });
 
-      codeblock.parentElement?.appendChild(copyBtn);
+      codeBlock.parentElement?.appendChild(copyBtn);
     }
   });
 </script>
