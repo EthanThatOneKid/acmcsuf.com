@@ -82,3 +82,15 @@ test('resolve resolves valid URLs', () => {
     expect(resolve(inURL, TEST_SHORTLINKS), `failed on ${inURL}`).toStrictEqual(outURL);
   }
 });
+
+const INVALID_TESTCASES: Array<[URL, RegExp]> = [
+  [new URL('https://acmcsuf.com/doesnotexist'), /no shortlink found/],
+  [new URL('https://acmcsuf.com/does/not/exist'), /no shortlink found/],
+  [new URL('https://acmcsuf.com/<invalid>'), /no shortlink found/],
+];
+
+test('resolve resolves invalid URLs', () => {
+  for (const [inURL, outURL] of INVALID_TESTCASES) {
+    expect(() => resolve(inURL, TEST_SHORTLINKS), `failed on ${inURL}`).toThrowError(outURL);
+  }
+});
