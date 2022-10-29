@@ -5,6 +5,7 @@
   import CopyLink from '$lib/components/svg/copy-link.svelte';
   import CalendarGoogle from '$lib/components/svg/calendar-google.svelte';
   import CalendarOutlook from '$lib/components/svg/calendar-outlook.svelte';
+  import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
 
   export let info: ClubEvent;
 
@@ -19,33 +20,7 @@
     return hosted.includes(location) ? `Hosted on ${location}` : location;
   }
 
-  function observerCallback(body: HTMLBodyElement, copySvg: HTMLImageElement) {
-    return (mutationList: Array<MutationRecord>) => {
-      mutationList.forEach((mutation: MutationRecord) => {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-          // handle class change
-          copySvg.src = body?.classList.contains('light')
-            ? '/assets/svg/copy-text-dark.svg'
-            : '/assets/svg/copy-text-light.svg';
-        }
-      });
-    };
-  }
-
   onMount(() => {
-    const body: HTMLBodyElement | null = document.querySelector('body');
-    const copySvgs: any = document.querySelectorAll('.copySvg');
-    if (copySvgs) {
-      copySvgs.src = body?.classList.contains('light')
-        ? '/assets/svg/copy-text-dark.svg'
-        : '/assets/svg/copy-text-light.svg';
-    }
-    for (let copySvg of copySvgs) {
-      if (body) {
-        const observer = new MutationObserver(observerCallback(body, copySvg));
-        observer.observe(body, { attributes: true });
-      }
-    }
     if (location.hash === `#${info.slug}`) {
       anchor.scrollIntoView({
         behavior: 'smooth',
@@ -125,7 +100,7 @@
             info.acmPath.slug
           )}
       >
-        <img class="copySvg" src="/assets/svg/copy-text-dark.svg" alt="copy text button" />
+        <BIcon src="/assets/svg/copy-text.svg" alt="Copy event summary" />
       </button>
 
       <button
@@ -323,7 +298,7 @@
       transition: all 0.25s ease-in-out;
       border-radius: 30px;
       border: 2px solid var(--acm-dark);
-      background-color: var(--acm-light);
+      background-color: transparent;
     }
 
     .action-item:hover {
