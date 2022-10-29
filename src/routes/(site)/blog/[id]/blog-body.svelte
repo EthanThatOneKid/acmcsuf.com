@@ -7,8 +7,8 @@
         if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
           // handle class change
           copySvg.src = body?.classList.contains('light')
-            ? '/assets/svg/copy-text-dark.svg'
-            : '/assets/svg/copy-text-light.svg';
+            ? '/assets/svg/copy-text.svg'
+            : '/assets/svg/light/copy-text.svg';
         }
       });
     };
@@ -20,8 +20,8 @@
       const parentDiv: HTMLElement | null = code.parentElement;
       const copySvg: HTMLImageElement = document.createElement('img');
       copySvg.src = body?.classList.contains('light')
-        ? '/assets/svg/copy-text-dark.svg'
-        : '/assets/svg/copy-text-light.svg';
+        ? '/assets/svg/copy-text.svg'
+        : '/assets/svg/light/copy-text.svg';
 
       if (parentDiv) {
         parentDiv.classList.add('copy-code-parent');

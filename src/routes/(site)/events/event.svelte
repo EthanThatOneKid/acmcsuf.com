@@ -100,7 +100,7 @@
             info.acmPath.slug
           )}
       >
-        <BIcon src="/assets/svg/copy-text.svg" alt="Copy event summary" />
+        <BwIcon src="/assets/svg/copy-text.svg" alt="Copy event summary" />
       </button>
 
       <button
