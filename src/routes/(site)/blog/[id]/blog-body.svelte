@@ -1,41 +1,32 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
+  import { copy } from '$lib/public/copy/copy';
 
   export let data = '';
-
-  function observerCallback(body: HTMLBodyElement, copySvg: HTMLImageElement) {
-    return (mutationList: Array<MutationRecord>) => {
-      mutationList.forEach((mutation: MutationRecord) => {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-          // handle class change
-          copySvg.src = body?.classList.contains('light')
-            ? '/assets/svg/copy-text.svg'
-            : '/assets/svg/light/copy-text.svg';
-        }
-      });
-    };
-  }
 
   onMount(() => {
     const body = document.querySelector('body');
     if (!body) return;
 
-    for (const code of document.querySelectorAll('pre')) {
-      const copySvg: HTMLImageElement = document.createElement('img');
-      copySvg.src = body?.classList.contains('light')
-        ? '/assets/svg/copy-text.svg'
-        : '/assets/svg/light/copy-text.svg';
-
-      code.parentElement?.classList.add('copy-code-parent');
-
-      const observer = new MutationObserver(observerCallback(body, copySvg));
-      observer.observe(body, { attributes: true });
+    for (const codeblock of document.querySelectorAll('pre')) {
+      codeblock.parentElement?.classList.add('copy-code-parent');
 
       const copyBtn: HTMLButtonElement = document.createElement('button');
       copyBtn.classList.add('copy-code');
-      copySvg.classList.add('copy-code-icon');
-      code.parentElement?.appendChild(copySvg);
-      code.parentElement?.appendChild(copyBtn);
+      copyBtn.addEventListener('click', () => {
+        copy(codeblock.textContent ?? '', 'Code copied to clipboard', 'Failed to copy code');
+      });
+
+      new BwIcon({
+        target: copyBtn,
+        props: {
+          src: '/assets/svg/copy-text.svg',
+          alt: 'Copy code',
+        },
+      });
+
+      codeblock.parentElement?.appendChild(copyBtn);
     }
   });
 </script>
@@ -67,8 +58,8 @@
     :global(.copy-code) {
       position: absolute;
       padding: 1rem;
-      top: 1rem;
-      right: 1rem;
+      top: 0;
+      right: 0;
       outline: none;
       background-color: transparent;
       border: none;
