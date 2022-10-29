@@ -42,10 +42,11 @@ const TEST_SHORTLINKS = {
   github: 'https://github.com/ethanthatonekid/acmcsuf.com',
   issues: '/github/issues',
   gfi: '/issues/?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22',
-  bug: '/issues/new?labels=bug&template=bug_report.md',
+  bug: '/issues/new/?labels=bug&template=bug_report.md',
+  'dev/template': 'https://example.com/dev-template',
 };
 
-const VALID_TESTCASES: Array<[URL, URL]> = [
+const VALID_TESTCASES: Array<[URL, ReturnType<typeof resolve>]> = [
   [
     new URL('https://acmcsuf.com/github'),
     new URL('https://github.com/ethanthatonekid/acmcsuf.com'),
@@ -63,12 +64,16 @@ const VALID_TESTCASES: Array<[URL, URL]> = [
   [
     new URL('https://acmcsuf.com/bug'),
     new URL(
-      'https://github.com/ethanthatonekid/acmcsuf.com/issues/new?labels=bug&template=bug_report.md'
+      'https://github.com/ethanthatonekid/acmcsuf.com/issues/new/?labels=bug&template=bug_report.md'
     ),
   ],
   [
     new URL('https://acmcsuf.com/issues/new'),
     new URL('https://github.com/ethanthatonekid/acmcsuf.com/issues/new'),
+  ],
+  [
+    new URL('https://acmcsuf.com/dev/template/new'),
+    new URL('https://example.com/dev-template/new'),
   ],
 ];
 
