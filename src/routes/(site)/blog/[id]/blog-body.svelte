@@ -1,6 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+
   export let data = '';
+
   function observerCallback(body: HTMLBodyElement, copySvg: HTMLImageElement) {
     return (mutationList: Array<MutationRecord>) => {
       mutationList.forEach((mutation: MutationRecord) => {
@@ -13,30 +15,27 @@
       });
     };
   }
-  onMount(() => {
-    const body: HTMLBodyElement | null = document.querySelector('body');
 
-    for (let code of document.querySelectorAll('pre')) {
-      const parentDiv: HTMLElement | null = code.parentElement;
+  onMount(() => {
+    const body = document.querySelector('body');
+    if (!body) return;
+
+    for (const code of document.querySelectorAll('pre')) {
       const copySvg: HTMLImageElement = document.createElement('img');
       copySvg.src = body?.classList.contains('light')
         ? '/assets/svg/copy-text.svg'
         : '/assets/svg/light/copy-text.svg';
 
-      if (parentDiv) {
-        parentDiv.classList.add('copy-code-parent');
-      }
+      code.parentElement?.classList.add('copy-code-parent');
 
-      if (body) {
-        const observer = new MutationObserver(observerCallback(body, copySvg));
-        observer.observe(body, { attributes: true });
-      }
+      const observer = new MutationObserver(observerCallback(body, copySvg));
+      observer.observe(body, { attributes: true });
 
       const copyBtn: HTMLButtonElement = document.createElement('button');
       copyBtn.classList.add('copy-code');
       copySvg.classList.add('copy-code-icon');
-      parentDiv?.appendChild(copySvg);
-      parentDiv?.appendChild(copyBtn);
+      code.parentElement?.appendChild(copySvg);
+      code.parentElement?.appendChild(copyBtn);
     }
   });
 </script>
