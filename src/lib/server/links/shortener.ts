@@ -5,15 +5,15 @@ import { resolve as resolveShortlink } from '$lib/server/links/resolve';
 export function shortener(): Handle {
   return async ({ event, resolve }) => {
     try {
-      const { pathname } = new URL(event.request.url);
+      const url = new URL(event.request.url);
 
-      const destination = resolveShortlink(pathname, LINKS);
-      if (!destination) {
+      // Pass to QR code generation endpoint.
+      if (url.pathname.toLowerCase().endsWith('.svg')) {
         return resolve(event);
       }
 
-      // Pass to QR code generation endpoint.
-      if (pathname.toLowerCase().endsWith('.svg')) {
+      const destination = resolveShortlink(url, LINKS);
+      if (!destination) {
         return resolve(event);
       }
 
