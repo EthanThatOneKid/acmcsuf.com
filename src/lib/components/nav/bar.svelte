@@ -110,11 +110,13 @@
     .backdrop {
       position: absolute;
       top: 0;
-      left: -100vw;
+      left: 0;
       width: 100vw;
       height: 100vh;
       opacity: 0;
       background-color: var(--perma-dark);
+      transition: opacity 0.25s ease-in;
+      pointer-events: none;
     }
 
     .container {
@@ -284,15 +286,13 @@
       }
 
       & :checked ~ .backdrop {
-        animation: 0.25s ease-in slide-left;
         opacity: 0.7;
-        left: 0;
+        pointer-events: all;
       }
 
       & :checked ~ .container {
         .pages {
           width: 60%;
-          overflow: visible;
           background-color: var(--acm-light);
         }
       }
@@ -311,19 +311,6 @@
           }
         }
       }
-    }
-  }
-
-  @keyframes slide-left {
-    0% {
-      opacity: 0;
-      left: -100vw;
-    }
-    1% {
-      left: 0;
-    }
-    100% {
-      opacity: 0.7;
     }
   }
 </style>
