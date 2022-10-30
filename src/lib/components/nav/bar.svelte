@@ -27,6 +27,10 @@
 <nav>
   <input type="checkbox" id="navToggle" class="toggle" bind:this={checkbox} />
 
+  <div class="blurrybar" />
+
+  <div class="backdrop" on:click={handleClose} />
+
   <div class="container">
     <div class="logo-container">
       <a href="/" class="logo">
@@ -87,12 +91,33 @@
   nav {
     display: flex;
     position: fixed;
-    width: 100%;
+    width: 100vw;
     justify-content: center;
     padding: 16px 0;
-    background-color: var(--navbar-bg);
-    box-shadow: 0 3px 12px rgba(16, 19, 21, 0.1);
     z-index: 10;
+
+    .blurrybar {
+      position: absolute;
+      width: 100%;
+      height: 100px;
+      margin-top: -20px;
+      background-color: var(--navbar-bg);
+      box-shadow: var(--nav-shadow);
+      z-index: -1;
+      backdrop-filter: blur(10px);
+    }
+
+    .backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      opacity: 0;
+      background-color: var(--perma-dark);
+      transition: opacity 0.25s ease-in;
+      pointer-events: none;
+    }
 
     .container {
       display: flex;
@@ -112,6 +137,7 @@
             height: 64px;
             width: auto;
             filter: drop-shadow(0 1.5px 4.5px rgba(44, 145, 198, 0.5));
+            z-index: -1;
           }
 
           h3 {
@@ -125,15 +151,25 @@
         display: flex;
         align-items: center;
         gap: 64px;
+        height: 100%;
+
+        .pages,
+        li,
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+        }
 
         .pages {
-          display: flex;
-          gap: 64px;
+          gap: 50px;
           list-style: none;
 
           a {
             text-decoration: none;
             transition: 0.25s ease-in-out;
+            padding: 8px 8px;
 
             &:hover,
             &[aria-current='true'] {
@@ -159,7 +195,7 @@
             align-items: center;
             max-width: fit-content;
             padding: 6px 12px;
-            background-color: var(--acm-gray);
+            background-color: var(--button-toggle);
             border-radius: 8px;
             gap: 4px;
 
@@ -183,7 +219,7 @@
     nav {
       .container {
         .logo-container .logo .badge {
-          height: 48px;
+          height: 64px;
         }
 
         .pages {
@@ -193,16 +229,26 @@
           align-items: center;
           top: 0;
           right: 0;
-          height: 0;
-          width: 100%;
-          gap: 0;
+          width: 0;
           background-color: var(--acm-light);
           overflow: hidden;
           z-index: 9;
           transition: 0.25s ease-in-out;
 
           a {
-            font-size: var(--size-md);
+            justify-content: center;
+            font-size: var(--size-lg);
+            width: 100%;
+            text-align: center;
+          }
+
+          li {
+            height: 10vh;
+          }
+
+          li,
+          a {
+            width: 100%;
           }
         }
       }
@@ -212,6 +258,7 @@
         top: 50%;
         transform: translateY(-50%);
         right: 56px;
+        z-index: 8;
       }
 
       .menu {
@@ -238,9 +285,15 @@
         }
       }
 
+      & :checked ~ .backdrop {
+        opacity: 0.7;
+        pointer-events: all;
+      }
+
       & :checked ~ .container {
         .pages {
-          height: 100vh;
+          width: 60%;
+          background-color: var(--acm-light);
         }
       }
 

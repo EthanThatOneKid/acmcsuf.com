@@ -12,17 +12,6 @@ const config = {
     // See https://acmcsuf.com/pulls/630.
     env: { publicPrefix: 'VERCEL_' },
   },
-
-  vitePlugin: {
-    experimental: {
-      inspector: {
-        toggleKeyCombo: 'meta-shift',
-        boldMode: true,
-        showToggleButton: 'always',
-        toggleButtonPosition: 'bottom-left',
-      },
-    },
-  },
 };
 
 export default config;
