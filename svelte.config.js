@@ -9,6 +9,8 @@ const config = {
 
   kit: {
     adapter: adapter(),
+    // See https://acmcsuf.com/pulls/630.
+    env: { publicPrefix: 'VERCEL_' },
   },
 };
 

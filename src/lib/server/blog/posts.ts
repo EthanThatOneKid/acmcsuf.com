@@ -84,8 +84,8 @@ function cacheBlogPosts(output: any): BlogPost[] {
     const officer = getOfficerByGhUsername(author.login);
     const authorUrl: string = author.url;
     const displayname: string = officer?.fullName ?? author.login;
-    const picture: string = officer?.picture ?? author.avatarUrl;
-
+    const picture: string =
+      author.avatarUrl ?? `/assets/authors/${officer?.picture || 'placeholder.webp'}`;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const labels = discussion.labels.nodes.map(({ name }: any) => name);
 
@@ -111,6 +111,8 @@ function cacheBlogPosts(output: any): BlogPost[] {
 
 function getOfficerByGhUsername(ghUsername: string): Officer | null {
   // get author by GitHub username
-  const officer = OFFICERS.find((o) => o.displayName !== undefined && o.displayName === ghUsername);
+  const officer = OFFICERS.find(
+    (o) => o.socials && o.socials.github && o.socials.github === ghUsername
+  );
   return officer ?? null;
 }

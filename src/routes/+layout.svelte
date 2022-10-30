@@ -1,37 +1,22 @@
-<script lang="ts">
-  import Navbar from '$lib/components/nav/bar.svelte';
-  import Footer from '$lib/components/footer/footer.svelte';
-  import AcmToaster from '$lib/components/toaster/toaster.svelte';
-  import { AcmTheme, theme } from '$lib/public/legacy/theme';
-  import { onMount } from 'svelte';
+<script>
+  // This +layout.svelte is a blank layout. It is used by the
+  // pages that don't need a layout. It is also used as the base
+  // layout of all pages.
+  //
+  // https://kit.svelte.dev/docs/advanced-routing#advanced-layouts
 
-  function changeTheme(event: MediaQueryListEvent) {
-    theme.set(event.matches ? AcmTheme.Dark : AcmTheme.Light);
+  import { page } from '$app/stores';
+  import { browser, dev } from '$app/environment';
+  import { send } from '$lib/public/analytics/vitals';
+
+  $: if (browser && !dev) {
+    send({
+      id: '$VERCEL_ANALYTICS_ID',
+      path: $page.url.pathname,
+      params: $page.params,
+      navigator,
+    });
   }
-
-  onMount(() => {
-    theme.init();
-
-    if ('matchMedia' in window) {
-      const mediaList = matchMedia('(prefers-color-scheme: dark)');
-      mediaList.addEventListener('change', changeTheme);
-      return () => mediaList.removeEventListener('change', changeTheme);
-    }
-  });
 </script>
 
-<Navbar />
-<main><slot /></main>
-<Footer />
-<AcmToaster />
-
-<svelte:head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</svelte:head>
-
-<style>
-  main {
-    min-height: 100vh;
-  }
-</style>
+<slot />

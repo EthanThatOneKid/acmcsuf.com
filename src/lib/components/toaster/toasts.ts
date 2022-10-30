@@ -9,35 +9,52 @@ const numToasts = writable<number>(0);
 export enum ToastType {
   Success = 'success',
   Error = 'error',
-  Info = 'info',
 }
 
 export interface Toast {
   id: number;
-  content: string;
+  content: string | (() => string | Promise<string>);
   type?: ToastType;
   dismissible?: boolean;
   timeout?: number;
-  path?: string;
+  teamId?: string;
 }
 
 export const toasts = writable<Toast[]>([]);
 
 function makeToast(
   id: number,
-  { content, type, dismissible, timeout, path }: Omit<Toast, 'id'>
+  { content, type, dismissible, timeout, teamId }: Omit<Toast, 'id'>
 ): Required<Toast> {
   return {
     id,
     content: content,
-    type: type ?? ToastType.Info,
+    type: type ?? ToastType.Success,
     dismissible: dismissible ?? true,
     timeout: timeout ?? TOAST_TIMEOUT,
-    path: path ?? acmGeneral.slug,
+    teamId: teamId ?? acmGeneral.slug,
   };
 }
 
-export function toast(props: Omit<Toast, 'id'>): void {
+export async function toast(contentOrProps: Toast['content'] | Omit<Toast, 'id'>): Promise<void> {
+  let props: Omit<Toast, 'id'>;
+  if (typeof contentOrProps == 'object') {
+    props = contentOrProps;
+  } else {
+    props = {
+      content: contentOrProps,
+    };
+  }
+
+  if (typeof props.content == 'function') {
+    try {
+      props.content = await props.content();
+    } catch (err) {
+      props.content = `${err}`;
+      props.type = ToastType.Error;
+    }
+  }
+
   numToasts.update((value: number) => {
     const nextToast = makeToast(value + 1, props);
 
