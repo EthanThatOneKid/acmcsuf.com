@@ -1,41 +1,31 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
+  import { copy } from '$lib/public/copy/copy';
+
   export let data = '';
+
   onMount(() => {
-    let pre = document.querySelectorAll('pre');
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"
-  ><rect
-    x="128"
-    y="128"
-    width="336"
-    height="336"
-    rx="57"
-    ry="57"
-    fill="none"
-    stroke="currentColor"
-    stroke-linejoin="round"
-    stroke-width="32"
-  /><path
-    d="M383.5 128l.5-24a56.16 56.16 0 00-56-56H112a64.19 64.19 0 00-64 64v216a56.16 56.16 0 0056 56h24"
-    fill="none"
-    stroke="currentColor"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    stroke-width="32"
-  /></svg
->`;
-    const svgCode = encodeURI(svg);
-    for (let code of pre) {
-      let parentDiv = code.parentElement;
-      if (parentDiv) {
-        parentDiv!.style.position = 'relative';
-      }
-      let copyBtn = document.createElement('button');
+    const body = document.querySelector('body');
+    if (!body) return;
+
+    for (const codeBlock of document.querySelectorAll('pre')) {
+      codeBlock.parentElement?.classList.add('copy-code-parent');
+      const copyBtn: HTMLButtonElement = document.createElement('button');
       copyBtn.classList.add('copy-code');
-      copyBtn.style.cssText =
-        'position: absolute; padding: 1rem; top: 1rem; right: 1rem; outline: none; background-color: transparent; border:none; cursor: pointer';
-      copyBtn.style.backgroundImage = 'url(data:image/svg+xml;utf8,' + svgCode + ')';
-      parentDiv?.appendChild(copyBtn);
+      copyBtn.addEventListener('click', () => {
+        copy(codeBlock.textContent ?? '', 'Code copied to clipboard', 'Failed to copy code');
+      });
+
+      new BwIcon({
+        target: copyBtn,
+        props: {
+          src: '/assets/svg/copy-text.svg',
+          alt: 'Copy code',
+        },
+      });
+
+      codeBlock.parentElement?.appendChild(copyBtn);
     }
   });
 </script>
@@ -58,6 +48,31 @@
     :global(h5),
     :global(h6) {
       margin: 1.5rem 0 0.5rem;
+    }
+
+    :global(.copy-code-parent) {
+      position: relative;
+    }
+
+    :global(.copy-code) {
+      position: absolute;
+      padding: 1rem;
+      top: 0;
+      right: 0;
+      outline: none;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    :global(.copy-code-icon) {
+      position: absolute;
+      top: 1rem;
+      width: 2em;
+      height: 2em;
+      right: 1rem;
+      border: none;
+      cursor: pointer;
     }
 
     :global(code),

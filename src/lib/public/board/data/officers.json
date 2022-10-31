@@ -364,5 +364,10 @@
     "fullName": "Arish Imam",
     "picture": "placeholder.webp",
     "positions": { "F22": { "title": "AI Officer", "tier": 21 } }
+  },
+  {
+    "fullName": "Rohan Kunchala",
+    "picture": "rohan-kunchala.webp",
+    "positions": { "F22": { "title": "Algo Officer", "tier": 12 } }
   }
 ]
