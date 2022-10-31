@@ -13,7 +13,7 @@
 
   $: if (browser && !dev && VERCEL_ANALYTICS_ID) {
     inject({
-      beforeSend() {
+      beforeSend(ev) {
         send({
           id: VERCEL_ANALYTICS_ID,
           path: $page.url.pathname,
@@ -21,7 +21,7 @@
           navigator,
         });
 
-        return null;
+        return ev;
       },
     });
   }
