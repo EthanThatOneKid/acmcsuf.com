@@ -1,12 +1,13 @@
 ## Getting started
 
 1. Install [Node 16 LTS](https://nodejs.org/en/)
-2. Install and get familiar with [Git](https://docs.github.com/en/get-started/quickstart/hello-world)
+2. Install [Git](https://git-scm.com/downloads)
+3. Install and get familiar with [Git](https://docs.github.com/en/get-started/quickstart/hello-world)
    - If you are not comforable with the Git command line tool, you may use GitHub Desktop (<https://desktop.github.com/>). Take a look at <https://acmcsuf.com/1st/> if this is your first time contributing to an open source project.
-3. Create a fork of [acmcsuf.com](https://github.com/EthanThatOneKid/acmcsuf.com), similar to <https://github.com/jaasonw/acmcsuf.com>
-4. Create an account on [Vercel](https://vercel.com/) and create a new project linked to the fork you just created, similar to <https://acmcsuf-wayson.vercel.app/>
-5. Create an [access token](https://scribehow.com/shared/Generating_a_personal_access_token__eMf0UJYaS5OcGrO_lJTpGg)
-6. Follow [these instructions](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/CONTRIBUTING.md#setting-up-your-env-file) to add it to your dev environment
+4. Create a fork of [acmcsuf.com](https://github.com/EthanThatOneKid/acmcsuf.com), similar to <https://github.com/jaasonw/acmcsuf.com>
+5. Create an account on [Vercel](https://vercel.com/) and create a new project linked to the fork you just created, similar to <https://acmcsuf-wayson.vercel.app/>
+6. Create an [access token](https://scribehow.com/shared/Generating_a_personal_access_token__eMf0UJYaS5OcGrO_lJTpGg)
+7. Follow [these instructions](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/CONTRIBUTING.md#setting-up-your-env-file) to add it to your dev environment
 
 ## Local development setup
 
