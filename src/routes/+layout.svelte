@@ -7,11 +7,12 @@
 
   import { page } from '$app/stores';
   import { browser, dev } from '$app/environment';
+  import { VERCEL_ANALYTICS_ID } from '$env/static/public';
   import { send } from '$lib/public/analytics/vitals';
 
-  $: if (browser && !dev) {
+  $: if (browser && !dev && VERCEL_ANALYTICS_ID) {
     send({
-      id: '$VERCEL_ANALYTICS_ID',
+      id: VERCEL_ANALYTICS_ID,
       path: $page.url.pathname,
       params: $page.params,
       navigator,
