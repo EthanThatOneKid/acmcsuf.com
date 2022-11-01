@@ -346,12 +346,38 @@ export function makeClubEvent(
 
   const summary = produceSummary(title, description, selfLink);
 
-  const rawAcmPath = variables.get('ACM_PATH')?.toLowerCase();
+  /**
+   * Team ID hosting the event is stored in the description. If it's not there,
+   * it's a "general" event.
+   * 
+   * We check the variable name `ACM_TEAM` first, then fall back to `ACM_PATH` which is deprecated.
+   * We expect new events to use `ACM_TEAM` and ancient events to use `ACM_PATH`.
+   */
+  const teamId = (variables.get('ACM_TEAM') ?? variables.get('ACM_PATH'))?.toLowerCase().trim();
 
   let team = TEAMS.general;
-  if (rawAcmPath === TEAMS.algo.id) team = TEAMS.algo;
-  else if (rawAcmPath === TEAMS.design.id) team = TEAMS.design;
-  else if (rawAcmPath === TEAMS.dev.id) team = TEAMS.dev;
+  switch (teamId) {
+    case 'ai': {
+      team = TEAMS.ai;
+      break;
+    }
+    case 'algo': {
+      team = TEAMS.algo;
+      break;
+    }
+    case 'design': {
+      team = TEAMS.design;
+      break;
+    }
+    case 'dev': {
+      team = TEAMS.dev;
+      break;
+    }
+    case 'special-events': {
+      team = TEAMS['special-events'];
+      break;
+    }
+  }
 
   const thirdPartyCalendarLocation = location === 'Discord' ? selfLink : location;
   const thirdPartyCalendarArgs = [
