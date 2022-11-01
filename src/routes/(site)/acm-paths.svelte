@@ -17,8 +17,7 @@
     <div class="paths-list">
       {#each pinnedPaths as { title, slug, picture, color } (slug)}
         <a class="path-item" target="_self" href={`/teams#${slug}`}>
-          <img src={picture} alt={`${slug} badge`} />
-
+          <img src={picture} alt={`${slug} badge`} class={slug} />
           <p class="size-md brand-bold" style:--brand-color={color}>
             {title}
           </p>
@@ -76,6 +75,22 @@
             p {
               color: var(--brand-color);
             }
+          }
+
+          .ai:hover {
+            filter: drop-shadow(0 0 3em rgb(127, 255, 212));
+          }
+
+          .algo:hover {
+            filter: drop-shadow(0 0 3em rgb(138, 43, 226));
+          }
+
+          .design:hover {
+            filter: drop-shadow(0 0 3em rgb(204, 73, 61));
+          }
+
+          .dev:hover {
+            filter: drop-shadow(0 0 3em rgb(56, 56, 228));
           }
         }
       }
