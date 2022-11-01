@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { pinnedPaths } from '$lib/public/legacy/acm-paths';
+  import { PINNED_TEAMS } from '$lib/public/board/data';
 </script>
 
 <section>
   <div class="container">
-    <div class="paths-intro">
-      <h2 class="brand-header size-lg">Discover your own path</h2>
+    <div class="teams-intro">
+      <h2 class="brand-header size-lg">Discover your own passion</h2>
 
       <p class="size-sm">
         Each team was designed to allow students to explore the various fields within tech, and
@@ -14,10 +14,10 @@
       </p>
     </div>
 
-    <div class="paths-list">
-      {#each pinnedPaths as { title, slug, picture, color } (slug)}
-        <a class="path-item" target="_self" href={`/teams#${slug}`}>
-          <img src={picture} alt={`${slug} badge`} />
+    <div class="teams-list">
+      {#each PINNED_TEAMS as { title, id, picture, color } (id)}
+        <a class="team-item" target="_self" href={`/teams#${id}`}>
+          <img src={picture} alt={`${id} badge`} />
 
           <p class="size-md brand-bold" style:--brand-color={color}>
             {title}
@@ -44,17 +44,17 @@
       width: 1280px;
       gap: 64px;
 
-      .paths-intro {
+      .teams-intro {
         display: flex;
         flex-direction: column;
         gap: 16px;
       }
 
-      .paths-list {
+      .teams-list {
         display: flex;
         gap: 96px;
 
-        .path-item {
+        .team-item {
           display: flex;
           flex-direction: column;
           text-decoration: none;
@@ -86,7 +86,7 @@
     section .container {
       padding: 0 8px;
 
-      .paths-list {
+      .teams-list {
         flex-direction: column;
         gap: 48px;
       }

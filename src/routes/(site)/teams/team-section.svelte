@@ -1,14 +1,14 @@
 <script lang="ts">
-  import type { AcmPath } from '$lib/public/legacy/acm-paths';
+  import type { Team } from '$lib/public/board/types';
   import { TextAlignment } from '$lib/public/text-alignment/text-alignment';
 
   export let textAlign: TextAlignment = TextAlignment.RIGHT;
-  export let info: AcmPath | undefined;
+  export let info: Team | undefined;
 </script>
 
 <div class="container">
   {#if info !== undefined}
-    <section id={info.slug} class:👈={textAlign === TextAlignment.LEFT}>
+    <section id={info.id} class:👈={textAlign === TextAlignment.LEFT}>
       <img src={info.picture} alt={`acm${info.title} Logo`} />
       <div>
         <h2>
