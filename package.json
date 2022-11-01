@@ -63,7 +63,6 @@
   "type": "module",
   "dependencies": {
     "@js-temporal/polyfill": "^0.4.1",
-    "@vercel/analytics": "^0.1.3",
     "html-to-text": "^8.2.1",
     "qrcode": "^1.5.1",
     "rrule": "^2.6.9",
