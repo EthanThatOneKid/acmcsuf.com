@@ -15,9 +15,11 @@
   --acm-canvas: #eaeaea;
 
   --acm-general-rgb: 44, 145, 198;
+  --acm-ai-rgb: 33, 209, 159;
   --acm-algo-rgb: 157, 53, 231;
-  --acm-create-rgb: 255, 67, 101;
+  --acm-design-rgb: 255, 67, 101;
   --acm-dev-rgb: 30, 108, 255;
+  --acm-special-events-rgb: 255, 208, 41;
 
   --perma-light: #f8f8f8;
   --perma-dark: #101315;

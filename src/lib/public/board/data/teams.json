@@ -24,6 +24,12 @@
     "color": "var(--acm-emerald)"
   },
   {
+    "title": "Special Events",
+    "id": "special-events",
+    "picture": "/assets/badges/special-events-team.svg",
+    "color": "var(--acm-yellow)"
+  },
+  {
     "title": "General",
     "id": "general",
     "picture": "/assets/badges/general.svg",
