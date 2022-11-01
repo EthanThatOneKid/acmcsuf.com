@@ -1,6 +1,6 @@
 import * as RRule from 'rrule/dist/es5/rrule.min.js';
 import { Temporal } from '@js-temporal/polyfill';
-import { acmAlgo, acmDesign, acmDev, acmGeneral } from '$lib/public/legacy/acm-paths';
+import { TEAMS } from '$lib/public/board/data';
 import { parseBool } from '$lib/server/parse-bool/parse-bool';
 import type { ClubEvent } from '$lib/public/events/event';
 
@@ -348,10 +348,10 @@ export function makeClubEvent(
 
   const rawAcmPath = variables.get('ACM_PATH')?.toLowerCase();
 
-  let acmPath = acmGeneral;
-  if (rawAcmPath === acmAlgo.slug) acmPath = acmAlgo;
-  else if (rawAcmPath === acmDesign.slug) acmPath = acmDesign;
-  else if (rawAcmPath === acmDev.slug) acmPath = acmDev;
+  let team = TEAMS.general;
+  if (rawAcmPath === TEAMS.algo.id) team = TEAMS.algo;
+  else if (rawAcmPath === TEAMS.design.id) team = TEAMS.design;
+  else if (rawAcmPath === TEAMS.dev.id) team = TEAMS.dev;
 
   const thirdPartyCalendarLocation = location === 'Discord' ? selfLink : location;
   const thirdPartyCalendarArgs = [
@@ -385,7 +385,7 @@ export function makeClubEvent(
     slug,
     selfLink,
     recurring,
-    acmPath,
+    team,
     calendarLinks,
   };
 }

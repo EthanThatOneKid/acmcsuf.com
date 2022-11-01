@@ -61,3 +61,14 @@ export interface Officer {
     [key in Social]?: string;
   };
 }
+
+/**
+ * Team is used to represent a team of officers that are associated with a
+ * specific team.
+ */
+export interface Team {
+  title: string;
+  id: string;
+  picture: string;
+  color: string;
+}

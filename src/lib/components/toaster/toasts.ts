@@ -1,4 +1,4 @@
-import { acmGeneral } from '$lib/public/legacy/acm-paths';
+import { TEAMS } from '$lib/public/board/data';
 import { writable } from 'svelte/store';
 
 const MAX_TOASTS = 4;
@@ -32,7 +32,7 @@ function makeToast(
     type: type ?? ToastType.Success,
     dismissible: dismissible ?? true,
     timeout: timeout ?? TOAST_TIMEOUT,
-    teamId: teamId ?? acmGeneral.slug,
+    teamId: teamId ?? TEAMS.general.id,
   };
 }
 
