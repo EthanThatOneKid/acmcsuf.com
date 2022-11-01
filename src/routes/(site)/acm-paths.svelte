@@ -78,19 +78,19 @@
           }
 
           .ai:hover {
-            filter: drop-shadow(0 0 3em rgb(127, 255, 212));
+            filter: drop-shadow(0 0 3em rgb(142, 252, 215));
           }
 
           .algo:hover {
-            filter: drop-shadow(0 0 3em rgb(138, 43, 226));
+            filter: drop-shadow(0 0 3em rgb(178, 101, 250));
           }
 
           .design:hover {
-            filter: drop-shadow(0 0 3em rgb(204, 73, 61));
+            filter: drop-shadow(0 0 3em rgb(240, 109, 97));
           }
 
           .dev:hover {
-            filter: drop-shadow(0 0 3em rgb(56, 56, 228));
+            filter: drop-shadow(0 0 3em rgb(103, 103, 252));
           }
         }
       }
