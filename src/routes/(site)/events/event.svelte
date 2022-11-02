@@ -35,7 +35,7 @@
   });
 </script>
 
-<div class="event-box" style:--highlights={`var(--acm-${info.acmPath.slug}-rgb)`}>
+<div class="event-box" style:--highlights={`var(--acm-${info.team.id}-rgb)`}>
   <!-- Workaround for the top panel covering the event card's anchor. -->
   <div class="anchor" id={info.slug} bind:this={anchor} />
   <details class="event-card" bind:this={details}>
@@ -83,7 +83,7 @@
             info.selfLink,
             'Copied event link to clipboard!',
             'Failed to copy event link to clipboard!',
-            info.acmPath.slug
+            info.team.id
           )}
       >
         <CopyLink />
@@ -97,7 +97,7 @@
             info.summary,
             'Copied event summary to clipboard!',
             'Failed to copy event summary to clipboard!',
-            info.acmPath.slug
+            info.team.id
           )}
       >
         <BwIcon src="/assets/svg/copy-text.svg" alt="Copy event summary" />
@@ -111,7 +111,7 @@
             info.calendarLinks.google,
             'Copied Google Calendar link to clipboard!',
             'Failed to copy Google Calendar link to clipboard!',
-            info.acmPath.slug
+            info.team.id
           )}
       >
         <CalendarGoogle />
@@ -125,7 +125,7 @@
             info.calendarLinks.outlook,
             'Copied Microsoft Outlook calendar link to clipboard!',
             'Failed to copy Microsoft Outlook calendar link to clipboard!',
-            info.acmPath.slug
+            info.team.id
           )}
       >
         <CalendarOutlook />
