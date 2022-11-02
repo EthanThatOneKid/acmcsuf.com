@@ -174,9 +174,9 @@ body:has(nav > input[type='checkbox']:checked) {
   --navbar-bg: rgba(16, 19, 21, 0.9);
   --footer-bg: var(--acm-gray);
   --card-bg: var(--acm-gray);
-  --button-bg: var(--acm-gray);
-  --button-toggle: var(--acm-gray);
+  --button-bg: var(--acm-dark);
   --button-hover: #3d4043;
+  --button-toggle: var(--acm-dark);
   --box-shadow: var(--nav-shadow);
 }
 
