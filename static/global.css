@@ -15,11 +15,14 @@
   --acm-canvas: #eaeaea;
 
   --acm-general-rgb: 44, 145, 198;
+  --acm-ai-rgb: 33, 209, 159;
   --acm-algo-rgb: 157, 53, 231;
-  --acm-create-rgb: 255, 67, 101;
+  --acm-design-rgb: 255, 67, 101;
   --acm-dev-rgb: 30, 108, 255;
+  --acm-special-events-rgb: 255, 208, 41;
 
   --perma-light: #f8f8f8;
+  --perma-dark: #101315;
 
   /* Generator: https://xgkft.csb.app/ (280px-1000px viewport-width, 1rem=16px) */
   --size-xxl: clamp(2.8125rem, 1.8403rem + 5.5556vw, 5.3125rem);
@@ -39,6 +42,7 @@ body,
   margin: 0;
   transition: 0.2s;
 }
+
 html,
 body,
 #svelte {
@@ -49,6 +53,10 @@ body,
 body {
   background-color: var(--acm-light);
   transition: 0.2s;
+}
+
+body:has(nav > input[type='checkbox']:checked) {
+  overflow: hidden;
 }
 
 .brand-bold,
@@ -148,22 +156,28 @@ body {
   --acm-dark: #101315;
   --acm-light: #f8f8f8;
   --acm-canvas: #eaeaea;
+  --nav-shadow: 0 3px 12px rgba(16, 19, 21, 0.1);
   --navbar-bg: var(--acm-light);
   --footer-bg: var(--acm-dark);
   --card-bg: var(--acm-light);
   --button-bg: var(--acm-dark);
   --button-hover: var(--acm-blue);
+  --button-toggle: var(--acm-dark);
+  --box-shadow: var(--nav-shadow);
 }
 
 .dark {
   --acm-dark: #f8f8f8;
   --acm-light: #101315;
   --acm-canvas: #161b22;
-  --navbar-bg: var(--acm-light);
+  --nav-shadow: 0 2px rgb(49, 49, 49);
+  --navbar-bg: rgba(16, 19, 21, 0.9);
   --footer-bg: var(--acm-gray);
   --card-bg: var(--acm-gray);
   --button-bg: var(--acm-gray);
   --button-hover: #3d4043;
+  --button-toggle: var(--acm-gray);
+  --box-shadow: var(--nav-shadow);
 }
 
 @media (prefers-color-scheme: light) {
@@ -171,11 +185,14 @@ body {
     --acm-dark: #101315;
     --acm-light: #f8f8f8;
     --acm-canvas: #eaeaea;
+    --nav-shadow: 0 3px 12px rgba(16, 19, 21, 0.1);
     --navbar-bg: var(--acm-light);
     --footer-bg: var(--acm-dark);
     --card-bg: var(--acm-light);
     --button-bg: var(--acm-dark);
     --button-hover: var(--acm-blue);
+    --button-toggle: var(--acm-dark);
+    --box-shadow: var(--nav-shadow);
   }
 }
 
@@ -184,10 +201,13 @@ body {
     --acm-dark: #f8f8f8;
     --acm-light: #101315;
     --acm-canvas: #161b22;
-    --navbar-bg: var(--acm-light);
+    --nav-shadow: 0 2px rgb(49, 49, 49);
+    --navbar-bg: rgba(16, 19, 21, 0.9);
     --footer-bg: var(--acm-gray);
     --card-bg: var(--acm-gray);
     --button-bg: var(--acm-gray);
     --button-hover: #3d4043;
+    --button-toggle: var(--acm-gray);
+    --box-shadow: var(--nav-shadow);
   }
 }

@@ -1,9 +1,9 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import type { Team } from '$lib/public/board/types';
+  import { TEAMS } from '$lib/public/board/data';
   import ArrowLeft from '$lib/components/svg/arrow-left.svelte';
   import ArrowRight from '$lib/components/svg/arrow-right.svelte';
-  import type { AcmPath } from '$lib/public/legacy/acm-paths';
-  import { acmAlgo, acmDev, acmDesign, acmAI, acmGeneral } from '$lib/public/legacy/acm-paths';
   import type { QuizData } from '$lib/public/quiz/questions/types';
   import { TeamMatch } from '$lib/public/quiz/questions/types';
   import { QuizStorage } from '$lib/public/quiz/responses/storage';
@@ -12,20 +12,13 @@
 
   export let data: QuizData;
 
-  const TEAMS = {
-    [TeamMatch.AI as string]: acmAI,
-    [TeamMatch.DEV as string]: acmDev,
-    [TeamMatch.DESIGN as string]: acmDesign,
-    [TeamMatch.ALGO as string]: acmAlgo,
-  };
-
   let index = 0;
   let responses: (string | undefined)[] = [];
   let answeredAllQuestions = false;
 
   let showResults = false;
   let showMoreInfo = false;
-  let showTeam: AcmPath;
+  let showTeam: Team;
 
   function goLeft() {
     if (index > 0) index--;
@@ -54,7 +47,7 @@
     quizStorage && quizStorage.clearResponses();
   }
 
-  function showTeamDetails(currentTeam: AcmPath) {
+  function showTeamDetails(currentTeam: Team) {
     showMoreInfo = true;
     showTeam = currentTeam;
   }
@@ -183,7 +176,7 @@
       <h3>Take Quiz Again?</h3>
       <p class="italic">This will wipe your current results</p>
     </button>
-    <button class="arrow action-btn" on:click={() => showTeamDetails(acmGeneral)}
+    <button class="arrow action-btn" on:click={() => showTeamDetails(TEAMS.general)}>
       >Want to help out ACM?</button
     >
     <p class="italic fine-text">

@@ -1,9 +1,29 @@
-import type { AnalyticsOptions, Metric } from './types';
-export { onCLS, onFCP, onFID, onLCP, onTTFB } from 'web-vitals';
+import { onCLS, onFCP, onFID, onLCP, onTTFB } from 'web-vitals';
+import type { AnalyticsOptions, Metric, ReportCallback, ReportOpts } from './types';
+
+export function send(
+  options: AnalyticsOptions,
+  handlers = [onFID, onTTFB, onLCP, onCLS, onFCP]
+): void {
+  if (!options.id) return;
+
+  try {
+    handlers.forEach((handler) => doVital(handler, options));
+  } catch (err) {
+    console.error('[Analytics]', err);
+  }
+}
+
+function doVital(
+  handler: (onReport: ReportCallback, opts?: ReportOpts | undefined) => void,
+  options: AnalyticsOptions
+): void {
+  handler((metric: Metric) => sendToAnalytics(metric, options));
+}
 
 type VitalsNavigator = Navigator & { connection: { effectiveType: string } };
 
-export function sendToAnalytics(metric: Metric, options: AnalyticsOptions) {
+function sendToAnalytics(metric: Metric, options: AnalyticsOptions) {
   if (!options.url) {
     options.url = 'https://vitals.vercel-analytics.com/v1/vitals';
   }

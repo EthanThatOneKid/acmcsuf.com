@@ -5,23 +5,12 @@ import preprocess from 'svelte-preprocess';
 const config = {
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
-  preprocess: preprocess({
-    replace: [['$VERCEL_ANALYTICS_ID', process.env.VERCEL_ANALYTICS_ID]],
-  }),
+  preprocess: preprocess(),
 
   kit: {
     adapter: adapter(),
-  },
-
-  vitePlugin: {
-    experimental: {
-      inspector: {
-        toggleKeyCombo: 'meta-shift',
-        boldMode: true,
-        showToggleButton: 'always',
-        toggleButtonPosition: 'bottom-left',
-      },
-    },
+    // See https://acmcsuf.com/pulls/630.
+    env: { publicPrefix: 'VERCEL_' },
   },
 };
 
