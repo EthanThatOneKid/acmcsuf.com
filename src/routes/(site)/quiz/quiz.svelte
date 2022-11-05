@@ -57,6 +57,7 @@
   }
 
   $: talliedResponses = (responses ?? []).reduce((tallies, match) => {
+    match = match?.toLocaleLowerCase();
     if (match && tallies[match]) tallies[match]++;
     else if (match) tallies[match] = 1;
     return tallies;
