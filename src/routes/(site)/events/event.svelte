@@ -319,5 +319,10 @@
       margin-bottom: 12px;
       margin-right: 0;
     }
+
+    .event-actionbar {
+      justify-content: center;
+      flex-direction: row;
+    }
   }
 </style>
