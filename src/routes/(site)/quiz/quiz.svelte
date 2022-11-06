@@ -2,13 +2,12 @@
   import { onMount } from 'svelte';
   import type { Team } from '$lib/public/board/types';
   import { TEAMS } from '$lib/public/board/data';
-  import ArrowLeft from '$lib/components/svg/arrow-left.svelte';
-  import ArrowRight from '$lib/components/svg/arrow-right.svelte';
   import type { QuizData } from '$lib/public/quiz/questions/types';
   import { TeamMatch } from '$lib/public/quiz/questions/types';
   import { QuizStorage } from '$lib/public/quiz/responses/storage';
   import ProgressBar from './progress-bar.svelte';
   import MoreInfo from './more-info.svelte';
+  import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
 
   export let data: QuizData;
 
@@ -106,13 +105,15 @@
         on:click={goLeft}
         disabled={index === 0}
         class:disable-arrow={index === 0}
-        class="arrow"><ArrowLeft /></button
+        class="arrow"
+      >
+        <BwIcon src="/assets/svg/arrow-left.svg" alt="left arrow" /></button
       >
       <button
         on:click={goRight}
         disabled={index === data.questions.length - 1 || !(responses ?? [])[index]}
         class:disable-arrow={index === data.questions.length - 1 || !(responses ?? [])[index]}
-        class="arrow"><ArrowRight /></button
+        class="arrow"><BwIcon src="/assets/svg/arrow-left.svg" alt="left arrow" /></button
       >
     </div>
     <button
@@ -126,7 +127,7 @@
   {:else if showMoreInfo}
     <MoreInfo {...showTeam} />
     <button on:click={goBackToResults} class="arrow return-to-results"
-      ><ArrowLeft />
+      ><BwIcon src="/assets/svg/arrow-left.svg" alt="left arrow" />
       <h3>Check out other teams</h3></button
     >
     <!-- DISPLAY THE RESULTS -->

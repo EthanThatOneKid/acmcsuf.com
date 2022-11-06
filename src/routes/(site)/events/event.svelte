@@ -2,9 +2,6 @@
   import { onMount } from 'svelte';
   import type { ClubEvent } from '$lib/public/events/event';
   import { copy } from '$lib/public/copy/copy';
-  import CopyLink from '$lib/components/svg/copy-link.svelte';
-  import CalendarGoogle from '$lib/components/svg/calendar-google.svelte';
-  import CalendarOutlook from '$lib/components/svg/calendar-outlook.svelte';
   import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
 
   export let info: ClubEvent;
@@ -86,7 +83,7 @@
             info.team.id
           )}
       >
-        <CopyLink />
+        <BwIcon src="/assets/svg/copy-link.svg" alt="copy link" />
       </button>
 
       <button
@@ -114,7 +111,7 @@
             info.team.id
           )}
       >
-        <CalendarGoogle />
+        <BwIcon src="/assets/svg/google-calendar.svg" alt="Copy Google Calendar link" />
       </button>
 
       <button
@@ -128,7 +125,7 @@
             info.team.id
           )}
       >
-        <CalendarOutlook />
+        <BwIcon src="/assets/svg/outlook-calendar.svg" alt="Copy Outlink link" />
       </button>
     </div>
   </details>
