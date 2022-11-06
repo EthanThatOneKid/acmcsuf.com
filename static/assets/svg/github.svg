@@ -1,11 +1,9 @@
 <svg
   viewBox="64 64 896 896"
-  focusable="false"
-  data-icon="github"
+  xmlns="http://www.w3.org/2000/svg"
   width="64"
   height="64"
   fill="currentColor"
-  aria-hidden="true"
 >
   <title>GitHub</title>
   <path
