@@ -123,10 +123,7 @@
       list-style: none;
       padding: 3em 4em 2.5em;
       margin: 0;
-      background-color: var(--acm-light);
       border-radius: 3em;
-      filter: drop-shadow(0 8px 40px rgba(16, 19, 21, 0.1));
-      -webkit-filter: drop-shadow(0 8px 40px rgba(16, 19, 21, 0.1));
       width: min(1000px, 70vw);
 
       li {

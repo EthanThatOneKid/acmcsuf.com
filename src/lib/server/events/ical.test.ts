@@ -1,5 +1,5 @@
 import { test, expect, assert } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { Temporal } from '@js-temporal/polyfill';
 import { SAMPLE_EVENTS } from './data/sample-events';
 import {
@@ -20,10 +20,10 @@ test('ICAL parser integration test', () => {
   // To generate 'src/lib/server/events/data/sample-events.ts', uncomment the
   // following lines of code then run 'npm t' (and 'npm run all'):
   //
-  // writeFileSync(
-  //   'src/lib/server/events/data/sample-events.ts',
-  //   `export const SAMPLE_EVENTS = ${JSON.stringify(events)};`
-  // );
+  writeFileSync(
+    'src/lib/server/events/data/sample-events.ts',
+    `export const SAMPLE_EVENTS = ${JSON.stringify(events)};`
+  );
 
   expect(events).toEqual(SAMPLE_EVENTS);
 });

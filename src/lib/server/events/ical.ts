@@ -1,6 +1,6 @@
 import * as RRule from 'rrule/dist/es5/rrule.min.js';
 import { Temporal } from '@js-temporal/polyfill';
-import { acmAlgo, acmDesign, acmDev, acmGeneral } from '$lib/public/legacy/acm-paths';
+import { TEAMS } from '$lib/public/board/data';
 import { parseBool } from '$lib/server/parse-bool/parse-bool';
 import type { ClubEvent } from '$lib/public/events/event';
 
@@ -346,12 +346,38 @@ export function makeClubEvent(
 
   const summary = produceSummary(title, description, selfLink);
 
-  const rawAcmPath = variables.get('ACM_PATH')?.toLowerCase();
+  /**
+   * Team ID hosting the event is stored in the description. If it's not there,
+   * it's a "general" event.
+   * 
+   * We check the variable name `ACM_TEAM` first, then fall back to `ACM_PATH` which is deprecated.
+   * We expect new events to use `ACM_TEAM` and ancient events to use `ACM_PATH`.
+   */
+  const teamId = (variables.get('ACM_TEAM') ?? variables.get('ACM_PATH'))?.toLowerCase().trim();
 
-  let acmPath = acmGeneral;
-  if (rawAcmPath === acmAlgo.slug) acmPath = acmAlgo;
-  else if (rawAcmPath === acmDesign.slug) acmPath = acmDesign;
-  else if (rawAcmPath === acmDev.slug) acmPath = acmDev;
+  let team = TEAMS.general;
+  switch (teamId) {
+    case 'ai': {
+      team = TEAMS.ai;
+      break;
+    }
+    case 'algo': {
+      team = TEAMS.algo;
+      break;
+    }
+    case 'design': {
+      team = TEAMS.design;
+      break;
+    }
+    case 'dev': {
+      team = TEAMS.dev;
+      break;
+    }
+    case 'special-events': {
+      team = TEAMS['special-events'];
+      break;
+    }
+  }
 
   const thirdPartyCalendarLocation = location === 'Discord' ? selfLink : location;
   const thirdPartyCalendarArgs = [
@@ -385,7 +411,7 @@ export function makeClubEvent(
     slug,
     selfLink,
     recurring,
-    acmPath,
+    team,
     calendarLinks,
   };
 }
