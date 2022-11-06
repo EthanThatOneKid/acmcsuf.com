@@ -76,12 +76,6 @@
       >
       <hr />
     </summary>
-
-    <noscript>
-      <p class="event-description">
-        {@html info.description}
-      </p>
-    </noscript>
     <p class="event-description">
       {@html info.description}
     </p>
@@ -159,40 +153,44 @@
   }
 
   .event-card {
+    --height-closed: 110px;
+    --height-opened: 200px;
     margin: 32px 64px;
     padding: 0;
+    height: var(--height-closed);
     box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.25);
     transition: all 0.15s ease-in-out;
     border-radius: 30px;
     border: 2px solid var(--acm-dark);
+
+    & :not([open]) {
+      height: var(--height-closed);
+    }
+
+    & > *:not(summary) {
+      --speed: 1s;
+      --timing: ease;
+      transition: height var(--speed) var(--timing), opacity var(--speed) var(--timing),
+        transform var(--speed) var(--timing), margin-top var(--speed) var(--timing);
+
+      opacity: 0;
+      transform: translateX(-10px);
+      margin-top: -60px;
+    }
+
+    &[open] {
+      height: var(--height-opened);
+
+      & > *:not(summary) {
+        opacity: 1;
+        transform: translateX(0);
+        margin-top: 24px;
+      }
+    }
   }
 
   .event-card:hover {
     box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.65);
-  }
-
-  .event-card[open] {
-    box-shadow: 0 6px 24px rgba(var(--highlights, --acm-general-rgb), 0.75);
-    border: 2px solid rgb(var(--highlights, --acm-general-rgb));
-  }
-
-  .event-card[open] summary ~ * {
-    animation: open 0.5s ease-in;
-  }
-
-  @keyframes open {
-    0% {
-      opacity: 0;
-      margin-top: -60px;
-      transform: translateX(-10px);
-    }
-    30% {
-      margin-top: 24px;
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0px);
-    }
   }
 
   .event-card:hover h2,
@@ -210,7 +208,6 @@
     border-color: var(--acm-dark);
     background-color: var(--acm-dark);
     opacity: 0.5;
-    // margin: 24px 0;
   }
 
   .event-card > hr,
