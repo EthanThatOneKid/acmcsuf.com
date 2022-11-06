@@ -2,8 +2,6 @@
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
   import Toggle from '$lib/components/toggle/toggle.svelte';
-  import ThemeLight from '$lib/components/svg/theme-light.svelte';
-  import ThemeDark from '$lib/components/svg/theme-dark.svelte';
   import { AcmTheme, theme } from '$lib/public/legacy/theme';
 
   let jsEnabled = false;
@@ -69,11 +67,10 @@
             </style>
           </noscript>
           <span class="dark-toggle">
-            {#if $theme === AcmTheme.Dark}
-              <ThemeLight />
-            {:else}
-              <ThemeDark />
-            {/if}
+            <img
+              src={`/assets/svg${$theme === AcmTheme.Dark ? '/moon' : '/sun'}.svg`}
+              alt="theme"
+            />
           </span>
         </Toggle>
       </div>
