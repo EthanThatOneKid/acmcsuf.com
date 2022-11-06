@@ -24,9 +24,12 @@
    */
   function sortByTier(termCode: Term) {
     return (a: Officer, b: Officer) => {
-      const aTier = a.positions[termCode]!.tier;
-      const bTier = b.positions[termCode]!.tier;
-      return aTier - bTier;
+      const aPos = a.positions[termCode];
+      const bPos = b.positions[termCode];
+      if (!aPos || !bPos) {
+        throw new Error(`a or b has no position`);
+      }
+      return aPos.tier - bPos.tier;
     };
   }
 
