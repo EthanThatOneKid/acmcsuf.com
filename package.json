@@ -37,7 +37,7 @@
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
     "@vitest/coverage-c8": "^0.24.4",
-    "discord.js": "^14.6.0",
+    "discord.js": "^13.6.0",
     "dotenv": "^16.0.3",
     "eslint": "^8.26.0",
     "eslint-config-prettier": "^8.5.0",
