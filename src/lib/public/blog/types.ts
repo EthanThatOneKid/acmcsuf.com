@@ -14,6 +14,7 @@ export interface BlogPost {
   labels: string[];
   author: {
     displayname: string;
+    fullname?: string;
     url: string;
     picture: string;
   };

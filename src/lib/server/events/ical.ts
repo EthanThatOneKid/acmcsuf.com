@@ -349,7 +349,7 @@ export function makeClubEvent(
   /**
    * Team ID hosting the event is stored in the description. If it's not there,
    * it's a "general" event.
-   * 
+   *
    * We check the variable name `ACM_TEAM` first, then fall back to `ACM_PATH` which is deprecated.
    * We expect new events to use `ACM_TEAM` and ancient events to use `ACM_PATH`.
    */

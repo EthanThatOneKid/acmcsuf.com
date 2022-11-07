@@ -1,8 +1,6 @@
 <script lang="ts">
-  import Instagram from '$lib/components/svg/instagram.svelte';
-  import Discord from '$lib/components/svg/discord.svelte';
-  import YouTube from '$lib/components/svg/youtube.svelte';
-  import LinkedIn from '$lib/components/svg/linkedin.svelte';
+  import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
+  import { AcmTheme } from '$lib/public/legacy/theme';
 
   const footerItems = [
     { title: 'Source Code', path: '/github' },
@@ -11,12 +9,7 @@
     { title: 'frankBot Privacy', path: '/privacy' },
   ];
 
-  const socialItems = [
-    { icon: Discord, path: '/discord' },
-    { icon: Instagram, path: '/instagram' },
-    { icon: YouTube, path: '/youtube' },
-    { icon: LinkedIn, path: '/linkedin' },
-  ];
+  const socials = ['/discord', '/instagram', '/youtube', '/linkedin'];
 </script>
 
 <footer>
@@ -25,10 +18,14 @@
       <h3 class="brand-header size-md">Stay connected</h3>
 
       <ul class="socials">
-        {#each socialItems as { path, icon } (path)}
+        {#each socials as socialPath (socialPath)}
           <li>
-            <a href={path} target="_blank" rel="noopener noreferrer">
-              <svelte:component this={icon} />
+            <a href={socialPath} target="_blank" rel="noopener noreferrer">
+              <BwIcon
+                src={`/assets/svg${socialPath}.svg`}
+                alt={socialPath.slice(1)}
+                filterOn={[AcmTheme.Dark, AcmTheme.Light]}
+              />
             </a>
           </li>
         {/each}
