@@ -16,7 +16,13 @@
         <img src={post.author.picture} alt="" />
       </a>
       <div>
-        <a href={post.author.url}>{post.author.displayname}</a>
+        <a href={post.author.url}
+          >{#if post.author.fullname}
+            {post.author.fullname}
+          {:else}
+            @{post.author.displayname}
+          {/if}</a
+        >
       </div>
     </div>
     <a href={makeBlogPostPageUrl(post.id)}>
