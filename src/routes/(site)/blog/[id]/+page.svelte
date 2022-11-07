@@ -26,7 +26,11 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      @{data.post.author.displayname}
+      {#if data.post.author.fullname}
+        {data.post.author.fullname}
+      {:else}
+        @{data.post.author.displayname}
+      {/if}
     </a>
   </p>
   <p>
