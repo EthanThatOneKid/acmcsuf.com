@@ -1,23 +1,15 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import ArrowLeft from '$lib/components/svg/arrow-left.svelte';
-  import ArrowRight from '$lib/components/svg/arrow-right.svelte';
-  import type { AcmPath } from '$lib/public/legacy/acm-paths';
-  import { acmAlgo, acmDev, acmDesign, acmAI, acmGeneral } from '$lib/public/legacy/acm-paths';
+  import type { Team } from '$lib/public/board/types';
+  import { TEAMS } from '$lib/public/board/data';
   import type { QuizData } from '$lib/public/quiz/questions/types';
   import { TeamMatch } from '$lib/public/quiz/questions/types';
   import { QuizStorage } from '$lib/public/quiz/responses/storage';
   import ProgressBar from './progress-bar.svelte';
   import MoreInfo from './more-info.svelte';
+  import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
 
   export let data: QuizData;
-
-  const TEAMS = {
-    [TeamMatch.AI as string]: acmAI,
-    [TeamMatch.DEV as string]: acmDev,
-    [TeamMatch.DESIGN as string]: acmDesign,
-    [TeamMatch.ALGO as string]: acmAlgo,
-  };
 
   let index = 0;
   let responses: (string | undefined)[] = [];
@@ -25,7 +17,7 @@
 
   let showResults = false;
   let showMoreInfo = false;
-  let showTeam: AcmPath;
+  let showTeam: Team;
 
   function goLeft() {
     if (index > 0) index--;
@@ -54,7 +46,7 @@
     quizStorage && quizStorage.clearResponses();
   }
 
-  function showTeamDetails(currentTeam: AcmPath) {
+  function showTeamDetails(currentTeam: Team) {
     showMoreInfo = true;
     showTeam = currentTeam;
   }
@@ -64,6 +56,7 @@
   }
 
   $: talliedResponses = (responses ?? []).reduce((tallies, match) => {
+    match = match?.toLowerCase();
     if (match && tallies[match]) tallies[match]++;
     else if (match) tallies[match] = 1;
     return tallies;
@@ -113,13 +106,15 @@
         on:click={goLeft}
         disabled={index === 0}
         class:disable-arrow={index === 0}
-        class="arrow"><ArrowLeft /></button
+        class="arrow"
+      >
+        <BwIcon src="/assets/svg/arrow-left.svg" alt="left arrow" /></button
       >
       <button
         on:click={goRight}
         disabled={index === data.questions.length - 1 || !(responses ?? [])[index]}
         class:disable-arrow={index === data.questions.length - 1 || !(responses ?? [])[index]}
-        class="arrow"><ArrowRight /></button
+        class="arrow"><BwIcon src="/assets/svg/arrow-left.svg" alt="left arrow" /></button
       >
     </div>
     <button
@@ -133,7 +128,7 @@
   {:else if showMoreInfo}
     <MoreInfo {...showTeam} />
     <button on:click={goBackToResults} class="arrow return-to-results"
-      ><ArrowLeft />
+      ><BwIcon src="/assets/svg/arrow-left.svg" alt="left arrow" />
       <h3>Check out other teams</h3></button
     >
     <!-- DISPLAY THE RESULTS -->
@@ -183,7 +178,7 @@
       <h3>Take Quiz Again?</h3>
       <p class="italic">This will wipe your current results</p>
     </button>
-    <button class="arrow action-btn" on:click={() => showTeamDetails(acmGeneral)}
+    <button class="arrow action-btn" on:click={() => showTeamDetails(TEAMS.general)}>
       >Want to help out ACM?</button
     >
     <p class="italic fine-text">

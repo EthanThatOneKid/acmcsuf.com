@@ -1,14 +1,10 @@
 <script lang="ts">
   import type { Officer } from '$lib/public/board/types';
   import { Term } from '$lib/public/board/types';
-  import GitHub from '$lib/components/svg/github.svelte';
-  import Public from '$lib/components/svg/public.svelte';
-  import Discord from '$lib/components/svg/discord.svelte';
-  import LinkedIn from '$lib/components/svg/linkedin.svelte';
-  import Instagram from '$lib/components/svg/instagram.svelte';
-  import { toast } from '$lib/components/toaster/toasts';
   import { onMount } from 'svelte';
   import { termIndex, getPositionByTermIndex } from '$lib/public/board/utils';
+  import { copy } from '$lib/public/copy/copy';
+  import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
 
   export let info: Officer;
   export let placeholderPicture = 'placeholder.webp';
@@ -61,17 +57,13 @@
     ? officerPosition.replace(teamName, `<b class="${teamClass}">${teamName}</b>`)
     : officerPosition;
 
-  /** @see <https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText> */
   function copyDiscord() {
-    toast(async () => {
-      try {
-        await navigator.clipboard.writeText(officerSocials.discord || '');
-        return `Copied ${officerName}'s Discord tag to clipboard!`;
-      } catch (err) {
-        console.error(err);
-        throw `Error occured while copy Discord tag to clipboard.`;
-      }
-    });
+    copy(
+      officerSocials.discord || '',
+      `Copied ${officerName}'s Discord tag to clipboard!`,
+      'Error occured while copy Discord tag to clipboard.',
+      ''
+    );
   }
 
   onMount(() => {
@@ -110,7 +102,9 @@
                     title={officerSocials.website}
                     href="//{officerSocials.website}"
                   >
-                    <Public /> <span>Website</span>
+                    <BwIcon src="/assets/svg/public.svg" alt="Public website icon" /><span
+                      >Website</span
+                    >
                   </a>
                 </p>
               {/if}
@@ -121,7 +115,7 @@
                     title={officerSocials.github}
                     href="https://github.com/{officerSocials.github}"
                   >
-                    <GitHub /> <span>GitHub</span>
+                    <BwIcon src="/assets/svg/github.svg" alt="GitHub icon" /><span>GitHub</span>
                   </a>
                 </p>
               {/if}
@@ -137,7 +131,7 @@
                       event.preventDefault();
                     }}
                   >
-                    <Discord /> <span>Discord</span>
+                    <BwIcon src="/assets/svg/discord.svg" alt="Discord icon" /><span>Discord</span>
                   </a>
                 </p>
               {/if}
@@ -149,7 +143,9 @@
                     title={officerSocials.linkedin}
                     href="https://www.linkedin.com/in/{officerSocials.linkedin}"
                   >
-                    <LinkedIn /> <span>LinkedIn</span>
+                    <BwIcon src="/assets/svg/linkedin.svg" alt="LinkedIn icon" /><span
+                      >LinkedIn</span
+                    >
                   </a>
                 </p>
               {/if}
@@ -160,7 +156,9 @@
                     title={officerSocials.instagram}
                     href="https://www.instagram.com/{officerSocials.instagram}/"
                   >
-                    <Instagram /> <span>Instagram</span>
+                    <BwIcon src="/assets/svg/instagram.svg" alt="Instagram icon" /><span
+                      >Instagram</span
+                    >
                   </a>
                 </p>
               {/if}
@@ -327,7 +325,7 @@
           text-align: left;
           line-height: 2em;
 
-          :global(svg) {
+          :global(img) {
             width: 1.65em;
             height: 1.65em;
             margin-bottom: -0.45em;

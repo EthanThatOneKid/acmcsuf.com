@@ -26,7 +26,7 @@ export const LINKS = {
   'css-basics': 'https://codepen.io/alancortez1337/pen/BaxmJWL',
   'grid-play': 'https://codepen.io/jorgeemejia/pen/MWGBdQj',
   'frank-grid': 'https://codepen.io/alancortez1337/pen/xxjPVbG',
-  arch: 'https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/ARCHITECTURE.md',
+  arch: '/github/blob/main/ARCHITECTURE.md',
   'game-night': 'https://discord.com/events/710225099923521558/1031436363259723817',
   webdevform:
     'https://docs.google.com/forms/d/e/1FAIpQLSflnzKjgYKmNOkwIYRVveGVGuzso4Fm9Ph0gxAULgt6w5Xx9A/viewform',

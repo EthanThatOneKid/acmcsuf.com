@@ -1,4 +1,4 @@
-import type { AcmPath } from '$lib/public/legacy/acm-paths';
+import type { Team } from '$lib/public/board/types';
 
 export interface ClubEvent {
   month: string;
@@ -18,7 +18,7 @@ export interface ClubEvent {
   slug: string;
   selfLink: string;
   recurring: boolean;
-  acmPath: AcmPath;
+  team: Team;
   calendarLinks: {
     google: string;
     outlook: string;

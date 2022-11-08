@@ -1,25 +1,14 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import type { ClubEvent } from '$lib/public/events/event';
-  import { toast, ToastType } from '$lib/components/toaster/toasts';
-  import CopyLink from '$lib/components/svg/copy-link.svelte';
-  import CopyText from '$lib/components/svg/copy-text.svelte';
-  import CalendarGoogle from '$lib/components/svg/calendar-google.svelte';
-  import CalendarOutlook from '$lib/components/svg/calendar-outlook.svelte';
+  import { copy } from '$lib/public/copy/copy';
+  import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
 
   export let info: ClubEvent;
 
   let isRecurring: boolean = info.recurring;
   let anchor: HTMLElement;
   let details: HTMLDetailsElement;
-
-  /** @see <https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText> */
-  function copy(link: string, successMessage: string, errorMessage: string, path: string) {
-    navigator.clipboard
-      .writeText(link)
-      .then(() => toast({ content: successMessage, path }))
-      .catch(() => toast({ path, type: ToastType.Error, content: errorMessage }));
-  }
 
   function formatLocation(location?: string | null, hosted = ['Discord', 'Zoom']): string {
     // '', null, and undefined are all TBD
@@ -43,7 +32,7 @@
   });
 </script>
 
-<div class="event-box" style:--highlights={`var(--acm-${info.acmPath.slug}-rgb)`}>
+<div class="event-box" style:--highlights={`var(--acm-${info.team.id}-rgb)`}>
   <!-- Workaround for the top panel covering the event card's anchor. -->
   <div class="anchor" id={info.slug} bind:this={anchor} />
   <details class="event-card" bind:this={details}>
@@ -91,10 +80,10 @@
             info.selfLink,
             'Copied event link to clipboard!',
             'Failed to copy event link to clipboard!',
-            info.acmPath.slug
+            info.team.id
           )}
       >
-        <CopyLink />
+        <BwIcon src="/assets/svg/copy-link.svg" alt="copy link" />
       </button>
 
       <button
@@ -105,10 +94,10 @@
             info.summary,
             'Copied event summary to clipboard!',
             'Failed to copy event summary to clipboard!',
-            info.acmPath.slug
+            info.team.id
           )}
       >
-        <CopyText />
+        <BwIcon src="/assets/svg/copy-text.svg" alt="Copy event summary" />
       </button>
 
       <button
@@ -119,10 +108,10 @@
             info.calendarLinks.google,
             'Copied Google Calendar link to clipboard!',
             'Failed to copy Google Calendar link to clipboard!',
-            info.acmPath.slug
+            info.team.id
           )}
       >
-        <CalendarGoogle />
+        <BwIcon src="/assets/svg/google-calendar.svg" alt="Copy Google Calendar link" />
       </button>
 
       <button
@@ -133,10 +122,10 @@
             info.calendarLinks.outlook,
             'Copied Microsoft Outlook calendar link to clipboard!',
             'Failed to copy Microsoft Outlook calendar link to clipboard!',
-            info.acmPath.slug
+            info.team.id
           )}
       >
-        <CalendarOutlook />
+        <BwIcon src="/assets/svg/outlook-calendar.svg" alt="Copy Outlink link" />
       </button>
     </div>
   </details>
@@ -306,7 +295,7 @@
       transition: all 0.25s ease-in-out;
       border-radius: 30px;
       border: 2px solid var(--acm-dark);
-      background-color: var(--acm-light);
+      background-color: transparent;
     }
 
     .action-item:hover {
@@ -329,6 +318,11 @@
       margin-top: 10px;
       margin-bottom: 12px;
       margin-right: 0;
+    }
+
+    .event-actionbar {
+      justify-content: center;
+      flex-direction: row;
     }
   }
 </style>

@@ -1,6 +1,7 @@
 <script context="module" lang="ts">
-  const confetti: Record<string, { default: string }> = import.meta.globEager(
-    '$lib/1st/confetti/*.ts'
+  const confetti: Record<string, { default: string }> = import.meta.glob(
+    '$lib/public/confetti/*.ts',
+    { eager: true }
   );
 </script>
 

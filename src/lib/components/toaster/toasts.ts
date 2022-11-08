@@ -1,4 +1,4 @@
-import { acmGeneral } from '$lib/public/legacy/acm-paths';
+import { TEAMS } from '$lib/public/board/data';
 import { writable } from 'svelte/store';
 
 const MAX_TOASTS = 4;
@@ -17,14 +17,14 @@ export interface Toast {
   type?: ToastType;
   dismissible?: boolean;
   timeout?: number;
-  path?: string;
+  teamId?: string;
 }
 
 export const toasts = writable<Toast[]>([]);
 
 function makeToast(
   id: number,
-  { content, type, dismissible, timeout, path }: Omit<Toast, 'id'>
+  { content, type, dismissible, timeout, teamId }: Omit<Toast, 'id'>
 ): Required<Toast> {
   return {
     id,
@@ -32,7 +32,7 @@ function makeToast(
     type: type ?? ToastType.Success,
     dismissible: dismissible ?? true,
     timeout: timeout ?? TOAST_TIMEOUT,
-    path: path ?? acmGeneral.slug,
+    teamId: teamId ?? TEAMS.general.id,
   };
 }
 
