@@ -2,8 +2,12 @@
   import { onMount } from 'svelte';
   import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
   import { copy } from '$lib/public/copy/copy';
-
+  import { MetaTags } from 'svelte-meta-tags';
   export let data = '';
+  const parser = new DOMParser(),
+    dom: Document = parser.parseFromString(data, 'text/html');
+  let wrapper: HTMLElement = dom.children[0] as HTMLElement;
+  let description: string = wrapper.innerText.substring(0, 100);
 
   onMount(() => {
     const body = document.querySelector('body');
@@ -30,6 +34,11 @@
   });
 </script>
 
+<MetaTags
+  openGraph={{
+    description: `${description}`,
+  }}
+/>
 <div class="blog-body">
   {@html data}
 </div>

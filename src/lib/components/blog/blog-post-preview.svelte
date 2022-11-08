@@ -4,7 +4,6 @@
   import { readingTime } from '$lib/public/blog/utils';
   import { Temporal } from '@js-temporal/polyfill';
   import Labels from '$lib/components/blog/labels.svelte';
-
   export let post: BlogPost;
   export let selectedLabels: string[];
 </script>
