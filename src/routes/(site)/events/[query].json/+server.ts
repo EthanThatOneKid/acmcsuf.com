@@ -6,14 +6,12 @@ import { fromGCal, listUpcomingEvents } from '$lib/server/events/gcal';
 import { allEvents } from '$lib/server/events/cache';
 import type { ClubEvent } from '$lib/public/events/event';
 
-// const ICAL_TARGET_URL =
-//   'https://calendar.google.com/calendar/ical/738lnit63cr2lhp7jtduvj0c9g%40group.calendar.google.com/public/basic.ics';
-
 export async function GET({ params }: RequestEvent<RouteParams>) {
   var items = (await listUpcomingEvents()).data.items;
 
   if (items == undefined) {
-    return new Response(JSON.stringify({ message: 'Error retrieving events' }), { status: 404 });
+    const empty: ClubEvent[] = [];
+    return new Response(JSON.stringify(JSON.stringify(empty)), { status: 204 });
   }
 
   const events: ClubEvent[] = DEBUG_FLAG_ENABLED
