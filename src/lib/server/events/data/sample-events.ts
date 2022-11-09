@@ -14,7 +14,7 @@ export const SAMPLE_EVENTS = [
     summary: 'ACM & ACM-W Meeting — https://acmcsuf.com/events#acm-acm-w-meeting-2018-august-17',
     description: '',
     meetingLink: '/discord',
-    slug: 'acm-acm-w-meeting-2018-august-17',
+    id: 'acm-acm-w-meeting-2018-august-17',
     selfLink: 'https://acmcsuf.com/events#acm-acm-w-meeting-2018-august-17',
     recurring: false,
     team: {
@@ -45,7 +45,7 @@ export const SAMPLE_EVENTS = [
     summary: 'ACM Board Meeting — https://acmcsuf.com/events#acm-board-meeting-2018-august-17',
     description: '',
     meetingLink: '/discord',
-    slug: 'acm-board-meeting-2018-august-17',
+    id: 'acm-board-meeting-2018-august-17',
     selfLink: 'https://acmcsuf.com/events#acm-board-meeting-2018-august-17',
     recurring: false,
     team: {
@@ -77,7 +77,7 @@ export const SAMPLE_EVENTS = [
       'Personal Website Workshop Planning — https://acmcsuf.com/events#personal-website-workshop-planning-2018-august-21',
     description: '',
     meetingLink: '/discord',
-    slug: 'personal-website-workshop-planning-2018-august-21',
+    id: 'personal-website-workshop-planning-2018-august-21',
     selfLink: 'https://acmcsuf.com/events#personal-website-workshop-planning-2018-august-21',
     recurring: false,
     team: {
@@ -108,7 +108,7 @@ export const SAMPLE_EVENTS = [
     summary: 'Leadcon — https://acmcsuf.com/events#leadcon-2018-august-24',
     description: '',
     meetingLink: '/discord',
-    slug: 'leadcon-2018-august-24',
+    id: 'leadcon-2018-august-24',
     selfLink: 'https://acmcsuf.com/events#leadcon-2018-august-24',
     recurring: false,
     team: {
@@ -137,11 +137,11 @@ export const SAMPLE_EVENTS = [
     location: 'CSUF Pollack Library SGSR113',
     title: 'Git Workshop Review',
     summary:
-      "Git Workshop Review\n===================\n\nDuring this meeting, we will review Oscar's Git/GitHub workshop material. We will suggest revisions\nas necessary and determine any additional assistance or resources that are needed to host the\nworkshop.\n\nhttps://acmcsuf.com/events#git-workshop-review-2018-september-10",
+      "Git Workshop Review\n===================\n\nDuring this meeting\\, we will review Oscar's Git/GitHub workshop material. We will suggest revisions\nas necessary and determine any additional assistance or resources that are needed to host the\nworkshop.\n\nhttps://acmcsuf.com/events#git-workshop-review-2018-september-10",
     description:
-      "During this meeting, we will review Oscar's Git/GitHub workshop material. We will suggest revisions as necessary and determine any additional assistance or resources that are needed to host the workshop.",
+      "During this meeting\\, we will review Oscar's Git/GitHub workshop material. We will suggest revisions as necessary and determine any additional assistance or resources that are needed to host the workshop.",
     meetingLink: '/discord',
-    slug: 'git-workshop-review-2018-september-10',
+    id: 'git-workshop-review-2018-september-10',
     selfLink: 'https://acmcsuf.com/events#git-workshop-review-2018-september-10',
     recurring: false,
     team: {
@@ -152,9 +152,9 @@ export const SAMPLE_EVENTS = [
     },
     calendarLinks: {
       google:
-        'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Git+Workshop+Review&details=Git+Workshop+Review%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0ADuring+this+meeting%2C+we+will+review+Oscar%27s+Git%2FGitHub+workshop+material.+We+will+suggest+revisions%0Aas+necessary+and+determine+any+additional+assistance+or+resources+that+are+needed+to+host+the%0Aworkshop.%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23git-workshop-review-2018-september-10&location=CSUF+Pollack+Library+SGSR113&dates=20180910T173010%2F20180910T184510',
+        'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Git+Workshop+Review&details=Git+Workshop+Review%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0ADuring+this+meeting%5C%2C+we+will+review+Oscar%27s+Git%2FGitHub+workshop+material.+We+will+suggest+revisions%0Aas+necessary+and+determine+any+additional+assistance+or+resources+that+are+needed+to+host+the%0Aworkshop.%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23git-workshop-review-2018-september-10&location=CSUF+Pollack+Library+SGSR113&dates=20180910T173010%2F20180910T184510',
       outlook:
-        'https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20180910T173010&enddt=20180910T184510&subject=Git+Workshop+Review&body=Git+Workshop+Review%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0ADuring+this+meeting%2C+we+will+review+Oscar%27s+Git%2FGitHub+workshop+material.+We+will+suggest+revisions%0Aas+necessary+and+determine+any+additional+assistance+or+resources+that+are+needed+to+host+the%0Aworkshop.%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23git-workshop-review-2018-september-10&location=CSUF+Pollack+Library+SGSR113',
+        'https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20180910T173010&enddt=20180910T184510&subject=Git+Workshop+Review&body=Git+Workshop+Review%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0ADuring+this+meeting%5C%2C+we+will+review+Oscar%27s+Git%2FGitHub+workshop+material.+We+will+suggest+revisions%0Aas+necessary+and+determine+any+additional+assistance+or+resources+that+are+needed+to+host+the%0Aworkshop.%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23git-workshop-review-2018-september-10&location=CSUF+Pollack+Library+SGSR113',
     },
   },
   {
@@ -173,7 +173,7 @@ export const SAMPLE_EVENTS = [
       'Project Jam Meeting — https://acmcsuf.com/events#project-jam-meeting-2018-september-14',
     description: '',
     meetingLink: '/discord',
-    slug: 'project-jam-meeting-2018-september-14',
+    id: 'project-jam-meeting-2018-september-14',
     selfLink: 'https://acmcsuf.com/events#project-jam-meeting-2018-september-14',
     recurring: false,
     team: {
@@ -205,7 +205,7 @@ export const SAMPLE_EVENTS = [
       'Personal Website Workshop Mock Presentation\n===========================================\n\nLink to slides: https://goo.gl/uQCu5u\n\nhttps://acmcsuf.com/events#personal-website-workshop-mock-presentation-2018-september-19',
     description: 'Link to slides: https://goo.gl/uQCu5u',
     meetingLink: '/discord',
-    slug: 'personal-website-workshop-mock-presentation-2018-september-19',
+    id: 'personal-website-workshop-mock-presentation-2018-september-19',
     selfLink:
       'https://acmcsuf.com/events#personal-website-workshop-mock-presentation-2018-september-19',
     recurring: false,
@@ -235,11 +235,11 @@ export const SAMPLE_EVENTS = [
     location: 'PLN 434',
     title: 'Project Jam lead meeting',
     summary:
-      'Project Jam lead meeting\n========================\n\nPlease join us for this meeting, where we will discuss methods to become more effective project\nmanagers.<br><br>This event has a video call.<br>Join: https://meet.google.com/mxd-phqk-oro<br>(US)\n+1 803-999-5414 PIN: 750525410#\n\nhttps://acmcsuf.com/events#project-jam-lead-meeting-2018-october-2',
+      'Project Jam lead meeting\n========================\n\nPlease join us for this meeting\\, where we will discuss methods to become more effective project\nmanagers.<br><br>This event has a video call.<br>Join: https://meet.google.com/mxd-phqk-oro<br>(US)\n+1 803-999-5414 PIN: 750525410#\n\nhttps://acmcsuf.com/events#project-jam-lead-meeting-2018-october-2',
     description:
-      'Please join us for this meeting, where we will discuss methods to become more effective project managers.<br><br>This event has a video call.<br>Join: https://meet.google.com/mxd-phqk-oro<br>(US) +1 803-999-5414 PIN: 750525410#',
+      'Please join us for this meeting\\, where we will discuss methods to become more effective project managers.<br><br>This event has a video call.<br>Join: https://meet.google.com/mxd-phqk-oro<br>(US) +1 803-999-5414 PIN: 750525410#',
     meetingLink: '/discord',
-    slug: 'project-jam-lead-meeting-2018-october-2',
+    id: 'project-jam-lead-meeting-2018-october-2',
     selfLink: 'https://acmcsuf.com/events#project-jam-lead-meeting-2018-october-2',
     recurring: false,
     team: {
@@ -250,9 +250,9 @@ export const SAMPLE_EVENTS = [
     },
     calendarLinks: {
       google:
-        'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Project+Jam+lead+meeting&details=Project+Jam+lead+meeting%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0APlease+join+us+for+this+meeting%2C+where+we+will+discuss+methods+to+become+more+effective+project%0Amanagers.%3Cbr%3E%3Cbr%3EThis+event+has+a+video+call.%3Cbr%3EJoin%3A+https%3A%2F%2Fmeet.google.com%2Fmxd-phqk-oro%3Cbr%3E%28US%29%0A%2B1+803-999-5414+PIN%3A+750525410%23%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23project-jam-lead-meeting-2018-october-2&location=PLN+434&dates=20181002T160002%2F20181002T170002',
+        'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Project+Jam+lead+meeting&details=Project+Jam+lead+meeting%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0APlease+join+us+for+this+meeting%5C%2C+where+we+will+discuss+methods+to+become+more+effective+project%0Amanagers.%3Cbr%3E%3Cbr%3EThis+event+has+a+video+call.%3Cbr%3EJoin%3A+https%3A%2F%2Fmeet.google.com%2Fmxd-phqk-oro%3Cbr%3E%28US%29%0A%2B1+803-999-5414+PIN%3A+750525410%23%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23project-jam-lead-meeting-2018-october-2&location=PLN+434&dates=20181002T160002%2F20181002T170002',
       outlook:
-        'https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20181002T160002&enddt=20181002T170002&subject=Project+Jam+lead+meeting&body=Project+Jam+lead+meeting%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0APlease+join+us+for+this+meeting%2C+where+we+will+discuss+methods+to+become+more+effective+project%0Amanagers.%3Cbr%3E%3Cbr%3EThis+event+has+a+video+call.%3Cbr%3EJoin%3A+https%3A%2F%2Fmeet.google.com%2Fmxd-phqk-oro%3Cbr%3E%28US%29%0A%2B1+803-999-5414+PIN%3A+750525410%23%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23project-jam-lead-meeting-2018-october-2&location=PLN+434',
+        'https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20181002T160002&enddt=20181002T170002&subject=Project+Jam+lead+meeting&body=Project+Jam+lead+meeting%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0APlease+join+us+for+this+meeting%5C%2C+where+we+will+discuss+methods+to+become+more+effective+project%0Amanagers.%3Cbr%3E%3Cbr%3EThis+event+has+a+video+call.%3Cbr%3EJoin%3A+https%3A%2F%2Fmeet.google.com%2Fmxd-phqk-oro%3Cbr%3E%28US%29%0A%2B1+803-999-5414+PIN%3A+750525410%23%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23project-jam-lead-meeting-2018-october-2&location=PLN+434',
     },
   },
   {
@@ -270,7 +270,7 @@ export const SAMPLE_EVENTS = [
     summary: 'Website Meeting — https://acmcsuf.com/events#website-meeting-2019-february-5',
     description: '',
     meetingLink: '/discord',
-    slug: 'website-meeting-2019-february-5',
+    id: 'website-meeting-2019-february-5',
     selfLink: 'https://acmcsuf.com/events#website-meeting-2019-february-5',
     recurring: false,
     team: {
@@ -301,7 +301,7 @@ export const SAMPLE_EVENTS = [
     summary: 'Workshop meeting — https://acmcsuf.com/events#workshop-meeting-2019-february-6',
     description: '',
     meetingLink: '/discord',
-    slug: 'workshop-meeting-2019-february-6',
+    id: 'workshop-meeting-2019-february-6',
     selfLink: 'https://acmcsuf.com/events#workshop-meeting-2019-february-6',
     recurring: false,
     team: {

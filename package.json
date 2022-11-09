@@ -63,7 +63,6 @@
   ],
   "type": "module",
   "dependencies": {
-    "@google-cloud/local-auth": "^2.1.0",
     "@js-temporal/polyfill": "^0.4.1",
     "googleapis": "^105.0.0",
     "html-to-text": "^8.2.1",
