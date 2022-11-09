@@ -6,19 +6,25 @@
   import Labels from '$lib/components/blog/labels.svelte';
   import BlogBody from './blog-body.svelte';
   import { MetaTags } from 'svelte-meta-tags';
+
   export let data: PageData;
+  let description: string;
+  if (data.post.bodyText) {
+    description = data.post.bodyText.substring(0, 100);
+  }
 </script>
 
 <MetaTags
   openGraph={{
-    title: `${data.post.title}`,
-    url: `${data.post.url}`,
+    title: data.post.title,
+    description: description,
+    url: `https://acmcsuf.com${data.post.url}`,
     type: 'article',
     article: {
-      publishedTime: `${data.post.createdAt}`,
+      publishedTime: data.post.createdAt,
       modifiedTime: `${data.post.lastEdited}`,
-      authors: [`${data.post.author.url}`],
-      tags: [`${data.post.labels}`],
+      authors: [data.post.author.url],
+      tags: [...data.post.labels],
     },
   }}
 />
