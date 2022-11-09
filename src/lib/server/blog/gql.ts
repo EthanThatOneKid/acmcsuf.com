@@ -11,7 +11,7 @@ export function gql(ghDiscussionCategoryId: string) {
           url
           number
           bodyHTML
-		  bodyText
+          bodyText
           createdAt
           lastEditedAt
           
