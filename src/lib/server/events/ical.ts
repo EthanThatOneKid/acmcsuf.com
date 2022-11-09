@@ -184,7 +184,7 @@ export function parseDescription(
 
   const variables = new Map<string, string>();
 
-  let description = content.replace(/\\n/g, '<br>').replace(/\\/g, '');
+  let description = content.replace(/\\n/g, '<br>');
 
   // Extract variables from the description until there are no more.
   while (description.includes(varPrefix)) {
