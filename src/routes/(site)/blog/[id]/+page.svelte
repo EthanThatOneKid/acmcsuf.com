@@ -8,6 +8,7 @@
   import { MetaTags } from 'svelte-meta-tags';
 
   export let data: PageData;
+  let description: string = data.post.bodyText?.substring(0,100) ?? "";
   let firstImageIdxBegin: number = data.post.html.indexOf('href');
   let firstImageIdxEnd: number = data.post.html.indexOf('png');
   let firstImageSrc: string = data.post.html.slice(firstImageIdxBegin + 6, firstImageIdxEnd + 3);
@@ -16,7 +17,7 @@
 <MetaTags
   openGraph={{
     title: data.post.title,
-    description: `${data.post.bodyText}`,
+    description: `${description}`,
     url: `https://acmcsuf.com${data.post.url}`,
     type: 'article',
     article: {
