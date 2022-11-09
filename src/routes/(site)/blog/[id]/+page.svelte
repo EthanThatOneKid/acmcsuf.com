@@ -8,7 +8,8 @@
   import { MetaTags } from 'svelte-meta-tags';
 
   export let data: PageData;
-  let description: string = data.post.bodyText?.substring(0,100) ?? "";
+  console.log(data.post.bodyText);
+  let description: string | undefined = data.post.bodyText?.substring(0,100);
   let firstImageIdxBegin: number = data.post.html.indexOf('href');
   let firstImageIdxEnd: number = data.post.html.indexOf('png');
   let firstImageSrc: string = data.post.html.slice(firstImageIdxBegin + 6, firstImageIdxEnd + 3);
