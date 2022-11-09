@@ -8,24 +8,30 @@
   import { MetaTags } from 'svelte-meta-tags';
 
   export let data: PageData;
-  let description: string;
-  if (data.post.bodyText) {
-    description = data.post.bodyText.substring(0, 100);
-  }
+  let firstImageIdxBegin: number = data.post.html.indexOf('href');
+  let firstImageIdxEnd: number = data.post.html.indexOf('png');
+  let firstImageSrc: string = data.post.html.slice(firstImageIdxBegin + 6, firstImageIdxEnd + 3);
 </script>
 
 <MetaTags
   openGraph={{
     title: data.post.title,
-    description: description,
+    description: data.post.bodyText ?? '',
     url: `https://acmcsuf.com${data.post.url}`,
     type: 'article',
     article: {
       publishedTime: data.post.createdAt,
-      modifiedTime: `${data.post.lastEdited}`,
-      authors: [data.post.author.url],
+      modifiedTime: data.post.lastEdited ?? '',
+      authors: [data.post.author.fullname ?? ''],
       tags: [...data.post.labels],
     },
+    images: [
+      {
+        url: firstImageSrc,
+        width: 850,
+        height: 650,
+      },
+    ],
   }}
 />
 <svelte:head>
