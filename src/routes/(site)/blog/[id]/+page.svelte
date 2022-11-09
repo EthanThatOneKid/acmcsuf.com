@@ -16,7 +16,7 @@
 <MetaTags
   openGraph={{
     title: data.post.title,
-    description: 'This is my testing description',
+    description: `${data.post.bodyText}`,
     url: `https://acmcsuf.com${data.post.url}`,
     type: 'article',
     article: {
@@ -30,6 +30,7 @@
         url: firstImageSrc,
         width: 850,
         height: 650,
+		alt: "photo of blog post"
       },
     ],
   }}
