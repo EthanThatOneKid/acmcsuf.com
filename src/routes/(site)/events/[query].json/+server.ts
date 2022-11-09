@@ -5,21 +5,40 @@ import { SAMPLE_EVENTS } from '$lib/server/events/data/sample-events';
 import { fromGCal, listUpcomingEvents } from '$lib/server/events/gcal';
 import { allEvents } from '$lib/server/events/cache';
 import type { ClubEvent } from '$lib/public/events/event';
+import { ALL } from '$lib/public/blog/utils';
 
 export async function GET({ params }: RequestEvent<RouteParams>) {
-  var items = (await listUpcomingEvents()).data.items;
+  const events = await getData();
 
-  if (items == undefined) {
-    const empty: ClubEvent[] = [];
-    return new Response(JSON.stringify(JSON.stringify(empty)), { status: 204 });
+  if (events.length == 0) {
+    return new Response(JSON.stringify(JSON.stringify(events)), { status: 204 });
   }
 
-  const events: ClubEvent[] = DEBUG_FLAG_ENABLED
-    ? SAMPLE_EVENTS
-    : allEvents.get() ?? (await fromGCal(items));
+  const filteredEvents =
+    params.query === ALL ? events : events.filter((event) => event.id === params.query);
 
-  return new Response(JSON.stringify(events), {
+  return new Response(JSON.stringify(filteredEvents), {
     status: 200,
     headers: { 'Content-Type': 'application/json' },
   });
+}
+
+/**
+ * getData is a helper function that returns the relevant data from the
+ * cache or the API. It automatically updates the cache if the data is
+ * stale.
+ */
+async function getData(): Promise<ClubEvent[]> {
+  if (DEBUG_FLAG_ENABLED) {
+    return SAMPLE_EVENTS;
+  }
+
+  let data = allEvents.get();
+  if (!data) {
+    const response = await listUpcomingEvents();
+    data = fromGCal(response);
+    allEvents.set(data);
+  }
+
+  return data === undefined ? [] : data;
 }
