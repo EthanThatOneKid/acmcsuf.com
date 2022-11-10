@@ -8,10 +8,7 @@
   import { MetaTags } from 'svelte-meta-tags';
 
   export let data: PageData;
-  let description: string | undefined = data.post.bodyText?.substring(0, 100);
-  let firstImageIdxBegin: number = data.post.html.indexOf('href');
-  let firstImageIdxEnd: number = data.post.html.indexOf('png');
-  let firstImageSrc: string = data.post.html.slice(firstImageIdxBegin + 6, firstImageIdxEnd + 3);
+  let description: string | undefined = data.post.bodyText?.substring(0, 300);
 </script>
 
 <MetaTags
@@ -28,10 +25,10 @@
     },
     images: [
       {
-        url: firstImageSrc,
-        width: 850,
-        height: 650,
-        alt: 'photo of blog post',
+        url: data.post.author.picture,
+        width: 80,
+        height: 80,
+        alt: `photo of ${data.post.author.fullname}`,
       },
     ],
   }}
