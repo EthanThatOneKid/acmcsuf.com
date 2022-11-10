@@ -1,6 +1,6 @@
 import { Temporal } from '@js-temporal/polyfill';
 import type { ClubEvent } from '$lib/public/events/event';
-import { google } from 'googleapis';
+import { calendar } from '@googleapis/calendar';
 import { makeClubEvent } from './event';
 import { GCAL_API_KEY, GCAL_ID } from '$lib/server/env';
 
@@ -19,13 +19,13 @@ export function fromGCal(events: GCalEvent[]): ClubEvent[] {
 }
 
 export async function listUpcomingEvents() {
-  const calendar = google.calendar({
+  const cal = calendar({
     version: 'v3',
     auth: GCAL_API_KEY,
   });
   return (
     (
-      await calendar.events.list({
+      await cal.events.list({
         calendarId: GCAL_ID,
         timeMin: new Date().toISOString(),
         maxResults: 10,

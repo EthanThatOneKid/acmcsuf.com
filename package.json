@@ -31,7 +31,6 @@
     "@size-limit/file": "^8.1.0",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
-    "@types/gapi": "^0.0.43",
     "@types/html-to-text": "^8.1.1",
     "@types/qrcode": "^1.5.0",
     "@types/rss": "^0.0.29",
@@ -63,8 +62,8 @@
   ],
   "type": "module",
   "dependencies": {
+    "@googleapis/calendar": "^3.0.0",
     "@js-temporal/polyfill": "^0.4.1",
-    "googleapis": "^105.0.0",
     "html-to-text": "^8.2.1",
     "qrcode": "^1.5.1",
     "rrule": "^2.6.9",

@@ -10,8 +10,8 @@ import { ALL } from '$lib/public/blog/utils';
 export async function GET({ params }: RequestEvent<RouteParams>) {
   const events = await getData();
 
-  if (events.length == 0) {
-    return new Response(JSON.stringify(JSON.stringify(events)), { status: 204 });
+  if (events.length === 0) {
+    return new Response('[]', { status: 204 });
   }
 
   const filteredEvents =
@@ -35,10 +35,9 @@ async function getData(): Promise<ClubEvent[]> {
 
   let data = allEvents.get();
   if (!data) {
-    const response = await listUpcomingEvents();
-    data = fromGCal(response);
+    data = fromGCal(await listUpcomingEvents());
     allEvents.set(data);
   }
 
-  return data === undefined ? [] : data;
+  return data;
 }
