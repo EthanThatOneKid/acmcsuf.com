@@ -6,10 +6,10 @@
   import Labels from '$lib/components/blog/labels.svelte';
   import BlogBody from './blog-body.svelte';
   import { MetaTags } from 'svelte-meta-tags';
+  import { SAMPLE_BLOG_POSTS } from '$lib/server/blog/data';
 
   export let data: PageData;
-  console.log(data.post.bodyText);
-  let description: string | undefined = data.post.bodyText?.substring(0, 100);
+  let description: string | undefined = SAMPLE_BLOG_POSTS[0].bodyText.substring(0, 100);
   let firstImageIdxBegin: number = data.post.html.indexOf('href');
   let firstImageIdxEnd: number = data.post.html.indexOf('png');
   let firstImageSrc: string = data.post.html.slice(firstImageIdxBegin + 6, firstImageIdxEnd + 3);
@@ -18,7 +18,7 @@
 <MetaTags
   openGraph={{
     title: data.post.title,
-    description: `${description}`,
+    description: description,
     url: `https://acmcsuf.com${data.post.url}`,
     type: 'article',
     article: {
