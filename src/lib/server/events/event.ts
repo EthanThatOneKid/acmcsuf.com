@@ -94,7 +94,7 @@ export function makeClubEvent(event: GCalEvent, refDate: Temporal.ZonedDateTime)
   };
 }
 
-function parseDescription(
+export function parseDescription(
   content?: string,
   varPrefix = 'ACM_'
 ): {
@@ -131,14 +131,14 @@ function parseDescription(
   return { description, variables };
 }
 
-function replaceHtmlLinkTargets(html: string, withTarget = '_blank'): string {
+export function replaceHtmlLinkTargets(html: string, withTarget = '_blank'): string {
   return html.replace(/<a\W.*?href=".*?".*?>/gm, (match: string): string => {
     match = match.replace(/target=".*?"\W*/gm, '');
     return match.slice(0, match.length - 1) + ` target="${withTarget}">`;
   });
 }
 
-function parseLocation(
+export function parseLocation(
   rawLocation?: string,
   defaultLocation = 'TBD',
   defaultLink = '/discord'
@@ -160,19 +160,21 @@ function parseLocation(
   return { location: defaultLocation, meetingLink: defaultLink };
 }
 
-function thirdPartyCalendarDateTimeFromZonedDateTime(dt: Temporal.ZonedDateTimeLike): string {
+export function thirdPartyCalendarDateTimeFromZonedDateTime(
+  dt: Temporal.ZonedDateTimeLike
+): string {
   const yyyyMMdd = [dt.year, dt.month, dt.day].map((d) => Number(d).toString().padStart(2, '0'));
   const hhMMss = [dt.hour, dt.minute, dt.day].map((d) => Number(d).toString().padStart(2, '0'));
   const yyyyMMddThhMMss = `${yyyyMMdd.join('')}T${hhMMss.join('')}`;
   return yyyyMMddThhMMss;
 }
 
-function makeEventLink(slug?: string, baseURL = 'https://acmcsuf.com/events') {
+export function makeEventLink(slug?: string, baseURL = 'https://acmcsuf.com/events') {
   if (slug === undefined) return baseURL;
   return baseURL + '#' + slug;
 }
 
-function makeEventId(title: string, date: Temporal.ZonedDateTime): string {
+export function makeEventId(title: string, date: Temporal.ZonedDateTime): string {
   const normalizedTitle = title.replace(/[^\w\s-_]/g, '').replace(/(\s|-|_)+/g, '-');
   return [
     normalizedTitle,
@@ -184,7 +186,7 @@ function makeEventId(title: string, date: Temporal.ZonedDateTime): string {
     .toLowerCase();
 }
 
-function makeGoogleCalendarLink(
+export function makeGoogleCalendarLink(
   title: string,
   summary: string,
   location: string,
@@ -205,7 +207,7 @@ function makeGoogleCalendarLink(
   return url;
 }
 
-function makeOutlookCalendarLink(
+export function makeOutlookCalendarLink(
   title: string,
   summary: string,
   location: string,
@@ -225,13 +227,13 @@ function makeOutlookCalendarLink(
   return url;
 }
 
-function produceSummary(title: string, description: string, selfLink: string): string {
+export function produceSummary(title: string, description: string, selfLink: string): string {
   return description.length > 0
     ? [title, '='.repeat(title.length), '', ...wrapText(description), '', selfLink].join('\n')
     : title + ' — ' + selfLink;
 }
 
-function wrapText(text: string, width = 100) {
+export function wrapText(text: string, width = 100) {
   const lines: string[] = [];
 
   while (text.length > width) {
@@ -249,7 +251,7 @@ function wrapText(text: string, width = 100) {
   return lines;
 }
 
-function zonedDateTimeFromGCalDateTime(
+export function zonedDateTimeFromGCalDateTime(
   gcalDate: Date,
   timeZone: Temporal.TimeZoneLike
 ): Temporal.ZonedDateTime {
