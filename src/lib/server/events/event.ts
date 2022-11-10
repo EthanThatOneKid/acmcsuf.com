@@ -31,7 +31,7 @@ export function makeClubEvent(event: GCalEvent, refDate: Temporal.ZonedDateTime)
   const { description, variables } = parseDescription(event.description);
   const id = makeEventId(title, dtStart);
   const selfLink = makeEventLink(id);
-  const recurring = event.recurringEventId != null;
+  const recurring = event?.recurrence?.length ?? 0 > 0;
   const summary = produceSummary(title, description, selfLink);
   const teamId = (variables.get('ACM_TEAM') ?? variables.get('ACM_PATH'))?.toLowerCase().trim();
 
