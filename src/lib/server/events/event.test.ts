@@ -1,6 +1,5 @@
 import { test, expect, assert } from 'vitest';
 import { Temporal } from '@js-temporal/polyfill';
-// import { SAMPLE_EVENTS } from './data/sample-events';
 import {
   makeEventId,
   parseDescription,
@@ -9,7 +8,7 @@ import {
   replaceHtmlLinkTargets,
 } from './event';
 
-test('slugifies simple event details', () => {
+test('makes id of simple event details', () => {
   const actual = makeEventId(
     'test-event',
     Temporal.ZonedDateTime.from({ timeZone: 'UTC', year: 2000, month: 1, day: 1 })
@@ -18,7 +17,7 @@ test('slugifies simple event details', () => {
   expect(actual).toBe(expected);
 });
 
-test('slugifies capitalized event details', () => {
+test('makes id of capitalized event details', () => {
   const actual = makeEventId(
     'Test Event',
     Temporal.ZonedDateTime.from({ timeZone: 'UTC', year: 2000, month: 1, day: 1 })
