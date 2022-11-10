@@ -8,7 +8,7 @@
   import { MetaTags } from 'svelte-meta-tags';
 
   export let data: PageData;
-  let description: string = data.post.bodyText.substring(0, 300) ?? '';
+  let description: string = data.post.bodyText.substring(0, 165) ?? '';
 </script>
 
 <MetaTags
