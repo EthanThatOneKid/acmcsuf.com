@@ -125,7 +125,7 @@
             info.team.id
           )}
       >
-        <BwIcon src="/assets/svg/outlook-calendar.svg" alt="Copy Outlink link" />
+        <BwIcon src="/assets/svg/outlook-calendar.svg" alt="Copy Outlook Calendar link" />
       </button>
     </div>
   </details>
