@@ -18,7 +18,7 @@
   }
 
   onMount(() => {
-    if (location.hash === `#${info.slug}`) {
+    if (location.hash === `#${info.id}`) {
       anchor.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
@@ -34,7 +34,7 @@
 
 <div class="event-box" style:--highlights={`var(--acm-${info.team.id}-rgb)`}>
   <!-- Workaround for the top panel covering the event card's anchor. -->
-  <div class="anchor" id={info.slug} bind:this={anchor} />
+  <div class="anchor" id={info.id} bind:this={anchor} />
   <details class="event-card" bind:this={details}>
     <summary class="event-body">
       <div class="event-name">
