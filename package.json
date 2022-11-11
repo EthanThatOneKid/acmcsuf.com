@@ -70,6 +70,7 @@
     "rrule": "^2.7.1",
     "rss": "^1.2.2",
     "svelte-confetti": "^1.2.0",
-    "web-vitals": "^3.0.4"
+    "svelte-meta-tags": "^2.6.3",
+    "web-vitals": "^3.0.3"
   }
 }
