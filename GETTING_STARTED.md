@@ -4,7 +4,6 @@
 1. Install [Git](https://git-scm.com/downloads)
    - If you are not comfortable with the Git command line tool, you may use GitHub Desktop (<https://desktop.github.com/>). Take a look at <https://acmcsuf.com/1st/> if this is your first time contributing to an open source project.
 1. Create a fork of [acmcsuf.com](https://github.com/EthanThatOneKid/acmcsuf.com), similar to <https://github.com/jaasonw/acmcsuf.com>
-1. Create an account on [Vercel](https://vercel.com/) and create a new project linked to the fork you just created, similar to <https://acmcsuf-wayson.vercel.app/>
 1. Create an [access token](https://scribehow.com/shared/Generating_a_personal_access_token__eMf0UJYaS5OcGrO_lJTpGg)
 1. Follow [these instructions](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/CONTRIBUTING.md#setting-up-your-env-file) to add it to your dev environment
 
@@ -22,7 +21,6 @@
 1. Whenever applicable (it’s not in this case), write unit tests for any new functions or components you create
 1. Once you’re satisfied your changes, you **MUST** use `npm run all` to run all tests, lints, and formatting necessary for a release build, otherwise the automated build test will fail
 1. Commit and push your changes
-1. Go to your Vercel dashboard and verify that a preview deployment was pushed, similar to <https://acmcsuf-wayson-rbe1c3cul-jaasonw.vercel.app/>
 
 ## Submitting a pull request for review
 

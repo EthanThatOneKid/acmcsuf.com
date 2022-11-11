@@ -4,7 +4,7 @@
 
 [![Website Check](https://github.com/EthanThatOneKid/acmcsuf.com/actions/workflows/check_website.yaml/badge.svg)](https://github.com/EthanThatOneKid/acmcsuf.com/actions/workflows/check_website.yaml)
 
-## Develop [👩‍💻][figma_design]
+## Develop [👩‍💻][netlify_dashboard]
 
 > 💡 This project runs on Node.js; [install the latest long-term support version][node_download].
 
@@ -30,7 +30,6 @@ Maintained with 💖 by [**acmcsuf.com hub**][team_doc]
 [demo_url]: https://acmcsuf.com/
 [acm_officers]: https://acmcsuf.com/about/
 [webmaster_url]: https://github.com/EthanThatOneKid/
-[figma_design]: https://www.figma.com/file/9cvuO69WgNGuCjf2JGDPfq/ACM-Website-Mockup---Mike-Ploythai?node-id=1%3A26
 [dev_server]: http://localhost:3000/
-[vercel_dashboard]: https://vercel.com/ethanthatonekid/acm-csuf-site
+[netlify_dashboard]: https://vercel.com/ethanthatonekid/acm-csuf-site
 [team_doc]: https://docs.google.com/document/d/11GoIBTAAnIOgmWuG1TsgXUE3MMkweQ8V6bB9TbrY0Hs/edit?usp=sharing
