@@ -7,15 +7,13 @@ export interface ClubEvent {
   endTime: string;
   hasStarted: boolean;
   hasEnded: boolean;
-  isPinned: boolean;
-  duration: string;
   date: string;
   location: string;
   title: string;
   description: string;
   summary: string;
   meetingLink: string;
-  slug: string;
+  id: string;
   selfLink: string;
   recurring: boolean;
   team: Team;

@@ -1,46 +1,15 @@
 import { test, expect, assert } from 'vitest';
-import { readFileSync, writeFileSync } from 'node:fs';
 import { Temporal } from '@js-temporal/polyfill';
-import { SAMPLE_EVENTS } from './data/sample-events';
 import {
-  makeEventSlug,
+  makeEventId,
   parseDescription,
   makeEventLink,
   wrapText,
-  walkICAL,
   replaceHtmlLinkTargets,
-  parse,
-} from './ical';
+} from './event';
 
-const ICAL_DATA = readFileSync('src/lib/server/events/data/sample-events.ics', 'utf-8');
-
-test('ICAL parser integration test', () => {
-  const events = parse(ICAL_DATA, { maxEvents: 10, filterBefore: false });
-
-  // To generate 'src/lib/server/events/data/sample-events.ts', uncomment the
-  // following lines of code then run 'npm t' (and 'npm run all'):
-  //
-  writeFileSync(
-    'src/lib/server/events/data/sample-events.ts',
-    `export const SAMPLE_EVENTS = ${JSON.stringify(events)};`
-  );
-
-  expect(events).toEqual(SAMPLE_EVENTS);
-});
-
-test('parses sample ICAL payload', () => {
-  expect([...walkICAL(ICAL_DATA)].length).toBeGreaterThan(0);
-});
-
-test('parses sample ICAL payload into AcmEvent', () => {
-  const acmEvents = parse(ICAL_DATA, {
-    referenceDate: Temporal.Now.zonedDateTimeISO().subtract(Temporal.Duration.from({ years: 1 })),
-  });
-  expect(acmEvents.length).toBeGreaterThan(0);
-});
-
-test('slugifies simple event details', () => {
-  const actual = makeEventSlug(
+test('makes id of simple event details', () => {
+  const actual = makeEventId(
     'test-event',
     Temporal.ZonedDateTime.from({ timeZone: 'UTC', year: 2000, month: 1, day: 1 })
   );
@@ -48,8 +17,8 @@ test('slugifies simple event details', () => {
   expect(actual).toBe(expected);
 });
 
-test('slugifies capitalized event details', () => {
-  const actual = makeEventSlug(
+test('makes id of capitalized event details', () => {
+  const actual = makeEventId(
     'Test Event',
     Temporal.ZonedDateTime.from({ timeZone: 'UTC', year: 2000, month: 1, day: 1 })
   );
