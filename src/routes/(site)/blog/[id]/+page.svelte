@@ -8,13 +8,12 @@
   import { MetaTags } from 'svelte-meta-tags';
 
   export let data: PageData;
-  let description: string = data.post.bodyText.substring(0, 165) ?? '';
 </script>
 
 <MetaTags
   openGraph={{
     title: data.post.title,
-    description: description,
+    description: data.post.bodyText.substring(0, 165) + '...' ?? '',
     url: `https://acmcsuf.com${data.post.url}`,
     type: 'article',
     article: {
@@ -28,7 +27,7 @@
         url: data.post.author.picture,
         width: 80,
         height: 80,
-        alt: `photo of ${data.post.author.fullname}`,
+        alt: `Photo of ${data.post.author.fullname}`,
       },
     ],
   }}

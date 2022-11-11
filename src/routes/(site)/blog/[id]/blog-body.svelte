@@ -4,6 +4,7 @@
   import { copy } from '$lib/public/copy/copy';
 
   export let data = '';
+
   onMount(() => {
     const body = document.querySelector('body');
     if (!body) return;

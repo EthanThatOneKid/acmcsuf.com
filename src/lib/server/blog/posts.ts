@@ -77,7 +77,7 @@ function cacheBlogPosts(output: any): BlogPost[] {
       lastEditedAt: lastEdited,
       number: id,
       bodyHTML: html,
-      bodyText: bodyText,
+      bodyText,
       url: discussionUrl,
     } = discussion;
 
