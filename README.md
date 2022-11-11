@@ -31,5 +31,5 @@ Maintained with 💖 by [**acmcsuf.com hub**][team_doc]
 [acm_officers]: https://acmcsuf.com/about/
 [webmaster_url]: https://github.com/EthanThatOneKid/
 [dev_server]: http://localhost:3000/
-[netlify_dashboard]: https://vercel.com/ethanthatonekid/acm-csuf-site
+[netlify_dashboard]: https://app.netlify.com/sites/acmcsuf
 [team_doc]: https://docs.google.com/document/d/11GoIBTAAnIOgmWuG1TsgXUE3MMkweQ8V6bB9TbrY0Hs/edit?usp=sharing
