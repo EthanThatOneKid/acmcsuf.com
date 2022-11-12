@@ -61,8 +61,7 @@
     copy(
       officerSocials.discord || '',
       `Copied ${officerName}'s Discord tag to clipboard!`,
-      'Error occured while copy Discord tag to clipboard.',
-      ''
+      'Error occured while copy Discord tag to clipboard.'
     );
   }
 
