@@ -5,9 +5,33 @@
   import { Temporal } from '@js-temporal/polyfill';
   import Labels from '$lib/components/blog/labels.svelte';
   import BlogBody from './blog-body.svelte';
+  import { MetaTags } from 'svelte-meta-tags';
+
   export let data: PageData;
 </script>
 
+<MetaTags
+  openGraph={{
+    title: data.post.title,
+    description: data.post.bodyText.substring(0, 165) + '...' ?? '',
+    url: `https://acmcsuf.com${data.post.url}`,
+    type: 'article',
+    article: {
+      publishedTime: data.post.createdAt,
+      modifiedTime: data.post.lastEdited ?? '',
+      authors: [data.post.author.fullname ?? ''],
+      tags: [...data.post.labels],
+    },
+    images: [
+      {
+        url: data.post.author.picture,
+        width: 80,
+        height: 80,
+        alt: `Photo of ${data.post.author.fullname}`,
+      },
+    ],
+  }}
+/>
 <svelte:head>
   <title>{data.post.title}</title>
 </svelte:head>
