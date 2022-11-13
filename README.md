@@ -18,8 +18,8 @@ For a more detailed overview of this repository's structure, feel free to review
 
 ## Deployment 🚀
 
-Whenever a push is made to the main branch, Vercel builds the site, tests it, and if there are no errors, it will deploy a preview site.
-Once an admin approves the preview site, it gets promoted to production.
+Whenever a push is made to the main branch, Netlify builds the site, tests it, and if there are no errors, it will deploy a preview site.
+Once all checks have been passed, the preview site gets promoted to production.
 
 ---
 
