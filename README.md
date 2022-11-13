@@ -18,6 +18,8 @@ For a more detailed overview of this repository's structure, feel free to review
 
 ## Deployment 🚀
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ee624373-9c84-4f33-a5db-daa69d18ae6e/deploy-status)](https://app.netlify.com/sites/acmcsuf/deploys)
+
 Whenever a push is made to the main branch, Netlify builds the site, tests it, and if there are no errors, it will deploy a preview site.
 Once all checks have been passed, the preview site gets promoted to production.
 
