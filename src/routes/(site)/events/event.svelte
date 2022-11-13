@@ -111,7 +111,7 @@
             info.team.id
           )}
       >
-        <BwIcon src="/assets/svg/google-calendar.svg" alt="Copy Google Calendar link" />
+        <BwIcon src="/assets/svg/calendar-google.svg" alt="Copy Google Calendar link" />
       </button>
 
       <button
@@ -125,7 +125,7 @@
             info.team.id
           )}
       >
-        <BwIcon src="/assets/svg/outlook-calendar.svg" alt="Copy Outlook Calendar link" />
+        <BwIcon src="/assets/svg/calendar-outlook.svg" alt="Copy Outlook Calendar link" />
       </button>
     </div>
   </details>
