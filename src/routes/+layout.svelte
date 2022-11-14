@@ -9,6 +9,8 @@
   import { browser, dev } from '$app/environment';
   import { VERCEL_ANALYTICS_ID } from '$env/static/public';
   import { send } from '$lib/public/analytics/vitals';
+  import Bar from '$lib/components/nav/bar.svelte';
+  import Footer from '$lib/components/footer/footer.svelte';
 
   $: if (browser && !dev && VERCEL_ANALYTICS_ID) {
     send({
@@ -20,4 +22,6 @@
   }
 </script>
 
+<Bar />
 <slot />
+<Footer />

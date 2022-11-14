@@ -16,6 +16,7 @@
   section {
     min-height: 100vh;
     display: flex;
+    gap: 2rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -24,7 +25,6 @@
   }
 
   section h1 {
-    margin-bottom: 2em;
     align-items: center;
     text-align: center;
   }
@@ -33,8 +33,6 @@
     align-items: center;
     text-align: center;
     font-size: 50px;
-    margin-bottom: 0.5em;
-    margin-top: 2em;
     text-shadow: 2px 2px #92c4df;
     font-weight: 600;
   }
@@ -43,6 +41,5 @@
     width: 100%;
     max-width: 1000px;
     height: auto;
-    margin-bottom: 3em;
   }
 </style>
