@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
+  import Button from '$lib/components/button/button.svelte';
 </script>
 
 <svelte:head>
@@ -9,6 +10,7 @@
 <section title={$page.error?.message}>
   <em>404</em>
   <h1>Frank can't find where you're going!</h1>
+  <Button text={'Return to Home'} link={'/'} />
   <img src="/assets/png/lost-frank.png" alt="404 - Page Not Found" />
 </section>
 
@@ -16,6 +18,7 @@
   section {
     min-height: 100vh;
     display: flex;
+    gap: 2rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -24,7 +27,6 @@
   }
 
   section h1 {
-    margin-bottom: 2em;
     align-items: center;
     text-align: center;
   }
@@ -33,8 +35,6 @@
     align-items: center;
     text-align: center;
     font-size: 50px;
-    margin-bottom: 0.5em;
-    margin-top: 2em;
     text-shadow: 2px 2px #92c4df;
     font-weight: 600;
   }
@@ -43,6 +43,5 @@
     width: 100%;
     max-width: 1000px;
     height: auto;
-    margin-bottom: 3em;
   }
 </style>
