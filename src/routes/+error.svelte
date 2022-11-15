@@ -1,7 +1,11 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import Button from '$lib/components/button/button.svelte';
+  import Bar from '$lib/components/nav/bar.svelte';
+  import Footer from '$lib/components/footer/footer.svelte';
 </script>
+
+<Bar />
 
 <svelte:head>
   <title>ACM at CSUF / {$page.status || 404}</title>
@@ -13,6 +17,8 @@
   <Button text={'Return to Home'} link={'/'} />
   <img src="/assets/png/lost-frank.png" alt="404 - Page Not Found" />
 </section>
+
+<Footer />
 
 <style>
   section {
