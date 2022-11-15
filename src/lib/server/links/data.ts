@@ -40,5 +40,5 @@ export const LINKS = {
     'https://docs.google.com/presentation/d/1BCYU3cTfNTffdUmiMHz8c2-A5qwna8yVPt7Fx3nzqGQ/edit?usp=sharing',
   'ai/projects/2':
     'https://colab.research.google.com/drive/1KaLN47LSfK4rAOzEOQleCX-Dy-qACZYC?usp=sharing',
-  roadmap: 'https://github.com/users/EthanThatOneKid/projects/6/views/1',
+  roadmap: 'https://github.com/users/EthanThatOneKid/projects/6',
 } as const;
