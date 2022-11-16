@@ -8,7 +8,7 @@ const config = {
   preprocess: preprocess(),
 
   kit: {
-    adapter: adapter({ split: true }),
+    adapter: adapter(),
   },
 };
 
