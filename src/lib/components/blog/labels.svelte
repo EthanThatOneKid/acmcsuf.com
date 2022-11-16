@@ -19,7 +19,8 @@
         href={makeBlogPostsPageUrl([label])}
         class:selected={selectedLabels.includes(label)}
         data-sveltekit-prefetch
-        target="_blank">#{label}</a
+        target="_blank"
+        rel="noopener noreferrer">#{label}</a
       >
     {/each}
   </div>

@@ -3,7 +3,7 @@
   export let text = 'Submit';
 </script>
 
-<a class="brand-header size-md" role="button" href={link} target="_blank" rel="noopener norefferer">
+<a class="brand-header size-md" role="button" href={link} target="_blank" rel="noopener noreferrer">
   {text}
 </a>
 
