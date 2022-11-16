@@ -143,6 +143,7 @@
       <div
         class="result-grid-box"
         on:click={() => showTeamDetails(TEAMS[match])}
+        on:keypress={() => showTeamDetails(TEAMS[match])}
         style={`--border-color: ${TEAMS[match].color}`}
       >
         <h2 class="team-title" style={`--team-color: ${TEAMS[match].color}`}>
@@ -159,6 +160,7 @@
           class="result-grid-box"
           style={`--border-color: ${team.color}`}
           on:click={() => showTeamDetails(team)}
+          on:keypress={() => showTeamDetails(team)}
         >
           <h2 class="team-title" style={`--team-color: ${team.color}`}>
             {otherMatch} <span>Team</span>

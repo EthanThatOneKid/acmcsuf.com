@@ -27,7 +27,7 @@
 
   <div class="blurrybar" />
 
-  <div class="backdrop" on:click={handleClose} />
+  <div class="backdrop" on:click={handleClose} on:keypress={handleClose} />
 
   <div class="container">
     <div class="logo-container">

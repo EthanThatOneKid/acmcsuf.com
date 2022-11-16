@@ -18,11 +18,17 @@
 
 <div class="term" name="school-year">
   <div class="option-box" class:active>
-    <div class="selected" on:click={toggleDropdown}>{currentValue}</div>
+    <div class="selected" on:click={toggleDropdown} on:keypress={toggleDropdown}>
+      {currentValue}
+    </div>
 
     <div class="option">
       {#each options as optionValue (optionValue)}
-        <div class="option-choice" on:click={() => handleOption(optionValue)}>
+        <div
+          class="option-choice"
+          on:click={() => handleOption(optionValue)}
+          on:keypress={() => handleOption(optionValue)}
+        >
           {optionValue}
         </div>
       {/each}
