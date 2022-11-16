@@ -41,7 +41,7 @@
     <h4>{blurpRecommend}</h4>
     <ul>
       {#each recommendations as recommendation (recommendation)}
-        <li><a href={recommendation.link} target="_blank">{recommendation.title}</a></li>
+        <li><a href={recommendation.link} target="_blank" rel="noopener noreferrer">{recommendation.title}</a></li>
       {/each}
     </ul>
   {/if}
