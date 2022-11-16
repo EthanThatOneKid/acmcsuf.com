@@ -18,7 +18,7 @@
 
 <div class="term" name="school-year">
   <div class="option-box" class:active>
-    <div class="selected" on:click={toggleDropdown} on:keypress={toggleDropdown}>
+    <div class="selected" on:click={toggleDropdown} on:keydown={toggleDropdown}>
       {currentValue}
     </div>
 
@@ -27,7 +27,7 @@
         <div
           class="option-choice"
           on:click={() => handleOption(optionValue)}
-          on:keypress={() => handleOption(optionValue)}
+          on:keydown={() => handleOption(optionValue)}
         >
           {optionValue}
         </div>
