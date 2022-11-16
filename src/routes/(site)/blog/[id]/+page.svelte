@@ -5,9 +5,33 @@
   import { Temporal } from '@js-temporal/polyfill';
   import Labels from '$lib/components/blog/labels.svelte';
   import BlogBody from './blog-body.svelte';
+  import { MetaTags } from 'svelte-meta-tags';
+
   export let data: PageData;
 </script>
 
+<MetaTags
+  openGraph={{
+    title: data.post.title,
+    description: data.post.bodyText.substring(0, 165) + '...' ?? '',
+    url: `https://acmcsuf.com${data.post.url}`,
+    type: 'article',
+    article: {
+      publishedTime: data.post.createdAt,
+      modifiedTime: data.post.lastEdited ?? '',
+      authors: [data.post.author.fullname ?? ''],
+      tags: [...data.post.labels],
+    },
+    images: [
+      {
+        url: data.post.author.picture,
+        width: 80,
+        height: 80,
+        alt: `Photo of ${data.post.author.fullname}`,
+      },
+    ],
+  }}
+/>
 <svelte:head>
   <title>{data.post.title}</title>
 </svelte:head>
@@ -26,7 +50,11 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      @{data.post.author.displayname}
+      {#if data.post.author.fullname}
+        {data.post.author.fullname}
+      {:else}
+        @{data.post.author.displayname}
+      {/if}
     </a>
   </p>
   <p>
@@ -76,10 +104,7 @@
     text-align: left;
     padding: 4em 4em 3em;
     margin: 0;
-    background-color: var(--acm-light);
     border-radius: 3em;
-    filter: drop-shadow(0 8px 40px rgba(16, 19, 21, 0.1));
-    -webkit-filter: drop-shadow(0 8px 40px rgba(16, 19, 21, 0.1));
     width: min(1000px, 70vw);
   }
   img {

@@ -77,13 +77,15 @@ function cacheBlogPosts(output: any): BlogPost[] {
       lastEditedAt: lastEdited,
       number: id,
       bodyHTML: html,
+      bodyText,
       url: discussionUrl,
     } = discussion;
 
     const url = `/blog/${id}`;
     const officer = getOfficerByGhUsername(author.login);
-    const authorUrl: string = author.url;
-    const displayname: string = officer?.fullName ?? author.login;
+    const authorUrl = author.url;
+    const displayname = author.login;
+    const fullname = officer?.fullName;
     const picture: string =
       author.avatarUrl ?? `/assets/authors/${officer?.picture || 'placeholder.webp'}`;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -95,10 +97,11 @@ function cacheBlogPosts(output: any): BlogPost[] {
       discussionUrl,
       title,
       html,
+      bodyText,
       createdAt,
       lastEdited,
       labels,
-      author: { url: authorUrl, displayname, picture },
+      author: { url: authorUrl, displayname, fullname, picture },
     };
 
     return post;

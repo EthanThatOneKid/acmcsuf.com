@@ -2,9 +2,6 @@
   import { onMount } from 'svelte';
   import type { ClubEvent } from '$lib/public/events/event';
   import { copy } from '$lib/public/copy/copy';
-  import CopyLink from '$lib/components/svg/copy-link.svelte';
-  import CalendarGoogle from '$lib/components/svg/calendar-google.svelte';
-  import CalendarOutlook from '$lib/components/svg/calendar-outlook.svelte';
   import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
 
   export let info: ClubEvent;
@@ -21,7 +18,7 @@
   }
 
   onMount(() => {
-    if (location.hash === `#${info.slug}`) {
+    if (location.hash === `#${info.id}`) {
       anchor.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
@@ -37,7 +34,7 @@
 
 <div class="event-box" style:--highlights={`var(--acm-${info.team.id}-rgb)`}>
   <!-- Workaround for the top panel covering the event card's anchor. -->
-  <div class="anchor" id={info.slug} bind:this={anchor} />
+  <div class="anchor" id={info.id} bind:this={anchor} />
   <details class="event-card" bind:this={details}>
     <summary class="event-body">
       <div class="event-name">
@@ -86,7 +83,7 @@
             info.team.id
           )}
       >
-        <CopyLink />
+        <BwIcon src="/assets/svg/copy-link.svg" alt="copy link" />
       </button>
 
       <button
@@ -114,7 +111,7 @@
             info.team.id
           )}
       >
-        <CalendarGoogle />
+        <BwIcon src="/assets/svg/calendar-google.svg" alt="Copy Google Calendar link" />
       </button>
 
       <button
@@ -128,7 +125,7 @@
             info.team.id
           )}
       >
-        <CalendarOutlook />
+        <BwIcon src="/assets/svg/calendar-outlook.svg" alt="Copy Outlook Calendar link" />
       </button>
     </div>
   </details>
@@ -321,6 +318,11 @@
       margin-top: 10px;
       margin-bottom: 12px;
       margin-right: 0;
+    }
+
+    .event-actionbar {
+      justify-content: center;
+      flex-direction: row;
     }
   }
 </style>

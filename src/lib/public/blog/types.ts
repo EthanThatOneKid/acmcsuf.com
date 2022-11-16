@@ -9,11 +9,13 @@ export interface BlogPost {
   discussionUrl: string;
   title: string;
   html: string;
+  bodyText: string;
   createdAt: string;
   lastEdited: string | null;
   labels: string[];
   author: {
     displayname: string;
+    fullname?: string;
     url: string;
     picture: string;
   };
