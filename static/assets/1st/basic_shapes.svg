@@ -3,3 +3,4 @@
   <ellipse cx="55" cy="97" rx="25" ry="15" stroke="blue" fill="transparent" stroke-width="6"/>
   <rect x="20" y="30" rx="10" ry="10" width="45" height="25" stroke="red" fill="transparent" stroke-width="5"/>
   <line x1="30" x2="55" y1="110" y2="150" stroke="green" stroke-width="7"/>
+</svg>
