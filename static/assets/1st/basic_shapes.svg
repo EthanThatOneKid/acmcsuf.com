@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="no"?>
-<svg width="200" height="250" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <ellipse cx="55" cy="97" rx="25" ry="15" stroke="blue" fill="transparent" stroke-width="6"/>
+<svg width="200" height="150" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="90" cy="97" rx="25" ry="15" stroke="blue" fill="transparent" stroke-width="6"/>
   <rect x="20" y="30" rx="10" ry="10" width="45" height="25" stroke="red" fill="transparent" stroke-width="5"/>
-  <line x1="30" x2="55" y1="110" y2="150" stroke="green" stroke-width="7"/>
+  <line x1="170" x2="120" y1="30" y2="80" stroke="green" stroke-width="6"/>
 </svg>
