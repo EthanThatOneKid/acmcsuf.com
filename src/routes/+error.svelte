@@ -14,7 +14,7 @@
 <section title={$page.error?.message}>
   <em>404</em>
   <h1>Frank can't find where you're going!</h1>
-  <Button text={'Return to Home'} link={'/'} />
+  <Button text={'Return to Home'} link={'/'} redirect={'_self'} />
   <img src="/assets/png/lost-frank.png" alt="404 - Page Not Found" />
 </section>
 
