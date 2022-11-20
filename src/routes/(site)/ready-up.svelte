@@ -21,7 +21,7 @@
       </p>
     </div>
 
-    <AcmButton text="Join us today!" link="/discord" />
+    <AcmButton text="Join us today!" link="/discord" redirect={true} />
   </div>
 </section>
 

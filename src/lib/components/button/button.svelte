@@ -1,10 +1,16 @@
 <script lang="ts">
   export let link = '#';
-  export let redirect = "_blank";
+  export let redirect = false;
   export let text = 'Submit';
 </script>
 
-<a class="brand-header size-md" role="button" href={link} target={redirect} rel="noopener norefferer">
+<a
+  class="brand-header size-md"
+  role="button"
+  href={link}
+  target={redirect ? '_blank' : '_self'}
+  rel="noopener norefferer"
+>
   {text}
 </a>
 
