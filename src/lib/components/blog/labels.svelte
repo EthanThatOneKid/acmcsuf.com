@@ -35,8 +35,8 @@
     font-size: 1em;
 
     a {
-      background-color: #eeeeee;
-      color: #212121;
+      background-color: var(--acm-light);
+      color: var(--acm-dark);
       border-radius: var(--size-sm);
       border: 2px solid #e0e0e0;
       padding: 0.25em 0.8em 0.25em 0.8em;
@@ -44,9 +44,9 @@
     }
 
     .selected {
-      background-color: #81d4fa;
-      border-color: #4fc3f7;
-      color: #212121;
+      background-color: var(--acm-blue);
+      border-color: var(--acm-bluer);
+      color: var(--perma-dark);
       pointer-events: not-allowed;
     }
   }
