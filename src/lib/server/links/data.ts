@@ -5,6 +5,7 @@ export const LINKS = {
   discord: 'https://discord.gg/eKRApG627b',
   linkedin: 'https://linkedin.com/company/acm-at-csuf/',
   tuffyhacks: 'https://tuffyhacks.com/',
+  titancodes: 'https://docs.google.com/forms/d/e/1FAIpQLSfoiABtwcgmG4ew3yrQtRqSy3zIZRxBYvjCSyn5Jc5V8WwR5Q/viewform?usp=sf_link',
   'acm-w': 'https://sites.google.com/view/acm-w',
   'covid-19':
     'https://docs.google.com/document/d/1aEfH50N0fmeK3JiID968DoG41jmdk3nelDipQpF6yio/edit?usp=sharing',
