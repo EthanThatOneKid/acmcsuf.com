@@ -10,7 +10,7 @@
         <b class="acm-blue">CSUF</b>
       </h1>
 
-      <AcmButton text="Join us today!" link="/discord" redirect={true}/>
+      <AcmButton text="Join us today!" link="/discord" redirect={true} />
     </div>
 
     <img
