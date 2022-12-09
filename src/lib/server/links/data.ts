@@ -42,4 +42,5 @@ export const LINKS = {
   'ai/projects/2':
     'https://colab.research.google.com/drive/1KaLN47LSfK4rAOzEOQleCX-Dy-qACZYC?usp=sharing',
   roadmap: 'https://github.com/users/EthanThatOneKid/projects/6',
+  clown: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/322/clown-face_1f921.png',
 } as const;
