@@ -91,8 +91,8 @@
         margin-bottom: 0.2em;
         margin-right: var(--size-sm);
         padding: 0.25em 0.8em 0.25em 0.8em;
-        background-color: #eeeeee;
-        color: #212121;
+        background-color: var(--acm-light);
+        color: var(--acm-dark);
         border-radius: var(--size-sm);
         border: 2px solid #e0e0e0;
         cursor: pointer;
