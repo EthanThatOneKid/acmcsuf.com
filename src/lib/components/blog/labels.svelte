@@ -44,8 +44,8 @@
     }
 
     .selected {
-      background-color: var(--acm-blue);
-      border-color: var(--acm-bluer);
+      background-color: #81d4fa;
+      border-color: #4fc3f7;
       color: var(--perma-dark);
       pointer-events: not-allowed;
     }
