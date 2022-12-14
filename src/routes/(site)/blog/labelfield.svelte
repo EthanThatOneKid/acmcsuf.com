@@ -107,7 +107,7 @@
           transition: 1s ease-in-out;
           background-color: #81d4fa;
           border-color: #4fc3f7;
-          color: var(--acm-dark)
+          color: var(--acm-dark);
 
           &:before {
             content: '✓ ';
