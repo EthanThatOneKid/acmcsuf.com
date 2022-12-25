@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import type { RequestEvent } from './$types';
-import { LINKS } from '$lib/server/links/data';
+import { LINKS } from '$lib/public/links';
 import { resolve } from '$lib/server/links/resolve';
 import { genQRCodeSvg } from '$lib/server/links/qr';
 
