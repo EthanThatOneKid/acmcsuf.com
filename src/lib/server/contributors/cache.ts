@@ -1,5 +1,5 @@
-import { Cache } from "$lib/server/cache/cache";
-import type { Contributor } from "$lib/public/contributors";
+import { Cache } from '$lib/server/cache/cache';
+import type { Contributor } from '$lib/public/contributors';
 
 export const cachedContributors = new Cache(new Map<string, Contributor>());
 

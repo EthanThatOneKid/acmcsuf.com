@@ -5,7 +5,6 @@ import { makeContributorJsonUrl } from '$lib/public/contributors';
 export async function load({ fetch, params }: PageLoadEvent) {
   const target = makeContributorJsonUrl(params.tag);
   const response = await fetch(target);
-  const contributor = await response.json()as Contributor;
-
-  return {    contributor  };
+  const contributor = (await response.json()) as Contributor;
+  return { contributor };
 }

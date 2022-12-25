@@ -8,7 +8,7 @@ export interface InitialQueryResult {
         title: string;
         number: number;
       }[];
-    }
+    };
     releases: {
       nodes: {
         tagName: string;

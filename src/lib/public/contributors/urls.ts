@@ -1,3 +1,3 @@
-export function makeContributorJsonUrl(tag:string): string {
+export function makeContributorJsonUrl(tag: string): string {
   return `/@${tag}/data.json`;
 }
