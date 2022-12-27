@@ -97,8 +97,6 @@
 
     :global(code) {
       border-radius: 0.3em;
-      padding: 0.1em 0.5em;
-      margin: 0 0.3em;
     }
 
     :global(ul),
