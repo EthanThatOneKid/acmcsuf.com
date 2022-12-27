@@ -19,7 +19,8 @@
         href={makeBlogPostsPageUrl([label])}
         class:selected={selectedLabels.includes(label)}
         data-sveltekit-prefetch
-        target="_blank">#{label}</a
+        target="_blank"
+        rel="noopener noreferrer">#{label}</a
       >
     {/each}
   </div>
@@ -35,14 +36,17 @@
 
     a {
       background-color: var(--acm-light);
-      border-radius: 5px;
-      padding: 0.3em;
+      color: var(--acm-dark);
+      border-radius: var(--size-sm);
+      border: 2px solid #e0e0e0;
+      padding: 0.25em 0.8em 0.25em 0.8em;
       text-decoration: none;
     }
 
     .selected {
-      background-color: var(--acm-gray);
-      color: var(--perma-light);
+      background-color: #81d4fa;
+      border-color: #4fc3f7;
+      color: var(--perma-dark);
       pointer-events: not-allowed;
     }
   }

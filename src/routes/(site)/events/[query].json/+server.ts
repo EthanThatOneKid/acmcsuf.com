@@ -2,24 +2,42 @@ import type { RequestEvent } from '@sveltejs/kit';
 import type { RouteParams } from './$types';
 import { DEBUG_FLAG_ENABLED } from '$lib/server/flags';
 import { SAMPLE_EVENTS } from '$lib/server/events/data/sample-events';
-import { parse } from '$lib/server/events/ical';
+import { fromGCal, listUpcomingEvents } from '$lib/server/events/gcal';
 import { allEvents } from '$lib/server/events/cache';
-import { ALL } from '$lib/public/blog/utils';
 import type { ClubEvent } from '$lib/public/events/event';
-
-const ICAL_TARGET_URL =
-  'https://calendar.google.com/calendar/ical/738lnit63cr2lhp7jtduvj0c9g%40group.calendar.google.com/public/basic.ics';
+import { ALL } from '$lib/public/blog/utils';
 
 export async function GET({ params }: RequestEvent<RouteParams>) {
-  const events: ClubEvent[] = DEBUG_FLAG_ENABLED
-    ? SAMPLE_EVENTS
-    : allEvents.get() ?? parse(await fetch(ICAL_TARGET_URL).then((r) => r.text()));
+  const events = await getData();
+
+  if (events.length === 0) {
+    return new Response('[]', { status: 204 });
+  }
 
   const filteredEvents =
-    params.query === ALL ? events : events.filter((event) => event.slug === params.query);
+    params.query === ALL ? events : events.filter((event) => event.id === params.query);
 
   return new Response(JSON.stringify(filteredEvents), {
     status: 200,
     headers: { 'Content-Type': 'application/json' },
   });
+}
+
+/**
+ * getData is a helper function that returns the relevant data from the
+ * cache or the API. It automatically updates the cache if the data is
+ * stale.
+ */
+async function getData(): Promise<ClubEvent[]> {
+  if (DEBUG_FLAG_ENABLED) {
+    return SAMPLE_EVENTS;
+  }
+
+  let data = allEvents.get();
+  if (!data) {
+    data = fromGCal(await listUpcomingEvents());
+    allEvents.set(data);
+  }
+
+  return data;
 }
