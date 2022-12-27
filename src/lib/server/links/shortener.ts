@@ -1,5 +1,5 @@
 import type { Handle } from '@sveltejs/kit';
-import { LINKS } from '$lib/server/links/data';
+import { LINKS } from '$lib/public/links';
 import { resolve as resolveShortlink } from '$lib/server/links/resolve';
 
 export function shortener(): Handle {

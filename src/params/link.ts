@@ -1,5 +1,5 @@
 import type { ParamMatcher } from '@sveltejs/kit';
-import { LINKS } from '$lib/server/links/data';
+import { LINKS } from '$lib/public/links';
 
 function makeLinkMatcher(): ParamMatcher {
   return (param: string): boolean => {
