@@ -84,64 +84,6 @@
     {#if shown}
       <EventSummary {info} />
     {/if}
-
-    <div class="event-actionbar">
-      <button
-        class="action-item"
-        title="Copy event link"
-        on:click={() =>
-          copy(
-            info.selfLink,
-            'Copied event link to clipboard!',
-            'Failed to copy event link to clipboard!',
-            info.team.id
-          )}
-      >
-        <BwIcon src="/assets/svg/copy-link.svg" alt="copy link" />
-      </button>
-
-      <button
-        class="action-item"
-        title="Copy event summary"
-        on:click={() =>
-          copy(
-            info.summary,
-            'Copied event summary to clipboard!',
-            'Failed to copy event summary to clipboard!',
-            info.team.id
-          )}
-      >
-        <BwIcon src="/assets/svg/copy-text.svg" alt="Copy event summary" />
-      </button>
-
-      <button
-        class="action-item"
-        title="Copy Google Calendar link"
-        on:click={() =>
-          copy(
-            info.calendarLinks.google,
-            'Copied Google Calendar link to clipboard!',
-            'Failed to copy Google Calendar link to clipboard!',
-            info.team.id
-          )}
-      >
-        <BwIcon src="/assets/svg/calendar-google.svg" alt="Copy Google Calendar link" />
-      </button>
-
-      <button
-        class="action-item"
-        title="Copy Microsoft Outlook calendar link"
-        on:click={() =>
-          copy(
-            info.calendarLinks.outlook,
-            'Copied Microsoft Outlook calendar link to clipboard!',
-            'Failed to copy Microsoft Outlook calendar link to clipboard!',
-            info.team.id
-          )}
-      >
-        <BwIcon src="/assets/svg/calendar-outlook.svg" alt="Copy Outlook Calendar link" />
-      </button>
-    </div>
   </details>
 </div>
 
