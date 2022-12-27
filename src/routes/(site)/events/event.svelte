@@ -1,8 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import type { ClubEvent } from '$lib/public/events/event';
-  import { copy } from '$lib/public/copy/copy';
-  import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
   import EventSummary from './event-summary.svelte';
 
   export let info: ClubEvent;
