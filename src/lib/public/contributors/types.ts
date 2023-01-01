@@ -6,13 +6,18 @@ export interface Contributor {
   url: string;
   contributions: Contribution[];
   posts: { title: string; url: string }[];
+  from: string;
+  to: string;
 }
 
 export interface Contribution {
   url: string;
   message: string;
-  associatedPRURL: string;
-  closedAt: string;
+  associatedPRs: {
+    url: string;
+    number: number;
+    closedAt: string;
+  }[];
 }
 
 export interface Release {

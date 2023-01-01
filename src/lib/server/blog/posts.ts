@@ -115,7 +115,8 @@ function cacheBlogPosts(output: any): BlogPost[] {
 export function getOfficerByGhUsername(ghUsername: string): Officer | null {
   // get author by GitHub username
   const officer = OFFICERS.find(
-    (o) => o.socials && o.socials.github && o.socials.github === ghUsername
+    (o) =>
+      o.socials && o.socials.github && o.socials.github.toLowerCase() === ghUsername.toLowerCase()
   );
   return officer ?? null;
 }
