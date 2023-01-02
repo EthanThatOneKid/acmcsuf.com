@@ -1,7 +1,9 @@
 <script lang="ts">
   import type { PageData } from './$types';
   import { MetaTags } from 'svelte-meta-tags';
+  // import Select from '$lib/components/select/select.svelte';
   import Spacing from '$lib/public/legacy/spacing.svelte';
+  import { makeCertificatePageUrl } from '$lib/public/certificates';
 
   export let data: PageData;
 </script>
@@ -50,6 +52,25 @@
   <p>
     {data.certificate.user.bio}
   </p>
+
+  <Spacing --min="40px" --med="40px" --max="40px" />
+
+  <h2 class="size-l">Select a different release</h2>
+
+  <ul>
+    {#each data.releases as release}
+      <li>
+        {#if release.tagName === data.certificate.to.tagName}
+          <b>{release.tagName}</b> (current)
+        {:else}
+          <a
+            href={makeCertificatePageUrl(data.certificate.user.login, release.tagName)}
+            data-sveltekit-preload-data="hover">{release.tagName}</a
+          >
+        {/if}
+      </li>
+    {/each}
+  </ul>
 
   <Spacing --min="40px" --med="40px" --max="40px" />
 

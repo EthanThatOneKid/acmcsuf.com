@@ -1,4 +1,12 @@
 /**
+ * The page data for the certificate page.
+ */
+export interface CertificatePageData {
+  certificate: Certificate;
+  releases: Release[];
+}
+
+/**
  * An interface for a certificate object showing the accomplishments that a particular user has made in the duration of two releases.
  */
 export interface Certificate {
@@ -41,4 +49,13 @@ export interface PR {
     message: string;
     url: string;
   }[];
+}
+
+/**
+ * An interface for a release object.
+ */
+export interface Release {
+  name: string;
+  createdAt: string;
+  tagName: string;
 }

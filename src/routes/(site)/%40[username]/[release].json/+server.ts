@@ -1,21 +1,20 @@
 import type { RequestEvent } from '@sveltejs/kit';
 import type { RouteParams } from './$types';
-import { getCertificate } from '$lib/server/certificates/certificates';
+import { getCertificatePageData } from '$lib/server/certificates/certificates';
 import { LATEST } from '$lib/public/certificates/urls';
 
 /**
- * The server-side load function for the contributor page.
+ * The server-side load function for the certificate page.
  */
 export async function GET({ params }: RequestEvent<RouteParams>) {
-  // Get the contributor's certificate.
-  const certificate = await getCertificate({
+  const data = await getCertificatePageData({
     owner: 'ethanthatonekid',
     name: 'acmcsuf.com',
     username: params.username,
-    release: params.version.toLowerCase() === LATEST ? 0 : params.version,
+    release: params.release.toLowerCase() === LATEST ? 0 : params.release,
   });
 
-  return new Response(JSON.stringify({ certificate }), {
+  return new Response(JSON.stringify(data), {
     status: 200,
     headers: { 'Content-Type': 'application/json' },
   });

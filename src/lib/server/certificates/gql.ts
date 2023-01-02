@@ -35,7 +35,7 @@ export interface PRsQuery extends RepoQuery {
   username: string;
 
   /** The start date for the query. */
-  startDate: string;
+  startDate?: string;
 
   /** The end date for the query. */
   endDate: string;
@@ -74,10 +74,25 @@ export function makePRsQuery({
   cursor,
   maxPageSize = 25,
 }: PRsQuery): string {
+  /**
+   * @see https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
+   */
+  const searchQuery = [
+    `repo:${owner}/${name}`,
+    'is:pr',
+    'is:closed',
+    'is:public',
+    'archived:false',
+    `base:main`,
+    `author:${username}`,
+    'sort:created-asc',
+    startDate ? `merged:${startDate}..${endDate}` : `merged:<=${endDate}`,
+  ].join(' ');
+
   return `{
   search(
     type: ISSUE
-    query: "repo:${owner}/${name} is:pr is:closed is:public archived:false merged:${startDate}..${endDate} base:main author:${username} sort:created-asc"
+    query: "${searchQuery}"
     first: ${maxPageSize}
     ${cursor ? `after: "${cursor}"` : ''}
   ) {

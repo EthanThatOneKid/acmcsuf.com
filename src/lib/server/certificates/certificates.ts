@@ -1,6 +1,6 @@
 import { doQuery } from '$lib/server/gql/github';
 
-import type { Certificate, PR } from '$lib/public/certificates';
+import type { Certificate, PR, CertificatePageData } from '$lib/public/certificates';
 import type { PRsResponse, CertificateQuery, PRsQuery, ReleasesResponse, ReleaseNode } from './gql';
 import { makeReleasesQuery, makePRsQuery } from './gql';
 
@@ -46,9 +46,14 @@ async function getPRs(q: PRsQuery): Promise<PR[]> {
 /**
  * Retrieves a certificate showing the relevant pull requests made by a particular user in the duration of two releases.
  */
-export async function getCertificate(q: CertificateQuery): Promise<Certificate> {
+export async function getCertificatePageData(q: CertificateQuery): Promise<CertificatePageData> {
   // Make the releases query.
-  const releaseData = await doQuery<ReleasesResponse>(makeReleasesQuery(q));
+  const releaseData = await doQuery<ReleasesResponse>(
+    makeReleasesQuery({
+      owner: q.owner,
+      name: q.name,
+    })
+  );
 
   // Get the start and end dates for the releases.
   const pair = findReleasePair(releaseData, q.release);
@@ -56,7 +61,7 @@ export async function getCertificate(q: CertificateQuery): Promise<Certificate> 
     throw new Error('Release not found');
   }
 
-  const earlier = pair[0]?.createdAt || '0000-00-00T00:00:00Z';
+  const earlier = pair[0]?.createdAt;
   const later = pair[1].createdAt;
 
   // Get the pull requests made by the user.
@@ -69,8 +74,7 @@ export async function getCertificate(q: CertificateQuery): Promise<Certificate> 
     maxPageSize: q.maxPageSize,
   });
 
-  // Return the certificate.
-  return {
+  const certificate: Certificate = {
     user: {
       login: q.username,
       name: 'Your Name',
@@ -80,14 +84,23 @@ export async function getCertificate(q: CertificateQuery): Promise<Certificate> 
     },
     merged: prs,
     from: {
-      tagName: pair[0]?.tagName || '',
-      date: earlier,
+      tagName: pair[0]?.tagName || 'The Beginning',
+      date: earlier || 'The Beginning',
     },
     to: {
       tagName: pair[1].tagName,
       date: later,
     },
   };
+
+  const releases = releaseData.repository.releases.edges.map((edge) => ({
+    name: edge.node.name,
+    createdAt: edge.node.createdAt,
+    tagName: edge.node.tagName,
+  }));
+
+  // Return the page data.
+  return { certificate, releases };
 }
 
 /**
@@ -111,10 +124,7 @@ function findReleasePair(
   }
 
   // Find the start and end dates for the query
-  const {
-    [index + 1]: { node: one },
-    [index]: { node: two },
-  } = data.repository.releases.edges;
+  const { [index + 1]: one, [index]: two } = data.repository.releases.edges;
 
-  return [one, two];
+  return [one?.node, two.node];
 }
