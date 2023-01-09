@@ -34,7 +34,7 @@
 
     <div class="legal">
       <h3 class="brand-header size-md">
-        &copy; 2022 ACM Chapter at <span class="brand-bold">CSUF</span>
+        &copy; 2023 ACM Chapter at <span class="brand-bold">CSUF</span>
       </h3>
 
       <a
