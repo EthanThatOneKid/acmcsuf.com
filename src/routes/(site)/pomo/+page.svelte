@@ -21,7 +21,7 @@
   let pattern = PomoPattern.fromString($page.params.pattern || defaultPattern);
   let timestamp = new Date();
   let timer: number;
-  let info=pattern.at(timestamp, todayStart);
+  let info = pattern.at(timestamp, todayStart);
 
   $: {
     if (browser) {
@@ -38,7 +38,7 @@
       timestamp = new Date();
     }, 1e3) as unknown as number;
 
-    return () => clearInterval(timer)
+    return () => clearInterval(timer);
   });
 </script>
 
