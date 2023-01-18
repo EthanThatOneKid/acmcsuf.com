@@ -38,7 +38,9 @@
 </Block>
 
 <section class="positions-container">
-  <PositionList data={POSITIONS} />
+  <div class="positions-container-inner">
+    <PositionList data={POSITIONS} />
+  </div>
 </section>
 
 <Spacing --med="64px" />
@@ -88,12 +90,22 @@
   }
 
   .positions-container {
-    max-width: 100%;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .positions-container-inner {
+    margin: 0 24px;
+    width: 100%;
   }
 
   @media (min-width: 768px) {
     .positions-container {
+      margin-top: 2rem;
+    }
+
+    .positions-container-inner {
       max-width: 64ch;
       margin: 0 1rem;
     }
