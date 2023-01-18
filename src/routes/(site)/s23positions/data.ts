@@ -1,5 +1,5 @@
-import type { ListItem } from '$lib/components/recursive-ul/types';
-import { TEAMS } from '$lib/public/board/data';
+import { li } from '$lib/components/recursive-ul/utils';
+
 import type { ClubPosition } from './position';
 
 /**
@@ -15,10 +15,6 @@ export const TOOLS = {
   'Social media': 'Discord, Instagram, LinkedIn, and YouTube',
   'Google Colab/Juptyer Notebook': 'Cloud development environment for Python',
 };
-
-function li(html: string, children?: ListItem[]): ListItem {
-  return { html, children };
-}
 
 export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
   {
@@ -59,7 +55,28 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
       li('Check Discord messages and respond to the important discussion in regards to Algo daily'),
     ],
   },
-  // TODO: Design Officer
+  {
+    title: 'Design Officer',
+    teamColor: 'var(--acm-design-rgb)',
+    requirements: [
+      li('Open mind to suggest new ideas in the field of design'),
+      li('Interest in learning and teaching common apps (ex. Figma)'),
+      li('Interest in programming to create basic front-end applications'),
+    ],
+    tools: ['Google Drive/Docs', 'Discord', 'Figma'],
+    responsibilities: [
+      li(
+        'Host engaging and interesting biweekly/weekly events along with the Design President and Officers'
+      ),
+      li(
+        'Research common design practices in tech and brands to relay this information via workshops and events, and to enhance our chapter'
+      ),
+      li('Attend weekly team meetings to catch up on what’s being worked on, progress, etc.'),
+      li(
+        'Check Discord messages and respond to the important discussion in regards to Design at least daily'
+      ),
+    ],
+  },
   {
     title: 'Dev Officer',
     teamColor: 'var(--acm-dev-rgb)',
@@ -88,6 +105,47 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
       ),
     ],
   },
-  // TODO: Game Dev Officer
-  // TODO: Marketing Officer
+  {
+    title: 'Game Dev Officer',
+    teamColor: 'var(--acm-foundry-rgb)',
+    requirements: [
+      li('Passion and interest in game development'),
+      li('Strong communication and leadership'),
+      li('Flexibility with skills to assist students in a variety of projects'),
+    ],
+    tools: ['Google Drive/Docs', 'Discord', 'GitHub'],
+    responsibilities: [
+      li(
+        'Attend Game Dev board meetings, provide essential input and collaborate with the Game Dev President and other officers'
+      ),
+      li('Assist and direct students in Game Dev related projects'),
+      li(
+        'Host engaging and interesting biweekly/weekly workshops along with the Design President and Officers'
+      ),
+      li(
+        'Research common game dev techniques to relay this information via workshops and events, and to enhance our chapter'
+      ),
+      li(
+        'Check Discord messages and respond to the important discussion in regards to Dev at least daily'
+      ),
+    ],
+  },
+  {
+    title: 'Marketing Officer',
+    teamColor: 'var(--acm-marketing-rgb)',
+    requirements: [
+      li('Interest in exploring business and marketing'),
+      li('Substantial awareness or usage of multiple social media platforms'),
+      li('Represent and advocate diversity within the club'),
+    ],
+    tools: ['Google Drive/Docs', 'Discord', 'GitHub'],
+    responsibilities: [
+      li(
+        'Assist in designing flyers for marketing to be printed and posted on all forms of social media'
+      ),
+      li('Suggest and direct new ideas for the diversification of our club '),
+      li('Take pictures of our members to add to our socials and website gallery'),
+      li('Produce paragraphs for the announcements in our official Discord server'),
+    ],
+  },
 ];
