@@ -64,6 +64,10 @@ body:has(nav > input[type='checkbox']:checked) {
   font-weight: 700;
 }
 
+.brand-italic {
+  font-style: italic;
+}
+
 .brand-header,
 .headers {
   font-weight: 600;
