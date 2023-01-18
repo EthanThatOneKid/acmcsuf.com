@@ -10,7 +10,7 @@
 
 <Spacing --min="175px" --med="200px" --max="200px" />
 
-<Block>
+<Block align={TextAlignment.LEFT}>
   <h1 slot="headline" class="size-lg">Spring 2023 board applications</h1>
   <p slot="text" class="size-sm">
     Listed below are the positions that are open for the Spring 2023 semester. Please read the
@@ -19,7 +19,7 @@
     position, you will be contacted by the current board member in charge of that position.
     <br />
     <br />
-    Last updated January 16th, 2023
+    Last updated January 18th, 2023
     <br />
     <br />
     <span class="apply-btn">
