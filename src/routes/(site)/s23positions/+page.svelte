@@ -28,15 +28,6 @@
   </p>
 </Block>
 
-<Spacing --min="175px" --med="200px" --max="200px" />
-
-<Block align={TextAlignment.LEFT}>
-  <h1 id="spring-2023-board-applications" slot="headline" class="size-lg">
-    Spring 2023 board applications
-  </h1>
-  <div slot="text" />
-</Block>
-
 <section class="positions-container">
   <div class="positions-container-inner">
     <PositionList data={POSITIONS} />

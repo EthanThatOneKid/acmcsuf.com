@@ -71,7 +71,7 @@
       justify-content: space-between;
       padding: 1rem;
       cursor: pointer;
-      
+
       /**
        * [START HACK] Remove the default marker from the <details> element.
        * @see https://stackoverflow.com/a/66814239
