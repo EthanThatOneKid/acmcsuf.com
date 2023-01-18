@@ -17,7 +17,7 @@ export const TEAMS = [...TEAMS_JSON].reduce(
     tt[t.id] = t;
     return tt;
   },
-  {} as Record<keyof typeof TEAMS_JSON[number], Team>
+  {}
 );
 
 /** Pinned paths are featured on the landing page. */
