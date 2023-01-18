@@ -7,9 +7,7 @@
 </script>
 
 {#each data as position}
-  <section class="position">
-    <Position data={position} />
-  </section>
+  <Position data={position} />
 {:else}
   <p>There are no open positions at this time.</p>
 {/each}
