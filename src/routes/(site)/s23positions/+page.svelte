@@ -1,11 +1,11 @@
 <script lang="ts">
   import Block from '$lib/components/block/block.svelte';
-  import Spacing from '$lib/public/legacy/spacing.svelte';
   import Button from '$lib/components/button/button.svelte';
+  import Spacing from '$lib/public/legacy/spacing.svelte';
+  import { TextAlignment } from '$lib/public/legacy/text-alignment';
 
   import PositionList from './position-list.svelte';
   import { POSITIONS } from './data';
-  import { TextAlignment } from '$lib/public/legacy/text-alignment';
 </script>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
