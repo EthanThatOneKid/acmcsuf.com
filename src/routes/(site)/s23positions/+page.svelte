@@ -6,6 +6,11 @@
 
   import PositionList from './position-list.svelte';
   import { POSITIONS } from './data';
+
+  function expandAll() {
+    const positions = document.querySelectorAll('.position');
+    positions.forEach((el) => (el.setAttribute('open', 'true')));
+  }
 </script>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
@@ -22,8 +27,8 @@
     Last updated January 18th, 2023
     <br />
     <br />
-    <span class="apply-btn">
-      <Button link="/s23apply" text="Apply now!" />
+    <span class="center-btn" on:click={expandAll} on:keypress={expandAll}>
+      <Button text="Expand all!" />
     </span>
   </p>
 </Block>
@@ -33,6 +38,12 @@
     <PositionList data={POSITIONS} />
   </div>
 </section>
+
+<Spacing --med="64px" />
+
+<span class="center-btn">
+  <Button link="/s23apply" text="Apply now!" />
+</span>
 
 <Spacing --med="64px" />
 
@@ -71,7 +82,7 @@
     margin: 0 1rem;
   }
 
-  .apply-btn {
+  .center-btn {
     display: flex;
     justify-content: center;
   }
