@@ -1,6 +1,3 @@
-<script context="module" lang="ts">
-</script>
-
 <script lang="ts">
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import { LINKS } from '$lib/public/links';
@@ -54,7 +51,6 @@
       width: min(800px, 80vw);
       max-width: 540px;
       margin: 0 auto;
-      // padding: 0 1rem 6rem;
       margin-bottom: 50px;
 
       p {
