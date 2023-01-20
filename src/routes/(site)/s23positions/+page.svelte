@@ -9,7 +9,7 @@
 
   function expandAll() {
     const positions = document.querySelectorAll('.position');
-    positions.forEach((el) => (el.setAttribute('open', 'true')));
+    positions.forEach((el) => el.setAttribute('open', 'true'));
   }
 </script>
 
