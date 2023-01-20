@@ -9,6 +9,7 @@
   "Special Events Officer": { "id": 7, "index": 450 },
   "Event Coordinator": { "id": 8, "index": 500 },
   "Marketing Leader": { "id": 9, "index": 550 },
+  "Marketing Officer": { "id": 24, "index": 560 },
   "Historian": { "id": 10, "index": 600 },
   "Algo Leader": { "id": 11, "index": 650 },
   "Algo Officer": { "id": 12, "index": 700 },
@@ -21,6 +22,8 @@
   "Dev Officer": { "id": 19, "index": 1050 },
   "AI Leader": { "id": 20, "index": 1100 },
   "AI Officer": { "id": 21, "index": 1150 },
+  "Game Dev Leader": { "id": 25, "index": 1170 },
+  "Game Dev Officer": { "id": 26, "index": 1180 },
   "Nodebuds Officer": { "id": 22, "index": 1200 },
   "ICC Representative": { "id": 23, "index": 1250 }
 }

@@ -19,6 +19,8 @@
   --acm-algo-rgb: 157, 53, 231;
   --acm-design-rgb: 255, 67, 101;
   --acm-dev-rgb: 30, 108, 255;
+  --acm-foundry-rgb: 111, 22, 255;
+  --acm-marketing-rgb: 212, 17, 83;
   --acm-special-events-rgb: 255, 208, 41;
 
   --perma-light: #f8f8f8;
@@ -62,6 +64,10 @@ body:has(nav > input[type='checkbox']:checked) {
 .brand-bold,
 .brand-em {
   font-weight: 700;
+}
+
+.brand-italic {
+  font-style: italic;
 }
 
 .brand-header,

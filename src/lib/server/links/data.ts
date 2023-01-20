@@ -18,4 +18,6 @@ export const LINKS = {
   'design-template':
     'https://www.figma.com/file/MED3kRKmIxcoKblNTveEZZ/acmDesign-Challenge-Sheet?node-id=0%3A1',
   'live-walk': 'https://www.figma.com/file/PtYSxzB8BbKh3L46dQSjf1/Live-Interaction?node-id=0%3A1',
+  s23apply:
+    'https://docs.google.com/forms/d/e/1FAIpQLScHHxO_LYHSyZvHozxuaSlhjY4WKU-lVsInm_cl_U88-6tbMQ/viewform',
 } as const;
