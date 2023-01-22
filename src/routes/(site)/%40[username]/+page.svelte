@@ -34,7 +34,7 @@
 
   <Spacing --min="16px" --med="16px" --max="16px" />
 
-  <h1 class="size-l toplevel-text">
+  <h1 class="size-l toplevel-text headers">
     <a
       class="username"
       href={`https://github.com/${data.certificate.user.login}`}
@@ -51,9 +51,9 @@
 
   <Spacing --min="40px" --med="40px" --max="40px" />
 
-  <p class="toplevel-text">
-    {data.certificate.user.bio}
-  </p>
+  <div class="toplevel-text">
+    {@html data.certificate.user.bio}
+  </div>
 
   <Spacing --min="40px" --med="40px" --max="40px" />
 

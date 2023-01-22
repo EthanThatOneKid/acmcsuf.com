@@ -28,8 +28,8 @@ export function makeReleasesQuery(q: RepoQuery): string {
     }
   }
   user(login: "${q.username}") {
-    bio
     name
+    bioHTML
     avatarUrl
   }
 }`;
@@ -170,8 +170,8 @@ export interface ReleasesResponse {
     };
   };
   user: {
-    bio: string;
-    fullName: string;
+    name: string;
+    bioHTML: string;
     avatarUrl: string;
   };
 }

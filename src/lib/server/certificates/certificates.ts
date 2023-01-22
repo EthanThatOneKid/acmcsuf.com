@@ -76,9 +76,9 @@ export async function getCertificatePageData(q: CertificateQuery): Promise<Certi
   const certificate: Certificate = {
     user: {
       login: q.username,
-      name: officer?.fullName || releaseData.user.fullName || `@${q.username}`,
+      name: officer?.fullName || releaseData.user.name || `@${q.username}`,
       url: `https://github.com/${q.username}`,
-      bio: releaseData.user.bio,
+      bio: releaseData.user.bioHTML,
       picture: officer?.picture ? `/assets/authors/${officer.picture}` : releaseData.user.avatarUrl,
     },
     merged: prs,
