@@ -1,16 +1,18 @@
 import { test, expect } from 'vitest';
+
+import type { ReleasesResponse } from './gql';
 import { makePRsQuery, makeReleasesQuery } from './gql';
 
 const TEST_OWNER = 'OWNER';
 const TEST_REPO_NAME = 'REPO_NAME';
 const TEST_USERNAME = 'USERNAME';
-const TEST_INDEX = 0;
-const TEST_RELEASE_DATA = {
+const TEST_RELEASE_DATA: ReleasesResponse = {
   repository: {
     releases: {
       edges: [
         {
           node: {
+            tagName: 'v2.0.0',
             name: 'v2.0.0',
             createdAt: '2022-01-01T00:00:00Z',
           },
@@ -18,55 +20,82 @@ const TEST_RELEASE_DATA = {
         {
           node: {
             name: 'v1.0.0',
+            tagName: 'v1.0.0',
             createdAt: '2021-01-01T00:00:00Z',
           },
         },
       ],
     },
   },
+  user: {
+    name: 'TEST_RELEASE_USER_NAME',
+    bioHTML: 'TEST_RELEASE_USER_BIO',
+    avatarUrl: 'TEST_RELEASE_USER_AVATAR_URL',
+  },
 };
 
 test('makeReleasesQuery', () => {
-  const query = makeReleasesQuery({ owner: TEST_OWNER, name: TEST_REPO_NAME });
+  const query = makeReleasesQuery({
+    owner: TEST_OWNER,
+    name: TEST_REPO_NAME,
+    username: TEST_USERNAME,
+  });
   expect(query).toEqual(`{
-  repository(owner: "${TEST_OWNER}", name: "${TEST_REPO_NAME}") {
+  repository(owner: "OWNER", name: "REPO_NAME") {
     releases(last: 100) {
       edges {
         node {
           name
           createdAt
+          tagName
         }
       }
     }
+  }
+  user(login: "USERNAME") {
+    name
+    bioHTML
+    avatarUrl
   }
 }`);
 });
 
 test('makePRsQuery', () => {
   const query = makePRsQuery({
-    releaseData: TEST_RELEASE_DATA,
     owner: TEST_OWNER,
     name: TEST_REPO_NAME,
     username: TEST_USERNAME,
-    index: TEST_INDEX,
+    startDate: TEST_RELEASE_DATA.repository.releases.edges[1].node.createdAt,
+    endDate: TEST_RELEASE_DATA.repository.releases.edges[0].node.createdAt,
   });
   expect(query).toEqual(`{
-  repository(owner: "${TEST_OWNER}", name: "${TEST_REPO_NAME}") {
-    pullRequests(author: "${TEST_USERNAME}", first: 100, states: MERGED, after: "${TEST_RELEASE_DATA.repository.releases.edges[1].node.createdAt}", before: "${TEST_RELEASE_DATA.repository.releases.edges[0].node.createdAt}") {
-      edges {
-        node {
-          createdAt
-          mergedAt
+  search(
+    type: ISSUE
+    query: "repo:OWNER/REPO_NAME is:pr is:closed is:public archived:false base:main author:USERNAME sort:created-asc merged:2021-01-01T00:00:00Z..2022-01-01T00:00:00Z"
+    first: 25
+  ) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        ... on PullRequest {
+          number
           title
-          author {
-            login
-            url
+          mergedAt
+          url
+          commits(first: 100) {
+            edges {
+              node {
+                commit {
+                  message
+                  url
+                }
+              }
+            }
           }
         }
-      }
-      pageInfo {
-        hasNextPage
-        endCursor
       }
     }
   }

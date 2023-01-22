@@ -98,13 +98,16 @@ export function makePRsQuery({
     'sort:created-asc',
     startDate ? `merged:${startDate}..${endDate}` : `merged:<=${endDate}`,
   ].join(' ');
+  const cursorDef = cursor
+    ? `
+  after: "${cursor}"`
+    : '';
 
   return `{
   search(
     type: ISSUE
     query: "${searchQuery}"
-    first: ${maxPageSize}
-    ${cursor ? `after: "${cursor}"` : ''}
+    first: ${maxPageSize}${cursorDef}
   ) {
     pageInfo {
       hasNextPage
