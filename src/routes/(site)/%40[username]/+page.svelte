@@ -25,7 +25,7 @@
   }}
 />
 
-<Spacing --min="175px" --med="200px" --max="200px" />
+<Spacing --min="100px" --med="120px" --max="125px" />
 
 <article>
   <Spacing --min="16px" --med="16px" --max="16px" />
@@ -41,12 +41,21 @@
       target="_blank"
       rel="noopener noreferrer">{data.certificate.user.name}</a
     >
-    made {data.certificate.merged.length} contributions in the
+    {#if data.certificate.merged.length > 0}
+      made {data.certificate.merged.length} contribution{data.certificate.merged.length > 1
+        ? 's'
+        : ''}
+    {:else}
+      did not make a contribution
+    {/if}
+    in the
     <a
       href={`https://github.com/EthanThatOneKid/acmcsuf.com/releases/tag/${data.certificate.to.tagName}`}
       target="_blank"
       rel="noopener noreferrer">{data.certificate.to.tagName}</a
-    > release!
+    >
+    release{#if data.certificate.merged.length === 0}, but they might have made contributions in
+      another release{/if}!
   </h1>
 
   <Spacing --min="40px" --med="40px" --max="40px" />
@@ -92,7 +101,7 @@
     </ol>
   </div>
 
-  <Spacing --min="40px" --med="40px" --max="40px" />
+  <Spacing --min="20px" --med="20px" --max="20px" />
 
   <h2 class="size-l toplevel-text">Select a different release:</h2>
 
@@ -146,16 +155,21 @@
 
   .releases {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    text-align: center;
     list-style: none;
     padding: 0;
     margin: 0;
 
     li {
       margin: 0 8px;
+      padding: 1rem 0;
+      border-bottom: 7px solid #eaeaea;
+      width: 100%;
+    }
+
+    li:has(a:hover) {
+      border-bottom: 7px solid var(--acm-blue);
     }
 
     b {
