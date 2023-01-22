@@ -20,13 +20,14 @@
 
 <MetaTags
   openGraph={{
-    title: "Spring 2023 board applications",
-    description: "Listed below are the positions that are open for the Spring 2023 semester. Please read the descriptions carefully and apply for the position(s) that you are interested in. You may apply for multiple positions, but you may only be selected for one. If you are selected for a position, you will be contacted by the current board member in charge of that position.",
-    url: "https://acmcsuf.com/s23positions",
-    type: "article",
+    title: 'Spring 2023 board applications',
+    description:
+      'Listed below are the positions that are open for the Spring 2023 semester. Please read the descriptions carefully and apply for the position(s) that you are interested in. You may apply for multiple positions, but you may only be selected for one. If you are selected for a position, you will be contacted by the current board member in charge of that position.',
+    url: 'https://acmcsuf.com/s23positions',
+    type: 'article',
     article: {
-      publishedTime: "2023-19-01T00:00:00.000Z",
-      modifiedTime: "2023-19-01T00:00:00.000Z",
+      publishedTime: '2023-19-01T00:00:00.000Z',
+      modifiedTime: '2023-19-01T00:00:00.000Z',
     },
   }}
 />
