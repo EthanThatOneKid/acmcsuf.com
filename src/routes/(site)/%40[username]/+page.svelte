@@ -97,10 +97,10 @@
   <h2 class="size-l toplevel-text">Select a different release:</h2>
 
   <ul class="releases">
-    {#each data.releases as release}
+    {#each data.releases as release, i}
       <li>
         {#if release.tagName === data.certificate.to.tagName}
-          <b>{release.tagName}</b> (current)
+          <b>{release.tagName}</b> ({i === 0 ? 'latest' : 'previous'})
         {:else}
           <a
             href={makeCertificatePageUrl(data.certificate.user.login, release.tagName)}
