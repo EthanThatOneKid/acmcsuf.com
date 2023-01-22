@@ -3,17 +3,16 @@ import { doQuery } from '$lib/server/gql/github';
 import type { Certificate, PR, CertificatePageData } from '$lib/public/certificates';
 import type { PRsResponse, CertificateQuery, PRsQuery, ReleasesResponse, ReleaseNode } from './gql';
 import { makeReleasesQuery, makePRsQuery } from './gql';
+import { getOfficerByGhUsername } from '../blog/posts';
 
-/**
- * Retrieves a page of merged pull requests.
- */
+/** Retrieves a page of merged pull requests. */
 async function getPRs(q: PRsQuery): Promise<PR[]> {
   // Initialize the array of pull requests
   const prs: PR[] = [];
 
   // Fetch pages of pull requests until pagination is exhausted.
-  // eslint-disable-next-line no-constant-condition
-  while (true) {
+  let limit = 1e3;
+  while (limit--) {
     const prResponse = await doQuery<PRsResponse>(makePRsQuery(q));
     prs.push(
       ...prResponse.search.edges.map(
@@ -47,11 +46,11 @@ async function getPRs(q: PRsQuery): Promise<PR[]> {
  * Retrieves a certificate showing the relevant pull requests made by a particular user in the duration of two releases.
  */
 export async function getCertificatePageData(q: CertificateQuery): Promise<CertificatePageData> {
-  // Make the releases query.
   const releaseData = await doQuery<ReleasesResponse>(
     makeReleasesQuery({
       owner: q.owner,
       name: q.name,
+      username: q.username,
     })
   );
 
@@ -64,7 +63,6 @@ export async function getCertificatePageData(q: CertificateQuery): Promise<Certi
   const earlier = pair[0]?.createdAt;
   const later = pair[1].createdAt;
 
-  // Get the pull requests made by the user.
   const prs = await getPRs({
     username: q.username,
     owner: q.owner,
@@ -74,13 +72,14 @@ export async function getCertificatePageData(q: CertificateQuery): Promise<Certi
     maxPageSize: q.maxPageSize,
   });
 
+  const officer = getOfficerByGhUsername(q.username);
   const certificate: Certificate = {
     user: {
       login: q.username,
-      name: 'Your Name',
+      name: officer?.fullName || releaseData.user.fullName || `@${q.username}`,
       url: `https://github.com/${q.username}`,
-      bio: '',
-      picture: '/assets/authors/placeholder.webp',
+      bio: releaseData.user.bio,
+      picture: officer?.picture ? `/assets/authors/${officer.picture}` : releaseData.user.avatarUrl,
     },
     merged: prs,
     from: {

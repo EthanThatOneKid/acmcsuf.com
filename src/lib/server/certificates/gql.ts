@@ -6,7 +6,12 @@ export interface RepoQuery {
   owner: string;
   /** The name of the repository. */
   name: string;
+  /** The username of the queried user. */
+  username: string;
 }
+
+// GitHub GraphQL Explorer:
+// https://docs.github.com/en/graphql/overview/explorer
 
 // A function to generate a GraphQL query to fetch a page of releases
 export function makeReleasesQuery(q: RepoQuery): string {
@@ -22,6 +27,11 @@ export function makeReleasesQuery(q: RepoQuery): string {
       }
     }
   }
+  user(login: "${q.username}") {
+    bio
+    name
+    avatarUrl
+  }
 }`;
 
   return query;
@@ -31,7 +41,7 @@ export function makeReleasesQuery(q: RepoQuery): string {
  * An interface for a PRs query object with the repository owner, name, username, and shared query options.
  */
 export interface PRsQuery extends RepoQuery {
-  /** The username of the user. */
+  /** The username of the queried user. */
   username: string;
 
   /** The start date for the query. */
@@ -158,6 +168,11 @@ export interface ReleasesResponse {
     releases: {
       edges: { node: ReleaseNode }[];
     };
+  };
+  user: {
+    bio: string;
+    fullName: string;
+    avatarUrl: string;
   };
 }
 
