@@ -54,6 +54,10 @@ export async function getCertificatePageData(q: CertificateQuery): Promise<Certi
     })
   );
 
+  if (!releaseData.user) {
+    throw new Error('User not found!');
+  }
+
   // Get the start and end dates for the releases.
   const pair = findReleasePair(releaseData, q.release);
   if (!pair) {
