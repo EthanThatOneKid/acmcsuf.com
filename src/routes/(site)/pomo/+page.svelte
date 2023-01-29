@@ -3,11 +3,10 @@
   import { browser } from '$app/environment';
   import { onMount } from 'svelte';
 
-  import { PomoPattern } from '$lib/public/pomo';
+  import { PomoPattern, durationFmt } from '$lib/public/pomo';
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import Block from '$lib/components/block/block.svelte';
 
-  import { durationFmt } from './duration-fmt';
   import { PATTERNS } from './patterns';
 
   // TODO (remove this comment when done):
