@@ -86,7 +86,7 @@
     </div>
 
     <p class="size-md timer">
-      {durationFmt(info.remainingMs)}
+      {format(info?.timeout ?? 0, 'mm:ss.SSS')}
     </p>
 
     <h2 class="work-period name">Starting TypeScript work pattern...</h2>
