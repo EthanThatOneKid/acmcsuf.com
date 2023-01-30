@@ -2,8 +2,9 @@
   import { page } from '$app/stores';
   import { browser } from '$app/environment';
   import { onMount } from 'svelte';
-
+  import type { PomoStamp } from 'pomo';
   import { Pomo, format } from 'pomo';
+
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import Block from '$lib/components/block/block.svelte';
 
@@ -15,32 +16,30 @@
   // - [ ] Expand selection to valid custom patterns
 
   const defaultPattern = PATTERNS[0];
-  const todayStart = new Date(new Date().setHours(0, 0, 0, 0));
   const dayLength = 1 * 24 * 60 * 60 * 1e3; // 1 day in milliseconds
-  const ref = todayStart.valueOf(); // Previous midnight
   const scale = 1 * 60 * 1e3; // Scale minutes in pattern to milliseconds
 
-  let pattern = $page.params.pattern || defaultPattern;
-  let pomo = Pomo.fromPattern({ pattern, dayLength, ref, scale });
-  let timestamp = new Date();
-  let stamp = pomo.at(timestamp.valueOf());
+  let pomo: Pomo;
+  let stamp: PomoStamp;
   let animationID: number;
+  let timestamp = new Date();
+  let ref = new Date(timestamp.setHours(0, 0, 0, 0)).getTime(); // Previous midnight
 
-  $: {
-    if (browser) {
-      stamp = pomo.at(timestamp.valueOf());
-    }
+  $: if (browser) {
+    const pattern = $page.params.pattern || defaultPattern;
+    pomo = Pomo.fromPattern({ pattern, dayLength, ref, scale });
+    stamp = pomo.at(timestamp.getTime());
+  }
+
+  function animate() {
+    timestamp = new Date();
+    animationID = requestAnimationFrame(animate);
   }
 
   onMount(() => {
     animationID = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationID);
   });
-
-  function animate() {
-    timestamp = new Date();
-    animationID = requestAnimationFrame(animate);
-  }
 
   /* For the Menu Part to see the Work on A smaller phone Screen 
 
