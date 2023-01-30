@@ -3,7 +3,7 @@
   import { browser } from '$app/environment';
   import { onMount } from 'svelte';
 
-  import { PomoPattern, durationFmt } from '$lib/public/pomo';
+  import { Pomo, format, PomoStamp } from 'pomo';
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import Block from '$lib/components/block/block.svelte';
 
@@ -17,18 +17,20 @@
   const defaultPattern = PATTERNS[0];
   const todayStart = new Date(new Date().setHours(0, 0, 0, 0));
 
-  let pattern = PomoPattern.fromString($page.params.pattern || defaultPattern);
+  let pattern: Pomo;
   let timestamp = new Date();
   let timer: number;
-  let info = pattern.at(timestamp, todayStart);
+  let info: PomoStamp | undefined;
 
   $: {
     if (browser) {
-      pattern = PomoPattern.fromString($page.params.pattern || defaultPattern);
-      info = pattern.at(timestamp, todayStart);
-
-      // TODO: Remove this debug statement.
-      console.log({ hello: { ...info } });
+      pattern = Pomo.fromPattern({
+        pattern: $page.params.pattern || defaultPattern,
+        dayLength: 1 * 24 * 60 * 60 * 1e3, // 1 day in milliseconds
+        ref: todayStart.valueOf(), // Previous midnight
+        scale: 1 * 60 * 1e3, // Scale minutes in pattern to milliseconds
+      });
+      info = pattern.at(timestamp.valueOf());
     }
   }
 
@@ -60,6 +62,7 @@
 </svelte:head>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
+<<<<<<< Updated upstream
 <div class="title-container">
   <Block>
     <h1 slot="headline" class="size-xl">Pomodomo Timer</h1>
@@ -96,6 +99,31 @@
     </div>
   </section>
 </div>
+=======
+
+<Block>
+  <h1 slot="headline" class="size-xl">🍅 Pomodomo Timer</h1>
+</Block>
+
+<section>
+  <div class="button-container">
+    <button id="btn">Work 1</button>
+    <button id="btn">Work 2</button>
+    <button id="btn">Work 3</button>
+    <button id="btn">Work 4</button>
+    <button id="btn">Work 5</button>
+  </div>
+
+  <p class="size-md">
+      {format(info?.timeout ?? 0, 'HH:mm:ss.SSS')}
+  </p>
+
+  <div class="toggle-container">
+    <button class="toggle-btns start"> Start </button>
+    <button class="toggle-btns stop"> Stop </button>
+  </div>
+</section>
+>>>>>>> Stashed changes
 
 <Spacing --min="100px" --med="175px" --max="200px" />
 
