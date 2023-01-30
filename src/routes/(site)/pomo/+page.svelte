@@ -67,25 +67,23 @@
   <Block>
     <h1 slot="headline" class="size-xl">Pomodomo Timer</h1>
     <h3 slot="text" class="size-xl text">
-      Official at CSUF ACM <img
-        src="src\routes\(site)\pomo\acm-csuf-badge.png"
-        alt="ACM Logo"
-        class="acm"
-      />
+      Official at CSUF ACM <img src="/assets/png/acm-csuf-badge.png" alt="ACM Logo" class="acm" />
     </h3>
   </Block>
 </div>
 
 <div class="timer-container">
-  <img src="src\routes\(site)\pomo\acm-shark.png" alt="Photo of Frank" class="frank" />
+  <img src="/assets/png/acm-shark.png" alt="Frank" class="frank" />
   <section>
     <button id="menu" style="display: none">Menu</button>
     <div class="button-container">
-      <button id="btn" class="b">Work</button>
-      <button id="btn" class="b">Work</button>
-      <button id="btn" class="b">Work</button>
-      <button id="btn" class="b">Work</button>
-      <button id="btn" class="b">Work</button>
+      <ul>
+        <li><button id="btn" class="b">Work</button></li>
+        <li><button id="btn" class="b">Work</button></li>
+        <li><button id="btn" class="b">Work</button></li>
+        <li><button id="btn" class="b">Work</button></li>
+        <li><button id="btn" class="b">Work</button></li>
+      </ul>
     </div>
 
     <p class="size-md timer">
