@@ -3,7 +3,8 @@
   import { browser } from '$app/environment';
   import { onMount } from 'svelte';
 
-  import { Pomo, format, PomoStamp } from 'pomo';
+  import type { PomoStamp } from 'pomo';
+  import { Pomo, format } from 'pomo';
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import Block from '$lib/components/block/block.svelte';
 
@@ -86,7 +87,7 @@
     </div>
 
     <p class="size-md timer">
-      {durationFmt(info.remainingMs)}
+      {format(info?.timeout ?? 0, 'mm:ss.SSS')}
     </p>
 
     <h2 class="work-period name">Starting TypeScript work pattern...</h2>
