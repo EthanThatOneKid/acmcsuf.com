@@ -62,7 +62,6 @@
 </svelte:head>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
-<<<<<<< Updated upstream
 <div class="title-container">
   <Block>
     <h1 slot="headline" class="size-xl">Pomodomo Timer</h1>
@@ -97,31 +96,6 @@
     </div>
   </section>
 </div>
-=======
-
-<Block>
-  <h1 slot="headline" class="size-xl">🍅 Pomodomo Timer</h1>
-</Block>
-
-<section>
-  <div class="button-container">
-    <button id="btn">Work 1</button>
-    <button id="btn">Work 2</button>
-    <button id="btn">Work 3</button>
-    <button id="btn">Work 4</button>
-    <button id="btn">Work 5</button>
-  </div>
-
-  <p class="size-md">
-      {format(info?.timeout ?? 0, 'HH:mm:ss.SSS')}
-  </p>
-
-  <div class="toggle-container">
-    <button class="toggle-btns start"> Start </button>
-    <button class="toggle-btns stop"> Stop </button>
-  </div>
-</section>
->>>>>>> Stashed changes
 
 <Spacing --min="100px" --med="175px" --max="200px" />
 
