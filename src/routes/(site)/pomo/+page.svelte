@@ -3,7 +3,6 @@
   import { browser } from '$app/environment';
   import { onMount } from 'svelte';
 
-  import type { PomoStamp } from 'pomo';
   import { Pomo, format } from 'pomo';
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import Block from '$lib/components/block/block.svelte';
@@ -17,31 +16,31 @@
 
   const defaultPattern = PATTERNS[0];
   const todayStart = new Date(new Date().setHours(0, 0, 0, 0));
+  const dayLength = 1 * 24 * 60 * 60 * 1e3; // 1 day in milliseconds
+  const ref = todayStart.valueOf(); // Previous midnight
+  const scale = 1 * 60 * 1e3; // Scale minutes in pattern to milliseconds
 
-  let pattern: Pomo;
+  let pattern = $page.params.pattern || defaultPattern;
+  let pomo = Pomo.fromPattern({ pattern, dayLength, ref, scale });
   let timestamp = new Date();
-  let timer: number;
-  let info: PomoStamp | undefined;
+  let stamp = pomo.at(timestamp.valueOf());
+  let animationID: number;
 
   $: {
     if (browser) {
-      pattern = Pomo.fromPattern({
-        pattern: $page.params.pattern || defaultPattern,
-        dayLength: 1 * 24 * 60 * 60 * 1e3, // 1 day in milliseconds
-        ref: todayStart.valueOf(), // Previous midnight
-        scale: 1 * 60 * 1e3, // Scale minutes in pattern to milliseconds
-      });
-      info = pattern.at(timestamp.valueOf());
+      stamp = pomo.at(timestamp.valueOf());
     }
   }
 
   onMount(() => {
-    timer = setInterval(() => {
-      timestamp = new Date();
-    }, 1e3) as unknown as number;
-
-    return () => clearInterval(timer);
+    animationID = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationID);
   });
+
+  function animate() {
+    timestamp = new Date();
+    animationID = requestAnimationFrame(animate);
+  }
 
   /* For the Menu Part to see the Work on A smaller phone Screen 
 
@@ -86,9 +85,9 @@
       </ul>
     </div>
 
-    <p class="size-md timer">
-      {format(info?.timeout ?? 0, 'mm:ss.SSS')}
-    </p>
+    <time class="size-md timer">
+      {format(stamp?.timeout ?? 0, 'HH:mm:ss.SSS')}
+    </time>
 
     <h2 class="work-period name">Starting TypeScript work pattern...</h2>
     <div class="toggle-container">
@@ -116,6 +115,7 @@
   button:hover {
     transform: scale(1.05);
   }
+
   .acm {
     max-width: 50px;
     margin-left: 5px;
@@ -133,6 +133,30 @@
     margin-bottom: 170px;
   }
 
+  section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 90px 90px 90px;
+    background-color: var(--acm-sky);
+    box-shadow: 0 0 12px var(--acm-sky);
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 850px;
+    border-radius: 15px;
+  }
+
+  .timer {
+    font-family: monospace;
+    background-color: var(--acm-blue);
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 0 5px rgb(52, 105, 165); /* Can we add this as a color? */
+    text-align: center;
+    font-weight: 900;
+    margin: 40px 0px 40px 0px;
+  }
+
   .size-xl {
     font-size: 90px;
     margin-bottom: 5px;
@@ -148,25 +172,11 @@
       display: none;
     }
 
-    .timer {
-      font-size: 25px;
-    }
-
     .frank {
       top: 58%;
       left: 10%;
       max-width: 400px;
     }
-  }
-
-  section {
-    padding: 30px 90px 90px 90px;
-    background-color: var(--acm-sky);
-    box-shadow: 0 0 12px var(--acm-sky);
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 850px;
-    border-radius: 15px;
   }
 
   .work-period {
@@ -185,20 +195,6 @@
 
   #btn:hover {
     background-color: var(--acm-bluer);
-  }
-
-  section .size-md {
-    font-size: 95px;
-    text-align: center;
-    font-weight: 900;
-    margin: 40px 0px 40px 0px;
-  }
-
-  .timer {
-    background-color: var(--acm-blue);
-    padding: 50px;
-    border-radius: 15px;
-    box-shadow: 0 0 5px rgb(52, 105, 165); /* Can we add this as a color? */
   }
 
   .text {
