@@ -15,7 +15,7 @@ jobs:
 
       - run: |
           go run github.com/ethanthatonekid/pins@latest \
-            get -o /tmp/pins.json $GUILD_ID "channel_parent_id == $CHANNEL_ID"
+            get -o /tmp/pins $GUILD_ID "channel_parent_id == $CHANNEL_ID"
         env:
           GUILD_ID: ${{ secrets.GUILD_ID }}
           CHANNEL_ID: ${{ secrets.GENUARY_CHANNEL_ID }}
@@ -26,7 +26,7 @@ jobs:
           year=$(date +%Y)
           echo "year=$year" >> $GITHUB_OUTPUT
 
-          node scripts/transform-genuary.js /tmp/pins.json \
+          node scripts/transform-genuary.js /tmp/pins/*.json \
             > "src/routes/(site)/genuary/$year/data.json"
 
           if git diff --exit-code --quiet; then
