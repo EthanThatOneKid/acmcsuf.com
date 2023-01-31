@@ -12,6 +12,10 @@ async function main() {
 
     const src = pin.attachments[0].url || null;
     const alt = content.channel_names[pin.channel_id] || '';
+    if (!/^(\d+) /.test(alt)) {
+      continue;
+    }
+
     out.push({
       src,
       alt,
@@ -20,11 +24,8 @@ async function main() {
   }
 
   out.sort((a, b) => {
-    const na = a.alt.match(/^(\d+) /) || null;
-    const nb = b.alt.match(/^(\d+) /) || null;
-    if (na === null && nb === null) return 0;
-    if (na === null) return 1;
-    if (nb === null) return -1;
+    const na = a.alt.match(/^(\d+) /);
+    const nb = b.alt.match(/^(\d+) /);
     return parseInt(na) - parseInt(nb);
   });
 
