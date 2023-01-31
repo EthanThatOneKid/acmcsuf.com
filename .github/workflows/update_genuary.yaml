@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: go install github.com/ethanthatonekid/pins
+      - run: go install github.com/ethanthatonekid/pins@latest
 
       - run: pins get -o /tmp/pins.json $GUILD_ID "channel_parent_id == $CHANNEL_ID"
         env:
