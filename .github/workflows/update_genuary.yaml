@@ -13,9 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: go install github.com/ethanthatonekid/pins@latest
-
-      - run: pins get -o /tmp/pins.json $GUILD_ID "channel_parent_id == $CHANNEL_ID"
+      - run: |
+          go run github.com/ethanthatonekid/pins@latest \
+            get -o /tmp/pins.json $GUILD_ID "channel_parent_id == $CHANNEL_ID"
         env:
           GUILD_ID: ${{ secrets.GUILD_ID }}
           CHANNEL_ID: ${{ secrets.GENUARY_CHANNEL_ID }}
