@@ -1,4 +1,7 @@
 <script lang="ts">
+  import Dialog from './dialog.svelte';
+  import Media from './media.svelte';
+
   import type { CollagePiece } from './collage';
 
   export let data: CollagePiece[] = [];
@@ -9,71 +12,47 @@
     {#each data as { src, view, alt: givenAlt }, i}
       {@const alt = givenAlt || src}
       {@const video = src.endsWith('.mp4') || src.endsWith('.mov')}
-      <details class="modal artwork-container">
-        <summary>
-          {#if video}
-            <video
-              {src}
-              autoplay
-              loop
-              muted
-              playsinline
-              class="artwork"
-              class:wide={view === 'wide'}
-              class:tall={view === 'tall'}
-              class:big={view === 'big'}
-              style:animation-delay={i * 2 + 's'}
-            />
-          {:else}
-            <img
-              {src}
-              class="artwork"
-              class:wide={view === 'wide'}
-              class:tall={view === 'tall'}
-              class:big={view === 'big'}
-              {alt}
-              style:animation-delay={i * 2 + 's'}
-            />
-          {/if}
-        </summary>
+      {@const ext = src.split('.').pop()}
+      <div class="artwork-container">
+        <div class="artwork">
+          <Dialog>
+            <Media {src} {video} {alt} {view} slot="opener" rounded={true} />
 
-        {#if video}
-          <video {src} class="modal-artwork" autoplay loop muted playsinline />
-        {:else}
-          <img class="modal-artwork" {src} {alt} />
-        {/if}
-      </details>
+            <section slot="content" class="enlarged">
+              <Media {src} {video} {alt} />
+
+              <span class="caption">{alt} <span class="subcaption">.{ext}</span></span>
+            </section>
+
+            <div class="closer-container" slot="closer">
+              <span role="button" class="closer">Close</span>
+            </div>
+          </Dialog>
+        </div>
+      </div>
     {/each}
   </div>
 </div>
 
 <!-- Reference: https://codepen.io/iamsaief/pen/jObaoKo -->
 <style lang="scss">
-  .modal {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .modal summary {
-    cursor: pointer;
-    margin: 0;
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle;
-    display: inline-block;
-  }
-
-  .modal summary:hover {
-    border: 1px solid black;
-  }
-
   .grid-outer-wrapper {
     padding: 15px;
   }
 
   .artwork-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .artwork {
     max-width: 100%;
-    height: auto;
+    vertical-align: middle;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   /* Main CSS */
@@ -109,5 +88,48 @@
   .grid-inner-wrapper .big {
     grid-column: span 2;
     grid-row: span 2;
+  }
+
+  .closer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .closer {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid var(--perma-dark);
+    border-radius: 5px;
+    color: var(--perma-dark);
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .closer:hover,
+  .closer:focus {
+    background-color: var(--acm-blue);
+    border: 1px solid var(--perma-light);
+    color: var(--perma-light);
+    cursor: pointer;
+  }
+
+  .caption {
+    display: block;
+    margin: 10px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    color: var(--perma-dark);
+  }
+
+  .subcaption {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--perma-dark);
   }
 </style>
