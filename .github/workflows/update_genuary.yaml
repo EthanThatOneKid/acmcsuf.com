@@ -7,6 +7,9 @@ on:
     # So we use '0 17 * 1 *' in UTC, which is 9 AM in Pacific Time.
     - cron: '0 17 * 1 *'
 
+permissions:
+  pull-requests: write
+
 jobs:
   update-genuary:
     runs-on: ubuntu-latest
