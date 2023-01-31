@@ -19,6 +19,7 @@ jobs:
         env:
           GUILD_ID: ${{ secrets.GUILD_ID }}
           CHANNEL_ID: ${{ secrets.GENUARY_CHANNEL_ID }}
+          DISCORD_TOKEN: ${{ secrets.GENUARY_DISCORD_TOKEN }}
 
       - id: transform-genuary
         run: |
