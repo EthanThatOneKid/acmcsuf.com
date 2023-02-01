@@ -22,12 +22,15 @@
     Our chapter members' take on the Genuary challenge.
     <br />
     <br />
-    <span class="brand-italic"
-      >Genuary is a challenge to create a piece of generative art every day in January.</span
-    >
+    <span class="brand-italic">
+      Genuary is a challenge to create a piece of generative art every day in January.
+      <br />
+      <br />
+      The artworks shared by members of our club throughout the course of Genuary 2023 are listed below.
+    </span>
     <br />
     <br />
-    Last updated January 25th, 2023
+    Last updated January 31st, 2023
   </p>
 </Block>
 
