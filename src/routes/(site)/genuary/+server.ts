@@ -12,7 +12,7 @@ export async function GET({ url }: RequestEvent) {
   return Response.redirect(destination, 302);
 }
 
-/** Example assertion: key === "./2023/+page.svelte */
+/** Example: key === "./2023/+page.svelte" */
 function fromKey(key: string): number {
   const match = key.match(/\/(\d{4})\//);
   if (!match) {

@@ -5,7 +5,7 @@ on:
   schedule:
     # We want '0 9 * 1 *' in Pacific Time, but GitHub Actions doesn't support timezones.
     # So we use '0 17 * 1 *' in UTC, which is 9 AM in Pacific Time.
-    - cron: '0 17 * 1 *'
+    - cron: '0 17 * * *'
 
 jobs:
   update-genuary:
