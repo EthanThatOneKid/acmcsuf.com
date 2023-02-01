@@ -1,10 +1,23 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
+
   import Dialog from './dialog.svelte';
   import Media from './media.svelte';
 
   import type { CollagePiece } from './collage';
 
   export let data: CollagePiece[] = [];
+
+  const anchors: HTMLAnchorElement[] = [];
+
+  onMount(() => {
+    anchors.forEach((anchor) => {
+      anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      });
+    });
+  });
 </script>
 
 <div class="grid-outer-wrapper">
@@ -14,7 +27,13 @@
       {@const video = src.endsWith('.mp4') || src.endsWith('.mov')}
       {@const ext = src.split('.').pop()}
       <div class="artwork-container">
-        <div class="artwork">
+        <a
+          class="artwork"
+          bind:this={anchors[i]}
+          href={src}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Dialog>
             <Media {src} {video} {alt} {view} slot="opener" rounded={true} />
 
@@ -28,7 +47,7 @@
               <span role="button" class="closer">Close</span>
             </div>
           </Dialog>
-        </div>
+        </a>
       </div>
     {/each}
   </div>

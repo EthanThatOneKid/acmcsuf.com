@@ -6,23 +6,25 @@
   export let rounded = false;
 </script>
 
-<svelte:element
-  this={video ? 'video' : 'img'}
-  class="media"
-  {src}
-  {alt}
-  class:wide={view === 'wide'}
-  class:tall={view === 'tall'}
-  class:big={view === 'big'}
-  autoplay={video}
-  loop={video}
-  muted={true}
-  playsinline={video}
-  style:--border-radius={rounded ? '5px' : undefined}
-/>
+<a href={src} class="media-container" target="_blank" rel="noopener noreferrer">
+  <svelte:element
+    this={video ? 'video' : 'img'}
+    {src}
+    {alt}
+    class="media"
+    class:wide={view === 'wide'}
+    class:tall={view === 'tall'}
+    class:big={view === 'big'}
+    loading="lazy"
+    autoplay={video}
+    loop={video}
+    muted={true}
+    style:--border-radius={rounded ? '5px' : undefined}
+  />
+</a>
 
 <style lang="scss">
-  .media {
+  .media-container {
     max-width: 100%;
     vertical-align: middle;
     display: inline-block;
@@ -32,17 +34,24 @@
     border-radius: var(--border-radius, 0);
   }
 
-  .media.wide {
+  .media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius, 0);
+  }
+
+  .media-container.wide {
     width: 100%;
     height: auto;
   }
 
-  .media.tall {
+  .media-container.tall {
     width: auto;
     height: 100%;
   }
 
-  .media.big {
+  .media-container.big {
     width: 100%;
     height: 100%;
   }
