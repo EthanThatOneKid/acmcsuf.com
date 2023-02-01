@@ -42,6 +42,9 @@ jobs:
       - name: Copy .env from .env.example
         run: cp .env.example .env
 
+      - name: Build
+        run: npm run build
+
       - name: Svelte check
         run: npm run check
 
