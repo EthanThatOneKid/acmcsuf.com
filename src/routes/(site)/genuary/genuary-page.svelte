@@ -4,9 +4,9 @@
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import { TextAlignment } from '$lib/public/legacy/text-alignment';
   import Collage from './collage.svelte';
-  import type { CollagePageData } from './collage';
+  import type { CollagePiece } from './collage';
 
-  export let data: CollagePageData;
+  export let data: CollagePiece[];
   export let year: string;
 </script>
 
@@ -36,7 +36,7 @@
 
 <Spacing --min="64px" --med="64px" --max="64px" />
 
-<Collage data={data.pieces} />
+<Collage {data} />
 
 <Spacing --min="64px" --med="64px" --max="64px" />
 
