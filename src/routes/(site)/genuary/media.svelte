@@ -1,9 +1,10 @@
 <script lang="ts">
-  export let video: boolean;
-  export let src: string;
-  export let view = '';
-  export let alt = '';
+  import type { CollagePiece } from './collage';
+
+  export let data: CollagePiece;
   export let rounded = false;
+
+  const video = data.src.endsWith('.mp4') || data.src.endsWith('.mov');
 
   let media: HTMLVideoElement | HTMLImageElement;
 
@@ -27,9 +28,9 @@
   bind:this={media}
   on:loadeddata={handleLoad}
   on:loadstart={onInit}
-  {src}
-  {alt}
-  class="media {view}"
+  src={data.src}
+  alt={data.alt}
+  class="media {data.view}"
   controls
   loading="lazy"
   loop={video}

@@ -22,23 +22,24 @@
 
 <div class="grid-outer-wrapper">
   <div class="grid-inner-wrapper">
-    {#each data as { src, view, alt: givenAlt }, i}
-      {@const alt = givenAlt || src}
-      {@const video = src.endsWith('.mp4') || src.endsWith('.mov')}
-      {@const ext = src.split('.').pop()}
+    {#each data as d, i}
+      {@const alt = d.alt || d.src}
+      {@const ext = d.src.split('.').pop()}
       <div class="artwork-container">
         <a
           class="artwork"
           bind:this={anchors[i]}
-          href={src}
+          href={d.src}
           target="_blank"
           rel="noopener noreferrer"
+          class:ribbon={d.during_challenge}
+          data-ribbon-text={'2023'}
         >
           <Dialog>
-            <Media {src} {video} {alt} {view} slot="opener" rounded={true} />
+            <Media data={d} slot="opener" rounded />
 
-            <section slot="content" class="enlarged">
-              <Media {src} {video} {alt} />
+            <section slot="content">
+              <Media data={d} />
 
               <span class="caption">{alt} <span class="subcaption">{ext?.toUpperCase()}</span></span
               >
@@ -73,6 +74,26 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  .ribbon {
+    position: relative;
+
+    &::after {
+      content: attr(data-ribbon-text);
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 1.5em;
+      padding: 0.25em;
+      margin: 1em 0.5em;
+      border-radius: 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: var(--perma-light);
+      transform: rotate(45deg);
+      z-index: 1;
+      font-size: 0.8rem;
+    }
   }
 
   /* Main CSS */

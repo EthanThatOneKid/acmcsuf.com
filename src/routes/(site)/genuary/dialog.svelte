@@ -10,7 +10,7 @@
   }
 </script>
 
-<span on:click={openModal} on:keydown={openModal}>
+<span class="container" on:click={openModal} on:keydown={openModal}>
   <slot name="opener" />
 </span>
 
@@ -22,6 +22,10 @@
 </dialog>
 
 <style lang="scss">
+  .container {
+    position: relative;
+  }
+
   .modal {
     max-width: 50ch;
     position: fixed;
