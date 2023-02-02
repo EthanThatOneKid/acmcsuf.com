@@ -10,6 +10,7 @@ export interface CollagePageData {
  */
 export interface CollagePiece {
   src: string;
+  during_challenge: boolean;
   view?: 'normal' | 'wide' | 'tall' | 'big';
   alt?: string;
 }

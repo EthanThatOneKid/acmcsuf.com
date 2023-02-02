@@ -1,6 +1,7 @@
 import * as fs from 'node:fs/promises';
 
 async function main() {
+  const year = new Date().getFullYear();
   const filepath = process.argv[2];
   const content = JSON.parse(await fs.readFile(filepath));
 
@@ -10,16 +11,30 @@ async function main() {
       continue;
     }
 
-    const src = pin.attachments[0].url || null;
+    const attachment = pin.attachments[0];
+    const src = attachment.proxy_url || null;
     const alt = content.channel_names[pin.channel_id] || '';
     if (!/^(\d+) /.test(alt)) {
       continue;
     }
 
+    let view = 'normal';
+    switch (true) {
+      case attachment.width * 1.2 > attachment.height: {
+        view = 'wide';
+        break;
+      }
+      case attachment.height * 1.2 > attachment.width: {
+        view = 'tall';
+        break;
+      }
+    }
+
     out.push({
       src,
       alt,
-      view: 'normal',
+      view,
+      during_challenge: pin.timestamp.startsWith(`${year}-01-`),
     });
   }
 

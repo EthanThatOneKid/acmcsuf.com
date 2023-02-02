@@ -40,7 +40,8 @@
             <section slot="content" class="enlarged">
               <Media {src} {video} {alt} />
 
-              <span class="caption">{alt} <span class="subcaption">.{ext}</span></span>
+              <span class="caption">{alt} <span class="subcaption">{ext?.toUpperCase()}</span></span
+              >
             </section>
 
             <div class="closer-container" slot="closer">
