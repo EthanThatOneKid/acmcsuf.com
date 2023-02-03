@@ -31,8 +31,9 @@
   src={data.src}
   alt={data.alt}
   class="media {data.view}"
-  controls
   loading="lazy"
+  controls={video}
+  muted={video}
   loop={video}
   playsinline={video}
   style:--border-radius={rounded ? '5px' : undefined}
