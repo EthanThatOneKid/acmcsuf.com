@@ -55,6 +55,7 @@
 
       p {
         margin: 1em 0;
+        word-break: break-word;
       }
 
       a {
