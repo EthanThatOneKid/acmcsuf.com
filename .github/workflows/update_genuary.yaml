@@ -13,15 +13,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: |
+      - name: Get pins
+        run: |
           go run github.com/ethanthatonekid/pins@latest \
             get -o /tmp/pins $GUILD_ID "channel_parent_id == $CHANNEL_ID"
+          go run github.com/ethanthatonekid/pins@latest get -o /tmp/pins 710225099923521558 "channel_parent_id == 1055675648296890388"
         env:
           GUILD_ID: ${{ secrets.GUILD_ID }}
           CHANNEL_ID: ${{ secrets.GENUARY_CHANNEL_ID }}
           DISCORD_TOKEN: ${{ secrets.GENUARY_DISCORD_TOKEN }}
 
-      - id: transform-genuary
+      - name: Transform Genuary data
+        id: transform-genuary
         run: |
           year=$(date +%Y)
           echo "year=$year" >> $GITHUB_OUTPUT
@@ -35,7 +38,8 @@ jobs:
             echo "updated=1" >> $GITHUB_OUTPUT
           fi
 
-      - if: steps.transform-genuary.outputs.updated == 1
+      - name: Create pull request
+        if: steps.transform-genuary.outputs.updated == 1
         uses: peter-evans/create-pull-request@v4
         with:
           title: |-
