@@ -12,6 +12,10 @@ async function main() {
     }
 
     const attachment = pin.attachments[0];
+    if (!attachment) {
+      continue;
+    }
+
     const src = attachment.proxy_url || null;
     const alt = content.channel_names[pin.channel_id] || '';
     if (!/^(\d+) /.test(alt)) {
