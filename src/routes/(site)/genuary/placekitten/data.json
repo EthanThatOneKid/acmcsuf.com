@@ -1,0 +1,57 @@
+[
+  {
+    "src": "https://placekitten.com/g/200/300",
+    "alt": "A picture of a fluffy white cat",
+    "view": "tall"
+  },
+  {
+    "src": "https://placekitten.com/g/350/250",
+    "alt": "A picture of a black and white cat",
+    "view": "wide"
+  },
+  {
+    "src": "https://placekitten.com/g/300/400",
+    "alt": "A picture of a Siamese cat",
+    "view": "tall"
+  },
+  {
+    "src": "https://placekitten.com/g/350/450",
+    "alt": "A picture of a Scottish Fold cat",
+    "view": "tall"
+  },
+  {
+    "src": "https://placekitten.com/g/500/400",
+    "alt": "A picture of a Maine Coon cat",
+    "view": "wide"
+  },
+  {
+    "src": "https://placekitten.com/g/800/1200",
+    "alt": "A picture of a Maine Coon cat",
+    "view": "big"
+  },
+  {
+    "src": "https://placekitten.com/g/450/550",
+    "alt": "A picture of a Persian cat",
+    "view": "tall"
+  },
+  {
+    "src": "https://placekitten.com/g/500/600",
+    "alt": "A picture of a Sphynx cat",
+    "view": "tall"
+  },
+  {
+    "src": "https://placekitten.com/g/650/550",
+    "alt": "A picture of a British Shorthair cat",
+    "view": "wide"
+  },
+  {
+    "src": "https://placekitten.com/g/600/700",
+    "alt": "A picture of a Bengal cat",
+    "view": "tall"
+  },
+  {
+    "src": "https://placekitten.com/g/650/750",
+    "alt": "A picture of a Russian Blue cat",
+    "view": "tall"
+  }
+]

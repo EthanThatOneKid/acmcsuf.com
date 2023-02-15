@@ -39,7 +39,6 @@
 
   .blog-body {
     text-align: left;
-
     :global(p),
     :global(h1),
     :global(h2),
@@ -48,6 +47,16 @@
     :global(h5),
     :global(h6) {
       margin: 1.5rem 0 0.5rem;
+    }
+
+    :global(a) {
+      text-decoration: underline;
+      font-weight: 500;
+      transition: 0.25s ease-in-out;
+
+      &:hover {
+        color: var(--acm-blue);
+      }
     }
 
     :global(.copy-code-parent) {
