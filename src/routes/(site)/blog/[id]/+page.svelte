@@ -73,7 +73,9 @@
     <BlogBody data={data.post.html} />
     <Labels data={data.post.labels} />
     <small class="ita"
-      >Read as TXT: <a target="_blank" href={`${data.post.url}.txt`}>{data.post.url}.txt</a></small
+      >Read as TXT: <a target="_blank" href={`${data.post.url}.txt`} rel="noopener noreferrer"
+        >{data.post.url}.txt</a
+      ></small
     >
   </div>
 

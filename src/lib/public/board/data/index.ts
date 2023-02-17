@@ -13,7 +13,7 @@ export const OFFICERS = [...OFFICERS_JSON];
 
 /** TEAMS is a map of internal teams by their name, {@link Team.id}. */
 export const TEAMS = [...TEAMS_JSON].reduce(
-  (tt: { [key: typeof TEAMS_JSON[number]['id']]: Team }, t) => {
+  (tt: { [key: (typeof TEAMS_JSON)[number]['id']]: Team }, t) => {
     tt[t.id] = t;
     return tt;
   },

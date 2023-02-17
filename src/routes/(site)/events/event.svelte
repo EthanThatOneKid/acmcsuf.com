@@ -39,9 +39,8 @@
   <details
     class="event-card"
     bind:this={details}
-    on:click|preventDefault={() => {
-      shown = !shown;
-    }}
+    on:click|preventDefault|stopPropagation={() => (shown = !shown)}
+    on:keypress|preventDefault|stopPropagation={() => (shown = !shown)}
   >
     <summary class="event-body">
       <div class="event-name">
