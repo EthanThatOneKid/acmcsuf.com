@@ -15,7 +15,11 @@
   ];
 
   let checkbox: HTMLInputElement;
-  function handleClose() {
+
+  function handleClose(ev: Event) {
+    ev.preventDefault();
+    ev.stopPropagation();
+
     if (checkbox.checked) {
       checkbox.checked = false;
     }
@@ -27,7 +31,7 @@
 
   <div class="blurrybar" />
 
-  <div class="backdrop" on:click={handleClose} />
+  <div class="backdrop" on:click={handleClose} on:keypress={handleClose} />
 
   <div class="container">
     <div class="logo-container">
@@ -42,11 +46,11 @@
         {#each navItems as { title, path } (path)}
           <li>
             <a
-              on:click={() => handleClose()}
+              on:click={handleClose}
+              on:keypress={handleClose}
               href={path}
               class="brand-header size-sm"
               aria-current={path === $page.url.pathname}
-              data-sveltekit-prefetch
             >
               {@html title}
             </a>
