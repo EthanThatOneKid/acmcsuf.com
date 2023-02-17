@@ -3,7 +3,7 @@
   import Block from '$lib/components/block/block.svelte';
   import Button from '$lib/components/button/button.svelte';
   import Spacing from '$lib/public/legacy/spacing.svelte';
-  import { TextAlignment } from '$lib/public/legacy/text-alignment';
+  import { TextAlignment } from '$lib/public/text-alignment/text-alignment';
 
   import PositionList from './position-list.svelte';
   import { POSITIONS } from './data';
