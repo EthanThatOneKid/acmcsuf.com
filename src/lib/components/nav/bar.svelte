@@ -17,9 +17,7 @@
   let checkbox: HTMLInputElement;
 
   function handleClose(ev: Event) {
-    ev.preventDefault();
     ev.stopPropagation();
-
     if (checkbox.checked) {
       checkbox.checked = false;
     }
