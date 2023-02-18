@@ -2,8 +2,8 @@
   import { page } from '$app/stores';
   import { browser } from '$app/environment';
   import { onMount } from 'svelte';
-  import type { PomoStamp } from 'pomo';
-  import { Pomo, format } from 'pomo';
+  import type { Duration, PomoStamp } from 'pomo';
+  import { Pomo, format, DAY, SECOND, MINUTE } from 'pomo';
 
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import Block from '$lib/components/block/block.svelte';
@@ -15,45 +15,33 @@
   // - [ ] Add selection for valid patterns
   // - [ ] Expand selection to valid custom patterns
 
-  const defaultPattern = PATTERNS[0];
-  const dayLength = 1 * 24 * 60 * 60 * 1e3; // 1 day in milliseconds
-  const scale = 1 * 60 * 1e3; // Scale minutes in pattern to milliseconds
+  const DEFAULT_PATTERN = PATTERNS[0];
 
   let pomo: Pomo;
   let stamp: PomoStamp;
   let animationID: number;
-  let timestamp = new Date();
-  let ref = new Date(timestamp.setHours(0, 0, 0, 0)).getTime(); // Previous midnight
+  let timestamp = new Date().getTime();
+  let ref = previousMidnightOf(timestamp);
 
   $: if (browser) {
-    const pattern = $page.params.pattern || defaultPattern;
-    pomo = Pomo.fromPattern({ pattern, dayLength, ref, scale });
-    stamp = pomo.at(timestamp.getTime());
+    const pattern = $page.url.searchParams.get('pattern') || DEFAULT_PATTERN;
+    pomo = Pomo.fromPattern({ ref, pattern, scale: MINUTE, dayLength: DAY });
+    stamp = pomo.at(timestamp);
   }
 
   function animate() {
-    timestamp = new Date();
+    timestamp = new Date().getTime();
     animationID = requestAnimationFrame(animate);
+  }
+
+  function previousMidnightOf(date: number) {
+    return new Date(new Date(date).setHours(0, 0, 0, 0)).getTime();
   }
 
   onMount(() => {
     animationID = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationID);
   });
-
-  /* For the Menu Part to see the Work on A smaller phone Screen 
-
- let menu = document.getElementById('menu');
-  let btns = document.querySelectorAll('.btn');
-  if (menu) {
-    menu.addEventListener('click', () => {
-      btns.forEach((btn) => {
-        btn.classList.toggle('show');
-      });
-    });
-  }
-
-  */
 </script>
 
 <svelte:head>
@@ -85,7 +73,7 @@
     </div>
 
     <time class="size-md timer">
-      {format(stamp?.timeout ?? 0, 'HH:mm:ss.SSS')}
+      {format(stamp?.timeout ?? 0, $page.url.searchParams.get('fmt') || 'HH:mm:ss.SSS')}
     </time>
 
     <h2 class="work-period name">Starting TypeScript work pattern...</h2>
