@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { prefetch } from '$app/navigation';
+  import { preloadData } from '$app/navigation';
   import { onMount } from 'svelte';
   import Navbar from '$lib/components/nav/bar.svelte';
   import Footer from '$lib/components/footer/footer.svelte';
@@ -19,9 +19,9 @@
       return () => mediaList.removeEventListener('change', changeTheme);
     }
 
-    // prefetch improves the load time of the events page, see #530
-    // https://kit.svelte.dev/docs/modules#$app-navigation-prefetch
-    prefetch('/events');
+    // preloadData improves the load time of the events page, see #772
+    // https://kit.svelte.dev/docs/modules#$app-navigation-preloaddata
+    preloadData('/events');
   });
 </script>
 
@@ -31,7 +31,6 @@
 <AcmToaster />
 
 <svelte:head>
-  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </svelte:head>
 

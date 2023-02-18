@@ -2,7 +2,7 @@
   import ReadyUp from '../ready-up.svelte';
   import Block from '$lib/components/block/block.svelte';
   import Spacing from '$lib/public/legacy/spacing.svelte';
-  import { TextAlignment } from '$lib/public/legacy/text-alignment';
+  import { TextAlignment } from '$lib/public/text-alignment/text-alignment';
   import Collage from './collage.svelte';
   import type { CollagePiece } from './collage';
 

@@ -5,24 +5,34 @@
   let currentValue: string = defaultValue;
   let active = false;
 
-  function toggleDropdown() {
+  function toggleDropdown(ev: Event) {
+    ev.preventDefault();
+    ev.stopPropagation();
     active = !active;
   }
 
-  function handleOption(term: string) {
+  function handleOption(ev: Event, term: string) {
+    ev.preventDefault();
+    ev.stopPropagation();
     currentValue = term;
     defaultValue = currentValue;
     active = false;
   }
 </script>
 
-<div class="term" name="school-year">
+<div class="term">
   <div class="option-box" class:active>
-    <div class="selected" on:click={toggleDropdown}>{currentValue}</div>
+    <div class="selected" on:click={toggleDropdown} on:keypress={toggleDropdown}>
+      {currentValue}
+    </div>
 
     <div class="option">
       {#each options as optionValue (optionValue)}
-        <div class="option-choice" on:click={() => handleOption(optionValue)}>
+        <div
+          class="option-choice"
+          on:click={(ev) => handleOption(ev, optionValue)}
+          on:keypress={(ev) => handleOption(ev, optionValue)}
+        >
           {optionValue}
         </div>
       {/each}
