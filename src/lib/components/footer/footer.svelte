@@ -3,7 +3,7 @@
   import { AcmTheme } from '$lib/public/legacy/theme';
 
   const footerItems = [
-    { title: 'Source Code', path: '/github' },
+    { title: 'Source Code', path: '/code' },
     { title: 'Report a Bug', path: '/bug' },
     { title: 'COVID-19 Policy', path: '/covid-19' },
     { title: 'frankBot Privacy', path: '/privacy' },
@@ -34,7 +34,7 @@
 
     <div class="legal">
       <h3 class="brand-header size-md">
-        &copy; 2022 ACM Chapter at <span class="brand-bold">CSUF</span>
+        &copy; 2023 ACM Chapter at <span class="brand-bold">CSUF</span>
       </h3>
 
       <a

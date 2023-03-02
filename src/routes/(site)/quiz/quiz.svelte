@@ -114,7 +114,7 @@
         on:click={goRight}
         disabled={index === data.questions.length - 1 || !(responses ?? [])[index]}
         class:disable-arrow={index === data.questions.length - 1 || !(responses ?? [])[index]}
-        class="arrow"><BwIcon src="/assets/svg/arrow-left.svg" alt="left arrow" /></button
+        class="arrow"><BwIcon src="/assets/svg/arrow-right.svg" alt="right arrow" /></button
       >
     </div>
     <button
@@ -128,7 +128,7 @@
   {:else if showMoreInfo}
     <MoreInfo {...showTeam} />
     <button on:click={goBackToResults} class="arrow return-to-results"
-      ><BwIcon src="/assets/svg/arrow-left.svg" alt="left arrow" />
+      ><BwIcon src="/assets/svg/arrow-right.svg" alt="right arrow" />
       <h3>Check out other teams</h3></button
     >
     <!-- DISPLAY THE RESULTS -->
@@ -142,7 +142,8 @@
     <div class="result-grid">
       <div
         class="result-grid-box"
-        on:click={() => showTeamDetails(TEAMS[match])}
+        on:click|preventDefault|stopPropagation={() => showTeamDetails(TEAMS[match])}
+        on:keydown|preventDefault|stopPropagation={() => showTeamDetails(TEAMS[match])}
         style={`--border-color: ${TEAMS[match].color}`}
       >
         <h2 class="team-title" style={`--team-color: ${TEAMS[match].color}`}>
@@ -158,7 +159,8 @@
         <div
           class="result-grid-box"
           style={`--border-color: ${team.color}`}
-          on:click={() => showTeamDetails(team)}
+          on:click|preventDefault|stopPropagation={() => showTeamDetails(team)}
+          on:keydown|preventDefault|stopPropagation={() => showTeamDetails(team)}
         >
           <h2 class="team-title" style={`--team-color: ${team.color}`}>
             {otherMatch} <span>Team</span>
@@ -179,7 +181,7 @@
       <p class="italic">This will wipe your current results</p>
     </button>
     <button class="arrow action-btn" on:click={() => showTeamDetails(TEAMS.general)}>
-      >Want to help out ACM?</button
+      Want to help out ACM?</button
     >
     <p class="italic fine-text">
       Take these results with a grain of salt. This is meant to be a fun little quiz and you are

@@ -77,6 +77,7 @@ function cacheBlogPosts(output: any): BlogPost[] {
       lastEditedAt: lastEdited,
       number: id,
       bodyHTML: html,
+      bodyText,
       url: discussionUrl,
     } = discussion;
 
@@ -96,6 +97,7 @@ function cacheBlogPosts(output: any): BlogPost[] {
       discussionUrl,
       title,
       html,
+      bodyText,
       createdAt,
       lastEdited,
       labels,
@@ -110,10 +112,11 @@ function cacheBlogPosts(output: any): BlogPost[] {
   return posts;
 }
 
-function getOfficerByGhUsername(ghUsername: string): Officer | null {
+export function getOfficerByGhUsername(ghUsername: string): Officer | null {
   // get author by GitHub username
   const officer = OFFICERS.find(
-    (o) => o.socials && o.socials.github && o.socials.github === ghUsername
+    (o) =>
+      o.socials && o.socials.github && o.socials.github.toLowerCase() === ghUsername.toLowerCase()
   );
   return officer ?? null;
 }
