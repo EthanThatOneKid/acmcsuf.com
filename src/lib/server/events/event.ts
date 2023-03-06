@@ -53,6 +53,10 @@ export function makeClubEvent(event: GCalEvent, refDate: Temporal.ZonedDateTime)
       team = TEAMS.dev;
       break;
     }
+    case 'gamedev': {
+      team = TEAMS.gamedev;
+      break;
+    }
     case 'special-events': {
       team = TEAMS['special-events'];
       break;
