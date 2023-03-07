@@ -121,6 +121,7 @@
     :global(img) {
       max-width: 100%;
       height: auto;
+      object-fit: contain;
     }
   }
 </style>
