@@ -117,5 +117,10 @@
     :global(hr) {
       margin: 2rem 0;
     }
+
+    :global(img) {
+      max-width: 100%;
+      height: auto;
+    }
   }
 </style>
