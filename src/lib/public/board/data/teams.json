@@ -1,5 +1,17 @@
 [
   {
+    "title": "General",
+    "id": "general",
+    "picture": "/assets/badges/general.svg",
+    "color": "var(--acm-blue)"
+  },
+  {
+    "title": "AI",
+    "id": "ai",
+    "picture": "/assets/badges/ai-team.svg",
+    "color": "var(--acm-emerald)"
+  },
+  {
     "title": "Algo",
     "id": "algo",
     "picture": "/assets/badges/algo-team.svg",
@@ -18,12 +30,6 @@
     "color": "var(--acm-bluer)"
   },
   {
-    "title": "AI",
-    "id": "ai",
-    "picture": "/assets/badges/ai-team.svg",
-    "color": "var(--acm-emerald)"
-  },
-  {
     "title": "Game Dev",
     "id": "gamedev",
     "picture": "/assets/badges/gamedev-team.svg",
@@ -40,11 +46,5 @@
     "id": "special-events",
     "picture": "/assets/badges/special-events-team.svg",
     "color": "var(--acm-yellow)"
-  },
-  {
-    "title": "General",
-    "id": "general",
-    "picture": "/assets/badges/general.svg",
-    "color": "var(--acm-blue)"
   }
 ]
