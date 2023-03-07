@@ -3,6 +3,7 @@
 :root {
   --acm-blue: #2c91c6;
   --acm-bluer: #1e6cff;
+  --acm-turquoise: #11d4b1;
   --acm-emerald: #21d19f;
   --acm-yellow: #ffd029;
   --acm-dark: #101315;
@@ -21,6 +22,7 @@
   --acm-dev-rgb: 30, 108, 255;
   --acm-foundry-rgb: 111, 22, 255;
   --acm-marketing-rgb: 212, 17, 83;
+  --acm-oss-rgb: 17, 212, 177;
   --acm-special-events-rgb: 255, 208, 41;
 
   --perma-light: #f8f8f8;

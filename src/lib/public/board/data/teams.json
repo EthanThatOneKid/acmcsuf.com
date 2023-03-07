@@ -30,6 +30,12 @@
     "color": "var(--acm-red)"
   },
   {
+    "title": "Open Source Software",
+    "id": "oss",
+    "picture": "/assets/badges/oss-team.svg",
+    "color": "var(--acm-turquoise)"
+  }
+  {
     "title": "Special Events",
     "id": "special-events",
     "picture": "/assets/badges/special-events-team.svg",
