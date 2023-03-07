@@ -36,6 +36,12 @@
     "color": "var(--acm-red)"
   },
   {
+    "title": "ICPC",
+    "id": "icpc",
+    "picture": "/assets/badges/icpc-team.svg",
+    "color": "var(--acm-orange)"
+  },
+  {
     "title": "Open Source Software",
     "id": "oss",
     "picture": "/assets/badges/oss-team.svg",

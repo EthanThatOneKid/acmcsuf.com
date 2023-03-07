@@ -57,6 +57,10 @@ export function makeClubEvent(event: GCalEvent, refDate: Temporal.ZonedDateTime)
       team = TEAMS.gamedev;
       break;
     }
+    case 'icpc': {
+      team = TEAMS.icpc;
+      break;
+    }
     case 'oss': {
       team = TEAMS.oss;
       break;
