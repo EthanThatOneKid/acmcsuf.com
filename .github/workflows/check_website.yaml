@@ -49,6 +49,9 @@ jobs:
       - name: Lint
         run: npm run lint && git diff --exit-code
 
+      - name: Format
+        run: npm run format && git diff --exit-code
+
       - name: npx playwright install
         run: npx playwright install
 
