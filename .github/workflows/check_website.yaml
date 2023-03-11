@@ -29,7 +29,7 @@ jobs:
           cache: 'npm'
 
       - name: Cache Dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -45,17 +45,16 @@ jobs:
       - name: Svelte check
         run: npm run check
 
-      # checks for lint errors AND format errors
-      - name: Lint
-        run: npm run lint && git diff --exit-code
-
       - name: Format
         run: npm run format && git diff --exit-code
+
+      - name: Lint
+        run: npm run lint && git diff --exit-code
 
       - name: Vitest tests
         run: npm t
 
-      - name: npx playwright install
+      - name: Playwright install
         run: npx playwright install
 
       - name: Playwright tests
