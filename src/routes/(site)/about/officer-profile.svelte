@@ -31,7 +31,7 @@
     Dev: 'acm-bluer',
     AI: 'acm-emerald',
     Marketing: 'acm-red',
-    'Special Events': 'acm-yellow',
+    'Special Events': 'acm-lemon',
     nodebuds: 'brand-header',
   });
 

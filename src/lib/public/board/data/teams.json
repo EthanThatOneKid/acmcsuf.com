@@ -51,6 +51,6 @@
     "title": "Special Events",
     "id": "special-events",
     "picture": "/assets/badges/special-events-team.svg",
-    "color": "var(--acm-yellow)"
+    "color": "var(--acm-lemon)"
   }
 ]
