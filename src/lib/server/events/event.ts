@@ -21,8 +21,12 @@ export function makeClubEvent(event: GCalEvent, refDate: Temporal.ZonedDateTime)
   const date = dtStart.toString();
   const month = dtStart.toLocaleString('en-US', { month: 'long' });
   const day = dtStart.day;
-  const startTime = dtStart.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric' });
-  const endTime = dtEnd.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric' });
+  const startTime = dtStart
+    .toLocaleString('en-US', { hour: 'numeric', minute: 'numeric' })
+    .replace(' ', ' ');
+  const endTime = dtEnd
+    .toLocaleString('en-US', { hour: 'numeric', minute: 'numeric' })
+    .replace(' ', ' ');
   const hasStarted = Temporal.ZonedDateTime.compare(refDate, dtStart) >= 0;
   const hasEnded = Temporal.ZonedDateTime.compare(refDate, dtEnd) >= 0;
 
