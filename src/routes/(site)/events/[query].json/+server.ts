@@ -1,7 +1,7 @@
 import type { RequestEvent } from '@sveltejs/kit';
 import type { RouteParams } from './$types';
 import { DEBUG_FLAG_ENABLED } from '$lib/server/flags';
-import { SAMPLE_EVENTS } from '$lib/server/events/data/sample-events';
+import { SAMPLE_EVENTS } from '$lib/server/events/data/club-events';
 import { fromGCal, listUpcomingEvents } from '$lib/server/events/gcal';
 import { allEvents } from '$lib/server/events/cache';
 import type { ClubEvent } from '$lib/public/events/event';
@@ -35,7 +35,18 @@ async function getData(): Promise<ClubEvent[]> {
 
   let data = allEvents.get();
   if (!data) {
-    data = fromGCal(await listUpcomingEvents());
+    const upcomingEvents = await listUpcomingEvents();
+    // To generate 'src/lib/server/events/data/gcal-events.json', uncomment the
+    // following lines of code then visit http://localhost:5173/events/:
+    //
+    // const { writeFileSync } = await import('node:fs');
+    // writeFileSync(
+    //   'src/lib/server/events/data/gcal-events.json',
+    //   JSON.stringify(upcomingEvents, null, 2),
+    // );
+    //
+    // Remember to comment out the above lines of code before committing.
+    data = fromGCal(upcomingEvents);
     allEvents.set(data);
   }
 

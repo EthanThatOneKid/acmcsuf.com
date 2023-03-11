@@ -1,0 +1,218 @@
+[
+  {
+    "month": "March",
+    "day": 26,
+    "startTime": "3:00 PM",
+    "endTime": "4:00 PM",
+    "hasStarted": false,
+    "hasEnded": false,
+    "date": "2023-03-26T15:00:00-07:00[America/Los_Angeles]",
+    "location": "CS 104",
+    "title": "Algo Team",
+    "description": "Algo team meeting!",
+    "summary": "Algo Team\n=========\n\nAlgo team meeting!\n\nhttps://acmcsuf.com/events#algo-team-2023-march-26",
+    "meetingLink": "/discord",
+    "id": "algo-team-2023-march-26",
+    "selfLink": "https://acmcsuf.com/events#algo-team-2023-march-26",
+    "recurring": false,
+    "team": {
+      "title": "Algo",
+      "id": "algo",
+      "picture": "/assets/badges/algo-team.svg",
+      "color": "var(--acm-purple)"
+    },
+    "calendarLinks": {
+      "google": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Algo+Team&details=Algo+Team%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0AAlgo+team+meeting%21%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23algo-team-2023-march-26&location=CS+104&dates=20230326T150026%2F20230326T160026",
+      "outlook": "https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20230326T150026&enddt=20230326T160026&subject=Algo+Team&body=Algo+Team%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0AAlgo+team+meeting%21%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23algo-team-2023-march-26&location=CS+104"
+    }
+  },
+  {
+    "month": "March",
+    "day": 28,
+    "startTime": "11:00 AM",
+    "endTime": "12:00 PM",
+    "hasStarted": false,
+    "hasEnded": false,
+    "date": "2023-03-28T11:00:00-07:00[America/Los_Angeles]",
+    "location": "PLN 314",
+    "title": "AI Team ",
+    "description": "AI Team Meeting!",
+    "summary": "AI Team \n========\n\nAI Team Meeting!\n\nhttps://acmcsuf.com/events#ai-team--2023-march-28",
+    "meetingLink": "/discord",
+    "id": "ai-team--2023-march-28",
+    "selfLink": "https://acmcsuf.com/events#ai-team--2023-march-28",
+    "recurring": false,
+    "team": {
+      "title": "AI",
+      "id": "ai",
+      "picture": "/assets/badges/ai-team.svg",
+      "color": "var(--acm-emerald)"
+    },
+    "calendarLinks": {
+      "google": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=AI+Team+&details=AI+Team+%0A%3D%3D%3D%3D%3D%3D%3D%3D%0A%0AAI+Team+Meeting%21%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23ai-team--2023-march-28&location=PLN+314&dates=20230328T110028%2F20230328T120028",
+      "outlook": "https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20230328T110028&enddt=20230328T120028&subject=AI+Team+&body=AI+Team+%0A%3D%3D%3D%3D%3D%3D%3D%3D%0A%0AAI+Team+Meeting%21%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23ai-team--2023-march-28&location=PLN+314"
+    }
+  },
+  {
+    "month": "March",
+    "day": 28,
+    "startTime": "6:00 PM",
+    "endTime": "7:00 PM",
+    "hasStarted": false,
+    "hasEnded": false,
+    "date": "2023-03-28T18:00:00-07:00[America/Los_Angeles]",
+    "location": "TSU",
+    "title": "Design Team",
+    "description": "Design team meeting!",
+    "summary": "Design Team\n===========\n\nDesign team meeting!\n\nhttps://acmcsuf.com/events#design-team-2023-march-28",
+    "meetingLink": "/discord",
+    "id": "design-team-2023-march-28",
+    "selfLink": "https://acmcsuf.com/events#design-team-2023-march-28",
+    "recurring": false,
+    "team": {
+      "title": "Design",
+      "id": "design",
+      "picture": "/assets/badges/design-team.svg",
+      "color": "var(--acm-pink)"
+    },
+    "calendarLinks": {
+      "google": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Design+Team&details=Design+Team%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0ADesign+team+meeting%21%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23design-team-2023-march-28&location=TSU&dates=20230328T180028%2F20230328T190028",
+      "outlook": "https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20230328T180028&enddt=20230328T190028&subject=Design+Team&body=Design+Team%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0ADesign+team+meeting%21%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23design-team-2023-march-28&location=TSU"
+    }
+  },
+  {
+    "month": "March",
+    "day": 29,
+    "startTime": "1:00 PM",
+    "endTime": "2:00 PM",
+    "hasStarted": false,
+    "hasEnded": false,
+    "date": "2023-03-29T13:00:00-07:00[America/Los_Angeles]",
+    "location": "TSU",
+    "title": "Dev Team",
+    "description": "Dev team meeting",
+    "summary": "Dev Team\n========\n\nDev team meeting\n\nhttps://acmcsuf.com/events#dev-team-2023-march-29",
+    "meetingLink": "/discord",
+    "id": "dev-team-2023-march-29",
+    "selfLink": "https://acmcsuf.com/events#dev-team-2023-march-29",
+    "recurring": false,
+    "team": {
+      "title": "Dev",
+      "id": "dev",
+      "picture": "/assets/badges/dev-team.svg",
+      "color": "var(--acm-bluer)"
+    },
+    "calendarLinks": {
+      "google": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Dev+Team&details=Dev+Team%0A%3D%3D%3D%3D%3D%3D%3D%3D%0A%0ADev+team+meeting%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23dev-team-2023-march-29&location=TSU&dates=20230329T130029%2F20230329T140029",
+      "outlook": "https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20230329T130029&enddt=20230329T140029&subject=Dev+Team&body=Dev+Team%0A%3D%3D%3D%3D%3D%3D%3D%3D%0A%0ADev+team+meeting%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23dev-team-2023-march-29&location=TSU"
+    }
+  },
+  {
+    "month": "March",
+    "day": 30,
+    "startTime": "3:30 PM",
+    "endTime": "4:30 PM",
+    "hasStarted": false,
+    "hasEnded": false,
+    "date": "2023-03-30T15:30:00-07:00[America/Los_Angeles]",
+    "location": "CS 408",
+    "title": "Game Dev Team",
+    "description": "Game dev team meeting!",
+    "summary": "Game Dev Team\n=============\n\nGame dev team meeting!\n\nhttps://acmcsuf.com/events#game-dev-team-2023-march-30",
+    "meetingLink": "/discord",
+    "id": "game-dev-team-2023-march-30",
+    "selfLink": "https://acmcsuf.com/events#game-dev-team-2023-march-30",
+    "recurring": false,
+    "team": {
+      "title": "Game Dev",
+      "id": "gamedev",
+      "picture": "/assets/badges/gamedev-team.svg",
+      "color": "var(--acm-red)"
+    },
+    "calendarLinks": {
+      "google": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Game+Dev+Team&details=Game+Dev+Team%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0AGame+dev+team+meeting%21%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23game-dev-team-2023-march-30&location=CS+408&dates=20230330T153030%2F20230330T163030",
+      "outlook": "https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20230330T153030&enddt=20230330T163030&subject=Game+Dev+Team&body=Game+Dev+Team%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0AGame+dev+team+meeting%21%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23game-dev-team-2023-march-30&location=CS+408"
+    }
+  },
+  {
+    "month": "March",
+    "day": 31,
+    "startTime": "9:00 AM",
+    "endTime": "10:00 AM",
+    "hasStarted": false,
+    "hasEnded": false,
+    "date": "2023-03-31T09:00:00-07:00[America/Los_Angeles]",
+    "location": "CS 302",
+    "title": "OSS Team",
+    "description": "Open source software team meeting!",
+    "summary": "OSS Team\n========\n\nOpen source software team meeting!\n\nhttps://acmcsuf.com/events#oss-team-2023-march-31",
+    "meetingLink": "/discord",
+    "id": "oss-team-2023-march-31",
+    "selfLink": "https://acmcsuf.com/events#oss-team-2023-march-31",
+    "recurring": false,
+    "team": {
+      "title": "Open Source Software",
+      "id": "oss",
+      "picture": "/assets/badges/oss-team.svg",
+      "color": "var(--acm-turquoise)"
+    },
+    "calendarLinks": {
+      "google": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=OSS+Team&details=OSS+Team%0A%3D%3D%3D%3D%3D%3D%3D%3D%0A%0AOpen+source+software+team+meeting%21%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23oss-team-2023-march-31&location=CS+302&dates=20230331T090031%2F20230331T100031",
+      "outlook": "https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20230331T090031&enddt=20230331T100031&subject=OSS+Team&body=OSS+Team%0A%3D%3D%3D%3D%3D%3D%3D%3D%0A%0AOpen+source+software+team+meeting%21%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23oss-team-2023-march-31&location=CS+302"
+    }
+  },
+  {
+    "month": "March",
+    "day": 31,
+    "startTime": "5:00 PM",
+    "endTime": "6:00 PM",
+    "hasStarted": false,
+    "hasEnded": false,
+    "date": "2023-03-31T17:00:00-07:00[America/Los_Angeles]",
+    "location": "CS 300",
+    "title": "General ACM",
+    "description": "ACM meeting",
+    "summary": "General ACM\n===========\n\nACM meeting\n\nhttps://acmcsuf.com/events#general-acm-2023-march-31",
+    "meetingLink": "/discord",
+    "id": "general-acm-2023-march-31",
+    "selfLink": "https://acmcsuf.com/events#general-acm-2023-march-31",
+    "recurring": false,
+    "team": {
+      "title": "General",
+      "id": "general",
+      "picture": "/assets/badges/general.svg",
+      "color": "var(--acm-blue)"
+    },
+    "calendarLinks": {
+      "google": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=General+ACM&details=General+ACM%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0AACM+meeting%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23general-acm-2023-march-31&location=CS+300&dates=20230331T170031%2F20230331T180031",
+      "outlook": "https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20230331T170031&enddt=20230331T180031&subject=General+ACM&body=General+ACM%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0AACM+meeting%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23general-acm-2023-march-31&location=CS+300"
+    }
+  },
+  {
+    "month": "April",
+    "day": 1,
+    "startTime": "10:00 AM",
+    "endTime": "4:00 PM",
+    "hasStarted": false,
+    "hasEnded": false,
+    "date": "2023-04-01T10:00:00-07:00[America/Los_Angeles]",
+    "location": "Riverside City College, 4800 Magnolia Ave, Riverside, CA 92506, USA",
+    "title": "ICPC Team",
+    "description": "ICPC Competition!",
+    "summary": "ICPC Team\n=========\n\nICPC Competition!\n\nhttps://acmcsuf.com/events#icpc-team-2023-april-1",
+    "meetingLink": "/discord",
+    "id": "icpc-team-2023-april-1",
+    "selfLink": "https://acmcsuf.com/events#icpc-team-2023-april-1",
+    "recurring": false,
+    "team": {
+      "title": "ICPC",
+      "id": "icpc",
+      "picture": "/assets/badges/icpc-team.svg",
+      "color": "var(--acm-orange)"
+    },
+    "calendarLinks": {
+      "google": "https://calendar.google.com/calendar/render?action=TEMPLATE&text=ICPC+Team&details=ICPC+Team%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0AICPC+Competition%21%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23icpc-team-2023-april-1&location=Riverside+City+College%2C+4800+Magnolia+Ave%2C+Riverside%2C+CA+92506%2C+USA&dates=20230401T100001%2F20230401T160001",
+      "outlook": "https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=20230401T100001&enddt=20230401T160001&subject=ICPC+Team&body=ICPC+Team%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0AICPC+Competition%21%0A%0Ahttps%3A%2F%2Facmcsuf.com%2Fevents%23icpc-team-2023-april-1&location=Riverside+City+College%2C+4800+Magnolia+Ave%2C+Riverside%2C+CA+92506%2C+USA"
+    }
+  }
+]
