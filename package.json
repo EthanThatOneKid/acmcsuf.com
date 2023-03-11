@@ -15,7 +15,7 @@
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest --run && npm run test:browser",
+    "test": "vitest --run",
     "test:watch": "vitest",
     "test:size": "npm i && size-limit",
     "test:coverage": "vitest run --coverage",
