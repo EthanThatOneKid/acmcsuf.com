@@ -103,6 +103,7 @@
       background-color: var(--navbar-bg);
       box-shadow: var(--nav-shadow);
       z-index: -1;
+      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
     }
 
