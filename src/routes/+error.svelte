@@ -38,6 +38,7 @@
   }
 
   section em {
+    padding-top: 90px;
     align-items: center;
     text-align: center;
     font-size: 50px;
