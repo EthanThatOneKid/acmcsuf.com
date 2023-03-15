@@ -63,3 +63,6 @@ jobs:
       # info: https://etok.codes/acmcsuf.com/blob/main/CONTRIBUTING.md#npm-bloat
       - name: Test Dependency Size
         run: npm run test:size
+
+      - name: Test Transform Genuary
+        run: 
