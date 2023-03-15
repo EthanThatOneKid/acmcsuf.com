@@ -1,27 +1,25 @@
 import type { PageLoadEvent } from './$types';
 import type { GetPomoInput } from 'pomo/src/server/pomo/types'
+import { DEFAULT_PATTERNS } from './patterns';
 /* To do - finish this file now. */
 
 export async function load({ fetch, url }: PageLoadEvent) {
-  const query = parseQuery(url.searchParams.get('l') || '');
-  const target = makeBlogPostsJsonUrl(query.labels ?? []);
-
+  const target = makePomoJsonUrl(url);
   const response = await fetch(target);
-  const blogOutput = await response.json();
-
-  const posts = (blogOutput.posts ?? []) as BlogPost[];
-  const labels = (blogOutput.labels ?? []) as string[];
+  const pomoOutput = await response.json();
+  console.log({ pomoOutput });
 
   return {
-    posts,
-    labels,
-    selectedLabels: query.labels,
+    pomoOutput
   };
 }
 
-function parseInput(url : URL) : GetPomoInput {
-  const patterns = url.searchParams.get("patterns");
-  if(!patterns) {
-    throw new Error("Missing Required URL Search Params.");
-  }
+
+const POMO_API = 'https://pomo.acmcsuf.com/';
+
+function makePomoJsonUrl(url : URL) : URL {
+  const result = new URL(POMO_API);
+  const patterns = (url.searchParams.get("patterns") || url.searchParams.get('p') || DEFAULT_PATTERNS);
+  result.searchParams.append("patterns", patterns);
+  return result;
 }

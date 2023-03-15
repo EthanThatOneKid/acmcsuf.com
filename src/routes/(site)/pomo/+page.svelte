@@ -3,44 +3,29 @@
   import { browser } from '$app/environment';
   import { onMount } from 'svelte';
   import type { Duration, PomoStamp } from 'pomo';
-  import { Pomo, format, DAY, SECOND, MINUTE } from 'pomo';
-
+ // import { Pomo, format, DAY, SECOND, MINUTE } from 'pomo';
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import Block from '$lib/components/block/block.svelte';
-
-  import { PATTERNS } from './patterns';
+  import type { PageData } from './$types';
+  export let data : PageData
 
   // TODO (remove this comment when done):
   // - [ ] Add a timer
   // - [ ] Add selection for valid patterns
   // - [ ] Expand selection to valid custom patterns
 
-  const DEFAULT_PATTERN = PATTERNS[0];
-
-  let pomo: Pomo;
-  let stamp: PomoStamp;
   let animationID: number;
   let timestamp = new Date().getTime();
-  let ref = previousMidnightOf(timestamp);
-
-  $: if (browser) {
-    const pattern = $page.url.searchParams.get('pattern') || DEFAULT_PATTERN;
-    pomo = Pomo.fromPattern({ ref, pattern, scale: MINUTE, dayLength: DAY });
-    stamp = pomo.at(timestamp);
-  }
 
   function animate() {
     timestamp = new Date().getTime();
     animationID = requestAnimationFrame(animate);
   }
-
-  function previousMidnightOf(date: number) {
-    return new Date(new Date(date).setHours(0, 0, 0, 0)).getTime();
-  }
-
+ 
   onMount(() => {
-    animationID = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationID);
+   // animationID = requestAnimationFrame(animate);
+   //return () => cancelAnimationFrame(animationID);
+   console.log({ data });
   });
 </script>
 
@@ -73,7 +58,7 @@
     </div>
 
     <time class="size-md timer">
-      {format(stamp?.timeout ?? 0, $page.url.searchParams.get('fmt') || 'HH:mm:ss.SSS')}
+      <!-- {format(stamp?.timeout ?? 0, $page.url.searchParams.get('fmt') || 'HH:mm:ss.SSS')} -->
     </time>
 
     <h2 class="work-period name">Starting TypeScript work pattern...</h2>

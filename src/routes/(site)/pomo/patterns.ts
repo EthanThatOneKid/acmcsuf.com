@@ -1,4 +1,7 @@
 /**
  * Patterns for the interactive experience on /pomo.
  */
-export const PATTERNS = ['25w5b25w5b25w20b'] as const;
+
+export const DEFAULT_PATTERNS = "20-5-10: 20 5 20 5 20 10; 50-10: 50 10";
+ 
+
