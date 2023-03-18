@@ -3,10 +3,11 @@
   import { browser } from '$app/environment';
   import { onMount } from 'svelte';
   import type { Duration, PomoStamp } from 'pomo';
- // import { Pomo, format, DAY, SECOND, MINUTE } from 'pomo';
+  import { Pomo, format, DAY, SECOND, MINUTE} from 'pomo';
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import Block from '$lib/components/block/block.svelte';
   import type { PageData } from './$types';
+
   export let data : PageData
 
   // TODO (remove this comment when done):
@@ -14,17 +15,30 @@
   // - [ ] Add selection for valid patterns
   // - [ ] Expand selection to valid custom patterns
 
+  let referenceDate: Date;
+  let serverTimestamp: number;
   let animationID: number;
   let timestamp = new Date().getTime();
+  let timeout = 0;
+  let patternID = "20-5-10";
 
   function animate() {
     timestamp = new Date().getTime();
+    serverTimestamp = timestamp - referenceDate.getTime() + data.pomoOutput[patternID].elapsed;
+    timeout = getTimeout(timestamp);
     animationID = requestAnimationFrame(animate);
   }
  
+  function getTimeout(timestamp : number) : number {
+
+
+  } 
+
+  
   onMount(() => {
    // animationID = requestAnimationFrame(animate);
    //return () => cancelAnimationFrame(animationID);
+   referenceDate = new Date()
    console.log({ data });
   });
 </script>
@@ -58,8 +72,10 @@
     </div>
 
     <time class="size-md timer">
-      <!-- {format(stamp?.timeout ?? 0, $page.url.searchParams.get('fmt') || 'HH:mm:ss.SSS')} -->
+      {format(timeout, $page.url.searchParams.get('fmt') || 'HH:mm:ss.SSS')}
     </time>
+
+    <pre> {JSON.stringify(data, null, 2)} </pre>
 
     <h2 class="work-period name">Starting TypeScript work pattern...</h2>
     <div class="toggle-container">
