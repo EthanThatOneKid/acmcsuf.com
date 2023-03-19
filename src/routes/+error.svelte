@@ -12,16 +12,20 @@
 </svelte:head>
 
 <section title={$page.error?.message}>
-  <em>404</em>
-  <h1>Frank can't find where you're going!</h1>
-  <Button text={'Return to Home'} link={'/'} />
-  <img src="/assets/png/lost-frank.png" alt="404 - Page Not Found" />
+  <div class="container">
+    <div>
+      <em>404</em>
+      <h1>Frank can't find where you're going!</h1>
+      <Button text={'Return to Home'} link={'/'} />
+    </div>
+    <img src="/assets/png/lost-frank.png" alt="404 - Page Not Found" />
+  </div>
 </section>
 
 <Footer />
 
 <style>
-  section {
+  /* section {
     min-height: 100vh;
     display: flex;
     gap: 2rem;
@@ -30,20 +34,23 @@
     align-items: center;
     margin: 0 24px;
     color: var(--acm-light);
-  }
+  } */
 
-  section h1 {
+  .container {
+    min-height: 100vh;
+    display: flex;
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    height: 120vh;
     text-align: center;
   }
 
-  section em {
-    padding-top: 90px;
-    align-items: center;
-    text-align: center;
-    font-size: 50px;
-    text-shadow: 2px 2px #92c4df;
-    font-weight: 600;
+  em {
+    font-size: 40px;
+    text-shadow: rgb(146, 196, 223) 2px 2px;
   }
 
   section img {
