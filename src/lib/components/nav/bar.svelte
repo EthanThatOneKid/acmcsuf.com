@@ -87,8 +87,6 @@
 </nav>
 
 <style lang="scss">
-  @media screen and (max-width: 600px) {
-  }
   nav {
     display: flex;
     position: fixed;
