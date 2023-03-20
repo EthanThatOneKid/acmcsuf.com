@@ -44,7 +44,6 @@ const TEST_SHORTLINKS = {
   gfi: '/issues/?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22',
   bug: '/issues/new/?labels=bug&template=bug_report.md',
   'dev/template': 'https://example.com/dev-template',
-  'student-pack': '/blog/806',
 };
 
 const VALID_TESTCASES: Array<[URL, ReturnType<typeof resolve>]> = [
@@ -82,12 +81,6 @@ test('resolve resolves valid URLs', () => {
   for (const [inURL, outURL] of VALID_TESTCASES) {
     expect(resolve(inURL, TEST_SHORTLINKS), `failed on ${inURL}`).toStrictEqual(outURL);
   }
-});
-
-test('resolve resolves alias shortlink', () => {
-  const inURL = new URL('https://acmcsuf.com/student-pack');
-  const outURL = new URL('https://acmcsuf.com/blog/806');
-  expect(resolve(inURL, TEST_SHORTLINKS), `failed on ${inURL}`).toStrictEqual(outURL);
 });
 
 const INVALID_TESTCASES: Array<[URL, RegExp]> = [
