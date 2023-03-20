@@ -25,17 +25,6 @@
 <Footer />
 
 <style>
-  /* section {
-    min-height: 100vh;
-    display: flex;
-    gap: 2rem;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 24px;
-    color: var(--acm-light);
-  } */
-
   .container {
     min-height: 100vh;
     display: flex;

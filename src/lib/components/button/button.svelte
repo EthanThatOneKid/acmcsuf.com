@@ -18,7 +18,6 @@
   a {
     display: block;
     text-align: center;
-    margin: auto 450px;
     padding: 12px 24px;
     background-color: var(--button-bg);
     color: var(--perma-light);
@@ -26,7 +25,7 @@
     text-decoration: none;
     user-select: none;
     transition: 0.25s ease-in-out;
-    width: 200px;
+
 
     &:hover {
       background-color: var(--button-hover);
