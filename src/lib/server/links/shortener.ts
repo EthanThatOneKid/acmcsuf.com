@@ -12,8 +12,8 @@ export function shortener(): Handle {
         return resolve(event);
       }
 
-      const destination = resolveShortlink(url, LINKS);
-      if (!destination) {
+      const destination = resolveShortlink(url, LINKS, url.origin);
+      if (destination.toString() === url.toString()) {
         return resolve(event);
       }
 

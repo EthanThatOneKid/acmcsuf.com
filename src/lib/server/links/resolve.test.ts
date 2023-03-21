@@ -44,6 +44,7 @@ const TEST_SHORTLINKS = {
   gfi: '/issues/?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22',
   bug: '/issues/new/?labels=bug&template=bug_report.md',
   'dev/template': 'https://example.com/dev-template',
+  'student-pack': '/blog/806',
 };
 
 const VALID_TESTCASES: Array<[URL, ReturnType<typeof resolve>]> = [
@@ -83,14 +84,20 @@ test('resolve resolves valid URLs', () => {
   }
 });
 
-const INVALID_TESTCASES: Array<[URL, RegExp]> = [
-  [new URL('https://acmcsuf.com/doesnotexist'), /no shortlink found/],
-  [new URL('https://acmcsuf.com/does/not/exist'), /no shortlink found/],
-  [new URL('https://acmcsuf.com/<invalid>'), /no shortlink found/],
+test('resolve resolves alias shortlink', () => {
+  const inURL = new URL('https://acmcsuf.com/student-pack');
+  const outURL = new URL('https://acmcsuf.com/blog/806');
+  expect(resolve(inURL, TEST_SHORTLINKS, 'https://acmcsuf.com/'), `failed on ${inURL}`).toStrictEqual(outURL);
+});
+
+const INVALID_TESTCASES: Array<URL> = [
+  new URL('https://acmcsuf.com/doesnotexist'),
+  new URL('https://acmcsuf.com/does/not/exist'),
+  new URL('https://acmcsuf.com/<invalid>'),
 ];
 
-test('resolve resolves invalid URLs', () => {
-  for (const [inURL, outURL] of INVALID_TESTCASES) {
-    expect(() => resolve(inURL, TEST_SHORTLINKS), `failed on ${inURL}`).toThrowError(outURL);
+test('resolve returns passed URL if invalid or not found', () => {
+  for (const inURL of INVALID_TESTCASES) {
+    expect(resolve(inURL, TEST_SHORTLINKS), `failed on ${inURL}`).toStrictEqual(inURL);
   }
 });
