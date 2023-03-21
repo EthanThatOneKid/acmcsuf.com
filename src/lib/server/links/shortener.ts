@@ -12,7 +12,7 @@ export function shortener(): Handle {
         return resolve(event);
       }
 
-      const destination = resolveShortlink(url, LINKS, url.origin);
+      const destination = resolveShortlink(url, LINKS);
       if (destination.toString() === url.toString()) {
         return resolve(event);
       }

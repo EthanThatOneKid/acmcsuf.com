@@ -4,8 +4,8 @@
  * @param shortlinks collection of shortlinks.
  * @returns computed destination url.
  */
-export function resolve<ID extends string>(url: URL, shortlinks: Record<ID, string>, destinationOrigin?: string): URL {
-  const foundURL = findURL(url.pathname, shortlinks, destinationOrigin);
+export function resolve<ID extends string>(url: URL, shortlinks: Record<ID, string>): URL {
+  const foundURL = findURL(url.pathname, shortlinks, url.origin);
   if (!foundURL) {
     return url;
   }
@@ -26,9 +26,9 @@ interface FoundURL {
 function findURL<ID extends string>(
   pathname: string,
   shortlinks: Record<ID, string>,
-  destinationOrigin?: string,
+  destinationOrigin: string,
   maxInternalRedirects = 256
-):   FoundURL | undefined {
+): FoundURL {
   let initialId: ID | undefined;
   let initialHash: string | undefined;
   let initialQuery: string | undefined;
@@ -58,10 +58,6 @@ function findURL<ID extends string>(
     }
 
     if (!shortlinks[id]) {
-      if (destinationOrigin === undefined) {
-        return undefined;
-      }
-      
       return {
         pathname: relativePathname,
         query: initialQuery || '',

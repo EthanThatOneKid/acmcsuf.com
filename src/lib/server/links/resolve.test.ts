@@ -87,7 +87,7 @@ test('resolve resolves valid URLs', () => {
 test('resolve resolves alias shortlink', () => {
   const inURL = new URL('https://acmcsuf.com/student-pack');
   const outURL = new URL('https://acmcsuf.com/blog/806');
-  expect(resolve(inURL, TEST_SHORTLINKS, 'https://acmcsuf.com/'), `failed on ${inURL}`).toStrictEqual(outURL);
+  expect(resolve(inURL, TEST_SHORTLINKS), `failed on ${inURL}`).toStrictEqual(outURL);
 });
 
 const INVALID_TESTCASES: Array<URL> = [
