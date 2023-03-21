@@ -20,16 +20,16 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up SvelteKit on Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
       - name: Cache Dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -45,15 +45,20 @@ jobs:
       - name: Svelte check
         run: npm run check
 
-      # checks for lint errors AND format errors
+      - name: Format
+        run: npm run format && git diff --exit-code
+
       - name: Lint
         run: npm run lint && git diff --exit-code
 
-      - name: npx playwright install
+      - name: Vitest tests
+        run: npm t
+
+      - name: Playwright install
         run: npx playwright install
 
-      - name: Test
-        run: npm t
+      - name: Playwright tests
+        run: npm run test:browser
 
       # info: https://etok.codes/acmcsuf.com/blob/main/CONTRIBUTING.md#npm-bloat
       - name: Test Dependency Size

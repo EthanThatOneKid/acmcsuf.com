@@ -28,7 +28,7 @@ export async function listUpcomingEvents() {
       await cal.events.list({
         calendarId: GCAL_ID,
         timeMin: new Date().toISOString(),
-        maxResults: 10,
+        maxResults: 100,
         singleEvents: true,
         orderBy: 'startTime',
         showDeleted: false,
