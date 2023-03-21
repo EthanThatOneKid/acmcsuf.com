@@ -26,7 +26,6 @@
     user-select: none;
     transition: 0.25s ease-in-out;
 
-
     &:hover {
       background-color: var(--button-hover);
     }

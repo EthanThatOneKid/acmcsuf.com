@@ -33,13 +33,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 120vh;
+    padding-top: 100px;
     text-align: center;
   }
 
   em {
     font-size: 40px;
-    text-shadow: rgb(146, 196, 223) 2px 2px;
+    text-shadow: var(--acm-blue) 2px 2px;
   }
 
   section img {
