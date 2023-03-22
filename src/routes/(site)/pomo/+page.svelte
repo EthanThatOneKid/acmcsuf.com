@@ -1,46 +1,46 @@
 <script lang="ts">
+  import type { PageData } from './$types';
   import { page } from '$app/stores';
-  import { browser } from '$app/environment';
   import { onMount } from 'svelte';
-  import type { Duration, PomoStamp } from 'pomo';
-  import { Pomo, format, DAY, SECOND, MINUTE} from 'pomo';
+  import { format } from 'pomo';
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import Block from '$lib/components/block/block.svelte';
-  import type { PageData } from './$types';
 
-  export let data : PageData
+  export let data: PageData;
 
-  // TODO (remove this comment when done):
-  // - [ ] Add a timer
-  // - [ ] Add selection for valid patterns
-  // - [ ] Expand selection to valid custom patterns
-
-  let referenceDate: Date;
-  let serverTimestamp: number;
+  let patternID = '20-5-10';
+  let timeFmt = 'HH:mm:ss.SSS';
+  let timestamp: number;
+  let referenceTimestamp: number;
   let animationID: number;
-  let timestamp = new Date().getTime();
-  let timeout = 0;
-  let patternID = "20-5-10";
+  let timeout: number;
+  let elapsed = 0;
+
+  $: patternID = $page.url.searchParams.get('id') || patternID;
+  $: timeFmt = $page.url.searchParams.get('fmt') || timeFmt;
+  $: formattedTime = format(timeout, timeFmt);
 
   function animate() {
-    timestamp = new Date().getTime();
-    serverTimestamp = timestamp - referenceDate.getTime() + data.pomoOutput[patternID].elapsed;
-    timeout = getTimeout(timestamp);
+    timestamp = getClientTimestamp();
+    elapsed = timestamp - referenceTimestamp;
+    timeout =
+      elapsed < data.pomoOutput[patternID].timeout
+        ? data.pomoOutput[patternID].timeout - elapsed
+        : 0;
+    formattedTime = format(timeout, timeFmt);
     animationID = requestAnimationFrame(animate);
   }
- 
-  function getTimeout(timestamp : number) : number {
 
-
-  } 
-
-  
   onMount(() => {
-   // animationID = requestAnimationFrame(animate);
-   //return () => cancelAnimationFrame(animationID);
-   referenceDate = new Date()
-   console.log({ data });
+    referenceTimestamp = getClientTimestamp();
+    console.log({ patternID, timeFmt, referenceTimestamp });
+    animationID = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationID);
   });
+
+  function getClientTimestamp(): number {
+    return new Date().getTime();
+  }
 </script>
 
 <svelte:head>
@@ -71,9 +71,7 @@
       </ul>
     </div>
 
-    <time class="size-md timer">
-      {format(timeout, $page.url.searchParams.get('fmt') || 'HH:mm:ss.SSS')}
-    </time>
+    <time class="size-md timer">{formattedTime}</time>
 
     <pre> {JSON.stringify(data, null, 2)} </pre>
 
