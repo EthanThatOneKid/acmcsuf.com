@@ -2,6 +2,7 @@
   import type { PageData } from './$types';
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
+  import type { Duration } from 'pomo';
   import { format } from 'pomo';
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import Block from '$lib/components/block/block.svelte';
@@ -13,12 +14,20 @@
   let timestamp: number;
   let referenceTimestamp: number;
   let animationID: number;
-  let timeout: number;
-  let elapsed = 0;
+  let timeout: Duration;
+  let elapsed: Duration = 0;
 
   $: patternID = $page.url.searchParams.get('id') || patternID;
   $: timeFmt = $page.url.searchParams.get('fmt') || timeFmt;
   $: formattedTime = format(timeout, timeFmt);
+  $: patterns = Object.keys(data.pomoOutput).map((id) => {
+    if (id === patternID) {
+      return [id, '#'];
+    }
+    const destination = new URL($page.url);
+    destination.searchParams.set('id', id);
+    return [id, destination.toString()];
+  });
 
   function animate() {
     timestamp = getClientTimestamp();
@@ -28,12 +37,16 @@
         ? data.pomoOutput[patternID].timeout - elapsed
         : 0;
     formattedTime = format(timeout, timeFmt);
+    if (timeout === 0) {
+      cancelAnimationFrame(animationID);
+      return;
+    }
+
     animationID = requestAnimationFrame(animate);
   }
 
   onMount(() => {
     referenceTimestamp = getClientTimestamp();
-    console.log({ patternID, timeFmt, referenceTimestamp });
     animationID = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationID);
   });
@@ -58,28 +71,22 @@
 </div>
 
 <div class="timer-container">
-  <img src="/assets/png/acm-shark.png" alt="Frank" class="frank" />
+  <!-- <img src="/assets/png/acm-shark.png" alt="Frank" class="frank" /> -->
   <section>
     <button id="menu" style="display: none">Menu</button>
     <div class="button-container">
       <ul>
-        <li><button id="btn" class="b">Work</button></li>
-        <li><button id="btn" class="b">Work</button></li>
-        <li><button id="btn" class="b">Work</button></li>
-        <li><button id="btn" class="b">Work</button></li>
-        <li><button id="btn" class="b">Work</button></li>
+        {#each patterns as [id, href] (id)}
+          <li><a {href}> {id} </a></li>
+        {/each}
       </ul>
     </div>
 
     <time class="size-md timer">{formattedTime}</time>
 
-    <pre> {JSON.stringify(data, null, 2)} </pre>
+    <!-- <pre> {JSON.stringify(data, null, 2)} </pre> -->
 
     <h2 class="work-period name">Starting TypeScript work pattern...</h2>
-    <div class="toggle-container">
-      <button class="toggle-btns start"> Start </button>
-      <button class="toggle-btns stop"> Stop </button>
-    </div>
   </section>
 </div>
 
@@ -90,136 +97,4 @@
 <Spacing --min="40px" --med="95px" --max="120px" />
 
 <style lang="scss">
-  * {
-    margin: 10px;
-  }
-
-  button {
-    cursor: pointer;
-  }
-
-  button:hover {
-    transform: scale(1.05);
-  }
-
-  .acm {
-    max-width: 50px;
-    margin-left: 5px;
-  }
-
-  .frank {
-    max-width: 500px;
-    position: absolute;
-    left: 13%;
-    top: 43%;
-    z-index: -1;
-  }
-
-  .title-container {
-    margin-bottom: 170px;
-  }
-
-  section {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 30px 90px 90px 90px;
-    background-color: var(--acm-sky);
-    box-shadow: 0 0 12px var(--acm-sky);
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 850px;
-    border-radius: 15px;
-  }
-
-  .timer {
-    font-family: monospace;
-    background-color: var(--acm-blue);
-    padding: 50px;
-    border-radius: 15px;
-    box-shadow: 0 0 5px rgb(52, 105, 165); /* Can we add this as a color? */
-    text-align: center;
-    font-weight: 900;
-    margin: 40px 0px 40px 0px;
-  }
-
-  .size-xl {
-    font-size: 90px;
-    margin-bottom: 5px;
-    color: var(--acm-white);
-  }
-
-  @media screen and (max-width: 1000px) {
-    .size-xl {
-      font-size: 65px;
-    }
-
-    #btn {
-      display: none;
-    }
-
-    .frank {
-      top: 58%;
-      left: 10%;
-      max-width: 400px;
-    }
-  }
-
-  .work-period {
-    text-align: center;
-    margin: 40px;
-  }
-
-  #btn {
-    background: none;
-    border: none;
-    font-weight: 600;
-    font-size: 30px;
-    padding: 15px;
-    border-bottom: solid 1px var(--acm-light);
-  }
-
-  #btn:hover {
-    background-color: var(--acm-bluer);
-  }
-
-  .text {
-    font-size: 40px;
-  }
-
-  .button-container {
-    padding: 20px 1px 20px 1px;
-    display: flex;
-    justify-content: space-evenly;
-  }
-
-  .button-container button {
-    padding: 13px;
-    margin-top: 20px;
-    border-bottom: solid 2px var(--acm-dark);
-  }
-
-  .toggle-container {
-    text-align: center;
-    display: flex;
-    justify-content: space-evenly;
-  }
-
-  .toggle-container button {
-    background: none;
-    color: var(--acm-dark);
-    padding: 20px;
-    width: 300px;
-    font-size: 40px;
-    border: solid px var(--acm-gray);
-    box-shadow: 0 0 8px var(--acm-gray);
-  }
-
-  .toggle-container .start {
-    background-color: var(--acm-emerald);
-  }
-
-  .toggle-container .stop {
-    background-color: rgb(169, 43, 43);
-  }
 </style>
