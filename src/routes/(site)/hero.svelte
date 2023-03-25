@@ -6,11 +6,9 @@
   <div class="container">
     <div class="left">
       <h1 class="brand-header">
-        Happy Birthday 
+        Happy Birthday
         <br />
-        <span class="ethanColor">
-          Ethan Davidson 🎉
-        </span>
+        <span class="ethanColor"> Ethan Davidson 🎉 </span>
       </h1>
 
       <AcmButton text="Join us today!" link="/discord" redirect={true} />
@@ -81,6 +79,6 @@
     font-size: 3.5em;
   }
   .ethanColor {
-    color:green;
+    color: green;
   }
 </style>
