@@ -5,16 +5,19 @@
 <section>
   <div class="container">
     <div class="left">
-      <h1 class="brand-header size-xl">
-        We are the largest computer science community at
-        <b class="acm-blue">CSUF</b>
+      <h1 class="brand-header">
+        Happy Birthday 
+        <br />
+        <span class="ethanColor">
+          Ethan Davidson 🎉
+        </span>
       </h1>
 
       <AcmButton text="Join us today!" link="/discord" redirect={true} />
     </div>
 
     <img
-      src="assets/png/hero-photo.png"
+      src="assets/authors/ethan-davidson.webp"
       alt="Frank the Shark holding a flag that says 'I Love ACM'"
     />
   </div>
@@ -73,5 +76,11 @@
         filter: drop-shadow(0 6px 24px rgba(44, 145, 198, 0.5));
       }
     }
+  }
+  .brand-header {
+    font-size: 3.5em;
+  }
+  .ethanColor {
+    color:green;
   }
 </style>
