@@ -67,11 +67,11 @@ jobs:
       - name: Transform Genuary Check Changes
         id: transform-genuary-check-changes
         run: |
-           if git diff --exit-code --quiet scripts/transform-genuary; then
-             echo "updated=0" >> $GITHUB_OUTPUT;
-           else
-             echo "updated=1" >> $GITHUB_OUTPUT;
-           fi
+          if git diff --exit-code --quiet scripts/transform-genuary; then
+            echo "updated=0" >> $GITHUB_OUTPUT;
+          else
+            echo "updated=1" >> $GITHUB_OUTPUT;
+          fi
 
       - name: Test Transform Genuary
         if: steps.transform-genuary-check-changes.outputs.updated == 1
