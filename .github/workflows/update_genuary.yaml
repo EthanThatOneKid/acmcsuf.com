@@ -29,7 +29,7 @@ jobs:
           year=$(date +%Y)
           echo "year=$year" >> $GITHUB_OUTPUT
 
-          node scripts/transform-genuary.js /tmp/pins/*.json \
+          node scripts/transform-genuary/index.js /tmp/pins/*.json \
             > "src/routes/(site)/genuary/$year/data.json"
 
           if git diff --exit-code --quiet; then
