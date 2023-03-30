@@ -18,10 +18,19 @@ export async function GET({ params }: RequestEvent<RouteParams>) {
     });
   }
 
-  data = await getCertificatePageData(makeCertificateQuery(params.username, params.release));
+  try {
+    data = await getCertificatePageData(makeCertificateQuery(params.username, params.release));
+  } catch (err) {
+    if (err instanceof Error) {
+      return new Response(JSON.stringify({ error: err.message }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+  }
 
   cache ??= new Map();
-  cache.set(key, data);
+  cache.set(key, data!);
   cachedPageData.set(cache);
 
   return new Response(JSON.stringify(data), {
