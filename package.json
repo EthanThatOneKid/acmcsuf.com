@@ -38,7 +38,6 @@
     "@typescript-eslint/parser": "^5.52.0",
     "@vitest/coverage-c8": "^0.28.5",
     "devalue": "^4.3.0",
-    "discord.js": "^13.6.0",
     "dotenv": "^16.0.3",
     "esbuild": "^0.17.8",
     "eslint": "^8.34.0",
