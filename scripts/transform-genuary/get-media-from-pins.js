@@ -4,7 +4,7 @@ const ALLOWED_MEDIA_DOMAINS = ['cdn.discordapp.com', 'i.imgur.com'];
  * @param {object} mediaIn Media data
  */
 export function serializeMedia(mediaIn) {
-  return JSON.stringify(mediaIn, null, 2) + '\n';
+  return JSON.stringify(mediaIn, null, 2);
 }
 
 /**
