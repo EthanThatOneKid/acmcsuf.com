@@ -18,19 +18,10 @@ export async function GET({ params }: RequestEvent<RouteParams>) {
     });
   }
 
-  try {
-    data = await getCertificatePageData(makeCertificateQuery(params.username, params.release));
-  } catch (err) {
-    if (err instanceof Error) {
-      return new Response(JSON.stringify({ error: err.message }), {
-        status: 500,
-        headers: { 'Content-Type': 'application/json' },
-      });
-    }
-  }
+  data = await getCertificatePageData(makeCertificateQuery(params.username, params.release));
 
   cache ??= new Map();
-  cache.set(key, data!);
+  cache.set(key, data);
   cachedPageData.set(cache);
 
   return new Response(JSON.stringify(data), {
@@ -46,7 +37,7 @@ function makeCertificateQuery(username: string, release: string) {
     name: 'acmcsuf.com',
 
     // User-provided parameters.
-    username: username,
+    username,
     release: release.toLowerCase() === LATEST ? 0 : release,
   };
 }

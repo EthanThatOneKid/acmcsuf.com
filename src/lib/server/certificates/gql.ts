@@ -15,7 +15,6 @@ export interface RepoQuery {
 
 // A function to generate a GraphQL query to fetch a page of releases
 export function makeReleasesQuery(q: RepoQuery): string {
-  console.log(q);
   const query = `{
   repository(owner: "${q.owner}", name: "${q.name}") {
     releases(last: 100) {
