@@ -17,7 +17,6 @@ jobs:
         run: |
           go run github.com/ethanthatonekid/pins@latest \
             get -o /tmp/pins $GUILD_ID "channel_parent_id == $CHANNEL_ID"
-          go run github.com/ethanthatonekid/pins@latest get -o /tmp/pins 710225099923521558 "channel_parent_id == 1055675648296890388"
         env:
           GUILD_ID: ${{ secrets.GUILD_ID }}
           CHANNEL_ID: ${{ secrets.GENUARY_CHANNEL_ID }}
