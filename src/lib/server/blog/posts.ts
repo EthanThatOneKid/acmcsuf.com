@@ -147,9 +147,9 @@ function postProcessHTML(html: string) {
   return $.html();
 }
 
-import { describe, expect, test } from 'vitest';
-
 if (import.meta.vitest) {
+  const { describe, expect, test } = import.meta.vitest;
+
   describe('post processing', () => {
     test('removes checkboxes from html', () => {
       expect(
