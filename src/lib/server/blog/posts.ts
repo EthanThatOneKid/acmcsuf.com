@@ -1,3 +1,5 @@
+import * as cheerio from 'cheerio';
+
 import { GH_ACCESS_TOKEN, GH_DISCUSSION_CATEGORY_ID } from '$lib/server/env';
 import { DEBUG_FLAG_ENABLED } from '$lib/server/flags';
 import type { BlogFetchOptions, BlogOutput, BlogPost } from '$lib/public/blog/types';
@@ -37,6 +39,11 @@ export async function fetchBlogPosts(options?: BlogFetchOptions): Promise<BlogOu
     });
 
     allPosts = cacheBlogPosts(await response.json());
+
+    // run our html post processing on all blog posts
+    for (const post of allPosts) {
+      post.html = postProcessHTML(post.html);
+    }
   }
 
   // These labels are always derived from **all** the published posts.
@@ -119,4 +126,23 @@ export function getOfficerByGhUsername(ghUsername: string): Officer | null {
       o.socials && o.socials.github && o.socials.github.toLowerCase() === ghUsername.toLowerCase()
   );
   return officer ?? null;
+}
+
+/**
+ * Performs the following post-processing steps on the HTML content of a
+ * blog post
+ * 1. Removes the "disabled" attribute from any checkboxes in the document
+ * 2. Wraps all .task-list-item contents to make them css selectable
+ * @param html The HTML content of the blog post
+ * @returns The modified HTML string
+ */
+function postProcessHTML(html: string) {
+  const $ = cheerio.load(html);
+  // remove disabled attribute from checkboxes
+  $('input').removeAttr('disabled');
+
+  // wrap elements in spans to make them css selectable
+  $('li.task-list-item').contents().not('input').wrap('<span></span>');
+
+  return $.html();
 }

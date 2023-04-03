@@ -123,5 +123,9 @@
       height: auto;
       object-fit: contain;
     }
+
+    :global(.task-list-item-checkbox:checked ~ *) {
+      text-decoration: line-through;
+    }
   }
 </style>
