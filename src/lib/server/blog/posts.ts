@@ -1,13 +1,13 @@
 import * as cheerio from 'cheerio';
 
-import { GH_ACCESS_TOKEN, GH_DISCUSSION_CATEGORY_ID } from '$lib/server/env';
-import { DEBUG_FLAG_ENABLED } from '$lib/server/flags';
 import type { BlogFetchOptions, BlogOutput, BlogPost } from '$lib/public/blog/types';
 import { discernLabels } from '$lib/public/blog/utils';
-import type { Officer } from '$lib/public/board/types';
 import { OFFICERS } from '$lib/public/board/data';
-import { SAMPLE_BLOG_POSTS } from './data';
+import type { Officer } from '$lib/public/board/types';
+import { GH_ACCESS_TOKEN, GH_DISCUSSION_CATEGORY_ID } from '$lib/server/env';
+import { DEBUG_FLAG_ENABLED } from '$lib/server/flags';
 import { BlogPostsCache } from './cache';
+import { SAMPLE_BLOG_POSTS } from './data';
 import { gql } from './gql';
 
 const API_URL = 'https://api.github.com/graphql';
@@ -137,7 +137,7 @@ export function getOfficerByGhUsername(ghUsername: string): Officer | null {
  * @returns The modified HTML string
  */
 function postProcessHTML(html: string) {
-  const $ = cheerio.load(html);
+  const $ = cheerio.load(html, { xmlMode: true });
   // remove disabled attribute from checkboxes
   $('input').removeAttr('disabled');
 
@@ -145,4 +145,33 @@ function postProcessHTML(html: string) {
   $('li.task-list-item').contents().not('input').wrap('<span></span>');
 
   return $.html();
+}
+
+import { describe, expect, test } from 'vitest';
+
+if (import.meta.vitest) {
+  describe('post processing', () => {
+    test('removes checkboxes from html', () => {
+      expect(
+        postProcessHTML('<input type="checkbox" id="" disabled="" class="task-list-item-checkbox">')
+      ).toBe('<input type="checkbox" id="" class="task-list-item-checkbox"/>');
+      expect(
+        postProcessHTML(
+          '<input type="checkbox" id="" disabled = "" class="task-list-item-checkbox">'
+        )
+      ).toBe('<input type="checkbox" id="" class="task-list-item-checkbox"/>');
+      expect(
+        postProcessHTML('<input type="checkbox" id="" disabled class="task-list-item-checkbox">')
+      ).toBe('<input type="checkbox" id="" class="task-list-item-checkbox"/>');
+    });
+    test('properly wraps task-list-items in spans', () => {
+      expect(
+        postProcessHTML(
+          `<li class="task-list-item"><input type="checkbox" id="" class="task-list-item-checkbox" />Lorem <a>ipsum</a> dolor</li>`
+        )
+      ).toBe(
+        `<li class="task-list-item"><input type="checkbox" id="" class="task-list-item-checkbox"/><span>Lorem </span><span><a>ipsum</a></span><span> dolor</span></li>`
+      );
+    });
+  });
 }
