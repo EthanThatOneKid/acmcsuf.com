@@ -2,7 +2,7 @@ import { describe, test, expect } from 'vitest';
 import { _postProcessHTML } from './posts';
 
 describe('HTML post processing', () => {
-  test('removes disabled from checkboxes', () => {
+  test('removes "disabled" attribute from checkboxes', () => {
     // Test various formats for the disabled property
     // '<input type="checkbox" disabled=""/>
     expect(_postProcessHTML('<input type="checkbox" id="a" disabled="" class="asdf">')).toBe(
@@ -24,7 +24,7 @@ describe('HTML post processing', () => {
       '<input id="a" disabled="" class="asdf"/>'
     );
   });
-  test('properly wraps task-list-items in spans', () => {
+  test('properly wraps all elements in task-list-items with spans', () => {
     expect(
       _postProcessHTML(
         `<li class="task-list-item"><input type="checkbox" id="" class="asdf" />Lorem <a>ipsum</a> dolor</li>`
