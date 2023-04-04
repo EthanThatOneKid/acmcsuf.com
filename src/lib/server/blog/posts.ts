@@ -41,9 +41,9 @@ export async function fetchBlogPosts(options?: BlogFetchOptions): Promise<BlogOu
     allPosts = cacheBlogPosts(await response.json());
 
     // Iterate over all blog posts, applying any post processing steps defined
-    // in postProcessHTML()
+    // in _postProcessHTML()
     for (const post of allPosts) {
-      post.html = postProcessHTML(post.html);
+      post.html = _postProcessHTML(post.html);
     }
   }
 
@@ -137,7 +137,7 @@ export function getOfficerByGhUsername(ghUsername: string): Officer | null {
  * @param html The HTML content of the blog post
  * @returns The modified HTML string
  */
-function postProcessHTML(html: string) {
+export function _postProcessHTML(html: string) {
   const $ = cheerio.load(html, { xmlMode: true });
   // remove disabled attribute from checkboxes
   $('input[type=checkbox]').removeAttr('disabled');
@@ -146,42 +146,4 @@ function postProcessHTML(html: string) {
   $('li.task-list-item').contents().not('input[type=checkbox]').wrap('<span></span>');
 
   return $.html();
-}
-
-if (import.meta.vitest) {
-  const { describe, expect, test } = import.meta.vitest;
-
-  describe('HTML post processing', () => {
-    test('removes disabled from checkboxes', () => {
-      // Test various formats for the disabled property
-      // '<input type="checkbox" disabled=""/>
-      expect(postProcessHTML('<input type="checkbox" id="a" disabled="" class="asdf">')).toBe(
-        '<input type="checkbox" id="a" class="asdf"/>'
-      );
-
-      // '<input type="checkbox" disabled = ""/>
-      expect(postProcessHTML('<input type="checkbox" id="a" disabled = "" class="asdf">')).toBe(
-        '<input type="checkbox" id="a" class="asdf"/>'
-      );
-
-      // '<input type="checkbox" disabled/>
-      expect(postProcessHTML('<input type="checkbox" id="a" disabled class="asdf">')).toBe(
-        '<input type="checkbox" id="a" class="asdf"/>'
-      );
-
-      // Make sure it only applies to checkboxes
-      expect(postProcessHTML('<input id="a" disabled="" class="asdf">')).toBe(
-        '<input id="a" disabled="" class="asdf"/>'
-      );
-    });
-    test('properly wraps task-list-items in spans', () => {
-      expect(
-        postProcessHTML(
-          `<li class="task-list-item"><input type="checkbox" id="" class="asdf" />Lorem <a>ipsum</a> dolor</li>`
-        )
-      ).toBe(
-        `<li class="task-list-item"><input type="checkbox" id="" class="asdf"/><span>Lorem </span><span><a>ipsum</a></span><span> dolor</span></li>`
-      );
-    });
-  });
 }
