@@ -120,6 +120,7 @@
   .positions-container-inner {
     margin: 0 24px;
     width: 100%;
+    margin: 2rem 2rem 0;
   }
 
   @media (min-width: 768px) {
