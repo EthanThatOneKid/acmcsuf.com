@@ -18,8 +18,7 @@
       {#each PINNED_TEAMS as { title, id, picture, color } (id)}
         <a class="team-item" target="_self" href={`/teams#${id}`}>
           <img src={picture} alt={`${id} badge`} />
-
-          <p class="size-md brand-bold" style:--brand-color={color}>
+          <p class="team-title size-md brand-bold" style:--brand-color={color}>
             {title}
           </p>
         </a>
@@ -55,6 +54,7 @@
         gap: 96px;
 
         .team-item {
+          position: relative;
           display: flex;
           flex-direction: column;
           text-decoration: none;
@@ -65,7 +65,26 @@
 
           img {
             width: clamp(9.375rem, 8.8636rem + 2.2727vw, 12.5rem);
+            min-height: clamp(200px, 30vh, 300px);
             transition: 0.25s ease-in-out;
+          }
+
+          /* for tall displays, utilize stacked team-item design */
+          @media screen and (max-width: 900px) {
+            img {
+              mix-blend-mode: multiply;
+              transform: scale(1.2);
+            }
+            p {
+              font-family: Impact;
+              font-weight: 500;
+              position: absolute;
+              letter-spacing: -0.2vw;
+              top: 50%;
+              left: 50%;
+              z-index: -1;
+              text-transform: uppercase;
+            }
           }
 
           &:hover {
@@ -76,6 +95,29 @@
             p {
               color: var(--brand-color);
             }
+          }
+        }
+
+        /* ad-hoc team-item > p handling for tall displays (mobile, tablets)*/
+        @media screen and (max-width: 900px) {
+          .team-item:nth-child(1) > p {
+            transform: translate(-50%, -50%) scaleY(3.2) scaleX(3.2);
+            font-size: 5rem;
+          }
+
+          .team-item:nth-child(2) > p {
+            transform: translate(-50%, -50%) scaleY(5.2) scaleX(3.2);
+            font-size: 3rem;
+          }
+
+          .team-item:nth-child(3) > p {
+            transform: translate(-50%, -50%) scaleY(8.2) scaleX(3.6);
+            font-size: 2rem;
+          }
+
+          .team-item:nth-child(4) > p {
+            transform: translate(-50%, -50%) scaleY(8.2) scaleX(3.6);
+            font-size: 2.5rem;
           }
         }
       }
