@@ -84,7 +84,7 @@
         justify-content: center;
         align-items: center;
         row-gap: 64px;
-        margin-top: 12vh;
+        margin-top: 13vh;
       }
     }
   }

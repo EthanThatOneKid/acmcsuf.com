@@ -47,7 +47,7 @@
 
   .term {
     position: relative;
-    z-index: 16;
+    z-index: 8;
     font-weight: 600;
     .option-box {
       position: absolute;
