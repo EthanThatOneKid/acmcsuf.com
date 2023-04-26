@@ -8,9 +8,12 @@
   import PositionList from './position-list.svelte';
   import { POSITIONS } from './data';
 
+  let expanded = false;
   function expandAll() {
     const positions = document.querySelectorAll('.position');
-    positions.forEach((el) => el.setAttribute('open', 'true'));
+    if (expanded === true) positions.forEach((el) => el.removeAttribute('open'));
+    else positions.forEach((el) => el.setAttribute('open', 'true'));
+    expanded = !expanded;
   }
 </script>
 
@@ -48,7 +51,7 @@
     <br />
     <br />
     <span class="center-btn" on:click={expandAll} on:keypress={expandAll}>
-      <Button text="Expand all!" />
+      <Button text={`${expanded ? 'Close all.' : 'Expand All!'}`} />
     </span>
   </p>
 </Block>
