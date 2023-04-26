@@ -1,19 +1,16 @@
 <script lang="ts">
+  import { slide } from 'svelte/transition';
   export let defaultValue = '';
   export let options: string[] = [];
 
   let currentValue: string = defaultValue;
   let active = false;
 
-  function toggleDropdown(ev: Event) {
-    ev.preventDefault();
-    ev.stopPropagation();
+  function toggleDropdown() {
     active = !active;
   }
 
-  function handleOption(ev: Event, term: string) {
-    ev.preventDefault();
-    ev.stopPropagation();
+  function handleOption(term: string) {
     currentValue = term;
     defaultValue = currentValue;
     active = false;
@@ -22,28 +19,40 @@
 
 <div class="term">
   <div class="option-box" class:active>
-    <div class="selected" on:click={toggleDropdown} on:keypress={toggleDropdown}>
+    <div class="selected" on:click|preventDefault={toggleDropdown} on:keypress={toggleDropdown}>
       {currentValue}
     </div>
 
-    <div class="option">
-      {#each options as optionValue (optionValue)}
-        <div
-          class="option-choice"
-          on:click={(ev) => handleOption(ev, optionValue)}
-          on:keypress={(ev) => handleOption(ev, optionValue)}
-        >
-          {optionValue}
-        </div>
-      {/each}
-    </div>
+    {#if active === true}
+      <div class="option" transition:slide>
+        {#each options as optionValue (optionValue)}
+          <div
+            class="option-choice"
+            on:click|preventDefault={() => handleOption(optionValue)}
+            on:keypress={() => handleOption(optionValue)}
+            class:pre-selected={currentValue == optionValue}
+          >
+            {optionValue}
+          </div>
+        {/each}
+      </div>
+    {/if}
   </div>
 </div>
 
 <style lang="scss">
+  .pre-selected {
+    opacity: 0.6;
+  }
+
   .term {
+    position: relative;
+    z-index: 16;
     font-weight: 600;
     .option-box {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
       flex-direction: column;
       display: flex;
       justify-content: center;
@@ -70,7 +79,6 @@
       }
       .option {
         cursor: pointer;
-        opacity: 0;
         transition: 0.25s ease-in-out;
 
         .option-choice {
@@ -78,7 +86,7 @@
           cursor: pointer;
           transition: 0.25s ease-in-out;
 
-          &:hover {
+          &:hover:not(.pre-selected) {
             color: var(--acm-blue);
           }
         }
@@ -91,7 +99,6 @@
       }
 
       & > .option {
-        opacity: 100%;
         background-color: var(--button-bg);
         padding: 8px 24px;
         margin-top: 0.2rem;
