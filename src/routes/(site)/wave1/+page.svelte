@@ -9,18 +9,42 @@
   import { POSITIONS } from './data';
 
   let expanded = false;
+
+  /**
+   * Expands or collapses all positions.
+   */
   function expandAll() {
     const positions = document.querySelectorAll('.position');
     let allOpen = true;
+    let allClose = false;
     positions.forEach((el) => {
       if (!el.hasAttribute('open')) {
         allOpen = false;
+        allClose = true;
       }
     });
     if (allOpen) expanded = true;
+    if (allClose) expanded = false;
     if (expanded) positions.forEach((el) => el.removeAttribute('open'));
     else positions.forEach((el) => el.setAttribute('open', 'true'));
     expanded = !expanded;
+  }
+
+  /**
+  Updates button text based on the status of the positions.
+  */
+  function updateStatus() {
+    // sleep to allow the browser to update the DOM?
+    setTimeout(() => {
+      const positions = document.querySelectorAll('.position');
+      let allOpen = true;
+      let allClose = true;
+      positions.forEach((el) => {
+        el.hasAttribute('open') ? (allClose = false) : (allOpen = false);
+      });
+      if (allOpen) expanded = true;
+      if (allClose) expanded = false;
+    }, 50);
   }
 </script>
 
@@ -64,7 +88,7 @@
 </Block>
 
 <section class="positions-container">
-  <div class="positions-container-inner">
+  <div class="positions-container-inner" on:click={updateStatus} on:keypress={updateStatus}>
     <PositionList data={POSITIONS} />
   </div>
 </section>
