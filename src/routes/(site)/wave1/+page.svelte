@@ -11,7 +11,7 @@
   let expanded = false;
   function expandAll() {
     const positions = document.querySelectorAll('.position');
-    if (expanded === true) positions.forEach((el) => el.removeAttribute('open'));
+    if (expanded) positions.forEach((el) => el.removeAttribute('open'));
     else positions.forEach((el) => el.setAttribute('open', 'true'));
     expanded = !expanded;
   }
