@@ -18,10 +18,7 @@
     let allOpen = true;
     let allClose = false;
     positions.forEach((el) => {
-      if (!el.hasAttribute('open')) {
-        allOpen = false;
-        allClose = true;
-      }
+      el.hasAttribute('open') ? (allClose = false) : (allOpen = false);
     });
     if (allOpen) expanded = true;
     if (allClose) expanded = false;
