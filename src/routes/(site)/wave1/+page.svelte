@@ -11,6 +11,13 @@
   let expanded = false;
   function expandAll() {
     const positions = document.querySelectorAll('.position');
+    let allOpen = true;
+    positions.forEach((el) => {
+      if (!el.hasAttribute('open')) {
+        allOpen = false;
+      }
+    });
+    if (allOpen) expanded = true;
     if (expanded) positions.forEach((el) => el.removeAttribute('open'));
     else positions.forEach((el) => el.setAttribute('open', 'true'));
     expanded = !expanded;
