@@ -23,7 +23,7 @@
       {currentValue}
     </div>
 
-    {#if active === true}
+    {#if active}
       <div class="option" transition:slide>
         {#each options as optionValue (optionValue)}
           <div
