@@ -10,21 +10,23 @@
 
   let expanded = false;
 
-  const updateState = ({isButton}: {isButton?: boolean}) => {
-    const positions = document.querySelectorAll('.position');
+  function updateState({ toggle } = { toggle: false }) {
+    const positions = document.querySelectorAll<HTMLDialogElement>('.position');
 
-    if (isButton) {
-      if (expanded) positions.forEach((el) => el.removeAttribute('open'));
-      else positions.forEach((el) => el.setAttribute('open', 'true'));
+    expanded = [...positions].every((el) => el.hasAttribute('open'));
+
+    if (toggle) {
+      togglePositions(expanded, positions);
+    }
+  }
+
+  function togglePositions(open: boolean, positions: NodeListOf<HTMLDetailsElement>) {
+    if (!open) {
+      positions.forEach((el) => el.removeAttribute('open'));
+      return;
     }
 
-    setTimeout(() => {
-      if ([...positions].every((el) => el.hasAttribute('open'))){
-        expanded = true;
-      } else { 
-        expanded = false; 
-      }
-    }, 0)
+    positions.forEach((el) => el.setAttribute('open', 'true'));
   }
 </script>
 
@@ -61,14 +63,22 @@
     Last updated April 24th, 2023
     <br />
     <br />
-    <span class="center-btn" on:click={() => updateState({isButton: true})} on:keypress={() => updateState({isButton: true})}>
+    <span
+      class="center-btn"
+      on:click={() => updateState({ toggle: true })}
+      on:keypress={() => updateState({ toggle: true })}
+    >
       <Button text={`${expanded ? 'Close all.' : 'Expand All!'}`} />
     </span>
   </p>
 </Block>
 
 <section class="positions-container">
-  <div class="positions-container-inner" on:click={() => updateState()} on:keypress={() => updateState()}>
+  <div
+    class="positions-container-inner"
+    on:click={() => updateState()}
+    on:keypress={() => updateState()}
+  >
     <PositionList data={POSITIONS} />
   </div>
 </section>
