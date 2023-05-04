@@ -10,32 +10,21 @@
 
   let expanded = false;
 
-  /**
-   * Expands or collapses all positions.
-   */
-  function expandAll() {
+  const updateState = ({isButton}: {isButton?: boolean}) => {
     const positions = document.querySelectorAll('.position');
-    if (expanded) {
-      positions.forEach((el) => el.removeAttribute('open'));
-    } else {
-      positions.forEach((el) => el.setAttribute('open', 'true'));
-    }
-    expanded = !expanded;
-  }
 
-  /**
-  Updates button text based on the status of the positions.
-  */
-  function updateStatus() {
-    // sleep to allow the browser to update the DOM
+    if (isButton) {
+      if (expanded) positions.forEach((el) => el.removeAttribute('open'));
+      else positions.forEach((el) => el.setAttribute('open', 'true'));
+    }
+
     setTimeout(() => {
-      const positions = document.querySelectorAll('.position');
       if ([...positions].every((el) => el.hasAttribute('open'))){
         expanded = true;
       } else { 
         expanded = false; 
       }
-    }, 0);
+    }, 0)
   }
 </script>
 
@@ -72,14 +61,14 @@
     Last updated April 24th, 2023
     <br />
     <br />
-    <span class="center-btn" on:click={expandAll} on:keypress={expandAll}>
+    <span class="center-btn" on:click={() => updateState({isButton: true})} on:keypress={() => updateState({isButton: true})}>
       <Button text={`${expanded ? 'Close all.' : 'Expand All!'}`} />
     </span>
   </p>
 </Block>
 
 <section class="positions-container">
-  <div class="positions-container-inner" on:click={updateStatus} on:keypress={updateStatus}>
+  <div class="positions-container-inner" on:click={() => updateState()} on:keypress={() => updateState()}>
     <PositionList data={POSITIONS} />
   </div>
 </section>
