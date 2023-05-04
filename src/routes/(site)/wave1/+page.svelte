@@ -15,15 +15,11 @@
    */
   function expandAll() {
     const positions = document.querySelectorAll('.position');
-    let allOpen = true;
-    let allClose = false;
-    positions.forEach((el) => {
-      el.hasAttribute('open') ? (allClose = false) : (allOpen = false);
-    });
-    if (allOpen) expanded = true;
-    if (allClose) expanded = false;
-    if (expanded) positions.forEach((el) => el.removeAttribute('open'));
-    else positions.forEach((el) => el.setAttribute('open', 'true'));
+    if (expanded) {
+      positions.forEach((el) => el.removeAttribute('open'));
+    } else {
+      positions.forEach((el) => el.setAttribute('open', 'true'));
+    }
     expanded = !expanded;
   }
 
@@ -31,17 +27,15 @@
   Updates button text based on the status of the positions.
   */
   function updateStatus() {
-    // sleep to allow the browser to update the DOM?
+    // sleep to allow the browser to update the DOM
     setTimeout(() => {
       const positions = document.querySelectorAll('.position');
-      let allOpen = true;
-      let allClose = true;
-      positions.forEach((el) => {
-        el.hasAttribute('open') ? (allClose = false) : (allOpen = false);
-      });
-      if (allOpen) expanded = true;
-      if (allClose) expanded = false;
-    }, 50);
+      if ([...positions].every((el) => el.hasAttribute('open'))){
+        expanded = true;
+      } else { 
+        expanded = false; 
+      }
+    }, 0);
   }
 </script>
 
