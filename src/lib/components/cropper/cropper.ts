@@ -1,14 +1,13 @@
 import Cropper from 'cropperjs';
 
-type CropHandler = (data: string) => void;
+type CropHandler = (canvas: HTMLCanvasElement) => void;
 
 export function makeCropper(img: HTMLImageElement, handleCrop: CropHandler) {
   const cropper = new Cropper(img, {
     aspectRatio: 1,
     crop() {
       const cnv = cropper.getCroppedCanvas(o);
-      const uri = cnv.toDataURL();
-      handleCrop(uri);
+      handleCrop(cnv);
     },
   });
 

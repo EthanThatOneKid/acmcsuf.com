@@ -1,21 +1,56 @@
 <script lang="ts">
   import { browser } from '$app/environment';
-  import BoardMember from '$lib/components/board-member/board-member.svelte';
   import { debounceable } from './debounce';
   import { makeCropper } from './cropper';
-  import TeamPicker from '../board-member/team-picker.svelte';
+  import BoardMember from '$lib/components/board-member/board-member.svelte';
 
   let input = '';
-  let output = debounceable('', 100);
+  let output = debounceable<null | HTMLCanvasElement>(null, 100);
 
   let c: Cropper;
   let img: HTMLImageElement;
-  let teamName = 'General';
-  let teamClass = 'acm-blue';
+  let link = '';
   let teamColor = '--var(--acm-general-rgb)';
 
-  function handleCrop(uri: string) {
-    $output = uri;
+  function handleCrop(canvas: HTMLCanvasElement) {
+    $output = canvas;
+  }
+
+  function handleSubmit() {
+    if ($output === null) {
+      console.error('No output canvas.');
+      return;
+    }
+
+    $output.toBlob(handleBlob, 'image/webp', 1);
+  }
+
+  async function handleBlob(blob: Blob | null) {
+    if (blob === null) {
+      console.error('No blob.');
+      return;
+    }
+
+    link = (await uploadFile(blob)).toString();
+  }
+
+  async function uploadFile(blob: Blob): Promise<URL> {
+    const formData = new FormData();
+    formData.append('file', blob, 'picture.webp');
+
+    // Upload to Discord.
+    const response = await fetch('https://discord-uploader.netlify.app/upload', {
+      method: 'POST',
+      body: formData,
+    });
+    const responseBody = await response.json();
+
+    // Parse link from Discord response.
+    if (responseBody?.attachments.length !== 1) {
+      throw new Error('Discord response does not contain exactly one attachment.');
+    }
+
+    return new URL(responseBody.attachments[0].proxy_url);
   }
 
   $: if (browser && img) {
@@ -31,10 +66,9 @@
     if (!f) return;
 
     const reader = new FileReader();
-    reader.addEventListener('load', (ev) => {
-      console.log({ ev });
-      if (typeof ev.target?.result === 'string') {
-        input = ev.target.result;
+    reader.addEventListener('load', (event) => {
+      if (typeof event.target?.result === 'string') {
+        input = event.target.result;
       }
     });
     reader.addEventListener('error', (e) => console.error(e));
@@ -42,8 +76,8 @@
     reader.readAsDataURL(f);
   }
 
-  function handleTeamChange(ev: CustomEvent) {
-    console.log({ ev });
+  function handleTeamChange(event: CustomEvent) {
+    console.log({ event });
   }
 </script>
 
@@ -57,21 +91,30 @@
 <input type="file" accept=".jpg, .jpeg, .png, .gif" on:change={handleInputChange} />
 
 {#if input}
-  <div class="cropper__container">
+  <div class="cropper-container">
     <img src={input} bind:this={img} alt="Cropper input value" class="cropper" />
-    <TeamPicker on:change={handleTeamChange} />
   </div>
 {/if}
 
 {#if $output}
-  <BoardMember src={$output} {teamClass} {teamName} {teamColor} />
+  <div class="output-container">
+    <p class="brand-em">Output:</p>
+    <BoardMember src={$output.toDataURL('image/webp')} {teamColor} />
+  </div>
+
+  <button on:click={handleSubmit}>Submit</button>
 {/if}
 
-<!-- TODO:
-- [ ] Add more controls for the cropper (e.g. reset, rotate, etc.)
-- [ ] Add a preview of the cropped image.
-- [ ] Add a save button to save the cropped WEBP image.
--->
+{#if link}
+  <div class="link-container">
+    <br />
+    <br />
+    <br />
+
+    <a class="brand-em" href={link} target="_blank" rel="noopener noreferrer"> Your link </a>
+  </div>
+{/if}
+
 <style>
   .cropper {
     display: block;
@@ -80,7 +123,7 @@
     max-width: 100%;
   }
 
-  .cropper__container {
+  .cropper-container {
     width: 200px;
     height: 200px;
     overflow: hidden;

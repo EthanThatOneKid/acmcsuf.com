@@ -7,24 +7,11 @@ TODO: Show board member preview.
   import BoardPicture from './board-picture.svelte';
 
   export let src: string;
-  export let teamName: string;
-  export let teamClass: string;
   export let teamColor: string;
-
-  let name = 'Board member';
-  let title = 'General board member';
-
-  $: titleHTML = teamName
-    ? title.replace(teamName, `<b class="${teamClass}">${teamName}</b>`)
-    : title;
 </script>
 
 <div class="board-member__container">
   <BoardPicture {src} color={teamColor} />
-  <div class="officer-placard">
-    <input type="text" bind:value={name} class="officer-name" />
-    <p class="officer-position">{@html titleHTML}</p>
-  </div>
 </div>
 
 <style lang="scss">
