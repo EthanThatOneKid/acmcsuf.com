@@ -2,6 +2,7 @@
   import { browser } from '$app/environment';
   import { debounceable } from './debounce';
   import { makeCropper } from './cropper';
+  import type Cropper from 'cropperjs';
   import BoardMember from '$lib/components/board-member/board-member.svelte';
 
   let input = '';
@@ -55,6 +56,7 @@
 
   $: if (browser && img) {
     c = makeCropper(img, handleCrop);
+    console.info(c);
   }
 
   type FileInputEvent = Event & {
@@ -63,7 +65,9 @@
 
   function handleInputChange(ev: FileInputEvent) {
     const { 0: f } = ev.currentTarget?.files ?? [];
-    if (!f) return;
+    if (!f) {
+      return;
+    }
 
     const reader = new FileReader();
     reader.addEventListener('load', (event) => {
@@ -74,10 +78,6 @@
     reader.addEventListener('error', (e) => console.error(e));
 
     reader.readAsDataURL(f);
-  }
-
-  function handleTeamChange(event: CustomEvent) {
-    console.log({ event });
   }
 </script>
 
