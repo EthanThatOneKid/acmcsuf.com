@@ -107,7 +107,7 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
   },
   {
     title: 'Game Dev Officer',
-    teamColor: 'var(--acm-foundry-rgb)',
+    teamColor: 'var(--acm-gamedev-rgb)',
     requirements: [
       li('Passion and interest in game development'),
       li('Strong communication and leadership'),

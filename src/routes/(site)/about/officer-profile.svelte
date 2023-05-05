@@ -31,7 +31,7 @@
     Dev: 'acm-bluer',
     AI: 'acm-emerald',
     Marketing: 'acm-red',
-    'Special Events': 'acm-yellow',
+    'Special Events': 'acm-lemon',
     nodebuds: 'brand-header',
   });
 
@@ -203,7 +203,8 @@
     &:hover .officer-image,
     input:checked[type='checkbox'] + .officer-3d-flipcard .officer-image {
       /* This hack stays until we can resolve #348. */
-      filter: brightness(130%) contrast(85%);
+      transform: scale(1.06) rotateZ(1.2deg);
+      transition: all 0.2 cubic-bezier(0.86, 0, 0.07, 1);
     }
 
     .officer-placard {

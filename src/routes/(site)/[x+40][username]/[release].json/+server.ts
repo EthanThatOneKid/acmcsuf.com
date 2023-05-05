@@ -37,7 +37,7 @@ function makeCertificateQuery(username: string, release: string) {
     name: 'acmcsuf.com',
 
     // User-provided parameters.
-    username: username,
+    username,
     release: release.toLowerCase() === LATEST ? 0 : release,
   };
 }

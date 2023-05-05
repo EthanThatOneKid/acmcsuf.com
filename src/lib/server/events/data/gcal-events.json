@@ -1,0 +1,250 @@
+[
+  {
+    "kind": "calendar#event",
+    "etag": "\"3356871400886000\"",
+    "id": "43g3mp9qvjrb82i89id8h75hb9",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=NDNnM21wOXF2anJiODJpODlpZDhoNzVoYjkgNzM4bG5pdDYzY3IybGhwN2p0ZHV2ajBjOWdAZw",
+    "created": "2023-03-09T00:56:03.000Z",
+    "updated": "2023-03-10T08:08:20.443Z",
+    "summary": "Algo Team",
+    "description": "Algo team meeting!\nACM_TEAM=algo",
+    "location": "CS 104",
+    "creator": {
+      "email": "acmcsufullerton@gmail.com"
+    },
+    "organizer": {
+      "email": "738lnit63cr2lhp7jtduvj0c9g@group.calendar.google.com",
+      "displayName": "acmCSUF Public Calendar",
+      "self": true
+    },
+    "start": {
+      "dateTime": "2023-01-01T15:00:00-07:00",
+      "timeZone": "America/Los_Angeles"
+    },
+    "end": {
+      "dateTime": "2023-01-01T16:00:00-07:00",
+      "timeZone": "America/Los_Angeles"
+    },
+    "iCalUID": "43g3mp9qvjrb82i89id8h75hb9@google.com",
+    "sequence": 3,
+    "eventType": "default"
+  },
+  {
+    "kind": "calendar#event",
+    "etag": "\"3356871290514000\"",
+    "id": "5g079702ncjk1hvj9olkcg50oi",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=NWcwNzk3MDJuY2prMWh2ajlvbGtjZzUwb2kgNzM4bG5pdDYzY3IybGhwN2p0ZHV2ajBjOWdAZw",
+    "created": "2023-03-09T00:56:11.000Z",
+    "updated": "2023-03-10T08:07:25.257Z",
+    "summary": "AI Team ",
+    "description": "AI Team Meeting!\nACM_TEAM=ai",
+    "location": "PLN 314",
+    "creator": {
+      "email": "acmcsufullerton@gmail.com"
+    },
+    "organizer": {
+      "email": "738lnit63cr2lhp7jtduvj0c9g@group.calendar.google.com",
+      "displayName": "acmCSUF Public Calendar",
+      "self": true
+    },
+    "start": {
+      "dateTime": "2023-01-01T11:00:00-07:00",
+      "timeZone": "America/Los_Angeles"
+    },
+    "end": {
+      "dateTime": "2023-01-01T12:00:00-07:00",
+      "timeZone": "America/Los_Angeles"
+    },
+    "iCalUID": "5g079702ncjk1hvj9olkcg50oi@google.com",
+    "sequence": 1,
+    "eventType": "default"
+  },
+  {
+    "kind": "calendar#event",
+    "etag": "\"3356871308088000\"",
+    "id": "1neu6en1qkldcgiqvsncv4a6qp",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=MW5ldTZlbjFxa2xkY2dpcXZzbmN2NGE2cXAgNzM4bG5pdDYzY3IybGhwN2p0ZHV2ajBjOWdAZw",
+    "created": "2023-01-01T00:56:17.000Z",
+    "updated": "2023-01-01T08:07:34.044Z",
+    "summary": "Design Team",
+    "description": "Design team meeting!\nACM_PATH=design",
+    "location": "TSU",
+    "creator": {
+      "email": "acmcsufullerton@gmail.com"
+    },
+    "organizer": {
+      "email": "738lnit63cr2lhp7jtduvj0c9g@group.calendar.google.com",
+      "displayName": "acmCSUF Public Calendar",
+      "self": true
+    },
+    "start": {
+      "dateTime": "2023-01-01T18:00:00-07:00",
+      "timeZone": "America/Los_Angeles"
+    },
+    "end": {
+      "dateTime": "2023-01-01T19:00:00-07:00",
+      "timeZone": "America/Los_Angeles"
+    },
+    "iCalUID": "1neu6en1qkldcgiqvsncv4a6qp@google.com",
+    "sequence": 1,
+    "eventType": "default"
+  },
+  {
+    "kind": "calendar#event",
+    "etag": "\"3356871321174000\"",
+    "id": "35o2r6sp309vh7jj8vvf209bcd",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=MzVvMnI2c3AzMDl2aDdqajh2dmYyMDliY2QgNzM4bG5pdDYzY3IybGhwN2p0ZHV2ajBjOWdAZw",
+    "created": "2023-03-09T00:56:22.000Z",
+    "updated": "2023-03-10T08:07:40.587Z",
+    "summary": "Dev Team",
+    "description": "Dev team meeting\nACM_TEAM=dev",
+    "location": "TSU",
+    "creator": {
+      "email": "acmcsufullerton@gmail.com"
+    },
+    "organizer": {
+      "email": "738lnit63cr2lhp7jtduvj0c9g@group.calendar.google.com",
+      "displayName": "acmCSUF Public Calendar",
+      "self": true
+    },
+    "start": {
+      "dateTime": "2023-01-01T13:00:00-07:00",
+      "timeZone": "America/Los_Angeles"
+    },
+    "end": {
+      "dateTime": "2023-01-01T14:00:00-07:00",
+      "timeZone": "America/Los_Angeles"
+    },
+    "iCalUID": "35o2r6sp309vh7jj8vvf209bcd@google.com",
+    "sequence": 1,
+    "eventType": "default"
+  },
+  {
+    "kind": "calendar#event",
+    "etag": "\"3356871339692000\"",
+    "id": "252ghr6oahnm3qf7re5kdm6vk3",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=MjUyZ2hyNm9haG5tM3FmN3JlNWtkbTZ2azMgNzM4bG5pdDYzY3IybGhwN2p0ZHV2ajBjOWdAZw",
+    "created": "2023-03-09T00:56:29.000Z",
+    "updated": "2023-03-10T08:07:49.846Z",
+    "summary": "Game Dev Team",
+    "description": "Game dev team meeting!\nACM_TEAM=gamedev",
+    "location": "CS 408",
+    "creator": {
+      "email": "acmcsufullerton@gmail.com"
+    },
+    "organizer": {
+      "email": "738lnit63cr2lhp7jtduvj0c9g@group.calendar.google.com",
+      "displayName": "acmCSUF Public Calendar",
+      "self": true
+    },
+    "start": {
+      "dateTime": "2023-01-01T15:30:00-07:00",
+      "timeZone": "America/Los_Angeles"
+    },
+    "end": {
+      "dateTime": "2023-01-01T15:30:00-07:00",
+      "timeZone": "America/Los_Angeles"
+    },
+    "iCalUID": "252ghr6oahnm3qf7re5kdm6vk3@google.com",
+    "sequence": 1,
+    "eventType": "default"
+  },
+  {
+    "kind": "calendar#event",
+    "etag": "\"3356871355570000\"",
+    "id": "517l7904b6jvbgq4u1vsg0ckd1",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=NTE3bDc5MDRiNmp2YmdxNHUxdnNnMGNrZDEgNzM4bG5pdDYzY3IybGhwN2p0ZHV2ajBjOWdAZw",
+    "created": "2023-03-09T00:57:34.000Z",
+    "updated": "2023-03-10T08:07:57.785Z",
+    "summary": "OSS Team",
+    "description": "Open source software team meeting!\nACM_TEAM=oss",
+    "location": "CS 302",
+    "creator": {
+      "email": "acmcsufullerton@gmail.com"
+    },
+    "organizer": {
+      "email": "738lnit63cr2lhp7jtduvj0c9g@group.calendar.google.com",
+      "displayName": "acmCSUF Public Calendar",
+      "self": true
+    },
+    "start": {
+      "dateTime": "2023-01-01T15:00:00-07:00",
+      "timeZone": "America/Los_Angeles"
+    },
+    "end": {
+      "dateTime": "2023-01-01T15:00:00-07:00",
+      "timeZone": "America/Los_Angeles"
+    },
+    "iCalUID": "517l7904b6jvbgq4u1vsg0ckd1@google.com",
+    "sequence": 1,
+    "eventType": "default"
+  },
+  {
+    "kind": "calendar#event",
+    "etag": "\"3356871373676000\"",
+    "id": "2a8mr9daj76buk44bka2q14a6v",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=MmE4bXI5ZGFqNzZidWs0NGJrYTJxMTRhNnYgNzM4bG5pdDYzY3IybGhwN2p0ZHV2ajBjOWdAZw",
+    "created": "2023-03-09T00:56:41.000Z",
+    "updated": "2023-03-10T08:08:06.838Z",
+    "summary": "General ACM",
+    "description": "ACM meeting",
+    "location": "CS 300",
+    "creator": {
+      "email": "acmcsufullerton@gmail.com"
+    },
+    "organizer": {
+      "email": "738lnit63cr2lhp7jtduvj0c9g@group.calendar.google.com",
+      "displayName": "acmCSUF Public Calendar",
+      "self": true
+    },
+    "start": {
+      "dateTime": "2023-01-01T15:00:00-07:00",
+      "timeZone": "America/Los_Angeles"
+    },
+    "end": {
+      "dateTime": "2023-01-01T15:00:00-07:00",
+      "timeZone": "America/Los_Angeles"
+    },
+    "iCalUID": "2a8mr9daj76buk44bka2q14a6v@google.com",
+    "sequence": 1,
+    "eventType": "default"
+  },
+  {
+    "kind": "calendar#event",
+    "etag": "\"3356871388634000\"",
+    "id": "36q79t0ejjssijgp3v2nte3o4s",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=MzZxNzl0MGVqanNzaWpncDN2Mm50ZTNvNHMgNzM4bG5pdDYzY3IybGhwN2p0ZHV2ajBjOWdAZw",
+    "created": "2023-03-09T00:57:40.000Z",
+    "updated": "2023-03-10T08:08:14.317Z",
+    "summary": "ICPC Team",
+    "description": "ICPC Competition!\nACM_TEAM=icpc",
+    "location": "Riverside City College, 4800 Magnolia Ave, Riverside, CA 92506, USA",
+    "creator": {
+      "email": "acmcsufullerton@gmail.com"
+    },
+    "organizer": {
+      "email": "738lnit63cr2lhp7jtduvj0c9g@group.calendar.google.com",
+      "displayName": "acmCSUF Public Calendar",
+      "self": true
+    },
+    "start": {
+      "dateTime": "2023-01-01T15:00:00-07:00",
+      "timeZone": "America/Los_Angeles"
+    },
+    "end": {
+      "dateTime": "2023-01-01T15:00:00-07:00",
+      "timeZone": "America/Los_Angeles"
+    },
+    "iCalUID": "36q79t0ejjssijgp3v2nte3o4s@google.com",
+    "sequence": 1,
+    "eventType": "default"
+  }
+]

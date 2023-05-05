@@ -4,6 +4,7 @@
 name: Website Check
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
   pull_request:
@@ -20,16 +21,16 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up SvelteKit on Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
       - name: Cache Dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -45,16 +46,34 @@ jobs:
       - name: Svelte check
         run: npm run check
 
-      # checks for lint errors AND format errors
+      - name: Format
+        run: npm run format && git diff --exit-code
+
       - name: Lint
         run: npm run lint && git diff --exit-code
 
-      - name: npx playwright install
+      - name: Vitest tests
+        run: npm t
+
+      - name: Playwright install
         run: npx playwright install
 
-      - name: Test
-        run: npm t
+      - name: Playwright tests
+        run: npm run test:browser
 
       # info: https://etok.codes/acmcsuf.com/blob/main/CONTRIBUTING.md#npm-bloat
       - name: Test Dependency Size
         run: npm run test:size
+
+      - name: Transform Genuary Check Changes
+        id: transform-genuary-check-changes
+        run: |
+          if git diff --exit-code --quiet scripts/transform-genuary; then
+            echo "updated=0" >> $GITHUB_OUTPUT;
+          else
+            echo "updated=1" >> $GITHUB_OUTPUT;
+          fi
+
+      - name: Test Transform Genuary
+        if: steps.transform-genuary-check-changes.outputs.updated == 1
+        run: node scripts/transform-genuary/test.js
