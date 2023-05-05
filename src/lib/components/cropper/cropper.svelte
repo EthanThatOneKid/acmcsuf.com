@@ -10,9 +10,9 @@
 
   let c: Cropper;
   let img: HTMLImageElement;
-  let teamName: string = 'General';
-  let teamClass: string = 'acm-blue';
-  let teamColor: string = '--var(--acm-general-rgb)';
+  let teamName = 'General';
+  let teamClass = 'acm-blue';
+  let teamColor = '--var(--acm-general-rgb)';
 
   function handleCrop(uri: string) {
     $output = uri;

@@ -85,13 +85,13 @@ export function computeCroppedArea(crop, imgSize, cropSize, aspect, zoom, restri
   // Otherwise, we compute the height from width and aspect.
   const sizePixels = isImgWiderThanHigh
     ? {
-        width: Math.round(heightInPixels * aspect),
-        height: heightInPixels,
-      }
+      width: Math.round(heightInPixels * aspect),
+      height: heightInPixels,
+    }
     : {
-        width: widthInPixels,
-        height: Math.round(widthInPixels / aspect),
-      };
+      width: widthInPixels,
+      height: Math.round(widthInPixels / aspect),
+    };
   const croppedAreaPixels = {
     ...sizePixels,
     x: limitAreaFn(
