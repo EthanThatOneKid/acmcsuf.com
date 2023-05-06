@@ -23,12 +23,12 @@
         CSUF!
       </span>
     </p>
-    <p>ACM at CSUF board member instructions.</p>
+    <p>ACM at CSUF board member instructions:</p>
     <ol class="board-instructions">
       <li>Upload your headshot.</li>
       <li>Drag the crop box to your liking.</li>
       <li>Copy the image link to your clipboard.</li>
-      <li>Open Discord and navigate to the #boardify channel.</li>
+      <li>Go to the ACM at CSUF Discord server.</li>
       <li>Execute slash command: <code>{`/boardd picture="[PASTE_URL]"`}</code></li>
     </ol>
   </div>
