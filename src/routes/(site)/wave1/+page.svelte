@@ -1,20 +1,53 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import { MetaTags } from 'svelte-meta-tags';
   import Block from '$lib/components/block/block.svelte';
   import Button from '$lib/components/button/button.svelte';
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import { TextAlignment } from '$lib/public/text-alignment/text-alignment';
-
   import PositionList from './position-list.svelte';
   import { POSITIONS } from './data';
 
+  /**
+   * positions is the list of position elements.
+   */
+  let positions: HTMLDialogElement[] | null = null;
+
+  /**
+   * expanded is true when every position is open.
+   */
   let expanded = false;
-  function expandAll() {
-    const positions = document.querySelectorAll('.position');
-    if (expanded) positions.forEach((el) => el.removeAttribute('open'));
-    else positions.forEach((el) => el.setAttribute('open', 'true'));
-    expanded = !expanded;
+
+  /**
+   * checkExpanded tests whether a set of positions are expanded.
+   */
+  function checkExpanded() {
+    expanded = positions !== null && positions.every((el) => el.hasAttribute('open'));
   }
+
+  /**
+   * action is done each time the user clicks the primary button.
+   */
+  function action() {
+    if (positions === null) {
+      return;
+    }
+
+    // Defers checkExpanded for after this function is called,
+    // no matter the path this function continues to take.
+    setTimeout(checkExpanded);
+
+    if (expanded) {
+      positions.forEach((el) => el.removeAttribute('open'));
+      return;
+    }
+
+    positions.forEach((el) => el.setAttribute('open', 'true'));
+  }
+
+  onMount(() => {
+    positions = [...document.querySelectorAll<HTMLDialogElement>('.position')];
+  });
 </script>
 
 <svelte:head>
@@ -50,14 +83,18 @@
     Last updated April 24th, 2023
     <br />
     <br />
-    <span class="center-btn" on:click={expandAll} on:keypress={expandAll}>
+    <span class="center-btn" on:click={action} on:keypress={action}>
       <Button text={`${expanded ? 'Close all.' : 'Expand All!'}`} />
     </span>
   </p>
 </Block>
 
 <section class="positions-container">
-  <div class="positions-container-inner">
+  <div
+    class="positions-container-inner"
+    on:click={() => setTimeout(checkExpanded)}
+    on:keypress={() => setTimeout(checkExpanded)}
+  >
     <PositionList data={POSITIONS} />
   </div>
 </section>
