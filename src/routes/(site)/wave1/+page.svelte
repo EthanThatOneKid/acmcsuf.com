@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { browser } from '$app/environment';
+  import { onMount } from "svelte";
   import { MetaTags } from 'svelte-meta-tags';
   import Block from '$lib/components/block/block.svelte';
   import Button from '$lib/components/button/button.svelte';
@@ -12,9 +12,6 @@
    * positions is the list of position elements.
    */
   let positions: HTMLDialogElement[] | null = null;
-  $: if (browser) {
-    positions = [...document.querySelectorAll<HTMLDialogElement>('.position')];
-  }
 
   /**
    * expanded is true when every position is open.
@@ -48,6 +45,10 @@
 
     positions.forEach((el) => el.setAttribute('open', 'true'));
   }
+
+  onMount(() => {
+    positions = [...document.querySelectorAll<HTMLDialogElement>('.position')];
+  })
 </script>
 
 <svelte:head>
