@@ -11,9 +11,9 @@
   /**
    * positions is the list of position elements.
    */
-  let positions: NodeListOf<HTMLDialogElement> | null = null;
+  let positions: HTMLDialogElement[] | null = null;
   $: if (browser) {
-    positions = document.querySelectorAll('.position');
+    positions = [...document.querySelectorAll<HTMLDialogElement>('.position')];
   }
 
   /**
@@ -25,7 +25,7 @@
    * checkExpanded tests whether a set of positions are expanded.
    */
   function checkExpanded() {
-    expanded = positions !== null && [...positions].every((el) => el.hasAttribute('open'));
+    expanded = positions !== null && positions.every((el) => el.hasAttribute('open'));
   }
 
   /**
@@ -36,14 +36,17 @@
       return;
     }
 
+    // Defers checkExpanded for after this function is called,
+    // no matter the path this function continues to take.
+    setTimeout(checkExpanded);
+
     if (expanded) {
       positions.forEach((el) => el.removeAttribute('open'));
-      checkExpanded();
+
       return;
     }
 
     positions.forEach((el) => el.setAttribute('open', 'true'));
-    checkExpanded();
   }
 </script>
 
