@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount } from 'svelte';
   import { MetaTags } from 'svelte-meta-tags';
   import Block from '$lib/components/block/block.svelte';
   import Button from '$lib/components/button/button.svelte';
@@ -39,7 +39,6 @@
 
     if (expanded) {
       positions.forEach((el) => el.removeAttribute('open'));
-
       return;
     }
 
@@ -48,7 +47,7 @@
 
   onMount(() => {
     positions = [...document.querySelectorAll<HTMLDialogElement>('.position')];
-  })
+  });
 </script>
 
 <svelte:head>
