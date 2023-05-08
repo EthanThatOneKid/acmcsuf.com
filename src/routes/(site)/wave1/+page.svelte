@@ -1,32 +1,49 @@
 <script lang="ts">
+  import { browser } from '$app/environment';
   import { MetaTags } from 'svelte-meta-tags';
   import Block from '$lib/components/block/block.svelte';
   import Button from '$lib/components/button/button.svelte';
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import { TextAlignment } from '$lib/public/text-alignment/text-alignment';
-
   import PositionList from './position-list.svelte';
   import { POSITIONS } from './data';
 
-  let expanded = false;
-
-  function updateState({ toggle } = { toggle: false }) {
-    const positions = document.querySelectorAll<HTMLDialogElement>('.position');
-
-    expanded = [...positions].every((el) => el.hasAttribute('open'));
-
-    if (toggle) {
-      togglePositions(expanded, positions);
-    }
+  /**
+   * positions is the list of position elements.
+   */
+  let positions: NodeListOf<HTMLDialogElement> | null = null;
+  $: if (browser) {
+    positions = document.querySelectorAll('.position');
   }
 
-  function togglePositions(open: boolean, positions: NodeListOf<HTMLDetailsElement>) {
-    if (!open) {
+  /**
+   * expanded is true when every position is open.
+   */
+  let expanded = false;
+
+  /**
+   * checkExpanded tests whether a set of positions are expanded.
+   */
+  function checkExpanded() {
+    expanded = positions !== null && [...positions].every((el) => el.hasAttribute('open'));
+  }
+
+  /**
+   * action is done each time the user clicks the primary button.
+   */
+  function action() {
+    if (positions === null) {
+      return;
+    }
+
+    if (expanded) {
       positions.forEach((el) => el.removeAttribute('open'));
+      checkExpanded();
       return;
     }
 
     positions.forEach((el) => el.setAttribute('open', 'true'));
+    checkExpanded();
   }
 </script>
 
@@ -63,11 +80,7 @@
     Last updated April 24th, 2023
     <br />
     <br />
-    <span
-      class="center-btn"
-      on:click={() => updateState({ toggle: true })}
-      on:keypress={() => updateState({ toggle: true })}
-    >
+    <span class="center-btn" on:click={action} on:keypress={action}>
       <Button text={`${expanded ? 'Close all.' : 'Expand All!'}`} />
     </span>
   </p>
@@ -76,8 +89,8 @@
 <section class="positions-container">
   <div
     class="positions-container-inner"
-    on:click={() => updateState()}
-    on:keypress={() => updateState()}
+    on:click={() => setTimeout(checkExpanded)}
+    on:keypress={() => setTimeout(checkExpanded)}
   >
     <PositionList data={POSITIONS} />
   </div>
