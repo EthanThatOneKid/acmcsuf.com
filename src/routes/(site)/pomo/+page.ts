@@ -2,10 +2,9 @@ import type { PageLoadEvent } from './$types';
 import type { GetPomoOutput } from 'pomo/src/server/pomo/types';
 import { DEFAULT_PATTERNS } from './patterns';
 
-export async function load({ fetch, url, depends }: PageLoadEvent) {
+export async function load({ fetch, url }: PageLoadEvent) {
   const target = makePomoJsonUrl(url);
   const response = await fetch(target);
-  depends('app:pomo');
   const pomoOutput = (await response.json()) as GetPomoOutput;
   return { pomoOutput };
 }

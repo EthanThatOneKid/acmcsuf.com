@@ -6,7 +6,7 @@
   import { format } from 'pomo';
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import Block from '$lib/components/block/block.svelte';
-  import { invalidate } from '$app/navigation';
+  import { invalidateAll } from '$app/navigation';
 
   export let data: PageData;
 
@@ -40,7 +40,7 @@
     formattedTime = format(timeout, timeFmt);
     if (timeout === 0) {
       cancelAnimationFrame(animationID);
-      invalidate('app:pomo');
+      invalidateAll().then(console.log).catch(console.log);
       return;
     }
 
@@ -126,7 +126,7 @@
   }
 
   a:hover {
-    background-color: var(--acm-blue);
+    background-color: var(--acm-redder);
   }
 
   .active {
@@ -163,10 +163,10 @@
   .gif {
     width: 190px;
     height: 140px;
-    background-image: url('./img/character.gif');
+    background-image: url('/assets/pomo/character.gif');
     background-size: cover;
     animation-name: slide;
-    animation-duration: 4s;
+    animation-duration: 6s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: normal;
