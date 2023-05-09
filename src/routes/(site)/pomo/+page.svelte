@@ -9,6 +9,7 @@
   import { invalidateAll } from '$app/navigation';
 
   export let data: PageData;
+  $: pomoOutput = data.pomoOutput;
 
   let patternID = '20-5-10';
   let timeFmt = 'HH:mm:ss';
@@ -21,7 +22,7 @@
   $: patternID = $page.url.searchParams.get('id') || patternID;
   $: timeFmt = $page.url.searchParams.get('fmt') || timeFmt;
   $: formattedTime = format(timeout, timeFmt);
-  $: patterns = Object.keys(data.pomoOutput).map((id) => {
+  $: patterns = Object.keys(pomoOutput).map((id) => {
     if (id === patternID) {
       return [id, '#'];
     }
@@ -33,10 +34,7 @@
   function animate() {
     timestamp = getClientTimestamp();
     elapsed = timestamp - referenceTimestamp;
-    timeout =
-      elapsed < data.pomoOutput[patternID].timeout
-        ? data.pomoOutput[patternID].timeout - elapsed
-        : 0;
+    timeout = elapsed < pomoOutput[patternID].timeout ? pomoOutput[patternID].timeout - elapsed : 0;
     formattedTime = format(timeout, timeFmt);
     if (timeout === 0) {
       cancelAnimationFrame(animationID);
@@ -91,8 +89,6 @@
         <p class="work-period name"><i>Current pattern: {patternID}</i></p>
       </div>
     </time>
-
-    <!-- <pre> {JSON.stringify(data, null, 2)} </pre> -->
   </section>
 </div>
 
