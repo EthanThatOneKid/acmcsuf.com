@@ -37,7 +37,6 @@
     timeout = elapsed < pomoOutput[patternID].timeout ? pomoOutput[patternID].timeout - elapsed : 0;
     formattedTime = format(timeout, timeFmt);
     if (timeout === 0) {
-      cancelAnimationFrame(animationID);
       invalidateAll().then(console.log).catch(console.log);
       return;
     }
@@ -70,7 +69,6 @@
 
 <div class="timer-container">
   <section>
-    <button id="menu" style="display: none">Menu</button>
     <div class="button-container">
       <ul>
         {#each patterns as [id, href] (id)}
@@ -82,11 +80,13 @@
     </div>
 
     <time class="size-md timer">
-      <div class="entire">
-        <div class="time">
+      <div class="timer-container">
+        <div class="timer-text">
           {formattedTime}
         </div>
-        <p class="work-period name"><i>Current pattern: {patternID}</i></p>
+        <p>Current pattern: {patternID}</p>
+        <p>Right now: {#if pomoOutput[patternID].work}Work{:else}Break{/if}</p>
+        <p>Next up: {#if pomoOutput[patternID].work}Break{:else}Work{/if}</p>
       </div>
     </time>
   </section>
@@ -134,7 +134,7 @@
     margin: 1rem;
   }
 
-  time .entire {
+  time .timer-container {
     text-align: center;
     background-color: var(--acm-sky);
     margin: 3rem 4rem;
@@ -142,7 +142,7 @@
     border-radius: 1rem;
   }
 
-  time .time {
+  time .timer-text {
     display: flex;
     justify-content: center;
     font-size: var(--size-xxl);
@@ -152,8 +152,8 @@
     background-color: var(--acm-blue);
   }
 
-  .work-period {
-    font-size: var(--size-xl);
+  .timer-container p {
+    font-size: var(--size-lg);
     margin-top: 2rem;
   }
 
@@ -185,7 +185,7 @@
   }
 
   @media screen and (min-width: 740px) {
-    time .entire {
+    time .timer-container {
       width: 50%;
       margin: auto;
     }
