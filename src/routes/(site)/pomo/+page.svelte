@@ -168,6 +168,12 @@
     animation-direction: normal;
   }
 
+  @media (prefers-reduced-motion) {
+    .gif {
+      display: none;
+    }
+  }
+
   @keyframes slide {
     0% {
       transform: translateX(-40vw);
