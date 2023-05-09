@@ -1,0 +1,107 @@
+{
+  "guild_id": "710225099923521558",
+  "guild_name": "acmCSUF",
+  "channel_names": {
+    "1055678461643063296": "1 Perfect loop  Infinite loop  endless GIFs",
+    "1055679604775465001": "2 Made in 10 minutes",
+    "1055679808719302657": "3 Glitch art",
+    "1055679922707898429": "4 Intersections",
+    "1055679994073980938": "5 Debug view",
+    "1055680102140231751": "6 Steal like an artist",
+    "1055680245740605450": "7 Sample a color palette from your favorite movie or album cover",
+    "1055680591284150362": "8 Signed distance functions",
+    "1055683410619793488": "9 Plants",
+    "1055683785544450071": "10 Generative music",
+    "1055684466997207111": "11 Suprematism",
+    "1055684665329066055": "12 Tessellation",
+    "1055685460841726002": "13 Something you've always wanted to learn",
+    "1055685593784393789": "14 Aesemic",
+    "1055686307403268126": "15 Sine waves",
+    "1055686490333651004": "16 Reflection of a reflection",
+    "1055686569480167494": "17 A grid inside a grid inside a grid",
+    "1055686801370648618": "18 Definitely not a grid",
+    "1055686878101245953": "19 Black and white",
+    "1055686946317418577": "20 Art Deco",
+    "1055687712650297365": "21 Persian rug",
+    "1055687861762015293": "22 Shadows",
+    "1055688529285492827": "23 More Moiré",
+    "1055688645698404432": "24 Textile",
+    "1055688779345698906": "25 Yayoi Kusama",
+    "1055688868474671216": "26 My kid could have made that",
+    "1055689161182548019": "27 In the style of Hilma Af Klint",
+    "1055689244468854834": "28 Generative poetry",
+    "1055689304338346064": "29 Maximalism",
+    "1055689379592548393": "30 Minimalism",
+    "1055689602561757184": "31 Deliberately break one of your previous images",
+    "1056111498910511135": "Reference"
+  },
+  "authors": {
+    "1011054407560994876": {
+      "name": "sama#0386",
+      "id": "1011054407560994876",
+      "avatar": "https://cdn.discordapp.com/avatars/1011054407560994876/99fef939828ef64ce3d6b97e156927c7.png"
+    },
+    "260901399729012736": {
+      "name": "EthanThatOneKid#3456",
+      "id": "260901399729012736",
+      "avatar": "https://cdn.discordapp.com/avatars/260901399729012736/35bc87750c2f4ab1886b6ed8a199654a.png"
+    },
+    "268909280160120833": {
+      "name": "Angus#7980",
+      "id": "268909280160120833",
+      "avatar": "https://cdn.discordapp.com/avatars/268909280160120833/5da1c7373baed3acab4a65c9b62b45ac.png"
+    },
+    "268934031989538817": {
+      "name": "부미#8525",
+      "id": "268934031989538817",
+      "avatar": "https://cdn.discordapp.com/avatars/268934031989538817/e6097080e7905565eff4a92729152193.png"
+    },
+    "305390566693404673": {
+      "name": "ToxicPoison#0656",
+      "id": "305390566693404673",
+      "avatar": "https://cdn.discordapp.com/avatars/305390566693404673/dfd6db411264f7ea5955b10343526698.png"
+    },
+    "316384186573520898": {
+      "name": "jiink#6249",
+      "id": "316384186573520898",
+      "avatar": "https://cdn.discordapp.com/avatars/316384186573520898/d7391adeb19bcf31cf0f1ea05e87d294.png"
+    },
+    "619385101473677312": {
+      "name": "HallowsYves#4728",
+      "id": "619385101473677312",
+      "avatar": "https://cdn.discordapp.com/avatars/619385101473677312/40d1d6945c943681751edbbd9fd55492.png"
+    },
+    "869320557672423455": {
+      "name": "Karbas#0001",
+      "id": "869320557672423455",
+      "avatar": "https://cdn.discordapp.com/avatars/869320557672423455/6316de9f278e12541d9f2676b9e1c708.png"
+    }
+  },
+  "pins": [
+    {
+      "channel_id": "1055680245740605450",
+      "timestamp": "2023-01-08T05:22:30.491Z",
+      "author_id": "268934031989538817",
+      "text": "I wanted to do like pokemon esc cards but with Harry Potter. I didnt have time to finish up the weird bug (when you flip the card its like flipped with it LOL). Too lazy to do other cards.",
+      "attachments": [
+        {
+          "id": "1061515218653548564",
+          "filename": "Screen_Recording_2023-01-07_at_9.20.04_PM.mov",
+          "content_type": "video/quicktime",
+          "size": 29223341,
+          "url": "https://cdn.discordapp.com/attachments/1055680245740605450/1061515218653548564/Screen_Recording_2023-01-07_at_9.20.04_PM.mov",
+          "proxy_url": "https://media.discordapp.net/attachments/1055680245740605450/1061515218653548564/Screen_Recording_2023-01-07_at_9.20.04_PM.mov",
+          "height": 1454,
+          "width": 2222
+        }
+      ]
+    },
+    {
+      "channel_id": "1055688529285492827",
+      "timestamp": "2023-01-26T20:38:11.572Z",
+      "author_id": "316384186573520898",
+      "text": "https://i.imgur.com/80nIby9.mp4",
+      "attachments": []
+    }
+  ]
+}
