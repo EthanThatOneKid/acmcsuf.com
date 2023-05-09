@@ -31,7 +31,7 @@
         on:click={(ev) => {
           ev.preventDefault();
           copy(
-            makeBlogPostPageUrl(post.id),
+            "https://acmcsuf.com/" + makeBlogPostPageUrl(post.id),
             'Copied post link to clipboard!',
             'Failed to copy post link to clipboard!',
             'general'
