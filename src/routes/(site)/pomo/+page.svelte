@@ -146,6 +146,7 @@
     display: flex;
     justify-content: center;
     font-size: var(--size-xxl);
+    font-family: monospace;
     padding: 3rem;
     border-radius: 1rem;
     background-color: var(--acm-blue);
