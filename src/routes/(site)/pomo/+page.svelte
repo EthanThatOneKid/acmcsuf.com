@@ -201,7 +201,7 @@
     .button-container ul {
       flex-direction: column;
       text-align: center;
-  }
+    }
     time .timer-container {
       width: 70%;
     }
