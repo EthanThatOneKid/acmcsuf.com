@@ -73,7 +73,7 @@
   <Block>
     <h1 slot="headline" class="size-xl">🍅 Pomodomo Timer</h1>
   </Block>
-  <p>📝 Use the appropriate timer slots to start studying! 📚</p>
+  <p>📝 Select a pomo pattern and start studying! 📚</p>
 </div>
 
 <div class="timer-container">
@@ -106,6 +106,7 @@
 </div>
 
 <Spacing --min="40px" --med="95px" --max="120px" />
+
 <div class="gif" />
 
 <style lang="scss">
