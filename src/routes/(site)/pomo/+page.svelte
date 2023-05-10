@@ -6,38 +6,34 @@
   import { format } from 'pomo';
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import Block from '$lib/components/block/block.svelte';
-  import { invalidateAll } from '$app/navigation';
 
   export let data: PageData;
-  $: pomoOutput = data.pomoOutput;
 
-  let patternID = '20-5-10';
-  let timeFmt = 'HH:mm:ss';
-  let timestamp: number;
-  let referenceTimestamp: number;
+  let patternID = '20-5-10'; // TODO: Optimistically set to URL search param.
+  let timeFmt = 'HH:mm:ss';  // TODO: Optimistically set to URL search param.
+  let timeout: Duration = data.pomoOutput[patternID].timeout;
+  let initialTimestamp: number;
+  let currentTimestamp: number;
   let animationID: number;
-  let timeout: Duration;
-  let elapsed: Duration = 0;
+   let elapsed: Duration = 0;
 
   $: patternID = $page.url.searchParams.get('id') || patternID;
   $: timeFmt = $page.url.searchParams.get('fmt') || timeFmt;
   $: formattedTime = format(timeout, timeFmt);
-  $: patterns = Object.keys(pomoOutput).map((id) => {
+  $: patterns = Object.keys(data.pomoOutput).map((id) => {
     if (id === patternID) {
       return [id, '#'];
     }
+
     const destination = new URL($page.url);
     destination.searchParams.set('id', id);
     return [id, destination.toString()];
   });
 
   function animate() {
-    timestamp = getClientTimestamp();
-    elapsed = timestamp - referenceTimestamp;
-    timeout = elapsed < pomoOutput[patternID].timeout ? pomoOutput[patternID].timeout - elapsed : 0;
-    formattedTime = format(timeout, timeFmt);
+    updateCurrentTimestamp();
     if (timeout === 0) {
-      invalidateAll().then(console.log).catch(console.log);
+      location.reload();
       return;
     }
 
@@ -45,13 +41,20 @@
   }
 
   onMount(() => {
-    referenceTimestamp = getClientTimestamp();
+    updateReferenceTimestamp();
     animationID = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationID);
   });
 
-  function getClientTimestamp(): number {
-    return new Date().getTime();
+  function updateReferenceTimestamp():void {
+    initialTimestamp = new Date().getTime();
+  }
+
+  function updateCurrentTimestamp():void {
+    currentTimestamp=new Date().getTime();
+    elapsed = currentTimestamp - initialTimestamp;
+    timeout = elapsed < data.pomoOutput[patternID].timeout ? data.pomoOutput[patternID].timeout - elapsed : 0;
+    formattedTime = format(timeout, timeFmt);
   }
 </script>
 
@@ -85,8 +88,8 @@
           {formattedTime}
         </div>
         <p>Current pattern: {patternID}</p>
-        <p>Right now: {#if pomoOutput[patternID].work}Work{:else}Break{/if}</p>
-        <p>Next up: {#if pomoOutput[patternID].work}Break{:else}Work{/if}</p>
+        <p>Right now: {#if data.pomoOutput[patternID].work}Work{:else}Break{/if}</p>
+        <p>Next up: {#if data.pomoOutput[patternID].work}Break{:else}Work{/if}</p>
       </div>
     </time>
   </section>
