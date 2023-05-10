@@ -171,11 +171,6 @@
     background-color: var(--acm-blue);
   }
 
-  .timer-container p {
-    font-size: var(--size-lg);
-    margin-top: 2rem;
-  }
-
   .gif {
     width: 190px;
     height: 140px;
