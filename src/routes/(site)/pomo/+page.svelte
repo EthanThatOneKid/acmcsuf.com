@@ -71,9 +71,9 @@
 <Spacing --min="175px" --med="200px" --max="200px" />
 <div class="title-container">
   <Block>
-    <h1 slot="headline" class="size-xl">🍅 Pomodomo Timer</h1>
+    <h1 slot="headline" class="size-xl">🍅 Pomodoro Timer</h1>
   </Block>
-  <p>📝 Select a pomo pattern and start studying! 📚</p>
+  <p>📝Select a pomo pattern to begin studying!</p>
 </div>
 
 <div class="timer-container">
@@ -93,13 +93,13 @@
         <div class="timer-text">
           {formattedTime}
         </div>
-        <p>Current pattern: {patternID}</p>
-        <p>
+        <span>Current pattern: {patternID}</span>
+        <span>
           Right now: {#if data.pomoOutput[patternID].work}Work{:else}Break{/if}
-        </p>
-        <p>
+        </span>
+        <span>
           Next up: {#if data.pomoOutput[patternID].work}Break{:else}Work{/if}
-        </p>
+        </span>
       </div>
     </time>
   </section>
@@ -121,6 +121,7 @@
   .button-container ul {
     display: flex;
     justify-content: center;
+    flex-direction: row;
     list-style: none;
     margin: 2rem;
     gap: 3rem;
@@ -133,7 +134,6 @@
     border-radius: 50rem;
     background-color: var(--acm-bluer);
     text-decoration: none;
-    display: block;
     text-align: center;
   }
 
@@ -145,7 +145,10 @@
     background-color: var(--acm-red);
   }
 
+  span,
   p {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     margin: 1rem;
   }
@@ -195,6 +198,10 @@
   }
 
   @media screen and (max-width: 600px) {
+    .button-container ul {
+      flex-direction: column;
+      text-align: center;
+  }
     time .timer-container {
       width: 70%;
     }
