@@ -121,13 +121,13 @@
   .button-container ul {
     display: flex;
     justify-content: center;
-    flex-direction: row;
     list-style: none;
     margin: 2rem;
-    gap: 3rem;
+    gap: 2rem;
   }
 
   a {
+    display: inline-block;
     font-size: var(--size-lg);
     padding: 1rem 2rem;
     cursor: pointer;
@@ -135,6 +135,7 @@
     background-color: var(--acm-bluer);
     text-decoration: none;
     text-align: center;
+    width: 150px;
   }
 
   a:hover {
@@ -156,7 +157,7 @@
   time .timer-container {
     text-align: center;
     background-color: var(--acm-sky);
-    width: 50%;
+    width: 40%;
     padding: 1rem;
     border-radius: 1rem;
     margin: 0 auto;
@@ -192,11 +193,18 @@
     }
   }
 
+  @media screen and (max-width: 1000px) {
+    time .timer-container {
+      width: 50%;
+    }
+  }
   @media screen and (max-width: 600px) {
     .button-container ul {
       flex-direction: column;
       text-align: center;
+      gap: 1rem;
     }
+
     time .timer-container {
       width: 70%;
     }
