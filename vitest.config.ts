@@ -6,7 +6,7 @@ export default mergeConfig(
   viteConfig,
   defineConfig({
     test: {
-      exclude: [...configDefaults.exclude, 'src/routes/**'],
+      exclude: [...configDefaults.exclude, 'src/routes/**/{page,error}.test.ts'],
     },
   })
 );
