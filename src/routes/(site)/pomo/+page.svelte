@@ -182,6 +182,8 @@
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: normal;
+    position: relative;
+    bottom: 0;
   }
 
   @keyframes slide {
