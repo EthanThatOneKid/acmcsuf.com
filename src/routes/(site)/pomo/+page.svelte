@@ -201,6 +201,12 @@
     }
   }
 
+  @media screen and (max-width: 400px) {
+    time .timer-container {
+      margin: 3rem 0;
+    }
+  }
+
   @media (prefers-reduced-motion) {
     .gif {
       display: none;
