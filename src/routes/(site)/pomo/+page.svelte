@@ -9,16 +9,16 @@
 
   export let data: PageData;
 
-  let patternID = '20-5-10'; // TODO: Optimistically set to URL search param.
-  let timeFmt = 'HH:mm:ss';  // TODO: Optimistically set to URL search param.
+  let patternID = $page.url.searchParams.get('id') ?? '20-5-10';
+  let timeFmt = $page.url.searchParams.get('fmt') ?? 'HH:mm:ss';
   let timeout: Duration = data.pomoOutput[patternID].timeout;
   let initialTimestamp: number;
   let currentTimestamp: number;
   let animationID: number;
-   let elapsed: Duration = 0;
+  let elapsed: Duration = 0;
 
-  $: patternID = $page.url.searchParams.get('id') || patternID;
-  $: timeFmt = $page.url.searchParams.get('fmt') || timeFmt;
+  $: patternID = $page.url.searchParams.get('id') ?? patternID;
+  $: timeFmt = $page.url.searchParams.get('fmt') ?? timeFmt;
   $: formattedTime = format(timeout, timeFmt);
   $: patterns = Object.keys(data.pomoOutput).map((id) => {
     if (id === patternID) {
@@ -33,6 +33,9 @@
   function animate() {
     updateCurrentTimestamp();
     if (timeout === 0) {
+      // TODO: Look into invalidating the load function instead of calling location.reload().
+      // See:
+      // https://kit.svelte.dev/docs/load#rerunning-load-functions-manual-invalidation
       location.reload();
       return;
     }
@@ -46,14 +49,17 @@
     return () => cancelAnimationFrame(animationID);
   });
 
-  function updateReferenceTimestamp():void {
+  function updateReferenceTimestamp(): void {
     initialTimestamp = new Date().getTime();
   }
 
-  function updateCurrentTimestamp():void {
-    currentTimestamp=new Date().getTime();
+  function updateCurrentTimestamp(): void {
+    currentTimestamp = new Date().getTime();
     elapsed = currentTimestamp - initialTimestamp;
-    timeout = elapsed < data.pomoOutput[patternID].timeout ? data.pomoOutput[patternID].timeout - elapsed : 0;
+    timeout =
+      elapsed < data.pomoOutput[patternID].timeout
+        ? data.pomoOutput[patternID].timeout - elapsed
+        : 0;
     formattedTime = format(timeout, timeFmt);
   }
 </script>
@@ -88,8 +94,12 @@
           {formattedTime}
         </div>
         <p>Current pattern: {patternID}</p>
-        <p>Right now: {#if data.pomoOutput[patternID].work}Work{:else}Break{/if}</p>
-        <p>Next up: {#if data.pomoOutput[patternID].work}Break{:else}Work{/if}</p>
+        <p>
+          Right now: {#if data.pomoOutput[patternID].work}Work{:else}Break{/if}
+        </p>
+        <p>
+          Next up: {#if data.pomoOutput[patternID].work}Break{:else}Work{/if}
+        </p>
       </div>
     </time>
   </section>
