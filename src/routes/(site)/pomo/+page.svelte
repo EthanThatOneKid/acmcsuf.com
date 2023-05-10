@@ -133,6 +133,8 @@
     border-radius: 50rem;
     background-color: var(--acm-bluer);
     text-decoration: none;
+    display: block;
+    text-align: center;
   }
 
   a:hover {
@@ -183,12 +185,6 @@
     animation-direction: normal;
   }
 
-  @media (prefers-reduced-motion) {
-    .gif {
-      display: none;
-    }
-  }
-
   @keyframes slide {
     0% {
       transform: translateX(-40vw);
@@ -202,6 +198,12 @@
     time .timer-container {
       width: 50%;
       margin: auto;
+    }
+  }
+
+  @media (prefers-reduced-motion) {
+    .gif {
+      display: none;
     }
   }
 </style>
