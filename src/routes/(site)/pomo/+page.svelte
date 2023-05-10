@@ -127,7 +127,7 @@
   }
 
   a {
-    font-size: 1.5rem;
+    font-size: var(--size-lg);
     padding: 1rem 2rem;
     cursor: pointer;
     border-radius: 50rem;
@@ -153,9 +153,10 @@
   time .timer-container {
     text-align: center;
     background-color: var(--acm-sky);
-    margin: 3rem 4rem;
+    width: 50%;
     padding: 1rem;
     border-radius: 1rem;
+    margin: 0 auto;
   }
 
   time .timer-text {
@@ -163,7 +164,6 @@
     justify-content: center;
     font-size: var(--size-xxl);
     font-family: monospace;
-    padding: 3rem;
     border-radius: 1rem;
     background-color: var(--acm-blue);
   }
@@ -194,16 +194,9 @@
     }
   }
 
-  @media screen and (min-width: 740px) {
+  @media screen and (max-width: 600px) {
     time .timer-container {
-      width: 50%;
-      margin: auto;
-    }
-  }
-
-  @media screen and (max-width: 400px) {
-    time .timer-container {
-      margin: 3rem 0;
+      width: 70%;
     }
   }
 
