@@ -182,7 +182,7 @@
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: normal;
-    position: relative;
+    position: absolute;
     bottom: 0;
   }
 
