@@ -119,6 +119,6 @@
     border: none;
     background-color: transparent;
     color: var(--text-color);
-    cursor: pointer;
+    cursor: default;
   }
 </style>
