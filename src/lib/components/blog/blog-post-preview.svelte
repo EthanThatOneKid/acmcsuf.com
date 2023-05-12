@@ -28,13 +28,11 @@
       </div>
       <button
         class="clipboard-btn"
-        on:click={(ev) => {
-          ev.preventDefault();
+        on:click|preventDefault={() => {
           copy(
-            "https://acmcsuf.com/" + makeBlogPostPageUrl(post.id),
+            `${window.location.href}/${post.id}`,
             'Copied post link to clipboard!',
             'Failed to copy post link to clipboard!',
-            'general'
           );
         }}
       >
@@ -121,5 +119,6 @@
     border: none;
     background-color: transparent;
     color: var(--text-color);
+    cursor: pointer;
   }
 </style>
