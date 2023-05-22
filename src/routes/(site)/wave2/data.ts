@@ -52,7 +52,7 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
     ],
   },
   {
-    title: 'Web Dev Officer',
+    title: 'Web Officer',
     teamColor: 'var(--acm-general-rgb)',
     qualifications: [
       li('Passion for web development and open source projects'),

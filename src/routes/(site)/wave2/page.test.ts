@@ -4,5 +4,5 @@ test.describe.configure({ mode: 'parallel' });
 
 test('wave2 page has expected h1', async ({ page }) => {
   await page.goto('/wave2');
-  expect(await page.textContent('h1')).toBe('Wave 1 board applications');
+  expect(await page.textContent('h1')).toBe('Wave 2 board applications');
 });
