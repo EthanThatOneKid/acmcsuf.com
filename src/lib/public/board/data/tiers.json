@@ -25,5 +25,6 @@
   "Game Dev Team Lead": { "id": 25, "index": 1170 },
   "Game Dev Officer": { "id": 26, "index": 1180 },
   "Nodebuds Officer": { "id": 22, "index": 1200 },
-  "ICC Representative": { "id": 23, "index": 1250 }
+  "ICC Representative": { "id": 23, "index": 1250 },
+  "Web Dev Officer": { "id": 27, "index": 1300 }
 }
