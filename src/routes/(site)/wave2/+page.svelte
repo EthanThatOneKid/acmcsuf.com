@@ -71,7 +71,7 @@
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <Block align={TextAlignment.LEFT}>
-  <h1 slot="headline" class="size-lg">Wave 1 board applications</h1>
+  <h1 slot="headline" class="size-lg">Wave 2 board applications</h1>
   <p slot="text" class="size-sm">
     Listed below are the positions that are open for the Fall 2023 semester (semester long
     position). Please read the descriptions carefully and apply for the position(s) that you are
