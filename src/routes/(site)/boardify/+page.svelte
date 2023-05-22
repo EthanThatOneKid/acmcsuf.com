@@ -1,6 +1,4 @@
 <script lang="ts">
-  // import Cropper from '$lib/components/cropper/index.svelte';
-  // import { getCroppedImg } from '$lib/components/cropper/canvasUtil';
   import Cropper from '$lib/components/cropper/cropper.svelte';
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import Block from '$lib/components/block/block.svelte';
@@ -29,7 +27,8 @@
       <li>Drag the crop box to your liking.</li>
       <li>Copy the image link to your clipboard.</li>
       <li>Go to the ACM at CSUF Discord server.</li>
-      <li>Execute slash command: <code>{`/boardd picture="[PASTE_URL]"`}</code></li>
+      <li>Execute slash command: <code>/boardd picture [PASTE_URL]</code></li>
+      <li>Or request changes to be made from <code>@Webmaster</code>.</li>
     </ol>
   </div>
 </Block>

@@ -1,9 +1,9 @@
 <script lang="ts">
   import { browser } from '$app/environment';
-  import { debounceable } from './debounce';
-  import { makeCropper } from './cropper';
-  import type Cropper from 'cropperjs';
   import BoardMember from '$lib/components/board-member/board-member.svelte';
+  import { debounceable } from './debounce';
+  import type { Cropper } from './cropper';
+  import { makeCropper } from './cropper';
 
   let input = '';
   let output = debounceable<null | HTMLCanvasElement>(null, 100);

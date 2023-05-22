@@ -1,12 +1,23 @@
-import Cropper from 'cropperjs';
+import { default as cropperjs } from 'cropperjs';
 
-type CropHandler = (canvas: HTMLCanvasElement) => void;
+/**
+ * Cropper is the type of the cropperjs instance.
+ */
+export type Cropper = typeof cropperjs;
 
+/**
+ * CropHandler is a function that handles the cropped canvas.
+ */
+export type CropHandler = (canvas: HTMLCanvasElement) => void;
+
+/**
+ * makeCropper creates a new cropperjs instance.
+ */
 export function makeCropper(img: HTMLImageElement, handleCrop: CropHandler) {
-  const cropper = new Cropper(img, {
+  const cropper = new cropperjs(img, {
     aspectRatio: 1,
     crop() {
-      const cnv = cropper.getCroppedCanvas(o);
+      const cnv = cropper.getCroppedCanvas(CROPPER_OPTIONS);
       handleCrop(cnv);
     },
   });
@@ -14,7 +25,10 @@ export function makeCropper(img: HTMLImageElement, handleCrop: CropHandler) {
   return cropper;
 }
 
-const o: Cropper.GetCroppedCanvasOptions = {
+/**
+ * CROPPER_OPTIONS are options for the cropperjs instance.
+ */
+export const CROPPER_OPTIONS: Cropper.GetCroppedCanvasOptions = {
   maxHeight: 1_200,
   maxWidth: 1_200,
   minWidth: 5,
