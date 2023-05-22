@@ -17,9 +17,16 @@
   </summary>
 
   <div class="position__body">
+    <div class="position__qualifications">
+      <h3 class="headers">Qualifications</h3>
+      <RecursiveUL data={data.qualifications} />
+    </div>
+
     <div class="position__requirements">
-      <h3 class="headers">What you need</h3>
-      <RecursiveUL data={data.requirements} />
+      {#if data.requirements}
+        <h3 class="headers">Requirements</h3>
+        <RecursiveUL data={data.requirements} />
+      {/if}
     </div>
 
     <p class="position__tools">
