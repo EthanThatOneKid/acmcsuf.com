@@ -27,7 +27,9 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
     ],
     tools: ['Google Drive/Docs', 'Discord', 'Social media'],
     responsibilities: [
-      li('Check emails daily and report to the President and Vice President of any important emails'),
+      li(
+        'Check emails daily and report to the President and Vice President of any important emails'
+      ),
       li('Take notes during board meetings and send them to the board members'),
       li('Assist in room booking for events'),
       li('Outreach to companies for collaborative events or sponsorships'),
