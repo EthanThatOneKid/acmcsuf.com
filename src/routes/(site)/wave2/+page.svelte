@@ -51,7 +51,7 @@
 </script>
 
 <svelte:head>
-  <title>Wave 1 board applications | ACM at CSUF</title>
+  <title>Wave 2 board applications | ACM at CSUF</title>
 </svelte:head>
 
 <MetaTags
