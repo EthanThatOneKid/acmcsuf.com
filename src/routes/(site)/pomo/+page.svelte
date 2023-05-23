@@ -184,6 +184,7 @@
     animation-direction: normal;
     position: absolute;
     bottom: 0;
+    image-rendering: pixelated;
   }
 
   @keyframes slide {
