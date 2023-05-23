@@ -3,7 +3,7 @@ import { default as cropperjs } from 'cropperjs';
 /**
  * Cropper is the type of the cropperjs instance.
  */
-export type Cropper = typeof cropperjs;
+export type Cropper = cropperjs;
 
 /**
  * CropHandler is a function that handles the cropped canvas.

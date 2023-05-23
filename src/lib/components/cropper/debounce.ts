@@ -1,8 +1,12 @@
 import { writable } from 'svelte/store';
 
+/**
+ * debounce is a function that returns a debounced version of the function passed in.
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function debounce<T extends (...args: any[]) => any>(func: T, delay: number) {
   let timer: ReturnType<typeof setTimeout>;
-  return function (this: any, ...args: Parameters<T>) {
+  return function (this: unknown, ...args: Parameters<T>) {
     clearTimeout(timer);
     timer = setTimeout(() => func.apply(this, args), delay);
   } as T;

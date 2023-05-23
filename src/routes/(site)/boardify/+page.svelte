@@ -1,9 +1,27 @@
 <script lang="ts">
+  import { MetaTags } from 'svelte-meta-tags';
   import Cropper from '$lib/components/cropper/cropper.svelte';
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import Block from '$lib/components/block/block.svelte';
   import { TextAlignment } from '$lib/public/text-alignment/text-alignment';
 </script>
+
+<svelte:head>
+  <title>Boardify | ACM at CSUF</title>
+</svelte:head>
+
+<MetaTags
+  openGraph={{
+    title: 'Boardify | ACM at CSUF',
+    description: 'Take on the Boardify challenge!',
+    url: 'https://acmcsuf.com/boardify',
+    type: 'website',
+    article: {
+      publishedTime: '2023-22-05T00:00:00.000Z',
+      modifiedTime: '2023-22-05T00:00:00.000Z',
+    },
+  }}
+/>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
 
@@ -36,7 +54,7 @@
 <Spacing --min="64px" --med="64px" --max="64px" />
 
 <Block align={TextAlignment.LEFT}>
-  <div slot="text">
+  <div slot="text" class="cropper-block">
     <Cropper />
   </div>
 </Block>

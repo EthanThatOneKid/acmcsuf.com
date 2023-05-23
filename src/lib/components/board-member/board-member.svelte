@@ -1,5 +1,5 @@
 <!--
-TODO: Show board member preview.
+TODO: Show complete board member preview.
 - See: https://github.com/EthanThatOneKid/acmcsuf.com/blob/acac11c14edad5445d5e59dfb92afc36b96544e9/src/routes/(site)/about/officer-profile.svelte
 - See: https://codepen.io/alancortez1337/pen/NWzKqKE?editors=1100
 -->

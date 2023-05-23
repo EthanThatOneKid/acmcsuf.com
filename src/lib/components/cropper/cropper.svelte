@@ -1,9 +1,13 @@
 <script lang="ts">
   import { browser } from '$app/environment';
+  import Button from '$lib/components/button/button.svelte';
   import BoardMember from '$lib/components/board-member/board-member.svelte';
+  import { copy } from '$lib/public/copy/copy';
+  import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
   import { debounceable } from './debounce';
   import type { Cropper } from './cropper';
   import { makeCropper } from './cropper';
+  import { uploadPicture } from './discord-uploader';
 
   let input = '';
   let output = debounceable<null | HTMLCanvasElement>(null, 100);
@@ -11,7 +15,7 @@
   let c: Cropper;
   let img: HTMLImageElement;
   let link = '';
-  let teamColor = '--var(--acm-general-rgb)';
+  let teamColor = '';
 
   function handleCrop(canvas: HTMLCanvasElement) {
     $output = canvas;
@@ -32,26 +36,7 @@
       return;
     }
 
-    link = (await uploadFile(blob)).toString();
-  }
-
-  async function uploadFile(blob: Blob): Promise<URL> {
-    const formData = new FormData();
-    formData.append('file', blob, 'picture.webp');
-
-    // Upload to Discord.
-    const response = await fetch('https://discord-uploader.netlify.app/upload', {
-      method: 'POST',
-      body: formData,
-    });
-    const responseBody = await response.json();
-
-    // Parse link from Discord response.
-    if (responseBody?.attachments.length !== 1) {
-      throw new Error('Discord response does not contain exactly one attachment.');
-    }
-
-    return new URL(responseBody.attachments[0].proxy_url);
+    link = (await uploadPicture(blob)).toString();
   }
 
   $: if (browser && img) {
@@ -97,12 +82,12 @@
 {/if}
 
 {#if $output}
+  <p class="brand-em">Output:</p>
   <div class="output-container">
-    <p class="brand-em">Output:</p>
     <BoardMember src={$output.toDataURL('image/webp')} {teamColor} />
   </div>
 
-  <button on:click={handleSubmit}>Submit</button>
+  <Button text="Submit" on:click={handleSubmit} />
 {/if}
 
 {#if link}
@@ -111,21 +96,54 @@
     <br />
     <br />
 
-    <a class="brand-em" href={link} target="_blank" rel="noopener noreferrer"> Your link </a>
+    <p class="brand-em">Link: <a href={link} target="_blank"><code>{link}</code></a></p>
+
+    <button
+      class="action-item"
+      title="Copy event link"
+      on:click={() =>
+        copy(link, 'Copied WEBP link to clipboard!', 'Failed to copy WEBP link to clipboard!')}
+    >
+      <BwIcon src="/assets/svg/copy-link.svg" alt="copy link" />
+    </button>
   </div>
 {/if}
 
 <style>
   .cropper {
     display: block;
-
-    /* This rule is very important, please don't ignore this */
-    max-width: 100%;
+    max-height: fit-content;
+    max-width: fit-content;
   }
 
   .cropper-container {
-    width: 200px;
-    height: 200px;
-    overflow: hidden;
+    min-height: 200px;
+    min-width: 200px;
+    max-height: min-content;
+    max-width: min-content;
+  }
+
+  .output-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4rem 0;
+  }
+
+  .link-container p {
+    margin: 2rem 0;
+  }
+
+  .action-item {
+    --size: 40px;
+    color: var(--highlights);
+    width: var(--size);
+    height: var(--size);
+    padding: calc(var(--size) * 0.15);
+    box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.25);
+    transition: all 0.25s ease-in-out;
+    border-radius: 30px;
+    border: 2px solid var(--acm-dark);
+    background-color: var(--acm-light);
   }
 </style>

@@ -17,7 +17,7 @@
 
 <style>
   svg {
-    filter: drop-shadow(0px 5px 40px red);
+    filter: drop-shadow(0px 5px 40px var(--color, var(--acm-blue)));
     width: 200px;
     height: 200px;
   }
