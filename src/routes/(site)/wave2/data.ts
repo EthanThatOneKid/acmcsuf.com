@@ -18,9 +18,58 @@ export const TOOLS = {
 
 export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
   {
+    title: 'Secretary',
+    teamColor: 'var(--acm-general-rgb)',
+    qualifications: [
+      li('Organizational and time management skills'),
+      li('Interest in helping the executive board with administrative tasks'),
+      li('Commitment to the providing information to the club members'),
+    ],
+    tools: ['Google Drive/Docs', 'Discord', 'Social media'],
+    responsibilities: [
+      li(
+        'Check emails daily and report to the President and Vice President of any important emails'
+      ),
+      li('Take notes during board meetings and send them to the board members'),
+      li('Assist in room booking for events'),
+      li('Outreach to companies for collaborative events or sponsorships'),
+    ],
+  },
+  {
+    title: 'Event Coordinator',
+    teamColor: 'var(--acm-general-rgb)',
+    qualifications: [
+      li('Interest in event planning and management'),
+      li('Interest in public speaking/leading events - Strong communication skills'),
+      li('Passionate for inclusion and increasing student engagement'),
+      li('Creative and innovative'),
+    ],
+    tools: ['Google Drive/Docs', 'Discord', 'Social media'],
+    responsibilities: [
+      li('Plan and organize socials and technical events every Friday at 5pm'),
+      li('Collaborate with other ACM branches to host events'),
+      li('Work with the Secretary to book rooms for events and other logistics'),
+    ],
+  },
+  {
+    title: 'Web Officer',
+    teamColor: 'var(--acm-general-rgb)',
+    qualifications: [
+      li('Passion for web development and open source projects'),
+      li('Open to learning new technologies'),
+      li('Ability to work in a team and to teach others'),
+    ],
+    tools: ['Google Drive/Docs', 'Discord', 'GitHub'],
+    responsibilities: [
+      li('Work closely with the Webmaster to maintain the ACM website and OSS projects'),
+      li('Understand the Git workflow and be able to teach it to others'),
+      li('Attend weekly meetings and provide updates on projects'),
+    ],
+  },
+  {
     title: 'AI Officer',
     teamColor: 'var(--acm-ai-rgb)',
-    requirements: [
+    qualifications: [
       li('Interest in artificial intelligence'),
       li('Interest in public speaking/leading events'),
       li('Passion for guiding AI related student projects'),
@@ -39,7 +88,7 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
   {
     title: 'Algo Officer',
     teamColor: 'var(--acm-algo-rgb)',
-    requirements: [
+    qualifications: [
       li('Passion for algorithms'),
       li('Productive time management'),
       li('Interest in public speaking and leading events'),
@@ -58,7 +107,7 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
   {
     title: 'Design Officer',
     teamColor: 'var(--acm-design-rgb)',
-    requirements: [
+    qualifications: [
       li('Open mind to suggest new ideas in the field of design'),
       li('Interest in learning and teaching common apps (ex. Figma)'),
       li('Interest in programming to create basic front-end applications'),
@@ -80,7 +129,7 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
   {
     title: 'Dev Officer',
     teamColor: 'var(--acm-dev-rgb)',
-    requirements: [
+    qualifications: [
       li('Passion for helping students develop projects'),
       li('Strong communication and leadership'),
       li('Flexibility with skills to assist students in a variety of projects'),
@@ -108,7 +157,7 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
   {
     title: 'Game Dev Officer',
     teamColor: 'var(--acm-gamedev-rgb)',
-    requirements: [
+    qualifications: [
       li('Passion and interest in game development'),
       li('Strong communication and leadership'),
       li('Flexibility with skills to assist students in a variety of projects'),
@@ -133,7 +182,7 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
   {
     title: 'Marketing Officer',
     teamColor: 'var(--acm-marketing-rgb)',
-    requirements: [
+    qualifications: [
       li('Interest in exploring business and marketing'),
       li('Substantial awareness or usage of multiple social media platforms'),
       li('Represent and advocate diversity within the club'),
