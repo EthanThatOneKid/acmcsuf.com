@@ -25,14 +25,16 @@
   // teamClasses maps team names to CSS class names. We call Object.entries on
   // it to make it easier to iterate and search.
   const teamClasses = Object.entries({
+    General: 'acm-blue',
+    AI: 'acm-emerald',
     Algo: 'acm-purple',
     Create: 'acm-pink',
     Design: 'acm-pink',
     Dev: 'acm-bluer',
-    AI: 'acm-emerald',
-    Marketing: 'acm-red',
+    'Game Dev': 'acm-red',
+    Marketing: 'acm-blush',
     'Special Events': 'acm-lemon',
-    nodebuds: 'brand-header',
+    nodebuds: 'acm-red',
   });
 
   const officerName = info.fullName ?? '';
