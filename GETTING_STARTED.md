@@ -31,12 +31,12 @@
    1. A link to the issue that you resolved (if applicable).
    1. Any screenshots if your change affects something visible on the website or that you believe would help the reviewer understand your changes.
    1. Examples of good PRs:
-      1. [https://github.com/EthanThatOneKid/acmcsuf.com/pull/477](https://github.com/EthanThatOneKid/acmcsuf.com/pull/477)
-      1. [https://github.com/EthanThatOneKid/acmcsuf.com/pull/469](https://github.com/EthanThatOneKid/acmcsuf.com/pull/469)
-      1. [https://github.com/EthanThatOneKid/acmcsuf.com/pull/401](https://github.com/EthanThatOneKid/acmcsuf.com/pull/401)
+      1. [https://acmcsuf.com/pull/477](https://github.com/EthanThatOneKid/acmcsuf.com/pull/477)
+      1. [https://acmcsuf.com/pull/469](https://github.com/EthanThatOneKid/acmcsuf.com/pull/469)
+      1. [https://acmcsuf.com/pull/401](https://github.com/EthanThatOneKid/acmcsuf.com/pull/401)
    1. Examples of bad PRs:
-      1. [https://github.com/EthanThatOneKid/acmcsuf.com/pull/359](https://github.com/EthanThatOneKid/acmcsuf.com/pull/359)
-      1. [https://github.com/EthanThatOneKid/acmcsuf.com/pull/357](https://github.com/EthanThatOneKid/acmcsuf.com/pull/357)
+      1. [https://acmcsuf.com/pull/359](https://github.com/EthanThatOneKid/acmcsuf.com/pull/359)
+      1. [https://acmcsuf.com/pull/357](https://github.com/EthanThatOneKid/acmcsuf.com/pull/357)
 1. Request a code review from someone by first contacting them and then assigning them to your PR using the "Reviewers" panel.
 1. Address any feedback from your reviewers if applicable.
 1. Once your changes have been approved, you have permission to merge your changes, and your changes should be merged with a **SQUASH** and **NOT** a merge commit.
