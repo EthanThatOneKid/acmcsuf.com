@@ -32,7 +32,7 @@
           copy(
             `${window.location.href}/${post.id}`,
             'Copied post link to clipboard!',
-            'Failed to copy post link to clipboard!',
+            'Failed to copy post link to clipboard!'
           );
         }}
       >
