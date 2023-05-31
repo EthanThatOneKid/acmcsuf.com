@@ -4,6 +4,8 @@
   import { readingTime } from '$lib/public/blog/utils';
   import { Temporal } from '@js-temporal/polyfill';
   import Labels from '$lib/components/blog/labels.svelte';
+  import { copy } from '$lib/public/copy/copy';
+  import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
 
   export let post: BlogPost;
   export let selectedLabels: string[];
@@ -24,6 +26,18 @@
           {/if}</a
         >
       </div>
+      <button
+        class="clipboard-btn"
+        on:click|preventDefault={() => {
+          copy(
+            `${window.location.href}/${post.id}`,
+            'Copied post link to clipboard!',
+            'Failed to copy post link to clipboard!'
+          );
+        }}
+      >
+        <BwIcon src="/assets/svg/copy-link.svg" alt="copy link" />
+      </button>
     </div>
     <a href={makeBlogPostPageUrl(post.id)}>
       <h2 class="headers">{post.title}</h2>
@@ -96,5 +110,21 @@
     align-items: center;
     font-size: 1em;
     gap: 1em;
+  }
+
+  .clipboard-btn {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    border: none;
+    background-color: transparent;
+    color: var(--acm-dark);
+    outline: none;
+    cursor: pointer;
+  }
+
+  .clipboard-btn:hover {
+    outline: 1px solid var(--acm-dark);
+    border-radius: 50%;
   }
 </style>
