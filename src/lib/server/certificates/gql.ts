@@ -30,7 +30,7 @@ export function makeReleasesQuery(q: RepoQuery): string {
   user(login: "${q.username}") {
     name
     bioHTML
-    avatarURL
+    avatarUrl
   }
 }`;
 
@@ -175,7 +175,7 @@ export interface ReleasesResponse {
   user: {
     name: string;
     bioHTML: string;
-    avatarURL: string;
+    avatarUrl: string;
   };
 }
 

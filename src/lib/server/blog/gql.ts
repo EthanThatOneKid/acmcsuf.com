@@ -18,7 +18,7 @@ export function gql(ghDiscussionCategoryId: string) {
           author {
             login
             url
-            avatarURL
+            avatarUrl
           }
           
           labels(first: 100) {

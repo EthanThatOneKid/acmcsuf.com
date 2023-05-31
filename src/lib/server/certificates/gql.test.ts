@@ -30,7 +30,7 @@ const TEST_RELEASE_DATA: ReleasesResponse = {
   user: {
     name: 'TEST_RELEASE_USER_NAME',
     bioHTML: 'TEST_RELEASE_USER_BIO',
-    avatarURL: 'TEST_RELEASE_USER_AVATAR_URL',
+    avatarUrl: 'TEST_RELEASE_USER_AVATAR_URL',
   },
 };
 
@@ -55,7 +55,7 @@ test('makeReleasesQuery', () => {
   user(login: "USERNAME") {
     name
     bioHTML
-    avatarURL
+    avatarUrl
   }
 }`);
 });
