@@ -78,30 +78,30 @@ function cacheBlogPosts(output: any): BlogPost[] {
       number: id,
       bodyHTML: html,
       bodyText,
-      url: discussionUrl,
+      url: discussionURL,
     } = discussion;
 
     const url = `/blog/${id}`;
     const officer = getOfficerByGhUsername(author.login);
-    const authorUrl = author.url;
+    const authorURL = author.url;
     const displayname = author.login;
     const fullname = officer?.fullName;
     const picture: string =
-      author.avatarUrl ?? `/assets/authors/${officer?.picture || 'placeholder.webp'}`;
+      author.avatarURL ?? `/assets/authors/${officer?.picture || 'placeholder.webp'}`;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const labels = discussion.labels.nodes.map(({ name }: any) => name);
 
     const post = {
       id,
       url,
-      discussionUrl,
+      discussionURL,
       title,
       html,
       bodyText,
       createdAt,
       lastEdited,
       labels,
-      author: { url: authorUrl, displayname, fullname, picture },
+      author: { url: authorURL, displayname, fullname, picture },
     };
 
     return post;
