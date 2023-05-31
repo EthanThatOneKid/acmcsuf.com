@@ -118,7 +118,13 @@
     margin-left: auto;
     border: none;
     background-color: transparent;
-    color: var(--text-color);
-    cursor: default;
+    color: var(--acm-dark);
+    outline: none;
+    cursor: pointer;
+  }
+
+  .clipboard-btn:hover {
+    outline: 1px solid var(--acm-dark);
+    border-radius: 50%;
   }
 </style>
