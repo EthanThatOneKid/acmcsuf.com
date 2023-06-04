@@ -41,6 +41,7 @@
     bind:this={details}
     on:click|preventDefault|stopPropagation={() => (shown = !shown)}
     on:keypress|preventDefault|stopPropagation={() => (shown = !shown)}
+    class:highlighted={shown}
   >
     <summary class="event-body">
       <div class="event-name">
@@ -109,8 +110,12 @@
     box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.65);
   }
 
-  .event-card[open] {
+  .highlighted {
     box-shadow: 0 6px 24px rgba(var(--highlights, --acm-general-rgb), 0.75);
+    border: 2px solid rgb(var(--highlights, --acm-general-rgb));
+  }
+
+  .event-card[open] {
     border: 2px solid rgb(var(--highlights, --acm-general-rgb));
   }
 
