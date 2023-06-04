@@ -252,6 +252,7 @@ git add -A && git commit -m "Your Message"
     justify-content: center;
     overflow: hidden;
     margin: 0 auto;
+    pointer-events: none;
   }
 
   h1 {
