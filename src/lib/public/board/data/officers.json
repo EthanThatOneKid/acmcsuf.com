@@ -11,7 +11,8 @@
       "S21": { "title": "Dev Officer", "tier": 19 },
       "F21": { "title": "Algo Director", "tier": 11 },
       "S22": { "title": "Algo President", "tier": 11 },
-      "F22": { "title": "Algo Team Lead", "tier": 11 }
+      "F22": { "title": "Algo Team Lead", "tier": 11 },
+      "S23": { "title": "Algo Team Lead", "tier": 11 }
     }
   },
   {
@@ -35,13 +36,29 @@
     "positions": {
       "F21": { "title": "Nodebuds Officer", "tier": 22 },
       "S22": { "title": "Algo Officer, Nodebuds Officer", "tier": 22 },
-      "F22": { "title": "Algo Officer", "tier": 12 }
+      "F22": { "title": "Algo Officer", "tier": 12 },
+      "S23": { "title": "Algo Officer", "tier": 12 }
     }
+  },
+  {
+    "fullName": "Christos Bakis",
+    "picture": "placeholder.webp",
+    "positions": { "S23": { "title": "Special Events Officer", "tier": 7 } }
+  },
+  {
+    "fullName": "Jacob Carlson",
+    "picture": "placeholder.webp",
+    "positions": { "S23": { "title": "Game Dev Officer", "tier": 26 } }
   },
   {
     "fullName": "Johnathan Carranza",
     "picture": "johnathan-carranza.webp",
     "positions": { "F21": { "title": "Dev Officer", "tier": 19 } }
+  },
+  {
+    "fullName": "Oscar Cisneros",
+    "picture": "placeholder.webp",
+    "positions": { "S23": { "title": "Dev Officer", "tier": 19 } }
   },
   {
     "fullName": "Alan Cortez",
@@ -54,7 +71,8 @@
     },
     "positions": {
       "S22": { "title": "Create Officer", "tier": 16 },
-      "F22": { "title": "Design Team Lead", "tier": 13 }
+      "F22": { "title": "Design Team Lead", "tier": 13 },
+      "S23": { "title": "Design Team Lead", "tier": 13 }
     }
   },
   {
@@ -69,7 +87,8 @@
       "S21": { "title": "Dev Officer", "tier": 19 },
       "F21": { "title": "Dev Director", "tier": 17 },
       "S22": { "title": "Dev President", "tier": 17 },
-      "F22": { "title": "Marketing Co-Lead", "tier": 9 }
+      "F22": { "title": "Marketing Co-Lead", "tier": 9 },
+      "S23": { "title": "Marketing Team Lead", "tier": 9 }
     }
   },
   {
@@ -84,7 +103,8 @@
       "S21": { "title": "Webmaster", "tier": 2 },
       "F21": { "title": "Webmaster", "tier": 2 },
       "S22": { "title": "Webmaster", "tier": 2 },
-      "F22": { "title": "Vice President/Webmaster", "tier": 1 }
+      "F22": { "title": "Vice President/Webmaster", "tier": 1 },
+      "S23": { "title": "Vice President/Webmaster", "tier": 1 }
     }
   },
   {
@@ -102,7 +122,15 @@
     },
     "positions": {
       "S22": { "title": "Dev Project Manager", "tier": 18 },
-      "F22": { "title": "Special Events Officer", "tier": 7 }
+      "F22": { "title": "Special Events Officer", "tier": 7 },
+      "S23": { "title": "Special Events Officer", "tier": 7 }
+    }
+  },
+  {
+    "fullName": "Nicholas Girmes",
+    "picture": "placeholder.webp",
+    "positions": { 
+      "S23": { "title": "Algo Officer", "tier": 12 } 
     }
   },
   {
@@ -134,6 +162,15 @@
     "positions": { "S21": { "title": "ICC Representative", "tier": 23 } }
   },
   {
+    "fullName": "Arish Imam",
+    "picture": "placeholder.webp",
+    "socials": {
+      "discord": "Ari123#6233",
+      "linkedin": "arish-imam-10617a246"
+    },
+    "positions": { "F22": { "title": "AI Officer", "tier": 21 } }
+  },
+  {
     "fullName": "Iftekharul Islam",
     "picture": "iftekharul-islam.webp",
     "positions": { "S22": { "title": "Algo Officer", "tier": 12 } }
@@ -153,13 +190,33 @@
     },
     "positions": {
       "S22": { "title": "Dev Officer", "tier": 19 },
-      "F22": { "title": "Algo Officer", "tier": 12 }
+      "F22": { "title": "Algo Officer", "tier": 12 },
+      "S23": { "title": "Algo Officer", "tier": 12 }
+    }
+  },
+  {
+    "fullName": "Ashley Kuewa",
+    "picture": "placeholder.webp",
+    "positions": { "S23": { "title": "Marketing Officer", "tier": 24 } }
+  },
+  {
+    "fullName": "Rohan Kunchala",
+    "picture": "rohan-kunchala.webp",
+    "socials": { "discord": "sirsandgnome#0235" },
+    "positions": { 
+      "F22": { "title": "Algo Officer", "tier": 12 },
+      "S23": { "title": "Algo Officer", "tier": 12 }
     }
   },
   {
     "fullName": "Andy Lasso",
     "picture": "andy-lasso.webp",
     "positions": { "F21": { "title": "Dev Officer", "tier": 19 } }
+  },
+  {
+    "fullName": "Logan Langdon",
+    "picture": "placeholder.webp",
+    "positions": { "S23": { "title": "Game Dev Officer", "tier": 26 } }
   },
   {
     "fullName": "Andrew Lau",
@@ -194,6 +251,11 @@
     }
   },
   {
+    "fullName": "Joe Lee",
+    "picture": "placeholder.webp",
+    "positions": { "S23": { "title": "Dev Officer", "tier": 19 } }
+  },
+  {
     "fullName": "Nolan Lee",
     "picture": "nolan-lee.webp",
     "positions": { "S22": { "title": "Historian", "tier": 10 } }
@@ -210,8 +272,19 @@
       "S21": { "title": "Internal Vice President, Nodebuds Officer", "tier": 1 },
       "F21": { "title": "President, Nodebuds Officer", "tier": 0 },
       "S22": { "title": "President, Nodebuds Officer", "tier": 0 },
-      "F22": { "title": "Special Events Team Lead", "tier": 6 }
+      "F22": { "title": "Special Events Team Lead", "tier": 6 },
+      "S23": { "title": "Special Events Team Lead", "tier": 6 }
     }
+  },
+  {
+    "fullName": "Yao Lin",
+    "picture": "yao-lin.webp",
+    "socials": {
+      "github": "yao-lin-902",
+      "discord": "alfred#1781",
+      "linkedin": "yao-lin-2010a01b8"
+    },
+    "positions": { "F22": { "title": "AI Officer", "tier": 21 } }
   },
   {
     "fullName": "Shaleen Mathur",
@@ -234,8 +307,19 @@
     "positions": {
       "F21": { "title": "Dev Officer", "tier": 19 },
       "S22": { "title": "Dev Officer", "tier": 19 },
-      "F22": { "title": "Design Officer", "tier": 16 }
+      "F22": { "title": "Design Officer", "tier": 16 },
+      "S23": { "title": "Design Officer", "tier": 16 }
     }
+  },
+  {
+    "fullName": "Brian Milian",
+    "picture": "placeholder.webp",
+    "positions": { "S23": { "title": "Marketing Officer", "tier": 24 } }
+  },
+  {
+    "fullName": "Tanisha Naik",
+    "picture": "placeholder.webp",
+    "positions": { "S23": { "title": "Design Officer", "tier": 16 } }
   },
   {
     "fullName": "Serena Naranjo",
@@ -244,6 +328,11 @@
       "F21": { "title": "Create Officer", "tier": 16 },
       "S22": { "title": "Create Officer", "tier": 16 }
     }
+  },
+  {
+    "fullName": "Joseph Nasr",
+    "picture": "placeholder.webp",
+    "positions": { "S23": { "title": "Game Dev Officer", "tier": 26 } }
   },
   {
     "fullName": "Dalisa Nguyen",
@@ -265,7 +354,8 @@
     },
     "positions": {
       "S21": { "title": "President, Create Director, Nodebuds Officer", "tier": 0 },
-      "F22": { "title": "Treasurer", "tier": 3 }
+      "F22": { "title": "Treasurer", "tier": 3 },
+      "S23": { "title": "Treasurer", "tier": 3 }
     }
   },
   {
@@ -309,7 +399,26 @@
     },
     "positions": {
       "S22": { "title": "Event Coordinator", "tier": 8 },
-      "F22": { "title": "Event Coordinator", "tier": 8 }
+      "F22": { "title": "Event Coordinator", "tier": 8 },
+      "S23": { "title": "Game Dev Team Lead", "tier": 25 }
+    }
+  },
+  {
+    "fullName": "Angela Queano",
+    "picture": "placeholder.webp",
+    "positions": { "S23": { "title": "Marketing Officer", "tier": 24 } }
+  },
+  {
+    "fullName": "Alejandro Ramos",
+    "picture": "alejandro-ramos.webp",
+    "socials": {
+      "github": "AlexSpandex",
+      "discord": "alex_thekid562#3114",
+      "linkedin": "alejandro-ramos27"
+    },
+    "positions": { 
+      "F22": { "title": "Design Officer", "tier": 16 },
+      "S23": { "title": "Design Officer", "tier": 16 }
     }
   },
   {
@@ -323,6 +432,26 @@
     "positions": { "S21": { "title": "Intern Program Manager", "tier": 23 } }
   },
   {
+    "fullName": "Vanessa Roque",
+    "picture": "placeholder.webp",
+    "positions": { "S23": { "title": "AI Officer", "tier": 21 } }
+  },
+  {
+    "fullName": "Ashley Rus",
+    "picture": "placeholder.webp",
+    "positions": { "S23": { "title": "AI Officer", "tier": 21 } }
+  },
+  {
+    "fullName": "Sara Sadek",
+    "picture": "placeholder.webp",
+    "socials": {
+      "github": "EBYEMJC1",
+      "discord": "EBYEMJC1#0122",
+      "linkedin": "sara-ayoub-sadek-630b55168"
+    },
+    "positions": { "F22": { "title": "AI Officer", "tier": 21 } }
+  },
+  {
     "fullName": "Samuel Sandoval",
     "picture": "samuel-sandoval.webp",
     "positions": { "S21": { "title": "Vice President, Dev Director", "tier": 1 } }
@@ -333,9 +462,30 @@
     "positions": { "S21": { "title": "Algo Director", "tier": 11 } }
   },
   {
+    "fullName": "Angel Santoyo",
+    "picture": "angel-santoyo.webp",
+    "socials": {
+      "website": "angelsantoyo.com",
+      "github": "anguzz",
+      "discord": "Angus#7980",
+      "linkedin": "asantoyo"
+    },
+    "positions": { 
+      "F22": { "title": "Dev Officer", "tier": 19 },
+      "S23": { "title": "Dev Officer", "tier": 19 } 
+    }
+  },
+  {
     "fullName": "Parth Sharma",
     "picture": "parth-sharma.webp",
     "positions": { "S21": { "title": "Algo Officer", "tier": 12 } }
+  },
+  {
+    "fullName": "David Solano",
+    "picture": "placeholder.webp",
+    "positions": { 
+      "S23": { "title": "Algo Officer", "tier": 12 } 
+    }
   },
   {
     "fullName": "Justin Stitt",
@@ -347,7 +497,27 @@
     },
     "positions": {
       "S22": { "title": "Algo Officer", "tier": 12 },
-      "F22": { "title": "AI Team Lead", "tier": 20 }
+      "F22": { "title": "AI Team Lead", "tier": 20 },
+      "S23": { "title": "AI Team Lead", "tier": 20 }
+    }
+  },
+  {
+    "fullName": "Joann Sum",
+    "picture": "placeholder.webp",
+    "positions": { "S23": { "title": "Marketing Officer", "tier": 24 } }
+  },
+  {
+    "fullName": "Charlie Taylor",
+    "picture": "charlie-taylor.webp",
+    "socials": {
+      "website": "peekoe.net",
+      "github": "Peekoe",
+      "discord": "peekoe#7249",
+      "linkedin": "charliettaylor"
+    },
+    "positions": { 
+      "F22": { "title": "Dev Team Lead", "tier": 17 },
+      "S23": { "title": "Dev Team Lead", "tier": 17 }
     }
   },
   {
@@ -371,7 +541,8 @@
     },
     "positions": {
       "S22": { "title": "Dev Project Manager", "tier": 18 },
-      "F22": { "title": "Dev Project Manager", "tier": 18 }
+      "F22": { "title": "Dev Project Manager", "tier": 18 },
+      "S23": { "title": "Dev Project Manager", "tier": 18 }
     }
   },
   {
@@ -394,7 +565,8 @@
     "positions": {
       "F21": { "title": "Vice President", "tier": 1 },
       "S22": { "title": "Vice President", "tier": 1 },
-      "F22": { "title": "President", "tier": 0 }
+      "F22": { "title": "President", "tier": 0 },
+      "S23": { "title": "President", "tier": 0 }
     }
   },
   {
@@ -412,70 +584,18 @@
     }
   },
   {
-    "fullName": "Alejandro Ramos",
-    "picture": "alejandro-ramos.webp",
-    "socials": {
-      "github": "AlexSpandex",
-      "discord": "alex_thekid562#3114",
-      "linkedin": "alejandro-ramos27"
-    },
-    "positions": { "F22": { "title": "Design Officer", "tier": 16 } }
+    "fullName": "Cyril Youssef",
+    "picture": "placeholder.webp",
+    "positions": { 
+      "S23": { "title": "Algo Officer", "tier": 12 } 
+    }
   },
   {
-    "fullName": "Angel Santoyo",
-    "picture": "angel-santoyo.webp",
-    "socials": {
-      "website": "angelsantoyo.com",
-      "github": "anguzz",
-      "discord": "Angus#7980",
-      "linkedin": "asantoyo"
-    },
-    "positions": { "F22": { "title": "Dev Officer", "tier": 19 } }
-  },
-  {
-    "fullName": "Charlie Taylor",
-    "picture": "charlie-taylor.webp",
-    "socials": {
-      "website": "peekoe.net",
-      "github": "Peekoe",
-      "discord": "peekoe#7249",
-      "linkedin": "charliettaylor"
-    },
-    "positions": { "F22": { "title": "Dev Team Lead", "tier": 17 } }
-  },
-  {
-    "fullName": "Yao Lin",
-    "picture": "yao-lin.webp",
-    "socials": {
-      "github": "yao-lin-902",
-      "discord": "alfred#1781",
-      "linkedin": "yao-lin-2010a01b8"
-    },
-    "positions": { "F22": { "title": "AI Officer", "tier": 21 } }
-  },
-  {
-    "fullName": "Sara Sadek",
+    "fullName": "Alexander Zavaleta",
     "picture": "placeholder.webp",
     "socials": {
-      "github": "EBYEMJC1",
-      "discord": "EBYEMJC1#0122",
-      "linkedin": "sara-ayoub-sadek-630b55168"
+      "linkedin": "alexander-zavaleta-8140aa225/"
     },
-    "positions": { "F22": { "title": "AI Officer", "tier": 21 } }
-  },
-  {
-    "fullName": "Arish Imam",
-    "picture": "placeholder.webp",
-    "socials": {
-      "discord": "Ari123#6233",
-      "linkedin": "arish-imam-10617a246"
-    },
-    "positions": { "F22": { "title": "AI Officer", "tier": 21 } }
-  },
-  {
-    "fullName": "Rohan Kunchala",
-    "picture": "rohan-kunchala.webp",
-    "socials": { "discord": "sirsandgnome#0235" },
-    "positions": { "F22": { "title": "Algo Officer", "tier": 12 } }
+    "positions": { "S23": { "title": "AI Officer", "tier": 21 } }
   }
 ]

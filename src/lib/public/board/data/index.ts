@@ -5,7 +5,7 @@ import TEAMS_JSON from './teams.json';
 
 export { OFFICERS_JSON, TIERS_JSON, TEAMS_JSON };
 
-export const VISIBLE_TERMS = [Term.Fall22, Term.Spring22, Term.Fall21, Term.Spring21];
+export const VISIBLE_TERMS = [Term.Spring23, Term.Fall22, Term.Spring22, Term.Fall21, Term.Spring21];
 
 export const TIERS = { ...TIERS_JSON };
 
