@@ -26,5 +26,8 @@
   "Special Events Team Lead": { "id": 24, "index": 1300 },
   "Special Events Officer": { "id": 25, "index": 1350 },
   "Nodebuds Officer": { "id": 26, "index": 1400 },
-  "ICC Representative": { "id": 27, "index": 1450 }
+  "Workshop Manager": { "id": 28, "index": 1450 },
+  "Intern Program Manager": { "id": 29, "index": 1500 },
+  "Community Manager": { "id": 30, "index": 1550 },
+  "ICC Representative": { "id": 31, "index": 1600 }
 }
