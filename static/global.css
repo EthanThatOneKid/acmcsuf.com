@@ -30,6 +30,7 @@
   --acm-marketing-rgb: 254, 14, 201;
   --acm-oss-rgb: 17, 212, 177;
   --acm-special-events-rgb: 255, 208, 41;
+  --acm-nodebuds-rgb: 212, 17, 83;
 
   --perma-light: #f8f8f8;
   --perma-dark: #101315;
@@ -107,24 +108,14 @@ body:has(nav > input[type='checkbox']:checked) {
   color: var(--acm-lemon);
 }
 
-.acm-dark,
-.brand-dark {
-  color: var(--acm-dark);
-}
-
-.acm-gray,
-.brand-gray {
-  color: var(--acm-gray);
-}
-
-.acm-light,
-.brand-light {
-  color: var(--acm-light);
-}
-
 .acm-pink,
 .brand-pink {
   color: var(--acm-pink);
+}
+
+.acm-blush,
+.brand-blush {
+  color: var(--acm-blush);
 }
 
 .acm-purple,
@@ -140,6 +131,21 @@ body:has(nav > input[type='checkbox']:checked) {
 .acm-sky,
 .brand-sky {
   color: var(--acm-sky);
+}
+
+.acm-dark,
+.brand-dark {
+  color: var(--acm-dark);
+}
+
+.acm-gray,
+.brand-gray {
+  color: var(--acm-gray);
+}
+
+.acm-light,
+.brand-light {
+  color: var(--acm-light);
 }
 
 .size-xxl {

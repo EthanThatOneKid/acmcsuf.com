@@ -34,7 +34,7 @@
     'Game Dev': 'acm-red',
     Marketing: 'acm-blush',
     'Special Events': 'acm-lemon',
-    nodebuds: 'acm-red',
+    Nodebuds: 'acm-red',
   });
 
   const officerName = info.fullName ?? '';
