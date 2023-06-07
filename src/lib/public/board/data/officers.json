@@ -317,6 +317,11 @@
     "positions": { "S23": { "title": "Marketing Officer", "tier": 24 } }
   },
   {
+    "fullName": "Jordan Muir",
+    "picture": "placeholder.webp",
+    "positions": { "S23": { "title": "Game Dev Officer", "tier": 26 } }
+  },
+  {
     "fullName": "Tanisha Naik",
     "picture": "placeholder.webp",
     "positions": { "S23": { "title": "Design Officer", "tier": 16 } }
