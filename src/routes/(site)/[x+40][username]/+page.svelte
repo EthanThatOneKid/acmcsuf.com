@@ -4,7 +4,7 @@
   import { page } from '$app/stores';
 
   import Spacing from '$lib/public/legacy/spacing.svelte';
-  import { makeCertificatePageUrl } from '$lib/public/certificates';
+  import { makeCertificatePageURL } from '$lib/public/certificates';
 
   export let data: PageData;
 
@@ -130,7 +130,7 @@
           <b>{release.tagName}</b> ({i === 0 ? 'latest' : 'previous'})
         {:else}
           <a
-            href={makeCertificatePageUrl(data.certificate.user.login, release.tagName)}
+            href={makeCertificatePageURL(data.certificate.user.login, release.tagName)}
             data-sveltekit-preload-data="hover">{release.tagName}</a
           >
         {/if}

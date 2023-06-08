@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { BlogPost } from '$lib/public/blog/types';
-  import { makeBlogPostPageUrl } from '$lib/public/blog/urls';
+  import { makeBlogPostPageURL } from '$lib/public/blog/urls';
   import { readingTime } from '$lib/public/blog/utils';
   import { Temporal } from '@js-temporal/polyfill';
   import Labels from '$lib/components/blog/labels.svelte';
@@ -12,7 +12,7 @@
 </script>
 
 <div class="post">
-  <a href={makeBlogPostPageUrl(post.id)}>
+  <a href={makeBlogPostPageURL(post.id)}>
     <div class="author">
       <a class="author-avatar" href={post.author.url}>
         <img src={post.author.picture} alt="" />
@@ -39,7 +39,7 @@
         <BwIcon src="/assets/svg/copy-link.svg" alt="copy link" />
       </button>
     </div>
-    <a href={makeBlogPostPageUrl(post.id)}>
+    <a href={makeBlogPostPageURL(post.id)}>
       <h2 class="headers">{post.title}</h2>
     </a>
     <div class="markdown-body">

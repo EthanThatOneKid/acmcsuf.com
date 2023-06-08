@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { makeBlogPostsPageUrl } from '$lib/public/blog/urls';
+  import { makeBlogPostsPageURL } from '$lib/public/blog/urls';
 
   export let data: string[] = [];
   export let selectedLabels: string[] = [];
@@ -16,7 +16,7 @@
   <div class="labels">
     {#each data as label}
       <a
-        href={makeBlogPostsPageUrl([label])}
+        href={makeBlogPostsPageURL([label])}
         class:selected={selectedLabels.includes(label)}
         target="_blank"
         rel="noopener noreferrer">#{label}</a
