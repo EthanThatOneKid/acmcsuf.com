@@ -86,6 +86,7 @@
     flex-direction: row-reverse;
     padding: 0 2em 2em 2em;
     gap: 1em;
+    margin-top: 1em;
 
     .action-item {
       --size: 40px;

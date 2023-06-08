@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { makeBlogPostsPageUrl } from '$lib/public/blog/urls';
+  import { makeBlogPostsPageURL } from '$lib/public/blog/urls';
   import { createEventDispatcher } from 'svelte';
 
   export let labels: string[] = [];
@@ -44,7 +44,7 @@
     <div class="label-list">
       {#each labels as label}
         <a
-          href={makeBlogPostsPageUrl([label])}
+          href={makeBlogPostsPageURL([label])}
           class="label"
           class:selected={selectedLabels.includes(label)}
           on:click={selectLabel}

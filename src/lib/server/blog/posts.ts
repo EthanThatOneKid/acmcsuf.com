@@ -78,12 +78,12 @@ function cacheBlogPosts(output: any): BlogPost[] {
       number: id,
       bodyHTML: html,
       bodyText,
-      url: discussionUrl,
+      url: discussionURL,
     } = discussion;
 
     const url = `/blog/${id}`;
     const officer = getOfficerByGhUsername(author.login);
-    const authorUrl = author.url;
+    const authorURL = author.url;
     const displayname = author.login;
     const fullname = officer?.fullName;
     const picture: string =
@@ -94,14 +94,14 @@ function cacheBlogPosts(output: any): BlogPost[] {
     const post = {
       id,
       url,
-      discussionUrl,
+      discussionURL,
       title,
       html,
       bodyText,
       createdAt,
       lastEdited,
       labels,
-      author: { url: authorUrl, displayname, fullname, picture },
+      author: { url: authorURL, displayname, fullname, picture },
     };
 
     return post;
