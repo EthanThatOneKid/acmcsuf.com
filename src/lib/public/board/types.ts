@@ -53,7 +53,8 @@ interface Position {
 
 export interface Officer {
   fullName: string;
-  picture: string;
+  picture?: string;
+  legacyPicture?: string;
   positions: {
     [key in Term]?: Position;
   };

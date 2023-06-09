@@ -5,6 +5,7 @@
   import { termIndex, getPositionByTermIndex } from '$lib/public/board/utils';
   import { copy } from '$lib/public/copy/copy';
   import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
+  import BoardMember from '$lib/components/board-member/board-member.svelte';
 
   export let info: Officer;
   export let placeholderPicture = 'placeholder.webp';
@@ -22,23 +23,55 @@
     return 'null';
   }
 
-  // teamClasses maps team names to CSS class names. We call Object.entries on
-  // it to make it easier to iterate and search.
-  const teamClasses = Object.entries({
-    General: 'acm-blue',
-    AI: 'acm-emerald',
-    Algo: 'acm-purple',
-    Create: 'acm-pink',
-    Design: 'acm-pink',
-    Dev: 'acm-bluer',
-    'Game Dev': 'acm-red',
-    Marketing: 'acm-blush',
-    'Special Events': 'acm-lemon',
-    Nodebuds: 'acm-red',
-  });
+  /**
+   * teamColors maps team names to CSS color variables. We call Object.entries on
+   * it to make it easier to iterate and search.
+   */
+  const teamColors = {
+    General: {
+      class: 'acm-blue',
+      color: 'var(--acm-general-rgb)',
+    },
+    AI: {
+      class: 'acm-emerald',
+      color: 'var(--acm-ai-rgb)',
+    },
+    Algo: {
+      class: 'acm-purple',
+      color: 'var(--acm-algo-rgb)',
+    },
+    Create: {
+      class: 'acm-pink',
+      color: 'var(--acm-design-rgb)',
+    },
+    Design: {
+      class: 'acm-pink',
+      color: 'var(--acm-design-rgb)',
+    },
+    Dev: {
+      class: 'acm-bluer',
+      color: 'var(--acm-dev-rgb)',
+    },
+    'Game Dev': {
+      class: 'acm-redder',
+      color: 'var(--acm-gamedev-rgb)',
+    },
+    Marketing: {
+      class: 'acm-blush',
+      color: 'var(--acm-marketing-rgb)',
+    },
+    'Special Events': {
+      class: 'acm-lemon',
+      color: 'var(--acm-special-events-rgb)',
+    },
+    Nodebuds: {
+      class: 'acm-redder',
+      color: 'var(--acm-nodebuds-rgb)',
+    },
+  };
 
   const officerName = info.fullName ?? '';
-  const officerPicture = info.picture ?? placeholderPicture;
+  const officerPicture = info.picture ?? info.legacyPicture ?? placeholderPicture;
   const officerSocials = info.socials ?? {};
 
   // officerTeam is the team that the officer is on. It is used as an ID for
@@ -51,9 +84,13 @@
 
   $: officerPosition = getPositionByTermIndex(info, $termIndex)?.title || '';
 
-  $: [teamName, teamClass] = teamClasses.find((e) => {
-    return officerPosition.startsWith(e[0]);
-  }) || [null, 'acm-dark'];
+  $: [teamName, { class: teamClass, color: teamColor }] = Object.entries<{
+    class: string;
+    color: string;
+  }>(teamColors).find(([candidateTeamName]) => officerPosition.startsWith(candidateTeamName)) || [
+    null,
+    { class: teamColors.General.class, color: teamColors.General.color },
+  ];
 
   $: titleHTML = teamName
     ? officerPosition.replace(teamName, `<b class="${teamClass}">${teamName}</b>`)
@@ -81,16 +118,22 @@
   class="officer-container"
   class:officer-has-socials={info.socials !== undefined}
   class:has-buggy-animations={hasBuggyAnimations}
-  style:--accent="var(--{teamClass})"
+  style:--accent="rgb({teamColor})"
 >
   <input type="checkbox" id="{officerID}-flipcard" />
   <div class="officer-3d-flipcard">
     <div class="officer-flipcard">
-      <img
-        class="officer-image"
-        src={`/assets/authors/${officerPicture}`}
-        alt={`Image of ${officerName}.`}
-      />
+      {#if info.legacyPicture}
+        <img
+          class="officer-image"
+          src={`/assets/authors/${officerPicture}`}
+          alt={`Image of ${officerName}.`}
+        />
+      {:else}
+        <BoardMember src={`/assets/authors/${officerPicture}`} 
+        teamColor={teamColor}/>
+        
+      {/if}
       <div class="officer-socials-box">
         <div class="officer-socials">
           <h3>Socials</h3>
