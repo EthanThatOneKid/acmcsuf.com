@@ -130,9 +130,7 @@
           alt={`Image of ${officerName}.`}
         />
       {:else}
-        <BoardMember src={`/assets/authors/${officerPicture}`} 
-        teamColor={teamColor}/>
-        
+        <BoardMember src={`/assets/authors/${officerPicture}`} {teamColor} />
       {/if}
       <div class="officer-socials-box">
         <div class="officer-socials">
