@@ -211,9 +211,7 @@
                     title={officerSocials.youtube}
                     href="https://www.youtube.com/@{officerSocials.youtube}"
                   >
-                    <BwIcon src="/assets/svg/youtube.svg" alt="Youtube icon" /><span
-                      >Youtube</span
-                    >
+                    <BwIcon src="/assets/svg/youtube.svg" alt="Youtube icon" /><span>Youtube</span>
                   </a>
                 </p>
               {/if}
