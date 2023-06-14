@@ -21,8 +21,8 @@
 <style lang="scss">
   svg {
     filter: drop-shadow(0px 0px 10px rgba(var(--color, var(--acm-general-rgb)), 0.5));
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
 
     &:hover,
     input:checked[type='checkbox'] + .officer-3d-flipcard .officer-image {
