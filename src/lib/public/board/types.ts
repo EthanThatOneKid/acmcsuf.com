@@ -33,6 +33,7 @@ export enum Social {
   Discord = 'discord',
   LinkedIn = 'linkedin',
   Instagram = 'instagram',
+  Youtube = 'youtube'
 }
 
 interface Position {
