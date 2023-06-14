@@ -128,6 +128,11 @@ body:has(nav > input[type='checkbox']:checked) {
   color: var(--acm-red);
 }
 
+.acm-redder,
+.brand-redder {
+  color: var(--acm-redder);
+}
+
 .acm-sky,
 .brand-sky {
   color: var(--acm-sky);
