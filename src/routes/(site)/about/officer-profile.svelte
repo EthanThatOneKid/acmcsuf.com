@@ -27,7 +27,7 @@
    * teamColors maps team names to CSS color variables. We call Object.entries on
    * it to make it easier to iterate and search.
    */
-  const teamColors = {
+  const COLORS = {
     General: {
       class: 'acm-blue',
       color: 'var(--acm-general-rgb)',
@@ -211,7 +211,7 @@
                     title={officerSocials.youtube}
                     href="https://www.youtube.com/@{officerSocials.youtube}"
                   >
-                    <BwIcon src="/assets/svg/youtube.svg" alt="Youtube icon" /><span>Youtube</span>
+                    <BwIcon src="/assets/svg/youtube.svg" alt="YouTube icon" /><span>YouTube</span>
                   </a>
                 </p>
               {/if}

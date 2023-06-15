@@ -33,7 +33,7 @@ export enum Social {
   Discord = 'discord',
   LinkedIn = 'linkedin',
   Instagram = 'instagram',
-  Youtube = 'youtube',
+  YouTube = 'youtube',
 }
 
 interface Position {
@@ -52,6 +52,13 @@ interface Position {
   tier: number;
 }
 
+/**
+ * @property {string} [picture] - Images edited using Boardify.
+ * @property {string} [legacyPicture] - Images created manually.
+ * Conditionally renders the officer picture using the {{#if}} Handlebars helper. 
+ * If `picture` or `legacyPicture` is truthy it will be used as the src attribute 
+ * of the <img> element. If neither is provided or truthy, `placeholder` is shown.
+ */
 export interface Officer {
   fullName: string;
   picture?: string;
