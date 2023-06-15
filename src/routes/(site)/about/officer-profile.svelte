@@ -27,7 +27,7 @@
    * teamColors maps team names to CSS color variables. We call Object.entries on
    * it to make it easier to iterate and search.
    */
-  const COLORS = {
+  const teamColors = {
     General: {
       class: 'acm-blue',
       color: 'var(--acm-general-rgb)',
