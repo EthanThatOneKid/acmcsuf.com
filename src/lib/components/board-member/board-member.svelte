@@ -2,11 +2,12 @@
   import BoardPicture from './board-picture.svelte';
 
   export let src: string;
-  export let teamColor = 'var(--acm-general-rgb)';
+  export let alt: string;
+  export let color = 'var(--acm-general-rgb)';
 </script>
 
 <div class="board-member__container">
-  <BoardPicture {src} color={teamColor} />
+  <BoardPicture {src} {alt} {color} />
 </div>
 
 <style lang="scss">

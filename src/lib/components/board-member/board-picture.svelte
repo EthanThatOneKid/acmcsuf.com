@@ -3,6 +3,7 @@
    * See: https://codepen.io/alancortez1337/pen/NWzKqKE?editors=1100
    */
   export let src: string;
+  export let alt: string;
   export let color: string;
 </script>
 
