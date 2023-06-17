@@ -6,8 +6,8 @@
   export let color = 'var(--acm-general-rgb)';
 </script>
 
-<div class="board-member__container">
-  <BoardPicture {src} {alt} {color} />
+<div class="board-member__container" title={alt}>
+  <BoardPicture {src} {color} />
 </div>
 
 <style lang="scss">

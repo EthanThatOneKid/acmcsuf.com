@@ -27,6 +27,7 @@
   const officerName = info.fullName ?? '';
   const officerPicture = info.picture ?? info.legacyPicture ?? placeholderPicture;
   const officerSocials = info.socials ?? {};
+  const alt = `Image of ${officerName}.`;
 
   // officerTeam is the team that the officer is on. It is used as an ID for
   // the officer's card.
@@ -78,17 +79,9 @@
   <div class="officer-3d-flipcard">
     <div class="officer-flipcard">
       {#if info.legacyPicture}
-        <img
-          class="officer-image"
-          src={`/assets/authors/${officerPicture}`}
-          alt={`Image of ${officerName}.`}
-        />
+        <img class="officer-image" src={`/assets/authors/${officerPicture}`} {alt} title={alt} />
       {:else}
-        <BoardMember
-          src={`/assets/authors/${officerPicture}`}
-          alt={`Image of ${officerName}.`}
-          {teamColor}
-        />
+        <BoardMember src={`/assets/authors/${officerPicture}`} {alt} color={teamColor} />
       {/if}
       <div class="officer-socials-box">
         <div class="officer-socials">

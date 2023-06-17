@@ -3,7 +3,6 @@
    * See: https://codepen.io/alancortez1337/pen/NWzKqKE?editors=1100
    */
   export let src: string;
-  export let alt: string;
   export let color: string;
 </script>
 
@@ -25,9 +24,7 @@
     width: 140px;
     height: 140px;
 
-    &:hover,
-    input:checked[type='checkbox'] + .officer-3d-flipcard .officer-image {
-      /* This hack stays until we can resolve #348. */
+    &:hover {
       transform: scale(1.06) rotateZ(1.2deg);
       transition: all 0.2 cubic-bezier(0.86, 0, 0.07, 1);
     }
