@@ -2,6 +2,7 @@ import { Term, type Team } from '$lib/public/board/types';
 import OFFICERS_JSON from './officers.json';
 import TIERS_JSON from './tiers.json';
 import TEAMS_JSON from './teams.json';
+export { COLORS } from './colors';
 
 export { OFFICERS_JSON, TIERS_JSON, TEAMS_JSON };
 

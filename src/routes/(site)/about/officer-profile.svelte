@@ -6,6 +6,7 @@
   import { copy } from '$lib/public/copy/copy';
   import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
   import BoardMember from '$lib/components/board-member/board-member.svelte';
+  import { COLORS } from '$lib/public/board/data';
 
   export let info: Officer;
   export let placeholderPicture = 'placeholder.webp';
@@ -22,53 +23,6 @@
     }
     return 'null';
   }
-
-  /**
-   * teamColors maps team names to CSS color variables. We call Object.entries on
-   * it to make it easier to iterate and search.
-   */
-  const teamColors = {
-    General: {
-      class: 'acm-blue',
-      color: 'var(--acm-general-rgb)',
-    },
-    AI: {
-      class: 'acm-emerald',
-      color: 'var(--acm-ai-rgb)',
-    },
-    Algo: {
-      class: 'acm-purple',
-      color: 'var(--acm-algo-rgb)',
-    },
-    Create: {
-      class: 'acm-pink',
-      color: 'var(--acm-design-rgb)',
-    },
-    Design: {
-      class: 'acm-pink',
-      color: 'var(--acm-design-rgb)',
-    },
-    Dev: {
-      class: 'acm-bluer',
-      color: 'var(--acm-dev-rgb)',
-    },
-    'Game Dev': {
-      class: 'acm-redder',
-      color: 'var(--acm-gamedev-rgb)',
-    },
-    Marketing: {
-      class: 'acm-blush',
-      color: 'var(--acm-marketing-rgb)',
-    },
-    'Special Events': {
-      class: 'acm-lemon',
-      color: 'var(--acm-special-events-rgb)',
-    },
-    Nodebuds: {
-      class: 'acm-redder',
-      color: 'var(--acm-nodebuds-rgb)',
-    },
-  };
 
   const officerName = info.fullName ?? '';
   const officerPicture = info.picture ?? info.legacyPicture ?? placeholderPicture;
@@ -87,9 +41,9 @@
   $: [teamName, { class: teamClass, color: teamColor }] = Object.entries<{
     class: string;
     color: string;
-  }>(teamColors).find(([candidateTeamName]) => officerPosition.startsWith(candidateTeamName)) || [
+  }>(COLORS).find(([candidateTeamName]) => officerPosition.startsWith(candidateTeamName)) || [
     null,
-    { class: teamColors.General.class, color: teamColors.General.color },
+    { class: COLORS.General.class, color: COLORS.General.color },
   ];
 
   $: titleHTML = teamName
