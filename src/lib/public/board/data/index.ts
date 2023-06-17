@@ -2,10 +2,17 @@ import { Term, type Team } from '$lib/public/board/types';
 import OFFICERS_JSON from './officers.json';
 import TIERS_JSON from './tiers.json';
 import TEAMS_JSON from './teams.json';
+export { COLORS } from './colors';
 
 export { OFFICERS_JSON, TIERS_JSON, TEAMS_JSON };
 
-export const VISIBLE_TERMS = [Term.Fall22, Term.Spring22, Term.Fall21, Term.Spring21];
+export const VISIBLE_TERMS = [
+  Term.Spring23,
+  Term.Fall22,
+  Term.Spring22,
+  Term.Fall21,
+  Term.Spring21,
+];
 
 export const TIERS = { ...TIERS_JSON };
 

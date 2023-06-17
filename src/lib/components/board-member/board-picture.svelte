@@ -1,4 +1,7 @@
 <script lang="ts">
+  /**
+   * See: https://codepen.io/alancortez1337/pen/NWzKqKE?editors=1100
+   */
   export let src: string;
   export let color: string;
 </script>
@@ -15,11 +18,16 @@
   <image clip-path="url(#shape)" xlink:href={src} />
 </svg>
 
-<style>
+<style lang="scss">
   svg {
-    filter: drop-shadow(0px 5px 40px var(--color, var(--acm-blue)));
-    width: 200px;
-    height: 200px;
+    filter: drop-shadow(0px 0px 10px rgba(var(--color, var(--acm-general-rgb)), 0.5));
+    width: 140px;
+    height: 140px;
+
+    &:hover {
+      transform: scale(1.06) rotateZ(1.2deg);
+      transition: all 0.2 cubic-bezier(0.86, 0, 0.07, 1);
+    }
   }
 
   image {

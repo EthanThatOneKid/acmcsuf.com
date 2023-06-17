@@ -84,7 +84,11 @@
 {#if $output}
   <p class="brand-em">Output:</p>
   <div class="output-container">
-    <BoardMember src={$output.toDataURL('image/webp')} {teamColor} />
+    <BoardMember
+      src={$output.toDataURL('image/webp')}
+      alt="Image of board member."
+      color={teamColor}
+    />
   </div>
 
   <Button text="Submit" on:click={handleSubmit} />
