@@ -5,6 +5,8 @@
   import { termIndex, getPositionByTermIndex } from '$lib/public/board/utils';
   import { copy } from '$lib/public/copy/copy';
   import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
+  import BoardMember from '$lib/components/board-member/board-member.svelte';
+  import { COLORS } from '$lib/public/board/data';
 
   export let info: Officer;
   export let placeholderPicture = 'placeholder.webp';
@@ -22,22 +24,10 @@
     return 'null';
   }
 
-  // teamClasses maps team names to CSS class names. We call Object.entries on
-  // it to make it easier to iterate and search.
-  const teamClasses = Object.entries({
-    Algo: 'acm-purple',
-    Create: 'acm-pink',
-    Design: 'acm-pink',
-    Dev: 'acm-bluer',
-    AI: 'acm-emerald',
-    Marketing: 'acm-red',
-    'Special Events': 'acm-lemon',
-    nodebuds: 'brand-header',
-  });
-
   const officerName = info.fullName ?? '';
-  const officerPicture = info.picture ?? placeholderPicture;
+  const officerPicture = info.picture ?? info.legacyPicture ?? placeholderPicture;
   const officerSocials = info.socials ?? {};
+  const alt = `Image of ${officerName}.`;
 
   // officerTeam is the team that the officer is on. It is used as an ID for
   // the officer's card.
@@ -49,9 +39,13 @@
 
   $: officerPosition = getPositionByTermIndex(info, $termIndex)?.title || '';
 
-  $: [teamName, teamClass] = teamClasses.find((e) => {
-    return officerPosition.startsWith(e[0]);
-  }) || [null, 'acm-dark'];
+  $: [teamName, { class: teamClass, color: teamColor }] = Object.entries<{
+    class: string;
+    color: string;
+  }>(COLORS).find(([candidateTeamName]) => officerPosition.startsWith(candidateTeamName)) || [
+    null,
+    { class: COLORS.General.class, color: COLORS.General.color },
+  ];
 
   $: titleHTML = teamName
     ? officerPosition.replace(teamName, `<b class="${teamClass}">${teamName}</b>`)
@@ -79,16 +73,16 @@
   class="officer-container"
   class:officer-has-socials={info.socials !== undefined}
   class:has-buggy-animations={hasBuggyAnimations}
-  style:--accent="var(--{teamClass})"
+  style:--accent="rgb({teamColor})"
 >
   <input type="checkbox" id="{officerID}-flipcard" />
   <div class="officer-3d-flipcard">
     <div class="officer-flipcard">
-      <img
-        class="officer-image"
-        src={`/assets/authors/${officerPicture}`}
-        alt={`Image of ${officerName}.`}
-      />
+      {#if info.legacyPicture}
+        <img class="officer-image" src={`/assets/authors/${officerPicture}`} {alt} title={alt} />
+      {:else}
+        <BoardMember src={`/assets/authors/${officerPicture}`} {alt} color={teamColor} />
+      {/if}
       <div class="officer-socials-box">
         <div class="officer-socials">
           <h3>Socials</h3>
@@ -158,6 +152,17 @@
                     <BwIcon src="/assets/svg/instagram.svg" alt="Instagram icon" /><span
                       >Instagram</span
                     >
+                  </a>
+                </p>
+              {/if}
+              {#if officerSocials.youtube}
+                <p class="officer-youtube">
+                  <a
+                    target="blank"
+                    title={officerSocials.youtube}
+                    href="https://www.youtube.com/@{officerSocials.youtube}"
+                  >
+                    <BwIcon src="/assets/svg/youtube.svg" alt="YouTube icon" /><span>YouTube</span>
                   </a>
                 </p>
               {/if}

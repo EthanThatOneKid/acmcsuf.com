@@ -38,7 +38,7 @@ function serializePost(post: BlogPost) {
 
   lines.push(`id: ${post.id}`);
   lines.push(`html_url: "https://acmcsuf.com${post.url}"`);
-  lines.push(`discussion_url: "${post.discussionUrl}"`);
+  lines.push(`discussion_url: "${post.discussionURL}"`);
 
   const author =
     post.author.displayname + (post.author.url !== undefined ? ` (${post.author.url})` : '');

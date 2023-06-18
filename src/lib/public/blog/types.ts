@@ -6,7 +6,7 @@ export interface BlogOutput {
 export interface BlogPost {
   id: number;
   url: string;
-  discussionUrl: string;
+  discussionURL: string;
   title: string;
   html: string;
   bodyText: string;

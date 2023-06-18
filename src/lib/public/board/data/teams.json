@@ -36,6 +36,12 @@
     "color": "var(--acm-red)"
   },
   {
+    "title": "Marketing",
+    "id": "marketing",
+    "picture": "/assets/badges/marketing-team.svg",
+    "color": "var(--acm-blush)"
+  },
+  {
     "title": "ICPC",
     "id": "icpc",
     "picture": "/assets/badges/icpc-team.svg",
