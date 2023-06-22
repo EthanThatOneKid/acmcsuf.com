@@ -8,22 +8,47 @@
       "linkedin": "armanul-ambia"
     },
     "positions": {
-      "S21": { "title": "Dev Officer", "tier": 19 },
-      "F21": { "title": "Algo Director", "tier": 11 },
-      "S22": { "title": "Algo President", "tier": 11 },
-      "F22": { "title": "Algo Team Lead", "tier": 11 },
-      "S23": { "title": "Algo Team Lead", "tier": 11 }
+      "S21": {
+        "title": "Dev Officer",
+        "tier": 19
+      },
+      "F21": {
+        "title": "Algo Director",
+        "tier": 11
+      },
+      "S22": {
+        "title": "Algo President",
+        "tier": 11
+      },
+      "F22": {
+        "title": "Algo Team Lead",
+        "tier": 11
+      },
+      "S23": {
+        "title": "Algo Team Lead",
+        "tier": 11
+      }
     }
   },
   {
     "fullName": "Jason Anthony",
     "legacyPicture": "jason-anthony.webp",
-    "positions": { "S21": { "title": "Secretary", "tier": 5 } }
+    "positions": {
+      "S21": {
+        "title": "Secretary",
+        "tier": 5
+      }
+    }
   },
   {
     "fullName": "Angel Armendariz",
     "legacyPicture": "angel-armendariz.webp",
-    "positions": { "S22": { "title": "Dev Project Manager", "tier": 14 } }
+    "positions": {
+      "S22": {
+        "title": "Dev Project Manager",
+        "tier": 14
+      }
+    }
   },
   {
     "fullName": "Sami Bajwa",
@@ -34,16 +59,33 @@
       "linkedin": "bajwas"
     },
     "positions": {
-      "F21": { "title": "Nodebuds Officer", "tier": 26 },
-      "S22": { "title": "Algo Officer, Nodebuds Officer", "tier": 12 },
-      "F22": { "title": "Algo Officer", "tier": 12 },
-      "S23": { "title": "Algo Officer", "tier": 12 }
+      "F21": {
+        "title": "Nodebuds Officer",
+        "tier": 26
+      },
+      "S22": {
+        "title": "Algo Officer, Nodebuds Officer",
+        "tier": 12
+      },
+      "F22": {
+        "title": "Algo Officer",
+        "tier": 12
+      },
+      "S23": {
+        "title": "Algo Officer",
+        "tier": 12
+      }
     }
   },
   {
     "fullName": "Christos Bakis",
     "legacyPicture": "placeholder.webp",
-    "positions": { "S23": { "title": "Special Events Officer", "tier": 25 } }
+    "positions": {
+      "S23": {
+        "title": "Special Events Officer",
+        "tier": 25
+      }
+    }
   },
   {
     "fullName": "Jacob Carlson",
@@ -53,12 +95,22 @@
       "discord": "jiink",
       "linkedin": "jacob-carlson-608b3723a"
     },
-    "positions": { "S23": { "title": "Game Dev Officer", "tier": 23 } }
+    "positions": {
+      "S23": {
+        "title": "Game Dev Officer",
+        "tier": 23
+      }
+    }
   },
   {
     "fullName": "Johnathan Carranza",
     "legacyPicture": "johnathan-carranza.webp",
-    "positions": { "F21": { "title": "Dev Officer", "tier": 19 } }
+    "positions": {
+      "F21": {
+        "title": "Dev Officer",
+        "tier": 19
+      }
+    }
   },
   {
     "fullName": "Oscar Cisneros",
@@ -67,7 +119,12 @@
       "github": "oscisn93",
       "discord": "bigo0001"
     },
-    "positions": { "S23": { "title": "Dev Officer", "tier": 19 } }
+    "positions": {
+      "S23": {
+        "title": "Dev Officer",
+        "tier": 19
+      }
+    }
   },
   {
     "fullName": "Alan Cortez",
@@ -79,9 +136,18 @@
       "linkedin": "alancortez1337"
     },
     "positions": {
-      "S22": { "title": "Create Officer", "tier": 16 },
-      "F22": { "title": "Design Team Lead", "tier": 13 },
-      "S23": { "title": "Design Team Lead", "tier": 13 }
+      "S22": {
+        "title": "Create Officer",
+        "tier": 16
+      },
+      "F22": {
+        "title": "Design Team Lead",
+        "tier": 13
+      },
+      "S23": {
+        "title": "Design Team Lead",
+        "tier": 13
+      }
     }
   },
   {
@@ -93,11 +159,26 @@
       "linkedin": "wesley-chou-cs"
     },
     "positions": {
-      "S21": { "title": "Dev Officer", "tier": 19 },
-      "F21": { "title": "Dev Director", "tier": 17 },
-      "S22": { "title": "Dev President", "tier": 17 },
-      "F22": { "title": "Marketing Co-Lead", "tier": 8 },
-      "S23": { "title": "Marketing Team Lead", "tier": 8 }
+      "S21": {
+        "title": "Dev Officer",
+        "tier": 19
+      },
+      "F21": {
+        "title": "Dev Director",
+        "tier": 17
+      },
+      "S22": {
+        "title": "Dev President",
+        "tier": 17
+      },
+      "F22": {
+        "title": "Marketing Co-Lead",
+        "tier": 8
+      },
+      "S23": {
+        "title": "Marketing Team Lead",
+        "tier": 8
+      }
     }
   },
   {
@@ -109,17 +190,37 @@
       "linkedin": "etok"
     },
     "positions": {
-      "S21": { "title": "Webmaster", "tier": 2 },
-      "F21": { "title": "Webmaster", "tier": 2 },
-      "S22": { "title": "Webmaster", "tier": 2 },
-      "F22": { "title": "Vice President/Webmaster", "tier": 1 },
-      "S23": { "title": "Vice President/Webmaster", "tier": 1 }
+      "S21": {
+        "title": "Webmaster",
+        "tier": 2
+      },
+      "F21": {
+        "title": "Webmaster",
+        "tier": 2
+      },
+      "S22": {
+        "title": "Webmaster",
+        "tier": 2
+      },
+      "F22": {
+        "title": "Vice President/Webmaster",
+        "tier": 1
+      },
+      "S23": {
+        "title": "Vice President/Webmaster",
+        "tier": 1
+      }
     }
   },
   {
     "fullName": "Kevin Dillon",
     "legacyPicture": "kevin-dillon.webp",
-    "positions": { "S21": { "title": "Algo Officer", "tier": 12 } }
+    "positions": {
+      "S21": {
+        "title": "Algo Officer",
+        "tier": 12
+      }
+    }
   },
   {
     "fullName": "Diamond Dinh",
@@ -130,9 +231,18 @@
       "linkedin": "diamondnotburned"
     },
     "positions": {
-      "S22": { "title": "Dev Project Manager", "tier": 18 },
-      "F22": { "title": "Special Events Officer", "tier": 25 },
-      "S23": { "title": "Special Events Officer", "tier": 25 }
+      "S22": {
+        "title": "Dev Project Manager",
+        "tier": 18
+      },
+      "F22": {
+        "title": "Special Events Officer",
+        "tier": 25
+      },
+      "S23": {
+        "title": "Special Events Officer",
+        "tier": 25
+      }
     }
   },
   {
@@ -144,13 +254,21 @@
       "linkedin": "nicholas-girmes"
     },
     "positions": {
-      "S23": { "title": "Algo Officer", "tier": 12 }
+      "S23": {
+        "title": "Algo Officer",
+        "tier": 12
+      }
     }
   },
   {
     "fullName": "Eduardo Gomez",
     "legacyPicture": "eduardo-gomez.webp",
-    "positions": { "S21": { "title": "Nodebuds Officer", "tier": 26 } }
+    "positions": {
+      "S21": {
+        "title": "Nodebuds Officer",
+        "tier": 26
+      }
+    }
   },
   {
     "fullName": "Nurhaliza Hassan",
@@ -161,19 +279,35 @@
       "linkedin": "nurhaliza-h"
     },
     "positions": {
-      "S22": { "title": "Marketing Director", "tier": 8 },
-      "F22": { "title": "Marketing Co-Lead", "tier": 8 }
+      "S22": {
+        "title": "Marketing Director",
+        "tier": 8
+      },
+      "F22": {
+        "title": "Marketing Co-Lead",
+        "tier": 8
+      }
     }
   },
   {
     "fullName": "Lisa Hong",
     "legacyPicture": "lisa-hong.webp",
-    "positions": { "S21": { "title": "Create Officer", "tier": 16 } }
+    "positions": {
+      "S21": {
+        "title": "Create Officer",
+        "tier": 16
+      }
+    }
   },
   {
     "fullName": "Joshua Hughes",
     "legacyPicture": "joshua-hughes.webp",
-    "positions": { "S21": { "title": "ICC Representative", "tier": 31 } }
+    "positions": {
+      "S21": {
+        "title": "ICC Representative",
+        "tier": 31
+      }
+    }
   },
   {
     "fullName": "Arish Imam",
@@ -182,17 +316,32 @@
       "discord": "Ari123#6233",
       "linkedin": "arish-imam-10617a246"
     },
-    "positions": { "F22": { "title": "AI Officer", "tier": 21 } }
+    "positions": {
+      "F22": {
+        "title": "AI Officer",
+        "tier": 21
+      }
+    }
   },
   {
     "fullName": "Iftekharul Islam",
     "legacyPicture": "iftekharul-islam.webp",
-    "positions": { "S22": { "title": "Algo Officer", "tier": 12 } }
+    "positions": {
+      "S22": {
+        "title": "Algo Officer",
+        "tier": 12
+      }
+    }
   },
   {
     "fullName": "Ibrahim Israr",
     "legacyPicture": "ibrahim-israr.webp",
-    "positions": { "S22": { "title": "Secretary", "tier": 5 } }
+    "positions": {
+      "S22": {
+        "title": "Secretary",
+        "tier": 5
+      }
+    }
   },
   {
     "fullName": "Joel Anil John",
@@ -203,9 +352,18 @@
       "linkedin": "joelaniljohn"
     },
     "positions": {
-      "S22": { "title": "Dev Officer", "tier": 19 },
-      "F22": { "title": "Algo Officer", "tier": 12 },
-      "S23": { "title": "Algo Officer", "tier": 12 }
+      "S22": {
+        "title": "Dev Officer",
+        "tier": 19
+      },
+      "F22": {
+        "title": "Algo Officer",
+        "tier": 12
+      },
+      "S23": {
+        "title": "Algo Officer",
+        "tier": 12
+      }
     }
   },
   {
@@ -216,58 +374,113 @@
       "discord": "ashy#1234",
       "linkedin": "ashleykuewa"
     },
-    "positions": { "S23": { "title": "Marketing Officer", "tier": 9 } }
+    "positions": {
+      "S23": {
+        "title": "Marketing Officer",
+        "tier": 9
+      }
+    }
   },
   {
     "fullName": "Rohan Kunchala",
     "legacyPicture": "rohan-kunchala.webp",
-    "socials": { "discord": "sirsandgnome#0235" },
+    "socials": {
+      "discord": "sirsandgnome#0235"
+    },
     "positions": {
-      "F22": { "title": "Algo Officer", "tier": 12 },
-      "S23": { "title": "Algo Officer", "tier": 12 }
+      "F22": {
+        "title": "Algo Officer",
+        "tier": 12
+      },
+      "S23": {
+        "title": "Algo Officer",
+        "tier": 12
+      }
     }
   },
   {
     "fullName": "Andy Lasso",
     "legacyPicture": "andy-lasso.webp",
-    "positions": { "F21": { "title": "Dev Officer", "tier": 19 } }
+    "positions": {
+      "F21": {
+        "title": "Dev Officer",
+        "tier": 19
+      }
+    }
   },
   {
     "fullName": "Logan Langdon",
     "legacyPicture": "placeholder.webp",
-    "socials": { "discord": "leauxgan" },
-    "positions": { "S23": { "title": "Game Dev Officer", "tier": 23 } }
+    "socials": {
+      "discord": "leauxgan"
+    },
+    "positions": {
+      "S23": {
+        "title": "Game Dev Officer",
+        "tier": 23
+      }
+    }
   },
   {
     "fullName": "Andrew Lau",
     "legacyPicture": "andrew-lau.webp",
-    "positions": { "S21": { "title": "Treasurer", "tier": 4 } }
+    "positions": {
+      "S21": {
+        "title": "Treasurer",
+        "tier": 4
+      }
+    }
   },
   {
     "fullName": "Minh Le",
     "legacyPicture": "minh-le.webp",
-    "positions": { "S22": { "title": "Dev Officer", "tier": 19 } }
+    "positions": {
+      "S22": {
+        "title": "Dev Officer",
+        "tier": 19
+      }
+    }
   },
   {
     "fullName": "Nguyen Le",
     "legacyPicture": "nguyen-le.webp",
-    "positions": { "S22": { "title": "Data Analyst", "tier": 7 } }
+    "positions": {
+      "S22": {
+        "title": "Data Analyst",
+        "tier": 7
+      }
+    }
   },
   {
     "fullName": "Tommy Le",
     "legacyPicture": "tommy-le.webp",
     "positions": {
-      "F21": { "title": "Treasurer", "tier": 4 },
-      "S22": { "title": "Treasurer", "tier": 4 }
+      "F21": {
+        "title": "Treasurer",
+        "tier": 4
+      },
+      "S22": {
+        "title": "Treasurer",
+        "tier": 4
+      }
     }
   },
   {
     "fullName": "Eugene Lee",
     "legacyPicture": "eugene-lee.webp",
     "positions": {
-      "S21": { "title": "Nodebuds Officer", "tier": 26 },
-      "F21": { "title": "Nodebuds Officer", "tier": 26 },
-      "S22": { "title": "Nodebuds Officer", "tier": 26 }
+      "S21": {
+        "title": "Nodebuds Officer",
+        "tier": 26
+      },
+      "F21": {
+        "title": "Nodebuds Officer",
+        "tier": 26
+      },
+      "S22": {
+        "title": "Nodebuds Officer",
+        "tier": 26
+      }
     }
   },
   {
@@ -279,12 +492,22 @@
       "linkedin": "j1yl",
       "website": "joelee.info/"
     },
-    "positions": { "S23": { "title": "Dev Officer", "tier": 19 } }
+    "positions": {
+      "S23": {
+        "title": "Dev Officer",
+        "tier": 19
+      }
+    }
   },
   {
     "fullName": "Nolan Lee",
     "legacyPicture": "nolan-lee.webp",
-    "positions": { "S22": { "title": "Historian", "tier": 10 } }
+    "positions": {
+      "S22": {
+        "title": "Historian",
+        "tier": 10
+      }
+    }
   },
   {
     "fullName": "Aaron Lieberman",
@@ -295,11 +518,26 @@
       "linkedin": "aaronlieb"
     },
     "positions": {
-      "S21": { "title": "Internal Vice President, Nodebuds Officer", "tier": 1 },
-      "F21": { "title": "President, Nodebuds Officer", "tier": 0 },
-      "S22": { "title": "President, Nodebuds Officer", "tier": 0 },
-      "F22": { "title": "Special Events Team Lead", "tier": 24 },
-      "S23": { "title": "Special Events Team Lead", "tier": 24 }
+      "S21": {
+        "title": "Internal Vice President, Nodebuds Officer",
+        "tier": 1
+      },
+      "F21": {
+        "title": "President, Nodebuds Officer",
+        "tier": 0
+      },
+      "S22": {
+        "title": "President, Nodebuds Officer",
+        "tier": 0
+      },
+      "F22": {
+        "title": "Special Events Team Lead",
+        "tier": 24
+      },
+      "S23": {
+        "title": "Special Events Team Lead",
+        "tier": 24
+      }
     }
   },
   {
@@ -310,17 +548,32 @@
       "discord": "alfred#1781",
       "linkedin": "yao-lin-2010a01b8"
     },
-    "positions": { "F22": { "title": "AI Officer", "tier": 21 } }
+    "positions": {
+      "F22": {
+        "title": "AI Officer",
+        "tier": 21
+      }
+    }
   },
   {
     "fullName": "Shaleen Mathur",
     "legacyPicture": "shaleen-mathur.webp",
-    "positions": { "S21": { "title": "Workshop Manager", "tier": 28 } }
+    "positions": {
+      "S21": {
+        "title": "Workshop Manager",
+        "tier": 28
+      }
+    }
   },
   {
     "fullName": "Ean McGilvery",
     "legacyPicture": "ean-mcgilvery.webp",
-    "positions": { "S21": { "title": "Nodebuds Officer", "tier": 26 } }
+    "positions": {
+      "S21": {
+        "title": "Nodebuds Officer",
+        "tier": 26
+      }
+    }
   },
   {
     "fullName": "Jorge Mejia",
@@ -331,10 +584,22 @@
       "linkedin": "jorgeemejia"
     },
     "positions": {
-      "F21": { "title": "Dev Officer", "tier": 19 },
-      "S22": { "title": "Dev Officer", "tier": 19 },
-      "F22": { "title": "Design Officer", "tier": 16 },
-      "S23": { "title": "Design Officer", "tier": 16 }
+      "F21": {
+        "title": "Dev Officer",
+        "tier": 19
+      },
+      "S22": {
+        "title": "Dev Officer",
+        "tier": 19
+      },
+      "F22": {
+        "title": "Design Officer",
+        "tier": 16
+      },
+      "S23": {
+        "title": "Design Officer",
+        "tier": 16
+      }
     }
   },
   {
@@ -345,13 +610,25 @@
       "discord": "BrianMilian#9698",
       "linkedin": "brian-milian"
     },
-    "positions": { "S23": { "title": "Marketing Officer", "tier": 9 } }
+    "positions": {
+      "S23": {
+        "title": "Marketing Officer",
+        "tier": 9
+      }
+    }
   },
   {
     "fullName": "Jordan Muir",
     "legacyPicture": "placeholder.webp",
-    "socials": { "discord": "muirror" },
-    "positions": { "S23": { "title": "Game Dev Officer", "tier": 23 } }
+    "socials": {
+      "discord": "muirror"
+    },
+    "positions": {
+      "S23": {
+        "title": "Game Dev Officer",
+        "tier": 23
+      }
+    }
   },
   {
     "fullName": "Tanisha Naik",
@@ -361,14 +638,25 @@
       "linkedin": "tanishanaik",
       "instagram": "_tanishanaik?igshid=OGQ5ZDc2ODk2ZA=="
     },
-    "positions": { "S23": { "title": "Design Officer", "tier": 16 } }
+    "positions": {
+      "S23": {
+        "title": "Design Officer",
+        "tier": 16
+      }
+    }
   },
   {
     "fullName": "Serena Naranjo",
     "legacyPicture": "serena-naranjo.webp",
     "positions": {
-      "F21": { "title": "Create Officer", "tier": 16 },
-      "S22": { "title": "Create Officer", "tier": 16 }
+      "F21": {
+        "title": "Create Officer",
+        "tier": 16
+      },
+      "S22": {
+        "title": "Create Officer",
+        "tier": 16
+      }
     }
   },
   {
@@ -380,17 +668,32 @@
       "linkedin": "joseph-nasr-a0ba20203",
       "github": "jenasr"
     },
-    "positions": { "S23": { "title": "Game Dev Officer", "tier": 23 } }
+    "positions": {
+      "S23": {
+        "title": "Game Dev Officer",
+        "tier": 23
+      }
+    }
   },
   {
     "fullName": "Dalisa Nguyen",
     "legacyPicture": "dalisa-nguyen.webp",
-    "positions": { "S21": { "title": "Nodebuds Officer", "tier": 26 } }
+    "positions": {
+      "S21": {
+        "title": "Nodebuds Officer",
+        "tier": 26
+      }
+    }
   },
   {
     "fullName": "Kayla Nguyen",
     "legacyPicture": "kayla-nguyen.webp",
-    "positions": { "F21": { "title": "Create Officer", "tier": 16 } }
+    "positions": {
+      "F21": {
+        "title": "Create Officer",
+        "tier": 16
+      }
+    }
   },
   {
     "fullName": "Jacob Nguyen",
@@ -401,18 +704,36 @@
       "linkedin": "jacob-nguyen-899b80194"
     },
     "positions": {
-      "S21": { "title": "President, Create Director, Nodebuds Officer", "tier": 0 },
-      "F22": { "title": "Treasurer", "tier": 4 },
-      "S23": { "title": "Treasurer", "tier": 4 }
+      "S21": {
+        "title": "President, Create Director, Nodebuds Officer",
+        "tier": 0
+      },
+      "F22": {
+        "title": "Treasurer",
+        "tier": 4
+      },
+      "S23": {
+        "title": "Treasurer",
+        "tier": 4
+      }
     }
   },
   {
     "fullName": "Taylor Noh",
     "legacyPicture": "taylor-noh.webp",
     "positions": {
-      "S21": { "title": "Nodebuds Officer", "tier": 26 },
-      "F21": { "title": "Nodebuds Officer", "tier": 26 },
-      "S22": { "title": "Nodebuds Officer", "tier": 26 }
+      "S21": {
+        "title": "Nodebuds Officer",
+        "tier": 26
+      },
+      "F21": {
+        "title": "Nodebuds Officer",
+        "tier": 26
+      },
+      "S22": {
+        "title": "Nodebuds Officer",
+        "tier": 26
+      }
     }
   },
   {
@@ -424,17 +745,32 @@
       "linkedin": "kirsten-ochoa"
     },
     "positions": {
-      "S22": { "title": "Create Project Developer", "tier": 14 },
-      "F22": { "title": "Design Officer", "tier": 16 }
+      "S22": {
+        "title": "Create Project Developer",
+        "tier": 14
+      },
+      "F22": {
+        "title": "Design Officer",
+        "tier": 16
+      }
     }
   },
   {
     "fullName": "Mike Ploythai",
     "legacyPicture": "mike-ploythai.webp",
     "positions": {
-      "S21": { "title": "Create Officer", "tier": 16 },
-      "F21": { "title": "Create Director, Marketing Chair", "tier": 13 },
-      "S22": { "title": "Create President", "tier": 13 }
+      "S21": {
+        "title": "Create Officer",
+        "tier": 16
+      },
+      "F21": {
+        "title": "Create Director, Marketing Chair",
+        "tier": 13
+      },
+      "S22": {
+        "title": "Create President",
+        "tier": 13
+      }
     }
   },
   {
@@ -446,9 +782,18 @@
       "linkedin": "stephanie-pocci"
     },
     "positions": {
-      "S22": { "title": "Event Coordinator", "tier": 6 },
-      "F22": { "title": "Event Coordinator", "tier": 6 },
-      "S23": { "title": "Game Dev Team Lead", "tier": 22 }
+      "S22": {
+        "title": "Event Coordinator",
+        "tier": 6
+      },
+      "F22": {
+        "title": "Event Coordinator",
+        "tier": 6
+      },
+      "S23": {
+        "title": "Game Dev Team Lead",
+        "tier": 22
+      }
     }
   },
   {
@@ -458,7 +803,12 @@
       "discord": "spread dat jelly on bread#5173",
       "linkedin": "angela-queano-786145231"
     },
-    "positions": { "S23": { "title": "Marketing Officer", "tier": 9 } }
+    "positions": {
+      "S23": {
+        "title": "Marketing Officer",
+        "tier": 9
+      }
+    }
   },
   {
     "fullName": "Alejandro Ramos",
@@ -469,19 +819,35 @@
       "linkedin": "alejandro-ramos27"
     },
     "positions": {
-      "F22": { "title": "Design Officer", "tier": 16 },
-      "S23": { "title": "Design Officer", "tier": 16 }
+      "F22": {
+        "title": "Design Officer",
+        "tier": 16
+      },
+      "S23": {
+        "title": "Design Officer",
+        "tier": 16
+      }
     }
   },
   {
     "fullName": "Nicolas Renteria",
     "legacyPicture": "nicolas-renteria.webp",
-    "positions": { "S21": { "title": "Marketing Chair", "tier": 8 } }
+    "positions": {
+      "S21": {
+        "title": "Marketing Chair",
+        "tier": 8
+      }
+    }
   },
   {
     "fullName": "Wilbert Rodriguez",
     "legacyPicture": "wilbert-rodriguez.webp",
-    "positions": { "S21": { "title": "Intern Program Manager", "tier": 29 } }
+    "positions": {
+      "S21": {
+        "title": "Intern Program Manager",
+        "tier": 29
+      }
+    }
   },
   {
     "fullName": "Vanessa Roque",
@@ -490,7 +856,12 @@
       "discord": "vanessar#8363",
       "linkedin": "vanessairoque"
     },
-    "positions": { "S23": { "title": "AI Officer", "tier": 21 } }
+    "positions": {
+      "S23": {
+        "title": "AI Officer",
+        "tier": 21
+      }
+    }
   },
   {
     "fullName": "Ashley Rus",
@@ -498,7 +869,12 @@
     "socials": {
       "discord": "fshmngr"
     },
-    "positions": { "S23": { "title": "AI Officer", "tier": 21 } }
+    "positions": {
+      "S23": {
+        "title": "AI Officer",
+        "tier": 21
+      }
+    }
   },
   {
     "fullName": "Sara Sadek",
@@ -508,17 +884,32 @@
       "discord": "EBYEMJC1#0122",
       "linkedin": "sara-ayoub-sadek-630b55168"
     },
-    "positions": { "F22": { "title": "AI Officer", "tier": 21 } }
+    "positions": {
+      "F22": {
+        "title": "AI Officer",
+        "tier": 21
+      }
+    }
   },
   {
     "fullName": "Samuel Sandoval",
     "legacyPicture": "samuel-sandoval.webp",
-    "positions": { "S21": { "title": "Vice President, Dev Director", "tier": 1 } }
+    "positions": {
+      "S21": {
+        "title": "Vice President, Dev Director",
+        "tier": 1
+      }
+    }
   },
   {
     "fullName": "Kavit Sanghavi",
     "legacyPicture": "kavit-sanghavi.webp",
-    "positions": { "S21": { "title": "Algo Director", "tier": 11 } }
+    "positions": {
+      "S21": {
+        "title": "Algo Director",
+        "tier": 11
+      }
+    }
   },
   {
     "fullName": "Angel Santoyo",
@@ -530,14 +921,25 @@
       "linkedin": "asantoyo"
     },
     "positions": {
-      "F22": { "title": "Dev Officer", "tier": 19 },
-      "S23": { "title": "Dev Officer", "tier": 19 }
+      "F22": {
+        "title": "Dev Officer",
+        "tier": 19
+      },
+      "S23": {
+        "title": "Dev Officer",
+        "tier": 19
+      }
     }
   },
   {
     "fullName": "Parth Sharma",
     "legacyPicture": "parth-sharma.webp",
-    "positions": { "S21": { "title": "Algo Officer", "tier": 12 } }
+    "positions": {
+      "S21": {
+        "title": "Algo Officer",
+        "tier": 12
+      }
+    }
   },
   {
     "fullName": "David Solano",
@@ -548,7 +950,10 @@
       "linkedin": "david-solano787"
     },
     "positions": {
-      "S23": { "title": "Algo Officer", "tier": 12 }
+      "S23": {
+        "title": "Algo Officer",
+        "tier": 12
+      }
     }
   },
   {
@@ -560,9 +965,18 @@
       "linkedin": "justinstitt"
     },
     "positions": {
-      "S22": { "title": "Algo Officer", "tier": 12 },
-      "F22": { "title": "AI Team Lead", "tier": 20 },
-      "S23": { "title": "AI Team Lead", "tier": 20 }
+      "S22": {
+        "title": "Algo Officer",
+        "tier": 12
+      },
+      "F22": {
+        "title": "AI Team Lead",
+        "tier": 20
+      },
+      "S23": {
+        "title": "AI Team Lead",
+        "tier": 20
+      }
     }
   },
   {
@@ -571,7 +985,12 @@
     "socials": {
       "discord": "josu4412"
     },
-    "positions": { "S23": { "title": "Marketing Officer", "tier": 9 } }
+    "positions": {
+      "S23": {
+        "title": "Marketing Officer",
+        "tier": 9
+      }
+    }
   },
   {
     "fullName": "Charlie Taylor",
@@ -583,18 +1002,34 @@
       "linkedin": "charliettaylor"
     },
     "positions": {
-      "F22": { "title": "Dev Team Lead", "tier": 17 },
-      "S23": { "title": "Dev Team Lead", "tier": 17 }
+      "F22": {
+        "title": "Dev Team Lead",
+        "tier": 17
+      },
+      "S23": {
+        "title": "Dev Team Lead",
+        "tier": 17
+      }
     }
   },
   {
     "fullName": "Johnson Tong",
     "legacyPicture": "johnson-tong.webp",
-    "positions": { "S21": { "title": "Workshop Manager", "tier": 28 } }
+    "positions": {
+      "S21": {
+        "title": "Workshop Manager",
+        "tier": 28
+      }
+    }
   },
   {
     "fullName": "Alex Truong",
-    "positions": { "F21": { "title": "Algo Officer", "tier": 12 } },
+    "positions": {
+      "F21": {
+        "title": "Algo Officer",
+        "tier": 12
+      }
+    },
     "legacyPicture": "alex-truong.webp"
   },
   {
@@ -607,18 +1042,36 @@
       "linkedin": "danieltruongg"
     },
     "positions": {
-      "S22": { "title": "Dev Project Manager", "tier": 18 },
-      "F22": { "title": "Dev Project Manager", "tier": 18 },
-      "S23": { "title": "Dev Project Manager", "tier": 18 }
+      "S22": {
+        "title": "Dev Project Manager",
+        "tier": 18
+      },
+      "F22": {
+        "title": "Dev Project Manager",
+        "tier": 18
+      },
+      "S23": {
+        "title": "Dev Project Manager",
+        "tier": 18
+      }
     }
   },
   {
     "fullName": "Samuel Valls",
     "legacyPicture": "samuel-valls.webp",
     "positions": {
-      "S21": { "title": "Community Manager", "tier": 30 },
-      "F21": { "title": "Create Officer", "tier": 16 },
-      "S22": { "title": "Create Operations Manager", "tier": 15 }
+      "S21": {
+        "title": "Community Manager",
+        "tier": 30
+      },
+      "F21": {
+        "title": "Create Officer",
+        "tier": 16
+      },
+      "S22": {
+        "title": "Create Operations Manager",
+        "tier": 15
+      }
     }
   },
   {
@@ -630,24 +1083,49 @@
       "linkedin": "karnikaa-velumani-830980205"
     },
     "positions": {
-      "F21": { "title": "Vice President", "tier": 1 },
-      "S22": { "title": "Vice President", "tier": 1 },
-      "F22": { "title": "President", "tier": 0 },
-      "S23": { "title": "President", "tier": 0 }
+      "F21": {
+        "title": "Vice President",
+        "tier": 1
+      },
+      "S22": {
+        "title": "Vice President",
+        "tier": 1
+      },
+      "F22": {
+        "title": "President",
+        "tier": 0
+      },
+      "S23": {
+        "title": "President",
+        "tier": 0
+      }
     }
   },
   {
     "fullName": "Rina Watanabe",
     "legacyPicture": "rina-watanabe.webp",
-    "positions": { "F21": { "title": "Dev Project Manager", "tier": 18 } }
+    "positions": {
+      "F21": {
+        "title": "Dev Project Manager",
+        "tier": 18
+      }
+    }
   },
   {
     "fullName": "Jason Wong",
     "legacyPicture": "jason-wong.webp",
-    "socials": { "discord": "jasonw#2463" },
+    "socials": {
+      "discord": "jasonw#2463"
+    },
     "positions": {
-      "S22": { "title": "Historian", "tier": 10 },
-      "F22": { "title": "Historian", "tier": 10 }
+      "S22": {
+        "title": "Historian",
+        "tier": 10
+      },
+      "F22": {
+        "title": "Historian",
+        "tier": 10
+      }
     }
   },
   {
@@ -657,7 +1135,10 @@
       "discord": "cyrily"
     },
     "positions": {
-      "S23": { "title": "Algo Officer", "tier": 12 }
+      "S23": {
+        "title": "Algo Officer",
+        "tier": 12
+      }
     }
   },
   {
@@ -668,6 +1149,11 @@
       "linkedin": "alexander-zavaleta-8140aa225/",
       "youtube": "Sproutlofi"
     },
-    "positions": { "S23": { "title": "AI Officer", "tier": 21 } }
+    "positions": {
+      "S23": {
+        "title": "AI Officer",
+        "tier": 21
+      }
+    }
   }
 ]
