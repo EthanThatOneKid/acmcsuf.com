@@ -1,6 +1,6 @@
 # Contributing 🤝
 
-## Getting Started 🦕
+## Getting started 🦕
 
 Getting started with this project is similar to any other Node.js project.
 There really are only a handful of simple steps.
@@ -22,7 +22,7 @@ Every update made to the source code will trigger your `http://localhost:5173/` 
 
 Now that you've got everything up-and-running, you are free to contribute to your heart's content.
 
-## Submitting your own Contributions 🎉
+## Submitting your own contributions 🎉
 
 Before publishing a PR, it is required that you run `npm run all` to make sure that you are complying with our style guidelines and passing all checks.
 
@@ -55,7 +55,7 @@ npm run host
 npm run test:coverage
 ```
 
-### NPM Bloat
+### NPM bloat
 
 In this project, we set a threshold for how large the `/node_modules` folder can become after an `npm install`.
 In our [`package.json`](package.json), we set the size to 50 MB.
@@ -66,9 +66,9 @@ To test the size of the dependencies in your local workspace, run `npm run test:
 
 For architecture-related information, please refer to [`ARCHITECTURE.md`](ARCHITECTURE.md).
 
-## Svelte File Structure 📄
+## Svelte file structure 📄
 
-Svelte files can be written as if it were an HTML file.
+[Svelte][svelte_home] files can be written as if it were an HTML file.
 Writing only `<h1>Hello, world!</h1>` in a Svelte file is valid, however, Svelte gives you access to some handy built-in superpowers that simplify development tremendously (See the [Svelte docs][svelte_docs] for further information).
 Additionally, check out this YouTube video, [_Svelte in 100 Seconds_](https://youtu.be/rv3Yq-B8qp4) by [**@fireship-io**](https://github.com/fireship-io).
 For quick reference, check out <https://svelte.dev/tutorial/basics>.
@@ -138,11 +138,11 @@ HUB_ID=YOUR_HUB_CHANNEL_ID
 ARCHIVE_CHANNEL_ID=YOUR_ARCHIVE_CHANNEL_ID
 ```
 
-## Custom Workflows
+## Custom workflows
 
 In this repository, we use GitHub Actions to _automate all the things_ 😎
 
-### Creating an Officer Update Request
+### Creating an officer update request
 
 To update the way an officer appears on <https://acmcsuf.com/about>, contributors may fill out our [**Officer Update Request Form**](https://github.com/EthanThatOneKid/acmcsuf.com/issues/new?assignees=&labels=automation%3Aofficer&template=officer_update_request.yaml&title=%5BOFFICER_AUTOMATION%5D) ([source](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/.github/ISSUE_TEMPLATE/officer_update_request.yaml)) to automate a pull request with the requested changes.
 
@@ -155,13 +155,13 @@ Finally, contributors can also remove an officer from the officers list by typin
 Once a contributor has submitted the issue form, a new PR should be available momentarily for preview.
 Contributors are free to merge the auto-generated pull request if it seems to have made the intended changes.
 
-#### How it Works
+#### How it works
 
 The [`workflows/update_officer.yaml`](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/.github/workflows/update_officer.yaml) workflow configuration automates each time an issue is opened with the `automation:officer` label.
 This workflow relies on [`scripts/update-officer.js`](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/scripts/update-officer.js) to make the appropriate changes to the checked-out codebase (including updating the repo's `officers.json` file or adding/replacing their image in the repo's `/static/assets/authors/` directory).
 Then, the workflow generates a pull request based on the changes made by the `update-officer.js` script and immediately closes the issue.
 
-### Automated Third-Party Message Board
+### Automated third-party message board
 
 Our team uses Discord as our third-party messaging service of choice to discuss relevant topics that aren't suited/ready for GitHub.
 We have text channels set up on Discord dedicated to every open issue on GitHub.
@@ -177,7 +177,7 @@ This workflow relies on [`scripts/create-issue-channel.js`](https://github.com/E
 The [`workflows/close_issue_channel.yaml`](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/.github/workflows/close_issue_channel.yaml) workflow is responsible for closing a text channel whenever a corresponding issue is closed [or deleted] on Github.
 This workflow relies on [`scripts/close-issue-channel.js`](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/scripts/close-issue-channel.js) to transcribe the old issue channel's messages to a dedicated _archive_ channel and then delete the old channel.
 
-## Webmaster's Note 📝
+## Webmaster's note 📝
 
 Thank you for contributing!
 The time spent reading this deserves a pat on the back and even a hydration/stretch break.
