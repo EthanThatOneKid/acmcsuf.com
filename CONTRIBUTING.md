@@ -138,28 +138,17 @@ HUB_ID=YOUR_HUB_CHANNEL_ID
 ARCHIVE_CHANNEL_ID=YOUR_ARCHIVE_CHANNEL_ID
 ```
 
+SS## Updating board member data
+
+To update the way an officer appears on <https://acmcsuf.com/about>, contributors may directly edit our `src/lib/public/board/data/officers.json` JSON file.
+
+Alternatively board members may update their own board member data using a Discord slash command `/boardd` in our official club Discord server. For more information, see <https://acmcsuf.com/boardify>.
+
+out our [**Officer Update Request Form**](https://github.com/EthanThatOneKid/acmcsuf.com/issues/new?assignees=&labels=automation%3Aofficer&template=officer_update_request.yaml&title=%5BOFFICER_AUTOMATION%5D) ([source](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/.github/ISSUE_TEMPLATE/officer_update_request.yaml)) to automate a pull request with the requested changes.
+
 ## Custom workflows
 
 In this repository, we use GitHub Actions to _automate all the things_ 😎
-
-### Creating an officer update request
-
-To update the way an officer appears on <https://acmcsuf.com/about>, contributors may fill out our [**Officer Update Request Form**](https://github.com/EthanThatOneKid/acmcsuf.com/issues/new?assignees=&labels=automation%3Aofficer&template=officer_update_request.yaml&title=%5BOFFICER_AUTOMATION%5D) ([source](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/.github/ISSUE_TEMPLATE/officer_update_request.yaml)) to automate a pull request with the requested changes.
-
-A contributor is able to update an acmCSUF officer's image by simply opening a new [**Officer Update Request Form**](https://github.com/EthanThatOneKid/acmcsuf.com/issues/new?assignees=&labels=automation%3Aofficer&template=officer_update_request.yaml&title=%5BOFFICER_AUTOMATION%5D) and pasting the updated officer image into the provided textarea.
-
-A contributor is also able to update the position title of an acmCSUF officer for a given _term_ (e.g. Fall 2021, Spring 2022, etc.).
-
-Finally, contributors can also remove an officer from the officers list by typing `DELETE` into the _Overwrite Officer Position Title_ field.
-
-Once a contributor has submitted the issue form, a new PR should be available momentarily for preview.
-Contributors are free to merge the auto-generated pull request if it seems to have made the intended changes.
-
-#### How it works
-
-The [`workflows/update_officer.yaml`](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/.github/workflows/update_officer.yaml) workflow configuration automates each time an issue is opened with the `automation:officer` label.
-This workflow relies on [`scripts/update-officer.js`](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/scripts/update-officer.js) to make the appropriate changes to the checked-out codebase (including updating the repo's `officers.json` file or adding/replacing their image in the repo's `/static/assets/authors/` directory).
-Then, the workflow generates a pull request based on the changes made by the `update-officer.js` script and immediately closes the issue.
 
 ### Automated third-party message board
 
