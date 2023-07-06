@@ -7,7 +7,7 @@
   export let info: ClubEvent;
 </script>
 
-<div transition:slide>
+<div transition:slide|global>
   <hr />
   <p class="event-description">
     {@html info.description}

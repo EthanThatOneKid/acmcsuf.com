@@ -24,7 +24,7 @@
     </div>
 
     {#if active}
-      <div class="option" transition:slide>
+      <div class="option" transition:slide|global>
         {#each options as optionValue (optionValue)}
           <div
             class="option-choice"
