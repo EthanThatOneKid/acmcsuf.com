@@ -1,78 +1,36 @@
 {
-  "name": "acmcsuf.com",
-  "description": "Official website of CSUF's ACM club.",
-  "version": "5.0.0",
-  "private": true,
-  "type": "module",
-  "homepage": "https://acmcsuf.com/",
-  "author": "EthanThatOneKid (https://etok.codes/)",
-  "repository": {
-    "url": "git+https://github.com/EthanThatOneKid/acmcsuf.com.git"
-  },
-  "bugs": {
-    "url": "https://github.com/EthanThatOneKid/acmcsuf.com/issues"
-  },
-  "main": "svelte.config.js",
-  "keywords": [
-    "svelte"
-  ],
-  "license": "MIT",
-  "size-limit": [
-    {
-      "path": "node_modules",
-      "limit": "256 MB"
-    }
-  ],
-  "scripts": {
-    "start": "npm run dev",
-    "dev": "vite dev",
-    "build": "vite build",
-    "preview": "vite preview",
-    "test": "vitest --run",
-    "test:watch": "vitest",
-    "test:size": "npm i && size-limit",
-    "test:coverage": "vitest run --coverage",
-    "test:browser": "playwright test",
-    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --compiler-warnings \"css-unused-selector:ignore,unused-export-let:error\"",
-    "lint": "eslint . --fix",
-    "format": "prettier --write .",
-    "host": "npm run all && npm run preview",
-    "all": "npm run lint && npm run format && npm run check && npm run build && npm t"
-  },
-  "devDependencies": {
-    "@playwright/test": "^1.28.1",
-    "@size-limit/file": "^8.2.6",
-    "@sveltejs/adapter-auto": "^2.0.0",
-    "@sveltejs/kit": "^1.20.4",
-    "@types/html-to-text": "^9.0.1",
-    "@types/qrcode": "^1.5.1",
-    "@types/rss": "^0.0.30",
-    "@typescript-eslint/eslint-plugin": "^5.45.0",
-    "@typescript-eslint/parser": "^5.45.0",
-    "eslint": "^8.28.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-svelte": "^2.30.0",
-    "prettier": "^2.8.0",
-    "prettier-plugin-svelte": "^2.10.1",
-    "sass": "^1.63.6",
-    "size-limit": "^8.2.6",
-    "svelte": "^4.0.0",
-    "svelte-check": "^3.4.3",
-    "tslib": "^2.4.1",
-    "typescript": "^5.0.0",
-    "vite": "^4.3.6",
-    "vitest": "^0.32.2"
-  },
-  "dependencies": {
-    "@googleapis/calendar": "^7.0.0",
-    "@js-temporal/polyfill": "^0.4.4",
-    "cropperjs": "^1.5.13",
-    "html-to-text": "^9.0.5",
-    "pomo": "github:ethanthatonekid/pomo#npm",
-    "qrcode": "^1.5.3",
-    "rrule": "^2.7.2",
-    "rss": "^1.2.2",
-    "svelte-confetti": "^1.2.4",
-    "svelte-meta-tags": "^2.8.0"
-  }
+	"name": "acmcsuf.com",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"test": "npm run test:integration && npm run test:unit",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --plugin-search-dir . --check . && eslint .",
+		"format": "prettier --plugin-search-dir . --write .",
+		"test:integration": "playwright test",
+		"test:unit": "vitest"
+	},
+	"devDependencies": {
+		"@playwright/test": "^1.28.1",
+		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/kit": "^1.20.4",
+		"@typescript-eslint/eslint-plugin": "^5.45.0",
+		"@typescript-eslint/parser": "^5.45.0",
+		"eslint": "^8.28.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-svelte": "^2.30.0",
+		"prettier": "^2.8.0",
+		"prettier-plugin-svelte": "^2.10.1",
+		"svelte": "^4.0.0",
+		"svelte-check": "^3.4.3",
+		"tslib": "^2.4.1",
+		"typescript": "^5.0.0",
+		"vite": "^4.3.6",
+		"vitest": "^0.32.2"
+	},
+	"type": "module"
 }
