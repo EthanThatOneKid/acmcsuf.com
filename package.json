@@ -1,14 +1,12 @@
 {
   "name": "acmcsuf.com",
-  "version": "4.0.0",
+  "description": "Official website of CSUF's ACM club.",
+  "version": "5.0.0",
   "private": true,
   "homepage": "https://acmcsuf.com/",
-  "author": {
-    "name": "EthanThatOneKid",
-    "url": "https://etok.codes/"
-  },
+  "author": "EthanThatOneKid (https://etok.codes/)",
   "repository": {
-    "url": "https://github.com/EthanThatOneKid/acmcsuf.com.git/"
+    "url": "git+https://github.com/EthanThatOneKid/acmcsuf.com.git"
   },
   "scripts": {
     "start": "npm run dev",
@@ -73,5 +71,11 @@
     "rss": "^1.2.2",
     "svelte-confetti": "^1.2.2",
     "svelte-meta-tags": "^2.6.5"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/EthanThatOneKid/acmcsuf.com/issues"
+  },
+  "main": "svelte.config.js",
+  "keywords": [],
+  "license": "ISC"
 }
