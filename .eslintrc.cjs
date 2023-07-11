@@ -44,6 +44,7 @@ module.exports = {
     'prefer-arrow-callback': 'error',
     'no-nested-ternary': ['error'],
     'comma-dangle': 'off',
+    'svelte/no-at-html-tags': 'off',
     '@typescript-eslint/comma-dangle': ['error', 'only-multiline'],
     '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
