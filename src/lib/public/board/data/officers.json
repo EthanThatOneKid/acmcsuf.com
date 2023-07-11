@@ -182,12 +182,11 @@
     }
   },
   {
-    "fullName": "Ethan Davidson",
-    "legacyPicture": "ethan-davidson.webp",
+    "fullName": "QA test",
     "socials": {
       "github": "EthanThatOneKid",
-      "discord": "EthanThatOneKid#3456",
-      "linkedin": "etok"
+      "linkedin": "etok",
+      "discord": "ethanthatonekid"
     },
     "positions": {
       "S21": {
@@ -210,7 +209,8 @@
         "title": "Vice President/Webmaster",
         "tier": 1
       }
-    }
+    },
+    "legacyPicture": "ethan-davidson.webp"
   },
   {
     "fullName": "Kevin Dillon",
