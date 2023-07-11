@@ -41,7 +41,7 @@
         gap: 16px;
 
         p {
-          max-width: 650px;
+          max-width: 50ch;
         }
       }
     }
