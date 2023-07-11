@@ -47,6 +47,10 @@
         display: flex;
         flex-direction: column;
         gap: 16px;
+
+        p {
+          max-width: 50ch;
+        }
       }
 
       .teams-list {
