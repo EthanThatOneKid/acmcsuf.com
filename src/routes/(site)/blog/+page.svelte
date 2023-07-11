@@ -2,7 +2,7 @@
   import type { PageData } from './$types';
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import LabelField from './labelfield.svelte';
-  import { makeBlogPostsJsonUrl, makeBlogPostsPageUrl } from '$lib/public/blog/urls';
+  import { makeBlogPostsPageDataURL, makeBlogPostsPageURL } from '$lib/public/blog/urls';
   import BlogPostPreview from '$lib/components/blog/blog-post-preview.svelte';
 
   export let data: PageData;
@@ -12,11 +12,11 @@
   async function filterPosts(event: CustomEvent) {
     selectedLabels = event.detail;
 
-    const pageUrl = makeBlogPostsPageUrl(selectedLabels);
-    history.replaceState({}, '', pageUrl);
+    const pageURL = makeBlogPostsPageURL(selectedLabels);
+    history.replaceState({}, '', pageURL);
 
-    const jsonUrl = makeBlogPostsJsonUrl(selectedLabels);
-    const target = new URL(jsonUrl, location.origin);
+    const PageDataURL = makeBlogPostsPageDataURL(selectedLabels);
+    const target = new URL(PageDataURL, location.origin);
     const response = await fetch(target.toString());
     const blogOutput = await response.json();
     if (blogOutput.posts) data.posts = blogOutput.posts;

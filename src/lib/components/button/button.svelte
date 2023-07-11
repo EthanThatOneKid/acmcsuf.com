@@ -1,7 +1,14 @@
 <script lang="ts">
-  export let link = '#';
+  import { createEventDispatcher } from 'svelte';
+  export let link = 'javascript:void(0)';
   export let redirect = false;
   export let text = 'Submit';
+
+  const dispatcher = createEventDispatcher();
+
+  function forwardClickEvent(ev: MouseEvent) {
+    dispatcher('click', ev);
+  }
 </script>
 
 <a
@@ -10,6 +17,7 @@
   href={link}
   target={redirect ? '_blank' : '_self'}
   rel="noopener norefferer"
+  on:click={forwardClickEvent}
 >
   {text}
 </a>
