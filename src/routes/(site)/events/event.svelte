@@ -13,7 +13,10 @@
   function formatLocation(location?: string | null, hosted = ['Discord', 'Zoom']): string {
     // '', null, and undefined are all TBD
     location = location?.trim() ?? '';
-    if (location === '') return 'TBD';
+    if (location === '') {
+      return 'TBD';
+    }
+
     return hosted.includes(location) ? `Hosted on ${location}` : location;
   }
 
@@ -33,16 +36,17 @@
   });
 </script>
 
-<div class="event-box" style:--highlights={`var(--acm-${info.team.id}-rgb)`}>
+<div
+  class="event-box"
+  style:--highlights={`var(--acm-${info.team.id}-rgb)`}
+  on:click|preventDefault|stopPropagation={() => (shown = !shown)}
+  on:keypress|preventDefault|stopPropagation={() => (shown = !shown)}
+  role="button"
+  tabindex="0"
+>
   <!-- Workaround for the top panel covering the event card's anchor. -->
   <div class="anchor" id={info.id} bind:this={anchor} />
-  <details
-    class="event-card"
-    bind:this={details}
-    on:click|preventDefault|stopPropagation={() => (shown = !shown)}
-    on:keypress|preventDefault|stopPropagation={() => (shown = !shown)}
-    class:highlighted={shown}
-  >
+  <details class="event-card" bind:this={details} class:highlighted={shown} role="region">
     <summary class="event-body">
       <div class="event-name">
         <h2 class="headers">
