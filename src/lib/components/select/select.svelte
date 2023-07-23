@@ -19,7 +19,13 @@
 
 <div class="term">
   <div class="option-box" class:active>
-    <div class="selected" on:click|preventDefault={toggleDropdown} on:keypress={toggleDropdown}>
+    <div
+      class="selected"
+      role="button"
+      on:click|preventDefault={toggleDropdown}
+      on:keypress={toggleDropdown}
+      tabindex="0"
+    >
       {currentValue}
     </div>
 
@@ -28,9 +34,11 @@
         {#each options as optionValue (optionValue)}
           <div
             class="option-choice"
+            role="button"
             on:click|preventDefault={() => handleOption(optionValue)}
             on:keypress={() => handleOption(optionValue)}
             class:pre-selected={currentValue == optionValue}
+            tabindex="0"
           >
             {optionValue}
           </div>
