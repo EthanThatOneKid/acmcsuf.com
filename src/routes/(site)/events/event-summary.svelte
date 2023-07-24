@@ -114,4 +114,11 @@
     opacity: 0.5;
     margin: 0 24px 30px 24px;
   }
+
+  @media (max-width: 799px) {
+    .event-actionbar {
+      justify-content: center;
+      flex-direction: row;
+    }
+  }
 </style>
