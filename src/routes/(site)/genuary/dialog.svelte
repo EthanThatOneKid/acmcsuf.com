@@ -10,13 +10,13 @@
   }
 </script>
 
-<span class="container" on:click={openModal} on:keydown={openModal}>
+<span class="container" on:click={openModal} on:keydown={openModal} role="button" tabindex="0">
   <slot name="opener" />
 </span>
 
 <dialog class="modal" bind:this={modal}>
   <slot name="content" />
-  <span on:click={closeModal} on:keydown={closeModal}>
+  <span on:click={closeModal} on:keydown={closeModal} role="button" tabindex="0">
     <slot name="closer" />
   </span>
 </dialog>

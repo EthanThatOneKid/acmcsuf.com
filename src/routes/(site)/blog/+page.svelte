@@ -132,11 +132,6 @@
         border-radius: 1em;
         margin: 2em 0;
 
-        a > h2 {
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-
         &:hover {
           background-color: rgba(56, 182, 255, 0.5);
         }

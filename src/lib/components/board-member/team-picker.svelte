@@ -23,7 +23,7 @@
   bind:value={teamName}
   on:change={() => dispatch('change', { teamName, teamClass: teamClasses[teamName] })}
 >
-  {#each Object.entries(teamClasses) as [name, _]}
+  {#each Object.keys(teamClasses) as name (name)}
     <option value={name} selected={name === teamName}>{name}</option>
   {/each}
 </select>
