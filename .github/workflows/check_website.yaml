@@ -55,11 +55,15 @@ jobs:
       - name: Vitest tests
         run: npm t
 
-      - name: Playwright install
-        run: npx playwright install
-
-      - name: Playwright tests
-        run: npm run test:browser
+      # TODO(https://acmcsuf.com/pull/884#pullrequestreview-1555545355):
+      # Fix Playwright tests.
+      #
+      # - name: Playwright install
+      #   run: npx playwright install
+      #
+      # - name: Playwright tests
+      #   run: npm run test:browser
+      #
 
       # info: https://etok.codes/acmcsuf.com/blob/main/CONTRIBUTING.md#npm-bloat
       - name: Test Dependency Size

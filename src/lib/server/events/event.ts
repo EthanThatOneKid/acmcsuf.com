@@ -16,8 +16,11 @@ export function makeClubEvent(event: GCalEvent, refDate: Temporal.ZonedDateTime)
     return null;
   }
 
-  const dtStart = zonedDateTimeFromGCalDateTime(new Date(event.start.dateTime), refDate.timeZone);
-  const dtEnd = zonedDateTimeFromGCalDateTime(new Date(event.end.dateTime), refDate.timeZone);
+  const dtStart = zonedDateTimeFromGCalDateTime(
+    new Date(event.start.dateTime),
+    refDate.getTimeZone()
+  );
+  const dtEnd = zonedDateTimeFromGCalDateTime(new Date(event.end.dateTime), refDate.getTimeZone());
   const date = dtStart.toString();
   const month = dtStart.toLocaleString('en-US', { month: 'long' });
   const day = dtStart.day;

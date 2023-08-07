@@ -68,6 +68,11 @@
     text-decoration: none;
   }
 
+  h2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   .author a:hover,
   a h2:hover {
     text-decoration: underline;

@@ -83,7 +83,7 @@
     Last updated April 24th, 2023
     <br />
     <br />
-    <span class="center-btn" on:click={action} on:keypress={action}>
+    <span class="center-btn" on:click={action} on:keypress={action} role="button" tabindex="0">
       <Button text={`${expanded ? 'Close all.' : 'Expand All!'}`} />
     </span>
   </p>
@@ -94,6 +94,8 @@
     class="positions-container-inner"
     on:click={() => setTimeout(checkExpanded)}
     on:keypress={() => setTimeout(checkExpanded)}
+    role="button"
+    tabindex="0"
   >
     <PositionList data={POSITIONS} />
   </div>
@@ -137,11 +139,6 @@
 <Spacing --min="40px" --med="95px" --max="120px" />
 
 <style lang="scss">
-  .page-body {
-    width: 100%;
-    margin: 0 1rem;
-  }
-
   .center-btn {
     display: flex;
     justify-content: center;

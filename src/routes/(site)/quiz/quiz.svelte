@@ -145,6 +145,8 @@
         on:click|preventDefault|stopPropagation={() => showTeamDetails(TEAMS[match])}
         on:keydown|preventDefault|stopPropagation={() => showTeamDetails(TEAMS[match])}
         style={`--border-color: ${TEAMS[match].color}`}
+        role="button"
+        tabindex="0"
       >
         <h2 class="team-title" style={`--team-color: ${TEAMS[match].color}`}>
           {match} <span>Team</span>
@@ -161,6 +163,8 @@
           style={`--border-color: ${team.color}`}
           on:click|preventDefault|stopPropagation={() => showTeamDetails(team)}
           on:keydown|preventDefault|stopPropagation={() => showTeamDetails(team)}
+          role="button"
+          tabindex="0"
         >
           <h2 class="team-title" style={`--team-color: ${team.color}`}>
             {otherMatch} <span>Team</span>

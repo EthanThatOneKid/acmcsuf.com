@@ -215,6 +215,10 @@
         color: #eaeaea;
         cursor: pointer;
 
+        &[open] {
+          color: var(--acm-blue);
+        }
+
         summary {
           margin: 0 -1rem;
           padding: 0;
@@ -232,10 +236,6 @@
           }
 
           &:focus {
-            color: var(--acm-blue);
-          }
-
-          &[open] {
             color: var(--acm-blue);
           }
         }

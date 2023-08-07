@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.png" />
+    <link rel="icon" href="%sveltekit.assets%/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="manifest" crossorigin="use-credentials" href="/manifest.json" />
@@ -19,6 +19,8 @@
     %sveltekit.head%
   </head>
   <body>
-    <div id="svelte">%sveltekit.body%</div>
+    <body data-sveltekit-preload-data="hover">
+      <div style="display: contents">%sveltekit.body%</div>
+    </body>
   </body>
 </html>
