@@ -78,8 +78,21 @@
     }
   },
   {
+    "fullName": "Boushra Bettir",
+    "legacyPicture": "placeholder.webp",
+    "socials": {
+      "discord": "bruvshra"
+    },
+    "positions": {
+      "F23": {
+        "title": "Dev Officer",
+        "tier": 19
+      }
+    }
+  },
+  {
     "fullName": "Dane Camacho",
-    "picture": "placeholder.webp",
+    "picture": "dane-camacho.webp",
     "socials": {
       "github": "danejcamacho",
       "discord": "danejcamacho",
@@ -123,7 +136,7 @@
   },
   {
     "fullName": "Ashley Chan",
-    "legacyPicture": "placeholder.webp",
+    "picture": "ashley-chan.webp",
     "socials": {
       "github": "Ashleyc417",
       "discord": "ashleychan_",
@@ -215,7 +228,7 @@
   },
   {
     "fullName": "Abel Daniel",
-    "picture": "placeholder.webp",
+    "legacyPicture": "placeholder.webp",
     "socials": {
       "github": "abledaniel",
       "discord": "stable#2099"
@@ -300,6 +313,19 @@
     }
   },
   {
+    "fullName": "Esteban Escartin",
+    "legacyPicture": "placeholder.webp",
+    "socials": {
+      "discord": "pillo."
+    },
+    "positions": {
+      "F23": {
+        "title": "Algo Officer",
+        "tier": 12
+      }
+    }
+  },
+  {
     "fullName": "Nicholas Girmes",
     "picture": "nick-girmes.webp",
     "socials": {
@@ -321,6 +347,21 @@
       "S21": {
         "title": "Nodebuds Officer",
         "tier": 26
+      }
+    }
+  },
+  {
+    "fullName": "Nate Gries",
+    "picture": "nate-gries.webp",
+    "socials": {
+      "github": "NateGries1",
+      "discord": "nategries",
+      "linkedin": "nathanel-gries-b3780b261"
+    },
+    "positions": {
+      "F23": {
+        "title": "Algo Officer",
+        "tier": 12
       }
     }
   },
@@ -426,7 +467,7 @@
   },
   {
     "fullName": "James Kim",
-    "picture": "placeholder.webp",
+    "picture": "james-kim.webp",
     "socials": {
       "discord": ".jameskim"
     },
@@ -512,7 +553,7 @@
   },
   {
     "fullName": "Matthew Lau",
-    "picture": "placeholder.webp",
+    "picture": "matthew-lau.webp",
     "socials": {
       "discord": "cheeessy"
     },
@@ -525,7 +566,7 @@
   },
   {
     "fullName": "Yulie Ledesma",
-    "picture": "placeholder.webp",
+    "picture": "yulie-ledesma.webp",
     "socials": {
       "discord": "vroyuh"
     },
@@ -666,7 +707,7 @@
   },
   {
     "fullName": "Eric Ly",
-    "picture": "placeholder.webp",
+    "picture": "eric-ly.webp",
     "socials": {
       "github": "lyeric2022",
       "discord": "lyyeric",
@@ -691,7 +732,7 @@
   },
   {
     "fullName": "Elena Marquez",
-    "picture": "placeholder.webp",
+    "picture": "elena-marquez.webp",
     "socials": {
       "discord": "evie724"
     },
@@ -869,7 +910,7 @@
   },
   {
     "fullName": "Ngoc Nguyen",
-    "picture": "placeholder.webp",
+    "picture": "ngoc-nguyen.webp",
     "socials": {
       "github": "rubynguyen1510",
       "discord": "ngoc_nguyen",
@@ -921,7 +962,7 @@
   },
   {
     "fullName": "Oyinkansola Olayinka",
-    "picture": "placeholder.webp",
+    "picture": "oyinkansola-olayinka.webp",
     "socials": {
       "github": "olasores",
       "discord": "yuh1426",
@@ -936,7 +977,7 @@
   },
   {
     "fullName": "Amy Parker",
-    "picture": "placeholder.webp",
+    "picture": "amy-parker.webp",
     "socials": {
       "github": "amyipdev",
       "discord": "amyipdev",
@@ -1035,7 +1076,7 @@
   },
   {
     "fullName": "Joel Rico",
-    "picture": "placeholder.webp",
+    "legacyPicture": "placeholder.webp",
     "socials": {
       "github": "jjoeldaniel",
       "discord": "jjoeldaniel",
@@ -1050,7 +1091,7 @@
   },
   {
     "fullName": "Max Rivas",
-    "picture": "placeholder.webp",
+    "legacyPicture": "placeholder.webp",
     "socials": {
       "discord": "meexy23"
     },
@@ -1162,6 +1203,21 @@
     }
   },
   {
+    "fullName": "Sebastian Serrano",
+    "picture": "sebastian-serrano.webp",
+    "socials": {
+      "github": "sebastianserrano23",
+      "discord": "seabas__",
+      "linkedin": "sebastian-serrano-a11a57198"
+    },
+    "positions": {
+      "F23": {
+        "title": "AI Officer",
+        "tier": 21
+      }
+    }
+  },
+  {
     "fullName": "Parth Sharma",
     "legacyPicture": "parth-sharma.webp",
     "positions": {
@@ -1173,7 +1229,7 @@
   },
   {
     "fullName": "Patrick Smith",
-    "picture": "placeholder.webp",
+    "picture": "patrick-smith.webp",
     "socials": {
       "github": "thisguyblink",
       "discord": "pattyrick1"
@@ -1272,7 +1328,7 @@
   },
   {
     "fullName": "Alex Tran",
-    "picture": "placeholder.webp",
+    "picture": "alex-tran.webp",
     "socials": {
       "github": "muskit",
       "discord": "muskit",
@@ -1342,6 +1398,21 @@
     }
   },
   {
+    "fullName": "Anthony Vences",
+    "picture": "anthony-vences.webp",
+    "socials": {
+      "github": "anthonyvences",
+      "discord": "awqerty",
+      "linkedin": "anthonyvences"
+    },
+    "positions": {
+      "F23": {
+        "title": "AI Officer",
+        "tier": 21
+      }
+    }
+  },
+  {
     "fullName": "Karnikaa Velumani",
     "legacyPicture": "karnikaa-velumani.webp",
     "socials": {
@@ -1370,7 +1441,7 @@
   },
   {
     "fullName": "Kinsey Vo",
-    "picture": "placeholder.webp",
+    "legacyPicture": "placeholder.webp",
     "socials": {
       "github": "kinseyvo",
       "discord": "harleysdog",
@@ -1395,7 +1466,7 @@
   },
   {
     "fullName": "Kyle Whynott",
-    "picture": "placeholder.webp",
+    "legacyPicture": "placeholder.webp",
     "socials": {
       "github": "Kynot54",
       "discord": "_kylew",
