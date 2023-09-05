@@ -140,7 +140,8 @@
     "socials": {
       "github": "Ashleyc417",
       "discord": "ashleychan_",
-      "linkedin": "ashley-chan12"
+      "linkedin": "ashley-chan12",
+      "instagram": "ashleychan_"
     },
     "positions": {
       "F23": {
@@ -314,8 +315,9 @@
   },
   {
     "fullName": "Esteban Escartin",
-    "legacyPicture": "placeholder.webp",
+    "picture": "esteban-escartin.webp",
     "socials": {
+      "github": "PillowGit",
       "discord": "pillo."
     },
     "positions": {
