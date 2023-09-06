@@ -20,8 +20,8 @@
       class="toast-item"
       class:error={toastItem.type === ToastType.Error}
       class:success={toastItem.type === ToastType.Success}
-      in:fly={{ y: 20 }}
-      out:fly={{ y: -20 }}
+      in:fly|global={{ y: 20 }}
+      out:fly|global={{ y: -20 }}
       style:--highlights={`var(${toastHighlightStyle(toastItem)})`}
     >
       <img src="/assets/png/acm-shark.png" alt="acmCSUF Mascot: Frank the Shark" />

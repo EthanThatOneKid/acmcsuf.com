@@ -78,16 +78,6 @@
     }
   },
   {
-    "fullName": "Christos Bakis",
-    "legacyPicture": "placeholder.webp",
-    "positions": {
-      "S23": {
-        "title": "Special Events Officer",
-        "tier": 25
-      }
-    }
-  },
-  {
     "fullName": "Jacob Carlson",
     "picture": "jacob-carlson.webp",
     "socials": {
@@ -224,10 +214,10 @@
   },
   {
     "fullName": "Diamond Dinh",
-    "legacyPicture": "diamond-dinh.webp",
+    "picture": "diamond-dinh.webp",
     "socials": {
       "github": "diamondburned",
-      "discord": "_diamondburned_#4507",
+      "discord": "diamondburned",
       "linkedin": "diamondnotburned"
     },
     "positions": {
@@ -242,6 +232,10 @@
       "S23": {
         "title": "Special Events Officer",
         "tier": 25
+      },
+      "F23": {
+        "title": "Dev Team Lead",
+        "tier": 17
       }
     }
   },
