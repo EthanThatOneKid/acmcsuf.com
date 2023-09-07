@@ -37,8 +37,9 @@
    1. Examples of bad PRs:
       1. [https://acmcsuf.com/pull/359](https://github.com/EthanThatOneKid/acmcsuf.com/pull/359)
       1. [https://acmcsuf.com/pull/357](https://github.com/EthanThatOneKid/acmcsuf.com/pull/357)
-1. Request a code review from someone by first contacting them and then assigning them to your PR using the "Reviewers" panel.
-1. Address any feedback from your reviewers if applicable.
+1. Use the "Reviewers" panel on the top-right side of the PR page to request a review. Reach out to your chosen reviewer outside of GitHub to ensure they are aware of your code review request.
+1. As a requester, it is courteous to give your chosen reviewer a heads-up before formally requesting a review. As a reviewer, it is also common courtesy to respond to code review requests within 24 hours.
+1. If your chosen reviewer does not review your code within 24 hours, consider gently reminding them. Alternatively, if necessary, you can request a review from another individual.
 1. Once your changes have been approved, you have permission to merge your changes, and your changes should be merged with a **SQUASH** and **NOT** a merge commit.
 
 ## Further reading
