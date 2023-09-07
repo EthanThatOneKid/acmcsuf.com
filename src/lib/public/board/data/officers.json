@@ -79,8 +79,9 @@
   },
   {
     "fullName": "Boushra Bettir",
-    "legacyPicture": "placeholder.webp",
+    "legacyPicture": "boushra-bettir.webp",
     "socials": {
+      "github": "boushrabettir",
       "discord": "bruvshra"
     },
     "positions": {
