@@ -3,7 +3,7 @@
 1. Install [Node.js](https://nodejs.org/en/) (LTS version).
 1. Install [Git](https://git-scm.com/downloads).
    - If you are not comfortable with the Git command line tool, you may use GitHub Desktop (<https://desktop.github.com/>). Take a look at <https://acmcsuf.com/1st/> if this is your first time contributing to an open source project.
-1. Create a fork of [acmcsuf.com](https://github.com/EthanThatOneKid/acmcsuf.com), similar to <https://github.com/diamondburned/acmcsuf.com>
+1. Create a fork of [acmcsuf.com](https://github.com/EthanThatOneKid/acmcsuf.com), similar to <https://github.com/diamondburned/acmcsuf.com>.
 1. (Optional; required on some pages) Create an [access token](https://scribehow.com/shared/Generating_a_personal_access_token__eMf0UJYaS5OcGrO_lJTpGg).
 1. Follow [these instructions](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/CONTRIBUTING.md#setting-up-your-env-file) to add it to your dev environment.
 
