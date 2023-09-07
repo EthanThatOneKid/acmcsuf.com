@@ -4,6 +4,7 @@
    */
   export let src: string;
   export let color: string;
+  export let legacy = false;
 </script>
 
 <svg viewBox="0 0 1037 1037" fill="none" xmlns="http://www.w3.org/2000/svg" style:--color={color}>
@@ -15,7 +16,11 @@
       />
     </clipPath>
   </defs>
-  <image clip-path="url(#shape)" xlink:href={src} />
+  <foreignObject x="0" y="0" width="100%" height="100%" clip-path="url(#shape)">
+    <div>
+      <img {src} alt="Board member" class:legacy />
+    </div>
+  </foreignObject>
 </svg>
 
 <style lang="scss">
@@ -30,8 +35,14 @@
     }
   }
 
-  image {
+  img {
     width: 100%;
     height: 100%;
+
+    &.legacy {
+      width: calc(155%);
+      height: calc(155%);
+      transform: translate(-17.75%, -14.5%);
+    }
   }
 </style>

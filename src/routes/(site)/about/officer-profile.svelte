@@ -26,6 +26,7 @@
 
   const officerName = info.fullName ?? '';
   const officerPicture = info.picture ?? info.legacyPicture ?? placeholderPicture;
+  const officerHasLegacyPicture = !!info.legacyPicture;
   const officerSocials = info.socials ?? {};
   const alt = `Image of ${officerName}.`;
 
@@ -78,11 +79,12 @@
   <input type="checkbox" id="{officerID}-flipcard" />
   <div class="officer-3d-flipcard">
     <div class="officer-flipcard">
-      {#if info.legacyPicture}
-        <img class="officer-image" src={`/assets/authors/${officerPicture}`} {alt} title={alt} />
-      {:else}
-        <BoardMember src={`/assets/authors/${officerPicture}`} {alt} color={teamColor} />
-      {/if}
+      <BoardMember
+        {alt}
+        src={`/assets/authors/${officerPicture}`}
+        color={teamColor}
+        legacy={officerHasLegacyPicture}
+      />
       <div class="officer-socials-box">
         <div class="officer-socials">
           <h3>Socials</h3>
@@ -205,8 +207,8 @@
       }
     }
 
-    &:hover .officer-image,
-    input:checked[type='checkbox'] + .officer-3d-flipcard .officer-image {
+    &:hover :global(.officer-image),
+    input:checked[type='checkbox'] + .officer-3d-flipcard :global(.officer-image) {
       /* This hack stays until we can resolve #348. */
       transform: scale(1.06) rotateZ(1.2deg);
       transition: all 0.2 cubic-bezier(0.86, 0, 0.07, 1);
@@ -236,7 +238,7 @@
       transition: transform 0.3s ease;
       user-select: none;
 
-      .officer-image,
+      :global(.officer-image),
       .officer-socials-box {
         top: 0;
         left: 0;
@@ -245,7 +247,7 @@
         backface-visibility: hidden;
       }
 
-      .officer-image {
+      :global(.officer-image) {
         height: 100%;
       }
 
@@ -361,8 +363,8 @@
 
   .officer-has-socials.has-buggy-animations {
     /* WebKit does filter weirdly, so we disable this entirely. */
-    &:hover .officer-image,
-    input:checked[type='checkbox'] + .officer-3d-flipcard .officer-image {
+    &:hover :global(.officer-image),
+    input:checked[type='checkbox'] + .officer-3d-flipcard :global(.officer-image) {
       filter: none;
     }
 
