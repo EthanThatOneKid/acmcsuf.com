@@ -1,4 +1,4 @@
-## Getting started
+# Getting started
 
 1. Install [Node.js](https://nodejs.org/en/) (LTS version).
 1. Install [Git](https://git-scm.com/downloads).
