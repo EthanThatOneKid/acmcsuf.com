@@ -144,8 +144,6 @@ To update the way an officer appears on <https://acmcsuf.com/about>, contributor
 
 Alternatively board members may update their own board member data using a Discord slash command `/boardd` in our official club Discord server. For more information, see <https://acmcsuf.com/boardify>.
 
-out our [**Officer Update Request Form**](https://github.com/EthanThatOneKid/acmcsuf.com/issues/new?assignees=&labels=automation%3Aofficer&template=officer_update_request.yaml&title=%5BOFFICER_AUTOMATION%5D) ([source](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/.github/ISSUE_TEMPLATE/officer_update_request.yaml)) to automate a pull request with the requested changes.
-
 ## Updating shortlinks
 
 To update the shortlinks, contributors may directly edit the `src/lib/public/links/links.json` JSON file.
