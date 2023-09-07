@@ -118,19 +118,6 @@
     grid-auto-flow: dense;
   }
 
-  .grid-inner-wrapper .wide {
-    grid-column: span 2;
-  }
-
-  .grid-inner-wrapper .tall {
-    grid-row: span 2;
-  }
-
-  .grid-inner-wrapper .big {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-
   .closer-container {
     display: flex;
     justify-content: center;
