@@ -138,13 +138,23 @@ HUB_ID=YOUR_HUB_CHANNEL_ID
 ARCHIVE_CHANNEL_ID=YOUR_ARCHIVE_CHANNEL_ID
 ```
 
-SS## Updating board member data
+## Updating board member data
 
 To update the way an officer appears on <https://acmcsuf.com/about>, contributors may directly edit our `src/lib/public/board/data/officers.json` JSON file.
 
 Alternatively board members may update their own board member data using a Discord slash command `/boardd` in our official club Discord server. For more information, see <https://acmcsuf.com/boardify>.
 
 out our [**Officer Update Request Form**](https://github.com/EthanThatOneKid/acmcsuf.com/issues/new?assignees=&labels=automation%3Aofficer&template=officer_update_request.yaml&title=%5BOFFICER_AUTOMATION%5D) ([source](https://github.com/EthanThatOneKid/acmcsuf.com/blob/main/.github/ISSUE_TEMPLATE/officer_update_request.yaml)) to automate a pull request with the requested changes.
+
+## Updating shortlinks
+
+To update the shortlinks, contributors may directly edit the `src/lib/public/links/links.json` JSON file.
+
+Alternatively, board members may update the shortlinks using a Discord slash command `/shorter` in our official club Discord server. For more information, see <https://acmcsuf.com/shorter-handbook>.
+
+## Updating blog posts
+
+<https://acmcsuf.com/blog> posts are stored via GitHub Discussions on the acmcsuf.com repository's [`Newsletter` category](https://github.com/EthanThatOneKid/acmcsuf.com/discussions/categories/newsletter). Edit existing blog posts by editing the corresponding discussion. Create new blog posts by creating a new discussion in the `Newsletter` category (<https://acmcsuf.com/blog/new>).
 
 ## Custom workflows
 
