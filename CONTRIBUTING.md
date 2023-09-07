@@ -152,7 +152,6 @@ To update the shortlinks, contributors may directly edit the `src/lib/public/lin
 
 Alternatively, board members may update the shortlinks using a Discord slash command `/shorter` in our official club Discord server. For more information, see <https://acmcsuf.com/shorter-handbook>.
 
-
 ## Updating blog posts
 
 <https://acmcsuf.com/blog> posts are stored via GitHub Discussions on the acmcsuf.com repository's [`Newsletter` category](https://github.com/EthanThatOneKid/acmcsuf.com/discussions/categories/newsletter). Edit existing blog posts by editing the corresponding discussion. Create new blog posts by creating a new discussion in the `Newsletter` category (<https://acmcsuf.com/blog/new>).
