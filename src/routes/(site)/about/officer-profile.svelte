@@ -207,8 +207,8 @@
       }
     }
 
-    &:hover .officer-image,
-    input:checked[type='checkbox'] + .officer-3d-flipcard .officer-image {
+    &:hover :global(.officer-image),
+    input:checked[type='checkbox'] + .officer-3d-flipcard :global(.officer-image) {
       /* This hack stays until we can resolve #348. */
       transform: scale(1.06) rotateZ(1.2deg);
       transition: all 0.2 cubic-bezier(0.86, 0, 0.07, 1);
@@ -238,7 +238,7 @@
       transition: transform 0.3s ease;
       user-select: none;
 
-      .officer-image,
+      :global(.officer-image),
       .officer-socials-box {
         top: 0;
         left: 0;
@@ -247,7 +247,7 @@
         backface-visibility: hidden;
       }
 
-      .officer-image {
+      :global(.officer-image) {
         height: 100%;
       }
 
@@ -363,8 +363,8 @@
 
   .officer-has-socials.has-buggy-animations {
     /* WebKit does filter weirdly, so we disable this entirely. */
-    &:hover .officer-image,
-    input:checked[type='checkbox'] + .officer-3d-flipcard .officer-image {
+    &:hover :global(.officer-image),
+    input:checked[type='checkbox'] + .officer-3d-flipcard :global(.officer-image) {
       filter: none;
     }
 
