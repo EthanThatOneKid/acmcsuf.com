@@ -7,6 +7,7 @@ export { COLORS } from './colors';
 export { OFFICERS_JSON, TIERS_JSON, TEAMS_JSON };
 
 export const VISIBLE_TERMS = [
+  Term.Fall23,
   Term.Spring23,
   Term.Fall22,
   Term.Spring22,
