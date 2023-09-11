@@ -25,8 +25,7 @@
   }
 
   const officerName = info.fullName ?? '';
-  const officerPicture = info.picture ?? info.legacyPicture ?? placeholderPicture;
-  const officerHasLegacyPicture = !!info.legacyPicture;
+  const officerPicture = info.picture ?? placeholderPicture;
   const officerSocials = info.socials ?? {};
   const alt = `Image of ${officerName}.`;
 
@@ -83,7 +82,6 @@
         {alt}
         src={`/assets/authors/${officerPicture}`}
         color={teamColor}
-        legacy={officerHasLegacyPicture}
       />
       <div class="officer-socials-box">
         <div class="officer-socials">

@@ -4,7 +4,6 @@
    */
   export let src: string;
   export let color: string;
-  export let legacy = false;
 </script>
 
 <svg viewBox="0 0 1037 1037" fill="none" xmlns="http://www.w3.org/2000/svg" style:--color={color}>
@@ -18,14 +17,15 @@
   </defs>
   <foreignObject x="0" y="0" width="100%" height="100%" clip-path="url(#shape)">
     <div>
-      <img {src} alt="Board member" class:legacy />
+      <img {src} alt="Board member" />
     </div>
   </foreignObject>
 </svg>
 
 <style lang="scss">
   svg {
-    filter: drop-shadow(0px 0px 10px rgba(var(--color, var(--acm-general-rgb)), 0.5));
+    //filter: drop-shadow(0px 0px 10px rgba(var(--color, var(--acm-general-rgb)), 0.5));
+    //border: 5px solid rgba(var(--color, var(--acm-general-rgb)), 0.5);
     width: 140px;
     height: 140px;
 
