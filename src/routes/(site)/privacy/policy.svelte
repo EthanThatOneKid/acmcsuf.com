@@ -42,7 +42,7 @@
 
     <p>
       The right to handle requests under this agreement shall generally, as well as when explicitly
-      stated, be given to General Board members of ACM, as defined by ACM’s Constitution (in its
+      stated, be given to General Board members of ACM, as defined by ACM's Constitution (in its
       latest revision). However, at any time when General Board members have jurisdiction over an
       action, they may choose (either recurring or for a specific instance) to designate authority
       over a request to another member of ACM, who shall have the full authority to handle the
@@ -154,8 +154,8 @@
     </h2>
 
     <p>
-      We will fully respect all rights under the European Union’s General Data Protection Regulation
-      (GDPR), Brazil’s Lei Geral de Proteção de Dados (LGPD), and any other applicable local laws
+      We will fully respect all rights under the European Union's General Data Protection Regulation
+      (GDPR), Brazil's Lei Geral de Proteção de Dados (LGPD), and any other applicable local laws
       regarding data privacy. We are not incorporated, registered, or organized in any of these
       territories, and thus laws applying to local organizations do not apply to us; however, you
       still reserve your rights as would be applied to foreign organizations, including but not
