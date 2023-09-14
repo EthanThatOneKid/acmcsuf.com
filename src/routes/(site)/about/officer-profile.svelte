@@ -78,11 +78,7 @@
   <input type="checkbox" id="{officerID}-flipcard" />
   <div class="officer-3d-flipcard">
     <div class="officer-flipcard">
-      <BoardMember
-        {alt}
-        src={`/assets/authors/${officerPicture}`}
-        color={teamColor}
-      />
+      <BoardMember {alt} src={`/assets/authors/${officerPicture}`} color={teamColor} />
       <div class="officer-socials-box">
         <div class="officer-socials">
           <h3>Socials</h3>
