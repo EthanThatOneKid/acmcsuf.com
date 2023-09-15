@@ -25,8 +25,7 @@
   }
 
   const officerName = info.fullName ?? '';
-  const officerPicture = info.picture ?? info.legacyPicture ?? placeholderPicture;
-  const officerHasLegacyPicture = !!info.legacyPicture;
+  const officerPicture = info.picture ?? placeholderPicture;
   const officerSocials = info.socials ?? {};
   const alt = `Image of ${officerName}.`;
 
@@ -79,12 +78,7 @@
   <input type="checkbox" id="{officerID}-flipcard" />
   <div class="officer-3d-flipcard">
     <div class="officer-flipcard">
-      <BoardMember
-        {alt}
-        src={`/assets/authors/${officerPicture}`}
-        color={teamColor}
-        legacy={officerHasLegacyPicture}
-      />
+      <BoardMember {alt} src={`/assets/authors/${officerPicture}`} color={teamColor} />
       <div class="officer-socials-box">
         <div class="officer-socials">
           <h3>Socials</h3>
