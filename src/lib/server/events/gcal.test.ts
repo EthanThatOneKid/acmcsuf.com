@@ -7,7 +7,7 @@ import CLUB_EVENTS from './data/club-events.json?raw';
 
 test('transforms GCalEvent list to ClubEvent list', async () => {
   const input = JSON.parse(GCAL_EVENTS) as GCalEvent[];
-  const actual = fromGCal(input);
+  const actual = fromGCal(input, 'America/Los_Angeles');
 
   // To generate 'src/lib/server/events/data/club-events.json', uncomment the
   // following lines of code then run 'npm t' (and 'npm run all'):

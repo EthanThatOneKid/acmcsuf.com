@@ -4,9 +4,9 @@ import { calendar } from '@googleapis/calendar';
 import { makeClubEvent } from './event';
 import { GCAL_API_KEY, GCAL_ID } from '$lib/server/env';
 
-export function fromGCal(events: GCalEvent[]): ClubEvent[] {
+export function fromGCal(events: GCalEvent[], timezone: string): ClubEvent[] {
   const sortedEvents: ClubEvent[] = [];
-  const refDate = Temporal.Now.zonedDateTimeISO('America/Los_Angeles');
+  const refDate = Temporal.Now.zonedDateTimeISO(timezone);
 
   for (const event of events) {
     const clubEvent = makeClubEvent(event, refDate);
