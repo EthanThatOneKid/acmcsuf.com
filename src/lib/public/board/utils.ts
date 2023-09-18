@@ -19,10 +19,10 @@ export function getPositionByTermIndex(
 }
 
 /**
- * Tier is a tier used for deterministic ordering for listing board members on 
+ * Tier is a tier used for deterministic ordering for listing board members on
  * a webpage.
  */
-export type Tier = typeof TIERS_JSON[keyof typeof TIERS_JSON];
+export type Tier = (typeof TIERS_JSON)[keyof typeof TIERS_JSON];
 
 /**
  * getTierByID returns the tier with the given ID.

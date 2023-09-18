@@ -50,7 +50,8 @@
   let currentFormattedTerm = formattedTerms[$termIndex];
   $: $termIndex = formattedTerms.indexOf(currentFormattedTerm);
   termIndex.subscribe(
-    () => (filteredOfficers = OFFICERS_JSON.filter(filter).sort(sortByTier(VISIBLE_TERMS[$termIndex])))
+    () =>
+      (filteredOfficers = OFFICERS_JSON.filter(filter).sort(sortByTier(VISIBLE_TERMS[$termIndex])))
   );
 </script>
 
