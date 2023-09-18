@@ -1,7 +1,7 @@
 [
   {
     "fullName": "Armanul Ambia",
-    "legacyPicture": "armanul-ambia.webp",
+    "picture": "armanul-ambia.webp",
     "socials": {
       "github": "armanambia",
       "discord": "Arman Shiesty#1073",
@@ -32,7 +32,7 @@
   },
   {
     "fullName": "Jason Anthony",
-    "legacyPicture": "jason-anthony.webp",
+    "picture": "jason-anthony.webp",
     "positions": {
       "S21": {
         "title": "Secretary",
@@ -42,7 +42,7 @@
   },
   {
     "fullName": "Angel Armendariz",
-    "legacyPicture": "angel-armendariz.webp",
+    "picture": "angel-armendariz.webp",
     "positions": {
       "S22": {
         "title": "Dev Project Manager",
@@ -52,7 +52,7 @@
   },
   {
     "fullName": "Sami Bajwa",
-    "legacyPicture": "sami-bajwa.webp",
+    "picture": "sami-bajwa.webp",
     "socials": {
       "github": "samixtures",
       "discord": "Sami#2175",
@@ -127,7 +127,7 @@
   },
   {
     "fullName": "Johnathan Carranza",
-    "legacyPicture": "johnathan-carranza.webp",
+    "picture": "johnathan-carranza.webp",
     "positions": {
       "F21": {
         "title": "Dev Officer",
@@ -171,7 +171,7 @@
   },
   {
     "fullName": "Alan Cortez",
-    "legacyPicture": "alan-cortez.webp",
+    "picture": "alan-cortez.webp",
     "socials": {
       "website": "alancortez1337.github.io/portfolio/",
       "github": "alancortez1337",
@@ -199,7 +199,7 @@
   },
   {
     "fullName": "Wesley Chou",
-    "legacyPicture": "wesley-chou.webp",
+    "picture": "wesley-chou.webp",
     "socials": {
       "website": "sites.google.com/view/wesleychouengineering/home",
       "discord": "Wesley#3748",
@@ -230,7 +230,7 @@
   },
   {
     "fullName": "Abel Daniel",
-    "legacyPicture": "placeholder.webp",
+    "picture": "placeholder.webp",
     "socials": {
       "github": "abledaniel",
       "discord": "stable#2099"
@@ -244,7 +244,7 @@
   },
   {
     "fullName": "Ethan Davidson",
-    "legacyPicture": "ethan-davidson.webp",
+    "picture": "ethan-davidson.webp",
     "socials": {
       "github": "EthanThatOneKid",
       "discord": "EthanThatOneKid#3456",
@@ -279,7 +279,7 @@
   },
   {
     "fullName": "Kevin Dillon",
-    "legacyPicture": "kevin-dillon.webp",
+    "picture": "kevin-dillon.webp",
     "positions": {
       "S21": {
         "title": "Algo Officer",
@@ -345,7 +345,7 @@
   },
   {
     "fullName": "Eduardo Gomez",
-    "legacyPicture": "eduardo-gomez.webp",
+    "picture": "eduardo-gomez.webp",
     "positions": {
       "S21": {
         "title": "Nodebuds Officer",
@@ -370,7 +370,7 @@
   },
   {
     "fullName": "Nurhaliza Hassan",
-    "legacyPicture": "nurhaliza-hassan.webp",
+    "picture": "nurhaliza-hassan.webp",
     "socials": {
       "github": "nurhaliza",
       "discord": "guac#8250",
@@ -389,7 +389,7 @@
   },
   {
     "fullName": "Lisa Hong",
-    "legacyPicture": "lisa-hong.webp",
+    "picture": "lisa-hong.webp",
     "positions": {
       "S21": {
         "title": "Create Officer",
@@ -399,7 +399,7 @@
   },
   {
     "fullName": "Joshua Hughes",
-    "legacyPicture": "joshua-hughes.webp",
+    "picture": "joshua-hughes.webp",
     "positions": {
       "S21": {
         "title": "ICC Representative",
@@ -409,7 +409,7 @@
   },
   {
     "fullName": "Arish Imam",
-    "legacyPicture": "placeholder.webp",
+    "picture": "placeholder.webp",
     "socials": {
       "discord": "Ari123#6233",
       "linkedin": "arish-imam-10617a246"
@@ -423,7 +423,7 @@
   },
   {
     "fullName": "Iftekharul Islam",
-    "legacyPicture": "iftekharul-islam.webp",
+    "picture": "iftekharul-islam.webp",
     "positions": {
       "S22": {
         "title": "Algo Officer",
@@ -433,7 +433,7 @@
   },
   {
     "fullName": "Ibrahim Israr",
-    "legacyPicture": "ibrahim-israr.webp",
+    "picture": "ibrahim-israr.webp",
     "positions": {
       "S22": {
         "title": "Secretary",
@@ -443,7 +443,7 @@
   },
   {
     "fullName": "Joel Anil John",
-    "legacyPicture": "joel-anil-john.webp",
+    "picture": "joel-anil-john.webp",
     "socials": {
       "github": "janiljohn",
       "discord": "BlueBird02#0877",
@@ -498,7 +498,7 @@
   },
   {
     "fullName": "Rohan Kunchala",
-    "legacyPicture": "rohan-kunchala.webp",
+    "picture": "rohan-kunchala.webp",
     "socials": {
       "discord": "sirsandgnome#0235"
     },
@@ -519,7 +519,7 @@
   },
   {
     "fullName": "Andy Lasso",
-    "legacyPicture": "andy-lasso.webp",
+    "picture": "andy-lasso.webp",
     "positions": {
       "F21": {
         "title": "Dev Officer",
@@ -529,7 +529,7 @@
   },
   {
     "fullName": "Logan Langdon",
-    "legacyPicture": "placeholder.webp",
+    "picture": "placeholder.webp",
     "socials": {
       "discord": "leauxgan"
     },
@@ -546,7 +546,7 @@
   },
   {
     "fullName": "Andrew Lau",
-    "legacyPicture": "andrew-lau.webp",
+    "picture": "andrew-lau.webp",
     "positions": {
       "S21": {
         "title": "Treasurer",
@@ -582,7 +582,7 @@
   },
   {
     "fullName": "Minh Le",
-    "legacyPicture": "minh-le.webp",
+    "picture": "minh-le.webp",
     "positions": {
       "S22": {
         "title": "Dev Officer",
@@ -592,7 +592,7 @@
   },
   {
     "fullName": "Nguyen Le",
-    "legacyPicture": "nguyen-le.webp",
+    "picture": "nguyen-le.webp",
     "positions": {
       "S22": {
         "title": "Data Analyst",
@@ -602,7 +602,7 @@
   },
   {
     "fullName": "Tommy Le",
-    "legacyPicture": "tommy-le.webp",
+    "picture": "tommy-le.webp",
     "positions": {
       "F21": {
         "title": "Treasurer",
@@ -616,7 +616,7 @@
   },
   {
     "fullName": "Eugene Lee",
-    "legacyPicture": "eugene-lee.webp",
+    "picture": "eugene-lee.webp",
     "positions": {
       "S21": {
         "title": "Nodebuds Officer",
@@ -654,7 +654,7 @@
   },
   {
     "fullName": "Nolan Lee",
-    "legacyPicture": "nolan-lee.webp",
+    "picture": "nolan-lee.webp",
     "positions": {
       "S22": {
         "title": "Historian",
@@ -664,7 +664,7 @@
   },
   {
     "fullName": "Aaron Lieberman",
-    "legacyPicture": "aaron-lieberman.webp",
+    "picture": "aaron-lieberman.webp",
     "socials": {
       "github": "AaronLieb",
       "discord": "alieb#0001",
@@ -695,7 +695,7 @@
   },
   {
     "fullName": "Yao Lin",
-    "legacyPicture": "yao-lin.webp",
+    "picture": "yao-lin.webp",
     "socials": {
       "github": "yao-lin-902",
       "discord": "alfred#1781",
@@ -725,7 +725,7 @@
   },
   {
     "fullName": "Shaleen Mathur",
-    "legacyPicture": "shaleen-mathur.webp",
+    "picture": "shaleen-mathur.webp",
     "positions": {
       "S21": {
         "title": "Workshop Manager",
@@ -748,7 +748,7 @@
   },
   {
     "fullName": "Ean McGilvery",
-    "legacyPicture": "ean-mcgilvery.webp",
+    "picture": "ean-mcgilvery.webp",
     "positions": {
       "S21": {
         "title": "Nodebuds Officer",
@@ -758,7 +758,7 @@
   },
   {
     "fullName": "Jorge Mejia",
-    "legacyPicture": "jorge-mejia.webp",
+    "picture": "jorge-mejia.webp",
     "socials": {
       "github": "jorgeemejia",
       "discord": "ChoccyMiltank (he/him)#9107",
@@ -804,7 +804,7 @@
   },
   {
     "fullName": "Jordan Muir",
-    "legacyPicture": "placeholder.webp",
+    "picture": "placeholder.webp",
     "socials": {
       "discord": "muirror"
     },
@@ -840,7 +840,7 @@
   },
   {
     "fullName": "Serena Naranjo",
-    "legacyPicture": "serena-naranjo.webp",
+    "picture": "serena-naranjo.webp",
     "positions": {
       "F21": {
         "title": "Create Officer",
@@ -870,7 +870,7 @@
   },
   {
     "fullName": "Dalisa Nguyen",
-    "legacyPicture": "dalisa-nguyen.webp",
+    "picture": "dalisa-nguyen.webp",
     "positions": {
       "S21": {
         "title": "Nodebuds Officer",
@@ -880,7 +880,7 @@
   },
   {
     "fullName": "Kayla Nguyen",
-    "legacyPicture": "kayla-nguyen.webp",
+    "picture": "kayla-nguyen.webp",
     "positions": {
       "F21": {
         "title": "Create Officer",
@@ -890,7 +890,7 @@
   },
   {
     "fullName": "Jacob Nguyen",
-    "legacyPicture": "jacob-nguyen.webp",
+    "picture": "jacob-nguyen.webp",
     "socials": {
       "github": "barrotbake",
       "discord": "Jacupwins#4676",
@@ -928,7 +928,7 @@
   },
   {
     "fullName": "Taylor Noh",
-    "legacyPicture": "taylor-noh.webp",
+    "picture": "taylor-noh.webp",
     "positions": {
       "S21": {
         "title": "Nodebuds Officer",
@@ -946,7 +946,7 @@
   },
   {
     "fullName": "Kirsten Ochoa",
-    "legacyPicture": "kirsten-ochoa.webp",
+    "picture": "kirsten-ochoa.webp",
     "socials": {
       "github": "ochoakirsten",
       "discord": "kirs10#4590",
@@ -995,7 +995,7 @@
   },
   {
     "fullName": "Mike Ploythai",
-    "legacyPicture": "mike-ploythai.webp",
+    "picture": "mike-ploythai.webp",
     "positions": {
       "S21": {
         "title": "Create Officer",
@@ -1013,7 +1013,7 @@
   },
   {
     "fullName": "Stephanie Pocci",
-    "legacyPicture": "stephanie-pocci.webp",
+    "picture": "stephanie-pocci.webp",
     "socials": {
       "github": "stephaniePocci",
       "discord": "Commodore Jellyfish#5175",
@@ -1050,7 +1050,7 @@
   },
   {
     "fullName": "Alejandro Ramos",
-    "legacyPicture": "alejandro-ramos.webp",
+    "picture": "alejandro-ramos.webp",
     "socials": {
       "github": "AlexSpandex",
       "discord": "alex_thekid562#3114",
@@ -1069,7 +1069,7 @@
   },
   {
     "fullName": "Nicolas Renteria",
-    "legacyPicture": "nicolas-renteria.webp",
+    "picture": "nicolas-renteria.webp",
     "positions": {
       "S21": {
         "title": "Marketing Chair",
@@ -1079,7 +1079,7 @@
   },
   {
     "fullName": "Joel Rico",
-    "legacyPicture": "placeholder.webp",
+    "picture": "placeholder.webp",
     "socials": {
       "github": "jjoeldaniel",
       "discord": "jjoeldaniel",
@@ -1094,7 +1094,7 @@
   },
   {
     "fullName": "Max Rivas",
-    "legacyPicture": "placeholder.webp",
+    "picture": "placeholder.webp",
     "socials": {
       "discord": "meexy23"
     },
@@ -1107,7 +1107,7 @@
   },
   {
     "fullName": "Wilbert Rodriguez",
-    "legacyPicture": "wilbert-rodriguez.webp",
+    "picture": "wilbert-rodriguez.webp",
     "positions": {
       "S21": {
         "title": "Intern Program Manager",
@@ -1131,7 +1131,7 @@
   },
   {
     "fullName": "Ashley Rus",
-    "legacyPicture": "placeholder.webp",
+    "picture": "placeholder.webp",
     "socials": {
       "discord": "fshmngr"
     },
@@ -1148,7 +1148,7 @@
   },
   {
     "fullName": "Sara Sadek",
-    "legacyPicture": "placeholder.webp",
+    "picture": "placeholder.webp",
     "socials": {
       "github": "EBYEMJC1",
       "discord": "EBYEMJC1#0122",
@@ -1163,7 +1163,7 @@
   },
   {
     "fullName": "Samuel Sandoval",
-    "legacyPicture": "samuel-sandoval.webp",
+    "picture": "samuel-sandoval.webp",
     "positions": {
       "S21": {
         "title": "Vice President, Dev Director",
@@ -1173,7 +1173,7 @@
   },
   {
     "fullName": "Kavit Sanghavi",
-    "legacyPicture": "kavit-sanghavi.webp",
+    "picture": "kavit-sanghavi.webp",
     "positions": {
       "S21": {
         "title": "Algo Director",
@@ -1183,7 +1183,7 @@
   },
   {
     "fullName": "Angel Santoyo",
-    "legacyPicture": "angel-santoyo.webp",
+    "picture": "angel-santoyo.webp",
     "socials": {
       "website": "angelsantoyo.com",
       "github": "anguzz",
@@ -1222,7 +1222,7 @@
   },
   {
     "fullName": "Parth Sharma",
-    "legacyPicture": "parth-sharma.webp",
+    "picture": "parth-sharma.webp",
     "positions": {
       "S21": {
         "title": "Algo Officer",
@@ -1265,7 +1265,7 @@
   },
   {
     "fullName": "Justin Stitt",
-    "legacyPicture": "justin-stitt.webp",
+    "picture": "justin-stitt.webp",
     "socials": {
       "github": "JustinStitt",
       "discord": "justins#4939",
@@ -1301,7 +1301,7 @@
   },
   {
     "fullName": "Charlie Taylor",
-    "legacyPicture": "charlie-taylor.webp",
+    "picture": "charlie-taylor.webp",
     "socials": {
       "website": "peekoe.net",
       "github": "Peekoe",
@@ -1321,7 +1321,7 @@
   },
   {
     "fullName": "Johnson Tong",
-    "legacyPicture": "johnson-tong.webp",
+    "picture": "johnson-tong.webp",
     "positions": {
       "S21": {
         "title": "Workshop Manager",
@@ -1346,7 +1346,7 @@
   },
   {
     "fullName": "Alex Truong",
-    "legacyPicture": "alex-truong.webp",
+    "picture": "alex-truong.webp",
     "positions": {
       "F21": {
         "title": "Algo Officer",
@@ -1356,7 +1356,7 @@
   },
   {
     "fullName": "Daniel Truong",
-    "legacyPicture": "daniel-truong.webp",
+    "picture": "daniel-truong.webp",
     "socials": {
       "website": "danieltruongg.com",
       "github": "anhduy1202",
@@ -1384,7 +1384,7 @@
   },
   {
     "fullName": "Samuel Valls",
-    "legacyPicture": "samuel-valls.webp",
+    "picture": "samuel-valls.webp",
     "positions": {
       "S21": {
         "title": "Community Manager",
@@ -1417,7 +1417,7 @@
   },
   {
     "fullName": "Karnikaa Velumani",
-    "legacyPicture": "karnikaa-velumani.webp",
+    "picture": "karnikaa-velumani.webp",
     "socials": {
       "github": "karnikaavelumani",
       "discord": "Karni#1080",
@@ -1444,7 +1444,7 @@
   },
   {
     "fullName": "Kinsey Vo",
-    "legacyPicture": "placeholder.webp",
+    "picture": "placeholder.webp",
     "socials": {
       "github": "kinseyvo",
       "discord": "harleysdog",
@@ -1459,7 +1459,7 @@
   },
   {
     "fullName": "Rina Watanabe",
-    "legacyPicture": "rina-watanabe.webp",
+    "picture": "rina-watanabe.webp",
     "positions": {
       "F21": {
         "title": "Dev Project Manager",
@@ -1469,7 +1469,7 @@
   },
   {
     "fullName": "Kyle Whynott",
-    "legacyPicture": "placeholder.webp",
+    "picture": "placeholder.webp",
     "socials": {
       "github": "Kynot54",
       "discord": "_kylew",
@@ -1484,7 +1484,7 @@
   },
   {
     "fullName": "Jason Wong",
-    "legacyPicture": "jason-wong.webp",
+    "picture": "jason-wong.webp",
     "socials": {
       "discord": "jasonw#2463"
     },
