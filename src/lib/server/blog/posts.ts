@@ -4,7 +4,7 @@ import { Cache } from '$lib/server/cache/cache';
 import type { BlogFetchOptions, BlogOutput, BlogPost } from '$lib/public/blog/types';
 import { discernLabels } from '$lib/public/blog/utils';
 import type { Officer } from '$lib/public/board/types';
-import { OFFICERS } from '$lib/public/board/data';
+import { OFFICERS_JSON } from '$lib/public/board/data';
 import { SAMPLE_BLOG_POSTS } from './data';
 import { gql } from './gql';
 
@@ -112,7 +112,7 @@ function cacheBlogPosts(output: any): BlogPost[] {
 
 export function getOfficerByGhUsername(ghUsername: string): Officer | null {
   // get author by GitHub username
-  const officer = OFFICERS.find(
+  const officer = OFFICERS_JSON.find(
     (o) =>
       o.socials && o.socials.github && o.socials.github.toLowerCase() === ghUsername.toLowerCase()
   );

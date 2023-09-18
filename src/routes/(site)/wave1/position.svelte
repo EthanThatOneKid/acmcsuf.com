@@ -5,7 +5,7 @@
 
   export let data: ClubPosition<keyof typeof TOOLS>;
 
-  const id = data.title.replaceAll(/\s/g, '-').toLowerCase();
+  const id = (data.title as string).replaceAll(/\s/g, '-').toLowerCase();
   const formattedTools = data.tools.map((name) => ({
     html: `<span class="headers">${name}:</span> ${TOOLS[name]}`,
   }));
