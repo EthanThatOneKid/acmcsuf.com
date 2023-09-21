@@ -1,24 +1,23 @@
 import { GH_ACCESS_TOKEN, GH_DISCUSSION_CATEGORY_ID } from '$lib/server/env';
 import { DEBUG_FLAG_ENABLED } from '$lib/server/flags';
+import { Cache } from '$lib/server/cache/cache';
 import type { BlogFetchOptions, BlogOutput, BlogPost } from '$lib/public/blog/types';
 import { discernLabels } from '$lib/public/blog/utils';
 import type { Officer } from '$lib/public/board/types';
-import { OFFICERS } from '$lib/public/board/data';
+import { OFFICERS_JSON } from '$lib/public/board/data';
 import { SAMPLE_BLOG_POSTS } from './data';
-import { BlogPostsCache } from './cache';
 import { gql } from './gql';
 
 const API_URL = 'https://api.github.com/graphql';
 
 // Make this false to disable server-side caching in development.
-const cache = BlogPostsCache.create(/* CACHING=*/ true);
+const cache = Cache.create<BlogPost[]>(/* CACHING=*/ true);
 
 export async function fetchBlogPosts(options?: BlogFetchOptions): Promise<BlogOutput> {
   // By default, set posts to default sample data.
   let allPosts: BlogPost[] = [...SAMPLE_BLOG_POSTS];
 
-  const cachedPosts = cache.getAllPosts();
-
+  const cachedPosts = cache.get();
   if (!DEBUG_FLAG_ENABLED && cachedPosts) {
     allPosts = cachedPosts;
   }
@@ -107,14 +106,13 @@ function cacheBlogPosts(output: any): BlogPost[] {
     return post;
   });
 
-  cache.setAllPosts(posts);
-
+  cache.set(posts);
   return posts;
 }
 
 export function getOfficerByGhUsername(ghUsername: string): Officer | null {
   // get author by GitHub username
-  const officer = OFFICERS.find(
+  const officer = OFFICERS_JSON.find(
     (o) =>
       o.socials && o.socials.github && o.socials.github.toLowerCase() === ghUsername.toLowerCase()
   );

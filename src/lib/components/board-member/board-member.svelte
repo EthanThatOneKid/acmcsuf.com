@@ -4,11 +4,10 @@
   export let src: string;
   export let alt: string;
   export let color = 'var(--acm-general-rgb)';
-  export let legacy = false;
 </script>
 
 <div class="board-member__container" title={alt}>
-  <BoardPicture {src} {color} {legacy} />
+  <BoardPicture {src} {color} />
 </div>
 
 <style lang="scss">

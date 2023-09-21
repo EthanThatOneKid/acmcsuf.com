@@ -1,8 +1,9 @@
 <script lang="ts">
   import Select from '$lib/components/select/select.svelte';
   import type { Officer, Term } from '$lib/public/board/types';
-  import { OFFICERS, VISIBLE_TERMS } from '$lib/public/board/data';
-  import { termIndex } from '$lib/public/board/utils';
+  import { OFFICERS_JSON } from '$lib/public/board/data';
+  import { VISIBLE_TERMS } from '$lib/public/board/data/terms';
+  import { termIndex, getTierByID } from '$lib/public/board/utils';
   import OfficerProfile from './officer-profile.svelte';
 
   export let placeholderPicture: string | undefined = undefined;
@@ -29,7 +30,14 @@
       if (!aPos || !bPos) {
         throw new Error(`a or b has no position`);
       }
-      return aPos.tier - bPos.tier;
+
+      const aTier = getTierByID(aPos.tier);
+      const bTier = getTierByID(bPos.tier);
+      if (!aTier || !bTier) {
+        throw new Error(`a or b has no tier`);
+      }
+
+      return aTier.index - bTier.index;
     };
   }
 
@@ -42,7 +50,8 @@
   let currentFormattedTerm = formattedTerms[$termIndex];
   $: $termIndex = formattedTerms.indexOf(currentFormattedTerm);
   termIndex.subscribe(
-    () => (filteredOfficers = OFFICERS.filter(filter).sort(sortByTier(VISIBLE_TERMS[$termIndex])))
+    () =>
+      (filteredOfficers = OFFICERS_JSON.filter(filter).sort(sortByTier(VISIBLE_TERMS[$termIndex])))
   );
 </script>
 
