@@ -6,7 +6,8 @@
   <div class="hero-inner-container">
     <div class="hero-text">
       <h1 class="brand-header size-xl">
-        We are the largest <span class="multicolor-text">Computer Science</span> community at CSUF
+        <span>We are the largest</span> <span class="multicolor-text">Computer Science</span>
+        <span>community at CSUF</span>
       </h1>
       <div class="join-button">
         <AcmButton text="Join today!" link="/discord" redirect={true} />
@@ -39,7 +40,7 @@
     gap: 1em;
   }
 
-  section .hero-inner-container .hero-text span {
+  section .hero-inner-container .hero-text span.multicolor-text {
     background: linear-gradient(
       to right,
       var(--acm-turquoise),
@@ -50,6 +51,10 @@
     );
     -webkit-background-clip: text;
     color: transparent;
+  }
+
+  section .hero-inner-container .hero-text span {
+    display: block;
   }
 
   section .hero-inner-container .hero-text .join-button {
@@ -75,6 +80,15 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
+      gap: 4em;
+    }
+
+    section .hero-inner-container .hero-text {
+      text-align: start;
+    }
+
+    section .hero-inner-container .hero-text .join-button {
+      justify-self: start;
     }
   }
 </style>
