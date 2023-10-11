@@ -22,6 +22,10 @@
       {/each}
     </p>
   </section>
+
+  <p>
+    <a href="#top">Back to top</a> | <a href="https://github.com/acmcsufoss/shorter">Source code</a>
+  </p>
 </main>
 
 <Spacing --min="40px" --med="95px" --max="120px" />

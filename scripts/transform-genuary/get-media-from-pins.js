@@ -24,7 +24,7 @@ export function getMediaFromPins(data, year) {
       continue;
     }
 
-    const src = (attachment ? attachment.proxy_url : validURLs[0]) || null;
+    const src = ((attachment ? attachment.proxy_url : validURLs[0]) || null)?.replace(/\?.*$/, '');
     const alt = data.channel_names[pin.channel_id] || '';
     if (!/^(\d+) /.test(alt)) {
       continue;
