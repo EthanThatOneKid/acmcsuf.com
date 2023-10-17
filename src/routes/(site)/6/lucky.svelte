@@ -7,7 +7,7 @@
     <div class="lucky-text">
       <h1 class="brand-header size-xl">I'm feeling lucky!</h1>
       <div class="lucky-button">
-        <AcmButton text="Join today!" link="/discord" redirect={true} />
+        <AcmButton text="Visit a random page?" link="/random" redirect />
       </div>
     </div>
 
