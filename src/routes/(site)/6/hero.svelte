@@ -49,7 +49,6 @@
       var(--acm-purple),
       var(--acm-pink)
     );
-    -webkit-background-clip: text;
     color: transparent;
   }
 
