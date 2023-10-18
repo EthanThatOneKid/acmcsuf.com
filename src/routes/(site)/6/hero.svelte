@@ -44,7 +44,14 @@
     display: block;
   }
 
+  /* Since we gave a display block to the span elements within the h1, 
+   * each will cover the entire page width, causing issues with the 
+   * multicolor linear-gradient (covering the webpage width rather than 
+   * the actual text ONLY). Giving a display of inline-block to the span 
+   * containing the multicolor text resolved this issue.
+   */
   section .hero-inner-container .hero-text span.multicolor-text {
+    display: inline-block;
     background: linear-gradient(
       to right,
       var(--acm-turquoise),
@@ -56,8 +63,6 @@
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    background-size: 50%;
-    background-position: center;
   }
 
   section .hero-inner-container .hero-text .join-button {
