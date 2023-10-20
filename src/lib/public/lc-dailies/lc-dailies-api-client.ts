@@ -1,11 +1,11 @@
-import type { LCDailiesAPIClientInterface, Season } from './lc-dailies-api-client-interface';
+import type { LeaderboardClient, Season } from 'lc-dailies';
 
 const DEFAULT_API_URL = 'https://lc-dailies.deno.dev';
 
 /**
  * LCDailiesAPIClient is the HTTP client for the LC-Dailies API.
  */
-export class LCDailiesAPIClient implements LCDailiesAPIClientInterface {
+export class LCDailiesAPIClient implements LeaderboardClient {
   constructor(
     private readonly fetch = window.fetch.bind(window),
     private readonly apiURL = DEFAULT_API_URL
