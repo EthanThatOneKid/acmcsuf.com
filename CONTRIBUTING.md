@@ -36,11 +36,8 @@ npm run lint
 # Runs the checks for type errors, unused css, and more (See: https://github.com/sveltejs/language-tools/tree/master/packages/svelte-check)
 npm run check
 
-# Run all our unit tests and Playwrite tests (or `npm run test`)
+# Run all our unit tests (or `npm run test`)
 npm t
-
-# Run only our Playwrite tests
-npm run test:browser
 
 # Builds the website
 npm run build
