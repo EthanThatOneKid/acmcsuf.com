@@ -1,18 +1,18 @@
-import type { LeaderboardClient, Season } from 'lc-dailies';
+import type { Season } from 'lc-dailies';
 
 const DEFAULT_API_URL = 'https://lc-dailies.deno.dev';
 
 /**
  * LCDailiesAPIClient is the HTTP client for the LC-Dailies API.
  */
-export class LCDailiesAPIClient implements LeaderboardClient {
+export class LCDailiesAPIClient {
   constructor(
     private readonly fetch = window.fetch.bind(window),
     private readonly apiURL = DEFAULT_API_URL
   ) {}
 
-  getCurrentSeason(): Promise<Season | null> {
-    return this.fetch(makeGetCurrentSeasonURL(this.apiURL)).then((response) => response.json());
+  getLatestSeason(): Promise<Season | null> {
+    return this.fetch(makeGetLatestSeasonURL(this.apiURL)).then((response) => response.json());
   }
 
   getSeason(seasonID: string): Promise<Season | null> {
@@ -24,7 +24,7 @@ export class LCDailiesAPIClient implements LeaderboardClient {
   }
 }
 
-function makeGetCurrentSeasonURL(apiURL = DEFAULT_API_URL): string {
+function makeGetLatestSeasonURL(apiURL = DEFAULT_API_URL): string {
   return makeGetSeasonURL('latest', apiURL);
 }
 
