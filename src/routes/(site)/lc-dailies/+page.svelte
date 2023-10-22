@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { PageData } from './$types';
   import { MetaTags } from 'svelte-meta-tags';
+  import Spacing from '$lib/public/legacy/spacing.svelte';
 
   export let data: PageData;
 </script>
@@ -12,6 +13,10 @@
   }}
 />
 
-<pre>
-  {JSON.stringify(data.seasons)}
-</pre>
+<svelte:head>
+  <title>LC-Dailies</title>
+</svelte:head>
+
+<Spacing --min="100px" --med="100px" --max="100px" />
+
+<pre><code>{JSON.stringify(data.seasons, null, 2)}</code></pre>

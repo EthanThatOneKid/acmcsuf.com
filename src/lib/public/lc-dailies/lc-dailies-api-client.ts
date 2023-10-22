@@ -11,16 +11,21 @@ export class LCDailiesAPIClient {
     private readonly apiURL = DEFAULT_API_URL
   ) {}
 
-  getLatestSeason(): Promise<Season | null> {
-    return this.fetch(makeGetLatestSeasonURL(this.apiURL)).then((response) => response.json());
+  private async fetchJSON<T>(url: string): Promise<T> {
+    const response = await this.fetch(url);
+    return response.json();
   }
 
-  getSeason(seasonID: string): Promise<Season | null> {
-    return this.fetch(makeGetSeasonURL(seasonID, this.apiURL)).then((response) => response.json());
+  public async getLatestSeason(): Promise<Season | null> {
+    return await this.fetchJSON(makeGetLatestSeasonURL(this.apiURL));
   }
 
-  listSeasons(): Promise<Season[]> {
-    return this.fetch(makeListSeasonsURL(this.apiURL)).then((response) => response.json());
+  public async getSeason(seasonID: string): Promise<Season | null> {
+    return await this.fetchJSON(makeGetSeasonURL(seasonID, this.apiURL));
+  }
+
+  public async listSeasons(): Promise<Season[]> {
+    return await this.fetchJSON(makeListSeasonsURL(this.apiURL));
   }
 }
 
