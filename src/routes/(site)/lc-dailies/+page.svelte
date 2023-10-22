@@ -8,7 +8,7 @@
 <MetaTags
   openGraph={{
     title: `LC-Dailies`,
-    description: `LC-Dailies leaderboards.`,
+    description: `Showcase of the scores of the players in the acmCSUF Discord server's LC-Dailies competition.`,
   }}
 />
 
