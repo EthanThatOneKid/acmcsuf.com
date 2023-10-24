@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { PageData } from './$types';
+  import { formatScores } from 'lc-dailies/esm/leaderboard/scores';
   import { MetaTags } from 'svelte-meta-tags';
   import Spacing from '$lib/public/legacy/spacing.svelte';
 
@@ -8,8 +9,9 @@
 
 <MetaTags
   openGraph={{
-    title: `LC-Dailies`,
-    description: `Showcase of the scores of the players in the acmCSUF Discord server's LC-Dailies competition.`,
+    title: 'LC-Dailies',
+    description:
+      "Showcase of the scores of the players in the acmCSUF Discord server's LC-Dailies competition.",
   }}
 />
 
@@ -19,4 +21,8 @@
 
 <Spacing --min="100px" --med="100px" --max="100px" />
 
-<pre><code>{JSON.stringify(data.seasons, null, 2)}</code></pre>
+<main>
+  {#each data.seasons as season}
+    <pre><code>{formatScores(season)}</code></pre>
+  {/each}
+</main>
