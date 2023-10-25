@@ -107,8 +107,6 @@
   section .hero-inner-container .discover-button {
     display: grid;
     justify-self: center;
-    background-color: var(--acm-blue);
-    color: red;
   }
 
 @media screen and (min-width: 480px){
