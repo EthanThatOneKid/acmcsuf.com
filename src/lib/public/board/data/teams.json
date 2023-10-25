@@ -2,61 +2,61 @@
   {
     "title": "General",
     "id": "general",
-    "picture": "/assets/badges/general.svg",
+    "picture": "/assets/badges/general-badge.svg",
     "color": "var(--acm-blue)"
   },
   {
     "title": "AI",
     "id": "ai",
-    "picture": "/assets/badges/ai-team.svg",
+    "picture": "/assets/badges/ai-badge.svg",
     "color": "var(--acm-emerald)"
   },
   {
     "title": "Algo",
     "id": "algo",
-    "picture": "/assets/badges/algo-team.svg",
+    "picture": "/assets/badges/algo-badge.svg",
     "color": "var(--acm-purple)"
   },
   {
     "title": "Design",
     "id": "design",
-    "picture": "/assets/badges/design-team.svg",
+    "picture": "/assets/badges/design-badge.svg",
     "color": "var(--acm-pink)"
   },
   {
     "title": "Dev",
     "id": "dev",
-    "picture": "/assets/badges/dev-team.svg",
+    "picture": "/assets/badges/dev-badge.svg",
     "color": "var(--acm-bluer)"
   },
   {
     "title": "Game Dev",
     "id": "gamedev",
-    "picture": "/assets/badges/gamedev-team.svg",
+    "picture": "/assets/badges/gamedev-badge.svg",
     "color": "var(--acm-red)"
   },
   {
     "title": "Marketing",
     "id": "marketing",
-    "picture": "/assets/badges/marketing-team.svg",
+    "picture": "/assets/badges/marketing-badge.svg",
     "color": "var(--acm-blush)"
   },
   {
     "title": "ICPC",
     "id": "icpc",
-    "picture": "/assets/badges/icpc-team.svg",
+    "picture": "/assets/badges/icpc-badge.svg",
     "color": "var(--acm-orange)"
   },
   {
     "title": "Open Source Software",
     "id": "oss",
-    "picture": "/assets/badges/oss-team.svg",
+    "picture": "/assets/badges/oss-badge.svg",
     "color": "var(--acm-turquoise)"
   },
   {
     "title": "Special Events",
     "id": "special-events",
-    "picture": "/assets/badges/special-events-team.svg",
+    "picture": "/assets/badges/special-events-badge.svg",
     "color": "var(--acm-lemon)"
   }
 ]

@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        ![banner](https://raw.githubusercontent.com/EthanThatOneKid/acmcsuf.com/main/static/assets/about-illustration.svg)
+        ![banner](https://raw.githubusercontent.com/EthanThatOneKid/acmcsuf.com/main/static/assets/svg/about-illustration.svg)
         <small>note: banner not included in your published bug report.</small>
   - type: textarea
     attributes:
