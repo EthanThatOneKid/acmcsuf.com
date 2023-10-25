@@ -21,6 +21,22 @@
 <Spacing --min="100px" --med="100px" --max="100px" />
 
 <main>
+  <h1>LC-Dailies</h1>
+
+  <p>
+    This is a display of the scores achieved by players participating in the <a href="/d"
+      >acmCSUF Discord server</a
+    >'s LC-Dailies competition. This competition entails daily challenges in solving LeetCode
+    problems. Players are ranked based on the number of problems they successfully solve and the
+    time they take to do so. These scores reset on a weekly basis.
+  </p>
+
+  <p>
+    <a href="/lc-dailies-handbook">acmcsuf.com/lc-dailies-handbook</a>
+  </p>
+
+  <h2>Seasons</h2>
+
   <ol>
     {#each data.seasons as season}
       <li id={season.id}>
@@ -37,8 +53,17 @@
 
 <style>
   main {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100ch;
     padding: 20px;
+    margin: 0 auto;
+  }
+
+  p {
+    margin: 10px 0;
+    text-indent: 1em;
   }
 
   ol {
@@ -63,5 +88,11 @@
     font-style: italic;
     font-size: 0.9em;
     display: block;
+  }
+
+  @media (min-width: 768px) {
+    main {
+      max-width: 50ch;
+    }
   }
 </style>

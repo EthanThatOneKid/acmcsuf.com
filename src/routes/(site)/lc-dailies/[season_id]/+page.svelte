@@ -34,7 +34,7 @@
     <small>Season {$page.params.season_id}</small>
   </h1>
 
-  <pre><code>{data.seasonTxt}</code></pre>
+  <pre><code>{data.seasonText}</code></pre>
 
   <table>
     <tr>
@@ -62,46 +62,6 @@
     </tr>
   </table>
 </main>
-
-<!-- <style>
-  main {
-    text-align: center;
-    padding: 20px;
-  }
-
-  h1 {
-    font-size: 24px;
-    margin: 0;
-    vertical-align: middle;
-  }
-
-  small {
-    font-size: 16px;
-    background-color: #666;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    text-overflow: ellipsis;
-  }
-
-  
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-
-  th,
-  td {
-    padding: 10px;
-    border: 1px solid #ccc; /* Table cell border color */
-  }
-
-  th {
-    font-weight: bold;
-  }
-</style> -->
 
 <style>
   main {
