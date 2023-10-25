@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { PageData } from './$types';
-  import { formatScores } from 'lc-dailies/esm/leaderboard/scores';
   import { MetaTags } from 'svelte-meta-tags';
   import Spacing from '$lib/public/legacy/spacing.svelte';
 
@@ -22,7 +21,47 @@
 <Spacing --min="100px" --med="100px" --max="100px" />
 
 <main>
-  {#each data.seasons as season}
-    <pre><code>{formatScores(season)}</code></pre>
-  {/each}
+  <ol>
+    {#each data.seasons as season}
+      <li id={season.id}>
+        <a href="/lc-dailies/{season.id}">
+          Season {season.id}
+        </a>
+        <time datetime={season.start_date}>
+          {season.start_date}
+        </time>
+      </li>
+    {/each}
+  </ol>
 </main>
+
+<style>
+  main {
+    text-align: center;
+    padding: 20px;
+  }
+
+  ol {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    margin: 10px 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: #0078d4; /* Hyperlink color */
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  time {
+    font-style: italic;
+    font-size: 0.9em;
+    display: block;
+  }
+</style>

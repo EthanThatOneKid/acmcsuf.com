@@ -16,6 +16,11 @@ export class LCDailiesAPIClient {
     return response.json();
   }
 
+  private async fetchText(url: string): Promise<string> {
+    const response = await this.fetch(url);
+    return response.text();
+  }
+
   public async getLatestSeason(): Promise<Season | null> {
     return await this.fetchJSON(makeGetLatestSeasonURL(this.apiURL));
   }
@@ -27,10 +32,18 @@ export class LCDailiesAPIClient {
   public async listSeasons(): Promise<Season[]> {
     return await this.fetchJSON(makeListSeasonsURL(this.apiURL));
   }
+
+  public async getSeasonTxt(seasonID: string): Promise<string | null> {
+    return await this.fetchText(makeGetSeasonTxtURL(seasonID, this.apiURL));
+  }
 }
 
 function makeGetLatestSeasonURL(apiURL = DEFAULT_API_URL): string {
   return makeGetSeasonURL('latest', apiURL);
+}
+
+function makeGetSeasonTxtURL(seasonID: string, apiURL = DEFAULT_API_URL): string {
+  return `${makeGetSeasonURL(seasonID, apiURL)}.txt`;
 }
 
 function makeGetSeasonURL(seasonID: string, apiURL = DEFAULT_API_URL): string {
