@@ -128,5 +128,6 @@
   "dev-workshop-survey": "https://docs.google.com/forms/d/e/1FAIpQLSdbfzAcXwxNQArdPCUNYyQqWV3hafnpR9tEtOuTFkDrmAXRbw/viewform?usp=sf_link",
   "dev-cli-slides": "https://docs.google.com/presentation/d/1b491p8ExYvbkuYUqQnH0TU5eIMo870Hq9v6WqzhY2UU/edit?usp=sharing",
   "dev-cli-repo": "https://github.com/acmCSUFDev/cli-workshop",
-  "rss": "/blog/269"
+  "rss": "/blog/269",
+  "new-meeting": "/github/i/issues/new?assignees=&labels=meeting&projects=&template=meeting.yaml&title=%5BMeeting%5D+%3Ctitle%3E"
 }
