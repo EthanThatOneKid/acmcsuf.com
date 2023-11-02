@@ -31,7 +31,7 @@
   {#each Object.entries(data.onovembers) as [year, onovember] (year)}
     <h2>{year}</h2>
 
-    {#each Array.from({ length: 30 }) as _, i (i)}
+    {#each Array.from({ length: 30 }).map((_, i) => i + 1) as i (i)}
       {@const daily = onovember.dailies[(i + 1).toString()]}
       {#if daily}
         <p>

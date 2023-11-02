@@ -14,7 +14,7 @@ export function onovember(data: Season[]) {
       totalSubmissions: number;
       dailies: Record<
         string, // Day of month.
-        { questionTitle: string; questionURL: string; submissionIDs: Record<string, {}> }
+        { questionTitle: string; questionURL: string; submissionIDs: Record<string, number> }
       >;
     }
   > = {};
@@ -51,7 +51,7 @@ export function onovember(data: Season[]) {
             }
 
             const submission = playerSubmissions[submissionQuestionID];
-            onovembers[year].dailies[dayOfMonth].submissionIDs[submission.id] = {};
+            onovembers[year].dailies[dayOfMonth].submissionIDs[submission.id] = 0;
             onovembers[year].totalSubmissions++;
           }
         }
