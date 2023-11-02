@@ -5,26 +5,7 @@
 
   export let data: PageData;
 
-  // const totalSubmissions = Object.keys(data.season?.submissions ?? {}).reduce(
-  //   (sum, userID) => (sum += Object.keys(data.season?.submissions[userID] ?? {}).length),
-  //   0
-  // );
-
-  // const totalPlayers = Object.keys(data.season?.submissions ?? {}).length;
-
-  const dailies = Object.entries(data.seasonsMap).reduce(
-    (acc, [year, seasons]) => {
-      // TODO: Sort and format seasons.
-      // acc[year] = 
-    },
-    {} as Record<number, {
-      questionTitle: string;
-      questionURL: string;
-      submissionIDs: string[];
-    }[]>
-  );
-
-  const rankings =
+  console.log({ data });
 </script>
 
 <MetaTags
@@ -47,10 +28,23 @@
     <small>O(N)ovember 🍂</small>
   </h1>
 
-  {#each Object.entries(data.seasonsMap) as [year, seasons] (year)}
+  {#each Object.entries(data.onovembers) as [year, onovember] (year)}
     <h2>{year}</h2>
 
-    <div>
+    {#each Array.from({ length: 30 }) as _, i (i)}
+      {@const daily = onovember.dailies[(i + 1).toString()]}
+      {#if daily}
+        <p>
+          <a href={daily.questionURL}>{daily.questionTitle}</a> - {Object.values(
+            daily.submissionIDs
+          ).length} submissions
+        </p>
+      {:else}
+        <p>No submissions</p>
+      {/if}
+    {/each}
+
+    <!-- <div>
       <ol>
         // Days of November
         {#each Array.from({ length: 30 }, (_, i) => i + 1) as day}
@@ -72,10 +66,10 @@
           </time>
         </li>
       {/each}
-    </ol>
+    </ol> -->
   {/each}
 
-  <pre><code>{data.seasonText}</code></pre>
+  <!-- <pre><code>{data.seasonText}</code></pre>
 
   <table>
     <tr>
@@ -101,7 +95,7 @@
       <td>Last synced</td>
       <td>{data.season?.synced_at ?? 'Never'}</td>
     </tr>
-  </table>
+  </table> -->
 </main>
 
 <style>
@@ -124,63 +118,5 @@
     padding: 5px 10px;
     border-radius: 5px;
     margin-left: 5px;
-  }
-
-  pre {
-    margin: 2em;
-    padding: 1em;
-    border-radius: 5px;
-    font-family: monospace;
-    overflow-x: auto;
-    outline: 3px dashed #666;
-  }
-
-  code {
-    font-family: monospace;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
-    text-align: left;
-  }
-
-  th,
-  td {
-    padding: 0.5rem;
-    border-bottom: 1px solid #ccc;
-  }
-
-  th {
-    font-weight: bold;
-  }
-
-  td:nth-child(1) {
-    font-weight: bold;
-  }
-
-  @media screen and (min-width: 768px) {
-    table {
-      width: auto;
-    }
-
-    th,
-    td {
-      width: 200px;
-      padding: 1rem;
-    }
-  }
-
-  @media screen and (max-width: 767px) {
-    th,
-    td {
-      width: 100%;
-      display: block;
-    }
-
-    th {
-      display: none; /* Hide headers in smaller screens */
-    }
   }
 </style>
