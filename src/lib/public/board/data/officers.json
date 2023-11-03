@@ -1132,9 +1132,7 @@
   {
     "fullName": "Ashley Rus",
     "picture": "placeholder.webp",
-    "socials": {
-      "discord": "fshmngr"
-    },
+    "socials": {},
     "positions": {
       "S23": {
         "title": "AI Officer",
@@ -1249,8 +1247,9 @@
     "picture": "david-solano.webp",
     "socials": {
       "github": "DavidJSolano",
-      "discord": "DSol77#9450",
-      "linkedin": "david-solano787"
+      "discord": "davidjsolano",
+      "linkedin": "david-solano787",
+      "instagram": "DavidJSolano"
     },
     "positions": {
       "S23": {
