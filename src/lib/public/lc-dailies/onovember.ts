@@ -1,4 +1,4 @@
-import type { Season } from 'lc-dailies';
+import type { Season, Player } from 'lc-dailies';
 
 const SEASON_DURATION = 7 * 24 * 60 * 60 * 1_000; // 1 week.
 const ONOVEMBER_MONTH = 10; // November.
@@ -15,7 +15,7 @@ export function onovember(data: Season[]) {
       scores: {
         username: string;
         submissionCount: number;
-        totalScore: number;
+        // TODO: Add total player score.
       }[];
       dailies: Record<
         string, // Day of month.
@@ -67,26 +67,27 @@ export function onovember(data: Season[]) {
         }
       }
 
-      // onovembers[year].scores = Object.values(season.players)
-      //   .map((player) => {
-      //     const { submissionCount, totalScore } = analyzePlayer(player, season, ONOVEMBER_MONTH);
-      //     return { username: player.lc_username, submissionCount, totalScore };
-      //   })
-      //   .sort((a, b) => a.totalScore - b.totalScore);
+      onovembers[year].scores = Object.values(season.players)
+        .map((player) => {
+          const { submissionCount } = analyzePlayer(player, season, ONOVEMBER_MONTH);
+          return { username: player.lc_username, submissionCount };
+        })
+        .sort((a, b) => a.submissionCount - b.submissionCount);
     }
   }
 
   return onovembers;
 }
 
-// /**
-//  * analyzePlayer analyzes a player's submissions and returns the total score and submission count.
-//  */
-// function analyzePlayer(
-//   player: Player,
-//   season: Season,
-//   month?: number
-// ): { submissionCount: number; totalScore: number } {
+/**
+ * analyzePlayer analyzes a player's submissions and returns the total score and submission count.
+ */
+function analyzePlayer(
+  player: Player,
+  season: Season,
+  month?: number
+): { submissionCount: number } {}
+
 //   let totalScore = 0;
 //   let submissionCount = 0;
 //   for (const questionID in season.submissions[player.discord_user_id]) {

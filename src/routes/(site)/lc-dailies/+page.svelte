@@ -32,7 +32,11 @@
   </p>
 
   <p>
-    <a href="/lc-dailies-handbook">acmcsuf.com/lc-dailies-handbook</a>
+    Usage instructions: <a href="/lc-dailies-handbook">acmcsuf.com/lc-dailies-handbook</a>
+  </p>
+
+  <p>
+    See our daily O(N)ovember challenge: <a href="/onovember">acmcsuf.com/onovember</a>
   </p>
 
   <h2>Seasons</h2>
