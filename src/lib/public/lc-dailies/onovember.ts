@@ -42,7 +42,7 @@ export function onovember(data: Season[]) {
           continue;
         }
 
-        const dayOfMonth = questionDate.getUTCDate();
+        const dayOfMonth = (questionDate.getUTCDate() + 1).toString();
         onovembers[year].dailies[dayOfMonth] = {
           questionTitle: question.title,
           questionURL: question.url,

@@ -42,7 +42,11 @@
     </tr>
     <tr>
       <td>Season ID</td>
-      <td><code>{data.season?.id}</code></td>
+      <td
+        ><a href="https://lc-dailies.deno.dev/seasons/{data.season?.id}"
+          ><code>{data.season?.id}</code></a
+        ></td
+      >
     </tr>
     <tr>
       <td>Start date</td>
