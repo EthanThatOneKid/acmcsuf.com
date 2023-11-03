@@ -86,25 +86,24 @@ function analyzePlayer(
   player: Player,
   season: Season,
   month?: number
-): { submissionCount: number } {}
+): { submissionCount: number } {
+  let submissionCount = 0;
+  for (const questionID in season.submissions[player.discord_user_id]) {
+    const question = season.questions[questionID];
+    if (month && new Date(`${question.date} GMT`).getUTCMonth() !== month) {
+      continue;
+    }
 
-//   let totalScore = 0;
-//   let submissionCount = 0;
-//   for (const questionID in season.submissions[player.discord_user_id]) {
-//     const question = season.questions[questionID];
-//     if (month && new Date(`${question.date} GMT`).getUTCMonth() !== month) {
-//       continue;
-//     }
+    const submission = season.submissions[player.discord_user_id][questionID];
+    if (!submission) {
+      continue;
+    }
 
-//     const submission = player.submissions[questionID];
-//     if (!submission) {
-//       continue;
-//     }
+    submissionCount++;
+  }
 
-//     totalScore += submission.score;
-//     submissionCount++;
-//   }
-// }
+  return { submissionCount };
+}
 
 /**
  * categorizeByMonth categorizes seasons by month. Returns a record of years to seasons.
