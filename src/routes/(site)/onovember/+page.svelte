@@ -4,8 +4,6 @@
   import Spacing from '$lib/public/legacy/spacing.svelte';
 
   export let data: PageData;
-
-  console.log({ data });
 </script>
 
 <MetaTags
@@ -29,73 +27,29 @@
   </h1>
 
   {#each Object.entries(data.onovembers) as [year, onovember] (year)}
-    <h2>{year}</h2>
+    <h2 id={year}><a href="/onovember#{year}">{year}</a></h2>
 
-    {#each Array.from({ length: 30 }).map((_, i) => i + 1) as i (i)}
-      {@const daily = onovember.dailies[(i + 1).toString()]}
-      {#if daily}
-        <p>
-          <a href={daily.questionURL}>{daily.questionTitle}</a> - {Object.values(
-            daily.submissionIDs
-          ).length} submissions
-        </p>
-      {:else}
-        <p>No submissions</p>
-      {/if}
-    {/each}
-
-    <!-- <div>
-      <ol>
-        // Days of November
-        {#each Array.from({ length: 30 }, (_, i) => i + 1) as day}
-          <li>
-            <a href="/lc-dailies/{year}-11-{day}">{day}</a>
-          </li>
-        {/each}
-      </ol>
-    </div>
-
-    <ol>
-      {#each seasons as season}
-        <li id={season.id}>
-          <a href="/lc-dailies/{season.id}">
-            Season {season.id}
-          </a>
-          <time datetime={season.start_date}>
-            {season.start_date}
-          </time>
-        </li>
+    <div class="onovember-section">
+      {#each Array.from({ length: 30 }).map((_, i) => i + 1) as i (i)}
+        {@const { daily, submissionCount } = {
+          daily: onovember.dailies[(i + 1).toString()],
+          submissionCount: Object.values(onovember.dailies[(i + 1).toString()]?.playerIDs ?? {})
+            .length,
+        }}
+        {#if daily}
+          <div class="onovember-cell" style:--submission-count={submissionCount}>
+            <a href={daily.questionURL} title={daily.questionTitle}>Nov {i}<br /></a><code
+              >{submissionCount}</code
+            > submissions
+          </div>
+        {:else}
+          <div class="onovember-cell" style:--submission-count="0">
+            Nov {i}<br /><code>0</code> submissions
+          </div>
+        {/if}
       {/each}
-    </ol> -->
+    </div>
   {/each}
-
-  <!-- <pre><code>{data.seasonText}</code></pre>
-
-  <table>
-    <tr>
-      <th colspan="2">Data</th>
-    </tr>
-    <tr>
-      <td>Season ID</td>
-      <td><code>{data.season?.id}</code></td>
-    </tr>
-    <tr>
-      <td>Start date</td>
-      <td>{data.season?.start_date}</td>
-    </tr>
-    <tr>
-      <td>Total players</td>
-      <td>{totalPlayers}</td>
-    </tr>
-    <tr>
-      <td>Total submissions</td>
-      <td>{totalSubmissions}</td>
-    </tr>
-    <tr>
-      <td>Last synced</td>
-      <td>{data.season?.synced_at ?? 'Never'}</td>
-    </tr>
-  </table> -->
 </main>
 
 <style>
@@ -111,6 +65,11 @@
     font-size: 24px;
   }
 
+  h2 {
+    width: 100%;
+    text-align: left;
+  }
+
   small {
     font-size: 16px;
     background-color: #666;
@@ -118,5 +77,22 @@
     padding: 5px 10px;
     border-radius: 5px;
     margin-left: 5px;
+  }
+
+  .onovember-cell {
+    background-color: hsl(24 calc(var(--submission-count, 0%) * 100%) 50%);
+    padding: 1em;
+    margin: 0.5em;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 </style>

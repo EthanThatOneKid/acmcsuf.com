@@ -12,24 +12,32 @@ export function onovember(data: Season[]) {
     string, // Year.
     {
       totalSubmissions: number;
+      scores: {
+        username: string;
+        submissionCount: number;
+        totalScore: number;
+      }[];
       dailies: Record<
         string, // Day of month.
-        { questionTitle: string; questionURL: string; submissionIDs: Record<string, number> }
+        {
+          questionTitle: string;
+          questionURL: string;
+          playerIDs: Record<string, number>;
+        }
       >;
     }
   > = {};
   for (const year in seasonsMap) {
     onovembers[year] = {
       totalSubmissions: 0,
+      scores: [],
       dailies: {},
     };
     const seasons = seasonsMap[year];
     for (const season of seasons) {
-      // console.log({ season });
       for (const questionID in season.questions) {
         const question = season.questions[questionID];
         const questionDate = new Date(`${question.date} GMT`);
-        // console.log({ question, questionDate, month: questionDate.getUTCMonth() });
         if (questionDate.getUTCMonth() !== ONOVEMBER_MONTH) {
           continue;
         }
@@ -38,10 +46,8 @@ export function onovember(data: Season[]) {
         onovembers[year].dailies[dayOfMonth] = {
           questionTitle: question.title,
           questionURL: question.url,
-          submissionIDs: {},
+          playerIDs: {},
         };
-
-        // console.log({ questionID, dayOfMonth, questionDate });
 
         for (const playerID in season.submissions) {
           const playerSubmissions = season.submissions[playerID];
@@ -51,16 +57,53 @@ export function onovember(data: Season[]) {
             }
 
             const submission = playerSubmissions[submissionQuestionID];
-            onovembers[year].dailies[dayOfMonth].submissionIDs[submission.id] = 0;
+            if (!submission) {
+              continue;
+            }
+
+            onovembers[year].dailies[dayOfMonth].playerIDs[playerID] = 0;
             onovembers[year].totalSubmissions++;
           }
         }
       }
+
+      // onovembers[year].scores = Object.values(season.players)
+      //   .map((player) => {
+      //     const { submissionCount, totalScore } = analyzePlayer(player, season, ONOVEMBER_MONTH);
+      //     return { username: player.lc_username, submissionCount, totalScore };
+      //   })
+      //   .sort((a, b) => a.totalScore - b.totalScore);
     }
   }
 
   return onovembers;
 }
+
+// /**
+//  * analyzePlayer analyzes a player's submissions and returns the total score and submission count.
+//  */
+// function analyzePlayer(
+//   player: Player,
+//   season: Season,
+//   month?: number
+// ): { submissionCount: number; totalScore: number } {
+//   let totalScore = 0;
+//   let submissionCount = 0;
+//   for (const questionID in season.submissions[player.discord_user_id]) {
+//     const question = season.questions[questionID];
+//     if (month && new Date(`${question.date} GMT`).getUTCMonth() !== month) {
+//       continue;
+//     }
+
+//     const submission = player.submissions[questionID];
+//     if (!submission) {
+//       continue;
+//     }
+
+//     totalScore += submission.score;
+//     submissionCount++;
+//   }
+// }
 
 /**
  * categorizeByMonth categorizes seasons by month. Returns a record of years to seasons.
