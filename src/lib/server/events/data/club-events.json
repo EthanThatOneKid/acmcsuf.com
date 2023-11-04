@@ -18,7 +18,7 @@
     "team": {
       "title": "Algo",
       "id": "algo",
-      "picture": "/assets/badges/algo-team.svg",
+      "logoSrc": "/assets/badges/algo-team.svg",
       "color": "var(--acm-purple)"
     },
     "calendarLinks": {
@@ -45,7 +45,7 @@
     "team": {
       "title": "AI",
       "id": "ai",
-      "picture": "/assets/badges/ai-team.svg",
+      "logoSrc": "/assets/badges/ai-team.svg",
       "color": "var(--acm-emerald)"
     },
     "calendarLinks": {
@@ -72,7 +72,7 @@
     "team": {
       "title": "Design",
       "id": "design",
-      "picture": "/assets/badges/design-team.svg",
+      "logoSrc": "/assets/badges/design-team.svg",
       "color": "var(--acm-pink)"
     },
     "calendarLinks": {
@@ -99,7 +99,7 @@
     "team": {
       "title": "Dev",
       "id": "dev",
-      "picture": "/assets/badges/dev-team.svg",
+      "logoSrc": "/assets/badges/dev-team.svg",
       "color": "var(--acm-bluer)"
     },
     "calendarLinks": {
@@ -126,7 +126,7 @@
     "team": {
       "title": "Game Dev",
       "id": "gamedev",
-      "picture": "/assets/badges/gamedev-team.svg",
+      "logoSrc": "/assets/badges/gamedev-team.svg",
       "color": "var(--acm-red)"
     },
     "calendarLinks": {
@@ -153,7 +153,7 @@
     "team": {
       "title": "Open Source Software",
       "id": "oss",
-      "picture": "/assets/badges/oss-team.svg",
+      "logoSrc": "/assets/badges/oss-team.svg",
       "color": "var(--acm-turquoise)"
     },
     "calendarLinks": {
@@ -180,7 +180,7 @@
     "team": {
       "title": "General",
       "id": "general",
-      "picture": "/assets/badges/general.svg",
+      "logoSrc": "/assets/badges/general.svg",
       "color": "var(--acm-blue)"
     },
     "calendarLinks": {
@@ -207,7 +207,7 @@
     "team": {
       "title": "ICPC",
       "id": "icpc",
-      "picture": "/assets/badges/icpc-team.svg",
+      "logoSrc": "/assets/badges/icpc-team.svg",
       "color": "var(--acm-orange)"
     },
     "calendarLinks": {

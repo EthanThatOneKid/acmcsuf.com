@@ -15,9 +15,9 @@
     </div>
 
     <div class="teams-list">
-      {#each PINNED_TEAMS as { title, id, picture, color } (id)}
+      {#each PINNED_TEAMS as { title, id, logoSrc, color } (id)}
         <a class="team-item" target="_self" href={`/teams#${id}`}>
-          <img src={picture} alt={`${id} badge`} />
+          <img src={logoSrc} alt={`${id} badge`} />
           <p class="size-md brand-bold" style:--brand-color={color}>
             {title}
           </p>
