@@ -20,9 +20,11 @@ export function onovember(data: Season[]) {
       calendar: {
         dayOfMonth: string;
         submissionCount: number;
+        submissionsText?: string;
+        question?: { title: string; url: string };
       }[];
       winners: {
-        username: string;
+        usernames: string[];
         submissionCount: number;
         // TODO: Add total player score.
       }[];
@@ -30,11 +32,11 @@ export function onovember(data: Season[]) {
   > = {};
   for (const year in seasonsMap) {
     onovembersMap[year] = {
-      totalSubmissions: 0,
-      calendar: [],
-      winners: [],
-      dailies: {},
-      players: {},
+      totalSubmissions: 0, // Total submissions are tallied after dailies are created.
+      dailies: {}, // Dailies are created first.
+      players: {}, // Players are tallied after dailies are created.
+      winners: [], // Winners are sorted after players are tallied.
+      calendar: [], // Calendar is created at the end.
     };
     const seasons = seasonsMap[year];
     for (const season of seasons) {
@@ -81,14 +83,48 @@ export function onovember(data: Season[]) {
 
     onovembersMap[year].winners = Object.entries(onovembersMap[year].players)
       .sort(({ 1: a }, { 1: b }) => b.submissionCount - a.submissionCount)
-      .map(({ 1: player }) => player);
+      .reduce((groups, { 1: player }) => {
+        const group = groups[groups.length - 1];
+        if (!group || group.submissionCount !== player.submissionCount) {
+          groups.push({ usernames: [player.username], submissionCount: player.submissionCount });
+        } else {
+          group.usernames.push(player.username);
+        }
+
+        return groups;
+      }, [] as { usernames: string[]; submissionCount: number }[]);
 
     for (let i = 1; i <= 30; i++) {
       const dayOfMonth = i.toString();
-      const playerIDs = onovembersMap[year].dailies[dayOfMonth]?.playerIDs;
+      const daily = onovembersMap[year].dailies[dayOfMonth];
+      if (!daily) {
+        onovembersMap[year].calendar.push({
+          dayOfMonth,
+          submissionCount: 0,
+        });
+        continue;
+      }
+
+      const playerIDs = Object.keys(daily.playerIDs);
+      const concatenatedUsernames = playerIDs
+        .sort(
+          (a, b) =>
+            onovembersMap[year].players[b].submissionCount -
+            onovembersMap[year].players[a].submissionCount
+        )
+        .map((id) => onovembersMap[year].players[id].username)
+        .join(', ');
+      const submissionsText = `${daily.questionTitle} answered by ${playerIDs.length}${
+        playerIDs.length > 0 ? `, ${concatenatedUsernames}` : ''
+      }`;
       onovembersMap[year].calendar.push({
         dayOfMonth,
         submissionCount: playerIDs ? Object.keys(playerIDs).length : 0,
+        question: {
+          title: onovembersMap[year].dailies[dayOfMonth].questionTitle,
+          url: onovembersMap[year].dailies[dayOfMonth].questionURL,
+        },
+        submissionsText,
       });
     }
   }

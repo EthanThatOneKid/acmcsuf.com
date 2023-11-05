@@ -31,13 +31,9 @@
     time they take to do so. These scores reset on a weekly basis.
   </p>
 
-  <p>
-    Usage instructions: <a href="/lc-dailies-handbook">acmcsuf.com/lc-dailies-handbook</a>
-  </p>
+  <p>Usage instructions: <a href="/lc-dailies-handbook">acmcsuf.com/lc-dailies-handbook</a></p>
 
-  <p>
-    See our daily O(N)ovember challenge: <a href="/onovember">acmcsuf.com/onovember</a>
-  </p>
+  <p>See our daily O(N)ovember challenge: <a href="/onovember">acmcsuf.com/onovember</a></p>
 
   <h2>Seasons</h2>
 
@@ -67,7 +63,6 @@
 
   p {
     margin: 10px 0;
-    text-indent: 1em;
   }
 
   ol {
