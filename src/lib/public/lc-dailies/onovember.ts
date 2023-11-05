@@ -1,4 +1,4 @@
-import type { Season, Player } from 'lc-dailies';
+import type { Season } from 'lc-dailies';
 
 const SEASON_DURATION = 7 * 24 * 60 * 60 * 1_000; // 1 week.
 const ONOVEMBER_MONTH = 10; // November.
@@ -8,30 +8,33 @@ const ONOVEMBER_MONTH = 10; // November.
  */
 export function onovember(data: Season[]) {
   const seasonsMap = categorizeByMonth(data, ONOVEMBER_MONTH);
-  const onovembers: Record<
+  const onovembersMap: Record<
     string, // Year.
     {
       totalSubmissions: number;
-      scores: {
+      players: Record<string, { submissionCount: number; username: string }>;
+      dailies: Record<
+        string, // Day of month.
+        { questionTitle: string; questionURL: string; playerIDs: Record<string, number> }
+      >;
+      calendar: {
+        dayOfMonth: string;
+        submissionCount: number;
+      }[];
+      winners: {
         username: string;
         submissionCount: number;
         // TODO: Add total player score.
       }[];
-      dailies: Record<
-        string, // Day of month.
-        {
-          questionTitle: string;
-          questionURL: string;
-          playerIDs: Record<string, number>;
-        }
-      >;
     }
   > = {};
   for (const year in seasonsMap) {
-    onovembers[year] = {
+    onovembersMap[year] = {
       totalSubmissions: 0,
-      scores: [],
+      calendar: [],
+      winners: [],
       dailies: {},
+      players: {},
     };
     const seasons = seasonsMap[year];
     for (const season of seasons) {
@@ -42,8 +45,8 @@ export function onovember(data: Season[]) {
           continue;
         }
 
-        const dayOfMonth = (questionDate.getUTCDate() + 1).toString();
-        onovembers[year].dailies[dayOfMonth] = {
+        const dayOfMonth = questionDate.getUTCDate().toString();
+        onovembersMap[year].dailies[dayOfMonth] = {
           questionTitle: question.title,
           questionURL: question.url,
           playerIDs: {},
@@ -61,48 +64,36 @@ export function onovember(data: Season[]) {
               continue;
             }
 
-            onovembers[year].dailies[dayOfMonth].playerIDs[playerID] = 0;
-            onovembers[year].totalSubmissions++;
+            onovembersMap[year].dailies[dayOfMonth].playerIDs[playerID] = 0;
+            onovembersMap[year].totalSubmissions++;
+            if (!onovembersMap[year].players[playerID]) {
+              onovembersMap[year].players[playerID] = {
+                username: season.players[playerID].lc_username,
+                submissionCount: 0,
+              };
+            }
+
+            onovembersMap[year].players[playerID].submissionCount++;
           }
         }
       }
+    }
 
-      onovembers[year].scores = Object.values(season.players)
-        .map((player) => {
-          const { submissionCount } = analyzePlayer(player, season, ONOVEMBER_MONTH);
-          return { username: player.lc_username, submissionCount };
-        })
-        .sort((a, b) => a.submissionCount - b.submissionCount);
+    onovembersMap[year].winners = Object.entries(onovembersMap[year].players)
+      .sort(({ 1: a }, { 1: b }) => b.submissionCount - a.submissionCount)
+      .map(({ 1: player }) => player);
+
+    for (let i = 1; i <= 30; i++) {
+      const dayOfMonth = i.toString();
+      const playerIDs = onovembersMap[year].dailies[dayOfMonth]?.playerIDs;
+      onovembersMap[year].calendar.push({
+        dayOfMonth,
+        submissionCount: playerIDs ? Object.keys(playerIDs).length : 0,
+      });
     }
   }
 
-  return onovembers;
-}
-
-/**
- * analyzePlayer analyzes a player's submissions and returns the total score and submission count.
- */
-function analyzePlayer(
-  player: Player,
-  season: Season,
-  month?: number
-): { submissionCount: number } {
-  let submissionCount = 0;
-  for (const questionID in season.submissions[player.discord_user_id]) {
-    const question = season.questions[questionID];
-    if (month && new Date(`${question.date} GMT`).getUTCMonth() !== month) {
-      continue;
-    }
-
-    const submission = season.submissions[player.discord_user_id][questionID];
-    if (!submission) {
-      continue;
-    }
-
-    submissionCount++;
-  }
-
-  return { submissionCount };
+  return onovembersMap;
 }
 
 /**

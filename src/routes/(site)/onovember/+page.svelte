@@ -27,24 +27,46 @@
   </h1>
 
   {#each Object.entries(data.onovembers) as [year, onovember] (year)}
-    <h2 id={year}><a href="/onovember#{year}">{year}</a></h2>
+    <h2 id={year}>
+      <a href="/onovember#{year}">{year}: {onovember.totalSubmissions} total submissions</a>
+    </h2>
+
+    <ol>
+      {#each onovember.winners as { username, submissionCount } (name)}
+        <li>
+          <a href={`https://leetcode.com/${username}`} title={username}>{username}</a>:
+          <code>{submissionCount}</code> submissions
+        </li>
+      {/each}
+    </ol>
 
     <div class="onovember-section">
-      {#each Array.from({ length: 30 }).map((_, i) => i + 1) as i (i)}
-        {@const { daily, submissionCount } = {
-          daily: onovember.dailies[(i + 1).toString()],
-          submissionCount: Object.values(onovember.dailies[(i + 1).toString()]?.playerIDs ?? {})
-            .length,
+      {#each onovember.calendar as { dayOfMonth, submissionCount }, i (i)}
+        {@const { question, playerIDs } = {
+          question: onovember.dailies[dayOfMonth],
+          playerIDs: Object.keys(onovember.dailies[dayOfMonth]?.playerIDs || {}),
         }}
-        {#if daily}
+        {#if question}
           <div class="onovember-cell" style:--submission-count={submissionCount}>
-            <a href={daily.questionURL} title={daily.questionTitle}>Nov {i}<br /></a><code
-              >{submissionCount}</code
-            > submissions
+            <a
+              href={question.questionURL}
+              title={`${question.questionTitle} answered by ${playerIDs.length}${
+                playerIDs.length > 0
+                  ? `, ${playerIDs
+                    .sort(
+                      (a, b) =>
+                        onovember.players[b].submissionCount -
+                          onovember.players[a].submissionCount
+                    )
+                    .map((id) => onovember.players[id].username)
+                    .join(', ')}`
+                  : ''
+              }`}>Nov {dayOfMonth}<br /></a
+            ><code>{submissionCount}</code> submissions
           </div>
         {:else}
           <div class="onovember-cell" style:--submission-count="0">
-            Nov {i}<br /><code>0</code> submissions
+            Nov {dayOfMonth}<br /><code>0</code> submissions
           </div>
         {/if}
       {/each}
