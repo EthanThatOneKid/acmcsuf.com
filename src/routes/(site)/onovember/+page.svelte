@@ -52,16 +52,17 @@
       </ol>
 
       <div class="onovember-section">
-        {#each onovember.calendar as { dayOfMonth, submissionCount, submissionsText, question }}
+        {#each onovember.calendar as { dayOfMonth, weekdayName, submissionCount, submissionsText, question }}
           {#if question}
             <div
               class="onovember-cell"
               title={submissionsText}
               style:--submission-count={submissionCount}
             >
-              Nov {dayOfMonth}
+              {weekdayName} Nov {dayOfMonth}
               <hr />
-              Answered by <code>{submissionCount}</code>
+              Answered by
+              <code>{submissionCount}</code>
               <hr />
               <a href={question.url}>{question.title}</a>
             </div>
@@ -69,7 +70,8 @@
             <div class="onovember-cell" style:--submission-count="0">
               Nov {dayOfMonth}
               <hr />
-              Answered by <code>0</code>
+              Answered by
+              <code>0</code>
             </div>
           {/if}
         {/each}

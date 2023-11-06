@@ -18,6 +18,7 @@ export function onovember(data: Season[]) {
         { questionTitle: string; questionURL: string; playerIDs: Record<string, number> }
       >;
       calendar: {
+        weekdayName: string;
         dayOfMonth: string;
         submissionCount: number;
         submissionsText?: string;
@@ -97,9 +98,11 @@ export function onovember(data: Season[]) {
     for (let i = 1; i <= 30; i++) {
       const dayOfMonth = i.toString();
       const daily = onovembersMap[year].dailies[dayOfMonth];
+      const weekdayName = getWeekdayName(new Date(Date.UTC(+year, ONOVEMBER_MONTH + 1, i)));
       if (!daily) {
         onovembersMap[year].calendar.push({
           dayOfMonth,
+          weekdayName,
           submissionCount: 0,
         });
         continue;
@@ -119,6 +122,7 @@ export function onovember(data: Season[]) {
       }`;
       onovembersMap[year].calendar.push({
         dayOfMonth,
+        weekdayName,
         submissionCount: playerIDs ? Object.keys(playerIDs).length : 0,
         question: {
           title: onovembersMap[year].dailies[dayOfMonth].questionTitle,
@@ -153,4 +157,12 @@ function categorizeByMonth(seasons: Season[], month: number): Record<number, Sea
   }
 
   return result;
+}
+
+// function getONovemberWeekdayName(year: number, month: number, dayOfMonth: number) {
+//   return getWeekdayName(new Date(`${year}-${month}-${dayOfMonth} GMT`));
+// }
+
+function getWeekdayName(date: Date) {
+  return date.toLocaleString('en-US', { weekday: 'short' });
 }
