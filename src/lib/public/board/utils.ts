@@ -1,5 +1,5 @@
-import type { Officer, Term, Tier } from './types';
-import { VISIBLE_TERMS, TIERS_JSON } from './data';
+import type { Officer, Term, Tier, Team } from './types';
+import { VISIBLE_TERMS, TIERS_JSON, TEAMS_JSON } from './data';
 import { writable } from 'svelte/store';
 
 /**
@@ -48,4 +48,11 @@ export function getMembers(members: Officer[], term: Term, tierIDs?: number[]): 
       const bTier = getTierByID(b.positions[term]!.tier)!;
       return aTier.index - bTier.index;
     });
+}
+
+/**
+ * getTeamByID returns the team with the given ID.
+ */
+export function getTeamByID(id: string): Team | undefined {
+  return TEAMS_JSON.find((t) => t.id === id);
 }

@@ -1,4 +1,3 @@
-import { TEAMS } from '$lib/public/board/data';
 import type { ClubEvent } from '$lib/public/events/event';
 import { Temporal } from '@js-temporal/polyfill';
 import type { GCalEvent } from './gcal';
@@ -40,43 +39,8 @@ export function makeClubEvent(event: GCalEvent, refDate: Temporal.ZonedDateTime)
   const selfLink = makeEventLink(id);
   const recurring = (event?.recurrence?.length ?? 0) > 0;
   const summary = produceSummary(title, description, selfLink);
-  const teamId = (variables.get('ACM_TEAM') ?? variables.get('ACM_PATH'))?.toLowerCase().trim();
-
-  let team = TEAMS.general;
-  switch (teamId) {
-    case 'ai': {
-      team = TEAMS.ai;
-      break;
-    }
-    case 'algo': {
-      team = TEAMS.algo;
-      break;
-    }
-    case 'design': {
-      team = TEAMS.design;
-      break;
-    }
-    case 'dev': {
-      team = TEAMS.dev;
-      break;
-    }
-    case 'gamedev': {
-      team = TEAMS.gamedev;
-      break;
-    }
-    case 'icpc': {
-      team = TEAMS.icpc;
-      break;
-    }
-    case 'oss': {
-      team = TEAMS.oss;
-      break;
-    }
-    case 'special-events': {
-      team = TEAMS['special-events'];
-      break;
-    }
-  }
+  const teamID =
+    (variables.get('ACM_TEAM') ?? variables.get('ACM_PATH'))?.toLowerCase().trim() ?? 'general';
 
   const thirdPartyCalendarLocation = location === 'Discord' ? selfLink : location;
   const thirdPartyCalendarArgs = [
@@ -108,7 +72,7 @@ export function makeClubEvent(event: GCalEvent, refDate: Temporal.ZonedDateTime)
     id,
     selfLink,
     recurring,
-    team,
+    team: teamID,
     calendarLinks,
   };
 }
