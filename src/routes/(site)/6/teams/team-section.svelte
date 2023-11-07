@@ -11,8 +11,8 @@
 <div class="container">
   {#if info !== undefined}
     <section id={info.id} class:👈={textAlign === TextAlignment.LEFT}>
-      <img src={info.logoSrc} alt={`acm${info.title} Logo`} />
-      <div>
+      <img src={info.logoSrc} alt={`${info.title} Team Logo`} />
+      <div class="team-description">
         <h2>
           <span class="headers size-lg">
             <span style:--font-color={info.color}>
@@ -28,8 +28,28 @@
   {/if}
 </div>
 
-<style lang="scss">
+<style>
   .container {
+    display: grid;
+  }
+
+  section {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+  }
+
+  section img {
+    max-width: 100%;
+    justify-self: center;
+  }
+
+  section .team-description {
+    display: grid;
+    align-items: center;
+    text-align: start;
+  }
+
+  /* .container {
     display: flex;
     justify-content: center;
   }
@@ -61,7 +81,7 @@
     color: var(--font-color);
   }
 
-  /* Left */
+  /* Left */ /*
   .👈 {
     flex-direction: row-reverse;
   }
@@ -90,5 +110,5 @@
       margin: 0;
       width: 200px;
     }
-  }
+  } */
 </style>

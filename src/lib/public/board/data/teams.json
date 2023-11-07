@@ -3,7 +3,7 @@
     "id": "general",
     "title": "General",
     "description": "General ACM team member.",
-    "logoSrc": "/assets/badges/general.svg",
+    "logoSrc": "/assets/badges/general-badge.svg",
     "color": "var(--acm-blue)",
     "tiers": [0, 1, 2, 3, 4, 5, 6, 7, 31]
   },
@@ -11,7 +11,7 @@
     "id": "ai",
     "title": "AI",
     "description": "AI team member.",
-    "logoSrc": "/assets/badges/ai-team.svg",
+    "logoSrc": "/assets/badges/ai-badge.svg",
     "color": "var(--acm-emerald)",
     "tiers": [20, 21]
   },
@@ -19,7 +19,7 @@
     "id": "algo",
     "title": "Algo",
     "description": "Algo team member.",
-    "logoSrc": "/assets/badges/algo-team.svg",
+    "logoSrc": "/assets/badges/algo-badge.svg",
     "color": "var(--acm-purple)",
     "tiers": [11, 12]
   },
@@ -27,7 +27,7 @@
     "id": "design",
     "title": "Design",
     "description": "Design team member.",
-    "logoSrc": "/assets/badges/design-team.svg",
+    "logoSrc": "/assets/badges/design-badge.svg",
     "color": "var(--acm-pink)",
     "tiers": [13, 14, 15, 16]
   },
@@ -35,7 +35,7 @@
     "id": "dev",
     "title": "Dev",
     "description": "Dev team member.",
-    "logoSrc": "/assets/badges/dev-team.svg",
+    "logoSrc": "/assets/badges/dev-badge.svg",
     "color": "var(--acm-bluer)",
     "tiers": [17, 18, 19]
   },
@@ -43,7 +43,7 @@
     "id": "gamedev",
     "title": "Game Dev",
     "description": "Game Dev team member.",
-    "logoSrc": "/assets/badges/gamedev-team.svg",
+    "logoSrc": "/assets/badges/gamedev-badge.svg",
     "color": "var(--acm-red)",
     "tiers": [22, 23]
   },
@@ -51,7 +51,7 @@
     "id": "marketing",
     "title": "Marketing",
     "description": "Marketing team member.",
-    "logoSrc": "/assets/badges/marketing-team.svg",
+    "logoSrc": "/assets/badges/marketing-badge.svg",
     "color": "var(--acm-blush)",
     "tiers": [8, 9, 10]
   },
@@ -59,7 +59,7 @@
     "id": "icpc",
     "title": "ICPC",
     "description": "ICPC team member.",
-    "logoSrc": "/assets/badges/icpc-team.svg",
+    "logoSrc": "/assets/badges/icpc-badge.svg",
     "color": "var(--acm-orange)",
     "tiers": []
   },
@@ -67,7 +67,7 @@
     "id": "oss",
     "title": "Open Source Software",
     "description": "Open Source Software team member. We create and maintain open source projects pertaining to ACM at CSUF.",
-    "logoSrc": "/assets/badges/oss-team.svg",
+    "logoSrc": "/assets/badges/oss-badge.svg",
     "color": "var(--acm-turquoise)",
     "tiers": []
   },
@@ -75,7 +75,7 @@
     "id": "special-events",
     "title": "Special Events",
     "description": "Special Events team member.",
-    "logoSrc": "/assets/badges/special-events-team.svg",
+    "logoSrc": "/assets/badges/special-events-badge.svg",
     "color": "var(--acm-lemon)",
     "tiers": [24, 25]
   }

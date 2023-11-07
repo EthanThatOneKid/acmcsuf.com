@@ -28,8 +28,9 @@
 
 <TeamSection info={TEAMS.general} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    This team is dedicated to providing accessible information about artificial intelligence and
-    machine learning to all. <span class="brand-emerald brand-em">AI</span> focuses on fun projects geared
-    towards beginners in the field.
+    The ACM <span class="brand-blue brand-em">general</span> team is a dynamic group of individuals driving 
+    the success of our organization. ACM <span class="brand-blue brand-em">General</span> 
+    manages operations, organizes events, and ensure the smooth functioning of ACM. They are the backbone of 
+    our community, fostering collaboration and innovation among members.
   </p>
 </TeamSection>
