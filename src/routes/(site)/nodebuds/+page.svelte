@@ -38,7 +38,7 @@
         successful journeys through the tech industry.
       </p>
     </div>
-    <img src="assets/badges/nodebuds.svg" alt="nodeBuds badge" />
+    <img src="assets/badges/old-badges/nodebuds-badge-old.svg" alt="nodeBuds badge" />
   </section>
 </div>
 
