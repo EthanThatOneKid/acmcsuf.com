@@ -28,9 +28,9 @@
 
 <TeamSection info={TEAMS.general} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The ACM <span class="brand-blue brand-em">general</span> team is a dynamic group of individuals driving 
-    the success of our organization. ACM <span class="brand-blue brand-em">General</span> 
-    manages operations, organizes events, and ensure the smooth functioning of ACM. They are the backbone of 
-    our community, fostering collaboration and innovation among members.
+    The ACM <span class="brand-blue brand-em">general</span> team is a dynamic group of individuals
+    driving the success of our organization. ACM <span class="brand-blue brand-em">General</span>
+    manages operations, organizes events, and ensure the smooth functioning of ACM. They are the backbone
+    of our community, fostering collaboration and innovation among members.
   </p>
 </TeamSection>
