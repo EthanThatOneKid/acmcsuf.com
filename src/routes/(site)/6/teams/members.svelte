@@ -16,7 +16,8 @@
   <h2>{data.team.title}</h2>
   <p>{data.team.description}</p>
   <ul>
-    {#each members as member}
+    <!-- TODO: Fix each loop to show the correct officers per term. -->
+    {#each members as member (member.fullName + data.term)}
       <li>
         <OfficerProfile info={member} />
       </li>
