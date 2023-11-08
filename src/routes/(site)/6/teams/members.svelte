@@ -13,8 +13,6 @@
 </script>
 
 <section class="team">
-  <h2>{data.team.title}</h2>
-  <p>{data.team.description}</p>
   <ul>
     {#each members as member (member.fullName + data.term)}
       <li>
@@ -23,3 +21,17 @@
     {/each}
   </ul>
 </section>
+
+<!-- <style>
+  .team ul {
+    list-style: none; 
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(200px, 1fr)
+    ); 
+    
+    width: 1064px;
+    gap: 10px; 
+  }
+</style> -->

@@ -35,18 +35,46 @@
 
   section {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr;
+    margin: 0 1rem;
   }
 
   section img {
-    max-width: 100%;
+    max-width: clamp(20rem, 17.342rem + 10.13vw, 30rem);
     justify-self: center;
   }
 
   section .team-description {
     display: grid;
     align-items: center;
-    text-align: start;
+    text-align: center;
+  }
+
+  @media screen and (min-width: 1000px) {
+    section {
+      grid-template-columns: 1fr 2fr;
+      justify-self: center;
+      width: 1064px;
+      gap: 2rem;
+      margin: 0 32px;
+    }
+
+    section img {
+      margin-left: -32px;
+      width: 350px;
+    }
+
+    section .team-description {
+      text-align: left;
+    }
+
+    section .team-description h2 {
+      align-self: end;
+    }
+
+    section .team-description ::slotted(p) {
+      align-self: start;
+    }
   }
 
   /* .container {
