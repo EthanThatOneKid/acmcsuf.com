@@ -10,7 +10,6 @@ export async function GET({ url }: RequestEvent) {
   const pages = getPages(modules);
   const randomPage = pages[~~(Math.random() * pages.length)];
   const destination = new URL(randomPage, url);
-  console.log({ modules, pages });
   return Response.redirect(destination, 302);
 }
 
