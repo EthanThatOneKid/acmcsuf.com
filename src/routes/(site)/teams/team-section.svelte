@@ -9,7 +9,7 @@
 <div class="container">
   {#if info !== undefined}
     <section id={info.id} class:👈={textAlign === TextAlignment.LEFT}>
-      <img src={info.picture} alt={`acm${info.title} Logo`} />
+      <img src={info.logoSrc} alt={`acm${info.title} Logo`} />
       <div>
         <h2>
           <span class="headers size-lg">
