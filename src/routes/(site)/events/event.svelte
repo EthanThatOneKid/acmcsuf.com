@@ -38,7 +38,7 @@
 
 <div
   class="event-box"
-  style:--highlights={`var(--acm-${info.team.id}-rgb)`}
+  style:--highlights={`var(--acm-${info.team}-rgb)`}
   on:click|preventDefault|stopPropagation={() => (shown = !shown)}
   on:keypress|preventDefault|stopPropagation={() => (shown = !shown)}
   role="button"

@@ -1,5 +1,3 @@
-import type { Team } from '$lib/public/board/types';
-
 export interface ClubEvent {
   month: string;
   day: number;
@@ -16,7 +14,7 @@ export interface ClubEvent {
   id: string;
   selfLink: string;
   recurring: boolean;
-  team: Team;
+  team: string;
   calendarLinks: {
     google: string;
     outlook: string;
