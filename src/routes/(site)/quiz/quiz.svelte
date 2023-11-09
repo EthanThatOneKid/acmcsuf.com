@@ -151,7 +151,7 @@
         <h2 class="team-title" style={`--team-color: ${TEAMS[match].color}`}>
           {match} <span>Team</span>
         </h2>
-        <img src={TEAMS[match].picture} alt={`${match} icon`} class="team-icon" />
+        <img src={TEAMS[match].logoSrc} alt={`${match} icon`} class="team-icon" />
         <ProgressBar
           progress={(talliedResponses[match] / data.questions.length) * 100}
           fillColor={TEAMS[match].color}
@@ -169,7 +169,7 @@
           <h2 class="team-title" style={`--team-color: ${team.color}`}>
             {otherMatch} <span>Team</span>
           </h2>
-          <img src={team.picture} alt={`${otherMatch} icon`} class="team-icon" />
+          <img src={team.logoSrc} alt={`${otherMatch} icon`} class="team-icon" />
 
           <ProgressBar
             progress={talliedResponses[otherMatch]
