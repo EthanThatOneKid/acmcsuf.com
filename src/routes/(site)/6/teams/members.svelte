@@ -35,6 +35,7 @@
       display: grid;
       justify-self: center;
       align-items: center;
+      margin-bottom: 3rem;
     }
     .team ul {
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

@@ -10,7 +10,7 @@
 
 <div class="container">
   {#if info !== undefined}
-    <section id={info.id} class:👈={textAlign === TextAlignment.LEFT}>
+    <section id={info.id} class:align-right={textAlign === TextAlignment.RIGHT}>
       <img src={info.logoSrc} alt={`${info.title} Team Logo`} />
       <div class="team-description">
         <h2>
@@ -72,8 +72,11 @@
       align-self: end;
     }
 
-    section .team-description ::slotted(p) {
-      align-self: start;
+    :nth-child(even) section {
+      grid-template-columns: 2fr 1fr;
+    }
+    :nth-child(even) .team-description {
+      order:-1;
     }
   }
 </style>
