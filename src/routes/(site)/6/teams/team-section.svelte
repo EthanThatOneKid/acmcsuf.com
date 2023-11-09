@@ -77,7 +77,7 @@
       grid-template-columns: 2fr 1fr;
     }
     :nth-child(even) .team-description {
-      order:-1;
+      order: -1;
     }
   }
 </style>
