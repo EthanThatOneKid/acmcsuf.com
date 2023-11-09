@@ -41,7 +41,14 @@
 
 <!-- TODO: Design -->
 
-<!-- TODO: Dev -->
+<TeamSection info={TEAMS.dev} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
+  <p slot="content" class="size-md">
+    The <span class="brand-bluer brand-em">development</span> team is dedicated to giving students
+    the opportunity to explore tech via hands-on projects and activities.
+    <span class="brand-bluer brand-em">Dev</span> focuses on introducing students to software development,
+    and the various tech stacks used in the industry.
+  </p>
+</TeamSection>
 
 <!-- TODO: AI -->
 

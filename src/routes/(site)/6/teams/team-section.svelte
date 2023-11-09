@@ -11,7 +11,11 @@
 <div class="container">
   <!-- TODO: Hero Component HTML -->
   {#if info !== undefined}
-    <section id={info.id} class:align-right={textAlign === TextAlignment.RIGHT}>
+    <section
+      id={info.id}
+      class:align-right={textAlign === TextAlignment.RIGHT}
+      class:dev-animation={info.id === 'dev'}
+    >
       <img src={info.logoSrc} alt={`${info.title} Team Logo`} />
       <div class="team-description">
         <h2>
@@ -49,6 +53,22 @@
     display: grid;
     align-items: center;
     text-align: center;
+  }
+
+  .dev-animation img {
+    animation-duration: 3s;
+    animation-name: spin;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
 
   @media screen and (min-width: 1000px) {
