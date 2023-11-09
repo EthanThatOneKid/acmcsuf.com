@@ -34,3 +34,9 @@
     of our community, fostering collaboration and innovation among members.
   </p>
 </TeamSection>
+
+<style>
+  p {
+    align-self: start;
+  }
+</style>

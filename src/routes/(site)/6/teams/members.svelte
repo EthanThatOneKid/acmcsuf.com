@@ -22,16 +22,23 @@
   </ul>
 </section>
 
-<!-- <style>
+<style>
   .team ul {
-    list-style: none; 
+    list-style: none;
     display: grid;
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(200px, 1fr)
-    ); 
-    
-    width: 1064px;
-    gap: 10px; 
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
-</style> -->
+
+  @media screen and (min-width: 1000px) {
+    section {
+      display: grid;
+      justify-self: center;
+      align-items: center;
+    }
+    .team ul {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      width: 1064px;
+    }
+  }
+</style>
