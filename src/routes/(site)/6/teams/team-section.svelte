@@ -9,6 +9,7 @@
 </script>
 
 <div class="container">
+  <!-- TODO: Hero Component HTML -->
   {#if info !== undefined}
     <section id={info.id} class:align-right={textAlign === TextAlignment.RIGHT}>
       <img src={info.logoSrc} alt={`${info.title} Team Logo`} />

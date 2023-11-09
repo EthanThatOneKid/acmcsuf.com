@@ -35,6 +35,26 @@
   </p>
 </TeamSection>
 
+<!-- TODO: Marketing -->
+
+<!-- TODO: Algo -->
+
+<!-- TODO: Design -->
+
+<!-- TODO: Dev -->
+
+<!-- TODO: AI -->
+
+<!-- TODO: GameDev -->
+
+<!-- TODO: Special Events -->
+
+<!-- TODO: Nodebuds -->
+
+<!-- TODO: ICPC? -->
+
+<!-- TODO: Open Source Software? -->
+
 <style>
   p {
     align-self: start;
