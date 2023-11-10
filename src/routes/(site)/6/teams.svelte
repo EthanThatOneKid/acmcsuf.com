@@ -83,7 +83,7 @@
     display: grid;
     grid-template-columns: 1fr;
     align-items: center;
-    gap: 3em;
+    gap: 2em;
     max-width: 1064px;
   }
 
@@ -98,7 +98,8 @@
   }
 
   section .hero-inner-container img {
-    width: 90%;
+    width: 200px;
+    height: 200px;
     display: grid;
     justify-self: center;
   }
@@ -118,15 +119,16 @@
     section .hero-inner-container .team-row1-container {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      align-items: center;
+      align-items: baseline;
       gap: 2em;
     }
 
     section .hero-inner-container .team-row2-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      align-items: center;
+      width: 70%;
       gap: 2em;
+      justify-content: center;
     }
 
     section .hero-inner-container .hero-text {
