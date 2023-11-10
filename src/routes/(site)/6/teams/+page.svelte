@@ -35,7 +35,18 @@
   </p>
 </TeamSection>
 
-<!-- TODO: Marketing -->
+<TeamSection
+  info={TEAMS.marketing}
+  textAlign={TextAlignment.RIGHT}
+  term={VISIBLE_TERMS[$termIndex]}
+>
+  <p slot="content" class="size-md">
+    The <span class="brand-blush brand-em">marketing</span> team has a strong passion towards
+    advertising and spreading word on all our ACM events.
+    <span class="brand-blush brand-em">Marketing</span> utilizes their expertise in digital strategies
+    and creative storytelling to display a welcoming environment to all students.
+  </p>
+</TeamSection>
 
 <!-- TODO: Algo -->
 

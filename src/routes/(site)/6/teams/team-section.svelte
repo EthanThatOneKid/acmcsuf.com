@@ -11,7 +11,11 @@
 <div class="container">
   <!-- TODO: Hero Component HTML -->
   {#if info !== undefined}
-    <section id={info.id} class:align-right={textAlign === TextAlignment.RIGHT}>
+    <section
+      id={info.id}
+      class:align-right={textAlign === TextAlignment.RIGHT}
+      class:marketing-animation={info.id === 'marketing'}
+    >
       <img src={info.logoSrc} alt={`${info.title} Team Logo`} />
       <div class="team-description">
         <h2>
@@ -49,6 +53,22 @@
     display: grid;
     align-items: center;
     text-align: center;
+  }
+
+  .marketing-animation img {
+    animation-duration: 1s;
+    animation-name: pop-up;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+  }
+
+  @keyframes pop-up {
+    from {
+      transform: translateX(110vh);
+    }
+    to {
+      transform: translateX(0);
+    }
   }
 
   @media screen and (min-width: 1000px) {
