@@ -37,7 +37,14 @@
 
 <!-- TODO: Marketing -->
 
-<!-- TODO: Algo -->
+<TeamSection info={TEAMS.algo} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
+  <p slot="content" class="size-md">
+    The <span class="brand-purple brand-em">algorithm</span> team is dedicated to building
+    programming fundamentals within students. <span class="brand-purple brand-em">Algo</span> focuses
+    on mastering data structures and algorithms, enhancing problem solving abilities, and exploration
+    of competitive programming.
+  </p>
+</TeamSection>
 
 <!-- TODO: Design -->
 

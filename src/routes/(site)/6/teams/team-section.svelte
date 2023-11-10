@@ -11,7 +11,11 @@
 <div class="container">
   <!-- TODO: Hero Component HTML -->
   {#if info !== undefined}
-    <section id={info.id} class:align-right={textAlign === TextAlignment.RIGHT}>
+    <section
+      id={info.id}
+      class:align-right={textAlign === TextAlignment.RIGHT}
+      class:algo-animation={info.id === 'algo'}
+    >
       <img src={info.logoSrc} alt={`${info.title} Team Logo`} />
       <div class="team-description">
         <h2>
@@ -49,6 +53,22 @@
     display: grid;
     align-items: center;
     text-align: center;
+  }
+
+  .algo-animation img {
+    animation-duration: 0.7s;
+    animation-name: bounce;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes bounce {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-0.5rem);
+    }
   }
 
   @media screen and (min-width: 1000px) {
