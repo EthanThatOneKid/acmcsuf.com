@@ -70,7 +70,11 @@
       transform: rotate(360deg);
     }
   }
-
+@media (prefers-reduced-motion: reduce) {
+  .dev-animation img {
+    animation: none;
+  }
+}
   @media screen and (min-width: 1000px) {
     section {
       grid-template-columns: 1fr 2fr;
