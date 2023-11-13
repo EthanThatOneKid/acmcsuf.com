@@ -9,7 +9,6 @@
 </script>
 
 <div class="container">
-  <!-- TODO: Hero Component HTML -->
   {#if info !== undefined}
     <section
       id={info.id}
@@ -70,11 +69,13 @@
       transform: rotate(360deg);
     }
   }
-@media (prefers-reduced-motion: reduce) {
-  .dev-animation img {
-    animation: none;
+
+  @media (prefers-reduced-motion: reduce) {
+    .dev-animation img {
+      animation: none;
+    }
   }
-}
+
   @media screen and (min-width: 1000px) {
     section {
       grid-template-columns: 1fr 2fr;
