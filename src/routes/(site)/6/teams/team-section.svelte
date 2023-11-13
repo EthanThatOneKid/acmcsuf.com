@@ -68,6 +68,8 @@
     }
     to {
       transform: translateX(0);
+    }
+  }
 
   .dev-animation img {
     animation-duration: 3s;
@@ -86,7 +88,7 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .dev-animation img, 
+    .dev-animation img,
     .marketing-animation img {
       animation: none;
     }
