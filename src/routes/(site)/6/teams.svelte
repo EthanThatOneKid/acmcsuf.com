@@ -17,6 +17,7 @@
       <span>Explore the different <span class="acm-sky">teams</span> you can expect from us.</span>
     </div>
     <div class="team-row1-container">
+      
       <!--Algo Header-->
       <div class="hero-inner-container">
         <img src="/assets/badges/algo-badge.svg" alt="Algo Team Badge" />
@@ -47,6 +48,7 @@
       </div>
     </div>
     <div class="team-row2-container">
+
       <!--AI Header-->
       <div class="hero-inner-container">
         <img src="/assets/badges/ai-badge.svg" alt="AI Team Badge" />
@@ -58,6 +60,7 @@
           >
         </div>
       </div>
+
       <!-- Game Dev -->
       <div class="hero-inner-container">
         <img src="/assets/badges/gamedev-badge.svg" alt="Game Dev Team Badge" />
