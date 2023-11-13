@@ -35,7 +35,7 @@
     "id": "dev",
     "title": "Dev",
     "description": "Dev team member.",
-    "logoSrc": "/assets/badges/dev-badge.svg",
+    "logoSrc": "/assets/badges/logo/dev-logo.svg",
     "color": "var(--acm-bluer)",
     "tiers": [17, 18, 19]
   },
