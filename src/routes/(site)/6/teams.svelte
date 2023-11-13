@@ -16,8 +16,8 @@
       <span>We made it easy to focus on what <span class="acm-sky">interests you.</span></span>
       <span>Explore the different <span class="acm-sky">teams</span> you can expect from us.</span>
     </div>
+
     <div class="team-row1-container">
-      
       <!--Algo Header-->
       <div class="hero-inner-container">
         <img src="/assets/badges/algo-badge.svg" alt="Algo Team Badge" />
@@ -27,7 +27,6 @@
           >
         </div>
       </div>
-
       <!--Dev Header-->
       <div class="hero-inner-container">
         <img src="/assets/badges/dev-badge.svg" alt="Dev Team Badge" />
@@ -36,7 +35,6 @@
           >
         </div>
       </div>
-
       <!--Design Header-->
       <div class="hero-inner-container">
         <img src="/assets/badges/design-badge.svg" alt="Design Team Badge" />
@@ -47,8 +45,8 @@
         </div>
       </div>
     </div>
-    <div class="team-row2-container">
 
+    <div class="team-row2-container">
       <!--AI Header-->
       <div class="hero-inner-container">
         <img src="/assets/badges/ai-badge.svg" alt="AI Team Badge" />
@@ -60,7 +58,6 @@
           >
         </div>
       </div>
-
       <!-- Game Dev -->
       <div class="hero-inner-container">
         <img src="/assets/badges/gamedev-badge.svg" alt="Game Dev Team Badge" />
@@ -71,6 +68,7 @@
         </div>
       </div>
     </div>
+
     <div class="discover-button">
       <AcmButton text="Discover more" link="/teams" redirect={true} />
     </div>
