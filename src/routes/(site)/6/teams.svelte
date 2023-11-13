@@ -7,7 +7,7 @@
     <div class="size-lg">
       <h1 class="hero-text">
         <span
-          ><i>Uncover</i> your hidden passion in our curated
+          >Uncover your hidden passion in our curated
           <span class="acm-blue">Teams</span></span
         >
       </h1>
@@ -63,7 +63,7 @@
         <img src="/assets/badges/gamedev-badge.svg" alt="Game Dev Team Badge" />
         <div class="size-md brand-med hero-text">
           <span
-            >Visit the <span class="acm-red">Foundry</span> and hone your game development skills</span
+            >Level up your game development skills at the <span class="acm-red">Game Dev</span> hub</span
           >
         </div>
       </div>
@@ -83,8 +83,9 @@
     display: grid;
     grid-template-columns: 1fr;
     align-items: center;
-    gap: 2em;
+    margin: 1em;
     max-width: 1064px;
+    gap: 1em;
   }
 
   section .hero-inner-container .hero-text {
@@ -95,6 +96,10 @@
 
   section .hero-inner-container .hero-text span {
     text-align: center;
+  }
+
+  section .hero-inner-container .team-row2-container {
+    justify-self: center;
   }
 
   section .hero-inner-container img {
@@ -116,6 +121,11 @@
       align-items: center;
     }
 
+    section .hero-inner-container {
+      gap: 2em;
+      margin: 1em;
+    }
+
     section .hero-inner-container .team-row1-container {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -126,9 +136,10 @@
     section .hero-inner-container .team-row2-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      align-items: baseline;
+      justify-content: center;
       width: 70%;
       gap: 2em;
-      justify-content: center;
     }
 
     section .hero-inner-container .hero-text {
