@@ -61,6 +61,14 @@
 <!-- TODO: ICPC? -->
 
 <!-- TODO: Open Source Software? -->
+<TeamSection info={TEAMS.oss} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
+  <p slot="content" class="size-md">
+    The <span class="brand-turquoise brand-em">open source software</span> team is committed to
+    fostering collaboration and innovation in the tech community.
+    <span class="brand-turquoise brand-em">OSS</span> actively contributes to ACM open source projects,
+    sharing their expertise and driving advancements in software development.
+  </p>
+</TeamSection>
 
 <style>
   p {
