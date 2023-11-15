@@ -8,7 +8,7 @@ on:
 
 jobs:
   blog-webhook-exec:
-    if: github.event.discussion.category.name == "Newsletter"
+    if: ${{ github.event.discussion.category.name == 'Newsletter' }}
     runs-on: ubuntu-latest
     steps:
       - run: |
