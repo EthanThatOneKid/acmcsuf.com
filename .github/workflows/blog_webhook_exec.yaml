@@ -1,0 +1,18 @@
+name: Blog Webhook Exec
+
+on:
+  workflow_dispatch:
+  discussion:
+    types:
+      - created
+
+jobs:
+  blog-webhook-exec:
+    if: github.event.discussion.category.name == "Newsletter"
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl \
+            -H "Content-Type: application/json" \
+            -d '{"content": "# New blog post created!\n**Title:** ${{ github.event.discussion.title }}\n**Link:** https://acmcsuf.com/blog/${{ github.event.discussion.number }}"}' \
+            ${{ secrets.DISCORD_BLOG_WEBHOOK_URL }}
