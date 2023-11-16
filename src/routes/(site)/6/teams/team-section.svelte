@@ -9,12 +9,13 @@
 </script>
 
 <div class="container">
-  <!-- TODO: Hero Component HTML -->
   {#if info !== undefined}
     <section
       id={info.id}
       class:align-right={textAlign === TextAlignment.RIGHT}
+      class:marketing-animation={info.id === 'marketing'}
       class:algo-animation={info.id === 'algo'}
+      class:dev-animation={info.id === 'dev'}
     >
       <img src={info.logoSrc} alt={`${info.title} Team Logo`} />
       <div class="team-description">
@@ -55,6 +56,22 @@
     text-align: center;
   }
 
+  .marketing-animation img {
+    animation-duration: 1s;
+    animation-name: pop-up;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+  }
+
+  @keyframes pop-up {
+    from {
+      transform: translateX(110vh);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
   .algo-animation img {
     animation-duration: 0.7s;
     animation-name: bounce;
@@ -68,6 +85,30 @@
     }
     to {
       transform: translateY(-0.5rem);
+    }
+  }
+
+  .dev-animation img {
+    animation-duration: 3s;
+    animation-name: spin;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marketing-animation img,
+    .algo-animation img,
+    .dev-animation img {
+      animation: none;
     }
   }
 

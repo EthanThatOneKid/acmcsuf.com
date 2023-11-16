@@ -35,7 +35,7 @@
     "id": "dev",
     "title": "Dev",
     "description": "Dev team member.",
-    "logoSrc": "/assets/badges/dev-badge.svg",
+    "logoSrc": "/assets/badges/logo/dev-logo.svg",
     "color": "var(--acm-bluer)",
     "tiers": [17, 18, 19]
   },
@@ -51,7 +51,7 @@
     "id": "marketing",
     "title": "Marketing",
     "description": "Marketing team member.",
-    "logoSrc": "/assets/badges/marketing-badge.svg",
+    "logoSrc": "/assets/badges/logo/marketing-logo.svg",
     "color": "var(--acm-blush)",
     "tiers": [8, 9, 10]
   },
