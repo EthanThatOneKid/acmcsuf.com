@@ -13,6 +13,7 @@
     <section
       id={info.id}
       class:align-right={textAlign === TextAlignment.RIGHT}
+      class:marketing-animation={info.id === 'marketing'}
       class:dev-animation={info.id === 'dev'}
     >
       <img src={info.logoSrc} alt={`${info.title} Team Logo`} />
@@ -54,6 +55,22 @@
     text-align: center;
   }
 
+  .marketing-animation img {
+    animation-duration: 1s;
+    animation-name: pop-up;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+  }
+
+  @keyframes pop-up {
+    from {
+      transform: translateX(110vh);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
   .dev-animation img {
     animation-duration: 3s;
     animation-name: spin;
@@ -71,7 +88,8 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .dev-animation img {
+    .dev-animation img,
+    .marketing-animation img {
       animation: none;
     }
   }
