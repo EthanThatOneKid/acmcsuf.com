@@ -71,7 +71,7 @@
       transform: translateX(0);
     }
   }
-  
+
   .algo-animation img {
     animation-duration: 0.7s;
     animation-name: bounce;
