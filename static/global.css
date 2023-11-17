@@ -98,6 +98,11 @@ body:has(nav > input[type='checkbox']:checked) {
   color: var(--acm-bluer);
 }
 
+.acm-turquoise,
+.brand-turquoise {
+  color: var(--acm-turquoise);
+}
+
 .acm-emerald,
 .brand-emerald {
   color: var(--acm-emerald);

@@ -15,6 +15,7 @@
       class:align-right={textAlign === TextAlignment.RIGHT}
       class:marketing-animation={info.id === 'marketing'}
       class:dev-animation={info.id === 'dev'}
+      class:oss-animation={info.id === 'oss'}
     >
       <img src={info.logoSrc} alt={`${info.title} Team Logo`} />
       <div class="team-description">
@@ -84,6 +85,22 @@
     }
     to {
       transform: rotate(360deg);
+    }
+  }
+
+  .oss-animation img {
+    animation-duration: 1.5s;
+    animation-name: tilt;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes tilt {
+    from {
+      transform: rotate(-15deg);
+    }
+    to {
+      transform: rotate(15deg);
     }
   }
 

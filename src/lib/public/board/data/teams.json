@@ -67,7 +67,7 @@
     "id": "oss",
     "title": "Open Source Software",
     "description": "Open Source Software team member. We create and maintain open source projects pertaining to ACM at CSUF.",
-    "logoSrc": "/assets/badges/oss-badge.svg",
+    "logoSrc": "/assets/badges/logo/oss-logo.svg",
     "color": "var(--acm-turquoise)",
     "tiers": []
   },
