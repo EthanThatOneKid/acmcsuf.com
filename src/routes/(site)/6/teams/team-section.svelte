@@ -14,6 +14,7 @@
       id={info.id}
       class:align-right={textAlign === TextAlignment.RIGHT}
       class:marketing-animation={info.id === 'marketing'}
+      class:design-animation={info.id === 'design'}
       class:dev-animation={info.id === 'dev'}
     >
       <img src={info.logoSrc} alt={`${info.title} Team Logo`} />
@@ -68,6 +69,23 @@
     }
     to {
       transform: translateX(0);
+    }
+  }
+
+  .design-animation img {
+    animation-duration: 2.8s;
+    animation-timing-function: cubic-bezier(0.425, 0.145, 0.515, 0.955);
+    animation-name: flip;
+    animation-iteration-count: infinite;
+    animation-direction: normal; 
+  }
+
+  @keyframes flip {
+    from {
+      transform: rotateX(0deg);
+    }
+    to {
+      transform: rotateX(-360deg);
     }
   }
 
