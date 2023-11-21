@@ -16,6 +16,7 @@
       class:marketing-animation={info.id === 'marketing'}
       class:dev-animation={info.id === 'dev'}
       class:oss-animation={info.id === 'oss'}
+      class:nodebuds-animation={info.id === 'nodebuds'}
     >
       <img src={info.logoSrc} alt={`${info.title} Team Logo`} />
       <div class="team-description">
@@ -101,6 +102,26 @@
     }
     to {
       transform: rotate(15deg);
+    }
+  }
+
+  .nodebuds-animation img {
+    animation-duration: 1.8s;
+    animation-name: slide;
+    animation-iteration-count: infinite;
+    animation-direction:alternate;
+    position: relative;
+  }
+
+  @keyframes slide {
+    0% {
+      left:-60px;
+      top: 0px;
+    }
+
+    100% {
+      left: 15px;
+      top: 0px;
     }
   }
 
