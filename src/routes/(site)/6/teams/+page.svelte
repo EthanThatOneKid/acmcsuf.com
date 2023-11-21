@@ -69,10 +69,12 @@
 
 <!-- TODO: Nodebuds -->
 <TeamSection info={TEAMS.nodebuds} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
-  <p slot="content" class="size-md">Personalized for your success, <span class="brand-red brand-em">node buds</span> is our exclusive program in 
-    partnership with ACM-W that exposes students to various opportunities that encourage connection, skill building, 
-    as well as both personal and technical development. Everone under this program will get paired with student-mentors, 
-    called Buddies , who will be there to help students prepare for their successful journeys through the tech industry.
+  <p slot="content" class="size-md">
+    Personalized for your success, <span class="brand-red brand-em">node buds</span> is our exclusive
+    program in partnership with ACM-W that exposes students to various opportunities that encourage connection,
+    skill building, as well as both personal and technical development. Everone under this program will
+    get paired with student-mentors, called Buddies , who will be there to help students prepare for
+    their successful journeys through the tech industry.
   </p>
 </TeamSection>
 
