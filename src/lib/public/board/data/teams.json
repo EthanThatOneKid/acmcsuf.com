@@ -11,7 +11,7 @@
     "id": "ai",
     "title": "AI",
     "description": "AI team member.",
-    "logoSrc": "/assets/badges/ai-badge.svg",
+    "logoSrc": "/assets/badges/logo/ai-logo.svg",
     "color": "var(--acm-emerald)",
     "tiers": [20, 21]
   },
