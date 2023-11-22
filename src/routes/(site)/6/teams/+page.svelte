@@ -58,7 +58,7 @@
 >
   <p slot="content" class="size-md">
     The <span class="brand-blush brand-em">design</span> team is awesome :capycool:
-    <span class="brand-blush brand-em">Design</span> does web dev :surreallick:
+    <span class="brand-blush brand-em">Design</span> does more than just web dev :surreallick:
   </p>
 </TeamSection>
 
