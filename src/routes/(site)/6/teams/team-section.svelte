@@ -117,18 +117,45 @@
   }
 
   .oss-animation img {
-    animation-duration: 1.5s;
+    animation-duration: 0.42069s;
     animation-name: tilt;
     animation-iteration-count: infinite;
     animation-direction: alternate;
   }
 
   @keyframes tilt {
-    from {
-      transform: rotate(-15deg);
+    0% {
+      transform: translate(1px, 1px) rotate(-10deg);
     }
-    to {
-      transform: rotate(15deg);
+    10% {
+      transform: translate(-1px, -2px) rotate(-8deg);
+    }
+    20% {
+      transform: translate(-3px, 0px) rotate(-6deg);
+    }
+    30% {
+      transform: translate(3px, 2px) rotate(-4deg);
+    }
+    40% {
+      transform: translate(1px, -1px) rotate(-2deg);
+    }
+    50% {
+      transform: translate(-1px, 2px) rotate(0deg);
+    }
+    60% {
+      transform: translate(-3px, 1px) rotate(2deg);
+    }
+    70% {
+      transform: translate(3px, 1px) rotate(4deg);
+    }
+    80% {
+      transform: translate(-1px, -1px) rotate(6deg);
+    }
+    90% {
+      transform: translate(1px, 2px) rotate(8deg);
+    }
+    100% {
+      transform: translate(1px, -2px) rotate(10deg);
     }
   }
 
