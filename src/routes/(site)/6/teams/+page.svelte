@@ -53,8 +53,10 @@
 <!-- TODO: Design -->
 <TeamSection info={TEAMS.design} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The <span class="brand-pink brand-em">design</span> team is awesome :capycool:
-    <span class="brand-pink brand-em">Design</span> does more than just web dev :surreallick:
+    The <span class="brand-pink brand-em">design</span> team is dedicated to emphasizing the
+    importance of product design and product management in the tech industry.
+    <span class="brand-pink brand-em">Design</span> focuses on educating students about design principles,
+    design tools, and the intricacies of conceptualization, development, and management of a product.
   </p>
 </TeamSection>
 
