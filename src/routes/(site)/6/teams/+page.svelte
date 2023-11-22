@@ -58,6 +58,14 @@
 </TeamSection>
 
 <!-- TODO: Design -->
+<TeamSection info={TEAMS.design} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
+  <p slot="content" class="size-md">
+    The <span class="brand-pink brand-em">design</span> team is dedicated to emphasizing the
+    importance of product design and product management in the tech industry.
+    <span class="brand-pink brand-em">Design</span> focuses on educating students about design principles,
+    design tools, and the intricacies of conceptualization, development, and management of a product.
+  </p>
+</TeamSection>
 
 <TeamSection info={TEAMS.dev} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
@@ -79,6 +87,14 @@
 <!-- TODO: ICPC? -->
 
 <!-- TODO: Open Source Software? -->
+<TeamSection info={TEAMS.oss} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
+  <p slot="content" class="size-md">
+    The <span class="brand-turquoise brand-em">open source software</span> team is committed to
+    fostering collaboration and innovation in the tech community.
+    <span class="brand-turquoise brand-em">OSS</span> actively contributes to ACM open source projects,
+    sharing their expertise and driving advancements in software development.
+  </p>
+</TeamSection>
 
 <style>
   p {
