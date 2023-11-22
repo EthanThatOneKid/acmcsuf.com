@@ -22,6 +22,8 @@
       {#if info.id === 'general'}
         <DiamondPicture
           src="https://cdn.discordapp.com/icons/710225099923521558/a_f72bf9caa196d84a44ff40cdfd3f8d9a.gif?size=1024"
+          reducedMotionSrc={info.logoSrc}
+          altSrc="General Picture"
         />
       {:else}
         <img src={info.logoSrc} alt={`${info.title} Team Logo`} />
