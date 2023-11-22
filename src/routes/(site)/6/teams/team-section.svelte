@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Team, Term } from '$lib/public/board/types';
   import { TextAlignment } from '$lib/public/text-alignment/text-alignment';
+  import DiamondPicture from './diamond-picture.svelte';
   import Members from './members.svelte';
 
   export let textAlign: TextAlignment = TextAlignment.RIGHT;
@@ -18,16 +19,12 @@
       class:dev-animation={info.id === 'dev'}
       class:oss-animation={info.id === 'oss'}
     >
-    <picture>
       {#if info.id === "general"}
-        <source
-          srcset="https://cdn.discordapp.com/icons/710225099923521558/a_f72bf9caa196d84a44ff40cdfd3f8d9a.gif"
-          type="image/gif"
-          media="(prefers-reduced-motion: no-preference)"
-        />
-        {/if}
-      <img src={info.logoSrc} alt={`${info.title} Team Logo`} />
-    </picture>
+        <DiamondPicture src="https://cdn.discordapp.com/icons/710225099923521558/a_f72bf9caa196d84a44ff40cdfd3f8d9a.gif?size=1024" />
+        {:else}
+          <img src={info.logoSrc} alt={`${info.title} Team Logo`} />
+      {/if}
+      
       <div class="team-description">
         <h2>
           <span class="headers size-lg">
@@ -131,9 +128,11 @@
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
+  @media (prefers-reduced-motion: reduce) { /* Stops team logo animations when reduced animation is on :) */
+    .marketing-animation img,
+    .design-animation img,
     .dev-animation img,
-    .marketing-animation img {
+    .oss-animation img {
       animation: none;
     }
   }
