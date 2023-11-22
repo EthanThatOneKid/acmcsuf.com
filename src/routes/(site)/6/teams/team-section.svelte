@@ -18,7 +18,16 @@
       class:dev-animation={info.id === 'dev'}
       class:oss-animation={info.id === 'oss'}
     >
+    <picture>
+      {#if info.id === "general"}
+        <source
+          srcset="https://cdn.discordapp.com/icons/710225099923521558/a_f72bf9caa196d84a44ff40cdfd3f8d9a.gif"
+          type="image/gif"
+          media="(prefers-reduced-motion: no-preference)"
+        />
+        {/if}
       <img src={info.logoSrc} alt={`${info.title} Team Logo`} />
+    </picture>
       <div class="team-description">
         <h2>
           <span class="headers size-lg">
