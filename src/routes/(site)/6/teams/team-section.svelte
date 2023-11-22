@@ -77,7 +77,7 @@
     animation-timing-function: cubic-bezier(0.425, 0.145, 0.515, 0.955);
     animation-name: flip;
     animation-iteration-count: infinite;
-    animation-direction: normal; 
+    animation-direction: normal;
   }
 
   @keyframes flip {
