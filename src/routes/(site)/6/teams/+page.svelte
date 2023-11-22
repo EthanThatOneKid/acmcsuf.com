@@ -53,8 +53,8 @@
 <!-- TODO: Design -->
 <TeamSection info={TEAMS.design} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The <span class="brand-blush brand-em">design</span> team is awesome :capycool:
-    <span class="brand-blush brand-em">Design</span> does more than just web dev :surreallick:
+    The <span class="brand-pink brand-em">design</span> team is awesome :capycool:
+    <span class="brand-pink brand-em">Design</span> does more than just web dev :surreallick:
   </p>
 </TeamSection>
 
