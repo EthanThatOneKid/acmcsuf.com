@@ -24,7 +24,22 @@
 
 <Spacing --min="175px" --med="200px" --max="200px" />
 
-<Select bind:defaultValue={currentFormattedTerm} options={formattedTerms} />
+<section class="hero-container">
+  <div class="hero-inner-container">
+    <div class="hero-text">
+      <h1 class="brand-header size-xl">Explore our teams</h1>
+      <p>
+        Our teams specialize in specific fields in the tech industry. We've designed the teams to be 
+        gateways for students to explore new fields, develop new interests, and learn new skills that 
+        will benefit them in the industry.
+      </p>
+      <div class="semester-button">
+        <Select bind:defaultValue={currentFormattedTerm} options={formattedTerms} />
+      </div>
+    </div>
+    <img src="/assets/svg/capy-read.svg" alt="Chip the Capybara reading a book"/>
+  </div>
+</section>
 
 <TeamSection info={TEAMS.general} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
@@ -85,4 +100,59 @@
   p {
     align-self: start;
   }
+
+  section {
+    display: grid;
+  }
+
+  section .hero-inner-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 1em;
+    max-width: 1000px;
+  }
+
+  section .hero-inner-container .hero-text {
+    display: grid;
+    align-items: center;
+    text-align: center;
+  }
+
+  section .hero-inner-container .hero-text p {
+    margin: 0.5em;
+    font-size: var(--size-md);
+  }
+
+  section .hero-inner-container img {
+    max-width: 130%;
+    justify-self: center;
+  }
+
+  @media screen and (min-width: 1000px) {
+    section {
+      display: grid;
+      place-items: center;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    
+    section .hero-inner-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 1em;
+    }
+
+    section .hero-inner-container .hero-text {
+      text-align: start;
+      gap: 1em;
+    }
+
+    section .hero-inner-container .hero-text p {
+      margin: 0;
+    }
+  }
+
 </style>
