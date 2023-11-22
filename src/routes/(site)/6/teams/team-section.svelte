@@ -19,12 +19,14 @@
       class:dev-animation={info.id === 'dev'}
       class:oss-animation={info.id === 'oss'}
     >
-      {#if info.id === "general"}
-        <DiamondPicture src="https://cdn.discordapp.com/icons/710225099923521558/a_f72bf9caa196d84a44ff40cdfd3f8d9a.gif?size=1024" />
-        {:else}
-          <img src={info.logoSrc} alt={`${info.title} Team Logo`} />
+      {#if info.id === 'general'}
+        <DiamondPicture
+          src="https://cdn.discordapp.com/icons/710225099923521558/a_f72bf9caa196d84a44ff40cdfd3f8d9a.gif?size=1024"
+        />
+      {:else}
+        <img src={info.logoSrc} alt={`${info.title} Team Logo`} />
       {/if}
-      
+
       <div class="team-description">
         <h2>
           <span class="headers size-lg">
@@ -128,7 +130,8 @@
     }
   }
 
-  @media (prefers-reduced-motion: reduce) { /* Stops team logo animations when reduced animation is on :) */
+  @media (prefers-reduced-motion: reduce) {
+    /* Stops team logo animations when reduced animation is on :) */
     .marketing-animation img,
     .design-animation img,
     .dev-animation img,
