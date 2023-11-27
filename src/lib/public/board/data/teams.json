@@ -11,7 +11,7 @@
     "id": "ai",
     "title": "AI",
     "description": "AI team member.",
-    "logoSrc": "/assets/badges/ai-badge.svg",
+    "logoSrc": "/assets/badges/logo/ai-logo.svg",
     "color": "var(--acm-emerald)",
     "tiers": [20, 21]
   },
@@ -78,5 +78,13 @@
     "logoSrc": "/assets/badges/special-events-badge.svg",
     "color": "var(--acm-lemon)",
     "tiers": [24, 25]
+  },
+  {
+    "id": "nodebuds",
+    "title": "Nodebuds",
+    "description": "Nodebuds team member.",
+    "logoSrc": "/assets/badges/old-badges/nodebuds-badge-old.svg",
+    "color": "var(--acm-red)",
+    "tiers": [26]
   }
 ]
