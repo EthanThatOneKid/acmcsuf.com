@@ -136,12 +136,12 @@
 
   .oss-animation img {
     animation-duration: 0.42069s;
-    animation-name: tilt;
+    animation-name: thrust;
     animation-iteration-count: infinite;
     animation-direction: alternate;
   }
 
-  @keyframes tilt {
+  @keyframes thrust {
     0% {
       transform: translate(1px, 1px) rotate(-10deg);
     }
