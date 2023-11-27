@@ -56,14 +56,14 @@
 
 <MetaTags
   openGraph={{
-    title: 'Fall 2023 board applications',
+    title: 'Spring 2024 board applications',
     description:
-      'Listed below are the positions that are open for the Fall 2023 semester. Please read the descriptions carefully and apply for the position(s) that you are interested in. You may apply for multiple positions, but you may only be selected for one. If you are selected for a position, you will be contacted by the current board member in charge of that position.',
-    url: 'https://acmcsuf.com/wave2',
+      'Listed below are the positions that are open for the Spring 2024 semester. Please read the descriptions carefully and apply for the position(s) that you are interested in. You may apply for multiple positions, but you may only be selected for one. If you are selected for a position, you will be contacted by the current board member in charge of that position.',
+    url: 'https://acmcsuf.com/spr24board',
     type: 'article',
     article: {
-      publishedTime: '2023-22-05T00:00:00.000Z',
-      modifiedTime: '2023-22-05T00:00:00.000Z',
+      publishedTime: '2024-26-05T00:00:00.000Z',
+      modifiedTime: '2024-26-05T00:00:00.000Z',
     },
   }}
 />
@@ -80,7 +80,7 @@
     that position.
     <br />
     <br />
-    Last updated November 24, 2023
+    Last updated November 26, 2023
     <br />
     <br />
     <span class="center-btn" on:click={action} on:keypress={action} role="button" tabindex="0">
