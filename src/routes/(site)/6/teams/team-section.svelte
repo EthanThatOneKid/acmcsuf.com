@@ -185,6 +185,7 @@
     .marketing-animation img,
     .design-animation img,
     .dev-animation img,
+    .nodebuds-animation img,
     .oss-animation img {
       animation: none;
     }
