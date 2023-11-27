@@ -27,7 +27,7 @@
     "id": "design",
     "title": "Design",
     "description": "Design team member.",
-    "logoSrc": "/assets/badges/design-badge.svg",
+    "logoSrc": "/assets/badges/logo/design-logo.svg",
     "color": "var(--acm-pink)",
     "tiers": [13, 14, 15, 16]
   },
@@ -78,5 +78,13 @@
     "logoSrc": "/assets/badges/special-events-badge.svg",
     "color": "var(--acm-lemon)",
     "tiers": [24, 25]
+  },
+  {
+    "id": "nodebuds",
+    "title": "Nodebuds",
+    "description": "Nodebuds team member.",
+    "logoSrc": "/assets/badges/old-badges/nodebuds-badge-old.svg",
+    "color": "var(--acm-red)",
+    "tiers": [26]
   }
 ]
