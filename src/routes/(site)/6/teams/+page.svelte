@@ -29,15 +29,15 @@
     <div class="hero-text">
       <h1 class="brand-header size-xl">Explore our teams</h1>
       <p>
-        Our teams specialize in specific fields in the tech industry. We've designed the teams to be 
-        gateways for students to explore new fields, develop new interests, and learn new skills that 
-        will benefit them in the industry.
+        Our teams specialize in specific fields in the tech industry. We've designed the teams to be
+        gateways for students to explore new fields, develop new interests, and learn new skills
+        that will benefit them in the industry.
       </p>
       <div class="semester-button">
         <Select bind:defaultValue={currentFormattedTerm} options={formattedTerms} />
       </div>
     </div>
-    <img src="/assets/svg/capy-read.svg" alt="Chip the Capybara reading a book"/>
+    <img src="/assets/svg/capy-read.svg" alt="Chip the Capybara reading a book" />
   </div>
 </section>
 
@@ -162,7 +162,7 @@
       max-width: 1280px;
       margin: 0 auto;
     }
-    
+
     section .hero-inner-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -179,5 +179,4 @@
       margin: 0;
     }
   }
-
 </style>
