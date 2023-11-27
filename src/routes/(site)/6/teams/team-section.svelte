@@ -18,6 +18,7 @@
       class:design-animation={info.id === 'design'}
       class:dev-animation={info.id === 'dev'}
       class:oss-animation={info.id === 'oss'}
+      class:nodebuds-animation={info.id === 'nodebuds'}
     >
       {#if info.id === 'general'}
         <DiamondPicture
@@ -159,11 +160,32 @@
     }
   }
 
+  .nodebuds-animation img {
+    animation-duration: 1.8s;
+    animation-name: slide;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    position: relative;
+  }
+
+  @keyframes slide {
+    0% {
+      left: -60px;
+      top: 0px;
+    }
+
+    100% {
+      left: 15px;
+      top: 0px;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     /* Stops team logo animations when reduced animation is on :) */
     .marketing-animation img,
     .design-animation img,
     .dev-animation img,
+    .nodebuds-animation img,
     .oss-animation img {
       animation: none;
     }
