@@ -199,6 +199,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     /* Stops team logo animations when reduced animation is on :) */
+    .ai-animation img,
     .marketing-animation img,
     .design-animation img,
     .dev-animation img,
