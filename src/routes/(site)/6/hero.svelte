@@ -15,7 +15,7 @@
     </div>
 
     <img
-      src="/assets/png/capy-power.png"
+      src="/assets/svg/capy-power.svg"
       alt="Chip the Capybara surrounded by all ACM Team badges"
     />
   </div>
@@ -40,7 +40,18 @@
     gap: 1em;
   }
 
+  section .hero-inner-container .hero-text span {
+    display: block;
+  }
+
+  /* Since we gave a display block to the span elements within the h1, 
+   * each will cover the entire page width, causing issues with the 
+   * multicolor linear-gradient (covering the webpage width rather than 
+   * the actual text ONLY). Giving a display of inline-block to the span 
+   * containing the multicolor text resolved this issue.
+   */
   section .hero-inner-container .hero-text span.multicolor-text {
+    display: inline-block;
     background: linear-gradient(
       to right,
       var(--acm-turquoise),
@@ -49,11 +60,9 @@
       var(--acm-purple),
       var(--acm-pink)
     );
+    background-clip: text;
+    -webkit-background-clip: text;
     color: transparent;
-  }
-
-  section .hero-inner-container .hero-text span {
-    display: block;
   }
 
   section .hero-inner-container .hero-text .join-button {
@@ -62,17 +71,15 @@
   }
 
   section .hero-inner-container img {
-    max-width: clamp(20rem, 17.342rem + 10.13vw, 30rem);
+    max-width: 90%;
     justify-self: center;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1000px) {
     section {
       display: grid;
       place-items: center;
       align-items: center;
-      max-width: 1280px;
-      margin: 0 auto;
     }
 
     section .hero-inner-container {
@@ -84,6 +91,7 @@
 
     section .hero-inner-container .hero-text {
       text-align: start;
+      margin: 2em;
     }
 
     section .hero-inner-container .hero-text .join-button {

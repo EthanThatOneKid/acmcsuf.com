@@ -22,7 +22,7 @@
           info.selfLink,
           'Copied event link to clipboard!',
           'Failed to copy event link to clipboard!',
-          info.team.id
+          info.team
         )}
     >
       <BwIcon src="/assets/svg/copy-link.svg" alt="copy link" />
@@ -35,7 +35,7 @@
           info.summary,
           'Copied event summary to clipboard!',
           'Failed to copy event summary to clipboard!',
-          info.team.id
+          info.team
         )}
     >
       <BwIcon src="/assets/svg/copy-text.svg" alt="Copy event summary" />
@@ -48,7 +48,7 @@
           info.calendarLinks.google,
           'Copied Google Calendar link to clipboard!',
           'Failed to copy Google Calendar link to clipboard!',
-          info.team.id
+          info.team
         )}
     >
       <BwIcon src="/assets/svg/calendar-google.svg" alt="Copy Google Calendar link" />
@@ -61,7 +61,7 @@
           info.calendarLinks.outlook,
           'Copied Microsoft Outlook calendar link to clipboard!',
           'Failed to copy Microsoft Outlook calendar link to clipboard!',
-          info.team.id
+          info.team
         )}
     >
       <BwIcon src="/assets/svg/calendar-outlook.svg" alt="Copy Outlook Calendar link" />
