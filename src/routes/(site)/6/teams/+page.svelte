@@ -72,10 +72,10 @@
 <!-- TODO: AI -->
 <TeamSection info={TEAMS.ai} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The <span class="brand-emerald brand-em">artificial intelligence</span> is dedicated to providing
-    accessible information about artificial intelligence and machine learning to all.
-    <span class="brand-emerald brand-em">AI</span> focuses on fun projects geared towards 
-    beginners in the field.
+    The <span class="brand-emerald brand-em">artificial intelligence</span> is dedicated to
+    providing accessible information about artificial intelligence and machine learning to all.
+    <span class="brand-emerald brand-em">AI</span> focuses on fun projects geared towards beginners in
+    the field.
   </p>
 </TeamSection>
 
