@@ -66,6 +66,14 @@
 <!-- TODO: Algo -->
 
 <!-- TODO: Design -->
+<TeamSection info={TEAMS.design} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
+  <p slot="content" class="size-md">
+    The <span class="brand-pink brand-em">design</span> team is dedicated to emphasizing the
+    importance of product design and product management in the tech industry.
+    <span class="brand-pink brand-em">Design</span> focuses on educating students about design principles,
+    design tools, and the intricacies of conceptualization, development, and management of a product.
+  </p>
+</TeamSection>
 
 <TeamSection info={TEAMS.dev} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
@@ -77,12 +85,29 @@
 </TeamSection>
 
 <!-- TODO: AI -->
+<TeamSection info={TEAMS.ai} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
+  <p slot="content" class="size-md">
+    The <span class="brand-emerald brand-em">artificial intelligence</span> is dedicated to
+    providing accessible information about artificial intelligence and machine learning to all.
+    <span class="brand-emerald brand-em">AI</span> focuses on fun projects geared towards beginners in
+    the field.
+  </p>
+</TeamSection>
 
 <!-- TODO: GameDev -->
 
 <!-- TODO: Special Events -->
 
 <!-- TODO: Nodebuds -->
+<TeamSection info={TEAMS.nodebuds} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
+  <p slot="content" class="size-md">
+    Personalized for your success, <span class="brand-red brand-em">node buds</span> is our exclusive
+    program in partnership with ACM-W that exposes students to various opportunities that encourage connection,
+    skill building, as well as both personal and technical development. Everone under this program will
+    get paired with student-mentors, called Buddies , who will be there to help students prepare for
+    their successful journeys through the tech industry.
+  </p>
+</TeamSection>
 
 <!-- TODO: ICPC? -->
 
