@@ -17,6 +17,7 @@
       class:marketing-animation={info.id === 'marketing'}
       class:design-animation={info.id === 'design'}
       class:dev-animation={info.id === 'dev'}
+      class:ai-animation={info.id === 'ai'}
       class:oss-animation={info.id === 'oss'}
       class:nodebuds-animation={info.id === 'nodebuds'}
     >
@@ -117,6 +118,22 @@
     }
   }
 
+  .ai-animation img {
+    animation-duration: 1s;
+    animation-name: tilt;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes tilt {
+    from {
+      transform: rotate(-30deg);
+    }
+    to {
+      transform: rotate(30deg);
+    }
+  }
+
   .oss-animation img {
     animation-duration: 0.42069s;
     animation-name: tilt;
@@ -182,6 +199,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     /* Stops team logo animations when reduced animation is on :) */
+    .ai-animation img,
     .marketing-animation img,
     .design-animation img,
     .dev-animation img,
