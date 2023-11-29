@@ -37,6 +37,7 @@
   section {
     display: grid;
   }
+
   section .testimony-inner-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -53,6 +54,7 @@
   .testimony-text2 {
     display: grid;
     align-items: center;
+    font-size: 20px;
   }
 
   section .testimony-inner-container .testimony-text1 p {
