@@ -47,6 +47,8 @@
       max-width: 1280px;
       margin: 0 auto;
     }
+  
+  
 
     section .desc-inner-container {
       display: grid;
@@ -57,6 +59,7 @@
 
     section .desc-inner-container .desc-text {
       text-align: start;
+      margin: 4em;
     }
 
     section .desc-inner-container .desc-text p {
