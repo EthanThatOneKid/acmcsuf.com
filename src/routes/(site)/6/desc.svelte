@@ -59,12 +59,12 @@
 
     section .desc-inner-container .desc-text {
       text-align: start;
-      margin: 4em;
+      margin: 3%;
     }
 
     section .desc-inner-container .desc-text p {
       font-size: var(--size-lg);
-      margin: 0;
+      margin: 3%;
     }
   }
 </style>
