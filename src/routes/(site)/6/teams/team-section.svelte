@@ -10,48 +10,55 @@
   export let term: Term;
 
   const oldTerms = [Term.Fall21, Term.Spring21, Term.Spring22];
+  const nodebudsTerms = [Term.Fall21, Term.Spring21, Term.Spring22];
+  const gamedevTerms = [Term.Fall23, Term.Spring23];
+  $: skip =
+    (info?.id === 'nodebuds' && !nodebudsTerms.includes(term)) ||
+    (info?.id === 'gamedev' && !gamedevTerms.includes(term));
 </script>
 
-<div class="container">
-  {#if info !== undefined}
-    <section
-      id={info.id}
-      class:align-right={textAlign === TextAlignment.RIGHT}
-      class:marketing-animation={info.id === 'marketing'}
-      class:design-animation={info.id === 'design'}
-      class:dev-animation={info.id === 'dev'}
-      class:ai-animation={info.id === 'ai'}
-      class:oss-animation={info.id === 'oss'}
-      class:nodebuds-animation={info.id === 'nodebuds'}
-    >
-      {#if info.id === 'general'}
-        <DiamondPicture
-          src="https://cdn.discordapp.com/icons/710225099923521558/a_f72bf9caa196d84a44ff40cdfd3f8d9a.gif?size=1024"
-          reducedMotionSrc={info.logoSrc}
-          altSrc="General Picture"
-        />
-      {:else}
-        <img
-          src={oldTerms.includes(term) ? info.oldLogoSrc ?? info.logoSrc : info.logoSrc}
-          alt={`${info.title} Team Logo`}
-        />
-      {/if}
+{#if !skip}
+  <div class="container">
+    {#if info !== undefined}
+      <section
+        id={info.id}
+        class:align-right={textAlign === TextAlignment.RIGHT}
+        class:marketing-animation={info.id === 'marketing'}
+        class:design-animation={info.id === 'design'}
+        class:dev-animation={info.id === 'dev'}
+        class:ai-animation={info.id === 'ai'}
+        class:oss-animation={info.id === 'oss'}
+        class:nodebuds-animation={info.id === 'nodebuds'}
+      >
+        {#if info.id === 'general'}
+          <DiamondPicture
+            src="https://cdn.discordapp.com/icons/710225099923521558/a_f72bf9caa196d84a44ff40cdfd3f8d9a.gif?size=1024"
+            reducedMotionSrc={info.logoSrc}
+            altSrc="General Picture"
+          />
+        {:else}
+          <img
+            src={oldTerms.includes(term) ? info.oldLogoSrc ?? info.logoSrc : info.logoSrc}
+            alt={`${info.title} Team Logo`}
+          />
+        {/if}
 
-      <div class="team-description">
-        <h2>
-          <span class="headers size-lg">
-            <span style:--font-color={info.color}>
-              <span class="brand-em">{info.title}</span>
+        <div class="team-description">
+          <h2>
+            <span class="headers size-lg">
+              <span style:--font-color={info.color}>
+                <span class="brand-em">{info.title}</span>
+              </span>
+              <span class="brand-em">Team</span>
             </span>
-            <span class="brand-em">Team</span>
-          </span>
-        </h2>
-        <slot name="content" />
-      </div>
-    </section>
-    <Members data={{ term, team: info }} />
-  {/if}
-</div>
+          </h2>
+          <slot name="content" />
+        </div>
+      </section>
+      <Members data={{ term, team: info }} />
+    {/if}
+  </div>
+{/if}
 
 <style>
   .container {
