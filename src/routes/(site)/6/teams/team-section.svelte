@@ -27,6 +27,8 @@
           reducedMotionSrc={info.logoSrc}
           altSrc="General Picture"
         />
+      {:else if info.id === 'design' && (term === 'S22' || term === 'F21' || term === 'S21')}
+        <img src={info.oldLogoSrc} />
       {:else}
         <img src={info.logoSrc} alt={`${info.title} Team Logo`} />
       {/if}

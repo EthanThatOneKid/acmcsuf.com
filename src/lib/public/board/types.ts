@@ -82,5 +82,6 @@ export interface Team {
   description?: string;
   color: string;
   logoSrc: string;
+  oldLogoSrc: string;
   tiers?: number[];
 }

@@ -28,6 +28,7 @@
     "title": "Design",
     "description": "Design team member.",
     "logoSrc": "/assets/badges/logo/design-logo.svg",
+    "oldLogoSrc": "/assets/badges/old-badges/create-badge-old.svg",
     "color": "var(--acm-pink)",
     "tiers": [13, 14, 15, 16]
   },
