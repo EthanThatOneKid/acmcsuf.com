@@ -30,10 +30,11 @@
           reducedMotionSrc={info.logoSrc}
           altSrc="General Picture"
         />
-      {:else if oldTerms.includes(term)}
-        <img src={info.oldLogoSrc} alt={`${info.title} Team Logo`} />
       {:else}
-        <img src={info.logoSrc} alt={`${info.title} Team Logo`} />
+        <img
+          src={oldTerms.includes(term) ? info.oldLogoSrc ?? info.logoSrc : info.logoSrc}
+          alt={`${info.title} Team Logo`}
+        />
       {/if}
 
       <div class="team-description">
