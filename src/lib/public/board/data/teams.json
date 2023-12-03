@@ -4,6 +4,7 @@
     "title": "General",
     "description": "General ACM team member.",
     "logoSrc": "/assets/badges/general-badge.svg",
+    "oldLogoSrc": "/assets/badges/old-badges/general-old.svg",
     "color": "var(--acm-blue)",
     "tiers": [0, 1, 2, 3, 4, 5, 6, 7, 31]
   },
@@ -12,6 +13,7 @@
     "title": "AI",
     "description": "AI team member.",
     "logoSrc": "/assets/badges/logo/ai-logo.svg",
+    "oldLogoSrc": "/assets/badges/logo/ai-logo.svg",
     "color": "var(--acm-emerald)",
     "tiers": [20, 21]
   },
@@ -20,6 +22,7 @@
     "title": "Algo",
     "description": "Algo team member.",
     "logoSrc": "/assets/badges/algo-badge.svg",
+    "oldLogoSrc": "/assets/badges/old-badges/algo-badge-old.svg",
     "color": "var(--acm-purple)",
     "tiers": [11, 12]
   },
@@ -37,6 +40,7 @@
     "title": "Dev",
     "description": "Dev team member.",
     "logoSrc": "/assets/badges/logo/dev-logo.svg",
+    "oldLogoSrc": "/assets/badges/old-badges/dev-badge-old.svg",
     "color": "var(--acm-bluer)",
     "tiers": [17, 18, 19]
   },
@@ -45,6 +49,7 @@
     "title": "Game Dev",
     "description": "Game Dev team member.",
     "logoSrc": "/assets/badges/gamedev-badge.svg",
+    "oldLogoSrc": "/assets/badges/gamedev-badge.svg",
     "color": "var(--acm-red)",
     "tiers": [22, 23]
   },
@@ -53,6 +58,7 @@
     "title": "Marketing",
     "description": "Marketing team member.",
     "logoSrc": "/assets/badges/logo/marketing-logo.svg",
+    "oldLogoSrc": "/assets/badges/logo/marketing-logo.svg",
     "color": "var(--acm-blush)",
     "tiers": [8, 9, 10]
   },
@@ -61,6 +67,7 @@
     "title": "ICPC",
     "description": "ICPC team member.",
     "logoSrc": "/assets/badges/icpc-badge.svg",
+    "oldLogoSrc": "/assets/badges/icpc-badge.svg",
     "color": "var(--acm-orange)",
     "tiers": []
   },
@@ -69,6 +76,7 @@
     "title": "Open Source Software",
     "description": "Open Source Software team member. We create and maintain open source projects pertaining to ACM at CSUF.",
     "logoSrc": "/assets/badges/logo/oss-logo.svg",
+    "oldLogoSrc": "/assets/badges/logo/oss-logo.svg",
     "color": "var(--acm-turquoise)",
     "tiers": []
   },
@@ -77,6 +85,7 @@
     "title": "Special Events",
     "description": "Special Events team member.",
     "logoSrc": "/assets/badges/special-events-badge.svg",
+    "oldLogoSrc": "/assets/badges/special-events-badge.svg",
     "color": "var(--acm-lemon)",
     "tiers": [24, 25]
   },
@@ -85,6 +94,7 @@
     "title": "Nodebuds",
     "description": "Nodebuds team member.",
     "logoSrc": "/assets/badges/old-badges/nodebuds-badge-old.svg",
+    "oldLogoSrc": "/assets/badges/old-badges/nodebuds-badge-old.svg",
     "color": "var(--acm-red)",
     "tiers": [26]
   }

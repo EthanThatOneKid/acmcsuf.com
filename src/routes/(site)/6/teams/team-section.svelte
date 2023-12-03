@@ -1,5 +1,6 @@
 <script lang="ts">
-  import type { Team, Term } from '$lib/public/board/types';
+  import type { Team } from '$lib/public/board/types';
+  import { Term } from '$lib/public/board/types';
   import { TextAlignment } from '$lib/public/text-alignment/text-alignment';
   import DiamondPicture from './diamond-picture.svelte';
   import Members from './members.svelte';
@@ -7,6 +8,8 @@
   export let textAlign: TextAlignment = TextAlignment.RIGHT;
   export let info: Team | undefined;
   export let term: Term;
+
+  const oldTerms = [Term.Fall21, Term.Spring21, Term.Spring22];
 </script>
 
 <div class="container">
@@ -27,7 +30,7 @@
           reducedMotionSrc={info.logoSrc}
           altSrc="General Picture"
         />
-      {:else if info.id === 'design' && (term === 'S22' || term === 'F21' || term === 'S21')}
+      {:else if oldTerms.includes(term)}
         <img src={info.oldLogoSrc} alt={`${info.title} Team Logo`} />
       {:else}
         <img src={info.logoSrc} alt={`${info.title} Team Logo`} />
