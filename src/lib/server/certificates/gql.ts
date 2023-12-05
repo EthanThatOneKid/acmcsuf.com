@@ -2,16 +2,34 @@
  * RepoQuery is an interface for a repository query object with the repository owner and name.
  */
 export interface RepoQuery {
-  /** The owner of the repository. */
+  /**
+   * owner is the owner of the repository.
+   */
   owner: string;
-  /** The name of the repository. */
+
+  /**
+   * name is name of the repository.
+   */
   name: string;
-  /** The username of the queried user. */
+
+  /**
+   * username is the username of the queried user.
+   */
   username: string;
 }
 
 // GitHub GraphQL Explorer:
 // https://docs.github.com/en/graphql/overview/explorer
+
+export function makeUserQuery(username: string): string {
+  return `{
+  user(login: "${username}") {
+    name
+    bioHTML
+    avatarUrl
+  }
+}`;
+}
 
 // A function to generate a GraphQL query to fetch a page of releases
 export function makeReleasesQuery(q: RepoQuery): string {
@@ -60,7 +78,7 @@ export interface PRsQuery extends RepoQuery {
 /**
  * An interface to query a certificate.
  */
-export interface CertificateQuery extends RepoQuery {
+export interface ReleaseCertificateQuery extends RepoQuery {
   /** The username of the user. */
   username: string;
 
@@ -70,7 +88,28 @@ export interface CertificateQuery extends RepoQuery {
    */
   release: number | string;
 
-  /** The maximum page size (default is 100). */
+  /**
+   * maxPageSize is the maximum amount of PRs to fetch per page. This is a limitation of GitHub's API.
+   */
+  maxPageSize?: number;
+}
+
+/**
+ * RepositoryCertificateQuery is an interface for a repository certificate query object with the repository owner and name.
+ */
+export interface RepositoryCertificateQuery extends RepoQuery {
+  /**
+   * startDate is the start date for the query. */
+  startDate?: string;
+
+  /**
+   * endDate is the end date for the query.
+   */
+  endDate?: string;
+
+  /**
+   * maxPageSize is the maximum amount of PRs to fetch per page. This is a limitation of GitHub's API.
+   */
   maxPageSize?: number;
 }
 
@@ -165,17 +204,25 @@ export interface CommitNode {
   };
 }
 
-// An interface for the response data for the releases query
-export interface ReleasesResponse {
-  repository: {
-    releases: {
-      edges: { node: ReleaseNode }[];
-    };
-  };
+/**
+ * UserResponse is an interface for the response data for the user query.
+ */
+export interface UserResponse {
   user: {
     name: string;
     bioHTML: string;
     avatarUrl: string;
+  };
+}
+
+/*
+ * ReleasesResponse is an interface for the response data for the releases query.
+ */
+export interface ReleasesResponse extends UserResponse {
+  repository: {
+    releases: {
+      edges: { node: ReleaseNode }[];
+    };
   };
 }
 

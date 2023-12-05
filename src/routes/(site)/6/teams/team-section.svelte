@@ -18,7 +18,9 @@
       class:algo-animation={info.id === 'algo'}
       class:design-animation={info.id === 'design'}
       class:dev-animation={info.id === 'dev'}
+      class:ai-animation={info.id === 'ai'}
       class:oss-animation={info.id === 'oss'}
+      class:nodebuds-animation={info.id === 'nodebuds'}
     >
       {#if info.id === 'general'}
         <DiamondPicture
@@ -133,14 +135,30 @@
     }
   }
 
-  .oss-animation img {
-    animation-duration: 0.42069s;
+  .ai-animation img {
+    animation-duration: 1s;
     animation-name: tilt;
     animation-iteration-count: infinite;
     animation-direction: alternate;
   }
 
   @keyframes tilt {
+    from {
+      transform: rotate(-30deg);
+    }
+    to {
+      transform: rotate(30deg);
+    }
+  }
+
+  .oss-animation img {
+    animation-duration: 0.42069s;
+    animation-name: thrust;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes thrust {
     0% {
       transform: translate(1px, 1px) rotate(-10deg);
     }
@@ -176,11 +194,33 @@
     }
   }
 
+  .nodebuds-animation img {
+    animation-duration: 1.8s;
+    animation-name: slide;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    position: relative;
+  }
+
+  @keyframes slide {
+    0% {
+      left: -60px;
+      top: 0px;
+    }
+
+    100% {
+      left: 15px;
+      top: 0px;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     /* Stops team logo animations when reduced animation is on :) */
+    .ai-animation img,
     .marketing-animation img,
     .design-animation img,
     .dev-animation img,
+    .nodebuds-animation img,
     .oss-animation img {
       animation: none;
     }
