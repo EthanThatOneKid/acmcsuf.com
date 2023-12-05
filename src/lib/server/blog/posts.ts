@@ -2,9 +2,8 @@ import { GH_ACCESS_TOKEN, GH_DISCUSSION_CATEGORY_ID } from '$lib/server/env';
 import { DEBUG_FLAG_ENABLED } from '$lib/server/flags';
 import { Cache } from '$lib/server/cache/cache';
 import type { BlogFetchOptions, BlogOutput, BlogPost } from '$lib/public/blog/types';
-import { discernLabels } from '$lib/public/blog/utils';
-import type { Officer } from '$lib/public/board/types';
-import { OFFICERS_JSON } from '$lib/public/board/data';
+import { discernLabels } from '$lib/public/blog';
+import { getOfficerByGhUsername } from '$lib/public/board';
 import { SAMPLE_BLOG_POSTS } from './data';
 import { gql } from './gql';
 
@@ -108,13 +107,4 @@ function cacheBlogPosts(output: any): BlogPost[] {
 
   cache.set(posts);
   return posts;
-}
-
-export function getOfficerByGhUsername(ghUsername: string): Officer | null {
-  // get author by GitHub username
-  const officer = OFFICERS_JSON.find(
-    (o) =>
-      o.socials && o.socials.github && o.socials.github.toLowerCase() === ghUsername.toLowerCase()
-  );
-  return officer ?? null;
 }
