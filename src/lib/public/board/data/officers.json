@@ -379,7 +379,7 @@
     "positions": {
       "S22": {
         "title": "Marketing Director",
-        "tier": 8
+        "tier": 7
       },
       "F22": {
         "title": "Marketing Co-Lead",
@@ -558,7 +558,7 @@
     "fullName": "Matthew Lau",
     "picture": "matthew-lau.webp",
     "socials": {
-      "discord": "cheeessy"
+      "discord": ".cheesee."
     },
     "positions": {
       "F23": {
@@ -658,7 +658,7 @@
     "positions": {
       "S22": {
         "title": "Historian",
-        "tier": 10
+        "tier": 7
       }
     }
   },
@@ -1073,7 +1073,7 @@
     "positions": {
       "S21": {
         "title": "Marketing Chair",
-        "tier": 8
+        "tier": 7
       }
     }
   },
@@ -1490,11 +1490,11 @@
     "positions": {
       "S22": {
         "title": "Historian",
-        "tier": 10
+        "tier": 7
       },
       "F22": {
-        "title": "Historian",
-        "tier": 10
+        "title": "Marketing Officer",
+        "tier": 8
       }
     }
   },

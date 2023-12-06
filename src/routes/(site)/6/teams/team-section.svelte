@@ -1,19 +1,29 @@
 <script lang="ts">
-  import type { Team, Term } from '$lib/public/board/types';
-  import { TextAlignment } from '$lib/public/text-alignment/text-alignment';
+  import type { Team } from '$lib/public/board/types';
+  import { OFFICERS_JSON } from '$lib/public/board/data';
+  import { Term, getMembers } from '$lib/public/board';
   import DiamondPicture from './diamond-picture.svelte';
   import Members from './members.svelte';
 
-  export let textAlign: TextAlignment = TextAlignment.RIGHT;
-  export let info: Team | undefined;
+  export let info: Team;
   export let term: Term;
+
+  $: members = getMembers(OFFICERS_JSON, term, info?.tiers ?? []);
+
+  const permanentTeamIDs = ['general', 'icpc', 'oss'];
+  const oldTerms = [Term.Fall21, Term.Spring21, Term.Spring22];
+  const nodebudsTerms = [...oldTerms];
+  const gamedevTerms = [Term.Fall23, Term.Spring23];
+  $: skip =
+    (members.length === 0 && !permanentTeamIDs.includes(info?.id)) ||
+    (info?.id === 'nodebuds' && !nodebudsTerms.includes(term)) ||
+    (info?.id === 'gamedev' && !gamedevTerms.includes(term));
 </script>
 
-<div class="container">
-  {#if info !== undefined}
+{#if !skip}
+  <div class="container">
     <section
       id={info.id}
-      class:align-right={textAlign === TextAlignment.RIGHT}
       class:marketing-animation={info.id === 'marketing'}
       class:algo-animation={info.id === 'algo'}
       class:design-animation={info.id === 'design'}
@@ -22,6 +32,8 @@
       class:oss-animation={info.id === 'oss'}
       class:nodebuds-animation={info.id === 'nodebuds'}
       class:icpc-animation={info.id === 'icpc'}
+      class:special-events-animation={info.id === 'special-events'}
+      class:gamedev-animation={info.id === 'gamedev'}
     >
       {#if info.id === 'general'}
         <DiamondPicture
@@ -30,24 +42,26 @@
           altSrc="General Picture"
         />
       {:else}
-        <img src={info.logoSrc} alt={`${info.title} Team Logo`} />
+        <img
+          src={oldTerms.includes(term) ? info.oldLogoSrc ?? info.logoSrc : info.logoSrc}
+          alt={`${info.title} Team Logo`}
+        />
       {/if}
 
       <div class="team-description">
         <h2>
-          <span class="headers size-lg">
-            <span style:--font-color={info.color}>
-              <span class="brand-em">{info.title}</span>
-            </span>
-            <span class="brand-em">Team</span>
+          <span class="headers size-lg brand-em">
+            <span style:--font-color={info.color} class="team-title">{info.title}</span>
+            Team
           </span>
         </h2>
         <slot name="content" />
       </div>
     </section>
-    <Members data={{ term, team: info }} />
-  {/if}
-</div>
+
+    <Members data={{ members, term }} />
+  </div>
+{/if}
 
 <style>
   .container {
@@ -63,6 +77,10 @@
   section img {
     max-width: clamp(20rem, 17.342rem + 10.13vw, 30rem);
     justify-self: center;
+  }
+
+  section .team-title {
+    color: var(--font-color, var(--acm-dark));
   }
 
   section .team-description {
@@ -170,6 +188,35 @@
     }
   }
 
+  .gamedev-animation img {
+    --rumble: 5;
+    animation-duration: 1s;
+    animation-name: rumble;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes rumble {
+    10% {
+      transform: translate(calc(1px * var(--rumble)), calc(1px * var(--rumble)));
+    }
+    20% {
+      transform: translate(calc(-1px * var(--rumble)), calc(-2px * var(--rumble)));
+    }
+    30% {
+      transform: translate(calc(-3px * var(--rumble)), calc(0px * var(--rumble)));
+    }
+    40% {
+      transform: translate(calc(3px * var(--rumble)), calc(2px * var(--rumble)));
+    }
+    50% {
+      transform: translate(calc(1px * var(--rumble)), calc(-1px * var(--rumble)));
+    }
+    100% {
+      transform: translate(0px, 0px);
+    }
+  }
+
   .oss-animation img {
     animation-duration: 0.42069s;
     animation-name: thrust;
@@ -213,6 +260,14 @@
     }
   }
 
+  .special-events-animation img {
+    animation-duration: 1.8s;
+    animation-name: slide;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    position: relative;
+  }
+
   .nodebuds-animation img {
     animation-duration: 1.8s;
     animation-name: slide;
@@ -236,10 +291,13 @@
   @media (prefers-reduced-motion: reduce) {
     /* Stops team logo animations when reduced animation is on :) */
     .ai-animation img,
+    .algo-animation img,
     .marketing-animation img,
     .design-animation img,
     .dev-animation img,
     .nodebuds-animation img,
+    .icpc-animation img,
+    .special-events-animation img,
     .oss-animation img {
       animation: none;
     }

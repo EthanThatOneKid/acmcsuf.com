@@ -1,20 +1,13 @@
 <script lang="ts">
-  import type { Team, Term } from '$lib/public/board';
-  import { OFFICERS_JSON } from '$lib/public/board/data';
-  import { getMembers } from '$lib/public/board';
+  import type { Officer, Term } from '$lib/public/board';
   import OfficerProfile from '../../about/officer-profile.svelte';
 
-  export let data: {
-    term: Term;
-    team: Team;
-  };
-
-  $: members = getMembers(OFFICERS_JSON, data.term, data.team.tiers);
+  export let data: { members: Officer[]; term: Term };
 </script>
 
 <section class="team">
   <ul>
-    {#each members as member (member.fullName + data.term)}
+    {#each data.members as member (member.fullName + data.term)}
       <li>
         <OfficerProfile info={member} />
       </li>
