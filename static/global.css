@@ -113,6 +113,11 @@ body:has(nav > input[type='checkbox']:checked) {
   color: var(--acm-lemon);
 }
 
+.acm-orange,
+.brand-orange {
+  color: var(--acm-orange);
+}
+
 .acm-pink,
 .brand-pink {
   color: var(--acm-pink);
