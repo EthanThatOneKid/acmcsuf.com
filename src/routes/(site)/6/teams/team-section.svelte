@@ -1,64 +1,68 @@
 <script lang="ts">
   import type { Team } from '$lib/public/board/types';
-  import { Term } from '$lib/public/board/types';
+  import { OFFICERS_JSON } from '$lib/public/board/data';
+  import { Term, getMembers } from '$lib/public/board';
   import { TextAlignment } from '$lib/public/text-alignment/text-alignment';
   import DiamondPicture from './diamond-picture.svelte';
   import Members from './members.svelte';
 
   export let textAlign: TextAlignment = TextAlignment.RIGHT;
-  export let info: Team | undefined;
+  export let info: Team;
   export let term: Term;
 
+  $: members = getMembers(OFFICERS_JSON, term, info?.tiers ?? []);
+
+  const permanentTeamIDs = ['general', 'icpc', 'oss'];
   const oldTerms = [Term.Fall21, Term.Spring21, Term.Spring22];
   const nodebudsTerms = [Term.Fall21, Term.Spring21, Term.Spring22];
   const gamedevTerms = [Term.Fall23, Term.Spring23];
   $: skip =
+    (members.length === 0 && !permanentTeamIDs.includes(info?.id)) ||
     (info?.id === 'nodebuds' && !nodebudsTerms.includes(term)) ||
     (info?.id === 'gamedev' && !gamedevTerms.includes(term));
 </script>
 
 {#if !skip}
   <div class="container">
-    {#if info !== undefined}
-      <section
-        id={info.id}
-        class:align-right={textAlign === TextAlignment.RIGHT}
-        class:marketing-animation={info.id === 'marketing'}
-        class:algo-animation={info.id === 'algo'}
-        class:design-animation={info.id === 'design'}
-        class:dev-animation={info.id === 'dev'}
-        class:ai-animation={info.id === 'ai'}
-        class:oss-animation={info.id === 'oss'}
-        class:nodebuds-animation={info.id === 'nodebuds'}
-        class:icpc-animation={info.id === 'icpc'}
-      >
-        {#if info.id === 'general'}
-          <DiamondPicture
-            src="https://cdn.discordapp.com/icons/710225099923521558/a_f72bf9caa196d84a44ff40cdfd3f8d9a.gif?size=1024"
-            reducedMotionSrc={info.logoSrc}
-            altSrc="General Picture"
-          />
-        {:else}
-          <img
-            src={oldTerms.includes(term) ? info.oldLogoSrc ?? info.logoSrc : info.logoSrc}
-            alt={`${info.title} Team Logo`}
-          />
-        {/if}
+    <section
+      id={info.id}
+      class:align-right={textAlign === TextAlignment.RIGHT}
+      class:marketing-animation={info.id === 'marketing'}
+      class:algo-animation={info.id === 'algo'}
+      class:design-animation={info.id === 'design'}
+      class:dev-animation={info.id === 'dev'}
+      class:ai-animation={info.id === 'ai'}
+      class:oss-animation={info.id === 'oss'}
+      class:nodebuds-animation={info.id === 'nodebuds'}
+      class:icpc-animation={info.id === 'icpc'}
+    >
+      {#if info.id === 'general'}
+        <DiamondPicture
+          src="https://cdn.discordapp.com/icons/710225099923521558/a_f72bf9caa196d84a44ff40cdfd3f8d9a.gif?size=1024"
+          reducedMotionSrc={info.logoSrc}
+          altSrc="General Picture"
+        />
+      {:else}
+        <img
+          src={oldTerms.includes(term) ? info.oldLogoSrc ?? info.logoSrc : info.logoSrc}
+          alt={`${info.title} Team Logo`}
+        />
+      {/if}
 
-        <div class="team-description">
-          <h2>
-            <span class="headers size-lg">
-              <span style:--font-color={info.color}>
-                <span class="brand-em">{info.title}</span>
-              </span>
-              <span class="brand-em">Team</span>
+      <div class="team-description">
+        <h2>
+          <span class="headers size-lg">
+            <span style:--font-color={info.color}>
+              <span class="brand-em">{info.title}</span>
             </span>
-          </h2>
-          <slot name="content" />
-        </div>
-      </section>
-      <Members data={{ term, team: info }} />
-    {/if}
+            <span class="brand-em">Team</span>
+          </span>
+        </h2>
+        <slot name="content" />
+      </div>
+    </section>
+
+    <Members data={{ members, term }} />
   </div>
 {/if}
 
