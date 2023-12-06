@@ -115,6 +115,16 @@
 </TeamSection>
 
 <!-- TODO: ICPC? -->
+<TeamSection info={TEAMS.icpc} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
+  <p slot="content" class="size-md">
+    The <span class="brand-orange brand-em"
+      >Intercollegiate Competitive Programming Competition</span
+    >
+    is a contest to challenge students on their algorithms and problem solving skills. The
+    <span class="brand-orange brand-em">ICPC</span> Team is dedicated to preparing students for the competition
+    by hosting weekly practice sessions and mock contests.
+  </p>
+</TeamSection>
 
 <TeamSection info={TEAMS.oss} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
