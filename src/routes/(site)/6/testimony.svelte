@@ -54,7 +54,7 @@
   .testimony-text2 {
     display: grid;
     align-items: center;
-    font-size: 20px;
+    font-size: var(--size-md);
   }
 
   section .testimony-inner-container .testimony-text1 p {
@@ -122,7 +122,7 @@
       align-items: center;
       justify-self: left;
       margin: 2em;
-      margin-left: 7em;
+      margin-left: 8.5em;
     }
 
     section .testimony-inner-container .testimony-photo2 {
@@ -130,7 +130,7 @@
       align-items: center;
       justify-self: right;
       margin: 2em;
-      margin-right: 9em;
+      margin-right: 10.5em;
     }
   }
 </style>
