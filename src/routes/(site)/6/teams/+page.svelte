@@ -39,6 +39,7 @@
     </div>
     <img src="/assets/svg/capy-read.svg" alt="Chip the Capybara reading a book" />
   </div>
+  <Spacing --min="100px" --med="125px" --max="125px" />
 </section>
 
 <TeamSection info={TEAMS.general} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
@@ -72,7 +73,6 @@
   </p>
 </TeamSection>
 
-<!-- TODO: Design -->
 <TeamSection info={TEAMS.design} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
     The <span class="brand-pink brand-em">design</span> team is dedicated to emphasizing the
@@ -91,7 +91,6 @@
   </p>
 </TeamSection>
 
-<!-- TODO: AI -->
 <TeamSection info={TEAMS.ai} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
     The <span class="brand-emerald brand-em">artificial intelligence</span> is dedicated to
@@ -105,7 +104,6 @@
 
 <!-- TODO: Special Events -->
 
-<!-- TODO: Nodebuds -->
 <TeamSection info={TEAMS.nodebuds} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
     Personalized for your success, <span class="brand-red brand-em">node buds</span> is our exclusive
@@ -118,7 +116,6 @@
 
 <!-- TODO: ICPC? -->
 
-<!-- TODO: Open Source Software? -->
 <TeamSection info={TEAMS.oss} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
     The <span class="brand-turquoise brand-em">open source software</span> team is committed to
@@ -157,7 +154,7 @@
   }
 
   section .hero-inner-container img {
-    max-width: 130%;
+    max-width: clamp(20rem, 17.342rem + 10.13vw, 30rem);
     justify-self: center;
   }
 
