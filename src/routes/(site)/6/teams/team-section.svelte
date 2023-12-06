@@ -14,7 +14,7 @@
 
   const permanentTeamIDs = ['general', 'icpc', 'oss'];
   const oldTerms = [Term.Fall21, Term.Spring21, Term.Spring22];
-  const nodebudsTerms = [Term.Fall21, Term.Spring21, Term.Spring22];
+  const nodebudsTerms = [...oldTerms];
   const gamedevTerms = [Term.Fall23, Term.Spring23];
   $: skip =
     (members.length === 0 && !permanentTeamIDs.includes(info?.id)) ||
