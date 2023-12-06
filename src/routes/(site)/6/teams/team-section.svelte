@@ -72,18 +72,19 @@
   }
 
   .marketing-animation img {
-    animation-duration: 1s;
-    animation-name: pop-up;
-    animation-iteration-count: 1;
-    animation-direction: normal;
+    animation-duration: 2s;
+    animation-name: portrait-rotate;
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
   }
 
-  @keyframes pop-up {
+  @keyframes portrait-rotate {
     from {
-      transform: translateX(110vh);
+      transform: rotate(0);
     }
     to {
-      transform: translateX(0);
+      transform: rotate(-90deg);
     }
   }
 
