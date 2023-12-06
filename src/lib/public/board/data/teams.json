@@ -47,7 +47,7 @@
     "id": "gamedev",
     "title": "Game Dev",
     "description": "Game Dev team member.",
-    "logoSrc": "/assets/badges/gamedev-badge.svg",
+    "logoSrc": "/assets/badges/logo/gamedev-logo.svg",
     "color": "var(--acm-red)",
     "tiers": [22, 23]
   },

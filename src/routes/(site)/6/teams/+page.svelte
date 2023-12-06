@@ -95,7 +95,13 @@
   </p>
 </TeamSection>
 
-<!-- TODO: GameDev -->
+<TeamSection info={TEAMS['gamedev']} term={VISIBLE_TERMS[$termIndex]}>
+  <p slot="content" class="size-md">
+    The <span class="brand-red brand-em">game development</span> team is dedicated to teaching the
+    basics of programming in the gaming industry. <span class="brand-red brand-em">Gamedev</span> focuses
+    on educating students about design principles, design tools, and the development process of a project.
+  </p>
+</TeamSection>
 
 <TeamSection info={TEAMS['special-events']} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">

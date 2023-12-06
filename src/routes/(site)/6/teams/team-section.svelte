@@ -33,6 +33,7 @@
       class:nodebuds-animation={info.id === 'nodebuds'}
       class:icpc-animation={info.id === 'icpc'}
       class:special-events-animation={info.id === 'special-events'}
+      class:gamedev-animation={info.id === 'gamedev'}
     >
       {#if info.id === 'general'}
         <DiamondPicture
@@ -184,6 +185,35 @@
     }
     to {
       transform: rotate(30deg);
+    }
+  }
+
+  .gamedev-animation img {
+    --rumble: 5;
+    animation-duration: 1s;
+    animation-name: rumble;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes rumble {
+    10% {
+      transform: translate(calc(1px * var(--rumble)), calc(1px * var(--rumble)));
+    }
+    20% {
+      transform: translate(calc(-1px * var(--rumble)), calc(-2px * var(--rumble)));
+    }
+    30% {
+      transform: translate(calc(-3px * var(--rumble)), calc(0px * var(--rumble)));
+    }
+    40% {
+      transform: translate(calc(3px * var(--rumble)), calc(2px * var(--rumble)));
+    }
+    50% {
+      transform: translate(calc(1px * var(--rumble)), calc(-1px * var(--rumble)));
+    }
+    100% {
+      transform: translate(0px, 0px);
     }
   }
 
