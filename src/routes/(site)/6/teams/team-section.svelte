@@ -24,11 +24,13 @@
         id={info.id}
         class:align-right={textAlign === TextAlignment.RIGHT}
         class:marketing-animation={info.id === 'marketing'}
+        class:algo-animation={info.id === 'algo'}
         class:design-animation={info.id === 'design'}
         class:dev-animation={info.id === 'dev'}
         class:ai-animation={info.id === 'ai'}
         class:oss-animation={info.id === 'oss'}
         class:nodebuds-animation={info.id === 'nodebuds'}
+        class:icpc-animation={info.id === 'icpc'}
       >
         {#if info.id === 'general'}
           <DiamondPicture
@@ -99,6 +101,22 @@
     }
   }
 
+  .algo-animation img {
+    animation-duration: 0.7s;
+    animation-name: bounce;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes bounce {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-0.5rem);
+    }
+  }
+
   .design-animation img {
     animation-duration: 2.8s;
     animation-timing-function: cubic-bezier(0.425, 0.145, 0.515, 0.955);
@@ -113,6 +131,23 @@
     }
     to {
       transform: rotateX(-360deg);
+    }
+  }
+
+  .icpc-animation img {
+    animation-duration: 3s;
+    animation-timing-function: cubic-bezier(0.425, 0.145, 0.515, 0.955);
+    animation-name: rotate;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(-360deg);
     }
   }
 
