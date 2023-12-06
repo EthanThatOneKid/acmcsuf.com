@@ -51,11 +51,9 @@
 
       <div class="team-description">
         <h2>
-          <span class="headers size-lg">
-            <span style:--font-color={info.color}>
-              <span class="brand-em">{info.title}</span>
-            </span>
-            <span class="brand-em">Team</span>
+          <span class="headers size-lg brand-em">
+            <span style:--font-color={info.color} class="team-title">{info.title}</span>
+            Team
           </span>
         </h2>
         <slot name="content" />
@@ -80,6 +78,10 @@
   section img {
     max-width: clamp(20rem, 17.342rem + 10.13vw, 30rem);
     justify-self: center;
+  }
+
+  section .team-title {
+    color: var(--font-color, var(--acm-dark));
   }
 
   section .team-description {

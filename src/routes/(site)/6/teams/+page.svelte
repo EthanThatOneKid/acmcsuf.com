@@ -101,7 +101,6 @@
 </TeamSection>
 
 <!-- TODO: GameDev -->
-
 <!-- TODO: Special Events -->
 
 <TeamSection info={TEAMS.nodebuds} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
@@ -114,7 +113,6 @@
   </p>
 </TeamSection>
 
-<!-- TODO: ICPC? -->
 <TeamSection info={TEAMS.icpc} textAlign={TextAlignment.RIGHT} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
     The <span class="brand-orange brand-em"
@@ -134,6 +132,8 @@
     sharing their expertise and driving advancements in software development.
   </p>
 </TeamSection>
+
+<Spacing --min="100px" --med="125px" --max="125px" />
 
 <style>
   p {
