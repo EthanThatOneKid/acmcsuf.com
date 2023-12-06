@@ -79,7 +79,7 @@
     "id": "special-events",
     "title": "Special Events",
     "description": "Special Events team member.",
-    "logoSrc": "/assets/badges/special-events-badge.svg",
+    "logoSrc": "/assets/badges/logo/special-events-logo.svg",
     "color": "var(--acm-lemon)",
     "tiers": [24, 25]
   },

@@ -2,11 +2,9 @@
   import type { Team } from '$lib/public/board/types';
   import { OFFICERS_JSON } from '$lib/public/board/data';
   import { Term, getMembers } from '$lib/public/board';
-  import { TextAlignment } from '$lib/public/text-alignment/text-alignment';
   import DiamondPicture from './diamond-picture.svelte';
   import Members from './members.svelte';
 
-  export let textAlign: TextAlignment = TextAlignment.RIGHT;
   export let info: Team;
   export let term: Term;
 
@@ -26,7 +24,6 @@
   <div class="container">
     <section
       id={info.id}
-      class:align-right={textAlign === TextAlignment.RIGHT}
       class:marketing-animation={info.id === 'marketing'}
       class:algo-animation={info.id === 'algo'}
       class:design-animation={info.id === 'design'}
@@ -35,6 +32,7 @@
       class:oss-animation={info.id === 'oss'}
       class:nodebuds-animation={info.id === 'nodebuds'}
       class:icpc-animation={info.id === 'icpc'}
+      class:special-events-animation={info.id === 'special-events'}
     >
       {#if info.id === 'general'}
         <DiamondPicture
@@ -232,6 +230,14 @@
     }
   }
 
+  .special-events-animation img {
+    animation-duration: 1.8s;
+    animation-name: slide;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    position: relative;
+  }
+
   .nodebuds-animation img {
     animation-duration: 1.8s;
     animation-name: slide;
@@ -255,10 +261,13 @@
   @media (prefers-reduced-motion: reduce) {
     /* Stops team logo animations when reduced animation is on :) */
     .ai-animation img,
+    .algo-animation img,
     .marketing-animation img,
     .design-animation img,
     .dev-animation img,
     .nodebuds-animation img,
+    .icpc-animation img,
+    .special-events-animation img,
     .oss-animation img {
       animation: none;
     }
