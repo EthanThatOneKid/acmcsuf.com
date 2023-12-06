@@ -1,5 +1,5 @@
 import type { Officer, Term, Tier, Team } from './types';
-import { VISIBLE_TERMS, TIERS_JSON, TEAMS_JSON } from './data';
+import { VISIBLE_TERMS, TIERS_JSON, TEAMS_JSON, OFFICERS_JSON } from './data';
 import { writable } from 'svelte/store';
 
 /**
@@ -55,4 +55,16 @@ export function getMembers(members: Officer[], term: Term, tierIDs?: number[]): 
  */
 export function getTeamByID(id: string): Team | undefined {
   return TEAMS_JSON.find((t) => t.id === id);
+}
+
+/**
+ * getOfficerByGhUsername returns the officer with the given GitHub username.
+ */
+export function getOfficerByGhUsername(ghUsername: string): Officer | null {
+  // get author by GitHub username
+  const officer = OFFICERS_JSON.find(
+    (o) =>
+      o.socials && o.socials.github && o.socials.github.toLowerCase() === ghUsername.toLowerCase()
+  );
+  return officer ?? null;
 }

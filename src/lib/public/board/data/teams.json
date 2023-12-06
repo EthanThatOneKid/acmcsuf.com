@@ -19,7 +19,7 @@
     "id": "algo",
     "title": "Algo",
     "description": "Algo team member.",
-    "logoSrc": "/assets/badges/algo-badge.svg",
+    "logoSrc": "/assets/badges/logo/algo-logo.svg",
     "color": "var(--acm-purple)",
     "tiers": [11, 12]
   },
@@ -59,7 +59,7 @@
     "id": "icpc",
     "title": "ICPC",
     "description": "ICPC team member.",
-    "logoSrc": "/assets/badges/icpc-badge.svg",
+    "logoSrc": "/assets/badges/logo/icpc-logo.svg",
     "color": "var(--acm-orange)",
     "tiers": []
   },

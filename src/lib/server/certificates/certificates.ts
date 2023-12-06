@@ -1,11 +1,26 @@
 import { doQuery } from '$lib/server/gql/github';
+import { getOfficerByGhUsername } from '$lib/public/board';
+import type {
+  RepositoryCertificate,
+  ReleaseCertificate,
+  PR,
+  RepositoryCertificatePageData,
+  ReleaseCertificatePageData,
+} from '$lib/public/certificates';
+import type {
+  PRsResponse,
+  UserResponse,
+  ReleaseCertificateQuery,
+  RepositoryCertificateQuery,
+  PRsQuery,
+  ReleasesResponse,
+  ReleaseNode,
+} from './gql';
+import { makeReleasesQuery, makePRsQuery, makeUserQuery } from './gql';
 
-import type { Certificate, PR, CertificatePageData } from '$lib/public/certificates';
-import type { PRsResponse, CertificateQuery, PRsQuery, ReleasesResponse, ReleaseNode } from './gql';
-import { makeReleasesQuery, makePRsQuery } from './gql';
-import { getOfficerByGhUsername } from '../blog/posts';
-
-/** Retrieves a page of merged pull requests. */
+/**
+ * getPRs retrieves a page of merged pull requests.
+ */
 async function getPRs(q: PRsQuery): Promise<PR[]> {
   // Initialize the array of pull requests
   const prs: PR[] = [];
@@ -43,9 +58,11 @@ async function getPRs(q: PRsQuery): Promise<PR[]> {
 }
 
 /**
- * Retrieves a certificate showing the relevant pull requests made by a particular user in the duration of two releases.
+ * getReleaseCertificatePageData retrieves a certificate showing the relevant pull requests made by a particular user in the duration of two releases.
  */
-export async function getCertificatePageData(q: CertificateQuery): Promise<CertificatePageData> {
+export async function getReleaseCertificatePageData(
+  q: ReleaseCertificateQuery
+): Promise<ReleaseCertificatePageData> {
   const releaseData = await doQuery<ReleasesResponse>(
     makeReleasesQuery({
       owner: q.owner,
@@ -77,7 +94,7 @@ export async function getCertificatePageData(q: CertificateQuery): Promise<Certi
   });
 
   const officer = getOfficerByGhUsername(q.username);
-  const certificate: Certificate = {
+  const certificate: ReleaseCertificate = {
     user: {
       login: q.username,
       name: officer?.fullName || releaseData.user.name || `@${q.username}`,
@@ -94,16 +111,15 @@ export async function getCertificatePageData(q: CertificateQuery): Promise<Certi
       tagName: pair[1].tagName,
       date: later,
     },
+    releases: releaseData.repository.releases.edges.map((edge) => ({
+      name: edge.node.name,
+      createdAt: edge.node.createdAt,
+      tagName: edge.node.tagName,
+    })),
   };
 
-  const releases = releaseData.repository.releases.edges.map((edge) => ({
-    name: edge.node.name,
-    createdAt: edge.node.createdAt,
-    tagName: edge.node.tagName,
-  }));
-
   // Return the page data.
-  return { certificate, releases };
+  return { certificate };
 }
 
 /**
@@ -130,4 +146,37 @@ function findReleasePair(
   const { [index + 1]: one, [index]: two } = data.repository.releases.edges;
 
   return [one?.node, two.node];
+}
+
+/**
+ * getRepositoryCertificatePageData retrieves a certificate showing the relevant pull requests made by a particular user in the duration of two releases.
+ */
+export async function getRepositoryCertificatePageData(
+  q: RepositoryCertificateQuery
+): Promise<RepositoryCertificatePageData> {
+  const userData = await doQuery<UserResponse>(makeUserQuery(q.username));
+  const prs = await getPRs({
+    username: q.username,
+    owner: q.owner,
+    name: q.name,
+    startDate: new Date(0).toISOString(),
+    endDate: new Date().toISOString(),
+    maxPageSize: q.maxPageSize,
+  });
+
+  const officer = getOfficerByGhUsername(q.username);
+  const certificate: RepositoryCertificate = {
+    repositoryName: q.name,
+    user: {
+      login: q.username,
+      name: officer?.fullName || `@${q.username}`,
+      url: `https://github.com/${q.username}`,
+      bio: userData.user.bioHTML,
+      picture: officer?.picture ? `/assets/authors/${officer.picture}` : userData.user.avatarUrl,
+    },
+    merged: prs,
+  };
+
+  // Return the page data.
+  return { certificate };
 }
