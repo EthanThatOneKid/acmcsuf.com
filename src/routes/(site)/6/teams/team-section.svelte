@@ -15,6 +15,7 @@
       id={info.id}
       class:align-right={textAlign === TextAlignment.RIGHT}
       class:marketing-animation={info.id === 'marketing'}
+      class:algo-animation={info.id === 'algo'}
       class:design-animation={info.id === 'design'}
       class:dev-animation={info.id === 'dev'}
       class:ai-animation={info.id === 'ai'}
@@ -82,6 +83,22 @@
     }
     to {
       transform: translateX(0);
+    }
+  }
+
+  .algo-animation img {
+    animation-duration: 0.7s;
+    animation-name: bounce;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes bounce {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-0.5rem);
     }
   }
 

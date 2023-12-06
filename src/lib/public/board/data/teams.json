@@ -19,7 +19,7 @@
     "id": "algo",
     "title": "Algo",
     "description": "Algo team member.",
-    "logoSrc": "/assets/badges/algo-badge.svg",
+    "logoSrc": "/assets/badges/logo/algo-logo.svg",
     "color": "var(--acm-purple)",
     "tiers": [11, 12]
   },
