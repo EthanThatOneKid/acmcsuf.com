@@ -1,1 +1,1 @@
-export default 'url(/assets/acm-csuf-badge.png)';
+export default 'url(/assets/general-logo.svg)';

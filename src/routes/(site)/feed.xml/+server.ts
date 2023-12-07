@@ -19,7 +19,7 @@ function makeRssFeed(posts: BlogPost[]): string {
       'Posts written about computer science topics by the ACM community at California State Univerity Fullerton. It covers all the latest news and events for acmCSUF.',
     feed_url: 'https://acmcsuf.com/blog.xml',
     site_url: 'https://acmcsuf.com',
-    image_url: 'https://acmcsuf.com/assets/acm-csuf-badge.png',
+    image_url: 'https://acmcsuf.com/assets/general-logo.svg',
     categories: discernLabels(posts),
     pubDate: 'Jan 24, 2022 08:00:00 GMT',
     docs: 'https://acmcsuf.com/history-of-rss',
