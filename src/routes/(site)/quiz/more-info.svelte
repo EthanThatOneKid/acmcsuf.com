@@ -18,7 +18,7 @@
       help in something you know, offer a hand. It's people like you that make our community
       stronger.
     </p>
-    <img src="/assets/frank-js-emote.svg" alt="frank love" />
+    <img src="/assets/capy-lucky.png" alt="Chip the Capybara" />
   {:else}
     <h1>{title} <span>Team</span></h1>
     <p>{blurp}</p>

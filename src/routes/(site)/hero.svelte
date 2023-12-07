@@ -13,7 +13,10 @@
       <AcmButton text="Join us today!" link="/discord" redirect={true} />
     </div>
 
-    <img src="assets/hero-photo.png" alt="Frank the Shark holding a flag that says 'I Love ACM'" />
+    <img
+      src="assets/hero-photo.png"
+      alt="Chip the Capybara holding a flag that says 'I Love ACM'"
+    />
   </div>
 </section>
 
