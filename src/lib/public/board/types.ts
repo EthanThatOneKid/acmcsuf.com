@@ -65,7 +65,7 @@ export interface Officer {
   fullName: string;
   picture?: string;
   positions: {
-    [key in Term]?: Position;
+    [key in Term]?: Position[];
   };
   socials?: {
     [key in Social]?: string;
@@ -82,5 +82,6 @@ export interface Team {
   description?: string;
   color: string;
   logoSrc: string;
+  oldLogoSrc?: string;
   tiers?: number[];
 }
