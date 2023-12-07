@@ -1,9 +1,11 @@
 <script>
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import Hero from './hero.svelte';
-  import WhyJoin from './why-join.svelte';
-  import AcmPaths from './acm-paths.svelte';
-  import ReadyUp from './ready-up.svelte';
+  import Desc from './desc.svelte';
+  import Teams from './teams.svelte';
+  import Testimony from './testimony.svelte';
+  import Lucky from './lucky.svelte';
+  import Blog from './blog.svelte';
 </script>
 
 <svelte:head>
@@ -16,14 +18,22 @@
 
 <Spacing --min="120px" --med="175px" --max="200px" />
 
-<WhyJoin />
+<Desc />
 
 <Spacing --min="120px" --med="175px" --max="200px" />
 
-<AcmPaths />
+<Teams />
 
 <Spacing --min="120px" --med="175px" --max="200px" />
 
-<ReadyUp />
+<Testimony />
+
+<Spacing --min="120px" --med="175px" --max="200px" />
+
+<Lucky />
+
+<Spacing --min="120px" --med="175px" --max="200px" />
+
+<Blog />
 
 <Spacing --min="75px" --med="100px" --max="120px" />

@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Officer, Term, Team } from '$lib/public/board';
-  import OfficerProfile from '../../about/officer-profile.svelte';
+  import OfficerProfile from '../about/officer-profile.svelte';
 
   export let data: { members: Officer[]; term: Term; team: Team };
 </script>
