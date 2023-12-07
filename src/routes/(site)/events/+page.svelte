@@ -30,7 +30,7 @@
 
 <div class="main-header">
   <h2 class="size-lg headers">Upcoming Events</h2>
-  <img src="assets/svg/bluecalender.svg" alt="Blue Calender" />
+  <img src="assets/bluecalendar.svg" alt="Blue Calender" />
 </div>
 
 <Spacing --med="16px" />

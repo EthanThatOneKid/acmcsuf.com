@@ -6,7 +6,7 @@
     { title: 'Source Code', path: '/code' },
     { title: 'Report a Bug', path: '/bug' },
     { title: 'COVID-19 Policy', path: '/covid-19' },
-    { title: 'frankBot Privacy', path: '/privacy' },
+    { title: 'Privacy Policy', path: '/privacy' },
   ];
 
   const socials = ['/discord', '/instagram', '/youtube', '/linkedin'];
@@ -22,7 +22,7 @@
           <li>
             <a href={socialPath} target="_blank" rel="noopener noreferrer">
               <BwIcon
-                src={`/assets/svg${socialPath}.svg`}
+                src={`/assets${socialPath}.svg`}
                 alt={socialPath.slice(1)}
                 filterOn={[AcmTheme.Dark, AcmTheme.Light]}
               />

@@ -41,7 +41,10 @@ export enum Social {
   YouTube = 'youtube',
 }
 
-interface Position {
+/**
+ * Position is used to represent a position that an officer holds.
+ */
+export interface Position {
   /**
    * The title of the position that the officer holds. This value is what is
    * displayed on the website.

@@ -148,7 +148,7 @@ git clone https://github.com/this-is-you/acmcsuf.com.git
     <br />
 
     <p>
-      Step 1: Add your SVG or PNG in <code>/static/assets/1st/your-new-thing.(svg|png)</code> (See:
+      Step 1: Add your SVG or PNG in <code>/static/assets/your-new-thing.(svg|png)</code> (See:
       <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes"
         >Basic shapes</a
       >).
@@ -161,7 +161,7 @@ git clone https://github.com/this-is-you/acmcsuf.com.git
 
     For example:
     <pre><code>
-export default 'url(/assets/1st/your-new-thing.(svg|png))';
+export default 'url(/assets/your-new-thing.(svg|png))';
     </code></pre>
 
     <p>
