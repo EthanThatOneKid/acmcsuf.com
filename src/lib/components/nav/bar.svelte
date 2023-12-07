@@ -69,10 +69,7 @@
             </style>
           </noscript>
           <span class="dark-toggle">
-            <img
-              src={`/assets/svg${$theme === AcmTheme.Dark ? '/moon' : '/sun'}.svg`}
-              alt="theme"
-            />
+            <img src="/assets/{$theme === AcmTheme.Dark ? 'moon' : 'sun'}.svg" alt="theme" />
           </span>
         </Toggle>
       </div>

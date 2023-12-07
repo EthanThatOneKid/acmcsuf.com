@@ -103,7 +103,9 @@
     }
 
     .action-item:hover {
+      cursor: pointer;
       box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.66);
+      transform: translateY(-2px);
     }
   }
 
