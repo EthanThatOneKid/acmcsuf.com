@@ -20,7 +20,7 @@
         <h2 class="gap">Head home!</h2>
         <Button text={'Return to Home'} link={'/'} />
       </div>
-      <img src="/assets/svg/capy-meme.svg" alt="404 - Page Not Found" />
+      <img src="/assets/capy-meme.svg" alt="404 - Page Not Found" />
     </div>
   </div>
 </section>

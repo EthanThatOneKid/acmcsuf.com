@@ -34,7 +34,7 @@
   <div class="container">
     <div class="logo-container">
       <a href="/" class="logo">
-        <img src="/assets/badges/general-badge.svg" class="badge" alt="acmCSUF badge" />
+        <img src="/assets/general-logo.svg" class="badge" alt="acmCSUF badge" />
         <h3 class="brand-header">at <b>CSUF</b></h3>
       </a>
     </div>
@@ -69,10 +69,7 @@
             </style>
           </noscript>
           <span class="dark-toggle">
-            <img
-              src={`/assets/svg${$theme === AcmTheme.Dark ? '/moon' : '/sun'}.svg`}
-              alt="theme"
-            />
+            <img src="/assets/{$theme === AcmTheme.Dark ? 'moon' : 'sun'}.svg" alt="theme" />
           </span>
         </Toggle>
       </div>

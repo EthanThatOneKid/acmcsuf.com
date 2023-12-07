@@ -20,7 +20,7 @@
       new BwIcon({
         target: copyBtn,
         props: {
-          src: '/assets/svg/copy-text.svg',
+          src: '/assets/copy-text.svg',
           alt: 'Copy code',
         },
       });
