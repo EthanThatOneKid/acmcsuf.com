@@ -76,7 +76,7 @@
 
     <div class="officer-list">
       {#each filteredOfficers as officer ($termIndex + officer.fullName)}
-        <OfficerProfile info={officer} {placeholderPicture} />
+        <OfficerProfile info={officer} {team} {placeholderPicture} />
       {/each}
     </div>
   </div>

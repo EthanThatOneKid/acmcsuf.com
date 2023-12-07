@@ -59,7 +59,7 @@
       </div>
     </section>
 
-    <Members data={{ members, term }} />
+    <Members data={{ members, term, team: info }} />
   </div>
 {/if}
 
@@ -72,6 +72,7 @@
     display: grid;
     grid-template-columns: 1fr;
     margin: 0 1rem;
+    scroll-margin-top: 100px;
   }
 
   section img {
