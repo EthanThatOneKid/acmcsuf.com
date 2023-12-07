@@ -100,7 +100,7 @@ export async function getReleaseCertificatePageData(
       name: officer?.fullName || releaseData.user.name || `@${q.username}`,
       url: `https://github.com/${q.username}`,
       bio: releaseData.user.bioHTML,
-      picture: officer?.picture ? `/assets/authors/${officer.picture}` : releaseData.user.avatarUrl,
+      picture: officer?.picture ? `/people/${officer.picture}` : releaseData.user.avatarUrl,
     },
     merged: prs,
     from: {
@@ -172,7 +172,7 @@ export async function getRepositoryCertificatePageData(
       name: officer?.fullName || `@${q.username}`,
       url: `https://github.com/${q.username}`,
       bio: userData.user.bioHTML,
-      picture: officer?.picture ? `/assets/authors/${officer.picture}` : userData.user.avatarUrl,
+      picture: officer?.picture ? `/people/${officer.picture}` : userData.user.avatarUrl,
     },
     merged: prs,
   };

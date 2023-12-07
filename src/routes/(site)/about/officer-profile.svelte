@@ -78,11 +78,7 @@
   <input type="checkbox" id="{officerID}-flipcard" />
   <div class="officer-3d-flipcard">
     <div class="officer-flipcard">
-      <BoardMember
-        {alt}
-        src={`/assets/authors/${officerPicture}`}
-        color={team?.color ?? 'var(--acm-blue)'}
-      />
+      <BoardMember {alt} src="/people/{officerPicture}" color={team?.color ?? 'var(--acm-blue)'} />
       <div class="officer-socials-box">
         <div class="officer-socials">
           <h3>Socials</h3>
@@ -95,8 +91,7 @@
                     title={officerSocials.website}
                     href="//{officerSocials.website}"
                   >
-                    <BwIcon src="/assets/public.svg" alt="Public website icon" /><span
-                      >Website</span
+                    <BwIcon src="/assets/public.svg" alt="Public website icon" /><span>Website</span
                     >
                   </a>
                 </p>
@@ -136,9 +131,7 @@
                     title={officerSocials.linkedin}
                     href="https://www.linkedin.com/in/{officerSocials.linkedin}"
                   >
-                    <BwIcon src="/assets/linkedin.svg" alt="LinkedIn icon" /><span
-                      >LinkedIn</span
-                    >
+                    <BwIcon src="/assets/linkedin.svg" alt="LinkedIn icon" /><span>LinkedIn</span>
                   </a>
                 </p>
               {/if}
@@ -149,8 +142,7 @@
                     title={officerSocials.instagram}
                     href="https://www.instagram.com/{officerSocials.instagram}/"
                   >
-                    <BwIcon src="/assets/instagram.svg" alt="Instagram icon" /><span
-                      >Instagram</span
+                    <BwIcon src="/assets/instagram.svg" alt="Instagram icon" /><span>Instagram</span
                     >
                   </a>
                 </p>
