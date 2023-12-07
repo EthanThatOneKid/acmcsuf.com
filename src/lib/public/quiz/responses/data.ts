@@ -11,7 +11,7 @@ export interface TeamReport {
 
 export const TEAMS: Record<Exclude<TeamMatch, TeamMatch.TEAMLESS>, TeamReport> = {
   [TeamMatch.AI]: {
-    picture: './assets/badges/ai-badge.svg',
+    picture: './assets/ai-logo.svg',
     color: 'var(--acm-emerald)',
     blurb:
       'acmAI is focused on introducing Artificial Intelligence and Machine Learning in a beginner friendly way. Workshops are project based and are centered around interactivity. We have a keen eye for problem solving and solution-based programming.',
@@ -21,7 +21,7 @@ export const TEAMS: Record<Exclude<TeamMatch, TeamMatch.TEAMLESS>, TeamReport> =
     workshopPictures: [],
   },
   [TeamMatch.DEV]: {
-    picture: './assets/badges/dev-badge.svg',
+    picture: './assets/dev-logo.svg',
     color: 'var(--acm-bluer)',
     blurb:
       'acmDev aims to have weekly meetings to work on projects as a way to improve our members’ skills at working in groups as well as introduce them to new technologies to make their ideas into software.',
@@ -36,7 +36,7 @@ export const TEAMS: Record<Exclude<TeamMatch, TeamMatch.TEAMLESS>, TeamReport> =
     workshopPictures: ['/assets/dev-workshop.jpg'],
   },
   [TeamMatch.DESIGN]: {
-    picture: './assets/badges/design-badge.svg',
+    picture: './assets/design-logo.svg',
     color: 'var(--acm-pink)',
     blurb:
       'acmDesign is all about exposing you to the elements of UI/UX. We go over good practices to follow when starting a project, interesting frontend tips, and show that anyone can design.',
@@ -63,7 +63,7 @@ export const TEAMS: Record<Exclude<TeamMatch, TeamMatch.TEAMLESS>, TeamReport> =
     workshopPictures: ['/assets/design-workshop.jpg', '/assets/quiz/figma-collage.png'],
   },
   [TeamMatch.ALGO]: {
-    picture: './assets/badges/algo-badge.svg',
+    picture: './assets/algo-logo.svg',
     color: 'var(--acm-purple)',
     blurb:
       "acmAlgo focuses on data structures, algorithms, and technical interview prep. School doesn't give us everything we need and Algo is here to fill in the holes!",

@@ -34,7 +34,7 @@
   <div class="container">
     <div class="logo-container">
       <a href="/" class="logo">
-        <img src="/assets/badges/general-badge.svg" class="badge" alt="acmCSUF badge" />
+        <img src="/assets/general-logo.svg" class="badge" alt="acmCSUF badge" />
         <h3 class="brand-header">at <b>CSUF</b></h3>
       </a>
     </div>
