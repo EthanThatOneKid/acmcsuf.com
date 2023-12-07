@@ -33,12 +33,12 @@
         that exposes students to various opportunities that encourage connection, skill building, as
         well as both personal and technical development.
         <br /><br />
-        Everone under this program will get paired with student-mentors, called
+        Everyone under this program will get paired with student-mentors, called
         <span class="brand-med">Buddies</span>, who will be there to help students prepare for their
         successful journeys through the tech industry.
       </p>
     </div>
-    <img src="assets/badges/old-badges/nodebuds-badge-old.svg" alt="nodeBuds badge" />
+    <img src="assets/nodebuds-logo-old.svg" alt="nodeBuds badge" />
   </section>
 </div>
 

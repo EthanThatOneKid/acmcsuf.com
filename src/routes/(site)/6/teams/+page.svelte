@@ -36,7 +36,7 @@
         <Select bind:defaultValue={currentFormattedTerm} options={formattedTerms} />
       </div>
     </div>
-    <img src="/assets/svg/capy-read.svg" alt="Chip the Capybara reading a book" />
+    <img src="/assets/capy-read.svg" alt="Chip the Capybara reading a book" />
   </div>
   <Spacing --min="100px" --med="125px" --max="125px" />
 </section>

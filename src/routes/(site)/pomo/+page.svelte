@@ -175,7 +175,7 @@
   .gif {
     width: 190px;
     height: 150px;
-    background-image: url('/assets/pomo/character.gif');
+    background-image: url('/assets/pomo-character.gif');
     background-size: cover;
     animation-name: slide;
     animation-duration: 6s;
