@@ -1,5 +1,5 @@
 /**
- * An interface for a pull request object.
+ * PR is an interface for a GitHub PR.
  */
 export interface PR {
   number: number;
@@ -10,6 +10,16 @@ export interface PR {
     message: string;
     url: string;
   }[];
+}
+
+/**
+ * Issue is an interface for a GitHub issue.
+ */
+export interface Issue {
+  number: number;
+  title: string;
+  url: string;
+  openedAt: string;
 }
 
 /**
@@ -85,4 +95,9 @@ export interface RepositoryCertificate extends Pick<ReleaseCertificate, 'merged'
    * repositoryName is the name of the repository.
    */
   repositoryName: string;
+
+  /**
+   * issues are the issues that the user has made.
+   */
+  issues: Issue[];
 }
