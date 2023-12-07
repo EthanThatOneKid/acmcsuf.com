@@ -1,6 +1,6 @@
 <section class="desc-container">
   <div class="desc-inner-container">
-    <img src="/assets/png/chip-holding-laptop.png" alt="Chip the Capybara holding a laptop" />
+    <img src="/assets/chip-holding-laptop.png" alt="Chip the Capybara holding a laptop" />
     <div class="desc-text">
       <h1 class="brand-header size-xl">Bringing you the true Computer Science Experience</h1>
       <p>

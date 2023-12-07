@@ -12,7 +12,7 @@
     </div>
 
     <img
-      src="/assets/png/capy-lucky.png"
+      src="/assets/capy-lucky.png"
       alt="Chip the Capybara surrounded by all ACM Team badges"
     />
   </div>
