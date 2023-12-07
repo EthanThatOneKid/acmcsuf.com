@@ -6,6 +6,7 @@ import type {
   PR,
   RepositoryCertificatePageData,
   ReleaseCertificatePageData,
+  Issue,
 } from '$lib/public/certificates';
 import type {
   PRsResponse,
@@ -15,14 +16,16 @@ import type {
   PRsQuery,
   ReleasesResponse,
   ReleaseNode,
+  IssuesResponse,
+  IssuesQuery,
 } from './gql';
-import { makeReleasesQuery, makePRsQuery, makeUserQuery } from './gql';
+import { makeReleasesQuery, makePRsQuery, makeIssuesQuery, makeUserQuery } from './gql';
 
 /**
  * getPRs retrieves a page of merged pull requests.
  */
 async function getPRs(q: PRsQuery): Promise<PR[]> {
-  // Initialize the array of pull requests
+  // Initialize the array of pull requests.
   const prs: PR[] = [];
 
   // Fetch pages of pull requests until pagination is exhausted.
@@ -44,17 +47,52 @@ async function getPRs(q: PRsQuery): Promise<PR[]> {
       )
     );
 
-    // Check if there are more pages of pull requests
+    // Check if there are more pages of pull requests.
     if (!prResponse.search.pageInfo.hasNextPage) {
       break;
     }
 
-    // Update the cursor for pagination
+    // Update the cursor for pagination.
     q.cursor = prResponse.search.pageInfo.endCursor;
   }
 
-  // Return the array of pull requests
+  // Return the array of pull requests.
   return prs;
+}
+
+/**
+ * getIssues retrieves a page of issues.
+ */
+export async function getIssues(q: IssuesQuery): Promise<Issue[]> {
+  // Initialize the array of issues.
+  const issues: Issue[] = [];
+
+  // Fetch pages of issues until pagination is exhausted.
+  let limit = 1e3;
+  while (limit--) {
+    const issueResponse = await doQuery<IssuesResponse>(makeIssuesQuery(q));
+    issues.push(
+      ...issueResponse.search.edges.map(
+        (edge): Issue => ({
+          openedAt: edge.node.createdAt,
+          title: edge.node.title,
+          number: edge.node.number,
+          url: edge.node.url,
+        })
+      )
+    );
+
+    // Check if there are more pages of issues.
+    if (!issueResponse.search.pageInfo.hasNextPage) {
+      break;
+    }
+
+    // Update the cursor for pagination.
+    q.cursor = issueResponse.search.pageInfo.endCursor;
+  }
+
+  // Return the array of issues.
+  return issues;
 }
 
 /**
@@ -100,7 +138,7 @@ export async function getReleaseCertificatePageData(
       name: officer?.fullName || releaseData.user.name || `@${q.username}`,
       url: `https://github.com/${q.username}`,
       bio: releaseData.user.bioHTML,
-      picture: officer?.picture ? `/people/${officer.picture}` : releaseData.user.avatarUrl,
+      picture: releaseData.user.avatarUrl,
     },
     merged: prs,
     from: {
@@ -154,15 +192,25 @@ function findReleasePair(
 export async function getRepositoryCertificatePageData(
   q: RepositoryCertificateQuery
 ): Promise<RepositoryCertificatePageData> {
-  const userData = await doQuery<UserResponse>(makeUserQuery(q.username));
-  const prs = await getPRs({
-    username: q.username,
-    owner: q.owner,
-    name: q.name,
-    startDate: new Date(0).toISOString(),
-    endDate: new Date().toISOString(),
-    maxPageSize: q.maxPageSize,
-  });
+  const [userData, issuesData, prsData] = await Promise.all([
+    doQuery<UserResponse>(makeUserQuery(q.username)),
+    getIssues({
+      username: q.username,
+      owner: q.owner,
+      name: q.name,
+      startDate: new Date(0).toISOString(),
+      endDate: new Date().toISOString(),
+      maxPageSize: q.maxPageSize,
+    }),
+    getPRs({
+      username: q.username,
+      owner: q.owner,
+      name: q.name,
+      startDate: new Date(0).toISOString(),
+      endDate: new Date().toISOString(),
+      maxPageSize: q.maxPageSize,
+    }),
+  ]);
 
   const officer = getOfficerByGhUsername(q.username);
   const certificate: RepositoryCertificate = {
@@ -172,9 +220,10 @@ export async function getRepositoryCertificatePageData(
       name: officer?.fullName || `@${q.username}`,
       url: `https://github.com/${q.username}`,
       bio: userData.user.bioHTML,
-      picture: officer?.picture ? `/people/${officer.picture}` : userData.user.avatarUrl,
+      picture: userData.user.avatarUrl,
     },
-    merged: prs,
+    merged: prsData,
+    issues: issuesData,
   };
 
   // Return the page data.
