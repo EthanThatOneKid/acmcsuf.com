@@ -25,7 +25,7 @@
 
 <Spacing --min="16px" --med="16px" --max="16px" />
 
-<OfficerProfileList filter={filterOfficers} placeholderPicture="placeholder.png" />
+<OfficerProfileList filter={filterOfficers} placeholderPicture="placeholder.png" team={undefined} />
 
 <Spacing --min="40px" --med="95px" --max="120px" />
 

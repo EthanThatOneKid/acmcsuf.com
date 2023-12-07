@@ -37,7 +37,10 @@
   // - expected value: 'frank-mascot-f22'
   const officerID = `${info.fullName.replace(/[^a-z0-9]/g, '-')}-${earliestTerm()}`.toLowerCase();
 
-  $: officerPosition = getPositionByTermIndex(info, $termIndex)?.title || '';
+  $: officerPosition =
+    getPositionByTermIndex(info, $termIndex)
+      ?.map((p) => p.title)
+      .join(', ') ?? '';
 
   $: [teamName, { class: teamClass, color: teamColor }] = Object.entries<{
     class: string;
