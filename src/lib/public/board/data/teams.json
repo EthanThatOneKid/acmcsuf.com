@@ -73,7 +73,7 @@
     "description": "Open Source Software team member. We create and maintain open source projects pertaining to ACM at CSUF.",
     "logoSrc": "/assets/badges/logo/oss-logo.svg",
     "color": "var(--acm-turquoise)",
-    "tiers": []
+    "tiers": [32, 33]
   },
   {
     "id": "special-events",

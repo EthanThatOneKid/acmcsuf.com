@@ -1,15 +1,15 @@
 <script lang="ts">
-  import type { Officer, Term } from '$lib/public/board';
+  import type { Officer, Term, Team } from '$lib/public/board';
   import OfficerProfile from '../../about/officer-profile.svelte';
 
-  export let data: { members: Officer[]; term: Term };
+  export let data: { members: Officer[]; term: Term; team: Team };
 </script>
 
 <section class="team">
   <ul>
     {#each data.members as member (member.fullName + data.term)}
       <li>
-        <OfficerProfile info={member} />
+        <OfficerProfile info={member} team={data.team} />
       </li>
     {/each}
   </ul>
