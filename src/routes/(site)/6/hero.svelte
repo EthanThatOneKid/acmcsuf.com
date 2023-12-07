@@ -15,7 +15,7 @@
     </div>
 
     <img
-      src="/assets/svg/capy-power.svg"
+      src="/assets/capy-power.svg"
       alt="Chip the Capybara surrounded by all ACM Team badges"
     />
   </div>

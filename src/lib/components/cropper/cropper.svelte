@@ -108,7 +108,7 @@
       on:click={() =>
         copy(link, 'Copied WEBP link to clipboard!', 'Failed to copy WEBP link to clipboard!')}
     >
-      <BwIcon src="/assets/svg/copy-link.svg" alt="copy link" />
+      <BwIcon src="/assets/copy-link.svg" alt="copy link" />
     </button>
   </div>
 {/if}

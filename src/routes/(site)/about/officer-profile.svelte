@@ -95,7 +95,7 @@
                     title={officerSocials.website}
                     href="//{officerSocials.website}"
                   >
-                    <BwIcon src="/assets/svg/public.svg" alt="Public website icon" /><span
+                    <BwIcon src="/assets/public.svg" alt="Public website icon" /><span
                       >Website</span
                     >
                   </a>
@@ -108,7 +108,7 @@
                     title={officerSocials.github}
                     href="https://github.com/{officerSocials.github}"
                   >
-                    <BwIcon src="/assets/svg/github.svg" alt="GitHub icon" /><span>GitHub</span>
+                    <BwIcon src="/assets/github.svg" alt="GitHub icon" /><span>GitHub</span>
                   </a>
                 </p>
               {/if}
@@ -124,7 +124,7 @@
                       event.preventDefault();
                     }}
                   >
-                    <BwIcon src="/assets/svg/discord.svg" alt="Discord icon" /><span>Discord</span>
+                    <BwIcon src="/assets/discord.svg" alt="Discord icon" /><span>Discord</span>
                   </a>
                 </p>
               {/if}
@@ -136,7 +136,7 @@
                     title={officerSocials.linkedin}
                     href="https://www.linkedin.com/in/{officerSocials.linkedin}"
                   >
-                    <BwIcon src="/assets/svg/linkedin.svg" alt="LinkedIn icon" /><span
+                    <BwIcon src="/assets/linkedin.svg" alt="LinkedIn icon" /><span
                       >LinkedIn</span
                     >
                   </a>
@@ -149,7 +149,7 @@
                     title={officerSocials.instagram}
                     href="https://www.instagram.com/{officerSocials.instagram}/"
                   >
-                    <BwIcon src="/assets/svg/instagram.svg" alt="Instagram icon" /><span
+                    <BwIcon src="/assets/instagram.svg" alt="Instagram icon" /><span
                       >Instagram</span
                     >
                   </a>
@@ -162,7 +162,7 @@
                     title={officerSocials.youtube}
                     href="https://www.youtube.com/@{officerSocials.youtube}"
                   >
-                    <BwIcon src="/assets/svg/youtube.svg" alt="YouTube icon" /><span>YouTube</span>
+                    <BwIcon src="/assets/youtube.svg" alt="YouTube icon" /><span>YouTube</span>
                   </a>
                 </p>
               {/if}

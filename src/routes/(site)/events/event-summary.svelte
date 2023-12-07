@@ -25,7 +25,7 @@
           info.team
         )}
     >
-      <BwIcon src="/assets/svg/copy-link.svg" alt="copy link" />
+      <BwIcon src="/assets/copy-link.svg" alt="copy link" />
     </button>
     <button
       class="action-item"
@@ -38,7 +38,7 @@
           info.team
         )}
     >
-      <BwIcon src="/assets/svg/copy-text.svg" alt="Copy event summary" />
+      <BwIcon src="/assets/copy-text.svg" alt="Copy event summary" />
     </button>
     <button
       class="action-item"
@@ -51,7 +51,7 @@
           info.team
         )}
     >
-      <BwIcon src="/assets/svg/calendar-google.svg" alt="Copy Google Calendar link" />
+      <BwIcon src="/assets/calendar-google.svg" alt="Copy Google Calendar link" />
     </button>
     <button
       class="action-item"
@@ -64,7 +64,7 @@
           info.team
         )}
     >
-      <BwIcon src="/assets/svg/calendar-outlook.svg" alt="Copy Outlook Calendar link" />
+      <BwIcon src="/assets/calendar-outlook.svg" alt="Copy Outlook Calendar link" />
     </button>
   </div>
 </div>
