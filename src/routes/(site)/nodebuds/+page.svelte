@@ -6,12 +6,12 @@
   import OfficerProfileList from '../about/officer-profile-list.svelte';
 
   function filterNodeBuddies(officer: Officer): boolean {
-    const position = officer.positions[VISIBLE_TERMS[$termIndex]];
-    if (position === undefined) {
+    const positions = officer.positions[VISIBLE_TERMS[$termIndex]];
+    if (positions === undefined) {
       return false;
     }
 
-    const isNodeBuddy = position.title.toUpperCase().includes('NODEBUDS');
+    const isNodeBuddy = positions.some((pos) => pos.title.toUpperCase().includes('NODEBUDS'));
     return isNodeBuddy;
   }
 </script>
