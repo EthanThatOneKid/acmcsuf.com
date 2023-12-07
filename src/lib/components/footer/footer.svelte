@@ -22,7 +22,7 @@
           <li>
             <a href={socialPath} target="_blank" rel="noopener noreferrer">
               <BwIcon
-                src={`/assets/svg${socialPath}.svg`}
+                src={`/assets${socialPath}.svg`}
                 alt={socialPath.slice(1)}
                 filterOn={[AcmTheme.Dark, AcmTheme.Light]}
               />
