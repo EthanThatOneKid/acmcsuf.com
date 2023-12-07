@@ -12,6 +12,8 @@
   <title>ACM at CSUF</title>
 </svelte:head>
 
+<!-- TODO: https://github.com/EthanThatOneKid/acmcsuf.com/issues/999 -->
+
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <Hero />
