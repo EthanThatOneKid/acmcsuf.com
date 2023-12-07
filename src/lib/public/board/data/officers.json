@@ -810,5 +810,11 @@
       "S23": [{ "title": "AI Officer", "tier": 21 }],
       "F23": [{ "title": "AI Officer", "tier": 21 }]
     }
+  },
+  {
+    "fullName": "Tomas Oh",
+    "picture": "tomas-oh.webp",
+    "socials": { "github": "tomasohCHOM", "discord": "chomacito" },
+    "positions": { "F23": [{ "title": "Open Source Software Officer", "tier": 33 }] }
   }
 ]
