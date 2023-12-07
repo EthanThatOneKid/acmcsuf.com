@@ -1,14 +1,15 @@
 <script lang="ts">
-  import type { Officer } from '$lib/public/board/types';
+  import type { Officer, Team } from '$lib/public/board/types';
   import { Term } from '$lib/public/board/types';
   import { onMount } from 'svelte';
   import { termIndex, getPositionByTermIndex } from '$lib/public/board/utils';
   import { copy } from '$lib/public/copy/copy';
   import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
   import BoardMember from '$lib/components/board-member/board-member.svelte';
-  import { COLORS } from '$lib/public/board/data';
+  import { TEAMS } from '$lib/public/board/data/teams';
 
   export let info: Officer;
+  export let team: Team | undefined = undefined;
   export let placeholderPicture = 'placeholder.webp';
   export let hasBuggyAnimations = false;
 
@@ -37,25 +38,24 @@
   // - expected value: 'frank-mascot-f22'
   const officerID = `${info.fullName.replace(/[^a-z0-9]/g, '-')}-${earliestTerm()}`.toLowerCase();
 
-  $: officerPosition = getPositionByTermIndex(info, $termIndex)?.title || '';
+  $: officerPosition =
+    getPositionByTermIndex(info, $termIndex)
+      ?.map((p) => p.title)
+      .join(', ') ?? '';
 
-  $: [teamName, { class: teamClass, color: teamColor }] = Object.entries<{
-    class: string;
-    color: string;
-  }>(COLORS).find(([candidateTeamName]) => officerPosition.startsWith(candidateTeamName)) || [
-    null,
-    { class: COLORS.General.class, color: COLORS.General.color },
-  ];
+  $: titleHTML = Object.values(TEAMS).reduce((s, t) => {
+    if (t.id === 'dev' && team?.id === 'gamedev') {
+      return s;
+    }
 
-  $: titleHTML = teamName
-    ? officerPosition.replace(teamName, `<b class="${teamClass}">${teamName}</b>`)
-    : officerPosition;
+    return s.replace(t.title, `<a style="color:${t.color}" href="#${t.id}">${t.title}</a>`);
+  }, officerPosition);
 
   function copyDiscord() {
     copy(
       officerSocials.discord || '',
       `Copied ${officerName}'s Discord tag to clipboard!`,
-      'Error occured while copy Discord tag to clipboard.'
+      'Error occurred while copy Discord tag to clipboard.'
     );
   }
 
@@ -73,12 +73,16 @@
   class="officer-container"
   class:officer-has-socials={info.socials !== undefined}
   class:has-buggy-animations={hasBuggyAnimations}
-  style:--accent="rgb({teamColor})"
+  style:--accent={team?.color ?? 'var(--acm-blue)'}
 >
   <input type="checkbox" id="{officerID}-flipcard" />
   <div class="officer-3d-flipcard">
     <div class="officer-flipcard">
-      <BoardMember {alt} src={`/assets/authors/${officerPicture}`} color={teamColor} />
+      <BoardMember
+        {alt}
+        src={`/assets/authors/${officerPicture}`}
+        color={team?.color ?? 'var(--acm-blue)'}
+      />
       <div class="officer-socials-box">
         <div class="officer-socials">
           <h3>Socials</h3>
@@ -210,12 +214,6 @@
 
     .officer-placard {
       padding-bottom: 4px;
-      border-bottom: 2px solid transparent;
-    }
-
-    &:hover .officer-placard,
-    input:checked[type='checkbox'] ~ .officer-placard {
-      border-bottom: 2px solid var(--accent);
     }
   }
 
