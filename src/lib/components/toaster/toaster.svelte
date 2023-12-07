@@ -24,7 +24,7 @@
       out:fly|global={{ y: -20 }}
       style:--highlights={`var(${toastHighlightStyle(toastItem)})`}
     >
-      <img src="/assets/acm-shark.png" alt="acmCSUF Mascot: Frank the Shark" />
+      <img src="/assets/capy-lucky.png" alt="acmCSUF Mascot: Chip the Capybara" />
       <p>{@html toastItem.content}</p>
     </div>
   {/each}

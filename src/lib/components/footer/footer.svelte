@@ -6,7 +6,7 @@
     { title: 'Source Code', path: '/code' },
     { title: 'Report a Bug', path: '/bug' },
     { title: 'COVID-19 Policy', path: '/covid-19' },
-    { title: 'frankBot Privacy', path: '/privacy' },
+    { title: 'Privacy Policy', path: '/privacy' },
   ];
 
   const socials = ['/discord', '/instagram', '/youtube', '/linkedin'];
