@@ -59,7 +59,7 @@
     "id": "icpc",
     "title": "ICPC",
     "description": "ICPC team member.",
-    "logoSrc": "/assets/badges/icpc-badge.svg",
+    "logoSrc": "/assets/badges/logo/icpc-logo.svg",
     "color": "var(--acm-orange)",
     "tiers": []
   },

@@ -21,6 +21,7 @@
       class:ai-animation={info.id === 'ai'}
       class:oss-animation={info.id === 'oss'}
       class:nodebuds-animation={info.id === 'nodebuds'}
+      class:icpc-animation={info.id === 'icpc'}
     >
       {#if info.id === 'general'}
         <DiamondPicture
@@ -71,18 +72,19 @@
   }
 
   .marketing-animation img {
-    animation-duration: 1s;
-    animation-name: pop-up;
-    animation-iteration-count: 1;
-    animation-direction: normal;
+    animation-duration: 2s;
+    animation-name: portrait-rotate;
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
   }
 
-  @keyframes pop-up {
+  @keyframes portrait-rotate {
     from {
-      transform: translateX(110vh);
+      transform: rotate(0);
     }
     to {
-      transform: translateX(0);
+      transform: rotate(-90deg);
     }
   }
 
@@ -116,6 +118,23 @@
     }
     to {
       transform: rotateX(-360deg);
+    }
+  }
+
+  .icpc-animation img {
+    animation-duration: 3s;
+    animation-timing-function: cubic-bezier(0.425, 0.145, 0.515, 0.955);
+    animation-name: rotate;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(-360deg);
     }
   }
 
