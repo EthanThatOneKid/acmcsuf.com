@@ -8,7 +8,7 @@
 <article>
   <Spacing --min="16px" --med="16px" --max="16px" />
 
-  <img src={data.user.picture} alt={`${data.user.name}'s picture`} />
+  <img src={data.user.picture} alt={`${data.user.name}'s picture`} class="profile-picture" />
 
   <Spacing --min="16px" --med="16px" --max="16px" />
 
@@ -121,6 +121,25 @@
   </details>
 
   <Spacing --min="40px" --med="40px" --max="40px" />
+
+  <p class="toplevel-text award-text">
+    Awarded to <a
+      class="username"
+      href={`https://github.com/${data.user.login}`}
+      target="_blank"
+      rel="noopener noreferrer">{data.user.name}</a
+    >
+    for contributing to our internal open source software organization.
+    <br /><br />Recognized with 💖 by
+    <a href="https://oss.acmcsuf.com/" target="_blank" rel="noopener noreferrer"
+      >ACM at CSUF's Open Source Software Team</a
+    >!
+
+    <img
+      src="/assets/badges/logo/oss-logo.svg"
+      alt="ACM at CSUF's Open Source Software Team logo"
+    />
+  </p>
 </article>
 
 <style lang="scss">
@@ -171,6 +190,10 @@
 
         color: var(--acm-blue);
       }
+    }
+
+    .award-text {
+      text-align: center;
     }
   }
 
@@ -233,7 +256,7 @@
     }
   }
 
-  img {
+  .profile-picture {
     height: 100%;
     width: 12em;
     border-radius: 50%;
