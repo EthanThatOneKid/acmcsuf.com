@@ -33,7 +33,7 @@ export const TEAMS: Record<Exclude<TeamMatch, TeamMatch.TEAMLESS>, TeamReport> =
         link: 'https://svelte.dev/tutorial/basics',
       },
     ],
-    workshopPictures: ['/assets/quiz/dev-workshop.jpg'],
+    workshopPictures: ['/assets/dev-workshop.jpg'],
   },
   [TeamMatch.DESIGN]: {
     picture: './assets/badges/design-badge.svg',
@@ -60,7 +60,7 @@ export const TEAMS: Record<Exclude<TeamMatch, TeamMatch.TEAMLESS>, TeamReport> =
         link: 'https://developer.mozilla.org/en-US/',
       },
     ],
-    workshopPictures: ['/assets/quiz/design-workshop.jpg', '/assets/quiz/figma-collage.png'],
+    workshopPictures: ['/assets/design-workshop.jpg', '/assets/quiz/figma-collage.png'],
   },
   [TeamMatch.ALGO]: {
     picture: './assets/badges/algo-badge.svg',
@@ -70,6 +70,6 @@ export const TEAMS: Record<Exclude<TeamMatch, TeamMatch.TEAMLESS>, TeamReport> =
     blurbRecommend:
       'Attending our events is half the battle, practice is what takes it to the next level. We recommend practicing on LeetCode and getting a good grip on the famous "The Grind 75" questions.',
     recommendations: [],
-    workshopPictures: ['/assets/quiz/algo-workshop.jpg'],
+    workshopPictures: ['/assets/algo-workshop.jpg'],
   },
 };
