@@ -29,7 +29,7 @@
       </div>
       <!--Dev Header-->
       <div class="hero-inner-container">
-        <img src="/assets/badges/dev-badge.svg" alt="Dev Team Badge" />
+        <img src="/assets/dev-logo.svg" alt="Dev Team Badge" />
         <div class="size-md brand-med hero-text">
           <span><span class="acm-bluer">Develop</span> semester long projects to show your mom</span
           >
