@@ -52,9 +52,7 @@
         <img src="/assets/ai-logo.svg" alt="AI Team Badge" />
         <div class="size-md brand-med hero-text">
           <span
-            >Expose yourself to the new world of <span class="acm-emerald"
-              >Artificial Intelligence</span
-            ></span
+            >Dive into the world of <span class="acm-emerald">Artificial Intelligence</span></span
           >
         </div>
       </div>
