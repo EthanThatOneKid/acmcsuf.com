@@ -71,7 +71,7 @@ test('makePRsQuery', () => {
   expect(query).toEqual(`{
   search(
     type: ISSUE
-    query: "repo:OWNER/REPO_NAME is:pr is:closed is:public archived:false base:main author:USERNAME sort:created-asc merged:2021-01-01T00:00:00Z..2022-01-01T00:00:00Z"
+    query: "repo:OWNER/REPO_NAME is:pr is:public base:main author:USERNAME sort:created-asc merged:2021-01-01T00:00:00Z..2022-01-01T00:00:00Z"
     first: 25
   ) {
     pageInfo {

@@ -1,6 +1,6 @@
 <section class="desc-container">
   <div class="desc-inner-container">
-    <img src="/assets/png/chip-holding-laptop.png" alt="Chip the Capybara holding a laptop" />
+    <img src="/assets/chip-holding-laptop.png" alt="Chip the Capybara holding a laptop" />
     <div class="desc-text">
       <h1 class="brand-header size-xl">Bringing you the true Computer Science Experience</h1>
       <p>
@@ -57,11 +57,12 @@
 
     section .desc-inner-container .desc-text {
       text-align: start;
+      margin: 3%;
     }
 
     section .desc-inner-container .desc-text p {
       font-size: var(--size-lg);
-      margin: 0;
+      margin: 3%;
     }
   }
 </style>

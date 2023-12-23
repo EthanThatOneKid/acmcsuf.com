@@ -3,23 +3,22 @@
   import { MetaTags } from 'svelte-meta-tags';
   import { page } from '$app/stores';
   import Spacing from '$lib/public/legacy/spacing.svelte';
-  import ReleaseCertificate from './release-certificate.svelte';
+  import RepositoryCertificate from './repository-certificate.svelte';
 
   export let data: PageData;
 
-  const pageTitle = `${data.certificate.to.tagName} acmcsuf.com contributions | ${data.certificate.user.name}`;
+  const pageTitle = `acmcsufoss/${data.certificate.repositoryName} contributions | ${data.certificate.user.name}`;
 
   function makeDescription(cert: PageData['certificate']): string {
-    const { user, to, merged } = cert;
+    const { user, merged } = cert;
     const { name, login } = user;
-    const { tagName } = to;
 
     const contributions =
       merged.length > 0
         ? `made ${merged.length} contribution${merged.length !== 1 ? 's' : ''}`
         : 'did not make a contribution';
 
-    return `${name} (${login}) ${contributions} in the ${tagName} release!`;
+    return `${name} (${login}) ${contributions} in the acmcsufoss/${data.certificate.repositoryName} repository!`;
   }
 </script>
 
@@ -29,7 +28,7 @@
 
 <MetaTags
   openGraph={{
-    title: `${data.certificate.to.tagName} acmcsuf.com contributions | ${data.certificate.user.name}`,
+    title: pageTitle,
     description: makeDescription(data.certificate),
     images: [
       {
@@ -44,7 +43,7 @@
 
 <Spacing --min="100px" --med="120px" --max="125px" />
 
-<ReleaseCertificate data={data.certificate} />
+<RepositoryCertificate data={data.certificate} />
 
 <style>
   :global(main) {

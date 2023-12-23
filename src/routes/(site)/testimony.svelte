@@ -7,7 +7,7 @@
     <h1 class="brand-header size-xl">Hear what our community has to say</h1>
     <div class="testimony-text1">
       <div class="testimony-photo1">
-        <BoardPicture src="/assets/authors/placeholder.webp" color="var(acm-blue)" />
+        <BoardPicture src="/people/placeholder.webp" color="var(acm-blue)" />
       </div>
       <blockquote>
         <p>
@@ -20,7 +20,7 @@
 
     <div class="testimony-text2">
       <div class="testimony-photo2">
-        <BoardPicture src="/assets/authors/placeholder.webp" color="var(acm-blue)" />
+        <BoardPicture src="/people/placeholder.webp" color="var(acm-blue)" />
       </div>
       <blockquote>
         <p>
@@ -37,6 +37,7 @@
   section {
     display: grid;
   }
+
   section .testimony-inner-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -53,6 +54,7 @@
   .testimony-text2 {
     display: grid;
     align-items: center;
+    font-size: var(--size-md);
   }
 
   section .testimony-inner-container .testimony-text1 p {
@@ -120,7 +122,7 @@
       align-items: center;
       justify-self: left;
       margin: 2em;
-      margin-left: 7em;
+      margin-left: 8.5em;
     }
 
     section .testimony-inner-container .testimony-photo2 {
@@ -128,7 +130,7 @@
       align-items: center;
       justify-self: right;
       margin: 2em;
-      margin-right: 9em;
+      margin-right: 10.5em;
     }
   }
 </style>

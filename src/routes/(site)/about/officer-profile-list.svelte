@@ -1,11 +1,12 @@
 <script lang="ts">
   import Select from '$lib/components/select/select.svelte';
-  import type { Officer, Term } from '$lib/public/board/types';
+  import type { Position, Officer, Team, Term } from '$lib/public/board/types';
   import { OFFICERS_JSON } from '$lib/public/board/data';
   import { VISIBLE_TERMS } from '$lib/public/board/data/terms';
   import { termIndex, getTierByID } from '$lib/public/board/utils';
   import OfficerProfile from './officer-profile.svelte';
 
+  export let team: Team | undefined = undefined;
   export let placeholderPicture: string | undefined = undefined;
   export let filter: (officer: Officer) => boolean;
 
@@ -20,19 +21,59 @@
   }
 
   /**
+   * sortByTiers returns a sort function for `Officer`s that sorts by tiers.
    * @param termCode ex: `F21`, `S22`, etc.
-   * @returns sort function for `Officer`s
+   * @returns sort function for `Officer`s.
    */
-  function sortByTier(termCode: Term) {
-    return (a: Officer, b: Officer) => {
-      const aPos = a.positions[termCode];
-      const bPos = b.positions[termCode];
-      if (!aPos || !bPos) {
+  function sortByTiers(termCode: Term) {
+    function sortByTier(p1: Position, p2: Position) {
+      const p1Tier = getTierByID(p1.tier);
+      const p2Tier = getTierByID(p2.tier);
+      if (!p1Tier || !p2Tier) {
+        throw new Error(`a or b has no tier`);
+      }
+
+      return p1Tier.index - p2Tier.index;
+    }
+
+    return (o1: Officer, o2: Officer) => {
+      const o1Pos = [...(o1.positions[termCode] ?? [])].sort(sortByTier)?.[0];
+      const o2Pos = [...(o2.positions[termCode] ?? [])].sort(sortByTier)?.[0];
+      if (!o1Pos || !o2Pos) {
         throw new Error(`a or b has no position`);
       }
 
-      const aTier = getTierByID(aPos.tier);
-      const bTier = getTierByID(bPos.tier);
+      return sortByTier(o1Pos, o2Pos);
+    };
+  }
+
+  function sortByTierInTeam(termCode: Term, team: Team) {
+    return (a: Officer, b: Officer) => {
+      const aPositions = a.positions[termCode];
+      const bPositions = b.positions[termCode];
+      if (!aPositions || !bPositions) {
+        throw new Error(`a or b has no positions for ${termCode}`);
+      }
+
+      // Get the lowest tier officer position in the team.
+      const aTierID = team.tiers
+        ?.filter((tierID) => aPositions.findIndex((pos) => pos.tier === tierID) !== -1)
+        .sort((a2, b2) => a2 - b2)[0];
+      if (!aTierID) {
+        throw new Error(`a has no tier`);
+      }
+      const aTier = getTierByID(aTierID);
+
+      // Get the lowest tier officer position in the team.
+      const bTierID = team.tiers
+        ?.filter((tierID) => bPositions.findIndex((pos) => pos.tier === tierID) !== -1)
+        .sort((a2, b2) => a2 - b2)[0];
+      if (!bTierID) {
+        throw new Error(`b has no tier`);
+      }
+      const bTier = getTierByID(bTierID);
+
+      // Sort by tier.
       if (!aTier || !bTier) {
         throw new Error(`a or b has no tier`);
       }
@@ -46,13 +87,13 @@
   // handled outside of the component. Below, we are updating the
   // termIndex when the AcmSelect component's value changes.
   const formattedTerms = VISIBLE_TERMS.map(formatTerm);
-  let filteredOfficers: Officer[] = [];
   let currentFormattedTerm = formattedTerms[$termIndex];
+
   $: $termIndex = formattedTerms.indexOf(currentFormattedTerm);
-  termIndex.subscribe(
-    () =>
-      (filteredOfficers = OFFICERS_JSON.filter(filter).sort(sortByTier(VISIBLE_TERMS[$termIndex])))
-  );
+  $: filteredOfficers =
+    team !== undefined
+      ? OFFICERS_JSON.filter(filter).sort(sortByTierInTeam(VISIBLE_TERMS[$termIndex], team))
+      : OFFICERS_JSON.filter(filter).sort(sortByTiers(VISIBLE_TERMS[$termIndex]));
 </script>
 
 <section>
@@ -63,7 +104,7 @@
 
     <div class="officer-list">
       {#each filteredOfficers as officer ($termIndex + officer.fullName)}
-        <OfficerProfile info={officer} {placeholderPicture} />
+        <OfficerProfile info={officer} {team} {placeholderPicture} />
       {/each}
     </div>
   </div>
