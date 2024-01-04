@@ -5,14 +5,14 @@ main();
 
 async function main() {
   const filepath = './scripts/transform-genuary/in.json';
-  const data = JSON.parse(await fs.readFile(filepath));
+  const data = JSON.parse(await fs.readFile(filepath, 'utf-8'));
 
   const expectedFilepath = './scripts/transform-genuary/out.json';
-  const expectedData = await fs.readFile(expectedFilepath);
+  const expectedLog = await fs.readFile(expectedFilepath, 'utf-8');
 
   const media = getMediaFromPins(data, 2023);
   const outputLog = serializeMedia(media);
-  if (expectedData != outputLog) {
+  if (expectedLog !== outputLog) {
     console.log('We have a problem');
     process.exit(1);
   }
