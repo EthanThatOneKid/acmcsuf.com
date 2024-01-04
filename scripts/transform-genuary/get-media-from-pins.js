@@ -9,10 +9,16 @@ export function serializeMedia(mediaIn) {
 
 /**
  * @param {{pins: any;channel_names: {[x: string]: string;};}} data
+ * @param {number} year
  */
-export function getMediaFromPins(data) {
+export function getMediaFromPins(data, year) {
   const out = [];
   for (const pin of data.pins) {
+    const timestamp = new Date(pin.timestamp);
+    if (timestamp.getFullYear() !== year) {
+      continue;
+    }
+
     const validURLs = getURLs(pin.text, ALLOWED_MEDIA_DOMAINS);
     if (!pin.attachments && validURLs.length === 0) {
       continue;

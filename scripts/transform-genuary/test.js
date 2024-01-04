@@ -12,7 +12,7 @@ async function main() {
 
   const media = getMediaFromPins(data, 2023);
   const outputLog = serializeMedia(media);
-  if (expectedLog !== outputLog) {
+  if (expectedLog !== outputLog + '\n') {
     console.log('We have a problem');
     process.exit(1);
   }
