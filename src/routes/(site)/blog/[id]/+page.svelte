@@ -6,6 +6,7 @@
   import Labels from '$lib/components/blog/labels.svelte';
   import BlogBody from './blog-body.svelte';
   import { MetaTags } from 'svelte-meta-tags';
+  import { UTTERANCES_SCRIPT } from './utterances';
 
   export let data: PageData;
 </script>
@@ -79,15 +80,7 @@
     >
   </div>
 
-  <script
-    src="https://utteranc.es/client.js"
-    repo="acmcsufoss/acm-utterances"
-    issue-term="url"
-    label="utterances"
-    theme="preferred-color-scheme"
-    crossorigin="anonymous"
-    async
-  ></script>
+  {@html UTTERANCES_SCRIPT}
 
   <Spacing />
 </section>
