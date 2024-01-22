@@ -1,6 +1,6 @@
 <section>
   <div class="container">
-    <img src="assets/jpg/group-photo.jpeg" alt="ACM family" />
+    <img src="assets/group-photo.jpeg" alt="ACM family" />
 
     <div class="text">
       <h1 class="size-lg brand-header">About us</h1>

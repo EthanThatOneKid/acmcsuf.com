@@ -20,7 +20,7 @@
     <div class="team-row1-container">
       <!--Algo Header-->
       <div class="hero-inner-container">
-        <img src="/assets/badges/algo-badge.svg" alt="Algo Team Badge" />
+        <img src="/assets/algo-logo.svg" alt="Algo Team Badge" />
         <div class="size-md brand-med hero-text">
           <span
             >Refine your knowledge of <span class="acm-purple">Algorithms</span> used for FAANG interviews</span
@@ -29,7 +29,7 @@
       </div>
       <!--Dev Header-->
       <div class="hero-inner-container">
-        <img src="/assets/badges/dev-badge.svg" alt="Dev Team Badge" />
+        <img src="/assets/dev-logo.svg" alt="Dev Team Badge" />
         <div class="size-md brand-med hero-text">
           <span><span class="acm-bluer">Develop</span> semester long projects to show your mom</span
           >
@@ -37,7 +37,7 @@
       </div>
       <!--Design Header-->
       <div class="hero-inner-container">
-        <img src="/assets/badges/design-badge.svg" alt="Design Team Badge" />
+        <img src="/assets/design-logo.svg" alt="Design Team Badge" />
         <div class="size-md brand-med hero-text">
           <span
             >Learn to <span class="acm-pink">Design</span> UI/UX and web development material</span
@@ -49,18 +49,16 @@
     <div class="team-row2-container">
       <!--AI Header-->
       <div class="hero-inner-container">
-        <img src="/assets/badges/ai-badge.svg" alt="AI Team Badge" />
+        <img src="/assets/ai-logo.svg" alt="AI Team Badge" />
         <div class="size-md brand-med hero-text">
           <span
-            >Expose yourself to the new world of <span class="acm-emerald"
-              >Artificial Intelligence</span
-            ></span
+            >Dive into the world of <span class="acm-emerald">Artificial Intelligence</span></span
           >
         </div>
       </div>
       <!-- Game Dev -->
       <div class="hero-inner-container">
-        <img src="/assets/badges/gamedev-badge.svg" alt="Game Dev Team Badge" />
+        <img src="/assets/gamedev-logo.svg" alt="Game Dev Team Badge" />
         <div class="size-md brand-med hero-text">
           <span
             >Level up your game development skills at the <span class="acm-red">Game Dev</span> hub</span

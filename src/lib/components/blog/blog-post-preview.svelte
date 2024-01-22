@@ -36,7 +36,7 @@
           );
         }}
       >
-        <BwIcon src="/assets/svg/copy-link.svg" alt="copy link" />
+        <BwIcon src="/assets/copy-link.svg" alt="copy link" />
       </button>
     </div>
     <a href={makeBlogPostPageURL(post.id)}>

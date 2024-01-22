@@ -36,16 +36,24 @@ export function getMembers(members: Officer[], term: Term, tierIDs?: number[]): 
 
   return members
     .filter((member) => {
-      const position = member.positions[term];
-      if (!position) {
+      const positions = member.positions[term];
+      if (!positions) {
         return false;
       }
 
-      return tierIDs.some((tierID) => tierID === position.tier);
+      return tierIDs.some((tierID) => positions.some((position) => position.tier === tierID));
     })
     .sort((a, b) => {
-      const aTier = getTierByID(a.positions[term]!.tier)!;
-      const bTier = getTierByID(b.positions[term]!.tier)!;
+      const aTier = getTierByID(
+        Math.min(
+          ...a.positions[term]!.map(({ tier }) => tier).filter((tier) => tierIDs.includes(tier))
+        )
+      ) || { index: 0 };
+      const bTier = getTierByID(
+        Math.min(
+          ...b.positions[term]!.map(({ tier }) => tier).filter((tier) => tierIDs.includes(tier))
+        )
+      ) || { index: 0 };
       return aTier.index - bTier.index;
     });
 }

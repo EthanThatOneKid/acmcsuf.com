@@ -108,13 +108,13 @@
         class:disable-arrow={index === 0}
         class="arrow"
       >
-        <BwIcon src="/assets/svg/arrow-left.svg" alt="left arrow" /></button
+        <BwIcon src="/assets/arrow-left.svg" alt="left arrow" /></button
       >
       <button
         on:click={goRight}
         disabled={index === data.questions.length - 1 || !(responses ?? [])[index]}
         class:disable-arrow={index === data.questions.length - 1 || !(responses ?? [])[index]}
-        class="arrow"><BwIcon src="/assets/svg/arrow-right.svg" alt="right arrow" /></button
+        class="arrow"><BwIcon src="/assets/arrow-right.svg" alt="right arrow" /></button
       >
     </div>
     <button
@@ -128,7 +128,7 @@
   {:else if showMoreInfo}
     <MoreInfo {...showTeam} />
     <button on:click={goBackToResults} class="arrow return-to-results"
-      ><BwIcon src="/assets/svg/arrow-right.svg" alt="right arrow" />
+      ><BwIcon src="/assets/arrow-right.svg" alt="right arrow" />
       <h3>Check out other teams</h3></button
     >
     <!-- DISPLAY THE RESULTS -->
