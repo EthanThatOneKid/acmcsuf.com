@@ -26,9 +26,9 @@
 
 <Spacing --min="120px" --med="175px" --max="200px" />
 
-<Testimony />
+<!-- <Testimony /> -->
 
-<Spacing --min="120px" --med="175px" --max="200px" />
+<!-- <Spacing --min="120px" --med="175px" --max="200px" /> -->
 
 <Lucky />
 
