@@ -3,7 +3,6 @@
   import Hero from './hero.svelte';
   import Desc from './desc.svelte';
   import Teams from './teams.svelte';
-  import Testimony from './testimony.svelte';
   import Lucky from './lucky.svelte';
   import Blog from './blog.svelte';
 </script>
