@@ -3,7 +3,6 @@
   import Hero from './hero.svelte';
   import Desc from './desc.svelte';
   import Teams from './teams.svelte';
-  import Testimony from './testimony.svelte';
   import Lucky from './lucky.svelte';
   import Blog from './blog.svelte';
 </script>
@@ -26,9 +25,9 @@
 
 <Spacing --min="120px" --med="175px" --max="200px" />
 
-<Testimony />
+<!-- <Testimony /> -->
 
-<Spacing --min="120px" --med="175px" --max="200px" />
+<!-- <Spacing --min="120px" --med="175px" --max="200px" /> -->
 
 <Lucky />
 
