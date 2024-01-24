@@ -148,7 +148,7 @@
       grid-template-columns: 1fr 1fr;
       align-items: baseline;
       justify-content: center;
-      width: 70%;
+      width: 70ch;
       gap: 2em;
     }
   }
