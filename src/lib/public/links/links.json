@@ -39,7 +39,7 @@
   "roadmap": "https://github.com/users/EthanThatOneKid/projects/6",
   "joblist": "/roadmap/views/10",
   "s23apply": "https://docs.google.com/forms/d/e/1FAIpQLScHHxO_LYHSyZvHozxuaSlhjY4WKU-lVsInm_cl_U88-6tbMQ/viewform",
-  "linux": "https://docs.google.com/presentation/d/12Pmlsdx3PDfbJgn84JnknfE1Nxo_VgFSC9giBoJ2MRo/edit#slide=id.g15380c8c95a_0_5",
+  "linux": "https://docs.google.com/presentation/d/1fPVDG3JmXMUYqmrS3hMPi8sIwUYzfJYbjbX0gt39h2w/edit?usp=sharing",
   "a11y": "https://forms.gle/jGsCqPjbMYvc6kwcA",
   "locations-schedule": "https://calendar.google.com/calendar/u/0?cid=NjQ1YWM4YzJhMjUwNmU4YzlkYWNlNDFlMjVjZjZkZDM1NTJhYmYyMDg4ODIzMDA0MmIxNzJhNWYzZGI5MTQ5OUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t",
   "oss-schedule": "https://calendar.google.com/calendar/u/0?cid=NmVjNDI0NGQ5Njk4NzM5MDIwYWFjZmMzNmI4NGI4ODYwNWM4MDVlYTQ2MDhiYTdmOTRiYzkwNWE3M2IxNmYyNkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t",
@@ -150,5 +150,9 @@
   "oss-meeting-finale": "https://docs.google.com/presentation/d/1zqNdkPfcbh0FpDnN5TA-Wa1Rc2u_D3XHLs8YUKk3GS8/edit",
   "oss-board-apps": "https://forms.gle/LYmNo9dRSrEGaJ1a9",
   "best-video-ever": "https://youtu.be/GyU0s2McDgw",
-  "student-resources": "https://docs.google.com/presentation/d/1Zik--si-yZu73qM2KYsz42cpMsO8fnfXQfq-ziOWU3Y/edit?usp=sharing"
+  "student-resources": "https://docs.google.com/presentation/d/1Zik--si-yZu73qM2KYsz42cpMsO8fnfXQfq-ziOWU3Y/edit?usp=sharing",
+  "fh2024-dashboard": "https://charts.mongodb.com/charts-fullyhack2024-pzfzo/public/dashboards/65a1f464-7693-4e3e-84be-d2a3e40ac139",
+  "linuxfest-flash-talk-form": "https://docs.google.com/forms/d/e/1FAIpQLScQkrFIp9cqQ3fbGtpJ_Ud34xLLY6srY6Y-kIjyo9d1j7bcSQ/viewform?usp=sf_link",
+  "flash-talk": "/linuxfest-flash-talk-form",
+  "linux-intro": "https://docs.google.com/presentation/d/1tKfr4sZMQAFSKblo47f2KZoLszl89rUOtOfzt7VSW8I/edit?usp=sharing"
 }

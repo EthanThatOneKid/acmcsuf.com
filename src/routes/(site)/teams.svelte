@@ -121,10 +121,21 @@
     }
 
     section .hero-inner-container {
+      grid-template-columns: 1fr;
       gap: 2em;
       margin: 1em;
     }
 
+    section .hero-inner-container .hero-text {
+      text-align: start;
+    }
+
+    section .hero-inner-container .hero-text .discover-button {
+      justify-self: center;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
     section .hero-inner-container .team-row1-container {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -137,16 +148,8 @@
       grid-template-columns: 1fr 1fr;
       align-items: baseline;
       justify-content: center;
-      width: 70%;
+      width: 70ch;
       gap: 2em;
-    }
-
-    section .hero-inner-container .hero-text {
-      text-align: start;
-    }
-
-    section .hero-inner-container .hero-text .discover-button {
-      justify-self: center;
     }
   }
 </style>
