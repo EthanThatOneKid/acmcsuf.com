@@ -19,7 +19,7 @@
 <Block align={TextAlignment.LEFT}>
   <h1 slot="headline" class="size-lg">Genuary {year}</h1>
   <p slot="text" class="size-sm">
-    Our chapter members' take on the Genuary challenge.
+    Our chapter members' take on the <a href="https://genuary.art/">Genuary challenge</a>.
     <br />
     <br />
     <span class="brand-italic">
