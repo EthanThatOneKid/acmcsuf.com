@@ -5,4 +5,4 @@
   export let data: PageData;
 </script>
 
-<GenuaryPage data={data.pieces} year="2023" />
+<GenuaryPage data={data.pieces} year="2024" />
