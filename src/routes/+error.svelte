@@ -3,6 +3,7 @@
   import Button from '$lib/components/button/button.svelte';
   import Bar from '$lib/components/nav/bar.svelte';
   import Footer from '$lib/components/footer/footer.svelte';
+  import ErrorGame from '$lib/components/ErrorGame';
 </script>
 
 <Bar />
@@ -11,19 +12,8 @@
   <title>ACM at CSUF / {$page.status || 404}</title>
 </svelte:head>
 
-<section title={$page.error?.message}>
-  <div class="container">
-    <div class="content-container">
-      <div class="text-container">
-        <h1>404</h1>
-        <h2>Can't find where you're going?</h2>
-        <h2 class="gap">Head home!</h2>
-        <Button text={'Return to Home'} link={'/'} />
-      </div>
-      <img src="/assets/capy-meme.svg" alt="404 - Page Not Found" />
-    </div>
-  </div>
-</section>
+<ErrorGame />
+<!-- To do: Convert Error Game into svelte component -->
 
 <Footer />
 
