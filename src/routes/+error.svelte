@@ -5,11 +5,11 @@
   import Footer from '$lib/components/footer/footer.svelte';
 </script>
 
-<Bar />
-
 <svelte:head>
   <title>ACM at CSUF / {$page.status || 404}</title>
 </svelte:head>
+
+<Bar />
 
 <section title={$page.error?.message}>
   <div class="container">

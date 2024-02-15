@@ -22,6 +22,10 @@
       checkbox.checked = false;
     }
   }
+
+  function handleThemeToggle(event: CustomEvent<boolean>) {
+    theme.set(event.detail ? AcmTheme.Dark : AcmTheme.Light);
+  }
 </script>
 
 <nav>
