@@ -176,7 +176,10 @@
     "fullName": "Esteban Escartin",
     "picture": "esteban-escartin.webp",
     "socials": { "github": "PillowGit", "discord": "pillo." },
-    "positions": { "F23": [{ "title": "Algo Officer", "tier": 12 }] }
+    "positions": { 
+      "F23": [{ "title": "Algo Officer", "tier": 12 }],
+      "S24": [{ "title": "Algo Officer", "tier": 12 }]
+     }
   },
   {
     "fullName": "Nicholas Girmes",
@@ -197,7 +200,10 @@
       "discord": "nategries",
       "linkedin": "nathanel-gries-b3780b261"
     },
-    "positions": { "F23": [{ "title": "Algo Officer", "tier": 12 }] }
+    "positions": { 
+      "F23": [{ "title": "Algo Officer", "tier": 12 }],
+      "S24": [{ "title": "Algo Officer", "tier": 12 }]
+     }
   },
   {
     "fullName": "Nurhaliza Hassan",
@@ -242,7 +248,8 @@
       "S22": [{ "title": "Dev Officer", "tier": 19 }],
       "F22": [{ "title": "Algo Officer", "tier": 12 }],
       "S23": [{ "title": "Algo Officer", "tier": 12 }],
-      "F23": [{ "title": "Algo Team Lead", "tier": 11 }]
+      "F23": [{ "title": "Algo Team Lead", "tier": 11 }],
+      "S24": [{ "title": "Algo Team Lead", "tier": 11 }]
     }
   },
   {
@@ -656,7 +663,10 @@
     "fullName": "Patrick Smith",
     "picture": "patrick-smith.webp",
     "socials": { "github": "thisguyblink", "discord": "pattyrick1" },
-    "positions": { "F23": [{ "title": "Algo Officer", "tier": 12 }] }
+    "positions": { 
+      "F23": [{ "title": "Algo Officer", "tier": 12 }], 
+      "S24": [{ "title": "Algo Officer", "tier": 12 }]
+    }
   },
   {
     "fullName": "David Solano",
@@ -669,8 +679,8 @@
     },
     "positions": {
       "S23": [{ "title": "Algo Officer", "tier": 12 }],
-      "F23": [{ "title": "President", "tier": 0 }],
-      "S24": [{ "title": "President", "tier": 0 }]
+      "F23": [{ "title": "President, Algo Officer", "tier": 0 }],
+      "S24": [{ "title": "President, Algo Officer", "tier": 0 }]
     }
   },
   {
@@ -801,7 +811,8 @@
     "socials": { "discord": "cyrily" },
     "positions": {
       "S23": [{ "title": "Algo Officer", "tier": 12 }],
-      "F23": [{ "title": "Algo Officer", "tier": 12 }]
+      "F23": [{ "title": "Algo Officer", "tier": 12 }],
+      "S24": [{ "title": "Algo Officer", "tier": 12 }]
     }
   },
   {
