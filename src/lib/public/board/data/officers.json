@@ -303,7 +303,10 @@
     "fullName": "Yulie Ledesma",
     "picture": "yulie-ledesma.webp",
     "socials": { "discord": "vroyuh" },
-    "positions": { "F23": [{ "title": "Design Officer", "tier": 16 }] }
+    "positions": { 
+      "F23": [{ "title": "Design Officer", "tier": 16 }],
+      "S24": [{ "title": "Design Officer", "tier": 16 }]
+     }
   },
   {
     "fullName": "Minh Le",
@@ -343,7 +346,8 @@
     },
     "positions": {
       "S23": [{ "title": "Dev Officer", "tier": 19 }],
-      "F23": [{ "title": "Algo Officer", "tier": 12 }]
+      "F23": [{ "title": "Algo Officer", "tier": 12 }],
+      "S24": [{ "title": "Design Team Lead", "tier": 13 }]
     }
   },
   {
@@ -440,7 +444,8 @@
     },
     "positions": {
       "S23": [{ "title": "Design Officer", "tier": 16 }],
-      "F23": [{ "title": "Design Officer", "tier": 16 }]
+      "F23": [{ "title": "Design Officer", "tier": 16 }],
+      "S24": [{ "title": "Design Officer", "tier": 16 }]
     }
   },
   {
