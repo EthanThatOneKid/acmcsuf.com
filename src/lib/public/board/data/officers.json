@@ -306,7 +306,8 @@
     "socials": { "discord": "leauxgan" },
     "positions": {
       "S23": [{ "title": "Game Dev Officer", "tier": 23 }],
-      "F23": [{ "title": "Game Dev Team Lead", "tier": 22 }]
+      "F23": [{ "title": "Game Dev Team Lead", "tier": 22 }],
+      "S24": [{ "title": "Game Dev Team Lead", "tier": 22 }]
     }
   },
   {
