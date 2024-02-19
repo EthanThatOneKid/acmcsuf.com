@@ -370,7 +370,9 @@
     "fullName": "Eric Ly",
     "picture": "eric-ly.webp",
     "socials": { "github": "lyeric2022", "discord": "lyyeric", "linkedin": "lyyeric" },
-    "positions": { "F23": [{ "title": "Treasurer", "tier": 4 }] }
+    "positions": { "F23": [{ "title": "Treasurer", "tier": 4 }],
+      "S24": [{ "title": "Treasurer", "tier": 4 }]
+    }
   },
   {
     "fullName": "Shaleen Mathur",
@@ -667,7 +669,8 @@
     },
     "positions": {
       "S23": [{ "title": "Algo Officer", "tier": 12 }],
-      "F23": [{ "title": "President", "tier": 0 }]
+      "F23": [{ "title": "President", "tier": 0 }],
+      "S24": [{ "title": "President", "tier": 0 }]
     }
   },
   {
@@ -729,7 +732,8 @@
       "S22": [{ "title": "Dev Project Manager", "tier": 18 }],
       "F22": [{ "title": "Dev Project Manager", "tier": 18 }],
       "S23": [{ "title": "Dev Project Manager", "tier": 18 }],
-      "F23": [{ "title": "Vice President", "tier": 1 }]
+      "F23": [{ "title": "Vice President", "tier": 1 }],
+      "S24": [{ "title": "Vice President", "tier": 1 }]
     }
   },
   {
@@ -778,7 +782,9 @@
     "fullName": "Kyle Whynott",
     "picture": "placeholder.webp",
     "socials": { "github": "Kynot54", "discord": "_kylew", "linkedin": "kyle-whynott" },
-    "positions": { "F23": [{ "title": "Secretary", "tier": 5 }] }
+    "positions": { "F23": [{ "title": "Secretary", "tier": 5 }],
+      "S24": [{ "title": "Secretary", "tier": 5 }]
+    }
   },
   {
     "fullName": "Jason Wong",
