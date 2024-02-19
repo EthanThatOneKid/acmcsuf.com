@@ -43,7 +43,10 @@
     "fullName": "Boushra Bettir",
     "picture": "boushra-bettir.webp",
     "socials": { "github": "boushrabettir", "discord": "bruvshra" },
-    "positions": { "F23": [{ "title": "Dev Officer", "tier": 19 }] }
+    "positions": { 
+      "F23": [{ "title": "Dev Officer", "tier": 19 }],
+      "S24": [{ "title": "Dev Officer", "tier": 19 }]
+     }
   },
   {
     "fullName": "Dane Camacho",
@@ -83,6 +86,10 @@
     "positions": {
       "S23": [{ "title": "Dev Officer", "tier": 19 }],
       "F23": [
+        { "title": "Dev Officer", "tier": 19 },
+        { "title": "Open Source Software Officer", "tier": 33 }
+      ],
+      "S24": [
         { "title": "Dev Officer", "tier": 19 },
         { "title": "Open Source Software Officer", "tier": 33 }
       ]
@@ -169,7 +176,8 @@
       "S22": [{ "title": "Dev Project Manager", "tier": 18 }],
       "F22": [{ "title": "Special Events Officer", "tier": 25 }],
       "S23": [{ "title": "Special Events Officer", "tier": 25 }],
-      "F23": [{ "title": "Dev Team Lead", "tier": 17 }]
+      "F23": [{ "title": "Dev Team Lead", "tier": 17 }],
+      "S24": [{ "title": "Dev Team Lead", "tier": 17 }]
     }
   },
   {
@@ -256,7 +264,10 @@
     "fullName": "James Kim",
     "picture": "james-kim.webp",
     "socials": { "discord": ".jameskim" },
-    "positions": { "F23": [{ "title": "Dev Officer", "tier": 19 }] }
+    "positions": { 
+      "F23": [{ "title": "Dev Officer", "tier": 19 }],
+      "S24": [{ "title": "Dev Officer", "tier": 19 }]
+     }
   },
   {
     "fullName": "Ashley Kuewa",
@@ -525,7 +536,10 @@
     "fullName": "Amy Parker",
     "picture": "amy-parker.webp",
     "socials": { "github": "amyipdev", "discord": "amyipdev", "linkedin": "amyiris" },
-    "positions": { "F23": [{ "title": "Dev Officer", "tier": 19 }] }
+    "positions": { 
+      "F23": [{ "title": "Dev Officer", "tier": 19 }],
+      "S24": [{ "title": "Dev Officer", "tier": 19 }]
+     }
   },
   {
     "fullName": "Mike Ploythai",
@@ -581,7 +595,10 @@
     "fullName": "Joel Rico",
     "picture": "placeholder.webp",
     "socials": { "github": "jjoeldaniel", "discord": "jjoeldaniel", "linkedin": "joeldanielrico" },
-    "positions": { "F23": [{ "title": "AI Officer", "tier": 21 }] }
+    "positions": { 
+      "F23": [{ "title": "AI Officer", "tier": 21 }],
+      "S24": [{ "title": "Dev Officer", "tier": 19 }]
+     }
   },
   {
     "fullName": "Max Rivas",
