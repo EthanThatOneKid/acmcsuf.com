@@ -77,7 +77,10 @@
       "linkedin": "ashley-chan12",
       "instagram": "ashleychan_"
     },
-    "positions": { "F23": [{ "title": "AI Officer", "tier": 21 }] }
+    "positions": { 
+      "F23": [{ "title": "AI Officer", "tier": 21 }],
+      "S24": [{ "title": "Marketing Officer", "tier": 9 }]
+     }
   },
   {
     "fullName": "Oscar Cisneros",
@@ -131,7 +134,10 @@
     "fullName": "Abel Daniel",
     "picture": "placeholder.webp",
     "socials": { "github": "abledaniel", "discord": "stable#2099" },
-    "positions": { "F23": [{ "title": "Marketing Officer", "tier": 9 }] }
+    "positions": { 
+      "F23": [{ "title": "Marketing Officer", "tier": 9 }],
+      "S24": [{ "title": "Marketing Officer", "tier": 9 }]
+    }
   },
   {
     "fullName": "Ethan Davidson",
@@ -308,7 +314,10 @@
     "fullName": "Matthew Lau",
     "picture": "matthew-lau.webp",
     "socials": { "discord": ".cheesee." },
-    "positions": { "F23": [{ "title": "Marketing Officer", "tier": 9 }] }
+    "positions": { 
+      "F23": [{ "title": "Marketing Officer", "tier": 9 }],
+      "S24": [{ "title": "Marketing Officer", "tier": 9 }]
+     }
   },
   {
     "fullName": "Yulie Ledesma",
@@ -364,7 +373,10 @@
   {
     "fullName": "Nolan Lee",
     "picture": "nolan-lee.webp",
-    "positions": { "S22": [{ "title": "Historian", "tier": 7 }] }
+    "positions": { 
+      "S22": [{ "title": "Historian", "tier": 7 }],
+      "S24": [{ "title": "Marketing Officer", "tier": 9 }]
+     }
   },
   {
     "fullName": "Aaron Lieberman",
@@ -433,7 +445,8 @@
     "socials": { "github": "brian-250", "discord": "BrianMilian#9698", "linkedin": "brian-milian" },
     "positions": {
       "S23": [{ "title": "Marketing Officer", "tier": 9 }],
-      "F23": [{ "title": "Marketing Team Lead", "tier": 8 }]
+      "F23": [{ "title": "Marketing Team Lead", "tier": 8 }],
+      "S24": [{ "title": "Marketing Team Lead", "tier": 8 }]
     }
   },
   {
@@ -530,7 +543,10 @@
     "fullName": "Oyinkansola Olayinka",
     "picture": "oyinkansola-olayinka.webp",
     "socials": { "github": "olasores", "discord": "yuh1426", "linkedin": "oyinkansola-olayinka" },
-    "positions": { "F23": [{ "title": "Marketing Officer", "tier": 9 }] }
+    "positions": { 
+      "F23": [{ "title": "Marketing Officer", "tier": 9 }],
+      "S24": [{ "title": "Marketing Officer", "tier": 9 }]
+     }
   },
   {
     "fullName": "Amy Parker",
@@ -604,7 +620,10 @@
     "fullName": "Max Rivas",
     "picture": "placeholder.webp",
     "socials": { "discord": "meexy23" },
-    "positions": { "F23": [{ "title": "Marketing Officer", "tier": 9 }] }
+    "positions": { 
+      "F23": [{ "title": "Marketing Officer", "tier": 9 }],
+      "S24": [{ "title": "Marketing Officer", "tier": 9 }]
+     }
   },
   {
     "fullName": "Wilbert Rodriguez",
@@ -803,7 +822,10 @@
     "fullName": "Kinsey Vo",
     "picture": "placeholder.webp",
     "socials": { "github": "kinseyvo", "discord": "harleysdog", "linkedin": "kinsey-vo" },
-    "positions": { "F23": [{ "title": "Marketing Officer", "tier": 9 }] }
+    "positions": { 
+      "F23": [{ "title": "Marketing Officer", "tier": 9 }],
+      "S24": [{ "title": "Marketing Officer", "tier": 9 }]
+     }
   },
   {
     "fullName": "Rina Watanabe",
