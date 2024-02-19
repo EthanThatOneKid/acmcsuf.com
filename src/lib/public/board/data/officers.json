@@ -162,6 +162,10 @@
       "F23": [
         { "title": "Webmaster", "tier": 2 },
         { "title": "Open Source Software TL", "tier": 32 }
+      ],
+      "S24": [
+        { "title": "Webmaster", "tier": 2 },
+        { "title": "Open Source Software TL", "tier": 32 }
       ]
     }
   },
@@ -815,7 +819,8 @@
       "S22": [{ "title": "Vice President", "tier": 1 }],
       "F22": [{ "title": "President", "tier": 0 }],
       "S23": [{ "title": "President", "tier": 0 }],
-      "F23": [{ "title": "Open Source Software Co-TL", "tier": 32 }]
+      "F23": [{ "title": "Open Source Software Co-TL", "tier": 32 }],
+      "S24": [{ "title": "Open Source Software Co-TL", "tier": 32 }]
     }
   },
   {
