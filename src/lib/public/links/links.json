@@ -162,5 +162,6 @@
   "1st-slides": "https://docs.google.com/presentation/d/1lHU7yhT10RTzVDIjkxsfkPIWOik59beicqiqobP87zg/edit",
   "intro-to-html": "https://docs.google.com/presentation/d/1ZrCueVkMpR4atOlNKrzTFVonOBGw32lLm8cGjF-3tIE/edit?usp=sharing",
   "node-installation": "https://nodejs.org/en/download",
-  "fullyhacks-base-website": "https://github.com/acmcsufoss/fullypack_sveltekit"
+  "fullyhacks-base-website": "https://github.com/acmcsufoss/fullypack_sveltekit",
+  "dev-bootstrap": "https://getbootstrap.com/docs/5.3/getting-started/introduction/"
 }
