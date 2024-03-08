@@ -1,5 +1,13 @@
 [
   {
+    "fullName": "Sama Ahmed",
+    "picture": "sama-ahmed.webp",
+    "socials": { "github": "26samaahmed", "discord": "semsema", "linkedin": "sama-ahmedd" },
+    "positions": { 
+      "S24": [{ "title": "Design Officer", "tier": 16 }]
+     }
+  },
+  {
     "fullName": "Armanul Ambia",
     "picture": "armanul-ambia.webp",
     "socials": {
@@ -247,6 +255,14 @@
     "socials": { "github": "jeremiahherring", "discord": "jerem2938", "linkedin": "jeremiahherring", "website": "jeremiahherring.netlify.app/"},
     "positions": {
       "S24": [{ "title": "Algo Officer", "tier": 12 }]
+    }
+  },
+  {
+    "fullName": "Richard Hoang",
+    "picture": "richard-hoang.webp",
+    "socials": { "discord": "renshintv", "linkedin": "richardhng", "instagram": "richardhhoang"},
+    "positions": {
+      "S24": [{ "title": "Design Officer", "tier": 16 }]
     }
   },
   {
