@@ -77,6 +77,14 @@
     "positions": { "F21": [{ "title": "Dev Officer", "tier": 19 }] }
   },
   {
+    "fullName": "Angel Cervantes",
+    "picture": "angel-cervantes.webp",
+    "socials": { "github": "Angellyn218", "discord": "angellyn218", "linkedin": "angel-cervantes-294449167" },
+    "positions": {
+      "S24": [{ "title": "Dev Officer", "tier": 19 }]
+    }
+  },
+  {
     "fullName": "Ashley Chan",
     "picture": "ashley-chan.webp",
     "socials": {
@@ -89,6 +97,22 @@
       "F23": [{ "title": "AI Officer", "tier": 21 }],
       "S24": [{ "title": "Marketing Officer", "tier": 9 }]
      }
+  },
+  {
+    "fullName": "Wesley Chou",
+    "picture": "wesley-chou.webp",
+    "socials": {
+      "website": "sites.google.com/view/wesleychouengineering/home",
+      "discord": "Wesley#3748",
+      "linkedin": "wesley-chou-cs"
+    },
+    "positions": {
+      "S21": [{ "title": "Dev Officer", "tier": 19 }],
+      "F21": [{ "title": "Dev Director", "tier": 17 }],
+      "S22": [{ "title": "Dev President", "tier": 17 }],
+      "F22": [{ "title": "Marketing Co-Lead", "tier": 8 }],
+      "S23": [{ "title": "Marketing Team Lead", "tier": 8 }]
+    }
   },
   {
     "fullName": "Oscar Cisneros",
@@ -120,22 +144,6 @@
       "F22": [{ "title": "Design Team Lead", "tier": 13 }],
       "S23": [{ "title": "Design Team Lead", "tier": 13 }],
       "F23": [{ "title": "Design Team Lead", "tier": 13 }]
-    }
-  },
-  {
-    "fullName": "Wesley Chou",
-    "picture": "wesley-chou.webp",
-    "socials": {
-      "website": "sites.google.com/view/wesleychouengineering/home",
-      "discord": "Wesley#3748",
-      "linkedin": "wesley-chou-cs"
-    },
-    "positions": {
-      "S21": [{ "title": "Dev Officer", "tier": 19 }],
-      "F21": [{ "title": "Dev Director", "tier": 17 }],
-      "S22": [{ "title": "Dev President", "tier": 17 }],
-      "F22": [{ "title": "Marketing Co-Lead", "tier": 8 }],
-      "S23": [{ "title": "Marketing Team Lead", "tier": 8 }]
     }
   },
   {
@@ -650,7 +658,7 @@
   },
   {
     "fullName": "Joel Rico",
-    "picture": "placeholder.webp",
+    "picture": "joel-rico.webp",
     "socials": { "github": "jjoeldaniel", "discord": "jjoeldaniel", "linkedin": "joeldanielrico" },
     "positions": { 
       "F23": [{ "title": "AI Officer", "tier": 21 }],
