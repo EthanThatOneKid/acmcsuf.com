@@ -191,6 +191,15 @@
     }
   },
   {
+    "fullName": "Randy Do",
+    "picture": "randy-do.webp",
+    "socials": { "github": "randyydoo", "discord": "randyydoo", "linkedin": "randyydoo", "website": "randyydoo.vercel.app/"},
+    "positions": { 
+      "F23": [{ "title": "Algo Officer", "tier": 12 }],
+      "S24": [{ "title": "Algo Officer", "tier": 12 }]
+     }
+  },
+  {
     "fullName": "Esteban Escartin",
     "picture": "esteban-escartin.webp",
     "socials": { "github": "PillowGit", "discord": "pillo." },
@@ -230,6 +239,14 @@
     "positions": {
       "S22": [{ "title": "Marketing Director", "tier": 7 }],
       "F22": [{ "title": "Marketing Co-Lead", "tier": 8 }]
+    }
+  },
+  {
+    "fullName": "Jeremiah Herring",
+    "picture": "jeremiah-herring.webp",
+    "socials": { "github": "jeremiahherring", "discord": "jerem2938", "linkedin": "jeremiahherring", "website": "jeremiahherring.netlify.app/"},
+    "positions": {
+      "S24": [{ "title": "Algo Officer", "tier": 12 }]
     }
   },
   {
@@ -450,8 +467,8 @@
     "socials": { "github": "brian-250", "discord": "BrianMilian#9698", "linkedin": "brian-milian" },
     "positions": {
       "S23": [{ "title": "Marketing Officer", "tier": 9 }],
-      "F23": [{ "title": "Marketing Team Lead", "tier": 8 }],
-      "S24": [{ "title": "Marketing Team Lead", "tier": 8 }]
+      "F23": [{ "title": "Marketing Team Lead", "tier": 8 }, { "title": "Algo Officer", "tier": 12 }],
+      "S24": [{ "title": "Marketing Team Lead", "tier": 8 }, { "title": "Algo Officer", "tier": 12 }]
     }
   },
   {
@@ -725,8 +742,8 @@
     },
     "positions": {
       "S23": [{ "title": "Algo Officer", "tier": 12 }],
-      "F23": [{ "title": "President, Algo Officer", "tier": 0 }],
-      "S24": [{ "title": "President, Algo Officer", "tier": 0 }]
+      "F23": [{ "title": "President", "tier": 0 }, { "title": "Algo Officer", "tier": 12 }],
+      "S24": [{ "title": "President", "tier": 0 }, { "title": "Algo Officer", "tier": 12 }]
     }
   },
   {
