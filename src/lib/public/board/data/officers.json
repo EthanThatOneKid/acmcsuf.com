@@ -455,7 +455,10 @@
     "fullName": "Elena Marquez",
     "picture": "elena-marquez.webp",
     "socials": { "discord": "evie724" },
-    "positions": { "F23": [{ "title": "Event Coordinator", "tier": 6 }] }
+    "positions": { 
+      "F23": [{ "title": "Event Coordinator", "tier": 6 }], 
+      "S24": [{ "title": "Event Coordinator", "tier": 6 }] 
+    }
   },
   {
     "fullName": "Ean McGilvery",
