@@ -31,7 +31,7 @@
       <div class="hero-inner-container">
         <img src="/assets/dev-logo.svg" alt="Dev Team Badge" />
         <div class="size-md brand-med hero-text">
-          <span><span class="acm-bluer">Develop</span> semester long projects to show your mom</span
+          <span><span class="acm-bluer">Develop</span> semester-long projects to show your mom</span
           >
         </div>
       </div>
