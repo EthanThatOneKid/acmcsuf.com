@@ -19,18 +19,18 @@
 <Block align={TextAlignment.LEFT}>
   <h1 slot="headline" class="size-lg">Genuary {year}</h1>
   <p slot="text" class="size-sm">
-    Our chapter members' take on the Genuary challenge.
+    Our chapter members' take on the <a href="https://genuary.art/">Genuary challenge</a>.
     <br />
     <br />
     <span class="brand-italic">
       Genuary is a challenge to create a piece of generative art every day in January.
       <br />
       <br />
-      The artworks shared by members of our club throughout the course of Genuary 2023 are listed below.
+      The artworks shared by members of our club throughout the course of Genuary {year} are listed below.
     </span>
     <br />
     <br />
-    Last updated January 31st, 2023
+    Last updated February 2, 2024.
   </p>
 </Block>
 
