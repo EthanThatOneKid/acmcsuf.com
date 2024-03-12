@@ -46,7 +46,7 @@
   </h2>
 </section>
 
-<Spacing --min="175px" --med="200px" --max="200px" />
+<Spacing --min="110px" --med="125px" --max="150px" />
 
 {#if data.posts.length > 0}
   <LabelField labels={data.labels} {selectedLabels} on:change={filterPosts}>
