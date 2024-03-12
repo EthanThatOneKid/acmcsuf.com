@@ -112,14 +112,7 @@
    */
   section .hero-inner-container .hero-text span.multicolor-text {
     display: inline-block;
-    background: linear-gradient(
-      to right,
-      var(--acm-turquoise),
-      var(--acm-blue),
-      var(--acm-bluer),
-      var(--acm-purple),
-      var(--acm-pink)
-    );
+    background: var(--acm-union);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;

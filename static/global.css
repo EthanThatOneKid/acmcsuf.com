@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700');
 
 :root {
+  --acm-dew: #ebf8ff;
   --acm-sky: #38b6ff;
   --acm-blue: #2c91c6;
   --acm-bluer: #1e6cff;
@@ -15,10 +16,21 @@
   --acm-purple: #9d35e7;
   --acm-darker: #092d71;
   --acm-darkest: #052155;
+  --acm-ocean: #082863;
+  --acm-abyss: #052155;
+  --acm-midnight: #041536;
   --acm-dark: #101315;
   --acm-gray: #292c2f;
   --acm-light: #f8f8f8;
   --acm-canvas: #eaeaea;
+  --acm-union: linear-gradient(
+    to right,
+    var(--acm-turquoise),
+    var(--acm-blue),
+    var(--acm-bluer),
+    var(--acm-purple),
+    var(--acm-pink)
+  );
 
   --acm-general-rgb: 5, 163, 255;
   --acm-ai-rgb: 53, 231, 146;
@@ -34,6 +46,9 @@
 
   --perma-light: #f8f8f8;
   --perma-dark: #101315;
+
+  --acm-odd: var(--acm-light);
+  --acm-even: var(--acm-dew);
 
   /* Generator: https://xgkft.csb.app/ (280px-1000px viewport-width, 1rem=16px) */
   --size-xxl: clamp(2.8125rem, 1.8403rem + 5.5556vw, 5.3125rem);
@@ -191,6 +206,8 @@ body:has(nav > input[type='checkbox']:checked) {
   --acm-dark: #101315;
   --acm-light: #f8f8f8;
   --acm-canvas: #eaeaea;
+  --acm-odd: var(--acm-light);
+  --acm-even: var(--acm-dew);
   --nav-shadow: 0 3px 12px rgba(16, 19, 21, 0.1);
   --navbar-bg: var(--acm-light);
   --footer-bg: var(--acm-dark);
@@ -205,6 +222,8 @@ body:has(nav > input[type='checkbox']:checked) {
   --acm-dark: #f8f8f8;
   --acm-light: #101315;
   --acm-canvas: #161b22;
+  --acm-odd: var(--acm-midnight);
+  --acm-even: var(--acm-abyss);
   --nav-shadow: 0 2px rgb(49, 49, 49);
   --navbar-bg: rgba(16, 19, 21, 0.9);
   --footer-bg: var(--acm-gray);
@@ -220,6 +239,8 @@ body:has(nav > input[type='checkbox']:checked) {
     --acm-dark: #101315;
     --acm-light: #f8f8f8;
     --acm-canvas: #eaeaea;
+    --acm-odd: var(--acm-light);
+    --acm-even: var(--acm-dew);
     --nav-shadow: 0 3px 12px rgba(16, 19, 21, 0.1);
     --navbar-bg: var(--acm-light);
     --footer-bg: var(--acm-dark);
@@ -236,6 +257,8 @@ body:has(nav > input[type='checkbox']:checked) {
     --acm-dark: #f8f8f8;
     --acm-light: #101315;
     --acm-canvas: #161b22;
+    --acm-odd: var(--acm-midnight);
+    --acm-even: var(--acm-abyss);
     --nav-shadow: 0 2px rgb(49, 49, 49);
     --navbar-bg: rgba(16, 19, 21, 0.9);
     --footer-bg: var(--acm-gray);
