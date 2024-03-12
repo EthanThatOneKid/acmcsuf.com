@@ -335,6 +335,14 @@
     "positions": { "S22": [{ "title": "Secretary", "tier": 5 }] }
   },
   {
+    "fullName": "Evan Jimenez",
+    "picture": "evan-jimenez.webp",
+    "socials": { "github": "EvanCPSC", "discord": "surrealreal_" },
+    "positions": {
+      "S24": [{ "title": "Open Source Software Officer", "tier": 33 }]
+    }
+  },
+  {
     "fullName": "Joel Anil John",
     "picture": "joel-anil-john.webp",
     "socials": { "github": "janiljohn", "discord": "BlueBird02#0877", "linkedin": "joelaniljohn" },
