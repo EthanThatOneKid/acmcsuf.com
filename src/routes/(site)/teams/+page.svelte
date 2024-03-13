@@ -147,10 +147,6 @@
 <Spacing --min="100px" --med="125px" --max="125px" />
 
 <style>
-  :global(main) {
-    background-color: var(--acm-even) !important;
-  }
-
   p {
     align-self: start;
   }
