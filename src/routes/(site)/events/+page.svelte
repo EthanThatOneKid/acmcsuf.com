@@ -20,7 +20,7 @@
     Our student chapter hosts a multitude of events throughout each school semester, consisting of
     workshops, info sessions, community building events, and much more!
     <br /><br />
-    <span class="brand-med"
+    <span class="acm-heavy"
       >Events are open to anyone interested, regardless of major or background experience.</span
     >
   </p>
@@ -29,7 +29,7 @@
 <Spacing --min="100px" --med="175px" --max="200px" />
 
 <div class="main-header">
-  <h2 class="size-lg headers">Upcoming Events</h2>
+  <h2 class="size-lg acm-heavier">Upcoming Events</h2>
   <img src="assets/bluecalendar.svg" alt="Blue Calender" />
 </div>
 

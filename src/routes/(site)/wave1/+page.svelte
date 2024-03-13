@@ -113,13 +113,13 @@
   <h1 id="contact-information" slot="headline" class="size-lg">Contact information</h1>
   <div slot="text" class="contact-text">
     <p class="size-sm">
-      <span class="brand-italic"
+      <span class="acm-italic"
         >Feel free to contact the ACM Executive Board if you have questions.</span
       >
     </p>
 
     <p class="size-sm">
-      <span class="brand-em">Karnikaa Velumani (ACM President)</span>
+      <span class="acm-heaviest">Karnikaa Velumani (ACM President)</span>
     </p>
     <ul>
       <li>Email: <code>karnikaavelumani@csu.fullerton.edu</code></li>
@@ -127,7 +127,7 @@
     </ul>
 
     <p class="size-sm">
-      <span class="brand-em">Ethan Davidson (ACM VP / Webmaster)</span>
+      <span class="acm-heaviest">Ethan Davidson (ACM VP / Webmaster)</span>
     </p>
     <ul>
       <li>Email: <code>ethandavidson@csu.fullerton.edu</code></li>
