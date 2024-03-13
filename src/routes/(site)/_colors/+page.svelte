@@ -6,17 +6,18 @@
   export let data: PageData;
 </script>
 
-<Spacing --min="175px" --med="200px" --max="200px" />
-
 <svelte:head>
   <title>Colors | ACM at CSUF</title>
 </svelte:head>
+
+<Spacing --min="175px" --med="200px" --max="200px" />
 
 <main class="responsive-width">
   <section id="top">
     <div class="header">
       <h1 class="size-lg">Colors</h1>
     </div>
+
     <ul>
       {#each data.colors as color (color.id)}
         <li><Color data={color} /></li>
@@ -41,7 +42,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0;
+    margin: 0 0 1em 0;
   }
 
   main {
@@ -52,8 +53,6 @@
     justify-content: center;
 
     section {
-      width: min(800px, 80vw);
-      max-width: 540px;
       margin: 0 auto;
       margin-bottom: 50px;
 

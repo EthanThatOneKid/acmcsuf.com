@@ -1,5 +1,6 @@
 export interface Color {
   id: string;
-  hex: string;
-  rgb: [number, number, number];
+  value: string;
+  color?: string;
+  aliasOf?: string;
 }

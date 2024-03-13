@@ -34,20 +34,39 @@ function fromDecl({ property, value }) {
 
   switch (true) {
     case /^\d{1,3}, \d{1,3}, \d{1,3}$/.test(value): {
-      const [r, g, b] = value.split(', ').map(Number);
       return {
         id: property,
-        hex: rgb2hex(r, g, b),
-        rgb: [r, g, b],
+        value: value,
+        color: `rgb(${value})`,
       };
     }
 
-    case /^#([0-9a-f]{3}){1,2}$/i.test(value): {
-      const [r, g, b] = hex2rgb(value);
+    case /^#[0-9a-fA-F]{3,6}$/.test(value):
+    case value.startsWith('rgb') && value.endsWith(')'):
+    case value.startsWith('hsl') && value.endsWith(')'):
+    case value.startsWith('linear-gradient') && value.endsWith(')'): {
       return {
         id: property,
-        hex: value,
-        rgb: [r, g, b],
+        value: value,
+      };
+    }
+
+    case value.startsWith('var') && value.endsWith(')'): {
+      const aliasOf = value.slice(4, -1).trim();
+      if (value.endsWith('-rgb)')) {
+        const color = value.replace(/-rgb\)$/, ')');
+        return {
+          id: property,
+          value: value,
+          color: color,
+          aliasOf: aliasOf,
+        };
+      }
+
+      return {
+        id: property,
+        value: value,
+        aliasOf: aliasOf,
       };
     }
 

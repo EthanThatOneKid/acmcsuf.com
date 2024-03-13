@@ -4,4 +4,4 @@
   export let data: Color;
 </script>
 
-<code class="color-id" style:--color={data.hex}>{data.id}</code>
+<code class="color-id">{data.id}</code>

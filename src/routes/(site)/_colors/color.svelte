@@ -6,7 +6,7 @@
   export let data: Color;
 </script>
 
-<div id={data.id} class="color-container size-md" style:--color={data.hex}>
+<div id={data.id} class="color-container size-md" style:--color={data.color ?? data.value}>
   <ColorID {data} />:
   <ColorPill {data} />
 </div>
@@ -14,5 +14,6 @@
 <style>
   .color-container {
     border-left: 5px solid var(--color);
+    scroll-margin-top: 100px;
   }
 </style>
