@@ -1,6 +1,6 @@
 <main>
   <section id="introduction">
-    <h2 class="headers">Introduction</h2>
+    <h2 class="acm-heavier">Introduction</h2>
 
     <p>
       This privacy policy is an agreement between you, the user of our services (the “User”), and
@@ -23,7 +23,7 @@
   </section>
 
   <section id="information-we-collect">
-    <h2 class="headers">Information we collect</h2>
+    <h2 class="acm-heavier">Information we collect</h2>
 
     <p>
       We may collect any information that is submitted over Discord, including but not limited to
@@ -38,7 +38,7 @@
   </section>
 
   <section id="authority">
-    <h2 class="headers">Authority</h2>
+    <h2 class="acm-heavier">Authority</h2>
 
     <p>
       The right to handle requests under this agreement shall generally, as well as when explicitly
@@ -51,7 +51,7 @@
   </section>
 
   <section id="data-sale-and-distribution">
-    <h2 class="headers">Data sale and distribution</h2>
+    <h2 class="acm-heavier">Data sale and distribution</h2>
 
     <p>
       ACM shall not, under any circumstances, sell your data in any way through bots created by ACM
@@ -72,7 +72,7 @@
   </section>
 
   <section id="accessing-your-data">
-    <h2 class="headers">Accessing your data</h2>
+    <h2 class="acm-heavier">Accessing your data</h2>
 
     <p>
       You have a right to know what data we have collected about you. In addition to the categories
@@ -83,7 +83,7 @@
   </section>
 
   <section id="disclosure-to-law-enforcement">
-    <h2 class="headers">Disclosure to law enforcement</h2>
+    <h2 class="acm-heavier">Disclosure to law enforcement</h2>
 
     <p>
       Except where bound by valid court order or by other enforceable, legal order from within the
@@ -98,7 +98,7 @@
   </section>
 
   <section id="right-of-correction">
-    <h2 class="headers">Right of correction</h2>
+    <h2 class="acm-heavier">Right of correction</h2>
 
     <p>
       You have the right to correct any information which you deem to be incorrect stored on our
@@ -110,7 +110,7 @@
   </section>
 
   <section id="data-retention">
-    <h2 class="headers">Data retention</h2>
+    <h2 class="acm-heavier">Data retention</h2>
 
     <p>
       We reserve the right to retain any data collected indefinitely, unless it must be deleted by
@@ -121,7 +121,7 @@
   </section>
 
   <section id="amendments">
-    <h2 class="headers">Amendments</h2>
+    <h2 class="acm-heavier">Amendments</h2>
 
     <p>
       We may, at our sole discretion, amend the terms of this privacy policy. Changes which do not
@@ -133,7 +133,9 @@
   </section>
 
   <section id="in-state-info-access">
-    <h2 class="headers">Information for users accessing from California and other U.S. states</h2>
+    <h2 class="acm-heavier">
+      Information for users accessing from California and other U.S. states
+    </h2>
 
     <p>
       Laws in California and other U.S. states may give you extra rights and protections than laws
@@ -148,7 +150,7 @@
   </section>
 
   <section id="out-of-state-info-access">
-    <h2 class="headers">
+    <h2 class="acm-heavier">
       Information for users accessing from the European Union, European Economic Area, United
       Kingdom, Switzerland, and Brazil
     </h2>

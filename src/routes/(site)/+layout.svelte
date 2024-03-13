@@ -38,4 +38,8 @@
   main {
     min-height: 100vh;
   }
+
+  main {
+    background-color: var(--acm-odd);
+  }
 </style>

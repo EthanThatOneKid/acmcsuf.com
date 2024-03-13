@@ -2,7 +2,7 @@
   <div class="desc-inner-container">
     <img src="/assets/chip-holding-laptop.png" alt="Chip the Capybara holding a laptop" />
     <div class="desc-text">
-      <h1 class="brand-header size-xl">Bringing you the true Computer Science Experience</h1>
+      <h1 class="acm-heavier size-xl">Bringing you the true Computer Science Experience</h1>
       <p>
         We are a chapter club of the Association for Computing Machinery organization. Our goal is
         to expose passionate people of all levels to grow their skills in a collaborative community.

@@ -39,7 +39,7 @@
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <section>
-  <h1 class="headers size-lg">{data.post.title}</h1>
+  <h1 class="acm-heavier size-lg">{data.post.title}</h1>
   <Spacing --min="16px" --med="16px" --max="16px" />
   <img src={data.post.author.picture} alt="" />
   <Spacing --min="16px" --med="16px" --max="16px" />

@@ -14,7 +14,7 @@
     <div class="header">
       <h1 class="size-lg">Shortlinks</h1>
     </div>
-    <p class="brand-em">
+    <p class="acm-heaviest">
       {#each Object.entries(LINKS) as [pathname, destination]}
         {pathname}: <a href={destination}>{destination}</a>
         <br />
