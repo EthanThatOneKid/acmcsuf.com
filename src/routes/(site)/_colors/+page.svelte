@@ -18,11 +18,15 @@
       <h1 class="size-lg">Colors</h1>
     </div>
 
-    <ul>
+    <p>
+      Documentation generated straight from the <a href="/global.css">global.css</a> file.
+    </p>
+
+    <table>
       {#each data.colors as color (color.id)}
-        <li><Color data={color} /></li>
+        <Color data={color} />
       {/each}
-    </ul>
+    </table>
   </section>
 
   <p>
@@ -38,11 +42,9 @@
     margin: 0 auto;
   }
 
-  h1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 0 1em 0;
+  p {
+    margin: 1em 0;
+    word-break: break-word;
   }
 
   main {
@@ -56,9 +58,8 @@
       margin: 0 auto;
       margin-bottom: 50px;
 
-      p {
-        margin: 1em 0;
-        word-break: break-word;
+      h1 {
+        margin: 0;
       }
 
       a {

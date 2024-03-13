@@ -75,18 +75,3 @@ function fromDecl({ property, value }) {
     }
   }
 }
-
-function hex2rgb(hex) {
-  hex = hex.trim().replace(/^#/, '');
-  return [
-    parseInt(hex.slice(1, 3), 16),
-    parseInt(hex.slice(3, 5), 16),
-    parseInt(hex.slice(5, 7), 16),
-  ];
-}
-
-function rgb2hex(r, g, b) {
-  return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b
-    .toString(16)
-    .padStart(2, '0')}`;
-}

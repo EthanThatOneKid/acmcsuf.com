@@ -6,14 +6,13 @@
   export let data: Color;
 </script>
 
-<div id={data.id} class="color-container size-md" style:--color={data.color ?? data.value}>
-  <ColorID {data} />:
-  <ColorPill {data} />
-</div>
+<tr class="color-container size-md" style:--color={data.color ?? data.value}>
+  <td><ColorID {data} />:</td>
+  <td><ColorPill {data} /></td>
+</tr>
 
 <style>
-  .color-container {
+  .color-container td:nth-child(1) {
     border-left: 5px solid var(--color);
-    scroll-margin-top: 100px;
   }
 </style>
