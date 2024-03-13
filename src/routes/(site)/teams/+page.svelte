@@ -41,15 +41,20 @@
   <Spacing --min="100px" --med="125px" --max="125px" />
 </section>
 
+<!-- <div class="sections-container"> -->
+<!-- <div class="section-container"> -->
 <TeamSection info={TEAMS.general} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
     The ACM <span class="brand-blue brand-em">general</span> team is a dynamic group of individuals
-    driving the success of our organization. ACM <span class="brand-blue brand-em">General</span>
+    driving the success of our organization. ACM
+    <span class="brand-blue brand-em">General</span>
     manages operations, organizes events, and ensure the smooth functioning of ACM. They are the backbone
     of our community, fostering collaboration and innovation among members.
   </p>
 </TeamSection>
+<!-- </div> -->
 
+<!-- <div class="section-container"> -->
 <TeamSection info={TEAMS.marketing} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
     The <span class="brand-blush brand-em">marketing</span> team has a strong passion towards
@@ -58,7 +63,9 @@
     and creative storytelling to display a welcoming environment to all students.
   </p>
 </TeamSection>
+<!-- </div> -->
 
+<!-- <div class="section-container"> -->
 <TeamSection info={TEAMS.algo} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
     The <span class="brand-purple brand-em">algorithm</span> team is dedicated to building
@@ -67,7 +74,9 @@
     of competitive programming.
   </p>
 </TeamSection>
+<!-- </div> -->
 
+<!-- <div class="section-container"> -->
 <TeamSection info={TEAMS.design} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
     The <span class="brand-pink brand-em">design</span> team is dedicated to emphasizing the
@@ -76,7 +85,9 @@
     design tools, and the intricacies of conceptualization, development, and management of a product.
   </p>
 </TeamSection>
+<!-- </div> -->
 
+<!-- <div class="section-container"> -->
 <TeamSection info={TEAMS.dev} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
     The <span class="brand-bluer brand-em">development</span> team is dedicated to giving students
@@ -85,7 +96,9 @@
     and the various tech stacks used in the industry.
   </p>
 </TeamSection>
+<!-- </div> -->
 
+<!-- <div class="section-container"> -->
 <TeamSection info={TEAMS.ai} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
     The <span class="brand-emerald brand-em">artificial intelligence</span> team is dedicated to
@@ -94,24 +107,31 @@
     the field.
   </p>
 </TeamSection>
+<!-- </div> -->
 
+<!-- <div class="section-container"> -->
 <TeamSection info={TEAMS['gamedev']} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
     The <span class="brand-red brand-em">game development</span> team is dedicated to teaching the
-    basics of programming in the gaming industry. <span class="brand-red brand-em">Gamedev</span> focuses
-    on educating students about design principles, design tools, and the development process of a project.
+    basics of programming in the gaming industry.
+    <span class="brand-red brand-em">Gamedev</span> focuses on educating students about design principles,
+    design tools, and the development process of a project.
   </p>
 </TeamSection>
+<!-- </div> -->
 
+<!-- <div class="section-container"> -->
 <TeamSection info={TEAMS['special-events']} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
     The <span class="brand-lemon brand-em">special events</span> team is all about creating
-    unforgettable moments and experiences. <span class="brand-lemon brand-em">Special Events</span> plan
-    and execute ex citing events that bring our community together, fostering connections and celebrating
-    shared passions.
+    unforgettable moments and experiences.
+    <span class="brand-lemon brand-em">Special Events</span> plan and execute ex citing events that bring
+    our community together, fostering connections and celebrating shared passions.
   </p>
 </TeamSection>
+<!-- </div> -->
 
+<!-- <div class="section-container"> -->
 <TeamSection info={TEAMS.nodebuds} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
     Personalized for your success, <span class="brand-red brand-em">node buds</span> is our exclusive
@@ -121,7 +141,9 @@
     their successful journeys through the tech industry.
   </p>
 </TeamSection>
+<!-- </div> -->
 
+<!-- <div class="section-container"> -->
 <TeamSection info={TEAMS.icpc} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
     The <span class="brand-orange brand-em"
@@ -132,7 +154,9 @@
     by hosting weekly practice sessions and mock contests.
   </p>
 </TeamSection>
+<!-- </div> -->
 
+<!-- <div class="section-container"> -->
 <TeamSection info={TEAMS.oss} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
     The <span class="brand-turquoise brand-em">open source software</span> team is committed to
@@ -144,6 +168,9 @@
 
 <Spacing --min="100px" --med="125px" --max="125px" />
 
+<!-- </div>
+</div> -->
+
 <style>
   p {
     align-self: start;
@@ -152,6 +179,14 @@
   section {
     display: grid;
   }
+
+  /* .section-container {
+    background-color: var(--acm-even);
+  }
+
+  .section-container:nth-child(even) {
+    background-color: var(--acm-odd);
+  } */
 
   section .hero-inner-container {
     display: grid;

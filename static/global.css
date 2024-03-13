@@ -47,9 +47,6 @@
   --perma-light: #f8f8f8;
   --perma-dark: #101315;
 
-  --acm-odd: var(--acm-light);
-  --acm-even: var(--acm-dew);
-
   /* Generator: https://xgkft.csb.app/ (280px-1000px viewport-width, 1rem=16px) */
   --size-xxl: clamp(2.8125rem, 1.8403rem + 5.5556vw, 5.3125rem);
   --size-xl: clamp(2rem, 1.7545rem + 1.0909vw, 3.5rem);
@@ -206,7 +203,7 @@ body:has(nav > input[type='checkbox']:checked) {
   --acm-dark: #101315;
   --acm-light: #f8f8f8;
   --acm-canvas: #eaeaea;
-  --acm-odd: var(--acm-light);
+  --acm-odd: var(--perma-light);
   --acm-even: var(--acm-dew);
   --nav-shadow: 0 3px 12px rgba(16, 19, 21, 0.1);
   --navbar-bg: var(--acm-light);
@@ -239,7 +236,7 @@ body:has(nav > input[type='checkbox']:checked) {
     --acm-dark: #101315;
     --acm-light: #f8f8f8;
     --acm-canvas: #eaeaea;
-    --acm-odd: var(--acm-light);
+    --acm-odd: var(--perma-light);
     --acm-even: var(--acm-dew);
     --nav-shadow: 0 3px 12px rgba(16, 19, 21, 0.1);
     --navbar-bg: var(--acm-light);

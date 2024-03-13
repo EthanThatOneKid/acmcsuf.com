@@ -4,7 +4,7 @@
   import Desc from './desc.svelte';
   import Teams from './teams.svelte';
   import Lucky from './lucky.svelte';
-  import Blog from './blog.svelte';
+  // import Blog from './blog.svelte';
 </script>
 
 <svelte:head>
@@ -62,23 +62,11 @@
 </div>
 
 <style>
-  /* :root {
-    --odd-color: var(--acm-midnight);
-    --even-color: var(--acm-abyss);
-  }
-
-  @media (prefers-color-scheme: light) {
-    :root {
-      --odd-color: var(--acm-light);
-      --even-color: var(--acm-dew);
-    }
-  } */
-
   .section-container {
-    background-color: var(--odd-color) !important;
+    background-color: var(--acm-odd);
   }
 
   .section-container:nth-child(even) {
-    background-color: var(--even-color) !important;
+    background-color: var(--acm-even);
   }
 </style>

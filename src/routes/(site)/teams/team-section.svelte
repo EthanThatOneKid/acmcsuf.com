@@ -24,6 +24,7 @@
   <div class="container">
     <section
       id={info.id}
+      class="team-section"
       class:marketing-animation={info.id === 'marketing'}
       class:algo-animation={info.id === 'algo'}
       class:design-animation={info.id === 'design'}
@@ -329,8 +330,18 @@
     :nth-child(even) section {
       grid-template-columns: 2fr 1fr;
     }
+
     :nth-child(even) .team-description {
       order: -1;
     }
   }
+
+  /* TODO: Figure out how to fix this! */
+  /* .container {
+    background-color: var(--acm-even);
+  }
+
+  :global(:nth-child(even)) .container {
+    background-color: var(--acm-odd);
+  } */
 </style>
