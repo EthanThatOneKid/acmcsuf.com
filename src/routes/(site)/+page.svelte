@@ -4,35 +4,69 @@
   import Desc from './desc.svelte';
   import Teams from './teams.svelte';
   import Lucky from './lucky.svelte';
-  import Blog from './blog.svelte';
+  // import Blog from './blog.svelte';
 </script>
 
 <svelte:head>
   <title>ACM at CSUF</title>
 </svelte:head>
 
-<Spacing --min="175px" --med="200px" --max="200px" />
+<div class="sections-container">
+  <div class="section-container">
+    <Spacing --min="175px" --med="200px" --max="200px" />
 
-<Hero />
+    <Hero />
 
-<Spacing --min="120px" --med="175px" --max="200px" />
+    <Spacing --min="120px" --med="175px" --max="200px" />
+  </div>
 
-<Desc />
+  <div class="section-container">
+    <Spacing --min="175px" --med="200px" --max="200px" />
 
-<Spacing --min="120px" --med="175px" --max="200px" />
+    <Desc />
 
-<Teams />
+    <Spacing --min="120px" --med="175px" --max="200px" />
+  </div>
 
-<Spacing --min="120px" --med="175px" --max="200px" />
+  <div class="section-container">
+    <Spacing --min="175px" --med="200px" --max="200px" />
 
-<!-- <Testimony /> -->
+    <Teams />
 
-<!-- <Spacing --min="120px" --med="175px" --max="200px" /> -->
+    <Spacing --min="120px" --med="175px" --max="200px" />
+  </div>
 
-<Lucky />
+  <!-- <div class="section-container">
+    <Spacing --min="175px" --med="200px" --max="200px" />
 
-<Spacing --min="120px" --med="175px" --max="200px" />
+    <Testimony /> 
 
-<Blog />
+    <Spacing --min="120px" --med="175px" --max="200px" /> 
+  </div> -->
 
-<Spacing --min="75px" --med="100px" --max="120px" />
+  <div class="section-container">
+    <Spacing --min="175px" --med="200px" --max="200px" />
+
+    <Lucky />
+
+    <!-- <Spacing --min="120px" --med="175px" --max="200px" /> -->
+  </div>
+
+  <!-- <div class="section-container">
+    <Spacing --min="175px" --med="200px" --max="200px" />
+
+    <Blog />
+
+    <Spacing --min="75px" --med="100px" --max="120px" />
+  </div> -->
+</div>
+
+<style>
+  .section-container {
+    background-color: var(--acm-odd);
+  }
+
+  .section-container:nth-child(even) {
+    background-color: var(--acm-even);
+  }
+</style>

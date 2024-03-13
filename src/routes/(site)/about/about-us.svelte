@@ -3,11 +3,11 @@
     <img src="assets/group-photo.jpeg" alt="ACM family" />
 
     <div class="text">
-      <h1 class="size-lg brand-header">About us</h1>
+      <h1 class="size-lg acm-heavier">About us</h1>
 
       <p class="size-sm">
         We are a student chapter of the
-        <a href="https://acm.org" class="brand-med" target="_blank" rel="noopener noreferrer">
+        <a href="https://acm.org" class="acm-heavy" target="_blank" rel="noopener noreferrer">
           Association for Computing Machinery</a
         >, an international organization based in New York that advocates for the advancement of
         computer science as a science and profession. Based in California State University,

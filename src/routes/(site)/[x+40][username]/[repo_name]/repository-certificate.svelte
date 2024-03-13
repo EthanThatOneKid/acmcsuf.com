@@ -20,7 +20,7 @@
 
   <details>
     <summary>
-      <h1 class="size-l toplevel-text headers">
+      <h1 class="size-l toplevel-text acm-heavier">
         <a
           class="username"
           href={`https://github.com/${data.user.login}`}
@@ -37,7 +37,7 @@
         {/if}
       </h1>
 
-      <small class="toplevel-text headers">(click to expand)</small>
+      <small class="toplevel-text acm-heavier">(click to expand)</small>
     </summary>
 
     <Spacing --min="20px" --med="20px" --max="20px" />
@@ -61,7 +61,7 @@
 
   <details>
     <summary>
-      <h1 class="size-l toplevel-text headers">
+      <h1 class="size-l toplevel-text acm-heavier">
         and
         {#if data.merged.length > 0}
           merged <span class="subject"
@@ -79,7 +79,7 @@
         >.
       </h1>
 
-      <small class="toplevel-text headers">(click to expand)</small>
+      <small class="toplevel-text acm-heavier">(click to expand)</small>
     </summary>
 
     <Spacing --min="20px" --med="20px" --max="20px" />

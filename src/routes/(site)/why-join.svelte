@@ -3,7 +3,7 @@
     <img src="/assets/join-photo.png" alt="Social event with ACM Chapter members." />
 
     <div class="right">
-      <h2 class="size-lg brand-header">Your journey into tech starts here</h2>
+      <h2 class="size-lg acm-heavier">Your journey into tech starts here</h2>
 
       <p class="size-sm">
         We aim to build a foundation for future industry leaders by developing their technical,

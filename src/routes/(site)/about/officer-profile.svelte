@@ -165,8 +165,8 @@
     </div>
   </div>
   <div class="officer-placard">
-    <h3 class="brand-header">{officerName}</h3>
-    <p class="brand-med">{@html titleHTML}</p>
+    <h3 class="acm-heavier">{officerName}</h3>
+    <p class="acm-heavy">{@html titleHTML}</p>
   </div>
 </label>
 
