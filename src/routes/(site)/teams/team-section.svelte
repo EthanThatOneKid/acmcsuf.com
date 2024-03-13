@@ -67,6 +67,7 @@
 <style>
   .team-section-container {
     display: grid;
+    padding: 1rem 0;
   }
 
   .team-section {
