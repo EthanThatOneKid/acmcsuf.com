@@ -46,6 +46,7 @@
 
   --perma-light: #f8f8f8;
   --perma-dark: #101315;
+  --footer-bg: var(--acm-ocean);
 
   /* Generator: https://xgkft.csb.app/ (280px-1000px viewport-width, 1rem=16px) */
   --size-xxl: clamp(2.8125rem, 1.8403rem + 5.5556vw, 5.3125rem);
@@ -207,7 +208,6 @@ body:has(nav > input[type='checkbox']:checked) {
   --acm-even: var(--acm-dew);
   --nav-shadow: 0 3px 12px rgba(16, 19, 21, 0.1);
   --navbar-bg: var(--acm-light);
-  --footer-bg: var(--acm-dark);
   --card-bg: var(--acm-light);
   --button-bg: var(--acm-dark);
   --button-hover: var(--acm-blue);
@@ -223,7 +223,6 @@ body:has(nav > input[type='checkbox']:checked) {
   --acm-even: var(--acm-abyss);
   --nav-shadow: 0 2px rgb(49, 49, 49);
   --navbar-bg: rgba(16, 19, 21, 0.9);
-  --footer-bg: var(--acm-gray);
   --card-bg: var(--acm-gray);
   --button-bg: var(--acm-gray);
   --button-hover: #3d4043;
@@ -240,7 +239,6 @@ body:has(nav > input[type='checkbox']:checked) {
     --acm-even: var(--acm-dew);
     --nav-shadow: 0 3px 12px rgba(16, 19, 21, 0.1);
     --navbar-bg: var(--acm-light);
-    --footer-bg: var(--acm-dark);
     --card-bg: var(--acm-light);
     --button-bg: var(--acm-dark);
     --button-hover: var(--acm-blue);
