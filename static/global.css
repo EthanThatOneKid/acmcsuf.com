@@ -46,18 +46,10 @@
   --acm-gray: rgba(var(--acm-gray-rgb), 1);
   --acm-canvas-rgb: 234, 234, 234;
   --acm-canvas: rgba(var(--acm-canvas-rgb), 1);
-  --acm-union: linear-gradient(
-    to right,
-    var(--acm-turquoise),
-    var(--acm-blue),
-    var(--acm-bluer),
-    var(--acm-purple),
-    var(--acm-pink)
-  );
 
   /** These values represent the ACM team colors. */
-  --acm-general-rgb: 5, 163, 255;
-  --acm-ai-rgb: 53, 231, 146;
+  --acm-general-rgb: var(--acm-blue-rgb);
+  --acm-ai-rgb: var(--acm-emerald-rgb);
   --acm-algo-rgb: var(--acm-purple-rgb);
   --acm-design-rgb: var(--acm-pink-rgb);
   --acm-dev-rgb: var(--acm-bluer-rgb);
@@ -67,10 +59,14 @@
   --acm-oss-rgb: var(--acm-turquoise-rgb);
   --acm-special-events-rgb: var(--acm-lemon-rgb);
   --acm-nodebuds-rgb: var(--acm-red-rgb);
-
-  /** These values may change based on the user's color scheme preference. */
-  --acm-light: #f8f8f8;
-  --acm-dark: #101315;
+  --acm-union: linear-gradient(
+    to right,
+    var(--acm-turquoise),
+    var(--acm-blue),
+    var(--acm-bluer),
+    var(--acm-purple),
+    var(--acm-pink)
+  );
 
   /** These values are generated fluid font sizes. */
   /* Generator: https://xgkft.csb.app/ (280px-1000px viewport-width, 1rem=16px) */
@@ -80,6 +76,10 @@
   --size-md: clamp(1.125rem, 1.0636rem + 0.2727vw, 1.5rem);
   --size-sm: clamp(1rem, 0.9795rem + 0.0909vw, 1.125rem);
   --size-xs: clamp(0.75rem, 0.7295rem + 0.0909vw, 0.875rem);
+
+  /** These values may change based on the user's color scheme preference. */
+  --acm-light: #f8f8f8;
+  --acm-dark: #101315;
 }
 
 *,
