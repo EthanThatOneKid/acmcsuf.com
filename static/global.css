@@ -221,7 +221,7 @@ body:has(nav > input[type='checkbox']:checked) {
   --acm-odd: var(--acm-midnight);
   --acm-even: var(--acm-abyss);
   --navbar-bg: var(--acm-ocean);
-  --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0);
+  --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.6);
   --card-bg: var(--acm-gray);
   --button-bg: var(--acm-gray);
   --button-hover: #3d4043;
@@ -252,7 +252,7 @@ body:has(nav > input[type='checkbox']:checked) {
     --acm-odd: var(--acm-midnight);
     --acm-even: var(--acm-abyss);
     --navbar-bg: var(--acm-ocean);
-    --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0);
+    --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.6);
     --card-bg: var(--acm-gray);
     --button-bg: var(--acm-gray);
     --button-hover: #3d4043;
