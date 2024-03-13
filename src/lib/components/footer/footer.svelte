@@ -34,7 +34,7 @@
 
     <div class="legal">
       <h3 class="acm-heavier size-md">
-        &copy; 2023 ACM Chapter at <span class="brand-bold">CSUF</span>
+        &copy; 2023 ACM Chapter at <span class="acm-heaviest">CSUF</span>
       </h3>
 
       <a

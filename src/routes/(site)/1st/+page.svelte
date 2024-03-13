@@ -143,7 +143,7 @@ git clone https://github.com/this-is-you/acmcsuf.com.git
   <section id="changes">
     <h2 class="acm-heavier">Make necessary changes and commit them</h2>
 
-    <p class="brand-em">Want to make it rain?</p>
+    <p class="acm-heaviest">Want to make it rain?</p>
 
     <br />
 
@@ -222,7 +222,7 @@ git add -A && git commit -m "Your Message"
 
     <hr />
 
-    <p class="brand-em">CONGRATULATIONS ON MAKING YOUR FIRST CONTRIUBUTION</p>
+    <p class="acm-heaviest">CONGRATULATIONS ON MAKING YOUR FIRST CONTRIUBUTION</p>
 
     <p>
       Inspired by <a href="https://github.com/firstcontributions/first-contributions#readme"

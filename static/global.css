@@ -82,11 +82,6 @@ body:has(nav > input[type='checkbox']:checked) {
   overflow: hidden;
 }
 
-.brand-bold,
-.brand-em {
-  font-weight: 700;
-}
-
 .brand-italic {
   font-style: italic;
 }
@@ -97,6 +92,10 @@ body:has(nav > input[type='checkbox']:checked) {
 
 .acm-heavier {
   font-weight: 600;
+}
+
+.acm-heaviest {
+  font-weight: 700;
 }
 
 .acm-blue,

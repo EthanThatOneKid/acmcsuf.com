@@ -36,8 +36,8 @@
         well as both personal and technical development.
         <br /><br />
         Everyone under this program will get paired with student-mentors, called
-        <span class="acm-heavy">Buddies</span>, who will be there to help students prepare for
-        their successful journeys through the tech industry.
+        <span class="acm-heavy">Buddies</span>, who will be there to help students prepare for their
+        successful journeys through the tech industry.
       </p>
     </div>
     <img src="assets/nodebuds-logo-old.svg" alt="nodeBuds badge" />

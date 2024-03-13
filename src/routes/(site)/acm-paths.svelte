@@ -18,7 +18,7 @@
       {#each PINNED_TEAMS as { title, id, logoSrc, color } (id)}
         <a class="team-item" target="_self" href={`/teams#${id}`}>
           <img src={logoSrc} alt={`${id} badge`} />
-          <p class="size-md brand-bold" style:--brand-color={color}>
+          <p class="size-md acm-heaviest" style:--brand-color={color}>
             {title}
           </p>
         </a>
