@@ -98,7 +98,7 @@
       height: 100px;
       margin-top: -20px;
       background-color: var(--navbar-bg);
-      box-shadow: 0 0 50px 10px var(--perma-dark);
+      box-shadow: var(--navbar-shadow);
       z-index: -1;
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);

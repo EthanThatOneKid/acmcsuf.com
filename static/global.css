@@ -207,6 +207,7 @@ body:has(nav > input[type='checkbox']:checked) {
   --acm-odd: var(--perma-light);
   --acm-even: var(--acm-dew);
   --navbar-bg: var(--perma-light);
+  --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.25);
   --card-bg: var(--acm-light);
   --button-bg: var(--acm-dark);
   --button-hover: var(--acm-blue);
@@ -220,6 +221,7 @@ body:has(nav > input[type='checkbox']:checked) {
   --acm-odd: var(--acm-midnight);
   --acm-even: var(--acm-abyss);
   --navbar-bg: var(--acm-ocean);
+  --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0);
   --card-bg: var(--acm-gray);
   --button-bg: var(--acm-gray);
   --button-hover: #3d4043;
@@ -234,6 +236,7 @@ body:has(nav > input[type='checkbox']:checked) {
     --acm-odd: var(--perma-light);
     --acm-even: var(--acm-dew);
     --navbar-bg: var(--perma-light);
+    --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.25);
     --card-bg: var(--acm-light);
     --button-bg: var(--acm-dark);
     --button-hover: var(--acm-blue);
@@ -249,6 +252,7 @@ body:has(nav > input[type='checkbox']:checked) {
     --acm-odd: var(--acm-midnight);
     --acm-even: var(--acm-abyss);
     --navbar-bg: var(--acm-ocean);
+    --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0);
     --card-bg: var(--acm-gray);
     --button-bg: var(--acm-gray);
     --button-hover: #3d4043;
