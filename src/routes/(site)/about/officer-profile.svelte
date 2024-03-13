@@ -44,7 +44,7 @@
       .join(', ') ?? '';
 
   $: titleHTML = Object.values(TEAMS).reduce((s, t) => {
-    if (t.id === 'dev' && team?.id === 'gamedev') {
+    if (t.id === 'dev' && s.includes('Game Dev')) {
       return s;
     }
 
