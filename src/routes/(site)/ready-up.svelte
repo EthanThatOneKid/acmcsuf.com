@@ -5,7 +5,7 @@
 <section>
   <div class="container">
     <div class="main">
-      <h2 class="brand-header size-lg">Ready to get started?</h2>
+      <h2 class="acm-heavier size-lg">Ready to get started?</h2>
 
       <p class="size-sm">
         If you want to improve your coding skills, find out how to break into the tech industry,
@@ -14,7 +14,7 @@
 
         <br /><br />
 
-        <span class="brand-med">
+        <span class="acm-heavy">
           Our chapter of 1000+ members is forever free and open for anyone to join, regardless of
           major or technical ability.
         </span>

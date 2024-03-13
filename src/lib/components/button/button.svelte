@@ -12,7 +12,7 @@
 </script>
 
 <a
-  class="brand-header size-md"
+  class="acm-heavier size-md"
   role="button"
   href={link}
   target={redirect ? '_blank' : '_self'}

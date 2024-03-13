@@ -12,7 +12,7 @@
     AI: 'acm-emerald',
     Marketing: 'acm-red',
     'Special Events': 'acm-yellow',
-    nodebuds: 'brand-header',
+    nodebuds: 'acm-heavier',
   };
 
   const dispatch = createEventDispatcher();

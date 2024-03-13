@@ -49,7 +49,7 @@
   <details class="event-card" bind:this={details} class:highlighted={shown} role="region">
     <summary class="event-body">
       <div class="event-name">
-        <h2 class="headers">
+        <h2 class="acm-heavier">
           {info.title}
         </h2>
 

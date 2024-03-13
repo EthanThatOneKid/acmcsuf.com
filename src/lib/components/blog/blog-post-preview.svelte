@@ -40,7 +40,7 @@
       </button>
     </div>
     <a href={makeBlogPostPageURL(post.id)}>
-      <h2 class="headers">{post.title}</h2>
+      <h2 class="acm-heavier">{post.title}</h2>
     </a>
     <div class="markdown-body">
       {@html post.html}

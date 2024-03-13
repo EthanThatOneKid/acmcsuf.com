@@ -5,7 +5,7 @@
 <section>
   <div class="container">
     <div class="teams-intro">
-      <h2 class="brand-header size-lg">Discover your own passion</h2>
+      <h2 class="acm-heavier size-lg">Discover your own passion</h2>
 
       <p class="size-sm">
         Each team was designed to allow students to explore the various fields within tech, and

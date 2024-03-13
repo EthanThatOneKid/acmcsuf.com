@@ -26,7 +26,7 @@
 <section class="hero-container">
   <div class="hero-inner-container">
     <div class="hero-text">
-      <h1 class="brand-header size-xl">Explore our teams</h1>
+      <h1 class="acm-heavier size-xl">Explore our teams</h1>
       <p>
         Our teams specialize in specific fields in the tech industry. We've designed the teams to be
         gateways for students to explore new fields, develop new interests, and learn new skills

@@ -64,7 +64,7 @@
 <section class="hero-container">
   <div class="hero-inner-container">
     <div class="hero-text">
-      <h1 class="brand-header size-xl">
+      <h1 class="acm-heavier size-xl">
         <span>We are the largest</span> <span class="multicolor-text">Computer Science</span>
         <span>community at CSUF</span>
       </h1>

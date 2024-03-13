@@ -75,14 +75,14 @@
       }
 
       .selected {
-        background-color: var(--button-bg);
+        background-color: var(--perma-dark);
         padding: 8px 24px;
         cursor: pointer;
         border-radius: 8px;
         transition: 0.25s ease-in-out;
 
         &:hover {
-          background-color: var(--button-hover);
+          background-color: var(--acm-gray);
         }
       }
       .option {
@@ -107,7 +107,7 @@
       }
 
       & > .option {
-        background-color: var(--button-bg);
+        background-color: var(--perma-dark);
         padding: 8px 24px;
         margin-top: 0.2rem;
         border-radius: 0 0 8px 8px;

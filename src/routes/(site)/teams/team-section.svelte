@@ -51,7 +51,7 @@
 
       <div class="team-description">
         <h2>
-          <span class="headers size-lg brand-em">
+          <span class="acm-heavier size-lg brand-em">
             <span style:--font-color={info.color} class="team-title">{info.title}</span>
             Team
           </span>

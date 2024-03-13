@@ -46,7 +46,6 @@
 
   --perma-light: #f8f8f8;
   --perma-dark: #101315;
-  --footer-bg: var(--acm-ocean);
 
   /* Generator: https://xgkft.csb.app/ (280px-1000px viewport-width, 1rem=16px) */
   --size-xxl: clamp(2.8125rem, 1.8403rem + 5.5556vw, 5.3125rem);
@@ -92,13 +91,12 @@ body:has(nav > input[type='checkbox']:checked) {
   font-style: italic;
 }
 
-.brand-header,
-.headers {
-  font-weight: 600;
+.acm-heavy {
+  font-weight: 500;
 }
 
-.brand-med {
-  font-weight: 500;
+.acm-heavier {
+  font-weight: 600;
 }
 
 .acm-blue,
@@ -208,10 +206,7 @@ body:has(nav > input[type='checkbox']:checked) {
   --acm-even: var(--acm-dew);
   --navbar-bg: var(--perma-light);
   --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.25);
-  --card-bg: var(--acm-light);
-  --button-bg: var(--acm-dark);
-  --button-hover: var(--acm-blue);
-  --button-toggle: var(--acm-dark);
+  --footer-bg: var(--acm-ocean);
 }
 
 .dark {
@@ -222,10 +217,7 @@ body:has(nav > input[type='checkbox']:checked) {
   --acm-even: var(--acm-abyss);
   --navbar-bg: var(--acm-ocean);
   --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.6);
-  --card-bg: var(--acm-gray);
-  --button-bg: var(--acm-gray);
-  --button-hover: #3d4043;
-  --button-toggle: var(--acm-gray);
+  --footer-bg: var(--acm-midnight);
 }
 
 @media (prefers-color-scheme: light) {
@@ -237,10 +229,7 @@ body:has(nav > input[type='checkbox']:checked) {
     --acm-even: var(--acm-dew);
     --navbar-bg: var(--perma-light);
     --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.25);
-    --card-bg: var(--acm-light);
-    --button-bg: var(--acm-dark);
-    --button-hover: var(--acm-blue);
-    --button-toggle: var(--acm-dark);
+    --footer-bg: var(--acm-ocean);
   }
 }
 
@@ -253,9 +242,6 @@ body:has(nav > input[type='checkbox']:checked) {
     --acm-even: var(--acm-abyss);
     --navbar-bg: var(--acm-ocean);
     --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.6);
-    --card-bg: var(--acm-gray);
-    --button-bg: var(--acm-gray);
-    --button-hover: #3d4043;
-    --button-toggle: var(--acm-gray);
+    --footer-bg: var(--acm-midnight);
   }
 }
