@@ -245,6 +245,12 @@
     }
   },
   {
+    "fullName": "Mark Garcia",
+    "picture": "placeholder.webp",
+    "socials": { "discord": "xnaym" },
+    "positions": { "S24": [{ "title": "Marketing Officer", "tier": 9 }] }
+  },
+  {
     "fullName": "Gabrielius Gintalas",
     "picture": "gabrielius-gintalas.webp",
     "socials": {
@@ -333,6 +339,12 @@
     "fullName": "Ibrahim Israr",
     "picture": "ibrahim-israr.webp",
     "positions": { "S22": [{ "title": "Secretary", "tier": 5 }] }
+  },
+  {
+    "fullName": "Dave Javle",
+    "picture": "placeholder.webp",
+    "socials": { "discord": "davejavle" },
+    "positions": { "S24": [{ "title": "Marketing Officer", "tier": 9 }] }
   },
   {
     "fullName": "Evan Jimenez",
@@ -426,6 +438,12 @@
       "F23": [{ "title": "Design Officer", "tier": 16 }],
       "S24": [{ "title": "Design Officer", "tier": 16 }]
     }
+  },
+  {
+    "fullName": "Kenny Le",
+    "picture": "placeholder.webp",
+    "socials": { "discord": "savages2354" },
+    "positions": { "S24": [{ "title": "Marketing Officer", "tier": 9 }] }
   },
   {
     "fullName": "Minh Le",
