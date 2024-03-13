@@ -4,7 +4,7 @@
 
 <section class="testimony-container">
   <div class="testimony-inner-container">
-    <h1 class="brand-header size-xl">Hear what our community has to say</h1>
+    <h1 class="acm-heavier size-xl">Hear what our community has to say</h1>
     <div class="testimony-text1">
       <div class="testimony-photo1">
         <BoardPicture src="/people/placeholder.webp" color="var(acm-blue)" />

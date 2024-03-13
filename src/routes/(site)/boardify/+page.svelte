@@ -33,7 +33,7 @@
 <Block align={TextAlignment.LEFT}>
   <div slot="text">
     <p>
-      <span class="brand-italic">
+      <span class="acm-italic">
         Upload an image of your headshot, crop to your liking, and download the resulting ACM at
         CSUF board image. Copy the image link to your clipboard to share with your friends in ACM at
         CSUF!

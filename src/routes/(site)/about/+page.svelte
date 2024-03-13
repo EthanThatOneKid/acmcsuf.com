@@ -21,7 +21,7 @@
 
 <Spacing --min="120px" --med="150px" --max="200px" />
 
-<h1 class="size-lg brand-header">Board members</h1>
+<h1 class="size-lg acm-heavier">Board members</h1>
 
 <Spacing --min="16px" --med="16px" --max="16px" />
 

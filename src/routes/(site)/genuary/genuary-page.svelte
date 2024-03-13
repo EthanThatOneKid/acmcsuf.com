@@ -22,7 +22,7 @@
     Our chapter members' take on the <a href="https://genuary.art/">Genuary challenge</a>.
     <br />
     <br />
-    <span class="brand-italic">
+    <span class="acm-italic">
       Genuary is a challenge to create a piece of generative art every day in January.
       <br />
       <br />

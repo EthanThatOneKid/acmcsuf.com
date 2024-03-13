@@ -113,13 +113,13 @@
   <h1 id="contact-information" slot="headline" class="size-lg">Contact information</h1>
   <div slot="text" class="contact-text">
     <p class="size-sm">
-      <span class="brand-italic"
+      <span class="acm-italic"
         >Feel free to contact the ACM Executive Board if you have questions.</span
       >
     </p>
 
     <p class="size-sm">
-      <span class="brand-em">David Solano (ACM President)</span>
+      <span class="acm-heaviest">David Solano (ACM President)</span>
     </p>
     <ul>
       <li>Email: <code>dsolano7@csu.fullerton.edu</code></li>
@@ -127,7 +127,7 @@
     </ul>
 
     <p class="size-sm">
-      <span class="brand-em">Daniel Truong (ACM VP)</span>
+      <span class="acm-heaviest">Daniel Truong (ACM VP)</span>
     </p>
     <ul>
       <li>Email: <code>anhduy1202@csu.fullerton.edu</code></li>
