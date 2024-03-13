@@ -43,9 +43,9 @@
 
 <TeamSection info={TEAMS.general} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The ACM <span class="brand-blue acm-heaviest">general</span> team is a dynamic group of
+    The ACM <span class="acm-blue acm-heaviest">general</span> team is a dynamic group of
     individuals driving the success of our organization. ACM
-    <span class="brand-blue acm-heaviest">General</span>
+    <span class="acm-blue acm-heaviest">General</span>
     manages operations, organizes events, and ensure the smooth functioning of ACM. They are the backbone
     of our community, fostering collaboration and innovation among members.
   </p>
@@ -53,17 +53,17 @@
 
 <TeamSection info={TEAMS.marketing} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The <span class="brand-blush acm-heaviest">marketing</span> team has a strong passion towards
+    The <span class="acm-blush acm-heaviest">marketing</span> team has a strong passion towards
     advertising and spreading word on all our ACM events.
-    <span class="brand-blush acm-heaviest">Marketing</span> utilizes their expertise in digital strategies
+    <span class="acm-blush acm-heaviest">Marketing</span> utilizes their expertise in digital strategies
     and creative storytelling to display a welcoming environment to all students.
   </p>
 </TeamSection>
 
 <TeamSection info={TEAMS.algo} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The <span class="brand-purple acm-heaviest">algorithm</span> team is dedicated to building
-    programming fundamentals within students. <span class="brand-purple acm-heaviest">Algo</span> focuses
+    The <span class="acm-purple acm-heaviest">algorithm</span> team is dedicated to building
+    programming fundamentals within students. <span class="acm-purple acm-heaviest">Algo</span> focuses
     on mastering data structures and algorithms, enhancing problem solving abilities, and exploration
     of competitive programming.
   </p>
@@ -71,18 +71,18 @@
 
 <TeamSection info={TEAMS.design} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The <span class="brand-pink acm-heaviest">design</span> team is dedicated to emphasizing the
+    The <span class="acm-pink acm-heaviest">design</span> team is dedicated to emphasizing the
     importance of product design and product management in the tech industry.
-    <span class="brand-pink acm-heaviest">Design</span> focuses on educating students about design principles,
+    <span class="acm-pink acm-heaviest">Design</span> focuses on educating students about design principles,
     design tools, and the intricacies of conceptualization, development, and management of a product.
   </p>
 </TeamSection>
 
 <TeamSection info={TEAMS.dev} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The <span class="brand-bluer acm-heaviest">development</span> team is dedicated to giving
-    students the opportunity to explore tech via hands-on projects and activities.
-    <span class="brand-bluer acm-heaviest">Dev</span> focuses on introducing students to software development,
+    The <span class="acm-bluer acm-heaviest">development</span> team is dedicated to giving students
+    the opportunity to explore tech via hands-on projects and activities.
+    <span class="acm-bluer acm-heaviest">Dev</span> focuses on introducing students to software development,
     and the various tech stacks used in the industry.
   </p>
 </TeamSection>
@@ -98,25 +98,25 @@
 
 <TeamSection info={TEAMS['gamedev']} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The <span class="brand-red acm-heaviest">game development</span> team is dedicated to teaching
-    the basics of programming in the gaming industry.
-    <span class="brand-red acm-heaviest">Gamedev</span> focuses on educating students about design principles,
+    The <span class="acm-red acm-heaviest">game development</span> team is dedicated to teaching the
+    basics of programming in the gaming industry.
+    <span class="acm-red acm-heaviest">Gamedev</span> focuses on educating students about design principles,
     design tools, and the development process of a project.
   </p>
 </TeamSection>
 
 <TeamSection info={TEAMS['special-events']} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The <span class="brand-lemon acm-heaviest">special events</span> team is all about creating
+    The <span class="acm-lemon acm-heaviest">special events</span> team is all about creating
     unforgettable moments and experiences.
-    <span class="brand-lemon acm-heaviest">Special Events</span> plan and execute ex citing events that
+    <span class="acm-lemon acm-heaviest">Special Events</span> plan and execute ex citing events that
     bring our community together, fostering connections and celebrating shared passions.
   </p>
 </TeamSection>
 
 <TeamSection info={TEAMS.nodebuds} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    Personalized for your success, <span class="brand-red acm-heaviest">node buds</span> is our exclusive
+    Personalized for your success, <span class="acm-red acm-heaviest">node buds</span> is our exclusive
     program in partnership with ACM-W that exposes students to various opportunities that encourage connection,
     skill building, as well as both personal and technical development. Everone under this program will
     get paired with student-mentors, called Buddies , who will be there to help students prepare for
@@ -126,20 +126,20 @@
 
 <TeamSection info={TEAMS.icpc} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The <span class="brand-orange acm-heaviest"
+    The <span class="acm-orange acm-heaviest"
       >Intercollegiate Competitive Programming Competition</span
     >
     is a contest to challenge students on their algorithms and problem solving skills. The
-    <span class="brand-orange acm-heaviest">ICPC</span> Team is dedicated to preparing students for the
+    <span class="acm-orange acm-heaviest">ICPC</span> Team is dedicated to preparing students for the
     competition by hosting weekly practice sessions and mock contests.
   </p>
 </TeamSection>
 
 <TeamSection info={TEAMS.oss} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The <span class="brand-turquoise acm-heaviest">open source software</span> team is committed to
+    The <span class="acm-turquoise acm-heaviest">open source software</span> team is committed to
     fostering collaboration and innovation in the tech community.
-    <span class="brand-turquoise acm-heaviest">OSS</span> actively contributes to ACM open source projects,
+    <span class="acm-turquoise acm-heaviest">OSS</span> actively contributes to ACM open source projects,
     sharing their expertise and driving advancements in software development.
   </p>
 </TeamSection>

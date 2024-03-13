@@ -82,7 +82,7 @@ body:has(nav > input[type='checkbox']:checked) {
   overflow: hidden;
 }
 
-.brand-italic {
+.acm-italic {
   font-style: italic;
 }
 
@@ -98,78 +98,63 @@ body:has(nav > input[type='checkbox']:checked) {
   font-weight: 700;
 }
 
-.acm-blue,
-.brand-blue {
+.acm-blue {
   color: var(--acm-blue);
 }
 
-.acm-bluer,
-.brand-bluer {
+.acm-bluer {
   color: var(--acm-bluer);
 }
 
-.acm-turquoise,
-.brand-turquoise {
+.acm-turquoise {
   color: var(--acm-turquoise);
 }
 
-.acm-emerald,
-.brand-emerald {
+.acm-emerald {
   color: var(--acm-emerald);
 }
 
-.acm-lemon,
-.brand-lemon {
+.acm-lemon {
   color: var(--acm-lemon);
 }
 
-.acm-orange,
-.brand-orange {
+.acm-orange {
   color: var(--acm-orange);
 }
 
-.acm-pink,
-.brand-pink {
+.acm-pink {
   color: var(--acm-pink);
 }
 
-.acm-blush,
-.brand-blush {
+.acm-blush {
   color: var(--acm-blush);
 }
 
-.acm-purple,
-.brand-purple {
+.acm-purple {
   color: var(--acm-purple);
 }
 
-.acm-red,
-.brand-red {
+.acm-red {
   color: var(--acm-red);
 }
 
-.acm-redder,
-.brand-redder {
+.acm-redder {
   color: var(--acm-redder);
 }
 
-.acm-sky,
-.brand-sky {
+.acm-sky {
   color: var(--acm-sky);
 }
 
-.acm-dark,
-.brand-dark {
+.acm-dark {
   color: var(--acm-dark);
 }
 
-.acm-gray,
-.brand-gray {
+.acm-gray {
   color: var(--acm-gray);
 }
 
-.acm-light,
-.brand-light {
+.acm-light {
   color: var(--acm-light);
 }
 
