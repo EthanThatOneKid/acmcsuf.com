@@ -71,18 +71,18 @@
 
       .option-choice,
       .selected {
-        color: var(--perma-light);
+        color: var(--button-color);
       }
 
       .selected {
-        background-color: var(--perma-dark);
+        background-color: var(--button-bg);
         padding: 8px 24px;
         cursor: pointer;
         border-radius: 8px;
         transition: 0.25s ease-in-out;
 
         &:hover {
-          background-color: var(--acm-gray);
+          background-color: var(--button-bg-hover);
         }
       }
       .option {
@@ -95,7 +95,7 @@
           transition: 0.25s ease-in-out;
 
           &:hover:not(.pre-selected) {
-            color: var(--acm-blue);
+            color: rgba(255, 255, 255, 0.7);
           }
         }
       }
@@ -107,7 +107,7 @@
       }
 
       & > .option {
-        background-color: var(--perma-dark);
+        background-color: var(--button-bg);
         padding: 8px 24px;
         margin-top: 0.2rem;
         border-radius: 0 0 8px 8px;

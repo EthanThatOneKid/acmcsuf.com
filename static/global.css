@@ -44,8 +44,6 @@
   --acm-midnight: rgba(var(--acm-midnight-rgb), 1);
   --acm-gray-rgb: 41, 44, 47;
   --acm-gray: rgba(var(--acm-gray-rgb), 1);
-  --acm-canvas-rgb: 234, 234, 234;
-  --acm-canvas: rgba(var(--acm-canvas-rgb), 1);
 
   /** These values represent the ACM team colors. */
   --acm-general-rgb: var(--acm-blue-rgb);
@@ -80,6 +78,15 @@
   /** These values may change based on the user's color scheme preference. */
   --acm-light: #f8f8f8;
   --acm-dark: #101315;
+  --acm-canvas: rgba(234, 234, 234, 1);
+  --acm-odd: var(--perma-light);
+  --acm-even: var(--acm-dew);
+  --navbar-bg: var(--perma-light);
+  --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.25);
+  --footer-bg: var(--acm-ocean);
+  --button-bg: var(--acm-midnight);
+  --button-bg-hover: var(--acm-ocean);
+  --button-color: var(--perma-light);
 }
 
 *,
@@ -217,6 +224,9 @@ body:has(nav > input[type='checkbox']:checked) {
   --navbar-bg: var(--perma-light);
   --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.25);
   --footer-bg: var(--acm-ocean);
+  --button-bg: var(--acm-midnight);
+  --button-bg-hover: var(--acm-ocean);
+  --button-color: var(--perma-light);
 }
 
 .dark {
@@ -228,6 +238,9 @@ body:has(nav > input[type='checkbox']:checked) {
   --navbar-bg: var(--acm-ocean);
   --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.6);
   --footer-bg: var(--acm-midnight);
+  --button-bg: var(--acm-blue);
+  --button-bg-hover: var(--acm-sky);
+  --button-color: var(--perma-light);
 }
 
 @media (prefers-color-scheme: light) {
@@ -240,6 +253,9 @@ body:has(nav > input[type='checkbox']:checked) {
     --navbar-bg: var(--perma-light);
     --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.25);
     --footer-bg: var(--acm-ocean);
+    --button-bg: var(--acm-midnight);
+    --button-bg-hover: var(--acm-ocean);
+    --button-color: var(--perma-light);
   }
 }
 
@@ -253,5 +269,8 @@ body:has(nav > input[type='checkbox']:checked) {
     --navbar-bg: var(--acm-ocean);
     --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.6);
     --footer-bg: var(--acm-midnight);
+    --button-bg: var(--acm-blue);
+    --button-bg-hover: var(--acm-sky);
+    --button-color: var(--perma-light);
   }
 }
