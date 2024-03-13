@@ -1,0 +1,117 @@
+[
+  {
+    "id": "--acm-abyss-rgb",
+    "hex": "#052155",
+    "rgb": [5, 33, 85]
+  },
+  {
+    "id": "--acm-blue-rgb",
+    "hex": "#2c91c6",
+    "rgb": [44, 145, 198]
+  },
+  {
+    "id": "--acm-bluer-rgb",
+    "hex": "#1e6cff",
+    "rgb": [30, 108, 255]
+  },
+  {
+    "id": "--acm-blush-rgb",
+    "hex": "#fe0ec9",
+    "rgb": [254, 14, 201]
+  },
+  {
+    "id": "--acm-dark",
+    "hex": "#101315",
+    "rgb": [1, 49, 5]
+  },
+  {
+    "id": "--acm-darker-rgb",
+    "hex": "#092d71",
+    "rgb": [9, 45, 113]
+  },
+  {
+    "id": "--acm-darkest-rgb",
+    "hex": "#052155",
+    "rgb": [5, 33, 85]
+  },
+  {
+    "id": "--acm-dew-rgb",
+    "hex": "#ebf8ff",
+    "rgb": [235, 248, 255]
+  },
+  {
+    "id": "--acm-emerald-rgb",
+    "hex": "#21d19f",
+    "rgb": [33, 209, 159]
+  },
+  {
+    "id": "--acm-gray-rgb",
+    "hex": "#292c2f",
+    "rgb": [41, 44, 47]
+  },
+  {
+    "id": "--acm-lemon-rgb",
+    "hex": "#ffd029",
+    "rgb": [255, 208, 41]
+  },
+  {
+    "id": "--acm-light",
+    "hex": "#f8f8f8",
+    "rgb": [143, 143, 8]
+  },
+  {
+    "id": "--acm-midnight-rgb",
+    "hex": "#041536",
+    "rgb": [4, 21, 54]
+  },
+  {
+    "id": "--acm-ocean-rgb",
+    "hex": "#082863",
+    "rgb": [8, 40, 99]
+  },
+  {
+    "id": "--acm-orange-rgb",
+    "hex": "#ff7917",
+    "rgb": [255, 121, 23]
+  },
+  {
+    "id": "--acm-pink-rgb",
+    "hex": "#ff4365",
+    "rgb": [255, 67, 101]
+  },
+  {
+    "id": "--acm-purple-rgb",
+    "hex": "#9d35e7",
+    "rgb": [157, 53, 231]
+  },
+  {
+    "id": "--acm-red-rgb",
+    "hex": "#d41153",
+    "rgb": [212, 17, 83]
+  },
+  {
+    "id": "--acm-redder-rgb",
+    "hex": "#6e0025",
+    "rgb": [110, 0, 37]
+  },
+  {
+    "id": "--acm-sky-rgb",
+    "hex": "#38b6ff",
+    "rgb": [56, 182, 255]
+  },
+  {
+    "id": "--acm-turquoise-rgb",
+    "hex": "#11d4b1",
+    "rgb": [17, 212, 177]
+  },
+  {
+    "id": "--perma-dark-rgb",
+    "hex": "#101315",
+    "rgb": [16, 19, 21]
+  },
+  {
+    "id": "--perma-light-rgb",
+    "hex": "#f8f8f8",
+    "rgb": [248, 248, 248]
+  }
+]
