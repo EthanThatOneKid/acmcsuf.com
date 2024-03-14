@@ -21,9 +21,10 @@
 </script>
 
 {#if !skip}
-  <div class="container">
+  <div class="team-section-container">
     <section
       id={info.id}
+      class="team-section"
       class:marketing-animation={info.id === 'marketing'}
       class:algo-animation={info.id === 'algo'}
       class:design-animation={info.id === 'design'}
@@ -50,7 +51,7 @@
 
       <div class="team-description">
         <h2>
-          <span class="headers size-lg brand-em">
+          <span class="acm-heavier size-lg acm-heaviest">
             <span style:--font-color={info.color} class="team-title">{info.title}</span>
             Team
           </span>
@@ -64,27 +65,28 @@
 {/if}
 
 <style>
-  .container {
+  .team-section-container {
     display: grid;
+    padding: 1rem 0;
   }
 
-  section {
+  .team-section {
     display: grid;
     grid-template-columns: 1fr;
     margin: 0 1rem;
     scroll-margin-top: 100px;
   }
 
-  section img {
+  .team-section img {
     max-width: clamp(20rem, 17.342rem + 10.13vw, 30rem);
     justify-self: center;
   }
 
-  section .team-title {
+  .team-section .team-title {
     color: var(--font-color, var(--acm-dark));
   }
 
-  section .team-description {
+  .team-section .team-description {
     display: grid;
     align-items: center;
     text-align: center;
@@ -305,7 +307,7 @@
   }
 
   @media screen and (min-width: 1000px) {
-    section {
+    .team-section {
       grid-template-columns: 1fr 2fr;
       justify-self: center;
       width: 1064px;
@@ -313,22 +315,23 @@
       margin: 0 32px;
     }
 
-    section img {
+    .team-section img {
       margin-left: -32px;
       width: 350px;
     }
 
-    section .team-description {
+    .team-section .team-description {
       text-align: left;
     }
 
-    section .team-description h2 {
+    .team-section .team-description h2 {
       align-self: end;
     }
 
-    :nth-child(even) section {
+    :nth-child(even) .team-section {
       grid-template-columns: 2fr 1fr;
     }
+
     :nth-child(even) .team-description {
       order: -1;
     }

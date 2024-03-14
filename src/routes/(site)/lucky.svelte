@@ -5,7 +5,7 @@
 <section class="lucky-container">
   <div class="lucky-inner-container">
     <div class="lucky-text">
-      <h1 class="brand-header size-xl">I'm feeling lucky!</h1>
+      <h1 class="acm-heavier size-xl">I'm feeling lucky!</h1>
       <div class="lucky-button">
         <AcmButton text="Visit a random page?" link="/random" redirect />
       </div>

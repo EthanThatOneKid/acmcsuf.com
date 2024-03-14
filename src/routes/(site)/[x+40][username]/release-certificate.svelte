@@ -13,7 +13,7 @@
 
   <Spacing --min="16px" --med="16px" --max="16px" />
 
-  <h1 class="size-l toplevel-text headers">
+  <h1 class="size-l toplevel-text acm-heavier">
     <a
       class="username"
       href={`https://github.com/${data.user.login}`}

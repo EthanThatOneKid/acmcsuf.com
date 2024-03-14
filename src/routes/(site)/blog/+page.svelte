@@ -39,14 +39,14 @@
 </section>
 
 <section>
-  <h2 class="subtitle headers size-md">
+  <h2 class="subtitle acm-heavier size-md">
     The official ACM at CSUF blog.<a href="/feed.xml"
       ><img src="assets/feed-icon.svg" alt="RSS feed logo" /></a
     >
   </h2>
 </section>
 
-<Spacing --min="175px" --med="200px" --max="200px" />
+<Spacing --min="110px" --med="125px" --max="150px" />
 
 {#if data.posts.length > 0}
   <LabelField labels={data.labels} {selectedLabels} on:change={filterPosts}>
