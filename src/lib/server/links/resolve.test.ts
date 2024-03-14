@@ -45,6 +45,8 @@ const TEST_SHORTLINKS = {
   bug: '/issues/new/?labels=bug&template=bug_report.md',
   'dev/template': 'https://example.com/dev-template',
   'student-pack': '/blog/806',
+  discord: 'https://discord.gg/discord-invite',
+  'dev-example': 'https://example.com/dev-example',
 };
 
 const VALID_TESTCASES: Array<[URL, ReturnType<typeof resolve>]> = [
@@ -76,6 +78,8 @@ const VALID_TESTCASES: Array<[URL, ReturnType<typeof resolve>]> = [
     new URL('https://acmcsuf.com/dev/template/new'),
     new URL('https://example.com/dev-template/new'),
   ],
+  [new URL('https://acmcsuf.com/discord'), new URL('https://discord.gg/discord-invite')],
+  [new URL('https://acmcsuf.com/dev-example'), new URL('https://example.com/dev-example')],
 ];
 
 test('resolve resolves valid URLs', () => {
