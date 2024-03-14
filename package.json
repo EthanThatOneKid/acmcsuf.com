@@ -1,7 +1,7 @@
 {
   "name": "acmcsuf.com",
   "description": "Official website of CSUF's ACM club.",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "private": true,
   "type": "module",
   "homepage": "https://acmcsuf.com/",
