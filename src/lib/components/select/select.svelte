@@ -71,7 +71,7 @@
 
       .option-choice,
       .selected {
-        color: var(--perma-light);
+        color: var(--button-color);
       }
 
       .selected {
@@ -82,7 +82,7 @@
         transition: 0.25s ease-in-out;
 
         &:hover {
-          background-color: var(--button-hover);
+          background-color: var(--button-bg-hover);
         }
       }
       .option {
@@ -95,7 +95,7 @@
           transition: 0.25s ease-in-out;
 
           &:hover:not(.pre-selected) {
-            color: var(--acm-blue);
+            color: rgba(255, 255, 255, 0.7);
           }
         }
       }

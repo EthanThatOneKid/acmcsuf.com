@@ -2,10 +2,69 @@
   import AcmButton from '$lib/components/button/button.svelte';
 </script>
 
+<map name="capy-power">
+  <area
+    alt="General Team"
+    title="General Team"
+    href="/teams#general"
+    coords="200,10 160,50 200,90 240,50 "
+    shape="polygon"
+  />
+  <area
+    alt="AI Team"
+    title="AI Team"
+    href="/teams#ai"
+    coords="330,60 290,100 330,140 370,100"
+    shape="polygon"
+  />
+  <area
+    alt="Design Team"
+    title="Design Team"
+    href="/teams#design"
+    coords="370,170 330,210 370,250 410,210"
+    shape="polygon"
+  />
+  <area
+    alt="Dev Team"
+    title="Dev Team"
+    href="/teams#dev"
+    coords="330,290 290,330 330,370 370,330"
+    shape="polygon"
+  />
+  <area
+    alt="Algo Team"
+    title="Algo Team"
+    href="/teams#algo"
+    coords="200,340 160,380 200,420 240,380"
+    shape="polygon"
+  />
+  <area
+    alt="ICPC Team"
+    title="ICPC Team"
+    href="/teams#icpc"
+    coords="80,290 40,330 80,370 120,330"
+    shape="polygon"
+  />
+  <area
+    alt="Open Source Software Team"
+    title="Open Source Software Team"
+    href="/teams#oss"
+    coords="50,170 10,210 50,250 90,210"
+    shape="polygon"
+  />
+  <area
+    alt="Game Dev Team"
+    title="Game Dev Team"
+    href="/teams#gamedev"
+    coords="90,60 50,100 90,140 130,100"
+    shape="polygon"
+  />
+</map>
+
 <section class="hero-container">
   <div class="hero-inner-container">
     <div class="hero-text">
-      <h1 class="brand-header size-xl">
+      <h1 class="acm-heavier size-xl">
         <span>We are the largest</span> <span class="multicolor-text">Computer Science</span>
         <span>community at CSUF</span>
       </h1>
@@ -14,7 +73,11 @@
       </div>
     </div>
 
-    <img src="/assets/capy-power.svg" alt="Chip the Capybara surrounded by all ACM Team badges" />
+    <img
+      usemap="#capy-power"
+      src="/assets/capy-power.svg"
+      alt="Chip the Capybara surrounded by all ACM Team badges"
+    />
   </div>
 </section>
 
@@ -49,14 +112,7 @@
    */
   section .hero-inner-container .hero-text span.multicolor-text {
     display: inline-block;
-    background: linear-gradient(
-      to right,
-      var(--acm-turquoise),
-      var(--acm-blue),
-      var(--acm-bluer),
-      var(--acm-purple),
-      var(--acm-pink)
-    );
+    background: var(--acm-union);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;

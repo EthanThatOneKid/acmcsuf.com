@@ -35,7 +35,7 @@
     <div class="logo-container">
       <a href="/" class="logo">
         <img src="/assets/general-logo.svg" class="badge" alt="acmCSUF badge" />
-        <h3 class="brand-header">at <b>CSUF</b></h3>
+        <h3 class="acm-heavier">at <b>CSUF</b></h3>
       </a>
     </div>
 
@@ -47,7 +47,7 @@
               on:click={handleClose}
               on:keypress={handleClose}
               href={path}
-              class="brand-header size-sm"
+              class="acm-heavier size-sm"
               aria-current={path === $page.url.pathname}
             >
               {@html title}
@@ -98,7 +98,7 @@
       height: 100px;
       margin-top: -20px;
       background-color: var(--navbar-bg);
-      box-shadow: var(--nav-shadow);
+      box-shadow: var(--navbar-shadow);
       z-index: -1;
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
@@ -192,7 +192,7 @@
             align-items: center;
             max-width: fit-content;
             padding: 6px 12px;
-            background-color: var(--button-toggle);
+            background-color: var(--perma-dark);
             border-radius: 8px;
             gap: 4px;
 

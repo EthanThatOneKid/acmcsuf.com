@@ -26,7 +26,7 @@
 <section class="hero-container">
   <div class="hero-inner-container">
     <div class="hero-text">
-      <h1 class="brand-header size-xl">Explore our teams</h1>
+      <h1 class="acm-heavier size-xl">Explore our teams</h1>
       <p>
         Our teams specialize in specific fields in the tech industry. We've designed the teams to be
         gateways for students to explore new fields, develop new interests, and learn new skills
@@ -43,8 +43,9 @@
 
 <TeamSection info={TEAMS.general} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The ACM <span class="brand-blue brand-em">general</span> team is a dynamic group of individuals
-    driving the success of our organization. ACM <span class="brand-blue brand-em">General</span>
+    The ACM <span class="acm-blue acm-heaviest">general</span> team is a dynamic group of
+    individuals driving the success of our organization. ACM
+    <span class="acm-blue acm-heaviest">General</span>
     manages operations, organizes events, and ensure the smooth functioning of ACM. They are the backbone
     of our community, fostering collaboration and innovation among members.
   </p>
@@ -52,17 +53,17 @@
 
 <TeamSection info={TEAMS.marketing} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The <span class="brand-blush brand-em">marketing</span> team has a strong passion towards
+    The <span class="acm-blush acm-heaviest">marketing</span> team has a strong passion towards
     advertising and spreading word on all our ACM events.
-    <span class="brand-blush brand-em">Marketing</span> utilizes their expertise in digital strategies
+    <span class="acm-blush acm-heaviest">Marketing</span> utilizes their expertise in digital strategies
     and creative storytelling to display a welcoming environment to all students.
   </p>
 </TeamSection>
 
 <TeamSection info={TEAMS.algo} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The <span class="brand-purple brand-em">algorithm</span> team is dedicated to building
-    programming fundamentals within students. <span class="brand-purple brand-em">Algo</span> focuses
+    The <span class="acm-purple acm-heaviest">algorithm</span> team is dedicated to building
+    programming fundamentals within students. <span class="acm-purple acm-heaviest">Algo</span> focuses
     on mastering data structures and algorithms, enhancing problem solving abilities, and exploration
     of competitive programming.
   </p>
@@ -70,51 +71,52 @@
 
 <TeamSection info={TEAMS.design} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The <span class="brand-pink brand-em">design</span> team is dedicated to emphasizing the
+    The <span class="acm-pink acm-heaviest">design</span> team is dedicated to emphasizing the
     importance of product design and product management in the tech industry.
-    <span class="brand-pink brand-em">Design</span> focuses on educating students about design principles,
+    <span class="acm-pink acm-heaviest">Design</span> focuses on educating students about design principles,
     design tools, and the intricacies of conceptualization, development, and management of a product.
   </p>
 </TeamSection>
 
 <TeamSection info={TEAMS.dev} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The <span class="brand-bluer brand-em">development</span> team is dedicated to giving students
+    The <span class="acm-bluer acm-heaviest">development</span> team is dedicated to giving students
     the opportunity to explore tech via hands-on projects and activities.
-    <span class="brand-bluer brand-em">Dev</span> focuses on introducing students to software development,
+    <span class="acm-bluer acm-heaviest">Dev</span> focuses on introducing students to software development,
     and the various tech stacks used in the industry.
   </p>
 </TeamSection>
 
 <TeamSection info={TEAMS.ai} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The <span class="brand-emerald brand-em">artificial intelligence</span> team is dedicated to
+    The <span class="acm-emerald acm-heaviest">artificial intelligence</span> team is dedicated to
     providing accessible information about artificial intelligence and machine learning to all.
-    <span class="brand-emerald brand-em">AI</span> focuses on fun projects geared towards beginners in
-    the field.
+    <span class="acm-emerald acm-heaviest">AI</span> focuses on fun projects geared towards beginners
+    in the field.
   </p>
 </TeamSection>
 
 <TeamSection info={TEAMS['gamedev']} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The <span class="brand-red brand-em">game development</span> team is dedicated to teaching the
-    basics of programming in the gaming industry. <span class="brand-red brand-em">Gamedev</span> focuses
-    on educating students about design principles, design tools, and the development process of a project.
+    The <span class="acm-red acm-heaviest">game development</span> team is dedicated to teaching the
+    basics of programming in the gaming industry.
+    <span class="acm-red acm-heaviest">Gamedev</span> focuses on educating students about design principles,
+    design tools, and the development process of a project.
   </p>
 </TeamSection>
 
 <TeamSection info={TEAMS['special-events']} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The <span class="brand-lemon brand-em">special events</span> team is all about creating
-    unforgettable moments and experiences. <span class="brand-lemon brand-em">Special Events</span> plan
-    and execute ex citing events that bring our community together, fostering connections and celebrating
-    shared passions.
+    The <span class="acm-lemon acm-heaviest">special events</span> team is all about creating
+    unforgettable moments and experiences.
+    <span class="acm-lemon acm-heaviest">Special Events</span> plan and execute ex citing events that
+    bring our community together, fostering connections and celebrating shared passions.
   </p>
 </TeamSection>
 
 <TeamSection info={TEAMS.nodebuds} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    Personalized for your success, <span class="brand-red brand-em">node buds</span> is our exclusive
+    Personalized for your success, <span class="acm-red acm-heaviest">node buds</span> is our exclusive
     program in partnership with ACM-W that exposes students to various opportunities that encourage connection,
     skill building, as well as both personal and technical development. Everone under this program will
     get paired with student-mentors, called Buddies , who will be there to help students prepare for
@@ -124,20 +126,20 @@
 
 <TeamSection info={TEAMS.icpc} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The <span class="brand-orange brand-em"
+    The <span class="acm-orange acm-heaviest"
       >Intercollegiate Competitive Programming Competition</span
     >
     is a contest to challenge students on their algorithms and problem solving skills. The
-    <span class="brand-orange brand-em">ICPC</span> Team is dedicated to preparing students for the competition
-    by hosting weekly practice sessions and mock contests.
+    <span class="acm-orange acm-heaviest">ICPC</span> Team is dedicated to preparing students for the
+    competition by hosting weekly practice sessions and mock contests.
   </p>
 </TeamSection>
 
 <TeamSection info={TEAMS.oss} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The <span class="brand-turquoise brand-em">open source software</span> team is committed to
+    The <span class="acm-turquoise acm-heaviest">open source software</span> team is committed to
     fostering collaboration and innovation in the tech community.
-    <span class="brand-turquoise brand-em">OSS</span> actively contributes to ACM open source projects,
+    <span class="acm-turquoise acm-heaviest">OSS</span> actively contributes to ACM open source projects,
     sharing their expertise and driving advancements in software development.
   </p>
 </TeamSection>
@@ -201,5 +203,13 @@
     section .hero-inner-container .hero-text p {
       margin: 0;
     }
+  }
+
+  :global(.team-section-container:nth-child(odd)) {
+    background-color: var(--acm-even);
+  }
+
+  :global(.team-section-container:nth-child(even)) {
+    background-color: var(--acm-odd);
   }
 </style>

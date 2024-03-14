@@ -12,7 +12,7 @@
         >
       </h1>
     </div>
-    <div class="size-lg brand-med hero-text">
+    <div class="size-lg acm-heavy hero-text">
       <span>We made it easy to focus on what <span class="acm-sky">interests you.</span></span>
       <span>Explore the different <span class="acm-sky">teams</span> you can expect from us.</span>
     </div>
@@ -21,7 +21,7 @@
       <!--Algo Header-->
       <div class="hero-inner-container">
         <img src="/assets/algo-logo.svg" alt="Algo Team Badge" />
-        <div class="size-md brand-med hero-text">
+        <div class="size-md acm-heavy hero-text">
           <span
             >Refine your knowledge of <span class="acm-purple">Algorithms</span> used for FAANG interviews</span
           >
@@ -30,15 +30,15 @@
       <!--Dev Header-->
       <div class="hero-inner-container">
         <img src="/assets/dev-logo.svg" alt="Dev Team Badge" />
-        <div class="size-md brand-med hero-text">
-          <span><span class="acm-bluer">Develop</span> semester long projects to show your mom</span
+        <div class="size-md acm-heavy hero-text">
+          <span><span class="acm-bluer">Develop</span> semester-long projects to show your mom</span
           >
         </div>
       </div>
       <!--Design Header-->
       <div class="hero-inner-container">
         <img src="/assets/design-logo.svg" alt="Design Team Badge" />
-        <div class="size-md brand-med hero-text">
+        <div class="size-md acm-heavy hero-text">
           <span
             >Learn to <span class="acm-pink">Design</span> UI/UX and web development material</span
           >
@@ -50,7 +50,7 @@
       <!--AI Header-->
       <div class="hero-inner-container">
         <img src="/assets/ai-logo.svg" alt="AI Team Badge" />
-        <div class="size-md brand-med hero-text">
+        <div class="size-md acm-heavy hero-text">
           <span
             >Dive into the world of <span class="acm-emerald">Artificial Intelligence</span></span
           >
@@ -59,7 +59,7 @@
       <!-- Game Dev -->
       <div class="hero-inner-container">
         <img src="/assets/gamedev-logo.svg" alt="Game Dev Team Badge" />
-        <div class="size-md brand-med hero-text">
+        <div class="size-md acm-heavy hero-text">
           <span
             >Level up your game development skills at the <span class="acm-red">Game Dev</span> hub</span
           >
@@ -121,10 +121,21 @@
     }
 
     section .hero-inner-container {
+      grid-template-columns: 1fr;
       gap: 2em;
       margin: 1em;
     }
 
+    section .hero-inner-container .hero-text {
+      text-align: start;
+    }
+
+    section .hero-inner-container .hero-text .discover-button {
+      justify-self: center;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
     section .hero-inner-container .team-row1-container {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -137,16 +148,8 @@
       grid-template-columns: 1fr 1fr;
       align-items: baseline;
       justify-content: center;
-      width: 70%;
+      width: 70ch;
       gap: 2em;
-    }
-
-    section .hero-inner-container .hero-text {
-      text-align: start;
-    }
-
-    section .hero-inner-container .hero-text .discover-button {
-      justify-self: center;
     }
   }
 </style>

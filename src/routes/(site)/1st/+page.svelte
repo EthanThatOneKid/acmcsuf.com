@@ -54,7 +54,7 @@
   </section>
 
   <section id="welcome">
-    <h2 class="headers">Welcome to ACM!</h2>
+    <h2 class="acm-heavier">Welcome to ACM!</h2>
 
     <p>
       ACM at CSUF provides a social online platform, Discord, that brings passionate Titans together
@@ -66,7 +66,7 @@
   </section>
 
   <section id="fork">
-    <h2 class="headers">Fork <code>acmcsuf.com</code></h2>
+    <h2 class="acm-heavier">Fork <code>acmcsuf.com</code></h2>
 
     <p>
       <img
@@ -85,7 +85,7 @@
   </section>
 
   <section id="clone">
-    <h2 class="headers">Clone the repository</h2>
+    <h2 class="acm-heavier">Clone the repository</h2>
 
     <p>
       <img
@@ -126,7 +126,7 @@ git clone https://github.com/this-is-you/acmcsuf.com.git
   </section>
 
   <section id="branch">
-    <h2 class="headers">Create a branch</h2>
+    <h2 class="acm-heavier">Create a branch</h2>
 
     <p>
       Change to the repository directory on your computer (if you are not already there): <code
@@ -141,9 +141,9 @@ git clone https://github.com/this-is-you/acmcsuf.com.git
   </section>
 
   <section id="changes">
-    <h2 class="headers">Make necessary changes and commit them</h2>
+    <h2 class="acm-heavier">Make necessary changes and commit them</h2>
 
-    <p class="brand-em">Want to make it rain?</p>
+    <p class="acm-heaviest">Want to make it rain?</p>
 
     <br />
 
@@ -178,7 +178,7 @@ git add -A && git commit -m "Your Message"
   </section>
 
   <section id="push">
-    <h2 class="headers">Push changes to GitHub</h2>
+    <h2 class="acm-heavier">Push changes to GitHub</h2>
 
     <p>Push your changes using the command <code>git push</code>:</p>
 
@@ -190,7 +190,7 @@ git add -A && git commit -m "Your Message"
   </section>
 
   <section id="review">
-    <h2 class="headers">Submit your changes for review</h2>
+    <h2 class="acm-heavier">Submit your changes for review</h2>
 
     <p>
       If you go to your repository on GitHub, you'll see a <code>Compare &amp; pull request</code> button.
@@ -222,7 +222,7 @@ git add -A && git commit -m "Your Message"
 
     <hr />
 
-    <p class="brand-em">CONGRATULATIONS ON MAKING YOUR FIRST CONTRIUBUTION</p>
+    <p class="acm-heaviest">CONGRATULATIONS ON MAKING YOUR FIRST CONTRIUBUTION</p>
 
     <p>
       Inspired by <a href="https://github.com/firstcontributions/first-contributions#readme"
