@@ -91,6 +91,11 @@
     justify-content: center;
     padding: 16px 0;
     z-index: 10;
+    border-bottom: 4px solid;
+    border-image: var(--acm-union) 1;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    filter: brightness(110%);
 
     .blurrybar {
       position: absolute;
