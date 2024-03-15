@@ -35,7 +35,7 @@
     gap: 1rem;
     align-items: center;
     justify-content: center;
-    margin: 100px 0;
+    padding: 100px 0;
   }
   @media (max-width: 640px) {
     iframe {
