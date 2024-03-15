@@ -9,6 +9,10 @@
   <pre><code>{JSON.stringify(data, null, 2)}</code></pre>
 </details>
 
+<svelte:head>
+  <title>Gallery | ACM at CSUF</title>
+</svelte:head>
+
 <!-- TODO: Render gallery page. -->
 
 <section class="gallery">
