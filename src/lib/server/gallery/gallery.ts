@@ -1,4 +1,4 @@
-import { GDRIVE_GALLERY_API_KEY, GDRIVE_GALLERY_FOLDER_ID } from '$lib/server/env';
+import { GDRIVE_GALLERY_API_KEY, GDRIVE_GALLERY_FOLDER_ID } from '$lib/server/env/required';
 import type { Gallery, GalleryItem } from '$lib/public/gallery';
 import { getDrive, listFiles } from './drive';
 
