@@ -19,6 +19,7 @@
       width="640"
       height="480"
       allow="autoplay"
+      loading="lazy"
     />
   {/each}
 </section>
@@ -30,5 +31,12 @@
     gap: 1rem;
     align-items: center;
     justify-content: center;
+    margin: 100px 0;
+  }
+  @media (max-width: 640px) {
+    iframe {
+      margin: 1em;
+      height: 280px;
+    }
   }
 </style>
