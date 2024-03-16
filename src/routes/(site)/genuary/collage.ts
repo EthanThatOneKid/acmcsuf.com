@@ -13,7 +13,7 @@ const VIEW_TYPES = ['normal', 'wide', 'tall', 'big'] as const;
 /**
  * ViewType is a type for the view type of a piece.
  */
-export type ViewType = typeof VIEW_TYPES[number];
+export type ViewType = (typeof VIEW_TYPES)[number];
 
 /**
  * CollagePiece is a piece on the Genuary page.
