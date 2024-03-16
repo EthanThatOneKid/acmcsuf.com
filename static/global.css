@@ -82,6 +82,7 @@
   --acm-odd: var(--perma-light);
   --acm-even: var(--acm-dew);
   --navbar-bg: var(--perma-light);
+  --navbar-mobile-sidebar-bg: var(--perma-light);
   --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.25);
   --footer-bg: var(--acm-ocean);
   --button-bg: var(--acm-midnight);
@@ -236,6 +237,7 @@ body:has(nav > input[type='checkbox']:checked) {
   --acm-odd: var(--acm-midnight);
   --acm-even: var(--acm-abyss);
   --navbar-bg: var(--acm-ocean);
+  --navbar-mobile-sidebar-bg: var(--acm-abyss);
   --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.6);
   --footer-bg: var(--acm-midnight);
   --button-bg: var(--acm-blue);
@@ -251,6 +253,7 @@ body:has(nav > input[type='checkbox']:checked) {
     --acm-odd: var(--perma-light);
     --acm-even: var(--acm-dew);
     --navbar-bg: var(--perma-light);
+    --navbar-mobile-sidebar-bg: var(--perma-light);
     --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.25);
     --footer-bg: var(--acm-ocean);
     --button-bg: var(--acm-midnight);
@@ -267,6 +270,7 @@ body:has(nav > input[type='checkbox']:checked) {
     --acm-odd: var(--acm-midnight);
     --acm-even: var(--acm-abyss);
     --navbar-bg: var(--acm-ocean);
+    --navbar-mobile-sidebar-bg: var(--acm-abyss);
     --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.6);
     --footer-bg: var(--acm-midnight);
     --button-bg: var(--acm-blue);
