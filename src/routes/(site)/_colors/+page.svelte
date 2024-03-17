@@ -36,10 +36,16 @@
 
 <Spacing --min="40px" --med="95px" --max="120px" />
 
-<style lang="scss">
+<style>
   .responsive-width {
     width: min(80ch, 80vw);
     margin: 0 auto;
+  }
+
+  @media (max-width: 480px) {
+    .responsive-width {
+      width: 100%;
+    }
   }
 
   p {
@@ -53,22 +59,32 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
 
-    section {
-      margin: 0 auto;
-      margin-bottom: 50px;
+  main section {
+    margin: 0 auto;
+    margin-bottom: 50px;
+  }
 
-      h1 {
-        margin: 0;
-      }
+  main h1 {
+    margin: 0;
+  }
 
-      a {
-        transition: 0.25s ease-in-out;
+  main a {
+    transition: 0.25s ease-in-out;
+  }
 
-        &:hover {
-          color: var(--acm-blue);
-        }
-      }
-    }
+  main:hover {
+    color: var(--acm-blue);
+  }
+
+  main table {
+    border-spacing: 1em;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  main table :global(td) {
+    width: 50%;
   }
 </style>

@@ -9,19 +9,26 @@
   }
 </script>
 
-<tr class="color-container size-md" style:--color={data.color ?? data.value}>
-  <td><a id={data.id} class="color-id" href="#{data.id}"><code>{data.id}</code></a></td>
+<tr id={data.id} class="color-container size-md" style:--color={data.color ?? data.value}>
+  <td><a class="color-id" href="#{data.id}"><code>{data.id}</code></a></td>
   <td>
-    <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-to-interactive-role -->
-    <code role="button" tabindex="0" class="color-pill" on:click={() => copyColor()}
-      >{data.value}</code
+    <button
+      class="color-pill size-md"
+      on:click={() => copyColor()}
+      title="Click to copy the CSS variable to your clipboard."
+      aria-label="Click to copy the CSS variable to your clipboard."
+      ><code>{data.value}</code></button
     >
     {#if data.aliasOf}<sup><a class="alias" href="#{data.aliasOf}">alias↩</a></sup>{/if}
   </td>
 </tr>
 
 <style>
-  .color-container:has(.color-id:target) {
+  .color-container {
+    scroll-margin-top: 100px;
+  }
+
+  .color-container:target {
     animation: highlight 2s;
   }
 
@@ -30,18 +37,22 @@
   }
 
   .color-id {
-    scroll-margin-top: 100px;
-    text-decoration: none;
+    text-decoration-color: var(--color);
+    margin: 0 0.5em;
   }
 
   .color-pill {
+    background: none;
+    border: none;
+  }
+
+  .color-pill:hover {
     text-decoration: underline;
     text-decoration-color: var(--color);
   }
 
   .alias {
     font-family: monospace;
-    text-decoration: underline;
     text-decoration-color: var(--color);
   }
 
