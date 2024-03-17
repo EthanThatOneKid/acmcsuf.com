@@ -14,5 +14,12 @@
 <style>
   .hackathon {
     scroll-margin-top: 100px;
+    margin-bottom: 2em;
+  }
+
+  .hackathon img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 1em;
   }
 </style>
