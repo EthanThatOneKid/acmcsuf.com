@@ -307,6 +307,11 @@
     }
   },
   {
+    "fullName": "Kyle Ho",
+    "picture": "placeholder.webp",
+    "positions": { "S24": [{ "title": "AI Officer", "tier": 21 }] }
+  },
+  {
     "fullName": "Richard Hoang",
     "picture": "richard-hoang.webp",
     "socials": { "discord": "renshintv", "linkedin": "richardhng", "instagram": "richardhhoang" },
@@ -802,7 +807,8 @@
     "socials": {},
     "positions": {
       "S23": [{ "title": "AI Officer", "tier": 21 }],
-      "F23": [{ "title": "AI Team Lead", "tier": 20 }]
+      "F23": [{ "title": "AI Team Lead", "tier": 20 }],
+      "S24": [{ "title": "AI Team Lead", "tier": 20 }]
     }
   },
   {
@@ -853,7 +859,10 @@
       "discord": "seabas__",
       "linkedin": "sebastian-serrano-a11a57198"
     },
-    "positions": { "F23": [{ "title": "AI Officer", "tier": 21 }] }
+    "positions": {
+      "F23": [{ "title": "AI Officer", "tier": 21 }],
+      "S24": [{ "title": "AI Officer", "tier": 21 }]
+    }
   },
   {
     "fullName": "Parth Sharma",
@@ -961,7 +970,10 @@
       "F22": [{ "title": "Dev Project Manager", "tier": 18 }],
       "S23": [{ "title": "Dev Project Manager", "tier": 18 }],
       "F23": [{ "title": "Vice President", "tier": 1 }],
-      "S24": [{ "title": "Vice President", "tier": 1 }]
+      "S24": [
+        { "title": "Vice President", "tier": 1 },
+        { "title": "AI Officer", "tier": 21 }
+      ]
     }
   },
   {
@@ -977,7 +989,10 @@
     "fullName": "Anthony Vences",
     "picture": "anthony-vences.webp",
     "socials": { "github": "anthonyvences", "discord": "awqerty", "linkedin": "anthonyvences" },
-    "positions": { "F23": [{ "title": "AI Officer", "tier": 21 }] }
+    "positions": {
+      "F23": [{ "title": "AI Officer", "tier": 21 }],
+      "S24": [{ "title": "AI Officer", "tier": 21 }]
+    }
   },
   {
     "fullName": "Cisco Velasquez",
