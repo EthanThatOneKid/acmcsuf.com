@@ -44,6 +44,7 @@
   .color-pill {
     background: none;
     border: none;
+    text-align: left;
   }
 
   .color-pill:hover {
