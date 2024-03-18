@@ -10,7 +10,7 @@ In that directory, each file with a prefix <kbd>+</kbd> represents an endpoint o
 | Path of File                     | Production URL               |
 | -------------------------------- | ---------------------------- |
 | `/src/routes/+page.svelte`       | `https://acmcsuf.com/`       |
-| `/src/routes/about/+page.svelte` | `https://acmcsuf.com/about/` |
+| `/src/routes/teams/+page.svelte` | `https://acmcsuf.com/teams/` |
 | `/src/routes/paths/+page.svelte` | `https://acmcsuf.com/paths/` |
 
 > ℹ more info: <https://kit.svelte.dev/docs/routing#advanced-routing>
