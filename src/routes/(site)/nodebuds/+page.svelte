@@ -3,7 +3,7 @@
   import type { Officer } from '$lib/public/board/types';
   import { VISIBLE_TERMS } from '$lib/public/board/data';
   import { termIndex } from '$lib/public/board/utils';
-  import OfficerProfileList from '../about/officer-profile-list.svelte';
+  import OfficerProfileList from '../teams/officer-profile-list.svelte';
 
   function filterNodeBuddies(officer: Officer): boolean {
     const positions = officer.positions[VISIBLE_TERMS[$termIndex]];

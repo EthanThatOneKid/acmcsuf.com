@@ -51,19 +51,19 @@
 </script>
 
 <svelte:head>
-  <title>Wave 2 board applications | ACM at CSUF</title>
+  <title>Template Board Applications | ACM at CSUF</title>
 </svelte:head>
 
 <MetaTags
   openGraph={{
-    title: 'Fall 2023 board applications',
+    title: '[INSERT SEMESTER][INSERT YEAR] board applications',
     description:
-      'Listed below are the positions that are open for the Fall 2023 semester. Please read the descriptions carefully and apply for the position(s) that you are interested in. You may apply for multiple positions, but you may only be selected for one. If you are selected for a position, you will be contacted by the current board member in charge of that position.',
-    url: 'https://acmcsuf.com/wave2',
+      'Listed below are the positions that are open for the [INSERT SEMESTER][INSERT YEAR] semester. Please read the descriptions carefully and apply for the position(s) that you are interested in. You may apply for multiple positions, but you may only be selected for one. If you are selected for a position, you will be contacted by the current board member in charge of that position.',
+    url: 'https://acmcsuf.com/temp-apps',
     type: 'article',
     article: {
-      publishedTime: '2023-22-05T00:00:00.000Z',
-      modifiedTime: '2023-22-05T00:00:00.000Z',
+      publishedTime: '2024-26-05T00:00:00.000Z',
+      modifiedTime: '2024-26-05T00:00:00.000Z',
     },
   }}
 />
@@ -71,16 +71,12 @@
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <Block align={TextAlignment.LEFT}>
-  <h1 slot="headline" class="size-lg">Wave 2 board applications</h1>
+  <h1 slot="headline" class="size-lg">[INSERT SEMESTER][INSERT YEAR] Board Positions</h1>
   <p slot="text" class="size-sm">
-    Listed below are the positions that are open for the Fall 2023 semester (semester long
-    position). Please read the descriptions carefully and apply for the position(s) that you are
-    interested in. You may apply for multiple positions, but you may only be selected for one. If
-    you are selected for a position, you will be contacted by the current board member in charge of
-    that position.
-    <br />
-    <br />
-    Last updated May 22nd, 2023
+    Listed below are the positions that are open for [INSERT DURATION]. Please read the descriptions
+    carefully and apply for the position(s) that you are interested in. You may apply for multiple
+    positions, but you may only be selected for one. If you are selected for a position, you will be
+    contacted by the current team lead in charge of that position.
     <br />
     <br />
     <span class="center-btn" on:click={action} on:keypress={action} role="button" tabindex="0">
@@ -104,7 +100,7 @@
 <Spacing --med="64px" />
 
 <span class="center-btn">
-  <Button link="/wave2apply" text="Apply now!" />
+  <Button link="[INSERT LINK TO FORM]" text="Apply now!" />
 </span>
 
 <Spacing --med="64px" />
@@ -119,19 +115,19 @@
     </p>
 
     <p class="size-sm">
-      <span class="acm-heaviest">Karnikaa Velumani (ACM President)</span>
+      <span class="acm-heaviest">[INSERT NAME] (ACM President)</span>
     </p>
     <ul>
-      <li>Email: <code>karnikaavelumani@csu.fullerton.edu</code></li>
-      <li>Discord: <code>Karbas#0001</code></li>
+      <li>Email: <code>[INSERT EMAIL]</code></li>
+      <li>Discord: <code>[INSERT DISCORD]</code></li>
     </ul>
 
     <p class="size-sm">
-      <span class="acm-heaviest">Ethan Davidson (ACM VP / Webmaster)</span>
+      <span class="acm-heaviest">[INSERT NAME] (ACM VP)</span>
     </p>
     <ul>
-      <li>Email: <code>ethandavidson@csu.fullerton.edu</code></li>
-      <li>Discord: <code>EthanThatOneKid#3456</code></li>
+      <li>Email: <code>[INSERT EMAIL]</code></li>
+      <li>Discord: <code>[INSERT DISCORD]</code></li>
     </ul>
   </div>
 </Block>
