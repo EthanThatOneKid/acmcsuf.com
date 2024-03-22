@@ -15,11 +15,27 @@
   .hackathon {
     scroll-margin-top: 100px;
     margin-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 5s ease-in-out;
+
   }
 
   .hackathon img {
-    max-width: 100%;
+    max-width: 50%;
     height: auto;
     margin-top: 1em;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
   }
 </style>
