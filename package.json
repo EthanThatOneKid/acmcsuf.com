@@ -75,6 +75,7 @@
     "rrule": "^2.7.2",
     "rss": "^1.2.2",
     "svelte-confetti": "^1.2.4",
-    "svelte-meta-tags": "^2.8.0"
+    "svelte-meta-tags": "^2.8.0",
+    "this-package-exports-the-number-214-and-its-name-is-also-two-hundred-and-fourteen-characters-long-which-is-the-longest-name-currently-allowed-by-the-npm-registry-to-see-how-a-name-that-long-would-look-if-you-did-it": "^2.1.4-0"
   }
 }
