@@ -3,22 +3,30 @@
 
   export let data: Hackathon;
 
+  let top = 200;
+  let bottom = 200;
+
+  let looking = false;
   const handleIntersection = (entries: any, observer: any) => {
     for (const entry of entries) {
-      //entry.target.style.setProperty('--mycolor', entry.isIntersecting ? 'red' : 'blue');
+      //entry.target.style.setProperty('--mycolor', entry.isIntersecting ? 'red' : 'blue');s
       if (entry.isIntersecting) {
+        entry.target.classList.remove('exit');
         entry.target.classList.add('newthing');
+        looking = true;
       } else {
         entry.target.classList.remove('newthing');
-        //entry.target.classList.remove('newthing');
+        entry.target.classList.add('exit');
+        looking = false;
       }
     }
   };
 
   let observer: IntersectionObserver;
   function observe(node: any) {
+    const rootMargin = `${-bottom}px 0px ${-top}px 0px`;
     if (!observer) {
-      observer = new IntersectionObserver(handleIntersection);
+      observer = new IntersectionObserver(handleIntersection, { rootMargin });
     }
 
     observer.observe(node);
@@ -40,21 +48,24 @@
 
 <style>
   :global(.hackathon) {
+    opacity: 0;
     scroll-margin-top: 100px;
     margin-bottom: 2em;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /*transition: var(--shown);*/
-    /*transition: all 1.5s ease;*/
-    /*animation: fadeIn 1.5s ease-in-out;*/
+    /*transform: translateY(25%);*/
+    /*animation: fadein 1.5s ease-in-out;*/
   }
 
   :global(.newthing) {
-    animation: fadeIn 1.5s ease-in-out;
-    background-color: var(--shown);
-    transform: translateX(30%);
+    opacity: 1;
+    animation: fadein 0.75s ease-in;
+  }
+
+  :global(.exit) {
+    animation: fadeout 0.75s ease-out;
   }
 
   .hackathon img {
@@ -63,15 +74,34 @@
     margin-top: 1em;
   }
 
-  @keyframes -global-fadein {
+  @keyframes fadein {
     0% {
       opacity: 0;
-      transform: translateY(25%);
+      transform: translateX(10%);
+    }
+
+    75% {
+      transform: translateX(-1%);
+    }
+
+    85% {
+      transform: translateX(0.5%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+
+  @keyframes fadeout {
+    0% {
+      transform: translateX(0%);
+      opacity: 1;
     }
 
     100% {
-      opacity: 1;
-      transform: translateY(0%);
+      transform: translateX(10%);
+      opacity: 0;
     }
   }
 </style>
