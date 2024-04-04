@@ -43,7 +43,14 @@
   <h2><a href="#{data.id}">{data.title}</a></h2>
   <p>📅 {data.date}</p>
   <p>📍 {data.location}</p>
-  <img src="/assets/hackathon-{data.id}.webp" alt="{data.title} website" />
+  <figure>
+    <img src="/assets/hackathon-{data.id}.webp" alt="{data.title} website" />
+    <figcaption>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+      laboris nisi ut aliquip ex ea commodo consequat.
+    </figcaption>
+  </figure>
 </section>
 
 <style>
@@ -72,6 +79,18 @@
     max-width: 50%;
     height: auto;
     margin-top: 1em;
+  }
+
+  figure > figcaption {
+    padding-top: 1em;
+    max-width: 50%;
+    text-align: center;
+  }
+
+  figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   @keyframes fadein {
