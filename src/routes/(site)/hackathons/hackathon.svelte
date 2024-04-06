@@ -2,125 +2,36 @@
   import type { Hackathon } from '$lib/public/hackathons';
 
   export let data: Hackathon;
-
-  let top = 200;
-  let bottom = 200;
-
-  let looking = false;
-  const handleIntersection = (entries: any, observer: any) => {
-    for (const entry of entries) {
-      //entry.target.style.setProperty('--mycolor', entry.isIntersecting ? 'red' : 'blue');s
-      if (entry.isIntersecting) {
-        entry.target.classList.remove('exit');
-        entry.target.classList.add('newthing');
-        looking = true;
-      } else {
-        entry.target.classList.remove('newthing');
-        entry.target.classList.add('exit');
-        looking = false;
-      }
-    }
-  };
-
-  let observer: IntersectionObserver;
-  function observe(node: any) {
-    const rootMargin = `${-bottom}px 0px ${-top}px 0px`;
-    if (!observer) {
-      observer = new IntersectionObserver(handleIntersection, { rootMargin });
-    }
-
-    observer.observe(node);
-
-    return {
-      destroy: () => {
-        observer.unobserve(node);
-      },
-    };
-  }
 </script>
 
-<section class="hackathon" id={data.id} use:observe>
+<section class="hackathon" id={data.id}>
   <h2><a href="#{data.id}">{data.title}</a></h2>
   <p>📅 {data.date}</p>
   <p>📍 {data.location}</p>
-  <figure>
-    <img src="/assets/hackathon-{data.id}.webp" alt="{data.title} website" />
-    <figcaption>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-      laboris nisi ut aliquip ex ea commodo consequat.
-    </figcaption>
-  </figure>
+  <p>🎭 {data.theme}</p>
+  <img src="/assets/hackathon-{data.id}.webp" alt="{data.title} website" />
+  <p>{data.description}</p>
 </section>
 
 <style>
-  :global(.hackathon) {
-    opacity: 0;
+  .hackathon {
     scroll-margin-top: 100px;
-    margin-bottom: 2em;
+    margin-bottom: 10em;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /*transform: translateY(25%);*/
-    /*animation: fadein 1.5s ease-in-out;*/
-  }
-
-  :global(.newthing) {
-    opacity: 1;
-    animation: fadein 0.75s ease-in;
-  }
-
-  :global(.exit) {
-    animation: fadeout 0.75s ease-out;
   }
 
   .hackathon img {
     max-width: 50%;
     height: auto;
     margin-top: 1em;
+    margin-bottom: 1em;
   }
 
-  figure > figcaption {
-    padding-top: 1em;
-    max-width: 50%;
+  .hackathon p {
     text-align: center;
-  }
-
-  figure {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  @keyframes fadein {
-    0% {
-      opacity: 0;
-      transform: translateX(10%);
-    }
-
-    75% {
-      transform: translateX(-1%);
-    }
-
-    85% {
-      transform: translateX(0.5%);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0%);
-    }
-  }
-
-  @keyframes fadeout {
-    0% {
-      transform: translateX(0%);
-      opacity: 1;
-    }
-
-    100% {
-      transform: translateX(10%);
-      opacity: 0;
-    }
+    max-width: 50ch;
   }
 </style>

@@ -6,5 +6,6 @@ export interface Hackathon {
   title: string;
   date: string;
   location: string;
+  theme: string;
   description: string;
 }
