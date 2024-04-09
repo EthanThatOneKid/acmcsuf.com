@@ -275,7 +275,7 @@
     animation-duration: 1.8s;
     animation-name: slide;
     animation-iteration-count: infinite;
-    animation-direction: alternate;
+    animation-direction: alternate; 
     position: relative;
   }
 
@@ -286,7 +286,7 @@
     }
 
     100% {
-      left: 15px;
+      left: 60px;
       top: 0px;
     }
   }
