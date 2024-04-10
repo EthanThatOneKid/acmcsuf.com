@@ -88,6 +88,7 @@
   <!-- DISPLAY THE QUIZ QUESTIONS -->
   {#if !showResults}
     <h1>ACM TEAM QUIZ</h1>
+    <p><i>What team are you a part of?</i></p>
     <div class="question">
       <h2>{data.questions[index].prompt}</h2>
       <section class="answers">
@@ -101,20 +102,20 @@
         {/each}
       </section>
     </div>
-    <div class="arrow-wrapper">
+    <div class="back-next-wrapper">
       <button
         on:click={goLeft}
         disabled={index === 0}
-        class:disable-arrow={index === 0}
-        class="arrow"
+        class:disable-back-next={index === 0}
+        class="back-next-btn"
       >
-        <BwIcon src="/assets/arrow-left.svg" alt="left arrow" /></button
+        Back</button
       >
       <button
         on:click={goRight}
         disabled={index === data.questions.length - 1 || !(responses ?? [])[index]}
-        class:disable-arrow={index === data.questions.length - 1 || !(responses ?? [])[index]}
-        class="arrow"><BwIcon src="/assets/arrow-right.svg" alt="right arrow" /></button
+        class:disable-back-next={index === data.questions.length - 1 || !(responses ?? [])[index]}
+        class="back-next-btn">Next</button
       >
     </div>
     <button
@@ -224,24 +225,24 @@
   }
 
   .answers {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    width: 350px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 50% 50%;
+    width: 700px;
   }
 
   .answers button {
-    padding: 8px 28px;
+    padding: 25px 27px;
     min-height: 42px;
-    background-color: var(--quiz-bg);
+    background-color: var(--acm-sky);
     border-radius: 8px;
-    border: var(--acm-blue) 3px solid;
+    border: var(--perma-blue) 3px solid;
     cursor: pointer;
     transition: 0.25s ease-in-out;
   }
 
   .answers button:hover {
-    box-shadow: 0px 0px 10px var(--acm-blue);
+    box-shadow: 0px 0px 10px var(--perma-light);
   }
 
   .selected-response {
@@ -253,20 +254,20 @@
     text-shadow: 0px 0px 2px var(--acm-sky);
   }
 
-  .arrow-wrapper {
+  .back-next-wrapper {
     display: flex;
     gap: 30px;
   }
 
-  .arrow {
-    background: none;
-    border: var(--acm-dark) 3px solid;
-    border-radius: 18px;
-    padding: 8px;
+  .back-next-btn {
+    background-color: var(--acm-bluer);
+    border: var(--acm-bluer) 3px solid;
+    border-radius: 30px;
+    padding: 13px 45px;
     transition: 0.25s ease-in-out;
   }
 
-  .arrow:hover {
+  .back-next-btn:hover {
     box-shadow: 0px 0px 4px var(--acm-dark);
   }
 
@@ -284,7 +285,7 @@
   .submitBTN {
     font-size: 24px;
     font-weight: 500;
-    padding: 8px 28px;
+    padding: 16px 28px;
     min-height: 42px;
     background-color: var(--quiz-bg);
     border-radius: 8px;
@@ -306,7 +307,7 @@
   }
 
   .disable-submitBTN,
-  .disable-arrow {
+  .disable-back-next {
     opacity: 0.5;
     pointer-events: none;
     border: none;
@@ -383,7 +384,7 @@
     }
 
     .answers {
-      width: 250px;
+      width: 290px;
     }
 
     .result-grid {
