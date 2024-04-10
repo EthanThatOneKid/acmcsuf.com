@@ -281,12 +281,12 @@
 
   @keyframes slide {
     0% {
-      left: -60px;
+      left: -50px;
       top: 0px;
     }
 
     100% {
-      left: 60px;
+      left: 50px;
       top: 0px;
     }
   }
