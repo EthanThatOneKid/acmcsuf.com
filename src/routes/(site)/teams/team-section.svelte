@@ -286,7 +286,7 @@
     }
 
     100% {
-      left: 15px;
+      left: 60px;
       top: 0px;
     }
   }
