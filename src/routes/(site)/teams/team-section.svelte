@@ -277,17 +277,28 @@
     animation-iteration-count: infinite;
     animation-direction: alternate;
     position: relative;
+    animation-timing-function: cubic-bezier(0, 0, 0, 0);
   }
 
   @keyframes slide {
     0% {
-      left: -50px;
-      top: 0px;
+      left: -60px;
+    }
+
+    33% {
+      left: -10px;
+    }
+
+    50% {
+      left: 0;
+    }
+
+    66% {
+      left: 10px;
     }
 
     100% {
-      left: 50px;
-      top: 0px;
+      left: 60px;
     }
   }
 
