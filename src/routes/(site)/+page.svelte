@@ -1,29 +1,72 @@
 <script>
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import Hero from './hero.svelte';
-  import WhyJoin from './why-join.svelte';
-  import AcmPaths from './acm-paths.svelte';
-  import ReadyUp from './ready-up.svelte';
+  import Desc from './desc.svelte';
+  import Teams from './teams.svelte';
+  import Lucky from './lucky.svelte';
+  // import Blog from './blog.svelte';
 </script>
 
 <svelte:head>
   <title>ACM at CSUF</title>
 </svelte:head>
 
-<Spacing --min="175px" --med="200px" --max="200px" />
+<div class="sections-container">
+  <div class="section-container">
+    <Spacing --min="175px" --med="200px" --max="200px" />
 
-<Hero />
+    <Hero />
 
-<Spacing --min="120px" --med="175px" --max="200px" />
+    <Spacing --min="120px" --med="175px" --max="200px" />
+  </div>
 
-<WhyJoin />
+  <div class="section-container">
+    <Spacing --min="175px" --med="200px" --max="200px" />
 
-<Spacing --min="120px" --med="175px" --max="200px" />
+    <Desc />
 
-<AcmPaths />
+    <Spacing --min="120px" --med="175px" --max="200px" />
+  </div>
 
-<Spacing --min="120px" --med="175px" --max="200px" />
+  <div class="section-container">
+    <Spacing --min="175px" --med="200px" --max="200px" />
 
-<ReadyUp />
+    <Teams />
 
-<Spacing --min="75px" --med="100px" --max="120px" />
+    <Spacing --min="120px" --med="175px" --max="200px" />
+  </div>
+
+  <!-- <div class="section-container">
+    <Spacing --min="175px" --med="200px" --max="200px" />
+
+    <Testimony /> 
+
+    <Spacing --min="120px" --med="175px" --max="200px" /> 
+  </div> -->
+
+  <div class="section-container">
+    <Spacing --min="175px" --med="200px" --max="200px" />
+
+    <Lucky />
+
+    <!-- <Spacing --min="120px" --med="175px" --max="200px" /> -->
+  </div>
+
+  <!-- <div class="section-container">
+    <Spacing --min="175px" --med="200px" --max="200px" />
+
+    <Blog />
+
+    <Spacing --min="75px" --med="100px" --max="120px" />
+  </div> -->
+</div>
+
+<style>
+  .section-container {
+    background-color: var(--acm-odd);
+  }
+
+  .section-container:nth-child(even) {
+    background-color: var(--acm-even);
+  }
+</style>

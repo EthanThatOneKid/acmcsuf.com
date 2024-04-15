@@ -82,7 +82,7 @@
 {/if}
 
 {#if $output}
-  <p class="brand-em">Output:</p>
+  <p class="acm-heaviest">Output:</p>
   <div class="output-container">
     <BoardMember
       src={$output.toDataURL('image/webp')}
@@ -100,7 +100,7 @@
     <br />
     <br />
 
-    <p class="brand-em">Link: <a href={link} target="_blank"><code>{link}</code></a></p>
+    <p class="acm-heaviest">Link: <a href={link} target="_blank"><code>{link}</code></a></p>
 
     <button
       class="action-item"
@@ -108,7 +108,7 @@
       on:click={() =>
         copy(link, 'Copied WEBP link to clipboard!', 'Failed to copy WEBP link to clipboard!')}
     >
-      <BwIcon src="/assets/svg/copy-link.svg" alt="copy link" />
+      <BwIcon src="/assets/copy-link.svg" alt="copy link" />
     </button>
   </div>
 {/if}

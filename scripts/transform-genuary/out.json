@@ -2,13 +2,11 @@
   {
     "src": "https://media.discordapp.net/attachments/1055680245740605450/1061515218653548564/Screen_Recording_2023-01-07_at_9.20.04_PM.mov",
     "alt": "7 Sample a color palette from your favorite movie or album cover",
-    "view": "normal",
-    "during_challenge": true
+    "view": "normal"
   },
   {
     "src": "https://i.imgur.com/80nIby9.mp4",
     "alt": "23 More Moiré",
-    "view": "normal",
-    "during_challenge": true
+    "view": "normal"
   }
 ]

@@ -1,40 +1,72 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700');
 
 :root {
-  --acm-sky: #38b6ff;
-  --acm-blue: #2c91c6;
-  --acm-bluer: #1e6cff;
-  --acm-turquoise: #11d4b1;
-  --acm-emerald: #21d19f;
-  --acm-lemon: #ffd029;
-  --acm-orange: #ff7917;
-  --acm-red: #d41153;
-  --acm-redder: #6e0025;
-  --acm-pink: #ff4365;
-  --acm-blush: #fe0ec9;
-  --acm-purple: #9d35e7;
-  --acm-darker: #092d71;
-  --acm-darkest: #052155;
-  --acm-dark: #101315;
-  --acm-gray: #292c2f;
-  --acm-light: #f8f8f8;
-  --acm-canvas: #eaeaea;
+  /** These values will never change. */
+  --perma-light-rgb: 248, 248, 248;
+  --perma-light: rgba(var(--perma-light-rgb), 1);
+  --perma-dark-rgb: 16, 19, 21;
+  --perma-dark: rgba(var(--perma-dark-rgb), 1);
+  --acm-dew-rgb: 235, 248, 255;
+  --acm-dew: rgba(var(--acm-dew-rgb), 1);
+  --acm-sky-rgb: 56, 182, 255;
+  --acm-sky: rgba(var(--acm-sky-rgb), 1);
+  --acm-blue-rgb: 44, 145, 198;
+  --acm-blue: rgba(var(--acm-blue-rgb), 1);
+  --acm-bluer-rgb: 30, 108, 255;
+  --acm-bluer: rgba(var(--acm-bluer-rgb), 1);
+  --acm-turquoise-rgb: 17, 212, 177;
+  --acm-turquoise: rgba(var(--acm-turquoise-rgb), 1);
+  --acm-emerald-rgb: 33, 209, 159;
+  --acm-emerald: rgba(var(--acm-emerald-rgb), 1);
+  --acm-lemon-rgb: 255, 208, 41;
+  --acm-lemon: rgba(var(--acm-lemon-rgb), 1);
+  --acm-orange-rgb: 255, 121, 23;
+  --acm-orange: rgba(var(--acm-orange-rgb), 1);
+  --acm-red-rgb: 212, 17, 83;
+  --acm-red: rgba(var(--acm-red-rgb), 1);
+  --acm-redder-rgb: 110, 0, 37;
+  --acm-redder: rgba(var(--acm-redder-rgb), 1);
+  --acm-pink-rgb: 255, 67, 101;
+  --acm-pink: rgba(var(--acm-pink-rgb), 1);
+  --acm-blush-rgb: 254, 14, 201;
+  --acm-blush: rgba(var(--acm-blush-rgb), 1);
+  --acm-purple-rgb: 157, 53, 231;
+  --acm-purple: rgba(var(--acm-purple-rgb), 1);
+  --acm-darker-rgb: 9, 45, 113;
+  --acm-darker: rgba(var(--acm-darker-rgb), 1);
+  --acm-darkest-rgb: 5, 33, 85;
+  --acm-darkest: rgba(var(--acm-darkest-rgb), 1);
+  --acm-ocean-rgb: 8, 40, 99;
+  --acm-ocean: rgba(var(--acm-ocean-rgb), 1);
+  --acm-abyss-rgb: 5, 33, 85;
+  --acm-abyss: rgba(var(--acm-abyss-rgb), 1);
+  --acm-midnight-rgb: 4, 21, 54;
+  --acm-midnight: rgba(var(--acm-midnight-rgb), 1);
+  --acm-gray-rgb: 41, 44, 47;
+  --acm-gray: rgba(var(--acm-gray-rgb), 1);
 
-  --acm-general-rgb: 5, 163, 255;
-  --acm-ai-rgb: 53, 231, 146;
-  --acm-algo-rgb: 157, 53, 231;
-  --acm-design-rgb: 255, 67, 101;
-  --acm-dev-rgb: 30, 108, 255;
-  --acm-gamedev-rgb: 212, 17, 83;
-  --acm-icpc-rgb: 255, 121, 23;
-  --acm-marketing-rgb: 254, 14, 201;
-  --acm-oss-rgb: 17, 212, 177;
-  --acm-special-events-rgb: 255, 208, 41;
-  --acm-nodebuds-rgb: 212, 17, 83;
+  /** These values represent the ACM team colors. */
+  --acm-general-rgb: var(--acm-blue-rgb);
+  --acm-ai-rgb: var(--acm-emerald-rgb);
+  --acm-algo-rgb: var(--acm-purple-rgb);
+  --acm-design-rgb: var(--acm-pink-rgb);
+  --acm-dev-rgb: var(--acm-bluer-rgb);
+  --acm-gamedev-rgb: var(--acm-red-rgb);
+  --acm-icpc-rgb: var(--acm-orange-rgb);
+  --acm-marketing-rgb: var(--acm-blush-rgb);
+  --acm-oss-rgb: var(--acm-turquoise-rgb);
+  --acm-special-events-rgb: var(--acm-lemon-rgb);
+  --acm-nodebuds-rgb: var(--acm-red-rgb);
+  --acm-union: linear-gradient(
+    to right,
+    var(--acm-turquoise),
+    var(--acm-blue),
+    var(--acm-bluer),
+    var(--acm-purple),
+    var(--acm-pink)
+  );
 
-  --perma-light: #f8f8f8;
-  --perma-dark: #101315;
-
+  /** These values are generated fluid font sizes. */
   /* Generator: https://xgkft.csb.app/ (280px-1000px viewport-width, 1rem=16px) */
   --size-xxl: clamp(2.8125rem, 1.8403rem + 5.5556vw, 5.3125rem);
   --size-xl: clamp(2rem, 1.7545rem + 1.0909vw, 3.5rem);
@@ -42,6 +74,20 @@
   --size-md: clamp(1.125rem, 1.0636rem + 0.2727vw, 1.5rem);
   --size-sm: clamp(1rem, 0.9795rem + 0.0909vw, 1.125rem);
   --size-xs: clamp(0.75rem, 0.7295rem + 0.0909vw, 0.875rem);
+
+  /** These values may change based on the user's color scheme preference. */
+  --acm-light: #f8f8f8;
+  --acm-dark: #101315;
+  --acm-canvas: rgba(234, 234, 234, 1);
+  --acm-odd: var(--perma-light);
+  --acm-even: var(--acm-dew);
+  --navbar-bg: var(--perma-light);
+  --navbar-mobile-sidebar-bg: var(--perma-light);
+  --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.25);
+  --footer-bg: var(--acm-ocean);
+  --button-bg: var(--acm-midnight);
+  --button-bg-hover: var(--acm-ocean);
+  --button-color: var(--perma-light);
 }
 
 *,
@@ -70,91 +116,79 @@ body:has(nav > input[type='checkbox']:checked) {
   overflow: hidden;
 }
 
-.brand-bold,
-.brand-em {
-  font-weight: 700;
-}
-
-.brand-italic {
+.acm-italic {
   font-style: italic;
 }
 
-.brand-header,
-.headers {
-  font-weight: 600;
-}
-
-.brand-med {
+.acm-heavy {
   font-weight: 500;
 }
 
-.acm-blue,
-.brand-blue {
+.acm-heavier {
+  font-weight: 600;
+}
+
+.acm-heaviest {
+  font-weight: 700;
+}
+
+.acm-blue {
   color: var(--acm-blue);
 }
 
-.acm-bluer,
-.brand-bluer {
+.acm-bluer {
   color: var(--acm-bluer);
 }
 
-.acm-turquoise,
-.brand-turquoise {
+.acm-turquoise {
   color: var(--acm-turquoise);
 }
 
-.acm-emerald,
-.brand-emerald {
+.acm-emerald {
   color: var(--acm-emerald);
 }
 
-.acm-lemon,
-.brand-lemon {
+.acm-lemon {
   color: var(--acm-lemon);
 }
 
-.acm-pink,
-.brand-pink {
+.acm-orange {
+  color: var(--acm-orange);
+}
+
+.acm-pink {
   color: var(--acm-pink);
 }
 
-.acm-blush,
-.brand-blush {
+.acm-blush {
   color: var(--acm-blush);
 }
 
-.acm-purple,
-.brand-purple {
+.acm-purple {
   color: var(--acm-purple);
 }
 
-.acm-red,
-.brand-red {
+.acm-red {
   color: var(--acm-red);
 }
 
-.acm-redder,
-.brand-redder {
+.acm-redder {
   color: var(--acm-redder);
 }
 
-.acm-sky,
-.brand-sky {
+.acm-sky {
   color: var(--acm-sky);
 }
 
-.acm-dark,
-.brand-dark {
+.acm-dark {
   color: var(--acm-dark);
 }
 
-.acm-gray,
-.brand-gray {
+.acm-gray {
   color: var(--acm-gray);
 }
 
-.acm-light,
-.brand-light {
+.acm-light {
   color: var(--acm-light);
 }
 
@@ -186,28 +220,29 @@ body:has(nav > input[type='checkbox']:checked) {
   --acm-dark: #101315;
   --acm-light: #f8f8f8;
   --acm-canvas: #eaeaea;
-  --nav-shadow: 0 3px 12px rgba(16, 19, 21, 0.1);
-  --navbar-bg: var(--acm-light);
-  --footer-bg: var(--acm-dark);
-  --card-bg: var(--acm-light);
-  --button-bg: var(--acm-dark);
-  --button-hover: var(--acm-blue);
-  --button-toggle: var(--acm-dark);
-  --box-shadow: var(--nav-shadow);
+  --acm-odd: var(--perma-light);
+  --acm-even: var(--acm-dew);
+  --navbar-bg: var(--perma-light);
+  --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.25);
+  --footer-bg: var(--acm-ocean);
+  --button-bg: var(--acm-midnight);
+  --button-bg-hover: var(--acm-ocean);
+  --button-color: var(--perma-light);
 }
 
 .dark {
   --acm-dark: #f8f8f8;
   --acm-light: #101315;
   --acm-canvas: #161b22;
-  --nav-shadow: 0 2px rgb(49, 49, 49);
-  --navbar-bg: rgba(16, 19, 21, 0.9);
-  --footer-bg: var(--acm-gray);
-  --card-bg: var(--acm-gray);
-  --button-bg: var(--acm-gray);
-  --button-hover: #3d4043;
-  --button-toggle: var(--acm-gray);
-  --box-shadow: var(--nav-shadow);
+  --acm-odd: var(--acm-midnight);
+  --acm-even: var(--acm-abyss);
+  --navbar-bg: var(--acm-ocean);
+  --navbar-mobile-sidebar-bg: var(--acm-abyss);
+  --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.6);
+  --footer-bg: var(--acm-midnight);
+  --button-bg: var(--acm-blue);
+  --button-bg-hover: var(--acm-sky);
+  --button-color: var(--perma-light);
 }
 
 @media (prefers-color-scheme: light) {
@@ -215,14 +250,15 @@ body:has(nav > input[type='checkbox']:checked) {
     --acm-dark: #101315;
     --acm-light: #f8f8f8;
     --acm-canvas: #eaeaea;
-    --nav-shadow: 0 3px 12px rgba(16, 19, 21, 0.1);
-    --navbar-bg: var(--acm-light);
-    --footer-bg: var(--acm-dark);
-    --card-bg: var(--acm-light);
-    --button-bg: var(--acm-dark);
-    --button-hover: var(--acm-blue);
-    --button-toggle: var(--acm-dark);
-    --box-shadow: var(--nav-shadow);
+    --acm-odd: var(--perma-light);
+    --acm-even: var(--acm-dew);
+    --navbar-bg: var(--perma-light);
+    --navbar-mobile-sidebar-bg: var(--perma-light);
+    --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.25);
+    --footer-bg: var(--acm-ocean);
+    --button-bg: var(--acm-midnight);
+    --button-bg-hover: var(--acm-ocean);
+    --button-color: var(--perma-light);
   }
 }
 
@@ -231,13 +267,14 @@ body:has(nav > input[type='checkbox']:checked) {
     --acm-dark: #f8f8f8;
     --acm-light: #101315;
     --acm-canvas: #161b22;
-    --nav-shadow: 0 2px rgb(49, 49, 49);
-    --navbar-bg: rgba(16, 19, 21, 0.9);
-    --footer-bg: var(--acm-gray);
-    --card-bg: var(--acm-gray);
-    --button-bg: var(--acm-gray);
-    --button-hover: #3d4043;
-    --button-toggle: var(--acm-gray);
-    --box-shadow: var(--nav-shadow);
+    --acm-odd: var(--acm-midnight);
+    --acm-even: var(--acm-abyss);
+    --navbar-bg: var(--acm-ocean);
+    --navbar-mobile-sidebar-bg: var(--acm-abyss);
+    --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.6);
+    --footer-bg: var(--acm-midnight);
+    --button-bg: var(--acm-blue);
+    --button-bg-hover: var(--acm-sky);
+    --button-color: var(--perma-light);
   }
 }

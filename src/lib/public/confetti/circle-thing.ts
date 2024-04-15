@@ -1,1 +1,1 @@
-export default 'url(/assets/1st/circle-thing.svg)';
+export default 'url(/assets/circle-thing.svg)';

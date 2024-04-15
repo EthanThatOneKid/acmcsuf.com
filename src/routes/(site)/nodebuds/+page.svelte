@@ -3,15 +3,15 @@
   import type { Officer } from '$lib/public/board/types';
   import { VISIBLE_TERMS } from '$lib/public/board/data';
   import { termIndex } from '$lib/public/board/utils';
-  import OfficerProfileList from '../about/officer-profile-list.svelte';
+  import OfficerProfileList from '../teams/officer-profile-list.svelte';
 
   function filterNodeBuddies(officer: Officer): boolean {
-    const position = officer.positions[VISIBLE_TERMS[$termIndex]];
-    if (position === undefined) {
+    const positions = officer.positions[VISIBLE_TERMS[$termIndex]];
+    if (positions === undefined) {
       return false;
     }
 
-    const isNodeBuddy = position.title.toUpperCase().includes('NODEBUDS');
+    const isNodeBuddy = positions.some((pos) => pos.title.toUpperCase().includes('NODEBUDS'));
     return isNodeBuddy;
   }
 </script>
@@ -25,27 +25,29 @@
 <div class="container">
   <section>
     <div>
-      <h1 class="headers size-lg">Personalized for your success</h1>
+      <h1 class="acm-heavier size-lg">Personalized for your success</h1>
       <p class="size-xs">
-        <span class="headers"> node buds </span>
+        <span class="acm-heavier"> node buds </span>
         is our exclusive program in partnership with
-        <a href="/acm-w" class="headers w-text" target="_blank" rel="noopener noreferrer"> ACM-W</a>
+        <a href="/acm-w" class="acm-heavier w-text" target="_blank" rel="noopener noreferrer">
+          ACM-W</a
+        >
         that exposes students to various opportunities that encourage connection, skill building, as
         well as both personal and technical development.
         <br /><br />
-        Everone under this program will get paired with student-mentors, called
-        <span class="brand-med">Buddies</span>, who will be there to help students prepare for their
+        Everyone under this program will get paired with student-mentors, called
+        <span class="acm-heavy">Buddies</span>, who will be there to help students prepare for their
         successful journeys through the tech industry.
       </p>
     </div>
-    <img src="assets/badges/old-badges/nodebuds-badge-old.svg" alt="nodeBuds badge" />
+    <img src="assets/nodebuds-logo-old.svg" alt="nodeBuds badge" />
   </section>
 </div>
 
 <Spacing --min="100px" --med="175px" --max="200px" />
 
 <div class="container">
-  <h2 class="headers size-lg">Buddies</h2>
+  <h2 class="acm-heavier size-lg">Buddies</h2>
 </div>
 
 <Spacing --min="16px" --med="16px" --max="16px" />

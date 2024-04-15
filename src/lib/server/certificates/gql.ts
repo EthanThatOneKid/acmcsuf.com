@@ -2,16 +2,34 @@
  * RepoQuery is an interface for a repository query object with the repository owner and name.
  */
 export interface RepoQuery {
-  /** The owner of the repository. */
+  /**
+   * owner is the owner of the repository.
+   */
   owner: string;
-  /** The name of the repository. */
+
+  /**
+   * name is name of the repository.
+   */
   name: string;
-  /** The username of the queried user. */
+
+  /**
+   * username is the username of the queried user.
+   */
   username: string;
 }
 
 // GitHub GraphQL Explorer:
 // https://docs.github.com/en/graphql/overview/explorer
+
+export function makeUserQuery(username: string): string {
+  return `{
+  user(login: "${username}") {
+    name
+    bioHTML
+    avatarUrl
+  }
+}`;
+}
 
 // A function to generate a GraphQL query to fetch a page of releases
 export function makeReleasesQuery(q: RepoQuery): string {
@@ -60,7 +78,7 @@ export interface PRsQuery extends RepoQuery {
 /**
  * An interface to query a certificate.
  */
-export interface CertificateQuery extends RepoQuery {
+export interface ReleaseCertificateQuery extends RepoQuery {
   /** The username of the user. */
   username: string;
 
@@ -70,11 +88,32 @@ export interface CertificateQuery extends RepoQuery {
    */
   release: number | string;
 
-  /** The maximum page size (default is 100). */
+  /**
+   * maxPageSize is the maximum amount of PRs to fetch per page. This is a limitation of GitHub's API.
+   */
   maxPageSize?: number;
 }
 
-// A function to generate a GraphQL query to fetch a page of merged pull requests
+/**
+ * RepositoryCertificateQuery is an interface for a repository certificate query object with the repository owner and name.
+ */
+export interface RepositoryCertificateQuery extends RepoQuery {
+  /**
+   * startDate is the start date for the query. */
+  startDate?: string;
+
+  /**
+   * endDate is the end date for the query.
+   */
+  endDate?: string;
+
+  /**
+   * maxPageSize is the maximum amount of PRs to fetch per page. This is a limitation of GitHub's API.
+   */
+  maxPageSize?: number;
+}
+
+// A function to generate a GraphQL query to fetch a page of merged pull requests.
 export function makePRsQuery({
   username,
   owner,
@@ -90,9 +129,7 @@ export function makePRsQuery({
   const searchQuery = [
     `repo:${owner}/${name}`,
     'is:pr',
-    'is:closed',
     'is:public',
-    'archived:false',
     `base:main`,
     `author:${username}`,
     'sort:created-asc',
@@ -165,17 +202,106 @@ export interface CommitNode {
   };
 }
 
-// An interface for the response data for the releases query
-export interface ReleasesResponse {
-  repository: {
-    releases: {
-      edges: { node: ReleaseNode }[];
+export interface IssuesQuery extends RepoQuery {
+  /** The start date for the query. */
+  startDate?: string;
+
+  /** The end date for the query. */
+  endDate: string;
+
+  /** The cursor for pagination. */
+  cursor?: string;
+
+  /** The maximum page size (default is 100). */
+  maxPageSize?: number;
+}
+
+// A function to generate a GraphQL query to fetch a page of issues.
+export function makeIssuesQuery({
+  username,
+  owner,
+  name,
+  startDate,
+  endDate,
+  cursor,
+  maxPageSize = 25,
+}: IssuesQuery): string {
+  /**
+   * @see https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
+   */
+  const searchQuery = [
+    `repo:${owner}/${name}`,
+    'is:issue',
+    'is:public',
+    `author:${username}`,
+    'sort:created-asc',
+    startDate ? `created:${startDate}..${endDate}` : `created:<=${endDate}`,
+  ].join(' ');
+  const cursorDef = cursor
+    ? `
+  after: "${cursor}"`
+    : '';
+
+  return `{
+  search(
+    type: ISSUE
+    query: "${searchQuery}"
+    first: ${maxPageSize}${cursorDef}
+  ) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    edges {
+      node {
+        ... on Issue {
+          number
+          title
+          url
+          createdAt
+        }
+      }
+    }
+  }
+}`;
+}
+
+export interface IssuesResponse {
+  search: {
+    pageInfo: {
+      hasNextPage: boolean;
+      endCursor: string;
     };
+    edges: { node: IssueNode }[];
   };
+}
+
+export interface IssueNode {
+  number: number;
+  title: string;
+  url: string;
+  createdAt: string;
+}
+
+/**
+ * UserResponse is an interface for the response data for the user query.
+ */
+export interface UserResponse {
   user: {
     name: string;
     bioHTML: string;
     avatarUrl: string;
+  };
+}
+
+/*
+ * ReleasesResponse is an interface for the response data for the releases query.
+ */
+export interface ReleasesResponse extends UserResponse {
+  repository: {
+    releases: {
+      edges: { node: ReleaseNode }[];
+    };
   };
 }
 

@@ -8,6 +8,7 @@ export enum Term {
   Fall22 = 'F22',
   Spring23 = 'S23',
   Fall23 = 'F23',
+  Spring24 = 'S24',
 }
 
 /**
@@ -41,7 +42,10 @@ export enum Social {
   YouTube = 'youtube',
 }
 
-interface Position {
+/**
+ * Position is used to represent a position that an officer holds.
+ */
+export interface Position {
   /**
    * The title of the position that the officer holds. This value is what is
    * displayed on the website.
@@ -65,7 +69,7 @@ export interface Officer {
   fullName: string;
   picture?: string;
   positions: {
-    [key in Term]?: Position;
+    [key in Term]?: Position[];
   };
   socials?: {
     [key in Social]?: string;
@@ -82,5 +86,6 @@ export interface Team {
   description?: string;
   color: string;
   logoSrc: string;
+  oldLogoSrc?: string;
   tiers?: number[];
 }

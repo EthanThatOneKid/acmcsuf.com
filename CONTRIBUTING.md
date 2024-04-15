@@ -55,7 +55,7 @@ npm run test:coverage
 ### NPM bloat
 
 In this project, we set a threshold for how large the `/node_modules` folder can become after an `npm install`.
-In our [`package.json`](package.json), we set the size to 50 MB.
+In our [`package.json`](package.json), we set the size to 256 MB.
 
 To test the size of the dependencies in your local workspace, run `npm run test:size`.
 
@@ -137,7 +137,7 @@ ARCHIVE_CHANNEL_ID=YOUR_ARCHIVE_CHANNEL_ID
 
 ## Updating board member data
 
-To update the way an officer appears on <https://acmcsuf.com/about>, contributors may directly edit our `src/lib/public/board/data/officers.json` JSON file.
+To update the way an officer appears on <https://acmcsuf.com/teams>, contributors may directly edit our `src/lib/public/board/data/officers.json` JSON file.
 
 Alternatively board members may update their own board member data using a Discord slash command `/boardd` in our official club Discord server. For more information, see <https://acmcsuf.com/boardify>.
 

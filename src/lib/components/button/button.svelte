@@ -12,7 +12,7 @@
 </script>
 
 <a
-  class="brand-header size-md"
+  class="acm-heavier size-md"
   role="button"
   href={link}
   target={redirect ? '_blank' : '_self'}
@@ -28,14 +28,14 @@
     text-align: center;
     padding: 12px 24px;
     background-color: var(--button-bg);
-    color: var(--perma-light);
+    color: var(--button-color);
     border-radius: 12px;
     text-decoration: none;
     user-select: none;
     transition: 0.25s ease-in-out;
 
     &:hover {
-      background-color: var(--button-hover);
+      background-color: var(--button-bg-hover);
     }
   }
 </style>

@@ -3,6 +3,21 @@
   import Button from '$lib/components/button/button.svelte';
   import Bar from '$lib/components/nav/bar.svelte';
   import Footer from '$lib/components/footer/footer.svelte';
+  import { onMount } from 'svelte';
+  import { AcmTheme, theme } from '$lib/public/legacy/theme';
+
+  function changeTheme(event: MediaQueryListEvent) {
+    theme.set(event.matches ? AcmTheme.Dark : AcmTheme.Light);
+  }
+
+  onMount(() => {
+    theme.init();
+    if ('matchMedia' in window) {
+      const mediaList = matchMedia('(prefers-color-scheme: dark)');
+      mediaList.addEventListener('change', changeTheme);
+      return () => mediaList.removeEventListener('change', changeTheme);
+    }
+  });
 </script>
 
 <Bar />
@@ -20,7 +35,7 @@
         <h2 class="gap">Head home!</h2>
         <Button text={'Return to Home'} link={'/'} />
       </div>
-      <img src="/assets/svg/capy-meme.svg" alt="404 - Page Not Found" />
+      <img src="/assets/capy-meme.svg" alt="404 - Page Not Found" />
     </div>
   </div>
 </section>

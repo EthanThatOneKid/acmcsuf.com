@@ -10,7 +10,7 @@ In that directory, each file with a prefix <kbd>+</kbd> represents an endpoint o
 | Path of File                     | Production URL               |
 | -------------------------------- | ---------------------------- |
 | `/src/routes/+page.svelte`       | `https://acmcsuf.com/`       |
-| `/src/routes/about/+page.svelte` | `https://acmcsuf.com/about/` |
+| `/src/routes/teams/+page.svelte` | `https://acmcsuf.com/teams/` |
 | `/src/routes/paths/+page.svelte` | `https://acmcsuf.com/paths/` |
 
 > ℹ more info: <https://kit.svelte.dev/docs/routing#advanced-routing>
@@ -59,15 +59,10 @@ Additions to this file should also be taken with great care as to not complicate
 
 This directory is used to contain any assets that are used on the client; primarily including images.
 
-#### `/static/assets/authors/` 📁
+### `/static/people/` 📁
 
-The [`/static/assets/authors/` directory](static/assets/authors) is home to the normalized headshots of each current acmCSUF board member.
+The [`/static/people/` directory](static/people) is home to the normalized head shots of each current acmCSUF board member.
 Each board member who is shown in this directory has granted their consent for their image to be public.
-
-#### `/static/assets/png/` 📁
-
-The [`/static/assets/png/` directory](static/assets/png) contains all images and illustrations used on the website that are in the PNG file format.
-For visual content in other formats (i.e. SVG), see [`/lib/components/icons`](src/lib/components/icons).
 
 ## `tsconfig.json` 📄
 
