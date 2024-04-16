@@ -12,6 +12,7 @@ export enum TeamMatch {
   DEV = 'Dev',
   DESIGN = 'Design',
   AI = 'AI',
+  OSS = 'OSS',
   TEAMLESS = 'N/A',
 }
 

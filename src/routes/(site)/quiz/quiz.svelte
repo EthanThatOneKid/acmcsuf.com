@@ -7,7 +7,6 @@
   import { QuizStorage } from '$lib/public/quiz/responses/storage';
   import ProgressBar from './progress-bar.svelte';
   import MoreInfo from './more-info.svelte';
-  import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
 
   export let data: QuizData;
 
@@ -88,7 +87,7 @@
   <!-- DISPLAY THE QUIZ QUESTIONS -->
   {#if !showResults}
     <h1>ACM TEAM QUIZ</h1>
-    <p><i>What team are you a part of?</i></p>
+    <p><i>Which team are you a part of?</i></p>
     <div class="question">
       <h2>{data.questions[index].prompt}</h2>
       <section class="answers">
@@ -128,13 +127,12 @@
     <!-- DISPLAY ADDIONTAL TEAM INFORMATION -->
   {:else if showMoreInfo}
     <MoreInfo {...showTeam} />
-    <button on:click={goBackToResults} class="arrow return-to-results"
-      ><BwIcon src="/assets/arrow-right.svg" alt="right arrow" />
+    <button on:click={goBackToResults} class="back-next-btn return-to-results">
       <h3>Check out other teams</h3></button
     >
     <!-- DISPLAY THE RESULTS -->
   {:else}
-    <h1>Results</h1>
+    <h1>Quiz Results</h1>
     <p>You Matched</p>
     <h2 class="match-title" style={`--team-color: ${TEAMS[match].color}`}>
       {match} <span>Team</span>
@@ -181,11 +179,11 @@
         </div>
       {/each}
     </div>
-    <button on:click={restartQuiz} class="arrow action-btn restart-btn">
+    <button on:click={restartQuiz} class="back-next-btn action-btn restart-btn">
       <h3>Take Quiz Again?</h3>
       <p class="italic">This will wipe your current results</p>
     </button>
-    <button class="arrow action-btn" on:click={() => showTeamDetails(TEAMS.general)}>
+    <button class="back-next-btn action-btn" on:click={() => showTeamDetails(TEAMS.general)}>
       Want to help out ACM?</button
     >
     <p class="italic fine-text">
@@ -274,7 +272,8 @@
   .action-btn {
     font-weight: 600;
     font-size: 18px;
-    padding: 8px 16px;
+    padding: 10px 30px;
+    align-items: center;
   }
 
   .action-btn p {
@@ -342,7 +341,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 20px;
+    gap: 35px;
   }
 
   .result-grid-box {
@@ -391,12 +390,12 @@
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: 1fr 1fr 1fr;
-      gap: 20px;
+      gap: 40px;
     }
 
     .result-grid-box {
       width: 200px;
-      height: 150px;
+      height: 235px;
     }
 
     .fine-text {
