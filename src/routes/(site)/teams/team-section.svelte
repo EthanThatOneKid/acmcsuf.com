@@ -36,11 +36,10 @@
       class:special-events-animation={info.id === 'special-events'}
       class:gamedev-animation={info.id === 'gamedev'}
     >
-    
-        <img
-          src={oldTerms.includes(term) ? info.oldLogoSrc ?? info.logoSrc : info.logoSrc}
-          alt={`${info.title} Team Logo`}
-        />
+      <img
+        src={oldTerms.includes(term) ? info.oldLogoSrc ?? info.logoSrc : info.logoSrc}
+        alt={`${info.title} Team Logo`}
+      />
 
       <div class="team-description">
         <h2>
