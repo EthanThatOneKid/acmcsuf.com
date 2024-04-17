@@ -3,7 +3,7 @@
     "id": "general",
     "title": "General",
     "description": "General ACM team member.",
-    "logoSrc": "/assets/general-logo.svg",
+    "logoSrc": "https://cdn.discordapp.com/attachments/1179567464972025987/1230251910565593189/capy-animate.gif?ex=6632a460&is=66202f60&hm=79dc019c15722423fe9e50bd6252e89b88814b2a26d7c069b5989e4b88451adb&",
     "oldLogoSrc": "/assets/general-logo-old.svg",
     "color": "var(--acm-blue)",
     "tiers": [0, 1, 2, 3, 4, 5, 6, 7, 31]
