@@ -9,25 +9,60 @@
   <title>SiteMap | ACM at CSUF</title>
 </svelte:head>
 
-<div class="sitemap">
-  <h1>SiteMap</h1>
 
-  <div>
-    {#each SITEMAP as entry}
-      <section class="entry" id={entry.id}>
-        <h3>{entry.category}</h3>
+<div class="sitemap">
+  <div class="siteHeader">
+    <img src="/assets/sitemap.png">
+    <h1 class="siteTitle">SITEMAP</h1>
+    <h2 class="siteTagline">Check out all our pages!</h2>
+  </div>
+  <div class="column">
+    {#each Object.entries(SITEMAP) as [category, items]}
+    <div class="category">
+        <h3>{category}</h3>
         <ul>
+          {#each items as item}
           <li>
-            <a href={entry.link}>Events</a>
+            <a href={item.link}>{item.title}</a>
           </li>
-        </ul>
-      </section>
+        {/each}
+      </ul>
+      </div>
     {/each}
   </div>
 </div>
 
 <style>
-  .entry {
-    margin-left: 100px;
+  
+  .siteHeader{
+    max-width: fit-content;
+    margin-right: auto;
+    margin-bottom: 5%;
+    column-count: 2;
+  }
+  .siteHeader h1{
+    margin-top: 40px;
+  }
+  .siteHeader img{
+    height: auto;
+    max-width: 25%;
+    margin-bottom: 1em;
+    margin-left: 350px;
+  }
+  .category{
+    margin-right: 80px;
+  }
+  .category ul{
+    margin-bottom: 20px;
+  }
+
+  .siteTagline{
+    font-size: small;
+  }
+  .column{
+    column-count: 3;
+    max-width: fit-content;
+    margin-right: 10px;
+    margin-left: 150px;
   }
 </style>
