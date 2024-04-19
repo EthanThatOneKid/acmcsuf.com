@@ -9,6 +9,7 @@
 
   $: members = getMembers(OFFICERS_JSON, term, info?.tiers ?? []);
 
+  const generalLogoNoPreference = '/assets/general-logo.gif';
   const permanentTeamIDs = ['general', 'icpc', 'oss'];
   const oldTerms = [Term.Fall21, Term.Spring21, Term.Spring22];
   const nodebudsTerms = [...oldTerms];
@@ -35,25 +36,22 @@
       class:special-events-animation={info.id === 'special-events'}
       class:gamedev-animation={info.id === 'gamedev'}
     >
-      {#if info.id === 'general'}
-        <picture>
+      <picture>
+        {#if info.id === 'general'}
           <source
             srcset={oldTerms.includes(term)
-              ? info.oldLogoSrc ?? '/assets/general-logo.svg'
-              : '/assets/general-logo.svg'}
-            media="(prefers-reduced-motion)"
+              ? info.oldLogoSrc ?? generalLogoNoPreference
+              : generalLogoNoPreference}
+            media="(prefers-reduced-motion: no-preference)"
           />
-          <img
-            src={oldTerms.includes(term) ? info.oldLogoSrc ?? info.logoSrc : info.logoSrc}
-            alt={`${info.title} Team Logo`}
-          />
-        </picture>
-      {:else}
+        {/if}
+
         <img
           src={oldTerms.includes(term) ? info.oldLogoSrc ?? info.logoSrc : info.logoSrc}
           alt={`${info.title} Team Logo`}
         />
-      {/if}
+      </picture>
+
       <div class="team-description">
         <h2>
           <span class="acm-heavier size-lg acm-heaviest">
