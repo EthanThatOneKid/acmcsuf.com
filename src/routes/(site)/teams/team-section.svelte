@@ -85,6 +85,10 @@
     justify-self: center;
   }
 
+  .team-section picture {
+    text-align: center;
+  }
+
   .team-section .team-title {
     color: var(--font-color, var(--acm-dark));
   }
