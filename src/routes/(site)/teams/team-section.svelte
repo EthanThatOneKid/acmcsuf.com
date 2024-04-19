@@ -35,11 +35,25 @@
       class:special-events-animation={info.id === 'special-events'}
       class:gamedev-animation={info.id === 'gamedev'}
     >
-      <img
-        src={oldTerms.includes(term) ? info.oldLogoSrc ?? info.logoSrc : info.logoSrc}
-        alt={`${info.title} Team Logo`}
-      />
-
+      {#if info.id === 'general'}
+        <picture>
+          <source
+            srcset={oldTerms.includes(term)
+              ? info.oldLogoSrc ?? '/assets/general-logo.svg'
+              : '/assets/general-logo.svg'}
+            media="(prefers-reduced-motion)"
+          />
+          <img
+            src={oldTerms.includes(term) ? info.oldLogoSrc ?? info.logoSrc : info.logoSrc}
+            alt={`${info.title} Team Logo`}
+          />
+        </picture>
+      {:else}
+        <img
+          src={oldTerms.includes(term) ? info.oldLogoSrc ?? info.logoSrc : info.logoSrc}
+          alt={`${info.title} Team Logo`}
+        />
+      {/if}
       <div class="team-description">
         <h2>
           <span class="acm-heavier size-lg acm-heaviest">
