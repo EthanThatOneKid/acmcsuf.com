@@ -70,9 +70,6 @@ export function getTeamByID(id: string): Team | undefined {
  */
 export function getOfficerByGhUsername(ghUsername: string): Officer | null {
   // get author by GitHub username
-  const officer = OFFICERS_JSON.find(
-    (o) =>
-      o.socials && o.socials.github && o.socials.github.toLowerCase() === ghUsername.toLowerCase()
-  );
+  const officer = OFFICERS_JSON.find((o) => o.fullName !== undefined && o.fullName === ghUsername);
   return officer ?? null;
 }
