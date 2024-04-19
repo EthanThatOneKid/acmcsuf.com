@@ -2,7 +2,6 @@
   import type { Team } from '$lib/public/board/types';
   import { OFFICERS_JSON } from '$lib/public/board/data';
   import { Term, getMembers } from '$lib/public/board';
-  import DiamondPicture from './diamond-picture.svelte';
   import Members from './members.svelte';
 
   export let info: Team;
