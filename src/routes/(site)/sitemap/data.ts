@@ -1,9 +1,12 @@
 import type { SiteMap } from '$lib/public/sitemap';
 
-const siteMap: 
-
-SiteMap = {
+const siteMap: SiteMap = {
   'Main pages': [
+    {
+      id: 'homepage',
+      title: 'Home',
+      link: '',
+    },
     {
       id: 'eventspage',
       title: 'Events',
@@ -18,9 +21,9 @@ SiteMap = {
       id: 'blogpage',
       title: 'Blog',
       link: 'blog',
-    }
+    },
   ],
-  'Board Use':[
+  'Board Use': [
     {
       id: 'boardifypage',
       title: 'Boardify',
@@ -37,51 +40,63 @@ SiteMap = {
       link: 'shorter',
     },
     {
+      id: 'svgpages',
+      title: 'svg',
+      link: 'discord.svg',
+    },
+    {
       id: 'tempapppage',
       title: 'Temp-apps',
       link: 'temp-apps',
-    }
+    },
   ],
-  'Showcase Pages':[
+  'Showcase Pages': [
     {
-      id: 'genurarypage',
-      title: 'Genurary',
-      link: 'genurary',
+      id: 'gallery',
+      title: 'Gallery',
+      link: 'gallery',
+    },
+    {
+      id: 'genuarypage',
+      title: 'Genuary',
+      link: 'genuary',
     },
     {
       id: 'onovemberpage',
       title: 'Onovember',
       link: 'onovember',
     },
+  ],
+  'Productivity pages': [
+    {
+      id: 'lcdailiespage',
+      title: 'LC-dailies',
+      link: 'lc-dailies',
+    },
     {
       id: 'pomopage',
       title: 'Pomo',
       link: 'pomo',
     },
-    {
-      id: 'lcdailiespage',
-      title: 'Lc-dailies',
-      link: 'lc-dailies',
-    },
-    {
-      id: 'gallery',
-      title: 'Gallery',
-      link: 'gallery',
-    }
   ],
-  'Contributing Pages':[
+  'Contributing Pages': [
     {
       id: '1stpage',
       title: '1st',
       link: '1st',
     },
     {
-      id: '[x+40]page',
-      title: '[x+40]',
-      link: '[x+40]',
-    }
+      id: 'usernamepage',
+      title: '@[username]',
+      link: '@ethanthatonekid',
+    },
   ],
-  'Miscellaneous':[
+  Miscellaneous: [
+    {
+      id: 'feedxmlpage',
+      title: 'Feed.xml',
+      link: 'feed.xml',
+    },
     {
       id: 'quizpage',
       title: 'Quiz',
@@ -91,27 +106,22 @@ SiteMap = {
       id: 'randompage',
       title: 'Random',
       link: 'random',
-    }
+    },
   ],
-  'Depreciated':[
+  Outdated: [
     {
       id: 'nodebudspage',
       title: 'Nodebuds',
       link: 'nodebuds',
-    }
+    },
   ],
-  'Policies':[
+  Policies: [
     {
       id: 'privacypage',
       title: 'Privacy',
-      link: 'privacy'
+      link: 'privacy',
     },
-    {
-      id: 'covid-19page',
-      title: 'Covid-19',
-      link: 'covid-19'
-    }
-  ]
+  ],
 };
 
 export default siteMap;
