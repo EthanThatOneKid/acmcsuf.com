@@ -4,6 +4,6 @@ export interface SiteMapEntry {
   link: string;
 }
 
-export type SiteMap = {
+export interface SiteMap {
   [category: string]: SiteMapEntry[];
-};
+}
