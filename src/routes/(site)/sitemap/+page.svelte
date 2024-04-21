@@ -63,6 +63,14 @@
     margin-right: 2vw;
   }
 
+  section div li {
+    margin-left: 30px;
+  }
+
+  section div li a {
+    text-decoration: none;
+  }
+
   @media (max-width: 600px) {
     .sitemap-header {
       flex-direction: column;
@@ -70,6 +78,13 @@
 
     .sitemap-header div h2 {
       text-align: center;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .sitemap-body {
+      display: flex;
+      flex-direction: row; /* I want this to be in columns */
     }
   }
 </style>
