@@ -65,10 +65,24 @@
 
   section div li {
     margin-left: 30px;
+    font-size: 20px;
   }
 
   section div li a {
     text-decoration: none;
+  }
+
+  .sitemap-body {
+    padding: 30px;
+  }
+
+  .column {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .category {
+    margin: 10px 50px;
   }
 
   @media (max-width: 600px) {
@@ -79,12 +93,19 @@
     .sitemap-header div h2 {
       text-align: center;
     }
+
+    section div li {
+      margin-left: 30px;
+    }
+
+    .column {
+      grid-template-columns: 1fr;
+    }
   }
 
-  @media (max-width: 900px) {
-    .sitemap-body {
-      display: flex;
-      flex-direction: row; /* I want this to be in columns */
+  @media (min-width: 601px) and (max-width: 900px) {
+    .column {
+      grid-template-columns: 1fr 1fr;
     }
   }
 </style>
