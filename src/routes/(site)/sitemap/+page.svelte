@@ -9,13 +9,17 @@
   <title>SiteMap | ACM at CSUF</title>
 </svelte:head>
 
-<section class="sitemap">
-  <div class="sitemap-header">
-    <img class="sitemap-logo" src="/assets/sitemap-logo.svg" alt="Sitemap icon in diamond" />
-    <h1 class="siteTitle">SITEMAP</h1>
-    <h2 class="siteTagline">Check out all our pages!</h2>
+<section class="sitemap-header">
+  <img src="/assets/sitemap-logo.svg" alt="Sitemap icon in diamond" />
+
+  <div>
+    <h1 class="size-xxl">SITEMAP</h1>
+    <h2 class="size-md">Check out all our pages!</h2>
   </div>
-  <!-- <div class="column">
+</section>
+
+<section class="sitemap-body">
+  <div class="column">
     {#each Object.entries(SITEMAP) as [category, items]}
       <div class="category">
         <h2>{category}</h2>
@@ -28,56 +32,44 @@
         </ul>
       </div>
     {/each}
-  </div> -->
+  </div>
 </section>
 
 <style>
   section {
-    display: grid;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0 24px;
   }
 
-  .sitemap-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* align-items: center;
-    gap: 1em; */
+  section div h1 {
+    font-weight: 550;
+    height: 95px;
+    line-height: 100px;
   }
 
-  .sitemap-logo {
+  section div h2 {
+    font-weight: 600;
+    margin-left: 5px;
+  }
+
+  section img {
+    max-width: 200px;
+    width: 100%;
     height: auto;
-    max-width: 25%;
-    margin-bottom: 1em;
-    margin-left: 350px;
-  }
-  /* .siteHeader {
-    max-width: fit-content;
-    margin-right: auto;
-    margin-bottom: 5%;
-    column-count: 2;
-  }
-  .siteHeader h1 {
-    margin-top: 40px;
-  }
-  .siteHeader img {
-    height: auto;
-    max-width: 25%;
-    margin-bottom: 1em;
-    margin-left: 350px;
-  }
-  .category {
-    margin-right: 80px;
-  }
-  .category ul {
-    margin-bottom: 20px;
+    margin-bottom: 8px;
+    margin-right: 2vw;
   }
 
-  .siteTagline {
-    font-size: small;
+  @media (max-width: 600px) {
+    .sitemap-header {
+      flex-direction: column;
+    }
+
+    .sitemap-header div h2 {
+      text-align: center;
+    }
   }
-  .column {
-    column-count: 3;
-    max-width: fit-content;
-    margin-right: 10px;
-    margin-left: 150px;
-  } */
 </style>
