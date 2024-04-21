@@ -44,15 +44,17 @@ export function getMembers(members: Officer[], term: Term, tierIDs?: number[]): 
       return tierIDs.some((tierID) => positions.some((position) => position.tier === tierID));
     })
     .sort((a, b) => {
+      const aPositions = a.positions[term];
+      const bPositions = b.positions[term];
+      if (!aPositions || !bPositions) {
+        return 0;
+      }
+
       const aTier = getTierByID(
-        Math.min(
-          ...a.positions[term]!.map(({ tier }) => tier).filter((tier) => tierIDs.includes(tier))
-        )
+        Math.min(...aPositions.map(({ tier }) => tier).filter((tier) => tierIDs.includes(tier)))
       ) || { index: 0 };
       const bTier = getTierByID(
-        Math.min(
-          ...b.positions[term]!.map(({ tier }) => tier).filter((tier) => tierIDs.includes(tier))
-        )
+        Math.min(...bPositions.map(({ tier }) => tier).filter((tier) => tierIDs.includes(tier)))
       ) || { index: 0 };
       return aTier.index - bTier.index;
     });
@@ -70,9 +72,6 @@ export function getTeamByID(id: string): Team | undefined {
  */
 export function getOfficerByGhUsername(ghUsername: string): Officer | null {
   // get author by GitHub username
-  const officer = OFFICERS_JSON.find(
-    (o) =>
-      o.socials && o.socials.github && o.socials.github.toLowerCase() === ghUsername.toLowerCase()
-  );
+  const officer = OFFICERS_JSON.find((o) => o.fullName !== undefined && o.fullName === ghUsername);
   return officer ?? null;
 }
