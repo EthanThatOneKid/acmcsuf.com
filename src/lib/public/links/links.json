@@ -189,7 +189,6 @@
   "wibs-acm-replit": "https://replit.com/join/kwjkvkfoed-anhduy1202",
   "wibs-acm-pythonws": "https://docs.google.com/presentation/d/1nPrZX6qHwI1jUDrBpcr-B9e0qWv_jK4oBCXblRS9OcY/edit?usp=sharing",
   "discord-bot-intro": "https://docs.google.com/presentation/d/1N-xTeZPcYVzpheT1QbopWyh_OZchlf9dcWw5-gnu3vc/edit?usp=sharing",
-  "pp": "https://www.payday-purgatory.lyyeric.tech/",
   "wibs-acm-python-colab": "https://colab.research.google.com/drive/1GrMj5Gw2fo6sCeC1mzazUgzNY9P_jtgT?usp=sharing",
   "dev-mongodb-workshop": "https://docs.google.com/presentation/d/1pXV93LDvi6yhltXTZWycdBC7pMNxuenY8mEyZv_7h60/edit?usp=sharing",
   "dev-mongodb-repo": "https://github.com/Angellyn218/mongoDB-workshop",
@@ -202,5 +201,15 @@
   "neural-network-colab-sp24": "https://colab.research.google.com/drive/1FZweCjYbNoN3ldUtbjf3JhQj6dtZgfFN?usp=sharing",
   "sqlite-workshop-sp24": "https://docs.google.com/presentation/d/1gni1Ve_PmYfm9u1aTqY_P3qJDmpachke2dD_SCGs0hg",
   "cc-practice": "https://openprocessing.org/sketch/2237701",
-  "ai-hello-world": "https://docs.google.com/presentation/d/13Jigoask0DymWHcAkD_J5BuG0J7p_P62c7oEo5WQCh0/edit"
+  "ai-hello-world": "https://docs.google.com/presentation/d/13Jigoask0DymWHcAkD_J5BuG0J7p_P62c7oEo5WQCh0/edit",
+  "linux-101": "https://docs.google.com/presentation/d/13MDSpu1RaB_zgI59Cxio1_8uF76jm3bb7HK_ucHtxo0/edit?usp=sharing",
+  "linux-101-commands": "https://phoenixnap.com/kb/linux-commands",
+  "rouge-like-repo": "https://github.com/ACM-Game-Dev/Rougelike",
+  "rogue-like-repo": "https://github.com/ACM-Game-Dev/Roguelike",
+  "owen": "https://jowen-ster.github.io/Typos.code/",
+  "resources-design": "https://docs.google.com/document/d/1etyh3ocp9BazjFF9DnO6SfFNQncVNvfKzDSEfA3jzcM/edit?usp=sharing",
+  "workshops-design": "https://docs.google.com/document/d/1etyh3ocp9BazjFF9DnO6SfFNQncVNvfKzDSEfA3jzcM/edit?usp=sharing",
+  "model-training-ai": "https://docs.google.com/presentation/d/1MHbbL2Xq1GNjuqjTJRcOekbpvjCntTqdeM5XYshNQmE/edit?usp=sharing",
+  "htmx-go": "https://docs.google.com/presentation/d/1YzZ90Z4trMnU3bdgENRoBqE5wtpFVdVgf8f3XzBRoFc/edit",
+  "sp24-portfolios": "https://acm-portfolio-sp2024.devpost.com/"
 }

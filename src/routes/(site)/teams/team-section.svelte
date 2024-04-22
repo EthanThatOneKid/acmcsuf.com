@@ -2,7 +2,6 @@
   import type { Team } from '$lib/public/board/types';
   import { OFFICERS_JSON } from '$lib/public/board/data';
   import { Term, getMembers } from '$lib/public/board';
-  import DiamondPicture from './diamond-picture.svelte';
   import Members from './members.svelte';
 
   export let info: Team;
@@ -10,6 +9,7 @@
 
   $: members = getMembers(OFFICERS_JSON, term, info?.tiers ?? []);
 
+  const generalLogoNoPreference = '/assets/general-logo.gif';
   const permanentTeamIDs = ['general', 'icpc', 'oss'];
   const oldTerms = [Term.Fall21, Term.Spring21, Term.Spring22];
   const nodebudsTerms = [...oldTerms];
@@ -36,18 +36,21 @@
       class:special-events-animation={info.id === 'special-events'}
       class:gamedev-animation={info.id === 'gamedev'}
     >
-      {#if info.id === 'general'}
-        <DiamondPicture
-          src="https://cdn.discordapp.com/icons/710225099923521558/a_f72bf9caa196d84a44ff40cdfd3f8d9a.gif?size=1024"
-          reducedMotionSrc={info.logoSrc}
-          altSrc="General Picture"
-        />
-      {:else}
+      <picture>
+        {#if info.id === 'general'}
+          <source
+            srcset={oldTerms.includes(term)
+              ? info.oldLogoSrc ?? generalLogoNoPreference
+              : generalLogoNoPreference}
+            media="(prefers-reduced-motion: no-preference)"
+          />
+        {/if}
+
         <img
           src={oldTerms.includes(term) ? info.oldLogoSrc ?? info.logoSrc : info.logoSrc}
           alt={`${info.title} Team Logo`}
         />
-      {/if}
+      </picture>
 
       <div class="team-description">
         <h2>
@@ -80,6 +83,10 @@
   .team-section img {
     max-width: clamp(20rem, 17.342rem + 10.13vw, 30rem);
     justify-self: center;
+  }
+
+  .team-section picture {
+    text-align: center;
   }
 
   .team-section .team-title {
@@ -277,17 +284,28 @@
     animation-iteration-count: infinite;
     animation-direction: alternate;
     position: relative;
+    animation-timing-function: cubic-bezier(0, 0, 0, 0);
   }
 
   @keyframes slide {
     0% {
       left: -60px;
-      top: 0px;
+    }
+
+    33% {
+      left: -10px;
+    }
+
+    50% {
+      left: 0;
+    }
+
+    66% {
+      left: 10px;
     }
 
     100% {
       left: 60px;
-      top: 0px;
     }
   }
 
