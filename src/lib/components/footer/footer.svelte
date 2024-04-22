@@ -5,6 +5,7 @@
   const footerItems = [
     { title: 'Source Code', path: '/code' },
     { title: 'Report a Bug', path: '/bug' },
+    { title: 'Sitemap', path: '/sitemap' },
     { title: 'COVID-19 Policy', path: '/covid-19' },
     { title: 'Privacy Policy', path: '/privacy' },
   ];

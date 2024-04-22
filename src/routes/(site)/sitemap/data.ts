@@ -5,7 +5,7 @@ const siteMap: SiteMap = {
     {
       id: 'homepage',
       title: 'Home',
-      link: '',
+      link: '/',
     },
     {
       id: 'eventspage',
