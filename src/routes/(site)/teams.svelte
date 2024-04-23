@@ -122,6 +122,10 @@
     margin: 0 auto;
   }
 
+  section .hero-inner-container img:hover {
+    transform: scale(1.2);
+  }
+
   section .hero-inner-container .discover-button {
     display: grid;
     justify-self: center;
