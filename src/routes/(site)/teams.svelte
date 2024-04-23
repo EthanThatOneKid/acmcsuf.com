@@ -71,7 +71,7 @@
         <a href="/teams#oss"><img src="/assets/oss-logo.svg" alt="OSS Team Badge" /></a>
         <div class="size-md acm-heavy hero-text">
           <span
-            >Take a look into the world of collaborative <span class="acm-turquoise"
+            >Take off into the world of collaborative <span class="acm-turquoise"
               >Open Source Software</span
             ></span
           >
