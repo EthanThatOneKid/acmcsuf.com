@@ -231,8 +231,8 @@
 
   .answers button {
     padding: 25px 27px;
-    min-height: 42px;
-    background-color: var(--acm-sky);
+    height: 85px;
+    background-color: var(--acm-bluer);
     border-radius: 8px;
     border: var(--perma-blue) 3px solid;
     cursor: pointer;
@@ -240,11 +240,11 @@
   }
 
   .answers button:hover {
-    box-shadow: 0px 0px 10px var(--perma-light);
+    border: 3px solid var(--acm-blue);
   }
 
   .selected-response {
-    box-shadow: 0px 0px 15px var(--acm-sky);
+    border: 3px solid var(--acm-sky);
   }
 
   .selected-response h3 {
