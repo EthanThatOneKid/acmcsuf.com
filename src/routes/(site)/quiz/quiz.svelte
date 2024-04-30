@@ -243,13 +243,13 @@
     border: 3px solid var(--acm-sky);
   }
 
+
   .selected-response {
     border: 3px solid var(--acm-blue);
   }
 
   .selected-response h3 {
     font-style: italic;
-    text-shadow: 0px 0px 2px var(--acm-sky);
   }
 
   .back-next-wrapper {
@@ -381,9 +381,14 @@
     .question {
       width: 325px;
     }
+    .answers button {
+      height: 90px;
+    }
 
     .answers {
       width: 290px;
+      height: 450px;
+      grid-template-columns: 100%;
     }
 
     .result-grid {
