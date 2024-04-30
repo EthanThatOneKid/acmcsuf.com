@@ -243,7 +243,6 @@
     border: 3px solid var(--acm-sky);
   }
 
-
   .selected-response {
     border: 3px solid var(--acm-blue);
   }
