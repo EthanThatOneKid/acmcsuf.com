@@ -234,17 +234,18 @@
     height: 85px;
     background-color: var(--acm-bluer);
     border-radius: 8px;
-    border: var(--perma-blue) 3px solid;
+    border: none;
     cursor: pointer;
     transition: 0.25s ease-in-out;
   }
 
   .answers button:hover {
-    border: 3px solid var(--acm-blue);
+    border: 3px solid var(--acm-sky);
   }
 
+
   .selected-response {
-    border: 3px solid var(--acm-sky);
+    border: 3px solid var(--acm-blue);
   }
 
   .selected-response h3 {
@@ -266,7 +267,7 @@
   }
 
   .back-next-btn:hover {
-    box-shadow: 0px 0px 4px var(--acm-dark);
+    border: 3px solid var(--acm-midnight);
   }
 
   .action-btn {
@@ -302,7 +303,7 @@
   }
 
   .submitBTN:hover {
-    box-shadow: 0px 0px 10px var(--acm-blue);
+    border: 3px solid var(--acm-midnight);
   }
 
   .disable-submitBTN,
