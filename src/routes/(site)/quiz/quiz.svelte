@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import type { Team } from '$lib/public/board/types';
   import { TEAMS } from '$lib/public/board/data';
+  import { getTeamReport } from '$lib/public/quiz/responses/data';
   import type { QuizData, QuizResponse } from '$lib/public/quiz/questions/types';
   import type { TeamMatch } from '$lib/public/quiz/questions/types';
   import { QuizStorage } from '$lib/public/quiz/responses/storage';
@@ -146,7 +147,7 @@
 
     <!-- DISPLAY ADDIONTAL TEAM INFORMATION -->
   {:else if showMoreInfo}
-    <MoreInfo {...showTeam} />
+    <MoreInfo team={showTeam} report={getTeamReport(showTeam.id)} />
     <button on:click={goBackToResults} class="back-next-btn return-to-results">
       <h3>Check out other teams</h3></button
     >
