@@ -75,12 +75,16 @@
     }, {} as Record<string, number>);
   }
 
+  function maxTallies(tallies: Record<string, number>) {
+    return Object.entries(tallies)
+      .sort(([, a], [, b]) => b - a)
+      .shift()
+      ?.shift() as TeamMatch;
+  }
+
   $: talliedResponses = tallyResponses(responses);
 
-  // Bug in this definition
-  $: match = (Object.entries(talliedResponses)
-    .sort(([, a], [, b]) => b - a)
-    ?.shift() ?? TeamMatch.TEAMLESS) as string;
+  $: match = maxTallies(talliedResponses);
 
   // local storage stuff
   let quizStorage: QuizStorage | undefined;
@@ -99,7 +103,6 @@
   });
 </script>
 
-{@debug match}
 <div class="container">
   <!-- DISPLAY THE QUIZ QUESTIONS -->
   {#if !showResults}
