@@ -7,12 +7,18 @@ interface Question {
   choices: Choice[];
 }
 
+export interface QuizResponse {
+  matches: TeamMatch[];
+}
+
 export enum TeamMatch {
   ALGO = 'Algo',
   DEV = 'Dev',
   DESIGN = 'Design',
   AI = 'AI',
   OSS = 'OSS',
+  GAMEDEV = 'Game Dev',
+  ICPC = 'ICPC',
   TEAMLESS = 'N/A',
 }
 
@@ -20,5 +26,5 @@ export interface Choice {
   content: string;
   // Where the choice is an index number for use in quiz.svelte
   // ai => 0, dev => 1, design => 2, algo => 3, N/A => 4
-  match: TeamMatch;
+  match: TeamMatch[];
 }

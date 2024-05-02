@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import type { Team } from '$lib/public/board/types';
   import { TEAMS } from '$lib/public/board/data';
-  import type { QuizData } from '$lib/public/quiz/questions/types';
+  import type { QuizData, QuizResponse } from '$lib/public/quiz/questions/types';
   import { TeamMatch } from '$lib/public/quiz/questions/types';
   import { QuizStorage } from '$lib/public/quiz/responses/storage';
   import ProgressBar from './progress-bar.svelte';
@@ -11,12 +11,15 @@
   export let data: QuizData;
 
   let index = 0;
-  let responses: (string | undefined)[] = [];
+
+  let responses: (QuizResponse | undefined)[] = [];
   let answeredAllQuestions = false;
 
   let showResults = false;
   let showMoreInfo = false;
   let showTeam: Team;
+
+  const excludedTeamIDs = ['marketing', 'general', 'special-events', 'nodebuds'];
 
   function goLeft() {
     if (index > 0) index--;
@@ -28,8 +31,8 @@
     }
   }
 
-  function recordAnswer(match: TeamMatch) {
-    responses[index] = match;
+  function recordAnswer(matches: TeamMatch[]) {
+    responses[index] = { matches };
     goRight();
   }
 
@@ -54,16 +57,29 @@
     showMoreInfo = false;
   }
 
-  $: talliedResponses = (responses ?? []).reduce((tallies, match) => {
-    match = match?.toLowerCase();
-    if (match && tallies[match]) tallies[match]++;
-    else if (match) tallies[match] = 1;
-    return tallies;
-  }, {} as Record<string, number>);
+  function tallyResponses(responses: (QuizResponse | undefined)[]) {
+    return (responses ?? []).reduce((tallies, matches) => {
+      if (matches === undefined) {
+        return tallies;
+      }
 
+      for (let match of matches.matches) {
+        match = match?.toLowerCase() as TeamMatch;
+        if (match && tallies[match]) {
+          tallies[match]++;
+        } else if (match) {
+          tallies[match] = 1;
+        }
+      }
+      return tallies;
+    }, {} as Record<string, number>);
+  }
+
+  $: talliedResponses = tallyResponses(responses);
+
+  // Bug in this definition
   $: match = (Object.entries(talliedResponses)
     .sort(([, a], [, b]) => b - a)
-    ?.shift()
     ?.shift() ?? TeamMatch.TEAMLESS) as string;
 
   // local storage stuff
@@ -83,6 +99,7 @@
   });
 </script>
 
+{@debug match}
 <div class="container">
   <!-- DISPLAY THE QUIZ QUESTIONS -->
   {#if !showResults}
@@ -94,7 +111,9 @@
         {#each data.questions[index].choices as choice (choice.content)}
           <button
             on:click={() => recordAnswer(choice.match)}
-            class:selected-response={(responses ?? [])[index] === choice.match}
+            class:selected-response={(responses ?? [])[index]?.matches?.every(
+              (matchB, i) => matchB === choice.match[i]
+            )}
           >
             <h3>{choice.content}</h3>
           </button>
@@ -156,7 +175,7 @@
           fillColor={TEAMS[match].color}
         />
       </div>
-      {#each Object.entries(TEAMS).filter(([otherMatch]) => otherMatch !== match) as [otherMatch, team] (otherMatch)}
+      {#each Object.entries(TEAMS).filter(([otherMatch]) => otherMatch !== match && !excludedTeamIDs.includes(otherMatch)) as [otherMatch, team] (otherMatch)}
         <div
           class="result-grid-box"
           style={`--border-color: ${team.color}`}
@@ -242,7 +261,6 @@
   .answers button:hover {
     border: 3px solid var(--acm-sky);
   }
-
 
   .selected-response {
     border: 3px solid var(--acm-blue);
