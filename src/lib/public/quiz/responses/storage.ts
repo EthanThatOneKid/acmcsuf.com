@@ -1,4 +1,4 @@
-import type { QuizResponse } from '../questions/types';
+import type { QuizResponse } from '$lib/public/quiz/questions/types';
 
 export class QuizStorage {
   constructor(

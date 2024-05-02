@@ -3,7 +3,7 @@
   import type { Team } from '$lib/public/board/types';
   import { TEAMS } from '$lib/public/board/data';
   import type { QuizData, QuizResponse } from '$lib/public/quiz/questions/types';
-  import { TeamMatch } from '$lib/public/quiz/questions/types';
+  import type { TeamMatch } from '$lib/public/quiz/questions/types';
   import { QuizStorage } from '$lib/public/quiz/responses/storage';
   import ProgressBar from './progress-bar.svelte';
   import MoreInfo from './more-info.svelte';
@@ -31,8 +31,8 @@
     }
   }
 
-  function recordAnswer(matches: TeamMatch[]) {
-    responses[index] = { matches };
+  function recordAnswer(matches: TeamMatch[], choiceIndex: number) {
+    responses[index] = { matches, choiceIndex };
     goRight();
   }
 
@@ -111,12 +111,10 @@
     <div class="question">
       <h2>{data.questions[index].prompt}</h2>
       <section class="answers">
-        {#each data.questions[index].choices as choice (choice.content)}
+        {#each data.questions[index].choices as choice, i (choice.content)}
           <button
-            on:click={() => recordAnswer(choice.match)}
-            class:selected-response={(responses ?? [])[index]?.matches?.every(
-              (matchB, i) => matchB === choice.match[i]
-            )}
+            on:click={() => recordAnswer(choice.match, i)}
+            class:selected-response={(responses ?? [])[index]?.choiceIndex === i}
           >
             <h3>{choice.content}</h3>
           </button>

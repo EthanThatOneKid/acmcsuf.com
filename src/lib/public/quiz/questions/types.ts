@@ -8,6 +8,7 @@ interface Question {
 }
 
 export interface QuizResponse {
+  choiceIndex: number;
   matches: TeamMatch[];
 }
 
