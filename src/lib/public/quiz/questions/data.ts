@@ -1,3 +1,4 @@
+import { TEAMS } from '$lib/public/board/data';
 import type { QuizData } from './types';
 import { TeamMatch } from './types';
 
@@ -7,8 +8,8 @@ export const QUIZ_DATA: QuizData = {
       prompt: 'What is your biggest career interest?',
       choices: [
         {
-          content: 'Publishing research that will help millions.',
-          match: [TeamMatch.ALGO, TeamMatch.DEV],
+          content: 'Leverage algorithms and competitive programming to solve complex problems.',
+          match: [TeamMatch.ALGO, TeamMatch.ICPC],
         },
         {
           content: 'Making the next generation of computer intelligence.',
@@ -16,11 +17,11 @@ export const QUIZ_DATA: QuizData = {
         },
         {
           content: 'I want to learn every single thing about the web.',
-          match: [TeamMatch.DEV],
+          match: [TeamMatch.DEV, TeamMatch.OSS],
         },
         {
           content: 'I love to wow people with the things I create.',
-          match: [TeamMatch.DESIGN],
+          match: [TeamMatch.DESIGN, TeamMatch.GAMEDEV],
         },
       ],
     },
@@ -33,15 +34,15 @@ export const QUIZ_DATA: QuizData = {
         },
         {
           content: 'Solving a 1,000,000 piece puzzle.',
-          match: [TeamMatch.ALGO],
+          match: [TeamMatch.ALGO, TeamMatch.ICPC],
         },
         {
           content: "Correcting people's design and art on the internet.",
-          match: [TeamMatch.DESIGN],
+          match: [TeamMatch.DESIGN, TeamMatch.GAMEDEV],
         },
         {
           content: 'Making websites/apps.',
-          match: [TeamMatch.DEV],
+          match: [TeamMatch.DEV, TeamMatch.OSS],
         },
       ],
     },
@@ -50,63 +51,69 @@ export const QUIZ_DATA: QuizData = {
       choices: [
         {
           content: 'Optimizing the project.',
-          match: [TeamMatch.ALGO],
+          match: [TeamMatch.ALGO, TeamMatch.OSS],
         },
         {
           content: 'The final product interaction.',
-          match: [TeamMatch.AI],
+          match: [TeamMatch.AI, TeamMatch.DESIGN],
         },
         {
-          content: 'Creating the project',
-          match: [TeamMatch.DEV],
+          content: 'Creating the project.',
+          match: [TeamMatch.DEV, TeamMatch.GAMEDEV],
         },
         {
           content: 'Planning out the project.',
-          match: [TeamMatch.DESIGN],
+          match: [TeamMatch.DESIGN, TeamMatch.ICPC],
         },
       ],
     },
     {
-      prompt: 'What is the coolest sounding language?',
+      prompt: 'If you could choose one programming language, which would you choose?',
       choices: [
-        {
-          content: 'Julia',
-          match: [TeamMatch.AI],
-        },
-        {
-          content: 'Python',
-          match: [TeamMatch.DEV],
-        },
         {
           content: 'JavaScript',
-          match: [TeamMatch.DESIGN],
+          match: [TeamMatch.OSS, TeamMatch.DESIGN],
+        },
+        {
+          content: 'C++/Python',
+          match: [TeamMatch.ICPC, TeamMatch.ALGO, TeamMatch.AI],
+        },
+        {
+          content: 'C#',
+          match: [TeamMatch.GAMEDEV],
         },
 
         {
-          content: 'Assembly',
-          match: [TeamMatch.ALGO],
+          content: 'Only one? What am i supposed to do with that?',
+          match: [TeamMatch.OSS, TeamMatch.DEV],
         },
       ],
     },
     {
-      prompt: "When you are playing a videogame, what get's on your nerves?",
+      prompt: 'How much collaboration do you prefer when working on projects?',
       choices: [
         {
-          content: 'The enemies are waaayyy too dumb.',
-          match: [TeamMatch.AI],
+          content: 'I love working with people!',
+          match: [
+            TeamMatch.GAMEDEV,
+            TeamMatch.ICPC,
+            TeamMatch.OSS,
+            TeamMatch.DESIGN,
+            TeamMatch.DEV,
+          ],
         },
         {
-          content: "I don't like games, they take way too much of my time.",
-          match: [TeamMatch.ALGO],
+          content: 'I will work with others if asked.',
+          match: [TeamMatch.GAMEDEV, TeamMatch.OSS, TeamMatch.DEV],
         },
 
         {
-          content: 'The game is too unpolished for my taste.',
-          match: [TeamMatch.DEV],
+          content: 'I would rather work solo.',
+          match: [TeamMatch.DEV, TeamMatch.ALGO],
         },
         {
-          content: 'My grandma can draw better on ms paint compared to these graphics.',
-          match: [TeamMatch.DESIGN],
+          content: 'I do not care.',
+          match: [TeamMatch.DESIGN, TeamMatch.OSS],
         },
       ],
     },
@@ -115,16 +122,15 @@ export const QUIZ_DATA: QuizData = {
       choices: [
         {
           content: 'I will not sleep until this is done.',
-          match: [TeamMatch.ALGO],
+          match: [TeamMatch.ALGO, TeamMatch.ICPC],
         },
         {
           content: 'Let GitHub Copilot will finish my project.',
-          match: [TeamMatch.AI],
+          match: [TeamMatch.AI, TeamMatch.DEV],
         },
-
         {
           content: 'IF IT LOOKS LIKE IT WORKS THEN IT WORKS.',
-          match: [TeamMatch.DESIGN],
+          match: [TeamMatch.DESIGN, TeamMatch.GAMEDEV],
         },
         {
           content: 'Yeah it doesn’t matter, we’ll push what we have.',
@@ -137,7 +143,7 @@ export const QUIZ_DATA: QuizData = {
       choices: [
         {
           content: 'I fear OOP.',
-          match: [TeamMatch.ALGO],
+          match: [TeamMatch.ALGO, TeamMatch.ICPC],
         },
         {
           content: 'What does that mean?',
@@ -145,7 +151,7 @@ export const QUIZ_DATA: QuizData = {
         },
         {
           content: 'OOP is necessary.',
-          match: [TeamMatch.DEV],
+          match: [TeamMatch.DEV, TeamMatch.OSS, TeamMatch.GAMEDEV],
         },
         {
           content: 'Don’t need it.',
@@ -154,23 +160,23 @@ export const QUIZ_DATA: QuizData = {
       ],
     },
     {
-      prompt: 'What is the best ACM team color?',
+      prompt: 'What is your favorite way to run code?',
       choices: [
         {
-          content: 'Peaceful Purple',
-          match: [TeamMatch.ALGO],
+          content: 'On my own machine/on a server',
+          match: [TeamMatch.GAMEDEV, TeamMatch.OSS, TeamMatch.DEV],
         },
         {
-          content: 'Emerald Green',
+          content: 'In Google Collab',
           match: [TeamMatch.AI],
         },
         {
-          content: 'Electric Blue',
-          match: [TeamMatch.DEV],
+          content: 'In a JsFiddle',
+          match: [TeamMatch.DESIGN],
         },
         {
-          content: 'Precious Pink',
-          match: [TeamMatch.DESIGN],
+          content: 'On leetcode/kattis/codeforce',
+          match: [TeamMatch.ALGO, TeamMatch.ICPC],
         },
       ],
     },
@@ -183,7 +189,7 @@ export const QUIZ_DATA: QuizData = {
         },
         {
           content: 'Amazon',
-          match: [TeamMatch.ALGO],
+          match: [TeamMatch.ALGO, TeamMatch.ICPC],
         },
         {
           content: 'Apple',
@@ -191,7 +197,7 @@ export const QUIZ_DATA: QuizData = {
         },
         {
           content: 'SpaceX',
-          match: [TeamMatch.DEV],
+          match: [TeamMatch.DEV, TeamMatch.OSS],
         },
       ],
     },
@@ -200,11 +206,11 @@ export const QUIZ_DATA: QuizData = {
       choices: [
         {
           content: 'VIM',
-          match: [TeamMatch.AI],
+          match: [TeamMatch.AI, TeamMatch.DEV],
         },
         {
           content: 'Google Docs',
-          match: [TeamMatch.ALGO],
+          match: [TeamMatch.ALGO, TeamMatch.ICPC],
         },
         {
           content: 'Notepad',
@@ -212,50 +218,51 @@ export const QUIZ_DATA: QuizData = {
         },
         {
           content: 'Visual Studio Code',
-          match: [TeamMatch.DEV],
+          match: [TeamMatch.OSS],
         },
       ],
     },
     {
-      prompt: 'Why are robots awesome?',
+      prompt: 'When you hear about a bug in someone’s code you…',
       choices: [
         {
-          content: 'They can think faster than I do.',
-          match: [TeamMatch.ALGO],
-        },
-
-        {
-          content: 'They are our successors.',
+          content: 'Suggest “Ask ChatGPT!”',
           match: [TeamMatch.AI],
         },
         {
-          content: 'They are quite robust if I do say so myself.',
-          match: [TeamMatch.DEV],
+          content:
+            'Break down the problem, and offer three possible solutions before returning to your one-liner',
+          match: [TeamMatch.ALGO, TeamMatch.ICPC],
         },
         {
-          content: 'THEY LOOK SO DAMN AWESOME',
-          match: [TeamMatch.DESIGN],
+          content: 'Say “Damn that sucks” and keep working on making your project beautiful',
+          match: [TeamMatch.DESIGN, TeamMatch.GAMEDEV],
+        },
+        {
+          content:
+            'Sit down and help them solve their problem but complain that they should just use Linux',
+          match: [TeamMatch.OSS, TeamMatch.DEV],
         },
       ],
     },
     {
-      prompt: 'What’s your favorite chair?',
+      prompt: 'How many contributions do you have on Github?',
       choices: [
         {
-          content: 'Anything will do',
-          match: [TeamMatch.AI],
+          content: 'Too many',
+          match: [TeamMatch.OSS, TeamMatch.DEV],
         },
         {
-          content: 'Herman Miller',
-          match: [TeamMatch.ALGO],
+          content: 'More than you',
+          match: [TeamMatch.ICPC, TeamMatch.OSS],
         },
         {
-          content: 'Yoga Ball',
-          match: [TeamMatch.DESIGN],
+          content: 'Enough to show off',
+          match: [TeamMatch.GAMEDEV, TeamMatch.AI, TeamMatch.DESIGN, TeamMatch.DEV],
         },
         {
-          content: 'GAMING CHAIR',
-          match: [TeamMatch.DEV],
+          content: 'I keep everything locally',
+          match: [TeamMatch.ICPC, TeamMatch.ALGO, TeamMatch.AI],
         },
       ],
     },
@@ -264,7 +271,7 @@ export const QUIZ_DATA: QuizData = {
       choices: [
         {
           content: 'Water',
-          match: [TeamMatch.AI],
+          match: [TeamMatch.AI, TeamMatch.DEV],
         },
         {
           content: 'Soda',
@@ -272,11 +279,11 @@ export const QUIZ_DATA: QuizData = {
         },
         {
           content: 'Boba',
-          match: [TeamMatch.DESIGN],
+          match: [TeamMatch.DESIGN, TeamMatch.AI],
         },
         {
           content: 'Coffee',
-          match: [TeamMatch.DEV],
+          match: [TeamMatch.DEV, TeamMatch.GAMEDEV, TeamMatch.OSS],
         },
       ],
     },

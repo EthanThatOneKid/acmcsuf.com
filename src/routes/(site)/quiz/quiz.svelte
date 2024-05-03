@@ -64,7 +64,7 @@
         return tallies;
       }
 
-      for (let match of matches.matches) {
+      for (let match of matches?.matches ?? []) {
         match = match?.toLowerCase() as TeamMatch;
         if (match && tallies[match]) {
           tallies[match]++;
