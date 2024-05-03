@@ -43,7 +43,7 @@
 
   @media screen and (max-width: 740px) {
     .progress-bar {
-      height: 30px;
+      height: 25px;
     }
   }
 
