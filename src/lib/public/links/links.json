@@ -226,5 +226,6 @@
   "oss-photos": "https://drive.google.com/drive/u/0/folders/1cesCECSfhutKK4eR1VHdgWth-RHerdiO",
   "ultimate-video": "https://youtu.be/ME1ZK_wkFYw",
   "server-form": "https://docs.google.com/forms/d/e/1FAIpQLSc-wV1EPgNixb0R4XmtQVYd1_9Abnm8d1jsi8Yy-vmkNmUl_A/viewform?usp=sf_link",
-  "deploy-workshop": "https://docs.google.com/presentation/d/1Kh3GsBFPwRHX4q-_dbCHr1YqIhzdj0N58QhcCXI_qtY/edit?usp=sharing"
+  "deploy-workshop": "https://docs.google.com/presentation/d/1Kh3GsBFPwRHX4q-_dbCHr1YqIhzdj0N58QhcCXI_qtY/edit?usp=sharing",
+  "deploy-flask": "https://github.com/acmCSUFDev/flask-deployment-demo"
 }
