@@ -1,4 +1,3 @@
-import { TEAMS } from '$lib/public/board/data';
 import type { QuizData } from './types';
 import { TeamMatch } from './types';
 
