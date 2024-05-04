@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { _ } from 'svelte-i18n';
   import AcmButton from '$lib/components/button/button.svelte';
 </script>
 
@@ -65,7 +66,7 @@
   <div class="hero-inner-container">
     <div class="hero-text">
       <h1 class="acm-heavier size-xl">
-        <span>We are the largest</span> <span class="multicolor-text">Computer Science</span>
+        <span>We are the largest</span> <span class="multicolor-text">{$_('page.home.title')}</span>
         <span>community at CSUF</span>
       </h1>
       <div class="join-button">

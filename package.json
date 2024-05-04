@@ -75,6 +75,7 @@
     "rrule": "^2.7.2",
     "rss": "^1.2.2",
     "svelte-confetti": "^1.2.4",
+    "svelte-i18n": "^4.0.0",
     "svelte-meta-tags": "^2.8.0"
   }
 }

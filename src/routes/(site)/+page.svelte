@@ -4,7 +4,6 @@
   import Desc from './desc.svelte';
   import Teams from './teams.svelte';
   import Lucky from './lucky.svelte';
-  // import Blog from './blog.svelte';
 </script>
 
 <svelte:head>
