@@ -18,6 +18,40 @@ export const TOOLS = {
 
 export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
   {
+    title: 'Secretary',
+    teamColor: 'var(--acm-general-rgb)',
+    qualifications: [
+      li('Organizational and time management skills'),
+      li('Interest in helping the executive board with administrative tasks'),
+      li('Commitment to the providing information to the club members'),
+    ],
+    tools: ['Google Drive/Docs', 'Discord', 'Social media'],
+    responsibilities: [
+      li(
+        'Check emails daily and report to the President and Vice President of any important emails'
+      ),
+      li('Take notes during board meetings and send them to the board members'),
+      li('Assist in room booking for events'),
+      li('Outreach to companies for collaborative events or sponsorships'),
+    ],
+  },
+  {
+    title: 'Event Coordinator',
+    teamColor: 'var(--acm-general-rgb)',
+    qualifications: [
+      li('Interest in event planning and management'),
+      li('Interest in public speaking/leading events - Strong communication skills'),
+      li('Passionate for inclusion and increasing student engagement'),
+      li('Creative and innovative'),
+    ],
+    tools: ['Google Drive/Docs', 'Discord', 'Social media'],
+    responsibilities: [
+      li('Plan and organize socials and technical events every Friday at 5pm'),
+      li('Collaborate with other ACM branches to host events'),
+      li('Work with the Secretary to book rooms for events and other logistics'),
+    ],
+  },
+  {
     title: 'AI Officer',
     teamColor: 'var(--acm-ai-rgb)',
     qualifications: [
