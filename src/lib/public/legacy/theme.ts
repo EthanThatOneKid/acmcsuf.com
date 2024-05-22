@@ -5,27 +5,28 @@ export enum AcmTheme {
   Dark = 'dark',
 }
 
-const STORAGE_KEY = 'theme';
+const ATTRIBUTE_KEY = 'data-theme';
 
 function get(): AcmTheme {
-  const savedValue = localStorage.getItem(STORAGE_KEY);
+  const savedValue = document.documentElement.getAttribute(ATTRIBUTE_KEY);
   if (savedValue === AcmTheme.Dark) return AcmTheme.Dark;
   if (savedValue === AcmTheme.Light) return AcmTheme.Light;
   return matchMedia('(prefers-color-scheme: dark)').matches ? AcmTheme.Dark : AcmTheme.Light;
 }
 
 function save(value: AcmTheme) {
-  localStorage.setItem(STORAGE_KEY, value);
+  document.documentElement.setAttribute(ATTRIBUTE_KEY, value);
+  // Set the cookie's max age value to a year
+  const period = 60 * 60 * 24 * 365;
+  document.cookie = `theme=${value}; max-age=${period}; path=/`;
 
   switch (value) {
     case AcmTheme.Dark: {
-      document.body.classList.add(AcmTheme.Dark);
-      document.body.classList.remove(AcmTheme.Light);
+      document.documentElement.setAttribute(ATTRIBUTE_KEY, AcmTheme.Dark);
       return;
     }
     default: {
-      document.body.classList.remove(AcmTheme.Dark);
-      document.body.classList.add(AcmTheme.Light);
+      document.documentElement.setAttribute(ATTRIBUTE_KEY, AcmTheme.Light);
       return;
     }
   }
