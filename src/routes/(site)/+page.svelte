@@ -9,33 +9,34 @@
 
 <svelte:head>
   <title>ACM at CSUF</title>
-
-  <!-- Pasted example:
-  https://developers.google.com/search/docs/appearance/structured-data/organization#example -->
-  <!-- Pasted example:
-  https://developers.google.com/search/docs/appearance/structured-data/organization#example -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "image": "https://www.example.com/example_image.jpg",
-      "url": "https://www.example.com",
-      "sameAs": ["https://example.net/profile/example1234", "https://example.org/example1234"],
-      "logo": "https://www.example.com/images/logo.png",
-      "name": "Example Corporation",
-      "description": "The example corporation is well-known for producing high-quality widgets",
-      "email": "contact@example.com",
-      "telephone": "+47-99-999-9999",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Rue Improbable 99",
-        "addressLocality": "Paris",
-        "addressCountry": "FR",
-        "addressRegion": "Ile-de-France",
-        "postalCode": "75001"
-      },
-      "vatID": "FR12345678901",
-      "iso6523Code": "0199:724500PMK2A2M1SQQ228"
+      "@id": "https://acmcsuf.com/",
+      "name": "ACM at CSUF",
+      "identifier": "acmcsuf",
+      "description": "The Association for Computing Machinery at California State University, Fullerton",
+      "url": "https://acmcsuf.com/",
+      "logo": "https://acmcsuf.com/favicon.png",
+      "email": "mailto:acmcsufullerton@gmail.com",
+      "sameAs": [
+        "https://fullerton.campuslabs.com/engage/organization/acm",
+        "https://instagram.com/acmcsuf",
+        "https://linkedin.com/company/acm-at-csuf/",
+        "https://www.tiktok.com/@acm_at_csuf",
+        "https://www.youtube.com/channel/UCDMBj0o4V8Cpt0jgsZLNVVg"
+      ],
+      "member": [
+        {
+          "@type": "Person",
+          "@id": "https://0xd14.id/"
+        },
+        {
+          "@type": "Person",
+          "@id": "https://id.etok.me/"
+        }
+      ]
     }
   </script>
 </svelte:head>
