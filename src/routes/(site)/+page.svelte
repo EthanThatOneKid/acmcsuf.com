@@ -27,7 +27,7 @@
         "https://www.tiktok.com/@acm_at_csuf",
         "https://www.youtube.com/channel/UCDMBj0o4V8Cpt0jgsZLNVVg"
       ],
-      "member": [
+      "alumni": [
         {
           "@type": "Person",
           "@id": "https://0xd14.id/"
