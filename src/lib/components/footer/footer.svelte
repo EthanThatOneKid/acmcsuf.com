@@ -5,6 +5,7 @@
   const footerItems = [
     { title: 'Source Code', path: '/code' },
     { title: 'Report a Bug', path: '/bug' },
+    { title: 'Sitemap', path: '/sitemap' },
     { title: 'COVID-19 Policy', path: '/covid-19' },
     { title: 'Privacy Policy', path: '/privacy' },
   ];
@@ -34,7 +35,7 @@
 
     <div class="legal">
       <h3 class="acm-heavier size-md">
-        &copy; 2023 ACM Chapter at <span class="acm-heaviest">CSUF</span>
+        &copy; 2024 ACM Chapter at <span class="acm-heaviest">CSUF</span>
       </h3>
 
       <a

@@ -1,16 +1,14 @@
 <script lang="ts">
-  export let title = '';
-  export let picture = '';
-  export let color = '';
-  export let blurp = '';
-  export let blurpRecommend = '';
-  export let recommendations: Array<{ title: string; link: string }> = [];
-  export let workshopPictures: string[] = [];
+  import type { Team } from '$lib/public/board';
+  import type { TeamReport } from '$lib/public/quiz/responses/data';
+
+  export let team: Team;
+  export let report: TeamReport;
 </script>
 
-<section class="container" style={`--team-color: ${color}`}>
-  {#if title === 'General'}
-    <img src={picture} alt="img" />
+<section class="container" style={`--team-color: ${team.color}`}>
+  {#if team.title === 'General'}
+    <img src={team.logoSrc} alt="img" />
     <h3>We are currently not accepting any board member applications...</h3>
     <h1 class="underline">However</h1>
     <p>
@@ -20,27 +18,27 @@
     </p>
     <img src="/assets/capy-lucky.png" alt="Chip the Capybara" />
   {:else}
-    <h1>{title} <span>Team</span></h1>
-    <p>{blurp}</p>
-    {#if title === 'AI'}
+    <h1>{team.title} <span>Team</span></h1>
+    <p>{report.blurb}</p>
+    {#if team.title === 'AI'}
       <div>
         <h2 class="large-screen-display">Stay Tuned for Events</h2>
         <h2 class="mobile-screen-display">Coming Soon</h2>
-        <img src={picture} alt="img" />
+        <img src={team.logoSrc} alt="img" />
       </div>
     {:else}
       <h2 class="large-screen-display">Previous Projects and Workshops</h2>
       <h2 class="mobile-screen-display">Previous Events</h2>
       <div class="image-layout">
-        {#each workshopPictures as picture (picture)}
+        {#each report.workshopPictures as picture (picture)}
           <img src={picture} alt={picture} class="team-pictures" />
         {/each}
       </div>
     {/if}
     <h2>Get Started Now</h2>
-    <h4>{blurpRecommend}</h4>
+    <h4>{report.blurbRecommend}</h4>
     <ul>
-      {#each recommendations as recommendation (recommendation)}
+      {#each report.recommendations as recommendation (recommendation)}
         <li>
           <a href={recommendation.link} target="_blank" rel="noopener noreferrer"
             >{recommendation.title}</a

@@ -2,22 +2,25 @@
   import { onMount } from 'svelte';
   import type { Team } from '$lib/public/board/types';
   import { TEAMS } from '$lib/public/board/data';
-  import type { QuizData } from '$lib/public/quiz/questions/types';
-  import { TeamMatch } from '$lib/public/quiz/questions/types';
+  import { getTeamReport } from '$lib/public/quiz/responses/data';
+  import type { QuizData, QuizResponse } from '$lib/public/quiz/questions/types';
+  import type { TeamMatch } from '$lib/public/quiz/questions/types';
   import { QuizStorage } from '$lib/public/quiz/responses/storage';
   import ProgressBar from './progress-bar.svelte';
   import MoreInfo from './more-info.svelte';
-  import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
 
   export let data: QuizData;
 
   let index = 0;
-  let responses: (string | undefined)[] = [];
+
+  let responses: (QuizResponse | undefined)[] = [];
   let answeredAllQuestions = false;
 
   let showResults = false;
   let showMoreInfo = false;
   let showTeam: Team;
+
+  const excludedTeamIDs = ['marketing', 'general', 'special-events', 'nodebuds'];
 
   function goLeft() {
     if (index > 0) index--;
@@ -29,8 +32,8 @@
     }
   }
 
-  function recordAnswer(match: TeamMatch) {
-    responses[index] = match;
+  function recordAnswer(matches: TeamMatch[], choiceIndex: number) {
+    responses[index] = { matches, choiceIndex };
     goRight();
   }
 
@@ -55,17 +58,34 @@
     showMoreInfo = false;
   }
 
-  $: talliedResponses = (responses ?? []).reduce((tallies, match) => {
-    match = match?.toLowerCase();
-    if (match && tallies[match]) tallies[match]++;
-    else if (match) tallies[match] = 1;
-    return tallies;
-  }, {} as Record<string, number>);
+  function tallyResponses(responses: (QuizResponse | undefined)[]) {
+    return (responses ?? []).reduce((tallies, matches) => {
+      if (matches === undefined) {
+        return tallies;
+      }
 
-  $: match = (Object.entries(talliedResponses)
-    .sort(([, a], [, b]) => b - a)
-    ?.shift()
-    ?.shift() ?? TeamMatch.TEAMLESS) as string;
+      for (let match of matches?.matches ?? []) {
+        match = match?.toLowerCase() as TeamMatch;
+        if (match && tallies[match]) {
+          tallies[match]++;
+        } else if (match) {
+          tallies[match] = 1;
+        }
+      }
+      return tallies;
+    }, {} as Record<string, number>);
+  }
+
+  function maxTallies(tallies: Record<string, number>) {
+    return Object.entries(tallies)
+      .sort(([, a], [, b]) => b - a)
+      .shift()
+      ?.shift() as TeamMatch;
+  }
+
+  $: talliedResponses = tallyResponses(responses);
+
+  $: match = maxTallies(talliedResponses);
 
   // local storage stuff
   let quizStorage: QuizStorage | undefined;
@@ -88,33 +108,34 @@
   <!-- DISPLAY THE QUIZ QUESTIONS -->
   {#if !showResults}
     <h1>ACM TEAM QUIZ</h1>
+    <p><i>Which team are you a part of?</i></p>
     <div class="question">
       <h2>{data.questions[index].prompt}</h2>
       <section class="answers">
-        {#each data.questions[index].choices as choice (choice.content)}
+        {#each data.questions[index].choices as choice, i (choice.content)}
           <button
-            on:click={() => recordAnswer(choice.match)}
-            class:selected-response={(responses ?? [])[index] === choice.match}
+            on:click={() => recordAnswer(choice.match, i)}
+            class:selected-response={(responses ?? [])[index]?.choiceIndex === i}
           >
             <h3>{choice.content}</h3>
           </button>
         {/each}
       </section>
     </div>
-    <div class="arrow-wrapper">
+    <div class="back-next-wrapper">
       <button
         on:click={goLeft}
         disabled={index === 0}
-        class:disable-arrow={index === 0}
-        class="arrow"
+        class:disable-back-next={index === 0}
+        class="back-next-btn"
       >
-        <BwIcon src="/assets/arrow-left.svg" alt="left arrow" /></button
+        Back</button
       >
       <button
         on:click={goRight}
         disabled={index === data.questions.length - 1 || !(responses ?? [])[index]}
-        class:disable-arrow={index === data.questions.length - 1 || !(responses ?? [])[index]}
-        class="arrow"><BwIcon src="/assets/arrow-right.svg" alt="right arrow" /></button
+        class:disable-back-next={index === data.questions.length - 1 || !(responses ?? [])[index]}
+        class="back-next-btn">Next</button
       >
     </div>
     <button
@@ -126,14 +147,13 @@
 
     <!-- DISPLAY ADDIONTAL TEAM INFORMATION -->
   {:else if showMoreInfo}
-    <MoreInfo {...showTeam} />
-    <button on:click={goBackToResults} class="arrow return-to-results"
-      ><BwIcon src="/assets/arrow-right.svg" alt="right arrow" />
+    <MoreInfo team={showTeam} report={getTeamReport(showTeam.id)} />
+    <button on:click={goBackToResults} class="back-next-btn return-to-results">
       <h3>Check out other teams</h3></button
     >
     <!-- DISPLAY THE RESULTS -->
   {:else}
-    <h1>Results</h1>
+    <h1>Quiz Results</h1>
     <p>You Matched</p>
     <h2 class="match-title" style={`--team-color: ${TEAMS[match].color}`}>
       {match} <span>Team</span>
@@ -157,7 +177,7 @@
           fillColor={TEAMS[match].color}
         />
       </div>
-      {#each Object.entries(TEAMS).filter(([otherMatch]) => otherMatch !== match) as [otherMatch, team] (otherMatch)}
+      {#each Object.entries(TEAMS).filter(([otherMatch]) => otherMatch !== match && !excludedTeamIDs.includes(otherMatch)) as [otherMatch, team] (otherMatch)}
         <div
           class="result-grid-box"
           style={`--border-color: ${team.color}`}
@@ -180,11 +200,11 @@
         </div>
       {/each}
     </div>
-    <button on:click={restartQuiz} class="arrow action-btn restart-btn">
+    <button on:click={restartQuiz} class="back-next-btn action-btn restart-btn">
       <h3>Take Quiz Again?</h3>
       <p class="italic">This will wipe your current results</p>
     </button>
-    <button class="arrow action-btn" on:click={() => showTeamDetails(TEAMS.general)}>
+    <button class="back-next-btn action-btn" on:click={() => showTeamDetails(TEAMS.general)}>
       Want to help out ACM?</button
     >
     <p class="italic fine-text">
@@ -224,56 +244,56 @@
   }
 
   .answers {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    width: 350px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 50% 50%;
+    width: 700px;
   }
 
   .answers button {
-    padding: 8px 28px;
-    min-height: 42px;
-    background-color: var(--quiz-bg);
+    padding: 25px 27px;
+    height: 85px;
+    background-color: var(--acm-bluer);
     border-radius: 8px;
-    border: var(--acm-blue) 3px solid;
+    border: none;
     cursor: pointer;
     transition: 0.25s ease-in-out;
   }
 
   .answers button:hover {
-    box-shadow: 0px 0px 10px var(--acm-blue);
+    border: 3px solid var(--acm-sky);
   }
 
   .selected-response {
-    box-shadow: 0px 0px 15px var(--acm-sky);
+    border: 3px solid var(--acm-blue);
   }
 
   .selected-response h3 {
     font-style: italic;
-    text-shadow: 0px 0px 2px var(--acm-sky);
   }
 
-  .arrow-wrapper {
+  .back-next-wrapper {
     display: flex;
     gap: 30px;
   }
 
-  .arrow {
-    background: none;
-    border: var(--acm-dark) 3px solid;
-    border-radius: 18px;
-    padding: 8px;
+  .back-next-btn {
+    background-color: var(--acm-bluer);
+    border: var(--acm-bluer) 3px solid;
+    border-radius: 30px;
+    padding: 13px 45px;
     transition: 0.25s ease-in-out;
   }
 
-  .arrow:hover {
-    box-shadow: 0px 0px 4px var(--acm-dark);
+  .back-next-btn:hover {
+    border: 3px solid var(--acm-midnight);
   }
 
   .action-btn {
     font-weight: 600;
     font-size: 18px;
-    padding: 8px 16px;
+    padding: 10px 30px;
+    align-items: center;
   }
 
   .action-btn p {
@@ -284,7 +304,7 @@
   .submitBTN {
     font-size: 24px;
     font-weight: 500;
-    padding: 8px 28px;
+    padding: 16px 28px;
     min-height: 42px;
     background-color: var(--quiz-bg);
     border-radius: 8px;
@@ -302,11 +322,11 @@
   }
 
   .submitBTN:hover {
-    box-shadow: 0px 0px 10px var(--acm-blue);
+    border: 3px solid var(--acm-midnight);
   }
 
   .disable-submitBTN,
-  .disable-arrow {
+  .disable-back-next {
     opacity: 0.5;
     pointer-events: none;
     border: none;
@@ -341,7 +361,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 20px;
+    gap: 35px;
   }
 
   .result-grid-box {
@@ -381,21 +401,26 @@
     .question {
       width: 325px;
     }
+    .answers button {
+      height: 90px;
+    }
 
     .answers {
-      width: 250px;
+      width: 290px;
+      height: 450px;
+      grid-template-columns: 100%;
     }
 
     .result-grid {
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: 1fr 1fr 1fr;
-      gap: 20px;
+      gap: 40px;
     }
 
     .result-grid-box {
       width: 200px;
-      height: 150px;
+      height: 235px;
     }
 
     .fine-text {

@@ -30,7 +30,7 @@ Maintained with 💖 by [**acmcsuf.com hub**][team_doc]
 [node_download]: https://nodejs.org/en/download/
 [github_action_deploy]: .github/workflows/deploy.yaml
 [demo_url]: https://acmcsuf.com/
-[acm_officers]: https://acmcsuf.com/about/
+[acm_officers]: https://acmcsuf.com/teams/
 [webmaster_url]: https://github.com/EthanThatOneKid/
 [dev_server]: http://localhost:3000/
 [netlify_dashboard]: https://app.netlify.com/sites/acmcsuf

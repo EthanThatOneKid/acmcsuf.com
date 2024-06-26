@@ -51,15 +51,15 @@
 </script>
 
 <svelte:head>
-  <title>Spring 2024 Board Applications | ACM at CSUF</title>
+  <title>Template Board Applications | ACM at CSUF</title>
 </svelte:head>
 
 <MetaTags
   openGraph={{
-    title: 'Spring 2024 board applications',
+    title: '[INSERT SEMESTER][INSERT YEAR] board applications',
     description:
-      'Listed below are the positions that are open for the Spring 2024 semester. Please read the descriptions carefully and apply for the position(s) that you are interested in. You may apply for multiple positions, but you may only be selected for one. If you are selected for a position, you will be contacted by the current board member in charge of that position.',
-    url: 'https://acmcsuf.com/spr24board',
+      'Listed below are the positions that are open for the [INSERT SEMESTER][INSERT YEAR] semester. Please read the descriptions carefully and apply for the position(s) that you are interested in. You may apply for multiple positions, but you may only be selected for one. If you are selected for a position, you will be contacted by the current board member in charge of that position.',
+    url: 'https://acmcsuf.com/temp-apps',
     type: 'article',
     article: {
       publishedTime: '2024-26-05T00:00:00.000Z',
@@ -71,16 +71,12 @@
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <Block align={TextAlignment.LEFT}>
-  <h1 slot="headline" class="size-lg">Spring 2024 Board Positions</h1>
+  <h1 slot="headline" class="size-lg">[INSERT SEMESTER][INSERT YEAR] Board Positions</h1>
   <p slot="text" class="size-sm">
-    Listed below are the positions that are open for the Spring 2024 semester (semester long
-    position). Please read the descriptions carefully and apply for the position(s) that you are
-    interested in. You may apply for multiple positions, but you may only be selected for one. If
-    you are selected for a position, you will be contacted by the current board member in charge of
-    that position.
-    <br />
-    <br />
-    Last updated November 26, 2023
+    Listed below are the positions that are open for [INSERT DURATION]. Please read the descriptions
+    carefully and apply for the position(s) that you are interested in. You may apply for multiple
+    positions, but you may only be selected for one. If you are selected for a position, you will be
+    contacted by the current team lead in charge of that position.
     <br />
     <br />
     <span class="center-btn" on:click={action} on:keypress={action} role="button" tabindex="0">
@@ -104,7 +100,7 @@
 <Spacing --med="64px" />
 
 <span class="center-btn">
-  <Button link="https://forms.gle/LFyRjjyWT4KUEr6f6" text="Apply now!" />
+  <Button link="[INSERT LINK TO FORM]" text="Apply now!" />
 </span>
 
 <Spacing --med="64px" />
@@ -119,19 +115,19 @@
     </p>
 
     <p class="size-sm">
-      <span class="acm-heaviest">David Solano (ACM President)</span>
+      <span class="acm-heaviest">[INSERT NAME] (ACM President)</span>
     </p>
     <ul>
-      <li>Email: <code>dsolano7@csu.fullerton.edu</code></li>
-      <li>Discord: <code>davidjsolano</code></li>
+      <li>Email: <code>[INSERT EMAIL]</code></li>
+      <li>Discord: <code>[INSERT DISCORD]</code></li>
     </ul>
 
     <p class="size-sm">
-      <span class="acm-heaviest">Daniel Truong (ACM VP)</span>
+      <span class="acm-heaviest">[INSERT NAME] (ACM VP)</span>
     </p>
     <ul>
-      <li>Email: <code>anhduy1202@csu.fullerton.edu</code></li>
-      <li>Discord: <code>danieltruong</code></li>
+      <li>Email: <code>[INSERT EMAIL]</code></li>
+      <li>Discord: <code>[INSERT DISCORD]</code></li>
     </ul>
   </div>
 </Block>

@@ -1,18 +1,18 @@
 import { TeamMatch } from '$lib/public/quiz/questions/types';
 
 export interface TeamReport {
-  picture: string;
-  color: string;
   blurb: string;
   blurbRecommend: string;
   recommendations: Array<{ title: string; link: string }>;
   workshopPictures: string[];
 }
 
-export const TEAMS: Record<Exclude<TeamMatch, TeamMatch.TEAMLESS>, TeamReport> = {
+export function getTeamReport(id: string): TeamReport {
+  return REPORTS[id as Exclude<TeamMatch, TeamMatch.TEAMLESS>];
+}
+
+export const REPORTS: Record<Exclude<TeamMatch, TeamMatch.TEAMLESS>, TeamReport> = {
   [TeamMatch.AI]: {
-    picture: './assets/ai-logo.svg',
-    color: 'var(--acm-emerald)',
     blurb:
       'acmAI is focused on introducing Artificial Intelligence and Machine Learning in a beginner friendly way. Workshops are project based and are centered around interactivity. We have a keen eye for problem solving and solution-based programming.',
     blurbRecommend:
@@ -21,8 +21,6 @@ export const TEAMS: Record<Exclude<TeamMatch, TeamMatch.TEAMLESS>, TeamReport> =
     workshopPictures: [],
   },
   [TeamMatch.DEV]: {
-    picture: './assets/dev-logo.svg',
-    color: 'var(--acm-bluer)',
     blurb:
       'acmDev aims to have weekly meetings to work on projects as a way to improve our members’ skills at working in groups as well as introduce them to new technologies to make their ideas into software.',
     blurbRecommend:
@@ -36,8 +34,6 @@ export const TEAMS: Record<Exclude<TeamMatch, TeamMatch.TEAMLESS>, TeamReport> =
     workshopPictures: ['/assets/dev-workshop.jpg'],
   },
   [TeamMatch.DESIGN]: {
-    picture: './assets/design-logo.svg',
-    color: 'var(--acm-pink)',
     blurb:
       'acmDesign is all about exposing you to the elements of UI/UX. We go over good practices to follow when starting a project, interesting frontend tips, and show that anyone can design.',
     blurbRecommend:
@@ -63,13 +59,35 @@ export const TEAMS: Record<Exclude<TeamMatch, TeamMatch.TEAMLESS>, TeamReport> =
     workshopPictures: ['/assets/design-workshop.jpg', '/assets/quiz/figma-collage.png'],
   },
   [TeamMatch.ALGO]: {
-    picture: './assets/algo-logo.svg',
-    color: 'var(--acm-purple)',
     blurb:
       "acmAlgo focuses on data structures, algorithms, and technical interview prep. School doesn't give us everything we need and Algo is here to fill in the holes!",
     blurbRecommend:
       'Attending our events is half the battle, practice is what takes it to the next level. We recommend practicing on LeetCode and getting a good grip on the famous "The Grind 75" questions.',
     recommendations: [],
     workshopPictures: ['/assets/algo-workshop.jpg'],
+  },
+  [TeamMatch.OSS]: {
+    blurb:
+      "Our Open Source Software team is all about contributing to open source projects. We're here to help you get started with your first PR and to guide you through the process of contributing to a project.",
+    blurbRecommend:
+      'Get involved in our weekly meetings and start contributing to our projects. Below are some resources to help you get started with open source.',
+    recommendations: [],
+    workshopPictures: [],
+  },
+  [TeamMatch.GAMEDEV]: {
+    blurb:
+      "acmGameDev is all about creating games and learning about the game development process. We're here to help you get started with game development and to guide you through the process of creating your first game.",
+    blurbRecommend:
+      'Get involved in our weekly meetings and start creating your own games. Below are some resources to help you get started with game development.',
+    recommendations: [],
+    workshopPictures: [],
+  },
+  [TeamMatch.ICPC]: {
+    blurb:
+      'The International Collegiate Programming Contest (ICPC) team is all about competitive programming. We compete in regional and international contests and help our members improve their problem-solving skills.',
+    blurbRecommend:
+      'Get involved in our weekly meetings and start practicing for competitive programming contests. Below are some resources to help you get started with competitive programming.',
+    recommendations: [],
+    workshopPictures: [],
   },
 };
