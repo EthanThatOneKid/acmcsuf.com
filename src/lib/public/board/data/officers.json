@@ -260,7 +260,7 @@
   {
     "fullName": "Kyle Ho",
     "picture": "placeholder.webp",
-    "positions": { 
+    "positions": {
       "S24": [{ "title": "AI Officer", "tier": 21 }],
       "F24": [{ "title": "AI Officer", "tier": 21 }]
     }
@@ -539,7 +539,7 @@
   {
     "fullName": "Alexis Nemsingh",
     "picture": "alexis-nemsingh.webp",
-    "positions": { 
+    "positions": {
       "S24": [{ "title": "Marketing Officer", "tier": 9 }],
       "F24": [{ "title": "Marketing Officer", "tier": 9 }]
     }
