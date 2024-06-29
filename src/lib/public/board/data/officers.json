@@ -3,7 +3,12 @@
     "fullName": "Sama Ahmed",
     "picture": "sama-ahmed.webp",
     "positions": {
-      "S24": [{ "title": "Design Officer", "tier": 16 }]
+      "S24": [{ "title": "Design Officer", "tier": 16 }],
+      "F24": [
+        { "title": "Webmaster", "tier": 2 },
+        { "title": "Open Source Software Officer", "tier": 33 },
+        { "title": "Design Officer", "tier": 16 }
+      ]
     }
   },
   {
@@ -55,7 +60,8 @@
     "picture": "boushra-bettir.webp",
     "positions": {
       "F23": [{ "title": "Dev Officer", "tier": 19 }],
-      "S24": [{ "title": "Dev Officer", "tier": 19 }]
+      "S24": [{ "title": "Dev Officer", "tier": 19 }],
+      "F24": [{ "title": "Dev Project Manager", "tier": 18 }]
     }
   },
   {
@@ -91,7 +97,8 @@
     "picture": "ashley-chan.webp",
     "positions": {
       "F23": [{ "title": "AI Officer", "tier": 21 }],
-      "S24": [{ "title": "Marketing Officer", "tier": 9 }]
+      "S24": [{ "title": "Marketing Officer", "tier": 9 }],
+      "F24": [{ "title": "Marketing Officer", "tier": 9 }]
     }
   },
   {
@@ -253,7 +260,10 @@
   {
     "fullName": "Kyle Ho",
     "picture": "placeholder.webp",
-    "positions": { "S24": [{ "title": "AI Officer", "tier": 21 }] }
+    "positions": { 
+      "S24": [{ "title": "AI Officer", "tier": 21 }],
+      "F24": [{ "title": "AI Officer", "tier": 21 }]
+    }
   },
   {
     "fullName": "Richard Hoang",
@@ -296,7 +306,8 @@
     "fullName": "Evan Jimenez",
     "picture": "evan-jimenez.webp",
     "positions": {
-      "S24": [{ "title": "Open Source Software Officer", "tier": 33 }]
+      "S24": [{ "title": "Open Source Software Officer", "tier": 33 }],
+      "F24": [{ "title": "Open Source Software Officer", "tier": 33 }]
     }
   },
   {
@@ -358,10 +369,11 @@
   },
   {
     "fullName": "Matthew Lau",
-    "picture": "matthew-lau.webp",
+    "picture": "placeholder.webp",
     "positions": {
       "F23": [{ "title": "Marketing Officer", "tier": 9 }],
-      "S24": [{ "title": "Marketing Officer", "tier": 9 }]
+      "S24": [{ "title": "Marketing Officer", "tier": 9 }],
+      "F24": [{ "title": "Marketing Officer", "tier": 9 }]
     }
   },
   {
@@ -369,7 +381,8 @@
     "picture": "yulie-ledesma.webp",
     "positions": {
       "F23": [{ "title": "Design Officer", "tier": 16 }],
-      "S24": [{ "title": "Design Officer", "tier": 16 }]
+      "S24": [{ "title": "Design Officer", "tier": 16 }],
+      "F24": [{ "title": "Design Officer", "tier": 16 }]
     }
   },
   {
@@ -506,7 +519,8 @@
     "positions": {
       "S23": [{ "title": "Design Officer", "tier": 16 }],
       "F23": [{ "title": "Design Officer", "tier": 16 }],
-      "S24": [{ "title": "Design Officer", "tier": 16 }]
+      "S24": [{ "title": "Design Officer", "tier": 16 }],
+      "F24": [{ "title": "Design Team Lead", "tier": 13 }]
     }
   },
   {
@@ -525,7 +539,10 @@
   {
     "fullName": "Alexis Nemsingh",
     "picture": "alexis-nemsingh.webp",
-    "positions": { "S24": [{ "title": "Marketing Officer", "tier": 9 }] }
+    "positions": { 
+      "S24": [{ "title": "Marketing Officer", "tier": 9 }],
+      "F24": [{ "title": "Marketing Officer", "tier": 9 }]
+    }
   },
   {
     "fullName": "Dalisa Nguyen",
@@ -572,7 +589,8 @@
     "fullName": "Tomas Oh",
     "picture": "tomas-oh.webp",
     "positions": {
-      "S24": [{ "title": "Open Source Software Officer", "tier": 33 }]
+      "S24": [{ "title": "Open Source Software Officer", "tier": 33 }],
+      "F24": [{ "title": "Open Source Software Team Lead", "tier": 32 }]
     }
   },
   {
@@ -588,7 +606,8 @@
     "picture": "amy-parker.webp",
     "positions": {
       "F23": [{ "title": "Dev Officer", "tier": 19 }],
-      "S24": [{ "title": "Dev Officer", "tier": 19 }]
+      "S24": [{ "title": "Dev Officer", "tier": 19 }],
+      "F24": [{ "title": "Dev Team Lead", "tier": 17 }]
     }
   },
   {
@@ -633,11 +652,12 @@
     "positions": { "S21": [{ "title": "Marketing Chair", "tier": 7 }] }
   },
   {
-    "fullName": "Joel Rico",
-    "picture": "joel-rico.webp",
+    "fullName": "Joel Daniel Rico",
+    "picture": "joel-daniel-rico.webp",
     "positions": {
       "F23": [{ "title": "AI Officer", "tier": 21 }],
-      "S24": [{ "title": "Dev Officer", "tier": 19 }]
+      "S24": [{ "title": "Dev Officer", "tier": 19 }],
+      "F24": [{ "title": "President", "tier": 0 }]
     }
   },
   {
@@ -645,7 +665,8 @@
     "picture": "max-rivas.webp",
     "positions": {
       "F23": [{ "title": "Marketing Officer", "tier": 9 }],
-      "S24": [{ "title": "Marketing Officer", "tier": 9 }]
+      "S24": [{ "title": "Marketing Officer", "tier": 9 }],
+      "F24": [{ "title": "Event Coordinator", "tier": 6 }]
     }
   },
   {
@@ -711,13 +732,14 @@
   },
   {
     "fullName": "Patrick Smith",
-    "picture": "patrick-smith.webp",
+    "picture": "placeholder.webp",
     "positions": {
       "F23": [{ "title": "Algo Officer", "tier": 12 }],
       "S24": [
         { "title": "Algo Officer", "tier": 12 },
         { "title": "Marketing Officer", "tier": 9 }
-      ]
+      ],
+      "F24": [{ "title": "Algo Officer", "tier": 12 }]
     }
   },
   {
@@ -736,10 +758,11 @@
     }
   },
   {
-    "fullName": "Owen Sterling",
-    "picture": "owen-sterling.webp",
+    "fullName": "James Owen Sterling",
+    "picture": "james-owen-sterling.webp",
     "positions": {
-      "S24": [{ "title": "Open Source Software Officer", "tier": 33 }]
+      "S24": [{ "title": "Open Source Software Officer", "tier": 33 }],
+      "F24": [{ "title": "Open Source Software Officer", "tier": 33 }]
     }
   },
   {
@@ -864,7 +887,8 @@
     "positions": {
       "S23": [{ "title": "Algo Officer", "tier": 12 }],
       "F23": [{ "title": "Algo Officer", "tier": 12 }],
-      "S24": [{ "title": "Algo Officer", "tier": 12 }]
+      "S24": [{ "title": "Algo Officer", "tier": 12 }],
+      "F24": [{ "title": "Algo Officer", "tier": 12 }]
     }
   },
   {
@@ -876,8 +900,59 @@
     }
   },
   {
-    "fullName": "Tomas Oh",
-    "picture": "tomas-oh.webp",
-    "positions": { "F23": [{ "title": "Open Source Software Officer", "tier": 33 }] }
+    "fullName": "Nick Goulart",
+    "picture": "nick-goulart.webp",
+    "positions": {
+      "F24": [{ "title": "Dev Officer", "tier": 19 }]
+    }
+  },
+  {
+    "fullName": "Sarah Agnihotri",
+    "picture": "sarah-agnihotri.webp",
+    "positions": {
+      "F24": [{ "title": "AI Officer", "tier": 21 }]
+    }
+  },
+  {
+    "fullName": "Yves Velasquez Vega",
+    "picture": "yves-velasquez-vega.webp",
+    "positions": {
+      "F24": [{ "title": "AI Officer", "tier": 21 }]
+    }
+  },
+  {
+    "fullName": "Teresa To",
+    "picture": "teresa-to.webp",
+    "positions": {
+      "F24": [{ "title": "Dev Officer", "tier": 19 }]
+    }
+  },
+  {
+    "fullName": "Adrian Vazquez",
+    "picture": "adrian-vazquez.webp",
+    "positions": {
+      "F24": [{ "title": "Marketing Officer", "tier": 9 }]
+    }
+  },
+  {
+    "fullName": "Mariia Grushina",
+    "picture": "mariia-grushina.webp",
+    "positions": {
+      "F24": [{ "title": "Algo Officer", "tier": 12 }]
+    }
+  },
+  {
+    "fullName": "Braedon Collet",
+    "picture": "placeholder.webp",
+    "positions": {
+      "F24": [{ "title": "AI Officer", "tier": 21 }]
+    }
+  },
+  {
+    "fullName": "Tyler Lui",
+    "picture": "tyler-lui.webp",
+    "positions": {
+      "F24": [{ "title": "Open Source Software Officer", "tier": 33 }]
+    }
   }
 ]
