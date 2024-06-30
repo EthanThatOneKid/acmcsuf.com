@@ -11,7 +11,7 @@
   const officerName = info.fullName ?? '';
   const officerPicture = info.picture ?? placeholderPicture;
   const alt = `Image of ${officerName}.`;
-  const officerDiscord = info.discord ?? ''; 
+  const officerDiscord = info.discord ?? '';
 
   $: officerPosition =
     getPositionByTermIndex(info, $termIndex)

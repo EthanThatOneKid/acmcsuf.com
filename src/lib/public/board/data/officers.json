@@ -220,8 +220,8 @@
   {
     "fullName": "Mark Ryan Garcia",
     "picture": "mark-ryan-garcia.webp",
-    "positions": { 
-      "S24": [{ "title": "Marketing Officer", "tier": 9 }] ,
+    "positions": {
+      "S24": [{ "title": "Marketing Officer", "tier": 9 }],
       "F24": [{ "title": "Marketing Team Lead", "tier": 8 }]
     },
     "discord": "xnaym"
@@ -995,7 +995,7 @@
     "fullName": "Elizabeth Mazuca",
     "picture": "elizabeth-mazuca.webp",
     "positions": {
-      "F24": [{ "title": "Design Officer", "tier": 16}]
+      "F24": [{ "title": "Design Officer", "tier": 16 }]
     },
     "discord": "elzies"
   }
