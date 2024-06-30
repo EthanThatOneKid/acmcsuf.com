@@ -11,6 +11,7 @@
   const officerName = info.fullName ?? '';
   const officerPicture = info.picture ?? placeholderPicture;
   const alt = `Image of ${officerName}.`;
+  const officerDiscord = info.discord ?? ''; 
 
   $: officerPosition =
     getPositionByTermIndex(info, $termIndex)
@@ -31,6 +32,7 @@
   <div>
     <h3 class="acm-heavier">{officerName}</h3>
     <p class="acm-heavy">{@html titleHTML}</p>
+    <p>@{officerDiscord}</p>
   </div>
 </div>
 

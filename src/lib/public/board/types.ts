@@ -60,6 +60,7 @@ export interface Officer {
   positions: {
     [key in Term]?: Position[];
   };
+  discord: string;
   displayName?: string;
 }
 
