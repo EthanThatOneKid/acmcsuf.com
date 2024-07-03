@@ -1,4 +1,4 @@
-[
+export const portfolios = [
   {
     "title": "Kristen Portillo Portfolio",
     "url": "https://devpost.com/software/kristen-portillo-portfolio",
@@ -114,4 +114,4 @@
     "url": "https://devpost.com/software/genuary-2024",
     "imageURL": "https://d2dmyh35ffsxbl.cloudfront.net/assets/defaults/thumbnail-placeholder-8c916ef4da99a222ce6ece077c71c7e282f071f830747b2abb5718018cbfa699.gif"
   }
-]
+];
