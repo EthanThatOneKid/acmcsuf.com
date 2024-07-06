@@ -261,8 +261,13 @@
     "fullName": "Jeremiah Herring",
     "picture": "jeremiah-herring.webp",
     "positions": {
-      "S24": [{ "title": "Algo Officer", "tier": 12 }]
-    }
+      "S24": [{ "title": "Algo Officer", "tier": 12 }],
+      "F24": [
+        { "title": "Algo Officer", "tier": 12 },
+        { "title": "Open Source Software Officer", "tier": 33 }
+      ]
+    },
+    "discord": "jerem2938"
   },
   {
     "fullName": "Kyle Ho",
@@ -482,8 +487,10 @@
       "S24": [
         { "title": "Event Coordinator", "tier": 6 },
         { "title": "Marketing Officer", "tier": 9 }
-      ]
-    }
+      ],
+      "F24": [{ "title": "Event Coordinator", "tier": 6 }]
+    },
+    "discord": "evie724"
   },
   {
     "fullName": "Ean McGilvery",
@@ -998,5 +1005,13 @@
       "F24": [{ "title": "Design Officer", "tier": 16 }]
     },
     "discord": "elzies"
+  },
+  {
+    "fullName": "Chris Liwanag",
+    "picture": "chris-liwanag.webp",
+    "positions": {
+      "F24": [{ "title": "Game Dev Officer", "tier": 23 }]
+    },
+    "discord": "quisyo"
   }
 ]
