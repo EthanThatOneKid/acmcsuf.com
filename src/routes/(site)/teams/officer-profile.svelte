@@ -3,6 +3,7 @@
   import { termIndex, getPositionByTermIndex } from '$lib/public/board/utils';
   import BoardMember from '$lib/components/board-member/board-member.svelte';
   import { TEAMS } from '$lib/public/board/data/teams';
+  import { copy } from '$lib/public/copy/copy';
 
   export let info: Officer;
   export let team: Team | undefined = undefined;
@@ -18,6 +19,14 @@
       ?.map((p) => p.title)
       .join(', ') ?? '';
 
+  function copyDiscord() {
+    copy(
+      `${officerDiscord}`,
+      'Discord username copied to clipboard!',
+      'Failed to copy to clipboard!'
+    );
+  }
+
   $: titleHTML = Object.values(TEAMS).reduce((s, t) => {
     if (t.id === 'dev' && team?.id === 'gamedev') {
       return s;
@@ -32,7 +41,12 @@
   <div>
     <h3 class="acm-heavier">{officerName}</h3>
     <p class="acm-heavy">{@html titleHTML}</p>
-    <p>@{officerDiscord}</p>
+    <button
+      class="discord-color size-sm"
+      on:click={() => copyDiscord()}
+      title="Click to copy the discord username to your clipboard."
+      aria-label="Click to copy the discord username to your clipboard.">@{officerDiscord}</button
+    >
   </div>
 </div>
 
@@ -47,5 +61,17 @@
     p {
       max-width: 250px;
     }
+  }
+
+  .discord-color {
+    background: none;
+    border: none;
+    text-align: left;
+  }
+
+  .discord-color {
+    text-decoration: underline;
+    text-decoration-color: var(--acm-blue);
+    text-decoration-thickness: 3px;
   }
 </style>

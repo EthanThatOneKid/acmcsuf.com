@@ -41,7 +41,11 @@
   {
     "fullName": "Ryan Avancena",
     "picture": "ryan-avancena.webp",
-    "positions": { "S24": [{ "title": "AI Officer", "tier": 21 }] }
+    "positions": {
+      "S24": [{ "title": "AI Officer", "tier": 21 }],
+      "F24": [{ "title": "AI Team Lead", "tier": 20 }]
+    },
+    "discord": "bergerboyyy"
   },
   {
     "fullName": "Sami Bajwa",
@@ -71,8 +75,10 @@
     "picture": "dane-camacho.webp",
     "positions": {
       "F23": [{ "title": "Game Dev Officer", "tier": 23 }],
-      "S24": [{ "title": "Game Dev Officer", "tier": 23 }]
-    }
+      "S24": [{ "title": "Game Dev Officer", "tier": 23 }],
+      "F24": [{ "title": "Game Dev Team Lead", "tier": 22 }]
+    },
+    "discord": "daynger808"
   },
   {
     "fullName": "Jacob Carlson",
@@ -157,8 +163,10 @@
     "picture": "placeholder.webp",
     "positions": {
       "F23": [{ "title": "Marketing Officer", "tier": 9 }],
-      "S24": [{ "title": "Marketing Officer", "tier": 9 }]
-    }
+      "S24": [{ "title": "Marketing Officer", "tier": 9 }],
+      "F24": [{ "title": "Secretary", "tier": 5 }]
+    },
+    "discord": "stable.orbit"
   },
   {
     "fullName": "Ethan Davidson",
@@ -346,7 +354,11 @@
   {
     "fullName": "Emily Krohn",
     "picture": "emily-krohn.webp",
-    "positions": { "S24": [{ "title": "Game Dev Officer", "tier": 23 }] }
+    "positions": {
+      "S24": [{ "title": "Game Dev Officer", "tier": 23 }],
+      "F24": [{ "title": "Game Dev Officer", "tier": 23 }]
+    },
+    "discord": "emilyk23"
   },
   {
     "fullName": "Ashley Kuewa",
@@ -779,8 +791,13 @@
       "S24": [
         { "title": "President", "tier": 0 },
         { "title": "Algo Officer", "tier": 12 }
+      ],
+      "F24": [
+        { "title": "Algo Officer", "tier": 12 },
+        { "title": "Treasurer", "tier": 4 }
       ]
-    }
+    },
+    "discord": "davidjsolano"
   },
   {
     "fullName": "James Owen Sterling",
@@ -1013,5 +1030,37 @@
       "F24": [{ "title": "Game Dev Officer", "tier": 23 }]
     },
     "discord": "quisyo"
+  },
+  {
+    "fullName": "Syon Chau",
+    "picture": "syon-chau.webp",
+    "positions": {
+      "F24": [{ "title": "Dev Officer", "tier": 19 }]
+    },
+    "discord": "poe"
+  },
+  {
+    "fullName": "Kourosh Alasti",
+    "picture": "kourosh-alasti.webp",
+    "positions": {
+      "F24": [{ "title": "Dev Officer", "tier": 19 }]
+    },
+    "discord": "alastiaf"
+  },
+  {
+    "fullName": "Katherine Sutandar",
+    "picture": "katherine-sutandar.webp",
+    "positions": {
+      "F24": [{ "title": "Game Dev Officer", "tier": 23 }]
+    },
+    "discord": "kathoy"
+  },
+  {
+    "fullName": "Alexander Peras",
+    "picture": "alexander-peras.webp",
+    "positions": {
+      "F24": [{ "title": "Open Source Software Officer", "tier": 33 }]
+    },
+    "discord": "drafte"
   }
 ]
