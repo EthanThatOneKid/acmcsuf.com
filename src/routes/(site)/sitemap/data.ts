@@ -53,8 +53,13 @@ const siteMap: SiteMap = {
   'Showcase Pages': [
     {
       id: 'gallery',
-      title: 'Gallery',
+      title: 'Photo Gallery',
       link: 'gallery',
+    },
+    {
+      id: 'portfoliospage',
+      title: 'Member Portfolios',
+      link: 'portfolios',
     },
     {
       id: 'genuarypage',
@@ -63,7 +68,7 @@ const siteMap: SiteMap = {
     },
     {
       id: 'onovemberpage',
-      title: 'Onovember',
+      title: 'O(n)ovember',
       link: 'onovember',
     },
   ],
