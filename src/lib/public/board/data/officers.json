@@ -831,11 +831,11 @@
   {
     "fullName": "Joann Sum",
     "picture": "joann-sum.webp",
-    "positions": { 
+    "positions": {
       "S23": [{ "title": "Marketing Officer", "tier": 9 }],
       "F24": [
         { "title": "Algo Officer", "tier": 12 },
-        { "title": "AI Officer", "tier": 21  }
+        { "title": "AI Officer", "tier": 21 }
       ]
     },
     "discord": "josu4412"
