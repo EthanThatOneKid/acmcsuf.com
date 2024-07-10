@@ -36,7 +36,8 @@
     "lint": "eslint . --fix",
     "format": "prettier --write .",
     "host": "npm run all && npm run preview",
-    "all": "npm run lint && npm run format && npm run check && npm run build && npm t"
+    "all": "npm run lint && npm run format && npm run check && npm run build && npm t",
+    "generate:colors": "node scripts/generate-colors/index.js"
   },
   "devDependencies": {
     "@size-limit/file": "^8.2.6",
@@ -47,6 +48,7 @@
     "@types/rss": "^0.0.30",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
+    "css": "^3.0.0",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-svelte": "^2.30.0",

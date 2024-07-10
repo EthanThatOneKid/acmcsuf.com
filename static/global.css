@@ -82,6 +82,7 @@
   --acm-odd: var(--perma-light);
   --acm-even: var(--acm-dew);
   --navbar-bg: var(--perma-light);
+  --navbar-mobile-sidebar-bg: var(--perma-light);
   --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.25);
   --footer-bg: var(--acm-ocean);
   --button-bg: var(--acm-midnight);
@@ -215,7 +216,7 @@ body:has(nav > input[type='checkbox']:checked) {
   font-size: var(--size-xs);
 }
 
-.light {
+html[data-theme='light'] {
   --acm-dark: #101315;
   --acm-light: #f8f8f8;
   --acm-canvas: #eaeaea;
@@ -229,13 +230,14 @@ body:has(nav > input[type='checkbox']:checked) {
   --button-color: var(--perma-light);
 }
 
-.dark {
+html[data-theme='dark'] {
   --acm-dark: #f8f8f8;
   --acm-light: #101315;
   --acm-canvas: #161b22;
   --acm-odd: var(--acm-midnight);
   --acm-even: var(--acm-abyss);
   --navbar-bg: var(--acm-ocean);
+  --navbar-mobile-sidebar-bg: var(--acm-abyss);
   --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.6);
   --footer-bg: var(--acm-midnight);
   --button-bg: var(--acm-blue);
@@ -244,13 +246,14 @@ body:has(nav > input[type='checkbox']:checked) {
 }
 
 @media (prefers-color-scheme: light) {
-  body:not(.dark) {
+  html:not([data-theme='dark']) {
     --acm-dark: #101315;
     --acm-light: #f8f8f8;
     --acm-canvas: #eaeaea;
     --acm-odd: var(--perma-light);
     --acm-even: var(--acm-dew);
     --navbar-bg: var(--perma-light);
+    --navbar-mobile-sidebar-bg: var(--perma-light);
     --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.25);
     --footer-bg: var(--acm-ocean);
     --button-bg: var(--acm-midnight);
@@ -260,13 +263,14 @@ body:has(nav > input[type='checkbox']:checked) {
 }
 
 @media (prefers-color-scheme: dark) {
-  body:not(.light) {
+  html:not([data-theme='light']) {
     --acm-dark: #f8f8f8;
     --acm-light: #101315;
     --acm-canvas: #161b22;
     --acm-odd: var(--acm-midnight);
     --acm-even: var(--acm-abyss);
     --navbar-bg: var(--acm-ocean);
+    --navbar-mobile-sidebar-bg: var(--acm-abyss);
     --navbar-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.6);
     --footer-bg: var(--acm-midnight);
     --button-bg: var(--acm-blue);

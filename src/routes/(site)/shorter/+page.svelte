@@ -25,6 +25,7 @@
 
   <p>
     <a href="#top">Back to top</a> | <a href="https://github.com/acmcsufoss/shorter">Source code</a>
+    | <a href="/shorter-handbook">Handbook</a>
   </p>
 </main>
 

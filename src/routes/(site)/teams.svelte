@@ -20,7 +20,7 @@
     <div class="team-row1-container">
       <!--Algo Header-->
       <div class="hero-inner-container">
-        <img src="/assets/algo-logo.svg" alt="Algo Team Badge" />
+        <a href="/teams#algo"><img src="/assets/algo-logo.svg" alt="Algo Team Badge" /></a>
         <div class="size-md acm-heavy hero-text">
           <span
             >Refine your knowledge of <span class="acm-purple">Algorithms</span> used for FAANG interviews</span
@@ -29,7 +29,7 @@
       </div>
       <!--Dev Header-->
       <div class="hero-inner-container">
-        <img src="/assets/dev-logo.svg" alt="Dev Team Badge" />
+        <a href="/teams#dev"><img src="/assets/dev-logo.svg" alt="Dev Team Badge" /></a>
         <div class="size-md acm-heavy hero-text">
           <span><span class="acm-bluer">Develop</span> semester-long projects to show your mom</span
           >
@@ -37,7 +37,7 @@
       </div>
       <!--Design Header-->
       <div class="hero-inner-container">
-        <img src="/assets/design-logo.svg" alt="Design Team Badge" />
+        <a href="/teams#design"><img src="/assets/design-logo.svg" alt="Design Team Badge" /></a>
         <div class="size-md acm-heavy hero-text">
           <span
             >Learn to <span class="acm-pink">Design</span> UI/UX and web development material</span
@@ -49,7 +49,7 @@
     <div class="team-row2-container">
       <!--AI Header-->
       <div class="hero-inner-container">
-        <img src="/assets/ai-logo.svg" alt="AI Team Badge" />
+        <a href="/teams#ai"><img src="/assets/ai-logo.svg" alt="AI Team Badge" /></a>
         <div class="size-md acm-heavy hero-text">
           <span
             >Dive into the world of <span class="acm-emerald">Artificial Intelligence</span></span
@@ -58,10 +58,22 @@
       </div>
       <!-- Game Dev -->
       <div class="hero-inner-container">
-        <img src="/assets/gamedev-logo.svg" alt="Game Dev Team Badge" />
+        <a href="/teams#gamedev"><img src="/assets/gamedev-logo.svg" alt="Game Dev Team Badge" /></a
+        >
         <div class="size-md acm-heavy hero-text">
           <span
             >Level up your game development skills at the <span class="acm-red">Game Dev</span> hub</span
+          >
+        </div>
+      </div>
+      <!-- OSS -->
+      <div class="hero-inner-container">
+        <a href="/teams#oss"><img src="/assets/oss-logo.svg" alt="OSS Team Badge" /></a>
+        <div class="size-md acm-heavy hero-text">
+          <span
+            >Take off into the world of collaborative <span class="acm-turquoise"
+              >Open Source Software</span
+            ></span
           >
         </div>
       </div>
@@ -99,13 +111,19 @@
 
   section .hero-inner-container .team-row2-container {
     justify-self: center;
+    display: grid;
+    grid-template-columns: 1fr;
   }
 
   section .hero-inner-container img {
+    display: grid;
     width: 200px;
     height: 200px;
-    display: grid;
-    justify-self: center;
+    margin: 0 auto;
+  }
+
+  section .hero-inner-container img:hover {
+    transform: scale(1.2);
   }
 
   section .hero-inner-container .discover-button {
@@ -145,10 +163,8 @@
 
     section .hero-inner-container .team-row2-container {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       align-items: baseline;
-      justify-content: center;
-      width: 70ch;
       gap: 2em;
     }
   }

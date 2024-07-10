@@ -47,19 +47,6 @@
           "type": "image/png"
         }
       ]
-    },
-    {
-      "name": "About acmCSUF",
-      "short_name": "About",
-      "description": "Read all about acmCSUF!",
-      "url": "/about",
-      "icons": [
-        {
-          "src": "/android-chrome-192x192.png",
-          "sizes": "192x192",
-          "type": "image/png"
-        }
-      ]
     }
   ],
   "display": "standalone",

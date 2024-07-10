@@ -31,18 +31,6 @@ export interface Tier {
 }
 
 /**
- * Social is an enum of optional social media links for an officer.
- */
-export enum Social {
-  Website = 'website',
-  GitHub = 'github',
-  Discord = 'discord',
-  LinkedIn = 'linkedin',
-  Instagram = 'instagram',
-  YouTube = 'youtube',
-}
-
-/**
  * Position is used to represent a position that an officer holds.
  */
 export interface Position {
@@ -71,9 +59,7 @@ export interface Officer {
   positions: {
     [key in Term]?: Position[];
   };
-  socials?: {
-    [key in Social]?: string;
-  };
+  displayName?: string;
 }
 
 /**

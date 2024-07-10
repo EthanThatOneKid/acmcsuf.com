@@ -1,11 +1,17 @@
 <script lang="ts">
-  export let data;
+  import Spacing from '$lib/public/legacy/spacing.svelte';
+  import portfolios from './acm-portfolio-sp2024.json';
+  //export let data;
 </script>
 
+<svelte:head>
+  <title>Portfolios | ACM at CSUF</title>
+</svelte:head>
+
+<Spacing --min="175px" --med="200px" --max="200px" />
 
 <section>
-  <h1> 2024 ACM Portfolio Competition </h1>
-  {#each data.summaries as { title, url, imageURL }}
+  {#each portfolios as { title, url, imageURL }}
     <div>
       <h2>{title}</h2>
       <a href={url}><img src={imageURL} style="width: 600px;"></a>
@@ -32,3 +38,7 @@
     opacity: 0.5;
   }
 </style>
+
+
+
+

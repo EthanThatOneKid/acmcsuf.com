@@ -1,6 +1,5 @@
 <script lang="ts">
   import BoardPicture from './board-picture.svelte';
-
   export let src: string;
   export let alt: string;
   export let color = 'var(--acm-general-rgb)';
