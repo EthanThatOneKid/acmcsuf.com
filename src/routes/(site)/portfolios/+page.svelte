@@ -1,7 +1,6 @@
 <script lang="ts">
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import portfolios from './acm-portfolio-sp2024.json';
-  //export let data;
 </script>
 
 <svelte:head>
