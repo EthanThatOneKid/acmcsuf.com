@@ -12,8 +12,8 @@
   const generalLogoNoPreference = '/assets/general-logo.gif';
   const permanentTeamIDs = ['general', 'icpc', 'oss'];
   const oldTerms = [Term.Fall21, Term.Spring21, Term.Spring22];
-  const nodebudsTerms = [...oldTerms];
-  const gamedevTerms = [Term.Spring23, Term.Fall23, Term.Spring24];
+  const nodebudsTerms = [Term.Fall21, Term.Spring21, Term.Spring22, Term.Fall24];
+  const gamedevTerms = [Term.Spring23, Term.Fall23, Term.Spring24, Term.Fall24];
   $: skip =
     (members.length === 0 && !permanentTeamIDs.includes(info?.id)) ||
     (info?.id === 'nodebuds' && !nodebudsTerms.includes(term)) ||

@@ -97,8 +97,13 @@
     "fullName": "Angel Cervantes",
     "picture": "angel-cervantes.webp",
     "positions": {
-      "S24": [{ "title": "Dev Officer", "tier": 19 }]
-    }
+      "S24": [{ "title": "Dev Officer", "tier": 19 }],
+      "F24": [
+        { "title": "Algo Officer", "tier": 12 },
+        { "title": "Nodebuds Team Lead", "tier": 34 }
+      ]
+    },
+    "discord": "angellyn218"
   },
   {
     "fullName": "Ashley Chan",
@@ -222,8 +227,10 @@
     "picture": "esteban-escartin.webp",
     "positions": {
       "F23": [{ "title": "Algo Officer", "tier": 12 }],
-      "S24": [{ "title": "Algo Officer", "tier": 12 }]
-    }
+      "S24": [{ "title": "Algo Officer", "tier": 12 }],
+      "F24": [{ "title": "Vice President", "tier": 1 }]
+    },
+    "discord": "pillo."
   },
   {
     "fullName": "Mark Ryan Garcia",
@@ -254,8 +261,10 @@
     "picture": "nate-gries.webp",
     "positions": {
       "F23": [{ "title": "Algo Officer", "tier": 12 }],
-      "S24": [{ "title": "Algo Officer", "tier": 12 }]
-    }
+      "S24": [{ "title": "Algo Officer", "tier": 12 }],
+      "F24": [{ "title": "Algo Team Lead", "tier": 11 }]
+    },
+    "discord": "nategries"
   },
   {
     "fullName": "Nurhaliza Hassan",
@@ -290,8 +299,10 @@
     "fullName": "Richard Hoang",
     "picture": "richard-hoang.webp",
     "positions": {
-      "S24": [{ "title": "Design Officer", "tier": 16 }]
-    }
+      "S24": [{ "title": "Design Officer", "tier": 16 }],
+      "F24": [{ "title": "Design Officer", "tier": 16 }]
+    },
+    "discord": "renshintv"
   },
   {
     "fullName": "Lisa Hong",
@@ -820,7 +831,14 @@
   {
     "fullName": "Joann Sum",
     "picture": "joann-sum.webp",
-    "positions": { "S23": [{ "title": "Marketing Officer", "tier": 9 }] }
+    "positions": { 
+      "S23": [{ "title": "Marketing Officer", "tier": 9 }],
+      "F24": [
+        { "title": "Algo Officer", "tier": 12 },
+        { "title": "AI Officer", "tier": 21  }
+      ]
+    },
+    "discord": "josu4412"
   },
   {
     "fullName": "Charlie Taylor",
@@ -1062,5 +1080,13 @@
       "F24": [{ "title": "Open Source Software Officer", "tier": 33 }]
     },
     "discord": "drafte"
+  },
+  {
+    "fullName": "Jeffrey Rivera",
+    "picture": "jeffrey-rivera.webp",
+    "positions": {
+      "F24": [{ "title": "Design Officer", "tier": 16 }]
+    },
+    "discord": "cheppies"
   }
 ]

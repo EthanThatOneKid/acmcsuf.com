@@ -69,7 +69,7 @@
     text-align: left;
   }
 
-  .discord-color {
+  .discord-color:hover {
     text-decoration: underline;
     text-decoration-color: var(--acm-blue);
     text-decoration-thickness: 3px;
