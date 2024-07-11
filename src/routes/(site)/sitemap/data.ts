@@ -113,13 +113,6 @@ const siteMap: SiteMap = {
       link: 'random',
     },
   ],
-  Outdated: [
-    {
-      id: 'nodebudspage',
-      title: 'Nodebuds',
-      link: 'nodebuds',
-    },
-  ],
   Policies: [
     {
       id: 'privacypage',
