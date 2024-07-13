@@ -1,5 +1,6 @@
 <script lang="ts">
-  import type { Officer, Team } from '$lib/public/board/types';
+  import type { Officer, Team} from '$lib/public/board/types';
+  import {Term} from '$lib/public/board/types';
   import { termIndex, getPositionByTermIndex } from '$lib/public/board/utils';
   import BoardMember from '$lib/components/board-member/board-member.svelte';
   import { TEAMS } from '$lib/public/board/data/teams';
@@ -45,7 +46,7 @@
       class="discord-color size-sm"
       on:click={() => copyDiscord()}
       title="Click to copy the discord username to your clipboard."
-      aria-label="Click to copy the discord username to your clipboard.">@{officerDiscord}</button
+      aria-label="Click to copy the discord username to your clipboard.">{officerDiscord}</button
     >
   </div>
 </div>
