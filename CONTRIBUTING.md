@@ -126,7 +126,7 @@ GH_DISCUSSION_CATEGORY_ID=DIC_kwDOE7ysSc4CAC0o
 DEBUG_MODE_ENABLED=0
 ```
 
-Some environment variables are needed to run scripts that are used for purposes indirectly related to `acmcsuf.com` (such as the Gitcord scripts).
+Some environment variables are needed to run scripts that are used for purposes indirectly related to `acmcsuf.com`.
 
 ```sh
 DISCORD_BOT_TOKEN=YOUR_BOT_TOKEN
