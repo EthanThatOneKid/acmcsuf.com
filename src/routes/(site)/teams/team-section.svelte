@@ -112,7 +112,7 @@
       transform: rotate(0);
     }
     to {
-      transform: rotate(-90deg);
+      transform: rotate(-45deg);
     }
   }
 
@@ -279,7 +279,7 @@
   }
 
   .nodebuds-animation img {
-    animation-duration: 1.8s;
+    animation-duration: 1.3s;
     animation-name: slide;
     animation-iteration-count: infinite;
     animation-direction: alternate;
@@ -289,7 +289,7 @@
 
   @keyframes slide {
     0% {
-      left: -60px;
+      left: -20px;
     }
 
     33% {
@@ -305,7 +305,7 @@
     }
 
     100% {
-      left: 60px;
+      left: 50px;
     }
   }
 

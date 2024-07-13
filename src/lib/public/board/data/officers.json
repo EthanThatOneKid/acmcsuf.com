@@ -100,7 +100,7 @@
       "S24": [{ "title": "Dev Officer", "tier": 19 }],
       "F24": [
         { "title": "Algo Officer", "tier": 12 },
-        { "title": "Nodebuds Team Lead", "tier": 34 }
+        { "title": "Nodebuds Co-Team Lead", "tier": 34 }
       ]
     },
     "discord": "angellyn218"
@@ -244,7 +244,11 @@
   {
     "fullName": "Gabrielius Gintalas",
     "picture": "gabrielius-gintalas.webp",
-    "positions": { "S24": [{ "title": "Game Dev Officer", "tier": 23 }] }
+    "positions": { 
+      "S24": [{ "title": "Game Dev Officer", "tier": 23 }],
+      "F24": [{ "title": "Game Dev Officer", "tier": 23 }]
+    },
+    "discord": "gabeg"
   },
   {
     "fullName": "Nicholas Girmes",
@@ -332,7 +336,11 @@
   {
     "fullName": "Dave Javle",
     "picture": "placeholder.webp",
-    "positions": { "S24": [{ "title": "Marketing Officer", "tier": 9 }] }
+    "positions": { 
+      "S24": [{ "title": "Marketing Officer", "tier": 9 }],
+      "F24": [{ "title": "Marketing Officer", "tier": 9 }]
+    },
+    "discord": "davejavle"
   },
   {
     "fullName": "Evan Jimenez",
@@ -494,8 +502,13 @@
     "picture": "eric-ly.webp",
     "positions": {
       "F23": [{ "title": "Treasurer", "tier": 4 }],
-      "S24": [{ "title": "Treasurer", "tier": 4 }]
-    }
+      "S24": [{ "title": "Treasurer", "tier": 4 }],
+      "F24": [
+        { "title": "AI Officer", "tier": 21 },
+        { "title": "Nodebuds Co-Team Lead", "tier": 34 }
+      ]
+    },
+    "discord": "lyyeric"
   },
   {
     "fullName": "Shaleen Mathur",
@@ -511,7 +524,10 @@
         { "title": "Event Coordinator", "tier": 6 },
         { "title": "Marketing Officer", "tier": 9 }
       ],
-      "F24": [{ "title": "Event Coordinator", "tier": 6 }]
+      "F24": [
+        { "title": "Event Coordinator", "tier": 6 },
+        { "title": "Marketing Officer", "tier": 9 }
+      ]
     },
     "discord": "evie724"
   },
@@ -551,8 +567,10 @@
     "positions": {
       "S23": [{ "title": "Game Dev Officer", "tier": 23 }],
       "F23": [{ "title": "Game Dev Officer", "tier": 23 }],
-      "S24": [{ "title": "Game Dev Officer", "tier": 23 }]
-    }
+      "S24": [{ "title": "Game Dev Officer", "tier": 23 }],
+      "F24": [{ "title": "Game Dev Officer", "tier": 23 }]
+    },
+    "discord": "muirror"
   },
   {
     "fullName": "Tanisha Naik",
@@ -681,7 +699,11 @@
   {
     "fullName": "Nithin Rajesh",
     "picture": "nithin-rajesh.webp",
-    "positions": { "S24": [{ "title": "Game Dev Officer", "tier": 23 }] }
+    "positions": { 
+      "S24": [{ "title": "Game Dev Officer", "tier": 23 }],
+      "F24": [{ "title": "Game Dev Officer", "tier": 23 }]
+    },
+    "discord": "ok7317"
   },
   {
     "fullName": "Alejandro Ramos",
@@ -1088,5 +1110,14 @@
       "F24": [{ "title": "Design Officer", "tier": 16 }]
     },
     "discord": "cheppies"
+  },
+  {
+    "fullName": "Hoang Nguyen",
+    "picture": "hoang-nguyen.webp",
+    "positions": {
+      "F24": [{ "title": "Dev Officer", "tier": 19 }]
+    },
+    "discord": "__panda3004"
   }
+
 ]
