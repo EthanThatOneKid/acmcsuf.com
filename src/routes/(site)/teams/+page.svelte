@@ -32,7 +32,7 @@
         gateways for students to explore new fields, develop new interests, and learn new skills
         that will benefit them in the industry.
       </p>
-      <p><span style="color:red">*</span>Feel free to reach out to board members through their discord, stated below their profile.</p>
+      <p>Feel free to reach out to board members through their Discord username, stated below their profile.</p>
       <div class="semester-button">
         <Select bind:defaultValue={currentFormattedTerm} options={formattedTerms} />
       </div>
