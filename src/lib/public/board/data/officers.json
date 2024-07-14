@@ -99,8 +99,8 @@
     "positions": {
       "S24": [{ "title": "Dev Officer", "tier": 19 }],
       "F24": [
-        { "title": "Algo Officer", "tier": 12 },
-        { "title": "Nodebuds Co-Team Lead", "tier": 34 }
+        { "title": "Nodebuds Co-Team Lead", "tier": 34 },
+        { "title": "Algo Officer", "tier": 12 }
       ]
     },
     "discord": "@angellyn218"
@@ -504,8 +504,8 @@
       "F23": [{ "title": "Treasurer", "tier": 4 }],
       "S24": [{ "title": "Treasurer", "tier": 4 }],
       "F24": [
-        { "title": "AI Officer", "tier": 21 },
-        { "title": "Nodebuds Co-Team Lead", "tier": 34 }
+        { "title": "Nodebuds Co-Team Lead", "tier": 34 },
+        { "title": "AI Officer", "tier": 21 }
       ]
     },
     "discord": "@lyyeric"
@@ -826,8 +826,8 @@
         { "title": "Algo Officer", "tier": 12 }
       ],
       "F24": [
-        { "title": "Algo Officer", "tier": 12 },
-        { "title": "Treasurer", "tier": 4 }
+        { "title": "Treasurer", "tier": 4 },
+        { "title": "Algo Officer", "tier": 12 }
       ]
     },
     "discord": "@davidjsolano"
