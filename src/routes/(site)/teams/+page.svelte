@@ -32,6 +32,10 @@
         gateways for students to explore new fields, develop new interests, and learn new skills
         that will benefit them in the industry.
       </p>
+      <p>
+        Feel free to reach out to board members through their Discord username, stated below their
+        profile.
+      </p>
       <div class="semester-button">
         <Select bind:defaultValue={currentFormattedTerm} options={formattedTerms} />
       </div>
@@ -48,15 +52,6 @@
     <span class="acm-blue acm-heaviest">General</span>
     manages operations, organizes events, and ensure the smooth functioning of ACM. They are the backbone
     of our community, fostering collaboration and innovation among members.
-  </p>
-</TeamSection>
-
-<TeamSection info={TEAMS.marketing} term={VISIBLE_TERMS[$termIndex]}>
-  <p slot="content" class="size-md">
-    The <span class="acm-blush acm-heaviest">marketing</span> team has a strong passion towards
-    advertising and spreading word on all our ACM events.
-    <span class="acm-blush acm-heaviest">Marketing</span> utilizes their expertise in digital strategies
-    and creative storytelling to display a welcoming environment to all students.
   </p>
 </TeamSection>
 
@@ -105,6 +100,15 @@
   </p>
 </TeamSection>
 
+<TeamSection info={TEAMS.marketing} term={VISIBLE_TERMS[$termIndex]}>
+  <p slot="content" class="size-md">
+    The <span class="acm-blush acm-heaviest">marketing</span> team has a strong passion towards
+    advertising and spreading word on all our ACM events.
+    <span class="acm-blush acm-heaviest">Marketing</span> utilizes their expertise in digital strategies
+    and creative storytelling to display a welcoming environment to all students.
+  </p>
+</TeamSection>
+
 <TeamSection info={TEAMS['special-events']} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
     The <span class="acm-lemon acm-heaviest">special events</span> team is all about creating
@@ -116,11 +120,9 @@
 
 <TeamSection info={TEAMS.nodebuds} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    Personalized for your success, <span class="acm-red acm-heaviest">node buds</span> is our exclusive
-    program in partnership with ACM-W that exposes students to various opportunities that encourage connection,
-    skill building, as well as both personal and technical development. Everone under this program will
-    get paired with student-mentors, called Buddies , who will be there to help students prepare for
-    their successful journeys through the tech industry.
+    Connect & grow with <span class="acm-red acm-heaviest">nodebuds</span>! Our big-little program
+    pairs you with an experienced club officer for social events, workshops, and guidance as you
+    navigate the tech world. Build friendships, skills, and have a blast!
   </p>
 </TeamSection>
 
