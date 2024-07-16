@@ -32,7 +32,10 @@
         gateways for students to explore new fields, develop new interests, and learn new skills
         that will benefit them in the industry.
       </p>
-      <p>Feel free to reach out to board members through their Discord username, stated below their profile.</p>
+      <p>
+        Feel free to reach out to board members through their Discord username, stated below their
+        profile.
+      </p>
       <div class="semester-button">
         <Select bind:defaultValue={currentFormattedTerm} options={formattedTerms} />
       </div>
@@ -117,10 +120,9 @@
 
 <TeamSection info={TEAMS.nodebuds} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    Connect & grow with <span class="acm-red acm-heaviest">nodebuds</span>! 
-    Our big-little program pairs you with an experienced club officer for social events,
-    workshops, and guidance as you navigate the tech world. Build friendships, skills, 
-    and have a blast!
+    Connect & grow with <span class="acm-red acm-heaviest">nodebuds</span>! Our big-little program
+    pairs you with an experienced club officer for social events, workshops, and guidance as you
+    navigate the tech world. Build friendships, skills, and have a blast!
   </p>
 </TeamSection>
 
