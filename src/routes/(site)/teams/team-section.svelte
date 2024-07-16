@@ -100,7 +100,7 @@
   }
 
   .marketing-animation img {
-    animation-duration: 2s;
+    animation-duration: 1.5s;
     animation-name: portrait-rotate;
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
     animation-iteration-count: infinite;
@@ -112,7 +112,7 @@
       transform: rotate(0);
     }
     to {
-      transform: rotate(-45deg);
+      transform: rotate(-10deg);
     }
   }
 
@@ -279,7 +279,7 @@
   }
 
   .nodebuds-animation img {
-    animation-duration: 1.3s;
+    animation-duration: 1.2s;
     animation-name: slide;
     animation-iteration-count: infinite;
     animation-direction: alternate;
@@ -289,7 +289,7 @@
 
   @keyframes slide {
     0% {
-      left: -20px;
+      left: -18px;
     }
 
     33% {
@@ -305,7 +305,7 @@
     }
 
     100% {
-      left: 50px;
+      left: 20px;
     }
   }
 
