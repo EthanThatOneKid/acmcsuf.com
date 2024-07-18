@@ -8,6 +8,7 @@
   onMount(() => (jsEnabled = true));
 
   const navItems = [
+    { title: 'Home', path: '/' },
     { title: 'Events', path: '/events' },
     { title: 'Teams', path: '/teams' },
     { title: 'Blog', path: '/blog' },
