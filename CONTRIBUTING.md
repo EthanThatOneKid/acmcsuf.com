@@ -100,6 +100,12 @@ Really, the situation may affect your choice of breakpoint value, but the goal i
 
 ## Setting up your `.env` file
 
+> [!TIP]
+> If you're just trying to run tests and not make a new deployment,
+> you don't need to generate any of this information. Just copy
+> `.env.example` to `.env`, and if any variables are missing, define
+> them in your new `.env` with `VARIABLE_NAME=""`.
+
 To interact with data from GitHub (or any third-party service), a file named `.env` must be created in the root of your local repository instance.
 Begin by renaming a cloned [`.env.example`](.env.example) to `.env`.
 
