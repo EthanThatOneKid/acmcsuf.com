@@ -18,6 +18,7 @@
   "Design Officer": { "id": 16, "index": 900 },
   "Dev Team Lead": { "id": 17, "index": 950 },
   "Dev Project Manager": { "id": 18, "index": 1000 },
+  "Server Team Member": { "id": 35, "index": 1750 },
   "Dev Officer": { "id": 19, "index": 1050 },
   "AI Team Lead": { "id": 20, "index": 1100 },
   "AI Officer": { "id": 21, "index": 1150 },
