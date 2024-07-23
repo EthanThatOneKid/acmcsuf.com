@@ -987,7 +987,10 @@
     "fullName": "Nick Goulart",
     "picture": "nick-goulart.webp",
     "positions": {
-      "F24": [{ "title": "Dev Officer", "tier": 19 }]
+      "F24": [
+        { "title": "Dev Officer", "tier": 19 },
+        { "title": "Server Team Member", "tier": 35 }
+      ]
     },
     "discord": "@realbignick"
   },
