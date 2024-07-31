@@ -12,7 +12,7 @@
   <h1 slot="headline" class="size-xl acm-heavier">100 Days of Design | Summer 2024</h1>
 
   <p slot="text" class="size-md">
-    The 100 Days of Design Challenge, hosted by our Design Team, allows for fellow members to practice and show off their Figma design skills
+    The 100 Days of Design Challenge, hosted by our Design Team, allows for fellow members to practice and show off their design skilss using Figma
     while enjoying their summer vacation (*Margaritaville by Jimmy Buffett starts playing).
   </p>
 </Block>
