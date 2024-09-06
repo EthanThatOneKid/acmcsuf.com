@@ -78,11 +78,6 @@ const siteMap: SiteMap = {
       title: 'LC-dailies',
       link: 'lc-dailies',
     },
-    {
-      id: 'pomopage',
-      title: 'Pomo',
-      link: 'pomo',
-    },
   ],
   'Contributing Pages': [
     {
