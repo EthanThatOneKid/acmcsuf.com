@@ -428,22 +428,22 @@
     }
   }
 
-  :global(.light) {
+  :global(html[data-theme='light']) {
     --quiz-bg: rgba(243, 243, 243, 0.795);
   }
 
-  :global(.dark) {
+  :global(html[data-theme='dark']) {
     --quiz-bg: #6868682a;
   }
 
   @media (prefers-color-scheme: light) {
-    :global(body:not(.dark)) {
+    :global(html[data-theme='light']) {
       --quiz-bg: rgba(243, 243, 243, 0.795);
     }
   }
 
   @media (prefers-color-scheme: dark) {
-    :global(body:not(.light)) {
+    :global(html[data-theme='dark']) {
       --quiz-bg: #6868682a;
     }
   }

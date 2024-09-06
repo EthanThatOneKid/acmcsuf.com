@@ -47,22 +47,22 @@
     }
   }
 
-  :global(.light) {
+  :global(html[data-theme='light']) {
     --progress-bg: rgba(224, 224, 224, 0.918);
   }
 
-  :global(.dark) {
+  :global(html[data-theme='dark']) {
     --progress-bg: #808080;
   }
 
   @media (prefers-color-scheme: light) {
-    :global(body:not(.dark)) {
+    :global(html[data-theme='light']) {
       --progress-bg: rgba(224, 224, 224, 0.918);
     }
   }
 
   @media (prefers-color-scheme: dark) {
-    :global(body:not(.light)) {
+    :global(html[data-theme='dark']) {
       --progress-bg: #808080;
     }
   }
