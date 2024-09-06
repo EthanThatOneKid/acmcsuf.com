@@ -66,11 +66,6 @@ const siteMap: SiteMap = {
       title: 'Genuary',
       link: 'genuary',
     },
-    {
-      id: 'onovemberpage',
-      title: 'O(n)ovember',
-      link: 'onovember',
-    },
   ],
   'Productivity pages': [
     {
