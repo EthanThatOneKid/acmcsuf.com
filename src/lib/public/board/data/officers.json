@@ -65,10 +65,8 @@
     "picture": "boushra-bettir.webp",
     "positions": {
       "F23": [{ "title": "Dev Officer", "tier": 19 }],
-      "S24": [{ "title": "Dev Officer", "tier": 19 }],
-      "F24": [{ "title": "Dev Project Manager", "tier": 18 }]
-    },
-    "discord": "@bruvshra"
+      "S24": [{ "title": "Dev Officer", "tier": 19 }]
+    }
   },
   {
     "fullName": "Dane Camacho",
@@ -111,7 +109,10 @@
     "positions": {
       "F23": [{ "title": "AI Officer", "tier": 21 }],
       "S24": [{ "title": "Marketing Officer", "tier": 9 }],
-      "F24": [{ "title": "Marketing Officer", "tier": 9 }]
+      "F24": [
+        { "title": "Marketing Officer", "tier": 9 },
+        { "title": "Nodebuds Officer", "tier": 26 }
+      ]
     },
     "discord": "@ashleychan_"
   },
@@ -266,7 +267,10 @@
     "positions": {
       "F23": [{ "title": "Algo Officer", "tier": 12 }],
       "S24": [{ "title": "Algo Officer", "tier": 12 }],
-      "F24": [{ "title": "Algo Team Lead", "tier": 11 }]
+      "F24": [
+        { "title": "Algo Team Lead", "tier": 11 },
+        { "title": "Nodebuds Officer", "tier": 26 }
+      ]
     },
     "discord": "@nategries"
   },
@@ -418,7 +422,10 @@
     "positions": {
       "F23": [{ "title": "Marketing Officer", "tier": 9 }],
       "S24": [{ "title": "Marketing Officer", "tier": 9 }],
-      "F24": [{ "title": "Marketing Officer", "tier": 9 }]
+      "F24": [
+        { "title": "Marketing Officer", "tier": 9 },
+        { "title": "Nodebuds Officer", "tier": 26 }
+      ]
     },
     "discord": "@.cheesee."
   },
@@ -526,7 +533,8 @@
       ],
       "F24": [
         { "title": "Event Coordinator", "tier": 6 },
-        { "title": "Marketing Officer", "tier": 9 }
+        { "title": "Marketing Officer", "tier": 9 },
+        { "title": "Nodebuds Officer", "tier": 26 }
       ]
     },
     "discord": "@evie724"
@@ -734,7 +742,10 @@
     "positions": {
       "F23": [{ "title": "Marketing Officer", "tier": 9 }],
       "S24": [{ "title": "Marketing Officer", "tier": 9 }],
-      "F24": [{ "title": "Event Coordinator", "tier": 6 }]
+      "F24": [
+        { "title": "Event Coordinator", "tier": 6 },
+        { "title": "Nodebuds Officer", "tier": 26 }
+      ]
     },
     "discord": "@meexy23"
   },
@@ -808,7 +819,10 @@
         { "title": "Algo Officer", "tier": 12 },
         { "title": "Marketing Officer", "tier": 9 }
       ],
-      "F24": [{ "title": "Algo Officer", "tier": 12 }]
+      "F24": [
+        { "title": "Algo Officer", "tier": 12 },
+        { "title": "Nodebuds Officer", "tier": 26 }
+      ]
     },
     "discord": "@pattyrick1"
   },
