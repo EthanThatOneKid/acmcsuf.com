@@ -122,7 +122,7 @@
 
 <TeamSection info={TEAMS.nodebuds} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    Connect & grow with <span class="acm-red acm-heaviest">nodebuds</span>! Our big-little program
+    Connect & grow with <span class="acm-red acm-heaviest">node buds</span>! Our big-little program
     pairs you with an experienced club officer for social events, workshops, and guidance as you
     navigate the tech world. Build friendships, skills, and have a blast!
   </p>
