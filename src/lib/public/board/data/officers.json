@@ -6,7 +6,7 @@
       "S24": [{ "title": "Design Officer", "tier": 16 }],
       "F24": [
         { "title": "Webmaster", "tier": 2 },
-        { "title": "Open Source Software Officer", "tier": 33 },
+        { "title": "Open Source Software Co-TL", "tier": 33 },
         { "title": "Design Officer", "tier": 16 }
       ]
     },
@@ -1135,5 +1135,11 @@
       "F24": [{ "title": "Dev Officer", "tier": 19 }]
     },
     "discord": "@__panda3004"
+  },
+  {
+    "fullName": "Ahad Munir Ahmad",
+    "picture": "ahad-munir-ahmad.webp",
+    "positions": { "F24": [{ "title": "Dev Project Manager", "tier": 18 }] },
+    "discord": "@adj1200"
   }
 ]
