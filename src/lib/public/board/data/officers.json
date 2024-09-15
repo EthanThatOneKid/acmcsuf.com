@@ -342,7 +342,10 @@
     "picture": "dave-javle.webp",
     "positions": {
       "S24": [{ "title": "Marketing Officer", "tier": 9 }],
-      "F24": [{ "title": "Marketing Officer", "tier": 9 }]
+      "F24": [
+        { "title": "Dev Officer", "tier": 19 },
+        { "title": "Marketing Officer", "tier": 9 }
+      ]
     },
     "discord": "@davejavle"
   },
