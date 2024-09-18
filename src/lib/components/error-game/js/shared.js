@@ -1,9 +1,3 @@
-/*
- *  Naming convention for assets sub-folders:
- *    sprites folder- has 'Image' in the name
- *    effects folder - has 'Effect' in the name
- *    background folder - all other file names
- */
 const imageArr = [
   'capyImage.png',
   'layer1.png',
@@ -24,12 +18,14 @@ const imageArr = [
  * @type {Object.<string, HTMLImageElement>}
  */
 const images = {};
-imageArr.forEach((imageName) => {
-  const name = imageName.split('.')[0];
-  // TODO: Fix "ReferenceError: Image is not defined" error.
-  images[name] = new Image();
-  images[name].src = '/assets/error-game/' + imageName;
-});
+
+export function loadImages() {
+  imageArr.forEach((imageName) => {
+    const name = imageName.split('.')[0];
+    images[name] = new Image();
+    images[name].src = '/assets/error-game/' + imageName;
+  });
+}
 
 export { images };
 

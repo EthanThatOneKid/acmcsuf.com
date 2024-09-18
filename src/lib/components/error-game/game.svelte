@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { onMount, onDestroy } from 'svelte';
   import { setup } from './game';
 
   let canvas: HTMLCanvasElement | undefined;
@@ -11,7 +11,14 @@
     }
 
     setup(canvas, mobileButton);
-  });
+
+  document.body.classList.add('error-page-background');
+
+  return () => {
+    document.body.classList.remove('error-page-background')
+  }
+});
+
 </script>
 
 <svelte:head>
@@ -27,6 +34,11 @@
 <button id="mobileButton" bind:this={mobileButton}>Start</button>
 
 <style>
+
+  :global(.error-page-background) {
+    background-color: white;
+  }
+
   #game-canvas {
     border: 5px solid black;
     position: absolute;

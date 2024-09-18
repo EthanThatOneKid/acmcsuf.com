@@ -3,11 +3,11 @@ import { InputHandler } from './js/input.js';
 import { Background } from './js/background.js';
 import { GroundMob, FlyingMob, Hedgehog, Wizard } from './js/mobs.js';
 import { UI } from './js/UI.js';
-import { isMobileDevice } from './js/shared.js';
+import { loadImages, images, isMobileDevice } from './js/shared.js';
 
 let lastTime = 0;
 
-export function setup(canvas: HTMLCanvasElement, button: HTMLButtonElement) {
+export async function setup(canvas: HTMLCanvasElement, button: HTMLButtonElement) {
   const ctx = canvas.getContext('2d');
   if (ctx === null) {
     throw new Error('2d context not supported');
@@ -15,6 +15,19 @@ export function setup(canvas: HTMLCanvasElement, button: HTMLButtonElement) {
 
   canvas.width = 1000;
   canvas.height = 550;
+
+  // Load images before setting up the game
+  loadImages();
+
+  // Wait until all images are loaded
+  await new Promise((resolve) => {
+    const checkImagesLoaded = setInterval(() => {
+      if (Object.keys(images).length === 13) { // Adjust this number based on the number of images in `imageArr`
+        clearInterval(checkImagesLoaded);
+        resolve();
+      }
+    }, 100);
+  });
 
   const game = new Game(canvas.width, canvas.height, ctx);
   game.setupButtonClick = game.setupButtonClick.bind(game);
@@ -55,24 +68,23 @@ class Game {
   capy: Capy;
   input: InputHandler;
   UI: UI;
-  mobs: never[];
-  particles: never[];
-  collisions: never[];
-  floatingText: never[];
+  mobs: (GroundMob | FlyingMob | Hedgehog | Wizard)[];
+  particles: any[];
+  collisions: any[];
+  floatingText: any[];
   mobTimer: number;
   mobInterval: number;
   debug: boolean;
   health: number;
   energy: number;
   energyInc: number;
-  engeryDec: boolean;
+  energyDec: boolean;
   score: number;
   highscore: number;
   hedgehogScore: number;
   beeScore: number;
   fontColor: string;
   hudHeight: number;
-  energyDec: boolean;
   ctx: CanvasRenderingContext2D;
 
   constructor(width: number, height: number, ctx: CanvasRenderingContext2D) {
@@ -100,7 +112,7 @@ class Game {
     this.health = 6;
     this.energy = 6;
     this.energyInc = 1200;
-    this.engeryDec = false;
+    this.energyDec = false;
     this.score = 0;
     this.highscore = getHighscore();
     this.hedgehogScore = 0;
@@ -109,7 +121,6 @@ class Game {
     this.hudHeight = 50;
     this.capy.currentState = this.capy.states[0]; // points to index within this.states
     this.capy.currentState.enter(); // activate initial default state
-    this.energyDec = false;
     this.ctx = ctx;
   }
 
@@ -150,34 +161,31 @@ class Game {
 
     // Handle Mobs
     this.mobs.forEach((mob) => {
-      (mob as any).update(delta);
+      mob.update(delta);
     });
 
     // Handle Floating Text
     this.floatingText.forEach((text) => {
-      (text as any).update();
+      text.update();
     });
 
     // Handle Particles
     this.particles.forEach((particle) => {
-      (particle as any).update();
+      particle.update();
     });
     if (this.particles.length > this.maxParticles) {
-      // Slice returns a portion of an array where start and end
-      // represent the index of items in that array.
       this.particles.length = this.maxParticles;
     }
 
     // Handle collision boom
     this.collisions.forEach((collision) => {
-      (collision as any).update(delta);
+      collision.update(delta);
     });
 
-    // Using filter instead of splice for performance purposes
-    this.mobs = this.mobs.filter((mob) => !(mob as any).markedForDeletion);
-    this.floatingText = this.floatingText.filter((text) => !(text as any).markedForDeletion);
-    this.particles = this.particles.filter((particle) => !(particle as any).markedForDeletion);
-    this.collisions = this.collisions.filter((collision) => !(collision as any).markedForDeletion);
+    this.mobs = this.mobs.filter((mob) => !mob.markedForDeletion);
+    this.floatingText = this.floatingText.filter((text) => !text.markedForDeletion);
+    this.particles = this.particles.filter((particle) => !particle.markedForDeletion);
+    this.collisions = this.collisions.filter((collision) => !collision.markedForDeletion);
     if (this.energyInc <= 1200) this.energyInc += 1;
     if (this.energyInc % 200 === 0 && !this.energyDec) {
       this.energy += 1;
@@ -205,15 +213,13 @@ class Game {
 
   // Handle Local High Score
   displayHighScore() {
-    // Retrieve the highscore from localStorage and convert it to a number
     this.highscore = getHighscore();
 
     if (this.gameOver && (this.highscore === 0 || this.score >= this.highscore)) {
-      // Update the highscore if it's the first time or if the current score is higher
-      localStorage.setItem('highscore', this.score.toString()); // Convert this.score to a string before storing
-      this.highscore = this.score; // Update the highscore in memory
+      localStorage.setItem('highscore', this.score.toString());
+      this.highscore = this.score;
     }
-    console.log(this.highscore); // Display the highscore.
+    console.log(this.highscore);
   }
 
   // Draw images, score, and so on
@@ -221,30 +227,30 @@ class Game {
     this.background.draw(this.ctx);
     this.capy.draw(this.ctx);
     this.mobs.forEach((mob) => {
-      (mob as any).draw(this.ctx);
+      mob.draw(this.ctx);
     });
     this.particles.forEach((particle) => {
-      (particle as any).draw(this.ctx);
+      particle.draw(this.ctx);
     });
     this.collisions.forEach((collision) => {
-      (collision as any).draw(this.ctx);
+      collision.draw(this.ctx);
     });
     this.floatingText.forEach((text) => {
-      (text as any).draw(this.ctx);
+      text.draw(this.ctx);
     });
     this.UI.draw(this.ctx);
   }
 
   addMob() {
     if (isMobileDevice()) {
-      this.mobs.push(new FlyingMob(this) as never);
+      this.mobs.push(new FlyingMob(this));
       if (this.speed > 0 && Math.random() < 0.3)
-        this.mobs.push(new GroundMob(this) as never, new Hedgehog(this) as never);
+        this.mobs.push(new GroundMob(this), new Hedgehog(this));
     } else {
-      this.mobs.push(new FlyingMob(this) as never);
-      if (this.speed > 0 && Math.random() < 0.5) this.mobs.push(new Wizard(this) as never);
+      this.mobs.push(new FlyingMob(this));
+      if (this.speed > 0 && Math.random() < 0.5) this.mobs.push(new Wizard(this));
       if (this.speed > 0 && Math.random() < 1)
-        this.mobs.push(new GroundMob(this) as never, new Hedgehog(this) as never);
+        this.mobs.push(new GroundMob(this), new Hedgehog(this));
     }
   }
 
@@ -255,7 +261,7 @@ class Game {
     this.update(delta);
     this.draw();
     if (!this.gameOver) {
-      this.animationId = requestAnimationFrame(this.animate.bind(this)); // Keep track of animation frame
+      this.animationId = requestAnimationFrame(this.animate.bind(this));
     }
   }
 }
