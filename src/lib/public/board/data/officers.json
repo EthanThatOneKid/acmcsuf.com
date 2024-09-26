@@ -426,7 +426,6 @@
       "F23": [{ "title": "Marketing Officer", "tier": 9 }],
       "S24": [{ "title": "Marketing Officer", "tier": 9 }],
       "F24": [
-        { "title": "Marketing Officer", "tier": 9 },
         { "title": "Node Buds Officer", "tier": 26 }
       ]
     },
@@ -611,8 +610,7 @@
     "fullName": "Alexis Nemsingh",
     "picture": "alexis-nemsingh.webp",
     "positions": {
-      "S24": [{ "title": "Marketing Officer", "tier": 9 }],
-      "F24": [{ "title": "Marketing Officer", "tier": 9 }]
+      "S24": [{ "title": "Marketing Officer", "tier": 9 }]
     },
     "discord": "@redsplash1"
   },
