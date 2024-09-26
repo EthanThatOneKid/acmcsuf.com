@@ -425,9 +425,7 @@
     "positions": {
       "F23": [{ "title": "Marketing Officer", "tier": 9 }],
       "S24": [{ "title": "Marketing Officer", "tier": 9 }],
-      "F24": [
-        { "title": "Node Buds Officer", "tier": 26 }
-      ]
+      "F24": [{ "title": "Node Buds Officer", "tier": 26 }]
     },
     "discord": "@.cheesee."
   },
