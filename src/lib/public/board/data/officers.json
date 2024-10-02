@@ -238,7 +238,10 @@
     "picture": "mark-ryan-garcia.webp",
     "positions": {
       "S24": [{ "title": "Marketing Officer", "tier": 9 }],
-      "F24": [{ "title": "Marketing Team Lead", "tier": 8 }]
+      "F24": [
+        { "title": "Marketing Team Lead", "tier": 8 },
+        { "title": "Node Buds Officer", "tier": 26 }
+      ]
     },
     "discord": "@xnaym"
   },
@@ -840,7 +843,8 @@
       ],
       "F24": [
         { "title": "Treasurer", "tier": 4 },
-        { "title": "Algo Officer", "tier": 12 }
+        { "title": "Algo Officer", "tier": 12 },
+        { "title": "Node Buds Officer", "tier": 26 }
       ]
     },
     "discord": "@davidjsolano"
