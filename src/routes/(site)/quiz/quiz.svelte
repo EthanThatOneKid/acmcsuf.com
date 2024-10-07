@@ -85,7 +85,7 @@
 
   function totalTallies(tallies: Record<string, number>) {
     let totalTallies = 0;
-    Object.values(tallies).forEach(value => totalTallies += value);
+    Object.values(tallies).forEach((value) => (totalTallies += value));
     return totalTallies;
   }
 
