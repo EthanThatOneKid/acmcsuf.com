@@ -83,9 +83,16 @@
       ?.shift() as TeamMatch;
   }
 
+  function totalTallies(tallies: Record<string, number>) {
+    let totalTallies = 0;
+    Object.values(tallies).forEach(value => totalTallies += value);
+    return totalTallies;
+  }
+
   $: talliedResponses = tallyResponses(responses);
 
   $: match = maxTallies(talliedResponses);
+  $: sumOfTallies = totalTallies(talliedResponses);
 
   // local storage stuff
   let quizStorage: QuizStorage | undefined;
@@ -173,7 +180,7 @@
         </h2>
         <img src={TEAMS[match].logoSrc} alt={`${match} icon`} class="team-icon" />
         <ProgressBar
-          progress={(talliedResponses[match] / data.questions.length) * 100}
+          progress={(talliedResponses[match] / sumOfTallies) * 100}
           fillColor={TEAMS[match].color}
         />
       </div>
@@ -193,7 +200,7 @@
 
           <ProgressBar
             progress={talliedResponses[otherMatch]
-              ? (talliedResponses[otherMatch] / data.questions.length) * 100
+              ? (talliedResponses[otherMatch] / sumOfTallies) * 100
               : 0}
             fillColor={team.color}
           />
