@@ -43,7 +43,8 @@
     "picture": "ryan-avancena.webp",
     "positions": {
       "S24": [{ "title": "AI Officer", "tier": 21 }],
-      "F24": [{ "title": "AI Team Lead", "tier": 20 }]
+      "F24": [{ "title": "AI Team Lead", "tier": 20 },
+      { "title": "Marketing Officer", "tier": 9 }]
     },
     "discord": "@bergerboyyy"
   },
@@ -357,7 +358,7 @@
     "picture": "evan-jimenez.webp",
     "positions": {
       "S24": [{ "title": "Open Source Software Officer", "tier": 33 }],
-      "F24": [{ "title": "Open Source Software Officer", "tier": 33 }]
+      "F24": [{ "title": "Marketing Officer", "tier": 9 }, { "title": "Open Source Software Officer", "tier": 33 }]
     },
     "discord": "@surrealreal_"
   },
@@ -1034,14 +1035,6 @@
       "F24": [{ "title": "Dev Officer", "tier": 19 }]
     },
     "discord": "@craziderpy"
-  },
-  {
-    "fullName": "Adrian Vazquez",
-    "picture": "adrian-vazquez.webp",
-    "positions": {
-      "F24": [{ "title": "Marketing Officer", "tier": 9 }]
-    },
-    "discord": "@adrian046196"
   },
   {
     "fullName": "Mariia Grushina",
