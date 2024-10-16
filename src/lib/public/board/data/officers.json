@@ -43,7 +43,10 @@
     "picture": "ryan-avancena.webp",
     "positions": {
       "S24": [{ "title": "AI Officer", "tier": 21 }],
-      "F24": [{ "title": "AI Team Lead", "tier": 20 }]
+      "F24": [
+        { "title": "AI Team Lead", "tier": 20 },
+        { "title": "Marketing Officer", "tier": 9 }
+      ]
     },
     "discord": "@bergerboyyy"
   },
@@ -357,7 +360,10 @@
     "picture": "evan-jimenez.webp",
     "positions": {
       "S24": [{ "title": "Open Source Software Officer", "tier": 33 }],
-      "F24": [{ "title": "Open Source Software Officer", "tier": 33 }]
+      "F24": [
+        { "title": "Marketing Officer", "tier": 9 },
+        { "title": "Open Source Software Officer", "tier": 33 }
+      ]
     },
     "discord": "@surrealreal_"
   },
@@ -1036,14 +1042,6 @@
     "discord": "@craziderpy"
   },
   {
-    "fullName": "Adrian Vazquez",
-    "picture": "adrian-vazquez.webp",
-    "positions": {
-      "F24": [{ "title": "Marketing Officer", "tier": 9 }]
-    },
-    "discord": "@adrian046196"
-  },
-  {
     "fullName": "Mariia Grushina",
     "picture": "mariia-grushina.webp",
     "positions": {
@@ -1144,5 +1142,29 @@
     "picture": "ahad-munir-ahmad.webp",
     "positions": { "F24": [{ "title": "Dev Project Manager", "tier": 18 }] },
     "discord": "@adj1200"
+  },
+  {
+    "fullName": "A.J. Galliguez",
+    "picture": "aj-galliguez.webp",
+    "positions": {
+      "F24": [{ "title": "Marketing Officer", "tier": 9 }]
+    },
+    "discord": "@ajareyouthere"
+  },
+  {
+    "fullName": "Noah Scott",
+    "picture": "noah-scott.webp",
+    "positions": {
+      "F24": [{ "title": "Marketing Officer", "tier": 9 }]
+    },
+    "discord": "@0100.1110"
+  },
+  {
+    "fullName": "Hannah Minji Park",
+    "picture": "hannah-minji-park.webp",
+    "positions": {
+      "F24": [{ "title": "Marketing Officer", "tier": 9 }]
+    },
+    "discord": "@wiseeisw_99756"
   }
 ]
