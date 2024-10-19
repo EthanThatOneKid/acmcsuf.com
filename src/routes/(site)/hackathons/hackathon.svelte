@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Hackathon } from '$lib/public/hackathons';
+  import BoardMember from '$lib/components/board-member/board-picture.svelte';
 
   export let data: Hackathon;
 </script>
@@ -11,6 +12,7 @@
   <p>🎭 {data.theme}</p>
   <img src="/assets/hackathon-{data.id}.webp" alt="{data.title} website" />
   <p>{data.description}</p>
+  <BoardMember src={data.directors.picture}>
 </section>
 
 <style>
