@@ -18,6 +18,7 @@ export const TOOLS = {
 };
 
 export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
+  // Executive positions
   {
     title: 'President',
     teamColor: 'var(--acm-general-rgb)',
@@ -27,14 +28,7 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
       li('Committed to promoting diversity and inclusion within the organization'),
     ],
     requirements: [li('Must be a member of ACM for at least one semester')],
-    tools: [
-      'Google Drive/Docs',
-      'Discord',
-      'Figma',
-      'GitHub',
-      'Social media',
-      'Google Colab/Juptyer Notebook',
-    ],
+    tools: ['Google Drive/Docs', 'Discord', 'GitHub'],
     responsibilities: [
       li(
         'Official spokesperson of the organization, representing the policies, views and opinions of the organization in its relations with the campus and community at large'
@@ -55,14 +49,7 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
       li('Must be approachable, positive, empathetic, and flexible'),
       li("Be familiar with the President's responsibilities and be able to step in if needed"),
     ],
-    tools: [
-      'Google Drive/Docs',
-      'Discord',
-      'Figma',
-      'GitHub',
-      'Social media',
-      'Google Colab/Juptyer Notebook',
-    ],
+    tools: ['Google Drive/Docs', 'Discord', 'GitHub'],
     responsibilities: [
       li('Presides at the organization’s meetings in the absence of the President'),
       li('Collaborates with the President to carry out tasks'),
@@ -210,6 +197,22 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
       li('Suggest and direct new ideas for the diversification of our club'),
       li('Oversee and manage all social media platforms'),
       li('Delegate tasks to other board members of the Marketing Team'),
+    ],
+  },
+  {
+    title: 'Open Source Software Team Lead',
+    teamColor: 'var(--acm-oss-rgb)',
+    qualifications: [
+      li('Passion for web development and open source projects'),
+      li('Ability to work in a team and to teach others'),
+      li('Strong management and organizational skills'),
+      li('Open to learning new technologies'),
+    ],
+    tools: ['Google Drive/Docs', 'Discord', 'GitHub'],
+    responsibilities: [
+      li('Work closely with the Webmaster to maintain the ACM website and OSS projects'),
+      li('Understand the Git workflow and be able to teach it to others'),
+      li('Attend weekly meetings and provide updates on projects'),
     ],
   },
 ];

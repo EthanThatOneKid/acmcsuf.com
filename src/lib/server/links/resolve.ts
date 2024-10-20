@@ -54,7 +54,12 @@ function findURL<ID extends string>(
 
     let id = pathname.slice(1) as ID;
     while (id.length > 0 && !shortlinks[id]) {
-      id = id.slice(0, id.lastIndexOf('/')) as ID;
+      const slashIndex = id.lastIndexOf('/');
+      if (slashIndex === -1) {
+        break;
+      }
+
+      id = id.slice(0, slashIndex) as ID;
     }
 
     if (!shortlinks[id]) {

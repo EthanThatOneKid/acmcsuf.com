@@ -55,7 +55,7 @@ npm run test:coverage
 ### NPM bloat
 
 In this project, we set a threshold for how large the `/node_modules` folder can become after an `npm install`.
-In our [`package.json`](package.json), we set the size to 50 MB.
+In our [`package.json`](package.json), we set the size to 256 MB.
 
 To test the size of the dependencies in your local workspace, run `npm run test:size`.
 
@@ -100,6 +100,12 @@ Really, the situation may affect your choice of breakpoint value, but the goal i
 
 ## Setting up your `.env` file
 
+> [!TIP]
+> If you're just trying to run tests and not make a new deployment,
+> you don't need to generate any of this information. Just copy
+> `.env.example` to `.env`, and if any variables are missing, define
+> them in your new `.env` with `VARIABLE_NAME=""`.
+
 To interact with data from GitHub (or any third-party service), a file named `.env` must be created in the root of your local repository instance.
 Begin by renaming a cloned [`.env.example`](.env.example) to `.env`.
 
@@ -126,7 +132,7 @@ GH_DISCUSSION_CATEGORY_ID=DIC_kwDOE7ysSc4CAC0o
 DEBUG_MODE_ENABLED=0
 ```
 
-Some environment variables are needed to run scripts that are used for purposes indirectly related to `acmcsuf.com` (such as the Gitcord scripts).
+Some environment variables are needed to run scripts that are used for purposes indirectly related to `acmcsuf.com`.
 
 ```sh
 DISCORD_BOT_TOKEN=YOUR_BOT_TOKEN
@@ -137,7 +143,7 @@ ARCHIVE_CHANNEL_ID=YOUR_ARCHIVE_CHANNEL_ID
 
 ## Updating board member data
 
-To update the way an officer appears on <https://acmcsuf.com/about>, contributors may directly edit our `src/lib/public/board/data/officers.json` JSON file.
+To update the way an officer appears on <https://acmcsuf.com/teams>, contributors may directly edit our `src/lib/public/board/data/officers.json` JSON file.
 
 Alternatively board members may update their own board member data using a Discord slash command `/boardd` in our official club Discord server. For more information, see <https://acmcsuf.com/boardify>.
 

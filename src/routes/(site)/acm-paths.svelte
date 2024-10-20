@@ -5,7 +5,7 @@
 <section>
   <div class="container">
     <div class="teams-intro">
-      <h2 class="brand-header size-lg">Discover your own passion</h2>
+      <h2 class="acm-heavier size-lg">Discover your own passion</h2>
 
       <p class="size-sm">
         Each team was designed to allow students to explore the various fields within tech, and
@@ -15,10 +15,10 @@
     </div>
 
     <div class="teams-list">
-      {#each PINNED_TEAMS as { title, id, picture, color } (id)}
+      {#each PINNED_TEAMS as { title, id, logoSrc, color } (id)}
         <a class="team-item" target="_self" href={`/teams#${id}`}>
-          <img src={picture} alt={`${id} badge`} />
-          <p class="size-md brand-bold" style:--brand-color={color}>
+          <img src={logoSrc} alt={`${id} badge`} />
+          <p class="size-md acm-heaviest" style:--acm-color={color}>
             {title}
           </p>
         </a>
@@ -97,7 +97,7 @@
             }
 
             p {
-              color: var(--brand-color);
+              color: var(--acm-color);
             }
           }
         }

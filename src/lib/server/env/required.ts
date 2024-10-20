@@ -3,4 +3,6 @@ export {
   GH_DISCUSSION_CATEGORY_ID,
   GCAL_API_KEY,
   GCAL_ID,
+  GDRIVE_GALLERY_API_KEY,
+  GDRIVE_GALLERY_FOLDER_ID,
 } from '$env/static/private';

@@ -22,10 +22,10 @@
           info.selfLink,
           'Copied event link to clipboard!',
           'Failed to copy event link to clipboard!',
-          info.team.id
+          info.team
         )}
     >
-      <BwIcon src="/assets/svg/copy-link.svg" alt="copy link" />
+      <BwIcon src="/assets/copy-link.svg" alt="copy link" />
     </button>
     <button
       class="action-item"
@@ -35,10 +35,10 @@
           info.summary,
           'Copied event summary to clipboard!',
           'Failed to copy event summary to clipboard!',
-          info.team.id
+          info.team
         )}
     >
-      <BwIcon src="/assets/svg/copy-text.svg" alt="Copy event summary" />
+      <BwIcon src="/assets/copy-text.svg" alt="Copy event summary" />
     </button>
     <button
       class="action-item"
@@ -48,10 +48,10 @@
           info.calendarLinks.google,
           'Copied Google Calendar link to clipboard!',
           'Failed to copy Google Calendar link to clipboard!',
-          info.team.id
+          info.team
         )}
     >
-      <BwIcon src="/assets/svg/calendar-google.svg" alt="Copy Google Calendar link" />
+      <BwIcon src="/assets/calendar-google.svg" alt="Copy Google Calendar link" />
     </button>
     <button
       class="action-item"
@@ -61,10 +61,10 @@
           info.calendarLinks.outlook,
           'Copied Microsoft Outlook calendar link to clipboard!',
           'Failed to copy Microsoft Outlook calendar link to clipboard!',
-          info.team.id
+          info.team
         )}
     >
-      <BwIcon src="/assets/svg/calendar-outlook.svg" alt="Copy Outlook Calendar link" />
+      <BwIcon src="/assets/calendar-outlook.svg" alt="Copy Outlook Calendar link" />
     </button>
   </div>
 </div>
@@ -103,7 +103,9 @@
     }
 
     .action-item:hover {
+      cursor: pointer;
       box-shadow: 0 6px 18px rgba(var(--highlights, --acm-general-rgb), 0.66);
+      transform: translateY(-2px);
     }
   }
 

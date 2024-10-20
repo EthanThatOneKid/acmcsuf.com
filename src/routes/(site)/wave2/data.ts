@@ -52,21 +52,6 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
     ],
   },
   {
-    title: 'Web Officer',
-    teamColor: 'var(--acm-general-rgb)',
-    qualifications: [
-      li('Passion for web development and open source projects'),
-      li('Open to learning new technologies'),
-      li('Ability to work in a team and to teach others'),
-    ],
-    tools: ['Google Drive/Docs', 'Discord', 'GitHub'],
-    responsibilities: [
-      li('Work closely with the Webmaster to maintain the ACM website and OSS projects'),
-      li('Understand the Git workflow and be able to teach it to others'),
-      li('Attend weekly meetings and provide updates on projects'),
-    ],
-  },
-  {
     title: 'AI Officer',
     teamColor: 'var(--acm-ai-rgb)',
     qualifications: [

@@ -1,17 +1,27 @@
 /**
- * This is the output of the Genuary page.
+ * CollagePageData is the output of the Genuary page.
  */
 export interface CollagePageData {
   pieces: CollagePiece[];
 }
 
 /**
- * This is a piece on the Genuary page.
+ * VIEW_TYPES are the possible view types for a piece.
+ */
+const VIEW_TYPES = ['normal', 'wide', 'tall', 'big'] as const;
+
+/**
+ * ViewType is a type for the view type of a piece.
+ */
+export type ViewType = (typeof VIEW_TYPES)[number];
+
+/**
+ * CollagePiece is a piece on the Genuary page.
  */
 export interface CollagePiece {
   src: string;
   during_challenge?: boolean;
-  view?: 'normal' | 'wide' | 'tall' | 'big';
+  view?: ViewType;
   alt?: string;
 }
 
@@ -22,7 +32,7 @@ export interface CollagePiece {
 export function pageDataFrom(pieces: CollagePiece[]): CollagePageData {
   return {
     pieces: pieces.map(({ src, alt, view, during_challenge }) => {
-      const data: CollagePiece = { src, alt, during_challenge: during_challenge ?? false };
+      const data: CollagePiece = { src, alt, during_challenge };
       switch (view) {
         case 'normal':
         case 'wide':

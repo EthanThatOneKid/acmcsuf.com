@@ -38,7 +38,7 @@
 
 <div
   class="event-box"
-  style:--highlights={`var(--acm-${info.team.id}-rgb)`}
+  style:--highlights={`var(--acm-${info.team}-rgb)`}
   on:click|preventDefault|stopPropagation={() => (shown = !shown)}
   on:keypress|preventDefault|stopPropagation={() => (shown = !shown)}
   role="button"
@@ -49,7 +49,7 @@
   <details class="event-card" bind:this={details} class:highlighted={shown} role="region">
     <summary class="event-body">
       <div class="event-name">
-        <h2 class="headers">
+        <h2 class="acm-heavier">
           {info.title}
         </h2>
 

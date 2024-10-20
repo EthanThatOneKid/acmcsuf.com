@@ -36,11 +36,11 @@
           );
         }}
       >
-        <BwIcon src="/assets/svg/copy-link.svg" alt="copy link" />
+        <BwIcon src="/assets/copy-link.svg" alt="copy link" />
       </button>
     </div>
     <a href={makeBlogPostPageURL(post.id)}>
-      <h2 class="headers">{post.title}</h2>
+      <h2 class="acm-heavier">{post.title}</h2>
     </a>
     <div class="markdown-body">
       {@html post.html}

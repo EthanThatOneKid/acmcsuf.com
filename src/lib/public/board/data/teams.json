@@ -1,62 +1,94 @@
 [
   {
-    "title": "General",
     "id": "general",
-    "picture": "/assets/badges/general.svg",
-    "color": "var(--acm-blue)"
+    "title": "General",
+    "description": "General ACM team member.",
+    "logoSrc": "/assets/general-logo.svg",
+    "oldLogoSrc": "/assets/general-logo-old.svg",
+    "color": "var(--acm-blue)",
+    "tiers": [0, 1, 2, 3, 4, 5, 6, 7, 31]
   },
   {
-    "title": "AI",
     "id": "ai",
-    "picture": "/assets/badges/ai-team.svg",
-    "color": "var(--acm-emerald)"
+    "title": "AI",
+    "description": "AI team member.",
+    "logoSrc": "/assets/ai-logo.svg",
+    "color": "var(--acm-emerald)",
+    "tiers": [20, 21]
   },
   {
-    "title": "Algo",
     "id": "algo",
-    "picture": "/assets/badges/algo-team.svg",
-    "color": "var(--acm-purple)"
+    "title": "Algo",
+    "description": "Algo team member.",
+    "logoSrc": "/assets/algo-logo.svg",
+    "oldLogoSrc": "/assets/algo-logo-old.svg",
+    "color": "var(--acm-purple)",
+    "tiers": [11, 12]
   },
   {
-    "title": "Design",
     "id": "design",
-    "picture": "/assets/badges/design-team.svg",
-    "color": "var(--acm-pink)"
+    "title": "Design",
+    "description": "Design team member.",
+    "logoSrc": "/assets/design-logo.svg",
+    "oldLogoSrc": "/assets/create-logo-old.svg",
+    "color": "var(--acm-pink)",
+    "tiers": [13, 14, 15, 16]
   },
   {
-    "title": "Dev",
     "id": "dev",
-    "picture": "/assets/badges/dev-team.svg",
-    "color": "var(--acm-bluer)"
+    "title": "Dev",
+    "description": "Dev team member.",
+    "logoSrc": "/assets/dev-logo.svg",
+    "oldLogoSrc": "/assets/dev-logo-old.svg",
+    "color": "var(--acm-bluer)",
+    "tiers": [17, 18, 19, 35]
   },
   {
-    "title": "Game Dev",
     "id": "gamedev",
-    "picture": "/assets/badges/gamedev-team.svg",
-    "color": "var(--acm-red)"
+    "title": "Game Dev",
+    "description": "Game Dev team member.",
+    "logoSrc": "/assets/gamedev-logo.svg",
+    "color": "var(--acm-red)",
+    "tiers": [22, 23]
   },
   {
-    "title": "Marketing",
     "id": "marketing",
-    "picture": "/assets/badges/marketing-team.svg",
-    "color": "var(--acm-blush)"
+    "title": "Marketing",
+    "description": "Marketing team member.",
+    "logoSrc": "/assets/marketing-logo.svg",
+    "color": "var(--acm-blush)",
+    "tiers": [8, 9, 10]
   },
   {
-    "title": "ICPC",
     "id": "icpc",
-    "picture": "/assets/badges/icpc-team.svg",
-    "color": "var(--acm-orange)"
+    "title": "ICPC",
+    "description": "ICPC team member.",
+    "logoSrc": "/assets/icpc-logo.svg",
+    "color": "var(--acm-orange)",
+    "tiers": []
   },
   {
-    "title": "Open Source Software",
     "id": "oss",
-    "picture": "/assets/badges/oss-team.svg",
-    "color": "var(--acm-turquoise)"
+    "title": "Open Source Software",
+    "description": "Open Source Software team member. We create and maintain open source projects pertaining to ACM at CSUF.",
+    "logoSrc": "/assets/oss-logo.svg",
+    "color": "var(--acm-turquoise)",
+    "tiers": [32, 33]
   },
   {
-    "title": "Special Events",
     "id": "special-events",
-    "picture": "/assets/badges/special-events-team.svg",
-    "color": "var(--acm-lemon)"
+    "title": "Special Events",
+    "description": "Special Events team member.",
+    "logoSrc": "/assets/special-events-logo.svg",
+    "color": "var(--acm-lemon)",
+    "tiers": [24, 25]
+  },
+  {
+    "id": "nodebuds",
+    "title": "Node Buds",
+    "description": "Node Buds team member.",
+    "logoSrc": "/assets/nodebuds-logo-old.svg",
+    "color": "var(--acm-red)",
+    "tiers": [26, 34]
   }
 ]

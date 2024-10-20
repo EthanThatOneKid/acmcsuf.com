@@ -33,7 +33,7 @@
 <Block align={TextAlignment.LEFT}>
   <div slot="text">
     <p>
-      <span class="brand-italic">
+      <span class="acm-italic">
         Upload an image of your headshot, crop to your liking, and download the resulting ACM at
         CSUF board image. Copy the image link to your clipboard to share with your friends in ACM at
         CSUF!
@@ -43,10 +43,11 @@
     <ol class="board-instructions">
       <li>Upload your headshot.</li>
       <li>Drag the crop box to your liking.</li>
-      <li>Copy the image link to your clipboard.</li>
-      <li>Go to the ACM at CSUF Discord server.</li>
-      <li>Execute slash command: <code>/boardd picture [PASTE_URL]</code></li>
-      <li>Or request changes to be made from <code>@Webmaster</code>.</li>
+      <li>
+        Copy the image link to your clipboard to share with your friends in the <a href="/discord"
+          >ACM at CSUF Discord server</a
+        >!
+      </li>
     </ol>
   </div>
 </Block>

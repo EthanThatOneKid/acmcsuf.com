@@ -3,6 +3,21 @@
   import Button from '$lib/components/button/button.svelte';
   import Bar from '$lib/components/nav/bar.svelte';
   import Footer from '$lib/components/footer/footer.svelte';
+  import { onMount } from 'svelte';
+  import { AcmTheme, theme } from '$lib/public/legacy/theme';
+
+  function changeTheme(event: MediaQueryListEvent) {
+    theme.set(event.matches ? AcmTheme.Dark : AcmTheme.Light);
+  }
+
+  onMount(() => {
+    theme.init();
+    if ('matchMedia' in window) {
+      const mediaList = matchMedia('(prefers-color-scheme: dark)');
+      mediaList.addEventListener('change', changeTheme);
+      return () => mediaList.removeEventListener('change', changeTheme);
+    }
+  });
 </script>
 
 <Bar />
@@ -13,12 +28,15 @@
 
 <section title={$page.error?.message}>
   <div class="container">
-    <div>
-      <em>404</em>
-      <h1>Frank can't find where you're going!</h1>
-      <Button text={'Return to Home'} link={'/'} />
+    <div class="content-container">
+      <div class="text-container">
+        <h1>404</h1>
+        <h2>Can't find where you're going?</h2>
+        <h2 class="gap">Head home!</h2>
+        <Button text={'Return to Home'} link={'/'} />
+      </div>
+      <img src="/assets/capy-meme.svg" alt="404 - Page Not Found" />
     </div>
-    <img src="/assets/png/lost-frank.png" alt="404 - Page Not Found" />
   </div>
 </section>
 
@@ -26,25 +44,49 @@
 
 <style>
   .container {
-    min-height: 100vh;
+    height: 700px;
+    text-align: center;
+    padding-top: 100px;
+  }
+
+  h1 {
+    font-size: 100px;
+    text-shadow: var(--acm-blue) 2px 2px;
+    line-height: 1;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .gap {
+    margin-bottom: 20px;
+  }
+  section img {
+    max-width: 80%;
+    min-width: 230px;
+    height: auto;
+  }
+
+  .text-container {
+    min-width: 205px;
+  }
+
+  .content-container {
     display: flex;
-    gap: 2rem;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 100px;
-    text-align: center;
+    flex-direction: column;
+    gap: 3rem;
+    width: 80%;
+    height: 80%;
+    margin: auto;
   }
 
-  em {
-    font-size: 40px;
-    text-shadow: var(--acm-blue) 2px 2px;
-  }
-
-  section img {
-    width: 100%;
-    max-width: 1000px;
-    height: auto;
+  /* min-width: 480px */
+  @media screen and (min-width: 550px) {
+    .content-container {
+      flex-direction: row-reverse;
+    }
   }
 </style>

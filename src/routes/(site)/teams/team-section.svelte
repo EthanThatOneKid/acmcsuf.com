@@ -1,91 +1,357 @@
 <script lang="ts">
   import type { Team } from '$lib/public/board/types';
-  import { TextAlignment } from '$lib/public/text-alignment/text-alignment';
+  import { OFFICERS_JSON } from '$lib/public/board/data';
+  import { Term, getMembers } from '$lib/public/board';
+  import Members from './members.svelte';
 
-  export let textAlign: TextAlignment = TextAlignment.RIGHT;
-  export let info: Team | undefined;
+  export let info: Team;
+  export let term: Term;
+
+  $: members = getMembers(OFFICERS_JSON, term, info?.tiers ?? []);
+
+  const generalLogoNoPreference = '/assets/general-logo.gif';
+  const permanentTeamIDs = ['general', 'icpc', 'oss'];
+  const oldTerms = [Term.Fall21, Term.Spring21, Term.Spring22];
+  const nodebudsTerms = [Term.Fall21, Term.Spring21, Term.Spring22, Term.Fall24];
+  const gamedevTerms = [Term.Spring23, Term.Fall23, Term.Spring24, Term.Fall24];
+  $: skip =
+    (members.length === 0 && !permanentTeamIDs.includes(info?.id)) ||
+    (info?.id === 'nodebuds' && !nodebudsTerms.includes(term)) ||
+    (info?.id === 'gamedev' && !gamedevTerms.includes(term));
 </script>
 
-<div class="container">
-  {#if info !== undefined}
-    <section id={info.id} class:👈={textAlign === TextAlignment.LEFT}>
-      <img src={info.picture} alt={`acm${info.title} Logo`} />
-      <div>
+{#if !skip}
+  <div class="team-section-container">
+    <section
+      id={info.id}
+      class="team-section"
+      class:marketing-animation={info.id === 'marketing'}
+      class:algo-animation={info.id === 'algo'}
+      class:design-animation={info.id === 'design'}
+      class:dev-animation={info.id === 'dev'}
+      class:ai-animation={info.id === 'ai'}
+      class:oss-animation={info.id === 'oss'}
+      class:nodebuds-animation={info.id === 'nodebuds'}
+      class:icpc-animation={info.id === 'icpc'}
+      class:special-events-animation={info.id === 'special-events'}
+      class:gamedev-animation={info.id === 'gamedev'}
+    >
+      <picture>
+        {#if info.id === 'general'}
+          <source
+            srcset={oldTerms.includes(term)
+              ? info.oldLogoSrc ?? generalLogoNoPreference
+              : generalLogoNoPreference}
+            media="(prefers-reduced-motion: no-preference)"
+          />
+        {/if}
+
+        <img
+          src={oldTerms.includes(term) ? info.oldLogoSrc ?? info.logoSrc : info.logoSrc}
+          alt={`${info.title} Team Logo`}
+        />
+      </picture>
+
+      <div class="team-description">
         <h2>
-          <span class="headers size-lg">
-            <span style:--font-color={info.color}>
-              <span class="brand-em">{info.title}</span>
-            </span>
-            <span class="brand-em">Team</span>
+          <span class="acm-heavier size-lg acm-heaviest">
+            <span style:--font-color={info.color} class="team-title">{info.title}</span>
+            Team
           </span>
         </h2>
-        <slot name="content" tag="p" />
+        <slot name="content" />
       </div>
     </section>
-  {/if}
-</div>
 
-<style lang="scss">
-  .container {
-    display: flex;
-    justify-content: center;
+    <Members data={{ members, term, team: info }} />
+  </div>
+{/if}
+
+<style>
+  .team-section-container {
+    display: grid;
+    padding: 1rem 0;
   }
 
-  section {
-    display: flex;
-    justify-content: space-between;
+  .team-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0 1rem;
+    scroll-margin-top: 100px;
+  }
+
+  .team-section img {
+    max-width: clamp(20rem, 17.342rem + 10.13vw, 30rem);
+    justify-self: center;
+  }
+
+  .team-section picture {
+    text-align: center;
+  }
+
+  .team-section .team-title {
+    color: var(--font-color, var(--acm-dark));
+  }
+
+  .team-section .team-description {
+    display: grid;
     align-items: center;
-    width: 1064px;
-    margin: 0 32px;
-    scroll-margin-top: 4rem;
+    text-align: center;
   }
 
-  section img {
-    margin-left: -32px;
-    width: 350px;
+  .marketing-animation img {
+    animation-duration: 1.5s;
+    animation-name: portrait-rotate;
+    animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
   }
 
-  section div {
-    text-align: right;
-    max-width: 650px;
+  @keyframes portrait-rotate {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(-10deg);
+    }
   }
 
-  section div h2 {
-    padding-bottom: 16px;
+  .algo-animation img {
+    animation-duration: 0.7s;
+    animation-name: bounce;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
   }
 
-  section div h2 span span {
-    color: var(--font-color);
+  @keyframes bounce {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-0.5rem);
+    }
   }
 
-  /* Left */
-  .👈 {
-    flex-direction: row-reverse;
+  .design-animation img {
+    animation-duration: 2.8s;
+    animation-timing-function: cubic-bezier(0.425, 0.145, 0.515, 0.955);
+    animation-name: flip;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
   }
 
-  .👈 div {
-    text-align: left;
+  @keyframes flip {
+    from {
+      transform: rotateX(0deg);
+    }
+    to {
+      transform: rotateX(-360deg);
+    }
   }
 
-  .👈 img {
-    margin-right: -32px;
+  .icpc-animation img {
+    animation-duration: 3s;
+    animation-timing-function: cubic-bezier(0.425, 0.145, 0.515, 0.955);
+    animation-name: rotate;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
   }
 
-  @media (max-width: 900px) {
-    section,
-    .👈 {
-      flex-direction: column;
+  @keyframes rotate {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(-360deg);
+    }
+  }
+
+  .dev-animation img {
+    animation-duration: 3s;
+    animation-name: spin;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .ai-animation img {
+    animation-duration: 1s;
+    animation-name: tilt;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes tilt {
+    from {
+      transform: rotate(-30deg);
+    }
+    to {
+      transform: rotate(30deg);
+    }
+  }
+
+  .gamedev-animation img {
+    --rumble: 5;
+    animation-duration: 1s;
+    animation-name: rumble;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes rumble {
+    10% {
+      transform: translate(calc(1px * var(--rumble)), calc(1px * var(--rumble)));
+    }
+    20% {
+      transform: translate(calc(-1px * var(--rumble)), calc(-2px * var(--rumble)));
+    }
+    30% {
+      transform: translate(calc(-3px * var(--rumble)), calc(0px * var(--rumble)));
+    }
+    40% {
+      transform: translate(calc(3px * var(--rumble)), calc(2px * var(--rumble)));
+    }
+    50% {
+      transform: translate(calc(1px * var(--rumble)), calc(-1px * var(--rumble)));
+    }
+    100% {
+      transform: translate(0px, 0px);
+    }
+  }
+
+  .oss-animation img {
+    animation-duration: 0.42069s;
+    animation-name: thrust;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes thrust {
+    0% {
+      transform: translate(1px, 1px) rotate(-10deg);
+    }
+    10% {
+      transform: translate(-1px, -2px) rotate(-8deg);
+    }
+    20% {
+      transform: translate(-3px, 0px) rotate(-6deg);
+    }
+    30% {
+      transform: translate(3px, 2px) rotate(-4deg);
+    }
+    40% {
+      transform: translate(1px, -1px) rotate(-2deg);
+    }
+    50% {
+      transform: translate(-1px, 2px) rotate(0deg);
+    }
+    60% {
+      transform: translate(-3px, 1px) rotate(2deg);
+    }
+    70% {
+      transform: translate(3px, 1px) rotate(4deg);
+    }
+    80% {
+      transform: translate(-1px, -1px) rotate(6deg);
+    }
+    90% {
+      transform: translate(1px, 2px) rotate(8deg);
+    }
+    100% {
+      transform: translate(1px, -2px) rotate(10deg);
+    }
+  }
+
+  .special-events-animation img {
+    animation-duration: 1.8s;
+    animation-name: slide;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    position: relative;
+  }
+
+  .nodebuds-animation img {
+    animation-duration: 1.2s;
+    animation-name: slide;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    position: relative;
+    animation-timing-function: cubic-bezier(0, 0, 0, 0);
+  }
+
+  @keyframes slide {
+    0% {
+      left: -18px;
     }
 
-    section div,
-    .👈 div {
-      text-align: center;
+    33% {
+      left: -10px;
     }
 
-    section img,
-    .👈 img {
-      margin: 0;
-      width: 200px;
+    50% {
+      left: 0;
+    }
+
+    66% {
+      left: 10px;
+    }
+
+    100% {
+      left: 20px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    /* Stops team logo animations when reduced animation is on :) */
+    .ai-animation img,
+    .algo-animation img,
+    .marketing-animation img,
+    .design-animation img,
+    .dev-animation img,
+    .nodebuds-animation img,
+    .icpc-animation img,
+    .special-events-animation img,
+    .oss-animation img {
+      animation: none;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    .team-section {
+      grid-template-columns: 1fr 2fr;
+      justify-self: center;
+      width: 1064px;
+      gap: 2rem;
+      margin: 0 32px;
+    }
+
+    .team-section img {
+      margin-left: -32px;
+      width: 350px;
+    }
+
+    .team-section .team-description {
+      text-align: left;
+    }
+
+    .team-section .team-description h2 {
+      align-self: end;
+    }
+
+    :nth-child(even) .team-section {
+      grid-template-columns: 2fr 1fr;
+    }
+
+    :nth-child(even) .team-description {
+      order: -1;
     }
   }
 </style>

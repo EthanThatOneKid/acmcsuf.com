@@ -1,0 +1,308 @@
+[
+  {
+    "id": "--acm-abyss",
+    "value": "rgba(var(--acm-abyss-rgb), 1)"
+  },
+  {
+    "id": "--acm-abyss-rgb",
+    "value": "5, 33, 85",
+    "color": "rgb(5, 33, 85)"
+  },
+  {
+    "id": "--acm-ai-rgb",
+    "value": "var(--acm-emerald-rgb)",
+    "color": "var(--acm-emerald)",
+    "aliasOf": "--acm-emerald-rgb"
+  },
+  {
+    "id": "--acm-algo-rgb",
+    "value": "var(--acm-purple-rgb)",
+    "color": "var(--acm-purple)",
+    "aliasOf": "--acm-purple-rgb"
+  },
+  {
+    "id": "--acm-blue",
+    "value": "rgba(var(--acm-blue-rgb), 1)"
+  },
+  {
+    "id": "--acm-blue-rgb",
+    "value": "44, 145, 198",
+    "color": "rgb(44, 145, 198)"
+  },
+  {
+    "id": "--acm-bluer",
+    "value": "rgba(var(--acm-bluer-rgb), 1)"
+  },
+  {
+    "id": "--acm-bluer-rgb",
+    "value": "30, 108, 255",
+    "color": "rgb(30, 108, 255)"
+  },
+  {
+    "id": "--acm-blush",
+    "value": "rgba(var(--acm-blush-rgb), 1)"
+  },
+  {
+    "id": "--acm-blush-rgb",
+    "value": "254, 14, 201",
+    "color": "rgb(254, 14, 201)"
+  },
+  {
+    "id": "--acm-canvas",
+    "value": "rgba(234, 234, 234, 1)"
+  },
+  {
+    "id": "--acm-dark",
+    "value": "#101315"
+  },
+  {
+    "id": "--acm-darker",
+    "value": "rgba(var(--acm-darker-rgb), 1)"
+  },
+  {
+    "id": "--acm-darker-rgb",
+    "value": "9, 45, 113",
+    "color": "rgb(9, 45, 113)"
+  },
+  {
+    "id": "--acm-darkest",
+    "value": "rgba(var(--acm-darkest-rgb), 1)"
+  },
+  {
+    "id": "--acm-darkest-rgb",
+    "value": "5, 33, 85",
+    "color": "rgb(5, 33, 85)"
+  },
+  {
+    "id": "--acm-design-rgb",
+    "value": "var(--acm-pink-rgb)",
+    "color": "var(--acm-pink)",
+    "aliasOf": "--acm-pink-rgb"
+  },
+  {
+    "id": "--acm-dev-rgb",
+    "value": "var(--acm-bluer-rgb)",
+    "color": "var(--acm-bluer)",
+    "aliasOf": "--acm-bluer-rgb"
+  },
+  {
+    "id": "--acm-dew",
+    "value": "rgba(var(--acm-dew-rgb), 1)"
+  },
+  {
+    "id": "--acm-dew-rgb",
+    "value": "235, 248, 255",
+    "color": "rgb(235, 248, 255)"
+  },
+  {
+    "id": "--acm-emerald",
+    "value": "rgba(var(--acm-emerald-rgb), 1)"
+  },
+  {
+    "id": "--acm-emerald-rgb",
+    "value": "33, 209, 159",
+    "color": "rgb(33, 209, 159)"
+  },
+  {
+    "id": "--acm-even",
+    "value": "var(--acm-dew)",
+    "aliasOf": "--acm-dew"
+  },
+  {
+    "id": "--acm-gamedev-rgb",
+    "value": "var(--acm-red-rgb)",
+    "color": "var(--acm-red)",
+    "aliasOf": "--acm-red-rgb"
+  },
+  {
+    "id": "--acm-general-rgb",
+    "value": "var(--acm-blue-rgb)",
+    "color": "var(--acm-blue)",
+    "aliasOf": "--acm-blue-rgb"
+  },
+  {
+    "id": "--acm-gray",
+    "value": "rgba(var(--acm-gray-rgb), 1)"
+  },
+  {
+    "id": "--acm-gray-rgb",
+    "value": "41, 44, 47",
+    "color": "rgb(41, 44, 47)"
+  },
+  {
+    "id": "--acm-icpc-rgb",
+    "value": "var(--acm-orange-rgb)",
+    "color": "var(--acm-orange)",
+    "aliasOf": "--acm-orange-rgb"
+  },
+  {
+    "id": "--acm-lemon",
+    "value": "rgba(var(--acm-lemon-rgb), 1)"
+  },
+  {
+    "id": "--acm-lemon-rgb",
+    "value": "255, 208, 41",
+    "color": "rgb(255, 208, 41)"
+  },
+  {
+    "id": "--acm-light",
+    "value": "#f8f8f8"
+  },
+  {
+    "id": "--acm-marketing-rgb",
+    "value": "var(--acm-blush-rgb)",
+    "color": "var(--acm-blush)",
+    "aliasOf": "--acm-blush-rgb"
+  },
+  {
+    "id": "--acm-midnight",
+    "value": "rgba(var(--acm-midnight-rgb), 1)"
+  },
+  {
+    "id": "--acm-midnight-rgb",
+    "value": "4, 21, 54",
+    "color": "rgb(4, 21, 54)"
+  },
+  {
+    "id": "--acm-nodebuds-rgb",
+    "value": "var(--acm-red-rgb)",
+    "color": "var(--acm-red)",
+    "aliasOf": "--acm-red-rgb"
+  },
+  {
+    "id": "--acm-ocean",
+    "value": "rgba(var(--acm-ocean-rgb), 1)"
+  },
+  {
+    "id": "--acm-ocean-rgb",
+    "value": "8, 40, 99",
+    "color": "rgb(8, 40, 99)"
+  },
+  {
+    "id": "--acm-odd",
+    "value": "var(--perma-light)",
+    "aliasOf": "--perma-light"
+  },
+  {
+    "id": "--acm-orange",
+    "value": "rgba(var(--acm-orange-rgb), 1)"
+  },
+  {
+    "id": "--acm-orange-rgb",
+    "value": "255, 121, 23",
+    "color": "rgb(255, 121, 23)"
+  },
+  {
+    "id": "--acm-oss-rgb",
+    "value": "var(--acm-turquoise-rgb)",
+    "color": "var(--acm-turquoise)",
+    "aliasOf": "--acm-turquoise-rgb"
+  },
+  {
+    "id": "--acm-pink",
+    "value": "rgba(var(--acm-pink-rgb), 1)"
+  },
+  {
+    "id": "--acm-pink-rgb",
+    "value": "255, 67, 101",
+    "color": "rgb(255, 67, 101)"
+  },
+  {
+    "id": "--acm-purple",
+    "value": "rgba(var(--acm-purple-rgb), 1)"
+  },
+  {
+    "id": "--acm-purple-rgb",
+    "value": "157, 53, 231",
+    "color": "rgb(157, 53, 231)"
+  },
+  {
+    "id": "--acm-red",
+    "value": "rgba(var(--acm-red-rgb), 1)"
+  },
+  {
+    "id": "--acm-red-rgb",
+    "value": "212, 17, 83",
+    "color": "rgb(212, 17, 83)"
+  },
+  {
+    "id": "--acm-redder",
+    "value": "rgba(var(--acm-redder-rgb), 1)"
+  },
+  {
+    "id": "--acm-redder-rgb",
+    "value": "110, 0, 37",
+    "color": "rgb(110, 0, 37)"
+  },
+  {
+    "id": "--acm-sky",
+    "value": "rgba(var(--acm-sky-rgb), 1)"
+  },
+  {
+    "id": "--acm-sky-rgb",
+    "value": "56, 182, 255",
+    "color": "rgb(56, 182, 255)"
+  },
+  {
+    "id": "--acm-special-events-rgb",
+    "value": "var(--acm-lemon-rgb)",
+    "color": "var(--acm-lemon)",
+    "aliasOf": "--acm-lemon-rgb"
+  },
+  {
+    "id": "--acm-turquoise",
+    "value": "rgba(var(--acm-turquoise-rgb), 1)"
+  },
+  {
+    "id": "--acm-turquoise-rgb",
+    "value": "17, 212, 177",
+    "color": "rgb(17, 212, 177)"
+  },
+  {
+    "id": "--acm-union",
+    "value": "linear-gradient(\n    to right,\n    var(--acm-turquoise),\n    var(--acm-blue),\n    var(--acm-bluer),\n    var(--acm-purple),\n    var(--acm-pink)\n  )"
+  },
+  {
+    "id": "--button-bg",
+    "value": "var(--acm-midnight)",
+    "aliasOf": "--acm-midnight"
+  },
+  {
+    "id": "--button-bg-hover",
+    "value": "var(--acm-ocean)",
+    "aliasOf": "--acm-ocean"
+  },
+  {
+    "id": "--button-color",
+    "value": "var(--perma-light)",
+    "aliasOf": "--perma-light"
+  },
+  {
+    "id": "--footer-bg",
+    "value": "var(--acm-ocean)",
+    "aliasOf": "--acm-ocean"
+  },
+  {
+    "id": "--navbar-bg",
+    "value": "var(--perma-light)",
+    "aliasOf": "--perma-light"
+  },
+  {
+    "id": "--perma-dark",
+    "value": "rgba(var(--perma-dark-rgb), 1)"
+  },
+  {
+    "id": "--perma-dark-rgb",
+    "value": "16, 19, 21",
+    "color": "rgb(16, 19, 21)"
+  },
+  {
+    "id": "--perma-light",
+    "value": "rgba(var(--perma-light-rgb), 1)"
+  },
+  {
+    "id": "--perma-light-rgb",
+    "value": "248, 248, 248",
+    "color": "rgb(248, 248, 248)"
+  }
+]
