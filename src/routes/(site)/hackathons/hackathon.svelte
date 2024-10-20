@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Hackathon } from '$lib/public/hackathons';
-  import BoardMember from '$lib/components/board-member/board-picture.svelte';
+  import BoardMember from '$lib/components/board-member/board-member.svelte';
 
   export let data: Hackathon;
 </script>
@@ -12,7 +12,13 @@
   <p>🎭 {data.theme}</p>
   <img src="/assets/hackathon-{data.id}.webp" alt="{data.title} website" />
   <p>{data.description}</p>
-  <BoardMember src={data.directors.picture}>
+  <h3>Directors</h3>
+  <div class="directors-list">
+    {#each data.directors as director}
+      <BoardMember src={'${director.picture}'} alt="{director.name}}" />
+      <p>{director.name}</p>
+    {/each}
+  </div>
 </section>
 
 <style>
