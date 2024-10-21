@@ -100,8 +100,8 @@
     "positions": {
       "S24": [{ "title": "Dev Officer", "tier": 19 }],
       "F24": [
-        { "title": "Node Buds Co-Team Lead", "tier": 34 },
-        { "title": "Algo Officer", "tier": 12 }
+        { "title": "Algo Officer", "tier": 12 },
+        { "title": "Node Buds Officer", "tier": 26 }
       ]
     },
     "discord": "@angellyn218"
@@ -520,7 +520,7 @@
       "F23": [{ "title": "Treasurer", "tier": 4 }],
       "S24": [{ "title": "Treasurer", "tier": 4 }],
       "F24": [
-        { "title": "Node Buds Co-Team Lead", "tier": 34 },
+        { "title": "Node Buds Team Lead", "tier": 34 },
         { "title": "AI Officer", "tier": 21 }
       ]
     },
