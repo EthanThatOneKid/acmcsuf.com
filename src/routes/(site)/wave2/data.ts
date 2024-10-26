@@ -18,18 +18,37 @@ export const TOOLS = {
 
 export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
   {
-    title: 'Web Officer',
+    title: 'Secretary',
     teamColor: 'var(--acm-general-rgb)',
     qualifications: [
-      li('Passion for web development and open source projects'),
-      li('Open to learning new technologies'),
-      li('Ability to work in a team and to teach others'),
+      li('Organizational and time management skills'),
+      li('Interest in helping the executive board with administrative tasks'),
+      li('Commitment to the providing information to the club members'),
     ],
-    tools: ['Google Drive/Docs', 'Discord', 'GitHub'],
+    tools: ['Google Drive/Docs', 'Discord', 'Social media'],
     responsibilities: [
-      li('Work closely with the Webmaster to maintain the ACM website and OSS projects'),
-      li('Understand the Git workflow and be able to teach it to others'),
-      li('Attend weekly meetings and provide updates on projects'),
+      li(
+        'Check emails daily and report to the President and Vice President of any important emails'
+      ),
+      li('Take notes during board meetings and send them to the board members'),
+      li('Assist in room booking for events'),
+      li('Outreach to companies for collaborative events or sponsorships'),
+    ],
+  },
+  {
+    title: 'Event Coordinator',
+    teamColor: 'var(--acm-general-rgb)',
+    qualifications: [
+      li('Interest in event planning and management'),
+      li('Interest in public speaking/leading events - Strong communication skills'),
+      li('Passionate for inclusion and increasing student engagement'),
+      li('Creative and innovative'),
+    ],
+    tools: ['Google Drive/Docs', 'Discord', 'Social media'],
+    responsibilities: [
+      li('Plan and organize socials and technical events every Friday at 5pm'),
+      li('Collaborate with other ACM branches to host events'),
+      li('Work with the Secretary to book rooms for events and other logistics'),
     ],
   },
   {

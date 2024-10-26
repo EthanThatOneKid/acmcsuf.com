@@ -5,7 +5,7 @@ const siteMap: SiteMap = {
     {
       id: 'homepage',
       title: 'Home',
-      link: '',
+      link: '/',
     },
     {
       id: 'eventspage',
@@ -53,18 +53,18 @@ const siteMap: SiteMap = {
   'Showcase Pages': [
     {
       id: 'gallery',
-      title: 'Gallery',
+      title: 'Photo Gallery',
       link: 'gallery',
+    },
+    {
+      id: 'portfoliospage',
+      title: 'Member Portfolios',
+      link: 'portfolios',
     },
     {
       id: 'genuarypage',
       title: 'Genuary',
       link: 'genuary',
-    },
-    {
-      id: 'onovemberpage',
-      title: 'Onovember',
-      link: 'onovember',
     },
   ],
   'Productivity pages': [
@@ -72,11 +72,6 @@ const siteMap: SiteMap = {
       id: 'lcdailiespage',
       title: 'LC-dailies',
       link: 'lc-dailies',
-    },
-    {
-      id: 'pomopage',
-      title: 'Pomo',
-      link: 'pomo',
     },
   ],
   'Contributing Pages': [
@@ -106,13 +101,6 @@ const siteMap: SiteMap = {
       id: 'randompage',
       title: 'Random',
       link: 'random',
-    },
-  ],
-  Outdated: [
-    {
-      id: 'nodebudspage',
-      title: 'Nodebuds',
-      link: 'nodebuds',
     },
   ],
   Policies: [

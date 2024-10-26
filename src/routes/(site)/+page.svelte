@@ -9,6 +9,36 @@
 
 <svelte:head>
   <title>ACM at CSUF</title>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://acmcsuf.com/",
+      "name": "ACM at CSUF",
+      "identifier": "acmcsuf",
+      "description": "The Association for Computing Machinery at California State University, Fullerton",
+      "url": "https://acmcsuf.com/",
+      "logo": "https://acmcsuf.com/favicon.png",
+      "email": "mailto:acmcsufullerton@gmail.com",
+      "sameAs": [
+        "https://fullerton.campuslabs.com/engage/organization/acm",
+        "https://instagram.com/acmcsuf",
+        "https://linkedin.com/company/acm-at-csuf/",
+        "https://www.tiktok.com/@acm_at_csuf",
+        "https://www.youtube.com/channel/UCDMBj0o4V8Cpt0jgsZLNVVg"
+      ],
+      "alumni": [
+        {
+          "@type": "Person",
+          "@id": "https://0xd14.id/"
+        },
+        {
+          "@type": "Person",
+          "@id": "https://id.etok.me/"
+        }
+      ]
+    }
+  </script>
 </svelte:head>
 
 <div class="sections-container">

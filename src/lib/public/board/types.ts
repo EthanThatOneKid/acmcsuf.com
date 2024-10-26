@@ -9,6 +9,7 @@ export enum Term {
   Spring23 = 'S23',
   Fall23 = 'F23',
   Spring24 = 'S24',
+  Fall24 = 'F24',
 }
 
 /**
@@ -59,6 +60,7 @@ export interface Officer {
   positions: {
     [key in Term]?: Position[];
   };
+  discord?: string;
   displayName?: string;
 }
 

@@ -80,7 +80,7 @@
     that position.
     <br />
     <br />
-    Last updated May 19, 2024
+    Last updated May 6, 2024
     <br />
     <br />
     <span class="center-btn" on:click={action} on:keypress={action} role="button" tabindex="0">
@@ -113,25 +113,23 @@
   <h1 id="contact-information" slot="headline" class="size-lg">Contact information</h1>
   <div slot="text" class="contact-text">
     <p class="size-sm">
-      <span class="brand-italic"
+      <span class="acm-italic"
         >Feel free to contact the ACM Executive Board if you have questions.</span
       >
     </p>
 
     <p class="size-sm">
-      <span class="brand-em">David Solano (ACM President)</span>
+      <span class="acm-heaviest">Joel Daniel Rico (ACM President)</span>
     </p>
     <ul>
-      <li>Email: <code>dsolano7@csu.fullerton.edu</code></li>
-      <li>Discord: <code>davidjsolano</code></li>
+      <li>Discord: <code>jjoeldaniel</code></li>
     </ul>
 
     <p class="size-sm">
-      <span class="brand-em">Daniel Truong (ACM VP)</span>
+      <span class="acm-heaviest">Esteban Escartin (ACM VP)</span>
     </p>
     <ul>
-      <li>Email: <code>anhduy1202@csu.fullerton.edu</code></li>
-      <li>Discord: <code>danieltruong</code></li>
+      <li>Discord: <code>pillo.</code></li>
     </ul>
   </div>
 </Block>

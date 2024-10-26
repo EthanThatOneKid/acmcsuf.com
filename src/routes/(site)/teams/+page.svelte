@@ -32,6 +32,10 @@
         gateways for students to explore new fields, develop new interests, and learn new skills
         that will benefit them in the industry.
       </p>
+      <p>
+        Feel free to reach out to board members through their Discord username, stated below their
+        profile.
+      </p>
       <div class="semester-button">
         <Select bind:defaultValue={currentFormattedTerm} options={formattedTerms} />
       </div>
@@ -51,12 +55,12 @@
   </p>
 </TeamSection>
 
-<TeamSection info={TEAMS.marketing} term={VISIBLE_TERMS[$termIndex]}>
+<TeamSection info={TEAMS.ai} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The <span class="acm-blush acm-heaviest">marketing</span> team has a strong passion towards
-    advertising and spreading word on all our ACM events.
-    <span class="acm-blush acm-heaviest">Marketing</span> utilizes their expertise in digital strategies
-    and creative storytelling to display a welcoming environment to all students.
+    The <span class="acm-emerald acm-heaviest">artificial intelligence</span> team is dedicated to
+    providing accessible information about artificial intelligence and machine learning to all.
+    <span class="acm-emerald acm-heaviest">AI</span> focuses on fun projects geared towards beginners
+    in the field.
   </p>
 </TeamSection>
 
@@ -87,40 +91,12 @@
   </p>
 </TeamSection>
 
-<TeamSection info={TEAMS.ai} term={VISIBLE_TERMS[$termIndex]}>
-  <p slot="content" class="size-md">
-    The <span class="acm-emerald acm-heaviest">artificial intelligence</span> team is dedicated to
-    providing accessible information about artificial intelligence and machine learning to all.
-    <span class="acm-emerald acm-heaviest">AI</span> focuses on fun projects geared towards beginners
-    in the field.
-  </p>
-</TeamSection>
-
 <TeamSection info={TEAMS['gamedev']} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
     The <span class="acm-red acm-heaviest">game development</span> team is dedicated to teaching the
     basics of programming in the gaming industry.
     <span class="acm-red acm-heaviest">Gamedev</span> focuses on educating students about design principles,
     design tools, and the development process of a project.
-  </p>
-</TeamSection>
-
-<TeamSection info={TEAMS['special-events']} term={VISIBLE_TERMS[$termIndex]}>
-  <p slot="content" class="size-md">
-    The <span class="acm-lemon acm-heaviest">special events</span> team is all about creating
-    unforgettable moments and experiences.
-    <span class="acm-lemon acm-heaviest">Special Events</span> plan and execute ex citing events that
-    bring our community together, fostering connections and celebrating shared passions.
-  </p>
-</TeamSection>
-
-<TeamSection info={TEAMS.nodebuds} term={VISIBLE_TERMS[$termIndex]}>
-  <p slot="content" class="size-md">
-    Personalized for your success, <span class="acm-red acm-heaviest">node buds</span> is our exclusive
-    program in partnership with ACM-W that exposes students to various opportunities that encourage connection,
-    skill building, as well as both personal and technical development. Everone under this program will
-    get paired with student-mentors, called Buddies , who will be there to help students prepare for
-    their successful journeys through the tech industry.
   </p>
 </TeamSection>
 
@@ -135,12 +111,38 @@
   </p>
 </TeamSection>
 
+<TeamSection info={TEAMS.marketing} term={VISIBLE_TERMS[$termIndex]}>
+  <p slot="content" class="size-md">
+    The <span class="acm-blush acm-heaviest">marketing</span> team has a strong passion towards
+    advertising and spreading word on all our ACM events.
+    <span class="acm-blush acm-heaviest">Marketing</span> utilizes their expertise in digital strategies
+    and creative storytelling to display a welcoming environment to all students.
+  </p>
+</TeamSection>
+
+<TeamSection info={TEAMS.nodebuds} term={VISIBLE_TERMS[$termIndex]}>
+  <p slot="content" class="size-md">
+    Connect & grow with <span class="acm-red acm-heaviest">node buds</span>! Our big-little program
+    pairs you with an experienced club officer for social events, workshops, and guidance as you
+    navigate the tech world. Build friendships, skills, and have a blast!
+  </p>
+</TeamSection>
+
 <TeamSection info={TEAMS.oss} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
     The <span class="acm-turquoise acm-heaviest">open source software</span> team is committed to
     fostering collaboration and innovation in the tech community.
     <span class="acm-turquoise acm-heaviest">OSS</span> actively contributes to ACM open source projects,
     sharing their expertise and driving advancements in software development.
+  </p>
+</TeamSection>
+
+<TeamSection info={TEAMS['special-events']} term={VISIBLE_TERMS[$termIndex]}>
+  <p slot="content" class="size-md">
+    The <span class="acm-lemon acm-heaviest">special events</span> team is all about creating
+    unforgettable moments and experiences.
+    <span class="acm-lemon acm-heaviest">Special Events</span> plan and execute ex citing events that
+    bring our community together, fostering connections and celebrating shared passions.
   </p>
 </TeamSection>
 
