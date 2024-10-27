@@ -4,7 +4,7 @@
 
 <section class="hero-container">
   <div class="hero-inner-container">
-      <div class="size-lg">
+    <div class="size-lg">
       <h1 class="hero-text">
         <span
           >Uncover your hidden passion in our curated
@@ -183,14 +183,14 @@
       align-items: baseline;
       gap: 2em;
     }
-  
+
     section .hero-inner-container .team-row3-container {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       align-items: baseline;
       gap: 2em;
     }
-  /* Middle centering new team addition in third row, temporary instance applied to the
+    /* Middle centering new team addition in third row, temporary instance applied to the
      third team row (team-row3-container), must be removed in the case of additional teams */
     section .team-row3-container .hero-inner-container {
       grid-column: 2;
