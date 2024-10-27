@@ -1,4 +1,4 @@
-export interface DaysOfDesignEntry {
+export interface DesignGalleryEntry {
   discordUsername: string;
   day: number;
   year: number;
