@@ -50,12 +50,11 @@
     </div>
 
     <div class="team-row2-container">
-      <!--Design Header-->
+      <!--Dev Header-->
       <div class="hero-inner-container">
-        <a href="/teams#design"><img src="/assets/design-logo.svg" alt="Design Team Badge" /></a>
+        <a href="/teams#dev"><img src="/assets/dev-logo.svg" alt="Dev Team Badge" /></a>
         <div class="size-md acm-heavy hero-text">
-          <span
-            >Learn to <span class="acm-pink">Design</span> UI/UX and web development material</span
+          <span><span class="acm-bluer">Develop</span> semester-long projects to show your mom</span
           >
         </div>
       </div>
@@ -80,7 +79,6 @@
           >
         </div>
       </div>
-
     </div>
 
     <div class="team-row3-container">
