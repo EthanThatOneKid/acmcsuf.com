@@ -14,8 +14,8 @@
 
   <p slot="text" class="size-md">
     The 100 Days of Design Challenge, hosted by our Design Team, allows for fellow members to
-    practice and show off their design skilss using Figma while enjoying their summer vacation
-    (*Margaritaville by Jimmy Buffett starts playing).
+    practice and show off their design skills using Figma while enjoying their summer vacation. Here
+    are ten professional designs. (*Margaritaville by Jimmy Buffett starts playing).
   </p>
 </Block>
 
@@ -38,6 +38,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
   }
   ul > li {
     margin: 15px;
