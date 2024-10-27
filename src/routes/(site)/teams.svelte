@@ -192,7 +192,8 @@
       align-items: baseline;
       gap: 2em;
     }
-  /* Middle centering new team addition in third row, temporary instance, must be removed in the case of additional teams */
+  /* Middle centering new team addition in third row, temporary instance applied to the
+     third team row (team-row3-container), must be removed in the case of additional teams */
     section .team-row3-container .hero-inner-container {
       grid-column: 2;
     }
