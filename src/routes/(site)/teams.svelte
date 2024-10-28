@@ -73,9 +73,9 @@
         <a href="/teams#icpc"><img src="/assets/icpc-logo.svg" alt="ICPC Team Badge" /></a>
         <div class="size-md acm-heavy hero-text">
           <span
-            >Ready for a challenge? Scratch your competitive itch at the <span class="acm-orange"
+            >Ready for a challenge? Scratch your competitive itch with the <span class="acm-orange"
               >ICPC</span
-            ></span
+            > team</span
           >
         </div>
       </div>
