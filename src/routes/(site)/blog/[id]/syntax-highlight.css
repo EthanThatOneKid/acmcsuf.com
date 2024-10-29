@@ -167,7 +167,6 @@
 
 :global(.pl-ent) /* entity.name.tag, markup.quote */ {
   color: var(--color-prettylights-syntax-entity-tag);
-  
 }
 
 :global(.pl-k) /* keyword, storage, storage.type */ {
