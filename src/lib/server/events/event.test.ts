@@ -30,7 +30,7 @@ test('makes id of capitalized event details', () => {
   expect(actual).toBe(expected);
 });
 
-// 빈 이벤트 설명을 파싱하는 테스트입니다.
+// 빈 이벤트 설명을 분석하는 테스트입니다.
 // Tests parsing an empty event description.
 test('parses empty event description', () => {
   const { description, variables } = parseDescription('');
@@ -38,7 +38,7 @@ test('parses empty event description', () => {
   expect(variables).toEqual(new Map());
 });
 
-// 텍스트만 있는 이벤트 설명을 파싱하는 테스트입니다.
+// 텍스트만 있는 이벤트 설명을 분석하는 테스트입니다.
 // Tests parsing an event description that contains only text.
 test('parses text-only event description', () => {
   const { description, variables } = parseDescription('Hello, world!');
@@ -46,7 +46,7 @@ test('parses text-only event description', () => {
   expect(variables).toEqual(new Map());
 });
 
-// 변수만 포함된 이벤트 설명을 파싱하는 테스트입니다.
+// 변수만 포함된 이벤트 설명을 분석하는 테스트입니다.
 // Tests parsing an event description that contains only a variable.
 test('parses variable-only event description', () => {
   const { description, variables } = parseDescription('ACM_TEST=test');
@@ -54,7 +54,7 @@ test('parses variable-only event description', () => {
   expect(variables).toEqual(new Map([['ACM_TEST', 'test']]));
 });
 
-// 텍스트와 변수가 모두 포함된 이벤트 설명을 파싱하는 테스트입니다.
+// 텍스트와 변수가 모두 포함된 이벤트 설명을 분석하는 테스트입니다.
 // Tests parsing an event description that contains both text and variables.
 test('parses variables and text in event description', () => {
   const { description, variables } = parseDescription('Hello, world! ACM_TEST=test');

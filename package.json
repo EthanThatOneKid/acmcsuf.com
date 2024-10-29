@@ -42,7 +42,7 @@
   "devDependencies": {
     "@size-limit/file": "^8.2.6",
     "@sveltejs/adapter-auto": "^2.0.0",
-    "@sveltejs/kit": "^1.20.4",
+    "@sveltejs/kit": "^1.30.4",
     "@types/html-to-text": "^9.0.1",
     "@types/qrcode": "^1.5.1",
     "@types/rss": "^0.0.30",
