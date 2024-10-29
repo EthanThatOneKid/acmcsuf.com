@@ -6,7 +6,7 @@
  * Licensed under MIT (https://github.com/primer/github-syntax-theme-generator/blob/master/LICENSE)
  */
 
-.light {
+:global(.light) {
   --color-prettylights-syntax-comment: #6a737d;
   --color-prettylights-syntax-constant: #005cc5;
   --color-prettylights-syntax-entity: #6f42c1;
@@ -40,7 +40,7 @@
   --color-canvas-subtle: #f6f8fa;
 }
 
-.dark {
+:global(.dark) {
   --color-prettylights-syntax-comment: #8b949e;
   --color-prettylights-syntax-constant: #79c0ff;
   --color-prettylights-syntax-entity: #d2a8ff;
@@ -75,7 +75,7 @@
 }
 
 @media (prefers-color-scheme: light) {
-  html[data-theme='light'] {
+  :global(html[data-theme='light']) {
     --color-prettylights-syntax-comment: #6a737d;
     --color-prettylights-syntax-constant: #005cc5;
     --color-prettylights-syntax-entity: #6f42c1;
@@ -111,7 +111,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  html[data-theme='dark'] {
+  :global(html[data-theme='dark']) {
     --color-prettylights-syntax-comment: #8b949e;
     --color-prettylights-syntax-constant: #79c0ff;
     --color-prettylights-syntax-entity: #d2a8ff;
@@ -146,126 +146,127 @@
   }
 }
 
-.pl-c /* comment, punctuation.definition.comment, string.comment */ {
+:global(.pl-c) /* comment, punctuation.definition.comment, string.comment */ {
   color: var(--color-prettylights-syntax-comment);
 }
 
-.pl-c1 /* constant, entity.name.constant, variable.other.constant, variable.language, support, meta.property-name, support.constant, support.variable, meta.module-reference, markup.raw, meta.diff.header, meta.output */,
-.pl-s .pl-v /* string variable */ {
+:global(.pl-c1 /* constant, entity.name.constant, variable.other.constant, variable.language, support, meta.property-name, support.constant, support.variable, meta.module-reference, markup.raw, meta.diff.header, meta.output */,
+.pl-s .pl-v) /* string variable */ {
   color: var(--color-prettylights-syntax-constant);
 }
 
-.pl-e /* entity */,
-.pl-en /* entity.name */ {
+:global(.pl-e /* entity */,
+.pl-en) /* entity.name */ {
   color: var(--color-prettylights-syntax-entity);
 }
 
-.pl-smi /* variable.parameter.function, storage.modifier.package, storage.modifier.import, storage.type.java, variable.other */,
-.pl-s .pl-s1 /* string source */ {
+:global(.pl-smi /* variable.parameter.function, storage.modifier.package, storage.modifier.import, storage.type.java, variable.other */,
+.pl-s .pl-s1) /* string source */ {
   color: var(--color-prettylights-syntax-storage-modifier-import);
 }
 
-.pl-ent /* entity.name.tag, markup.quote */ {
+:global(.pl-ent) /* entity.name.tag, markup.quote */ {
   color: var(--color-prettylights-syntax-entity-tag);
+  
 }
 
-.pl-k /* keyword, storage, storage.type */ {
+:global(.pl-k) /* keyword, storage, storage.type */ {
   color: var(--color-prettylights-syntax-keyword);
 }
 
-.pl-s /* string */,
+:global(.pl-s /* string */,
 .pl-pds /* punctuation.definition.string, source.regexp, string.regexp.character-class */,
 .pl-s .pl-pse .pl-s1 /* string punctuation.section.embedded source */,
 .pl-sr /* string.regexp */,
 .pl-sr .pl-cce /* string.regexp constant.character.escape */,
 .pl-sr .pl-sre /* string.regexp source.ruby.embedded */,
-.pl-sr .pl-sra /* string.regexp string.regexp.arbitrary-repitition */ {
+.pl-sr .pl-sra) /* string.regexp string.regexp.arbitrary-repitition */ {
   color: var(--color-prettylights-syntax-string);
 }
 
-.pl-v /* variable */,
-.pl-smw /* sublimelinter.mark.warning */ {
+:global(.pl-v /* variable */,
+.pl-smw) /* sublimelinter.mark.warning */ {
   color: var(--color-prettylights-syntax-variable);
 }
 
-.pl-bu /* invalid.broken, invalid.deprecated, invalid.unimplemented, message.error, brackethighlighter.unmatched, sublimelinter.mark.error */ {
+:global(.pl-bu) /* invalid.broken, invalid.deprecated, invalid.unimplemented, message.error, brackethighlighter.unmatched, sublimelinter.mark.error */ {
   color: var(--color-prettylights-syntax-brackethighlighter-unmatched);
 }
 
-.pl-ii /* invalid.illegal */ {
+:global(.pl-ii) /* invalid.illegal */ {
   color: var(--color-prettylights-syntax-invalid-illegal-text);
   background-color: var(--color-prettylights-syntax-invalid-illegal-bg);
 }
 
-.pl-c2 /* carriage-return */ {
+:global(.pl-c2) /* carriage-return */ {
   color: var(--color-prettylights-syntax-carriage-return-text);
   background-color: var(--color-prettylights-syntax-carriage-return-bg);
 }
 
-.pl-c2::before /* carriage-return */ {
+:global(.pl-c2::before) /* carriage-return */ {
   content: '^M';
 }
 
-.pl-sr .pl-cce /* string.regexp constant.character.escape */ {
+:global(.pl-sr .pl-cce) /* string.regexp constant.character.escape */ {
   font-weight: bold;
   color: var(--color-prettylights-syntax-string-regexp);
 }
 
-.pl-ml /* markup.list */ {
+:global(.pl-ml) /* markup.list */ {
   color: var(--color-prettylights-syntax-markup-list);
 }
 
-.pl-mh /* markup.heading */,
+:global(.pl-mh /* markup.heading */,
 .pl-mh .pl-en /* markup.heading entity.name */,
-.pl-ms /* meta.separator */ {
+.pl-ms) /* meta.separator */ {
   font-weight: bold;
   color: var(--color-prettylights-syntax-markup-heading);
 }
 
-.pl-mi /* markup.italic */ {
+:global(.pl-mi) /* markup.italic */ {
   font-style: italic;
   color: var(--color-prettylights-syntax-markup-italic);
 }
 
-.pl-mb /* markup.bold */ {
+:global(.pl-mb) /* markup.bold */ {
   font-weight: bold;
   color: var(--color-prettylights-syntax-markup-bold);
 }
 
-.pl-md /* markup.deleted, meta.diff.header.from-file, punctuation.definition.deleted */ {
+:global(.pl-md) /* markup.deleted, meta.diff.header.from-file, punctuation.definition.deleted */ {
   color: var(--color-prettylights-syntax-markup-deleted-text);
   background-color: var(--color-prettylights-syntax-markup-deleted-bg);
 }
 
-.pl-mi1 /* markup.inserted, meta.diff.header.to-file, punctuation.definition.inserted */ {
+:global(.pl-mi1) /* markup.inserted, meta.diff.header.to-file, punctuation.definition.inserted */ {
   color: var(--color-prettylights-syntax-markup-inserted-text);
   background-color: var(--color-prettylights-syntax-markup-inserted-bg);
 }
 
-.pl-mc /* markup.changed, punctuation.definition.changed */ {
+:global(.pl-mc) /* markup.changed, punctuation.definition.changed */ {
   color: var(--color-prettylights-syntax-markup-changed-text);
   background-color: var(--color-prettylights-syntax-markup-changed-bg);
 }
 
-.pl-mi2 /* markup.ignored, markup.untracked */ {
+:global(.pl-mi2) /* markup.ignored, markup.untracked */ {
   color: var(--color-prettylights-syntax-markup-ignored-text);
   background-color: var(--color-prettylights-syntax-markup-ignored-bg);
 }
 
-.pl-mdr /* meta.diff.range */ {
+:global(.pl-mdr) /* meta.diff.range */ {
   font-weight: bold;
   color: var(--color-prettylights-syntax-meta-diff-range);
 }
 
-.pl-ba /* brackethighlighter.tag, brackethighlighter.curly, brackethighlighter.round, brackethighlighter.square, brackethighlighter.angle, brackethighlighter.quote */ {
+:global(.pl-ba) /* brackethighlighter.tag, brackethighlighter.curly, brackethighlighter.round, brackethighlighter.square, brackethighlighter.angle, brackethighlighter.quote */ {
   color: var(--color-prettylights-syntax-brackethighlighter-angle);
 }
 
-.pl-sg /* sublimelinter.gutter-mark */ {
+:global(.pl-sg) /* sublimelinter.gutter-mark */ {
   color: var(--color-prettylights-syntax-sublimelinter-gutter-mark);
 }
 
-.pl-corl /* constant.other.reference.link, string.other.link */ {
+:global(.pl-corl) /* constant.other.reference.link, string.other.link */ {
   text-decoration: underline;
   color: var(--color-prettylights-syntax-constant-other-reference-link);
 }
