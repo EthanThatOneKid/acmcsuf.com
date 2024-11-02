@@ -129,7 +129,7 @@
     animation-name: spin;
     animation-duration: 17s;
     animation-iteration-count: infinite;
-    animation-timing-function: linear
+    animation-timing-function: linear;
   }
 
   @keyframes spin {
