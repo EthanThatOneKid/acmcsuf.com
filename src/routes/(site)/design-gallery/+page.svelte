@@ -10,12 +10,12 @@
 
 <Spacing --min="175px" --med="200px" --max="200px" />
 <Block>
-  <h1 slot="headline" class="size-xl acm-heavier">100 Days of Design | Summer 2024</h1>
+  <h1 slot="headline" class="size-xl acm-heavier">Design Gallery | Summer 2024</h1>
 
   <p slot="text" class="size-md">
     The 100 Days of Design Challenge, hosted by our Design Team, allows for fellow members to
     practice and show off their design skills using Figma while enjoying their summer vacation. Here
-    are ten professional designs. (*Margaritaville by Jimmy Buffett starts playing).
+    are ten professional designs.
   </p>
 </Block>
 
@@ -40,11 +40,13 @@
     justify-content: center;
     align-items: top;
   }
+
   ul > li {
     margin: 15px;
     text-align: center;
     width: min(80vw, 600px);
-    max-width: 40vw;
+    max-width: 25vw;
+    max-height: none;
   }
 
   img {
@@ -59,10 +61,12 @@
     text-align: center;
     margin-bottom: 2rem;
   }
+
   h2 {
     text-align: center;
     margin-bottom: 1rem;
   }
+
   p {
     text-align: center;
     margin-bottom: 2rem;
