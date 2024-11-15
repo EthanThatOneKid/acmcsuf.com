@@ -5,8 +5,22 @@
 
   const cards = [
     {
+      title: "General",
+      description: "The ACM general team is a dynamic group of individuals driving the success of our organization." +
+      " ACM General manages operations, organizes events, and ensure the smooth functioning of ACM." +
+      "They are the backbone of our community, fostering collaboration and innovation among members."
+    },
+    {
+      title: "AI",
+      description: "The artificial intelligence team is dedicated to providing accessible information" +
+      "about artificial intelligence and machine learning to all. AI focuses on fun projects " +
+      "geared towards beginners in the field."
+    },
+    {
       title: "Algo",
-      description: "algo desc"
+      description: "The algorithm team is dedicated to building programming fundamentals within students. " +
+      "Algo focuses on mastering data structures and algorithms, enhancing problem solving abilities, and" +
+      " exploration of competitive programming."
     },
     {
       title: "Open Source",
@@ -18,9 +32,42 @@
       "innovating together"
     },
     {
-      title: "AI",
-      description: "ai desc"
+      title: "Design",
+      description: "The design team is dedicated to emphasizing the importance of product design " +
+      "and product management in the tech industry. Design focuses on educating students about " +
+      "design principles, design tools, and the intricacies of conceptualization, development, "+
+      "and management of a product."
     },
+    {
+      title: "Dev",
+      description: "The development team is dedicated to giving students the opportunity to explore tech " +
+      "via hands-on projects and activities. Dev focuses on introducing students to software development, and" + 
+      " the various tech stacks used in the industry."
+    },
+    { 
+      title: "Game Dev",
+      description: "The game development team is dedicated to teaching the basics of programming in the " +
+      "gaming industry. Gamedev focuses on educating students about design principles, design tools," +
+      " and the development process of a project."
+    },
+    { 
+      title: "ICPC",
+      description: "The Intercollegiate Competitive Programming Competition is a contest to challenge students on their algorithms" + 
+      " and problem solving skills. The ICPC Team is dedicated to preparing students for the competition by hosting " +
+      "weekly practice sessions and mock contests."
+    },
+    {
+      title: "Marketing",
+      description: "The marketing team has a strong passion towards advertising and spreading word on " +
+      " all our ACM events. Marketing utilizes their expertise in digital strategies and creative storytelling " +
+      "to display a welcoming environment to all students."
+    }, 
+    {
+      title: "Node Buds",
+      description: "Connect & grow with node buds! Our big-little program pairs you with an experienced club " +
+      "officer for social events, workshops, and guidance as you navigate the tech world. Build friendships, " +
+      "skills, and have a blast!"
+    }
   ]
 
 </script>
