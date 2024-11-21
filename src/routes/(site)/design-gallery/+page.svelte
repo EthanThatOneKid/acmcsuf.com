@@ -22,8 +22,8 @@
 <ul>
   {#each ENTRIES as { day, imageSrc, discordUsername, prompt }}
     <li>
-      <h2>Day {day} by <span class="acm-pink">@{discordUsername}</span></h2>
       <img src={imageSrc} alt="Design by @{discordUsername} day {day}" />
+      <h2>Day {day} by <span class="acm-pink">@{discordUsername}</span></h2>
       <p class="size-md">Prompt: {prompt}</p>
     </li>
   {/each}
@@ -38,19 +38,20 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: top;
+    align-items: center;
   }
 
   ul > li {
     margin: 15px;
     text-align: center;
-    width: min(80vw, 600px);
-    max-width: 25vw;
-    max-height: none;
+    width: min(600px, 80vw);
+    max-width: 35vw;
   }
 
   img {
     width: 100%;
+    height: 40vh;
+    object-fit: contain;
   }
 
   img:hover {
