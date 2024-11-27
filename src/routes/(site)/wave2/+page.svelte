@@ -97,10 +97,10 @@
     role="button"
     tabindex="0"
   >
-  <!--Don't incude seceratry and event coordinater in wave2-->
-  {#each POSITIONS.filter((position) => position.title !== 'Secretary' && position.title !== 'Event Coordinator') as position}
-    <PositionList data={[position]} />
-  {/each}
+    <!--Don't incude seceratry and event coordinater in wave2 for spring-->
+    {#each POSITIONS.filter((position) => position.title !== 'Secretary' && position.title !== 'Event Coordinator') as position}
+      <PositionList data={[position]} />
+    {/each}
   </div>
 </section>
 
