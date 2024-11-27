@@ -125,7 +125,6 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
         'Attend Dev board meetings, provide essential input and collaborate with the Dev President and other officers'
       ),
       li('Oversee multiple Dev semester projects'),
-      li('Assist and direct students in ACM Open Source Projects'),
       li(
         'Possibility of being tasked to collaborate and participate in events created in partnerships with other ACM branches',
         [
