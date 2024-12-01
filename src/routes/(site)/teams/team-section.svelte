@@ -12,8 +12,8 @@
   const generalLogoNoPreference = '/assets/general-logo.gif';
   const permanentTeamIDs = ['general', 'icpc', 'oss'];
   const oldTerms = [Term.Fall21, Term.Spring21, Term.Spring22];
-  const nodebudsTerms = [...oldTerms];
-  const gamedevTerms = [Term.Spring23, Term.Fall23, Term.Spring24];
+  const nodebudsTerms = [Term.Fall21, Term.Spring21, Term.Spring22, Term.Fall24];
+  const gamedevTerms = [Term.Spring23, Term.Fall23, Term.Spring24, Term.Fall24];
   $: skip =
     (members.length === 0 && !permanentTeamIDs.includes(info?.id)) ||
     (info?.id === 'nodebuds' && !nodebudsTerms.includes(term)) ||
@@ -100,7 +100,7 @@
   }
 
   .marketing-animation img {
-    animation-duration: 2s;
+    animation-duration: 1.5s;
     animation-name: portrait-rotate;
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
     animation-iteration-count: infinite;
@@ -112,7 +112,7 @@
       transform: rotate(0);
     }
     to {
-      transform: rotate(-90deg);
+      transform: rotate(-10deg);
     }
   }
 
@@ -279,7 +279,7 @@
   }
 
   .nodebuds-animation img {
-    animation-duration: 1.8s;
+    animation-duration: 1.2s;
     animation-name: slide;
     animation-iteration-count: infinite;
     animation-direction: alternate;
@@ -289,7 +289,7 @@
 
   @keyframes slide {
     0% {
-      left: -60px;
+      left: -18px;
     }
 
     33% {
@@ -305,7 +305,7 @@
     }
 
     100% {
-      left: 60px;
+      left: 20px;
     }
   }
 

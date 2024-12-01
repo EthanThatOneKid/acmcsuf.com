@@ -83,9 +83,54 @@
       ?.shift() as TeamMatch;
   }
 
+  function totalTallies(tallies: Record<string, number>) {
+    let totalTallies = 0;
+    Object.values(tallies).forEach((value) => (totalTallies += value));
+    return totalTallies;
+  }
+
+  // recalculates the percentages and adjusts them to add up to 100%
+  function calculatePercentages(talliedResponses: Record<string, number>, totalTallies: number) {
+    let sum = 0;
+    let highest = '';
+    let secondHighest = '';
+    let highestNum = 0;
+    let res: Record<string, number> = {};
+    for (const [key, value] of Object.entries(talliedResponses)) {
+      const percentage = Math.round((value / totalTallies) * 100);
+      sum += percentage;
+      if (value >= highestNum) {
+        if (highest && value == highestNum) {
+          secondHighest = key;
+        } else {
+          if (highest) secondHighest = highest;
+          highest = key;
+          highestNum = value;
+        }
+      } else if (secondHighest && value > talliedResponses[secondHighest]) {
+        secondHighest = key;
+      } else if (!secondHighest) {
+        secondHighest = key;
+      }
+      res[key] = percentage;
+    }
+    if (sum < 100) {
+      // if the sum of percentages is less than 100, add the difference to the highest percentage
+      res[highest] += 100 - sum;
+    } else if (sum > 100) {
+      // if the sum of percentages is greater than 100, subtract the difference from the second highest percentage
+      res[secondHighest] -= sum - 100;
+    }
+    return res;
+  }
+
   $: talliedResponses = tallyResponses(responses);
 
   $: match = maxTallies(talliedResponses);
+
+  $: sumOfTallies = totalTallies(talliedResponses);
+
+  $: calculatedPercentages = calculatePercentages(talliedResponses, sumOfTallies);
 
   // local storage stuff
   let quizStorage: QuizStorage | undefined;
@@ -172,10 +217,7 @@
           {match} <span>Team</span>
         </h2>
         <img src={TEAMS[match].logoSrc} alt={`${match} icon`} class="team-icon" />
-        <ProgressBar
-          progress={(talliedResponses[match] / data.questions.length) * 100}
-          fillColor={TEAMS[match].color}
-        />
+        <ProgressBar progress={calculatedPercentages[match]} fillColor={TEAMS[match].color} />
       </div>
       {#each Object.entries(TEAMS).filter(([otherMatch]) => otherMatch !== match && !excludedTeamIDs.includes(otherMatch)) as [otherMatch, team] (otherMatch)}
         <div
@@ -192,9 +234,7 @@
           <img src={team.logoSrc} alt={`${otherMatch} icon`} class="team-icon" />
 
           <ProgressBar
-            progress={talliedResponses[otherMatch]
-              ? (talliedResponses[otherMatch] / data.questions.length) * 100
-              : 0}
+            progress={talliedResponses[otherMatch] ? calculatedPercentages[otherMatch] : 0}
             fillColor={team.color}
           />
         </div>
@@ -428,22 +468,22 @@
     }
   }
 
-  :global(.light) {
+  :global(html[data-theme='light']) {
     --quiz-bg: rgba(243, 243, 243, 0.795);
   }
 
-  :global(.dark) {
+  :global(html[data-theme='dark']) {
     --quiz-bg: #6868682a;
   }
 
   @media (prefers-color-scheme: light) {
-    :global(body:not(.dark)) {
+    :global(html[data-theme='light']) {
       --quiz-bg: rgba(243, 243, 243, 0.795);
     }
   }
 
   @media (prefers-color-scheme: dark) {
-    :global(body:not(.light)) {
+    :global(html[data-theme='dark']) {
       --quiz-bg: #6868682a;
     }
   }

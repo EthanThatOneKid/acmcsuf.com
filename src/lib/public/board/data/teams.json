@@ -41,7 +41,7 @@
     "logoSrc": "/assets/dev-logo.svg",
     "oldLogoSrc": "/assets/dev-logo-old.svg",
     "color": "var(--acm-bluer)",
-    "tiers": [17, 18, 19]
+    "tiers": [17, 18, 19, 35]
   },
   {
     "id": "gamedev",
@@ -85,10 +85,10 @@
   },
   {
     "id": "nodebuds",
-    "title": "Nodebuds",
-    "description": "Nodebuds team member.",
+    "title": "Node Buds",
+    "description": "Node Buds team member.",
     "logoSrc": "/assets/nodebuds-logo-old.svg",
     "color": "var(--acm-red)",
-    "tiers": [26]
+    "tiers": [26, 34]
   }
 ]

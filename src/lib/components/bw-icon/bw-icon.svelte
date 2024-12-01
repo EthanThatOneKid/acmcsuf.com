@@ -18,13 +18,13 @@
 />
 
 <style lang="scss">
-  :global(body.dark) {
+  :global(html[data-theme='dark']) {
     .filter-dark {
       filter: invert(1);
     }
   }
 
-  :global(body:not(.dark)) {
+  :global(html[data-theme='light']) {
     .filter-light {
       filter: invert(1);
     }
