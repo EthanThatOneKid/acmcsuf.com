@@ -51,19 +51,19 @@
 </script>
 
 <svelte:head>
-  <title>Fall 2024 Board Applications | ACM at CSUF</title>
+  <title>Spring 2025 Board Applications | ACM at CSUF</title>
 </svelte:head>
 
 <MetaTags
   openGraph={{
-    title: 'Fall 2024 board applications',
+    title: 'Spring 2025 board applications',
     description:
-      'Listed below are the positions that are open for the Fall 2024 semester. Please read the descriptions carefully and apply for the position(s) that you are interested in. You may apply for multiple positions, but you may only be selected for one. If you are selected for a position, you will be contacted by the current board member in charge of that position.',
-    url: 'https://acmcsuf.com/fall24board',
+      'Listed below are the positions that are open for the Spring 2025 semester. Please read the descriptions carefully and apply for the position(s) that you are interested in. You may apply for multiple positions, but you may only be selected for one. If you are selected for a position, you will be contacted by the current board member in charge of that position.',
+    url: 'https://acmcsuf.com/spring25board',
     type: 'article',
     article: {
-      publishedTime: '2023-22-05T00:00:00.000Z',
-      modifiedTime: '2023-22-05T00:00:00.000Z',
+      publishedTime: '2024-26-11T00:00:00.000Z',
+      modifiedTime: '2024-26-11T00:00:00.000Z',
     },
   }}
 />
@@ -71,16 +71,16 @@
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <Block align={TextAlignment.LEFT}>
-  <h1 slot="headline" class="size-lg">Fall 2024 Board Positions</h1>
+  <h1 slot="headline" class="size-lg">Spring 2025 Board Positions</h1>
   <p slot="text" class="size-sm">
-    Listed below are the positions that are open for the Fall 2024 semester (semester long
+    Listed below are the positions that are open for the Spring 2025 semester (semester long
     position). Please read the descriptions carefully and apply for the position(s) that you are
     interested in. You may apply for multiple positions, but you may only be selected for one. If
     you are selected for a position, you will be contacted by the current board member in charge of
     that position.
     <br />
     <br />
-    Last updated May 6, 2024
+    Last updated November 26, 2024
     <br />
     <br />
     <span class="center-btn" on:click={action} on:keypress={action} role="button" tabindex="0">
@@ -97,14 +97,17 @@
     role="button"
     tabindex="0"
   >
-    <PositionList data={POSITIONS} />
+    <!--Don't incude seceratry and event coordinater in wave2 for spring-->
+    {#each POSITIONS.filter((position) => position.title !== 'Secretary' && position.title !== 'Event Coordinator') as position}
+      <PositionList data={[position]} />
+    {/each}
   </div>
 </section>
 
 <Spacing --med="64px" />
 
 <span class="center-btn">
-  <Button link="https://forms.gle/LFyRjjyWT4KUEr6f6" text="Apply now!" />
+  <Button link="https://forms.gle/jQmBthoEidfKTFuV8" text="Apply now!" />
 </span>
 
 <Spacing --med="64px" />
