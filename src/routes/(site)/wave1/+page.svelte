@@ -115,19 +115,17 @@
     </p>
 
     <p class="size-sm">
-      <span class="acm-heaviest">David Solano (ACM President)</span>
+      <span class="acm-heaviest">Joel Daniel Rico (ACM President)</span>
     </p>
     <ul>
-      <li>Email: <code>dsolano7@csu.fullerton.edu</code></li>
-      <li>Discord: <code>davidjsolano</code></li>
+      <li>Discord: <code>jjoeldaniel</code></li>
     </ul>
 
     <p class="size-sm">
-      <span class="acm-heaviest">Daniel Truong (ACM VP)</span>
+      <span class="acm-heaviest">Esteban Escartin (ACM VP)</span>
     </p>
     <ul>
-      <li>Email: <code>anhduy1202@csu.fullerton.edu</code></li>
-      <li>Discord: <code>danieltruong</code></li>
+      <li>Discord: <code>pillo.</code></li>
     </ul>
   </div>
 </Block>
