@@ -125,7 +125,6 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
         'Attend Dev board meetings, provide essential input and collaborate with the Dev President and other officers'
       ),
       li('Oversee multiple Dev semester projects'),
-      li('Assist and direct students in ACM Open Source Projects'),
       li(
         'Possibility of being tasked to collaborate and participate in events created in partnerships with other ACM branches',
         [
@@ -160,7 +159,7 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
         'Research common game dev techniques to relay this information via workshops and events, and to enhance our chapter'
       ),
       li(
-        'Check Discord messages and respond to the important discussion in regards to Dev at least daily'
+        'Check Discord messages and respond to the important discussion in regards to Game Dev at least daily'
       ),
     ],
   },
@@ -180,6 +179,28 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
       li('Suggest and direct new ideas for the diversification of our club '),
       li('Take pictures of our members to add to our socials and website gallery'),
       li('Produce paragraphs for the announcements in our official Discord server'),
+    ],
+  },
+  {
+    title: 'Open Source Software Officer',
+    teamColor: 'var(--acm-oss-rgb)',
+    qualifications: [
+      li('Interest in open source development and collaboration'),
+      li('Flexibility with skills to develop projects for ACM'),
+      li('Strong communcation and leadership'),
+      li('Ability to manage time effectively and balance responsibilities'),
+    ],
+    tools: ['Google Drive/Docs', 'Discord', 'GitHub'],
+    responsibilities: [
+      li(
+        'Host weekly workshops on topics related to open source development along with the OSS president and Officers'
+      ),
+      li(
+        'Oversee and assist the development of semester-long open source projects that benefit the ACM community',
+        [li('Research and evaluate relevant technologies used across projects (e.g. SvelteKit)')]
+      ),
+      li('Attend weekly meetings to prepare events, workshops, and discuss progress'),
+      li('Check Discord messages and respond to important OSS discussions daily'),
     ],
   },
 ];
