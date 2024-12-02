@@ -46,7 +46,6 @@
     margin: 15px;
     text-align: center;
     width: min(600px, 80vw);
-    max-width: 35vw;
   }
 
   img {
@@ -66,7 +65,7 @@
 
   h2 {
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
 
   p {
