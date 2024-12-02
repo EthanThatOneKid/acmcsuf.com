@@ -20,8 +20,6 @@
   {:else}
     <h1>{team.title} <span>Team</span></h1>
     <p>{report.blurb}</p>
-
-    <h2 class="mobile-screen-display">Previous Events</h2>
     <div class="image-layout">
       {#each report.workshopPictures as picture (picture)}
         <img src={picture} alt={picture} class="team-pictures" />
@@ -33,13 +31,6 @@
 </section>
 
 <style lang="scss">
-  .large-screen-display {
-    display: block;
-  }
-  .mobile-screen-display {
-    display: none;
-  }
-
   .container {
     --quiz-bg: rgba(102, 102, 102, 0.274);
     width: 450px;
@@ -111,23 +102,7 @@
     border: var(--team-color) 3px solid;
   }
 
-  ul {
-    list-style: none;
-    font-style: italic;
-    font-weight: 600;
-  }
-
-  a {
-    color: var(--team-color);
-  }
-
   @media screen and (max-width: 740px) {
-    .large-screen-display {
-      display: none;
-    }
-    .mobile-screen-display {
-      display: block;
-    }
     .container {
       width: 325px;
     }
