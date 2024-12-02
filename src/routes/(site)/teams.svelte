@@ -18,6 +18,16 @@
     </div>
 
     <div class="team-row1-container">
+      <!--AI Header-->
+      <div class="hero-inner-container">
+        <a href="/teams#ai"><img src="/assets/ai-logo.svg" alt="AI Team Badge" /></a>
+        <div class="size-md acm-heavy hero-text">
+          <span
+            >Dive into the world of <span class="acm-emerald">Artificial Intelligence</span></span
+          >
+        </div>
+      </div>
+
       <!--Algo Header-->
       <div class="hero-inner-container">
         <a href="/teams#algo"><img src="/assets/algo-logo.svg" alt="Algo Team Badge" /></a>
@@ -27,14 +37,7 @@
           >
         </div>
       </div>
-      <!--Dev Header-->
-      <div class="hero-inner-container">
-        <a href="/teams#dev"><img src="/assets/dev-logo.svg" alt="Dev Team Badge" /></a>
-        <div class="size-md acm-heavy hero-text">
-          <span><span class="acm-bluer">Develop</span> semester-long projects to show your mom</span
-          >
-        </div>
-      </div>
+
       <!--Design Header-->
       <div class="hero-inner-container">
         <a href="/teams#design"><img src="/assets/design-logo.svg" alt="Design Team Badge" /></a>
@@ -47,12 +50,11 @@
     </div>
 
     <div class="team-row2-container">
-      <!--AI Header-->
+      <!--Dev Header-->
       <div class="hero-inner-container">
-        <a href="/teams#ai"><img src="/assets/ai-logo.svg" alt="AI Team Badge" /></a>
+        <a href="/teams#dev"><img src="/assets/dev-logo.svg" alt="Dev Team Badge" /></a>
         <div class="size-md acm-heavy hero-text">
-          <span
-            >Dive into the world of <span class="acm-emerald">Artificial Intelligence</span></span
+          <span><span class="acm-bluer">Develop</span> semester-long projects to show your mom</span
           >
         </div>
       </div>
@@ -66,6 +68,20 @@
           >
         </div>
       </div>
+      <!--ICPC -->
+      <div class="hero-inner-container">
+        <a href="/teams#icpc"><img src="/assets/icpc-logo.svg" alt="ICPC Team Badge" /></a>
+        <div class="size-md acm-heavy hero-text">
+          <span
+            >Ready for a challenge? Scratch your competitive itch with the <span class="acm-orange"
+              >ICPC</span
+            > team</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="team-row3-container">
       <!-- OSS -->
       <div class="hero-inner-container">
         <a href="/teams#oss"><img src="/assets/oss-logo.svg" alt="OSS Team Badge" /></a>
@@ -166,6 +182,18 @@
       grid-template-columns: 1fr 1fr 1fr;
       align-items: baseline;
       gap: 2em;
+    }
+
+    section .hero-inner-container .team-row3-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: baseline;
+      gap: 2em;
+    }
+    /* Middle centering new team addition in third row, temporary instance applied to the
+     third team row (team-row3-container), must be removed in the case of additional teams */
+    section .team-row3-container .hero-inner-container {
+      grid-column: 2;
     }
   }
 </style>
