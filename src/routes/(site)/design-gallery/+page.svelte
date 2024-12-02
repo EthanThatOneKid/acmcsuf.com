@@ -54,6 +54,15 @@
     object-fit: contain;
   }
 
+  @media (max-width: 768px) {
+    li * {
+      font-size: 18px; /* Smaller font size for mobile */
+    }
+    img {
+      height: 100%;
+    }
+  }
+
   img:hover {
     opacity: 0.5;
   }
