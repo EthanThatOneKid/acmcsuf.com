@@ -37,7 +37,7 @@ export const REPORTS: Record<Exclude<TeamMatch, TeamMatch.TEAMLESS>, TeamReport>
   },
   [TeamMatch.OSS]: {
     blurb:
-      "Our Open Source Software team is all about contributing to open source projects. We're here to help you get started with your first PR and to guide you through the process of contributing to a project.",
+      "acmOSS team is all about contributing to open source projects. We're here to help you get started with your first PR and to guide you through the process of contributing to a project.",
     blurbRecommend:
       'Check out #💖announcements under Open Source Software Team in our Discord server for more resources.',
     workshopPictures: ['/assets/oss-workshop.jpg'],
@@ -50,7 +50,7 @@ export const REPORTS: Record<Exclude<TeamMatch, TeamMatch.TEAMLESS>, TeamReport>
   },
   [TeamMatch.ICPC]: {
     blurb:
-      'The International Collegiate Programming Contest (ICPC) team is all about competitive programming. We compete in regional and international contests and help our members improve their problem-solving skills.',
+      'acmICPC (The International Collegiate Programming Contest) team is all about competitive programming. We compete in regional and international contests and help our members improve their problem-solving skills.',
     blurbRecommend: 'Check out #💪icpc-resources in our Discord server for more resources.',
     workshopPictures: ['/assets/icpc-workshop.jpg'],
   },
