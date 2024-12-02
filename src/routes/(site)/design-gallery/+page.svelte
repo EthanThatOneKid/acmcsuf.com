@@ -13,9 +13,10 @@
   <h1 slot="headline" class="size-xl acm-heavier">Design Gallery | Summer 2024</h1>
 
   <p slot="text" class="size-md">
-    The 100 Days of Design Challenge, hosted by our Design Team, allows for fellow members to
-    practice and show off their design skills using Figma while enjoying their summer vacation. Here
-    are ten professional designs.
+    The Summer Design Challenge, hosted by our Design Team, allows for fellow members to practice
+    and show off their design skills using Figma while enjoying their summer vacation. Here are ten
+    professional designs. You can check out more designs in our Discord server in the #🎨design-chat
+    channel.
   </p>
 </Block>
 
