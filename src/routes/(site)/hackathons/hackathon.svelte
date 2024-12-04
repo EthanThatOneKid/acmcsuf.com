@@ -4,7 +4,6 @@
 
   export let data: Hackathon;
 </script>
-<div class="all">
 <section class="hackathon" id={data.id}>
   <h2><a href="#{data.id}">{data.title}</a></h2>
   <p>📅 {data.date}</p>
@@ -24,7 +23,6 @@
     {/each}
   </div>  
 </section>
-</div>
 <style>
 
   .hackathon {
