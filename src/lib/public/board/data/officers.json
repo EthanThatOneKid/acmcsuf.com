@@ -51,9 +51,7 @@
         { "title": "AI Team Lead", "tier": 20 },
         { "title": "Marketing Officer", "tier": 9 }
       ],
-      "S25": [
-        { "title": "AI Team Lead", "tier": 20 }
-      ]
+      "S25": [{ "title": "AI Team Lead", "tier": 20 }]
     },
     "discord": "@bergerboyyy"
   },
@@ -254,7 +252,8 @@
       "F24": [
         { "title": "Marketing Team Lead", "tier": 8 },
         { "title": "Node Buds Officer", "tier": 26 }
-      ]
+      ],
+      "S25": [{ "title": "Marketing Team Lead", "tier": 8 }]
     },
     "discord": "@xnaym"
   },
@@ -287,9 +286,7 @@
         { "title": "Algo Team Lead", "tier": 11 },
         { "title": "Node Buds Officer", "tier": 26 }
       ],
-      "S25": [
-        { "title": "Algo Team Lead", "tier": 11 }
-      ]
+      "S25": [{ "title": "Algo Team Lead", "tier": 11 }]
     },
     "discord": "@nategries"
   },
@@ -310,9 +307,7 @@
         { "title": "Algo Officer", "tier": 12 },
         { "title": "Open Source Software Officer", "tier": 33 }
       ],
-      "S25": [
-        { "title": "Open Source Software Officer", "tier": 33 }
-      ]
+      "S25": [{ "title": "Open Source Software Officer", "tier": 33 }]
     },
     "discord": "@jerem2938"
   },
@@ -380,9 +375,7 @@
         { "title": "Marketing Officer", "tier": 9 },
         { "title": "Open Source Software Officer", "tier": 33 }
       ],
-      "S25": [
-        { "title": "Open Source Software Officer", "tier": 33 }
-      ]
+      "S25": [{ "title": "Open Source Software Officer", "tier": 33 }]
     },
     "discord": "@surrealreal_"
   },
@@ -883,9 +876,7 @@
         { "title": "Algo Officer", "tier": 12 },
         { "title": "Node Buds Officer", "tier": 26 }
       ],
-      "S25": [
-        { "title": "Treasurer", "tier": 4 }
-      ]
+      "S25": [{ "title": "Treasurer", "tier": 4 }]
     },
     "discord": "@davidjsolano"
   },
