@@ -10,6 +10,7 @@ export enum Term {
   Fall23 = 'F23',
   Spring24 = 'S24',
   Fall24 = 'F24',
+  Spring25 = 'S25',
 }
 
 /**
