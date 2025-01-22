@@ -123,7 +123,8 @@
       "F24": [
         { "title": "Marketing Officer", "tier": 9 },
         { "title": "Node Buds Officer", "tier": 26 }
-      ]
+      ],
+      "S25": [{ "title": "Marketing Officer", "tier": 9 }]
     },
     "discord": "@ashleychan_"
   },
@@ -323,7 +324,8 @@
     "picture": "placeholder.webp",
     "positions": {
       "S24": [{ "title": "AI Officer", "tier": 21 }],
-      "F24": [{ "title": "AI Officer", "tier": 21 }]
+      "F24": [{ "title": "AI Officer", "tier": 21 }],
+      "S25": [{ "title": "AI Officer", "tier": 21 }]
     },
     "discord": "@kyle0532"
   },
@@ -922,7 +924,10 @@
         { "title": "Algo Officer", "tier": 12 },
         { "title": "AI Officer", "tier": 21 }
       ],
-      "S25": [{ "title": "Algo Officer", "tier": 12 }]
+      "S25": [
+        { "title": "Algo Officer", "tier": 12 },
+        { "title": "AI Officer", "tier": 21 }
+      ]
     },
     "discord": "@josu4412"
   },
@@ -1096,7 +1101,8 @@
     "fullName": "Braedon Collet",
     "picture": "placeholder.webp",
     "positions": {
-      "F24": [{ "title": "AI Officer", "tier": 21 }]
+      "F24": [{ "title": "AI Officer", "tier": 21 }],
+      "S25": [{ "title": "AI Officer", "tier": 21 }]
     },
     "discord": "@python.programmer"
   },
@@ -1113,7 +1119,8 @@
     "fullName": "Kenny Garcia",
     "picture": "kenny-garcia.webp",
     "positions": {
-      "F24": [{ "title": "AI Officer", "tier": 21 }]
+      "F24": [{ "title": "AI Officer", "tier": 21 }],
+      "S25": [{ "title": "AI Officer", "tier": 21 }]
     },
     "discord": "@kenny8092"
   },
@@ -1199,7 +1206,10 @@
     "picture": "aj-galliguez.webp",
     "positions": {
       "F24": [{ "title": "Marketing Officer", "tier": 9 }],
-      "S25": [{ "title": "Design Officer", "tier": 16 }]
+      "S25": [
+        { "title": "Design Officer", "tier": 16 },
+        { "title": "Marketing Officer", "tier": 9 }
+      ]
     },
     "discord": "@ajareyouthere"
   },
@@ -1208,7 +1218,10 @@
     "picture": "noah-scott.webp",
     "positions": {
       "F24": [{ "title": "Marketing Officer", "tier": 9 }],
-      "S25": [{ "title": "Algo Officer", "tier": 12 }]
+      "S25": [
+        { "title": "Algo Officer", "tier": 12 },
+        { "title": "Marketing Officer", "tier": 9 }
+      ]
     },
     "discord": "@0100.1110"
   },
@@ -1216,7 +1229,8 @@
     "fullName": "Hannah Minji Park",
     "picture": "hannah-minji-park.webp",
     "positions": {
-      "F24": [{ "title": "Marketing Officer", "tier": 9 }]
+      "F24": [{ "title": "Marketing Officer", "tier": 9 }],
+      "S25": [{ "title": "Marketing Officer", "tier": 9 }]
     },
     "discord": "@wiseeisw_99756"
   },
@@ -1238,7 +1252,7 @@
   },
   {
     "fullName": "Nestor Reategui",
-    "picture": "placeholder.webp",
+    "picture": "nestor-reategui.webp",
     "positions": {
       "S25": [{ "title": "Open Source Software Officer", "tier": 33 }]
     },
@@ -1246,7 +1260,7 @@
   },
   {
     "fullName": "Joshua Holman",
-    "picture": "placeholder.webp",
+    "picture": "joshua-holman.webp",
     "positions": {
       "S25": [{ "title": "Open Source Software Officer", "tier": 33 }]
     },
@@ -1275,5 +1289,53 @@
       "S25": [{ "title": "Design Officer", "tier": 16 }]
     },
     "discord": "@swiftpup121"
+  },
+  {
+    "fullName": "Timothy Ou",
+    "picture": "timothy-ou.webp",
+    "positions": {
+      "SP25": [{ "title": "Marketing Officer", "tier": 9 }]
+    },
+    "discord": "@timothyou"
+  },
+  {
+    "fullName": "Gage Ashbaugh",
+    "picture": "gage-ashbaugh.webp",
+    "positions": {
+      "S25": [{ "title": "Marketing Officer", "tier": 9 }]
+    },
+    "discord": "@ashbox"
+  },
+  {
+    "fullName": "Nathan Choi",
+    "picture": "nathan-choi.webp",
+    "positions": {
+      "S25": [{ "title": "AI Officer", "tier": 21 }]
+    },
+    "discord": "@nchoi123"
+  },
+  {
+    "fullName": "Eileen Nguyen",
+    "picture": "eileen-nguyen.webp",
+    "positions": {
+      "S25": [{ "title": "Marketing Officer", "tier": 9 }]
+    },
+    "discord": "@tealixia"
+  },
+  {
+    "fullName": "Ender Batu Demirtaş",
+    "picture": "ender-batu.webp",
+    "positions": {
+      "S25": [{ "title": "AI Officer", "tier": 21 }]
+    },
+    "discord": "@rothchild"
+  },
+  {
+    "fullName": "Madeline Savoiu",
+    "picture": "madeline-savoiu.webp",
+    "positions": {
+      "S25": [{ "title": "Marketing Officer", "tier": 9 }]
+    },
+    "discord": "@briuche"
   }
 ]
