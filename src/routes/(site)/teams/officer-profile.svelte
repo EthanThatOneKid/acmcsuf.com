@@ -28,7 +28,7 @@
   }
 
   $: titleHTML = Object.values(TEAMS).reduce((s, t) => {
-    if (t.id === 'dev' && team?.id === 'gamedev') { 
+    if (t.id === 'dev' && team?.id === 'gamedev') {
       return s;
     }
 

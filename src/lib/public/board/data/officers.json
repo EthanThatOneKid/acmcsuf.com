@@ -89,7 +89,7 @@
   },
   {
     "fullName": "Jacob Carlson",
-    "picture": "placeholder.webp",
+    "picture": "jacob-carlson.webp",
     "positions": {
       "S23": [{ "title": "Game Dev Officer", "tier": 23 }],
       "F23": [{ "title": "Design Officer", "tier": 16 }],
@@ -1294,7 +1294,7 @@
     "fullName": "Timothy Ou",
     "picture": "timothy-ou.webp",
     "positions": {
-      "SP25": [{ "title": "Marketing Officer", "tier": 9 }]
+      "S25": [{ "title": "Marketing Officer", "tier": 9 }]
     },
     "discord": "@timothyou"
   },
