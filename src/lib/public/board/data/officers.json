@@ -372,7 +372,7 @@
         { "title": "Dev Officer", "tier": 19 },
         { "title": "Marketing Officer", "tier": 9 }
       ],
-      "S25": [{ "title": "Dev Officer", "tier": 19 }]
+      "S25": [{ "title": "Dev Project Manager", "tier": 18 }]
     },
     "discord": "@davejavle"
   },
@@ -1197,7 +1197,7 @@
     "picture": "ahad-munir-ahmad.webp",
     "positions": {
       "F24": [{ "title": "Dev Project Manager", "tier": 18 }],
-      "S25": [{ "title": "Dev Project Manager", "tier": 18 }]
+      "S25": [{ "title": "Dev Officer", "tier": 19 }]
     },
     "discord": "@adj1200"
   },
@@ -1337,5 +1337,13 @@
       "S25": [{ "title": "Marketing Officer", "tier": 9 }]
     },
     "discord": "@briuche"
+  },
+  {
+    "fullName": "Sachin Lodhi",
+    "picture": "placeholder.webp",
+    "positions": {
+      "S25": [{ "title": "AI Officer", "tier": 21 }]
+    },
+    "discord": "@teradyne_"
   }
 ]
