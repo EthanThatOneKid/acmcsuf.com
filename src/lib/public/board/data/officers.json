@@ -94,7 +94,8 @@
       "S23": [{ "title": "Game Dev Officer", "tier": 23 }],
       "F23": [{ "title": "Design Officer", "tier": 16 }],
       "S25": [{ "title": "Dev Officer", "tier": 19 }]
-    }
+    },
+    "discord": "@jiink"
   },
   {
     "fullName": "Johnathan Carranza",
@@ -1068,7 +1069,10 @@
     "fullName": "Sarah Agnihotri",
     "picture": "sarah-agnihotri.webp",
     "positions": {
-      "F24": [{ "title": "AI Officer", "tier": 21 }]
+      "F24": [
+        { "title": "AI Officer", "tier": 21 }
+      ],
+      "S25": [{ "title": "AI Officer", "tier": 21 }]
     },
     "discord": "@sarah8r"
   },
