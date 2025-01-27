@@ -47,6 +47,18 @@
           >
         </div>
       </div>
+
+      <!-- OSS Header-->
+      <div class="hero-inner-container">
+        <a href="/teams#oss"><img src="/assets/oss-logo.svg" alt="OSS Team Badge" /></a>
+        <div class="size-md acm-heavy hero-text">
+          <span
+            >Take off into the world of collaborative <span class="acm-turquoise"
+              >Open Source Software</span
+            ></span
+          >
+        </div>
+      </div>
     </div>
 
     <div class="team-row2-container">
@@ -58,7 +70,7 @@
           >
         </div>
       </div>
-      <!-- Game Dev -->
+      <!-- Game Dev Header-->
       <div class="hero-inner-container">
         <a href="/teams#gamedev"><img src="/assets/gamedev-logo.svg" alt="Game Dev Team Badge" /></a
         >
@@ -68,7 +80,7 @@
           >
         </div>
       </div>
-      <!--ICPC -->
+      <!--ICPC Header-->
       <div class="hero-inner-container">
         <a href="/teams#icpc"><img src="/assets/icpc-logo.svg" alt="ICPC Team Badge" /></a>
         <div class="size-md acm-heavy hero-text">
@@ -79,18 +91,17 @@
           >
         </div>
       </div>
-    </div>
 
-    <div class="team-row3-container">
-      <!-- OSS -->
+      <!-- NodeBuds Header-->
       <div class="hero-inner-container">
-        <a href="/teams#oss"><img src="/assets/oss-logo.svg" alt="OSS Team Badge" /></a>
+        <a href="/teams#nodebuds"
+          ><img src="/assets/nodebuds-logo-old.svg" alt="Node Buds Team Badge" /></a
+        >
         <div class="size-md acm-heavy hero-text">
           <span
-            >Take off into the world of collaborative <span class="acm-turquoise"
-              >Open Source Software</span
-            ></span
-          >
+            >Connect with <span class="acm-red">Node Buds</span> for mentorship, events, and friendships
+            in tech
+          </span>
         </div>
       </div>
     </div>
@@ -133,8 +144,8 @@
 
   section .hero-inner-container img {
     display: grid;
-    width: 200px;
-    height: 200px;
+    width: 160px;
+    height: 160px;
     margin: 0 auto;
   }
 
@@ -172,28 +183,16 @@
   @media screen and (min-width: 768px) {
     section .hero-inner-container .team-row1-container {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
       align-items: baseline;
       gap: 2em;
     }
 
     section .hero-inner-container .team-row2-container {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
       align-items: baseline;
       gap: 2em;
-    }
-
-    section .hero-inner-container .team-row3-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      align-items: baseline;
-      gap: 2em;
-    }
-    /* Middle centering new team addition in third row, temporary instance applied to the
-     third team row (team-row3-container), must be removed in the case of additional teams */
-    section .team-row3-container .hero-inner-container {
-      grid-column: 2;
     }
   }
 </style>
