@@ -322,7 +322,7 @@
   },
   {
     "fullName": "Kyle Ho",
-    "picture": "placeholder.webp",
+    "picture": "kyle-ho.webp",
     "positions": {
       "S24": [{ "title": "AI Officer", "tier": 21 }],
       "F24": [{ "title": "AI Officer", "tier": 21 }],
@@ -895,7 +895,7 @@
         { "title": "Algo Officer", "tier": 12 }
       ]
     },
-    "discord": "@davidjsolano"
+    "discord": "@davidjsol"
   },
   {
     "fullName": "James Owen Sterling",
@@ -1270,7 +1270,7 @@
   },
   {
     "fullName": "Talhah Raheem",
-    "picture": "placeholder.webp",
+    "picture": "talhah-raheem.webp",
     "positions": {
       "S25": [{ "title": "Dev Officer", "tier": 19 }]
     },
