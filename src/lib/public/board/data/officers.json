@@ -1069,8 +1069,7 @@
     "fullName": "Sarah Agnihotri",
     "picture": "sarah-agnihotri.webp",
     "positions": {
-      "F24": [{ "title": "AI Officer", "tier": 21 }],
-      "S25": [{ "title": "AI Officer", "tier": 21 }]
+      "F24": [{ "title": "AI Officer", "tier": 21 }]
     },
     "discord": "@sarah8r"
   },
