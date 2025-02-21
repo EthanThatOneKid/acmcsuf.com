@@ -4,6 +4,7 @@
   import Desc from './desc.svelte';
   import Teams from './teams.svelte';
   import Lucky from './lucky.svelte';
+  import FAQ from './faq.svelte';
   // import Blog from './blog.svelte';
 </script>
 
@@ -74,6 +75,14 @@
 
     <Spacing --min="120px" --med="175px" --max="200px" /> 
   </div> -->
+
+  <div class="section-container">
+    <Spacing --min="175px" --med="200px" --max="200px" />
+
+    <FAQ />
+
+    <Spacing --min="120px" --med="175px" --max="200px" />
+  </div>
 
   <div class="section-container">
     <Spacing --min="175px" --med="200px" --max="200px" />
