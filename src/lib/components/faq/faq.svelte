@@ -11,11 +11,11 @@
 <style>
   /*Add temporary style, to be changed later*/
   .container {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     padding: 16px;
-    border-radius: 8px;
+    margin: 0px 45px;
+    gap: 16px;
   }
 
   h3 {
@@ -24,5 +24,13 @@
 
   p {
     color: var(--acm-darker);
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      grid-template-columns: 1fr;
+      padding: 12px;
+      margin: 0px 25px;
+    }
   }
 </style>

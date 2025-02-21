@@ -12,7 +12,6 @@
 </div>
 {#each faq as { question, answer } (question)}
   <FAQ {question} {answer} />
-  <p class="seperator" />
 {/each}
 
 <style>
@@ -20,10 +19,7 @@
     text-align: center;
   }
 
-  .seperator {
-    margin: 8px 0px;
-    border-bottom: 1px solid var(--acm-blue);
-    width: 50%;
-    margin-inline: 16px;
+  .hero-text span {
+    color: var(--acm-darker);
   }
 </style>
