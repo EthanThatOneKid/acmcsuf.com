@@ -19,7 +19,7 @@
       "description": "The Association for Computing Machinery at California State University, Fullerton",
       "url": "https://acmcsuf.com/",
       "logo": "https://acmcsuf.com/favicon.png",
-      "image": "https://acmcsuf.com/assets/capy-power.svg"
+      "image": "https://acmcsuf.com/assets/capy-power.svg",
       "email": "mailto:acmcsufullerton@gmail.com",
       "sameAs": [
         "https://fullerton.campuslabs.com/engage/organization/acm",
