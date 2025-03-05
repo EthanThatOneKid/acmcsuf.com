@@ -1,0 +1,1 @@
+export const UTTERANCES_SCRIPT = `<script src="https://utteranc.es/client.js" repo="acmcsufoss/acm-utterances" issue-term="url" label="utterances" theme="preferred-color-scheme" crossorigin="anonymous" async></script>`;
