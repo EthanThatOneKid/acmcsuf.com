@@ -59,21 +59,24 @@
   }
 
   function tallyResponses(responses: (QuizResponse | undefined)[]) {
-    return (responses ?? []).reduce((tallies, matches) => {
-      if (matches === undefined) {
-        return tallies;
-      }
-
-      for (let match of matches?.matches ?? []) {
-        match = match?.toLowerCase() as TeamMatch;
-        if (match && tallies[match]) {
-          tallies[match]++;
-        } else if (match) {
-          tallies[match] = 1;
+    return (responses ?? []).reduce(
+      (tallies, matches) => {
+        if (matches === undefined) {
+          return tallies;
         }
-      }
-      return tallies;
-    }, {} as Record<string, number>);
+
+        for (let match of matches?.matches ?? []) {
+          match = match?.toLowerCase() as TeamMatch;
+          if (match && tallies[match]) {
+            tallies[match]++;
+          } else if (match) {
+            tallies[match] = 1;
+          }
+        }
+        return tallies;
+      },
+      {} as Record<string, number>
+    );
   }
 
   function maxTallies(tallies: Record<string, number>) {
