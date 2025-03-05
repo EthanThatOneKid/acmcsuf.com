@@ -20,7 +20,6 @@ export default ts.config(
   },
   {
     files: ['**/*.svelte'],
-
     languageOptions: {
       parserOptions: {
         parser: ts.parser,
@@ -29,5 +28,17 @@ export default ts.config(
   },
   {
     ignores: ['build/', '.svelte-kit/', 'dist/'],
+  },
+  {
+    rules: {
+      indent: ['error', 2, { SwitchCase: 1 }],
+      'func-style': ['error', 'declaration', { allowArrowFunctions: false }],
+      'prefer-arrow-callback': 'error',
+      'no-nested-ternary': ['error'],
+      'comma-dangle': 'off',
+      'svelte/no-at-html-tags': 'off',
+      '@typescript-eslint/no-unused-vars': 'error',
+      '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
+    },
   }
 );
