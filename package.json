@@ -74,8 +74,6 @@
     "cropperjs": "^1.5.13",
     "googleapis": "^146.0.0",
     "html-to-text": "^9.0.5",
-    "lc-dailies": "github:acmcsufoss/lc-dailies#npm",
-    "pomo": "github:ethanthatonekid/pomo#npm",
     "qrcode": "^1.5.4",
     "rrule": "^2.8.1",
     "rss": "^1.2.2",
