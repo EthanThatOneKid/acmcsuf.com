@@ -99,8 +99,7 @@
         flex-direction: column;
         gap: 4px;
 
-        h3,
-        h3 span {
+        h3 {
           color: var(--perma-light);
         }
       }
