@@ -19,7 +19,7 @@ export function shortener(): Handle {
 
       // Redirect to destination.
       return Response.redirect(destination, 302);
-    } catch (error) {
+    } catch {
       return resolve(event);
     }
   };
