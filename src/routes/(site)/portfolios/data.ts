@@ -1,6 +1,6 @@
 export const portfolios = [
   {
-    title: 'Kristen Portillo Portfolio',
+    title: 'Kristen Portillos Portfolio',
     url: 'https://devpost.com/software/kristen-portillo-portfolio',
     imageURL:
       'https://d112y698adiu2z.cloudfront.net/photos/production/software_thumbnail_photos/002/851/974/datas/medium.png',
