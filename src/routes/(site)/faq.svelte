@@ -6,20 +6,14 @@
 </script>
 
 <div class="size-md">
-  <h1 class="hero-text">
-    <span>Frequently Asked Questions</span>
-  </h1>
+  <h1 class="faq-title">Frequently Asked Questions</h1>
 </div>
 {#each faq as { question, answer } (question)}
   <FAQ {question} {answer} />
 {/each}
 
 <style>
-  .hero-text {
+  .faq-title {
     text-align: center;
-  }
-
-  .hero-text span {
-    color: var(--acm-darker);
   }
 </style>
