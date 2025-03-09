@@ -1,20 +1,19 @@
-<script>
-  export let logos = [];
+<script lang="ts">
+  import type { Branding } from '$lib/public/branding';
+  export let team_info: Branding;
+  export let logo = team_info.teamLogo;
 </script>
 
 <div class="logos-container">
-  {#each logos as logo}
     <div class="logo-card">
       <img src={logo.image} alt={logo.alt} />
       <div class="logo-info">
-        <h4>{logo.title}</h4>
         <div class="downloads">
           <a href={logo.svg} target="_blank" download>SVG <span>&#128190;</span></a>
           <a href={logo.png} target="_blank" download>PNG <span>&#128190;</span></a>
         </div>
       </div>
     </div>
-  {/each}
 </div>
 <style>
   .logos-container {
@@ -35,6 +34,7 @@
     background: #052155;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 200px;
   }
 
 
