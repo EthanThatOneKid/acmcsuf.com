@@ -29,10 +29,10 @@ jobs:
           node-version: lts/*
 
       - name: Install step
-        run: 'npm install'
+        run: 'npm ci'
 
       - name: Copy .env from .env.example
-        run: cp .env.example .env
+        run: 'cp .env.example .env'
 
       - name: Build step
         run: 'npm run build'
