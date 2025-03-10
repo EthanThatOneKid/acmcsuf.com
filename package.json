@@ -64,12 +64,15 @@
     "vitest": "^0.32.2"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.717.0",
     "@googleapis/calendar": "^7.0.0",
     "@js-temporal/polyfill": "^0.4.4",
+    "axios": "^1.7.9",
     "cropperjs": "^1.5.13",
     "googleapis": "^134.0.0",
     "html-to-text": "^9.0.5",
     "lc-dailies": "github:acmcsufoss/lc-dailies#npm",
+    "mime-types": "^2.1.35",
     "pomo": "github:ethanthatonekid/pomo#npm",
     "qrcode": "^1.5.3",
     "rrule": "^2.7.2",
