@@ -9,10 +9,10 @@ export default [
       'They are the backbone of our community, fostering collaboration and innovation among members.',
     teamLogo: {
       image: '/assets/general-logo.svg',
-      alt: 'General Team Logo 1 ',
-      title: 'General Logo ',
+      alt: 'General Team Logo',
+      title: 'General Logo',
       svg: '/assets/general-logo.svg',
-      png: '/path-to-download/general-logo2.png',
+      png: '/assets/general-logo.png',
     },
     teamColor: {
       name: 'Primary Blue',
@@ -28,10 +28,10 @@ export default [
       'geared towards beginners in the field.',
     teamLogo: {
       image: '/assets/ai-logo.svg',
-      alt: 'AI Team Logo 2',
+      alt: 'AI Team Logo',
       title: 'AI Logo',
       svg: '/assets/ai-logo.svg',
-      png: '/path-to-download/ai-logo2.png',
+      png: '/assets/ai-logo.png',
     },
     teamColor: {
       name: 'AI Green',
@@ -48,36 +48,14 @@ export default [
     teamLogo: {
       image: '/assets/algo-logo.svg',
       alt: 'Algo Team Logo',
-      title: 'Algo Logo 1',
-      svg: '/assets/algo-logo-old.svg',
-      png: '/path-to-download/algo-logo2.png',
+      title: 'Algo Logo',
+      svg: '/assets/algo-logo.svg',
+      png: '/assets/algo-logo.png',
     },
     teamColor: {
       name: 'Algo Purple',
       hex: '#af3fff',
       rgb: '175, 63, 255',
-    },
-  },
-  {
-    title: 'Open Source',
-    description:
-      'Our inspiration for this team surrounds this area of exploring space.' +
-      'The world of open source programming is endless and diving into it might seem ' +
-      'scary at first, but we find that discovering new things to be exciting. To best ' +
-      'represent this, our logo was designed as a rocket ship to represent the ability to launch' +
-      'into the vast expanse of collaborative development, exploring new frontiers and ' +
-      'innovating together',
-    teamLogo: {
-      image: '/assets/oss-logo.svg',
-      alt: 'Open Source Logo',
-      title: 'Open Source Logo',
-      svg: '/assets/oss-logo.svg',
-      png: '/path-to-download/open-source-logo.png',
-    },
-    teamColor: {
-      name: 'OSS Green',
-      hex: '#13d4b1',
-      rgb: '19, 212, 177)',
     },
   },
   {
@@ -89,10 +67,10 @@ export default [
       'and management of a product.',
     teamLogo: {
       image: '/assets/design-logo.svg',
-      alt: 'AI Team Logo 2',
+      alt: 'Design Team Logo',
       title: 'Design Logo',
       svg: '/assets/design-logo.svg',
-      png: '/path-to-download/general-logo2.png',
+      png: '/assets/design-logo.png',
     },
     teamColor: {
       name: 'Design Red',
@@ -108,10 +86,10 @@ export default [
       ' the various tech stacks used in the industry.',
     teamLogo: {
       image: '/assets/dev-logo.svg',
-      alt: 'Dev Team Logo 2',
+      alt: 'Dev Team Logo',
       title: 'Dev Logo',
       svg: '/assets/dev-logo.svg',
-      png: '/path-to-download/general-logo2.png',
+      png: '/assets/dev-logo.png',
     },
     teamColor: {
       name: 'Dev Blue',
@@ -127,10 +105,10 @@ export default [
       ' and the development process of a project.',
     teamLogo: {
       image: '/assets/gamedev-logo.svg',
-      alt: 'Game Dev Team Logo 2',
+      alt: 'Game Dev Team Logo',
       title: 'Game Dev Logo',
       svg: '/assets/gamedev-logo.svg',
-      png: '/path-to-download/general-logo2.png',
+      png: '/assets/gamedev-logo.png',
     },
     teamColor: {
       name: 'Game Dev Red',
@@ -146,7 +124,7 @@ export default [
       'weekly practice sessions and mock contests.',
     teamLogo: {
       image: '/assets/icpc-logo.svg',
-      alt: 'AI Team Logo 2',
+      alt: 'ICPC Team Logo',
       title: 'ICPC Logo',
       svg: '/assets/icpc-logo.svg',
       png: '/path-to-download/general-logo2.png',
@@ -165,10 +143,10 @@ export default [
       'to display a welcoming environment to all students.',
     teamLogo: {
       image: '/assets/marketing-logo.svg',
-      alt: 'Marketing Logo 2',
+      alt: 'Marketing Logo',
       title: 'Marketing Logo ',
       svg: '/assets/marketing-logo.svg',
-      png: '/path-to-download/general-logo2.png',
+      png: '/assets/marketing-logo.png',
     },
     teamColor: {
       name: 'Marketing Pink',
@@ -184,15 +162,37 @@ export default [
       'skills, and have a blast!',
     teamLogo: {
       image: '/assets/nodebuds-logo-old.svg',
-      alt: 'Nodebuds Team Logo 2',
+      alt: 'Nodebuds Team Logo',
       title: 'Node Buds Logo',
       svg: '/assets/nodebuds-logo-old.svg',
-      png: '/path-to-download/general-logo2.png',
+      png: '/assets/nodebuds-logo-old.png',
     },
     teamColor: {
       name: 'Node Buds Red',
       hex: '#D41253',
       rgb: '212, 18, 83',
+    },
+  },
+  {
+    title: 'Open Source',
+    description:
+      'Our inspiration for this team surrounds this area of exploring space.' +
+      'The world of open source programming is endless and diving into it might seem ' +
+      'scary at first, but we find that discovering new things to be exciting. To best ' +
+      'represent this, our logo was designed as a rocket ship to represent the ability to launch' +
+      'into the vast expanse of collaborative development, exploring new frontiers and ' +
+      'innovating together',
+    teamLogo: {
+      image: '/assets/oss-logo.svg',
+      alt: 'Open Source Logo',
+      title: 'Open Source Logo',
+      svg: '/assets/oss-logo.svg',
+      png: '/assets/oss-logo.png',
+    },
+    teamColor: {
+      name: 'OSS Green',
+      hex: '#13d4b1',
+      rgb: '19, 212, 177)',
     },
   },
 ] as const satisfies Branding[];
