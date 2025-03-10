@@ -9,33 +9,30 @@
   <title>Branding | ACM at CSUF</title>
 </svelte:head>
 
-
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <main class="responsive-width">
-
-    <!-- branding title section  -->
-    <section id="top">
-      <div class="header">
-        <div class="header-content">
-          <h1 class="size-xl">BRANDING</h1>
-          <p class="p-info">Find more information about our branding alongside a collection of resources and assets.</p>
-        </div>
-        <img src="/assets/figma-capy.svg" alt="Branding Badge">
+  <section id="top">
+    <div class="header">
+      <div class="header-content">
+        <h1 class="size-xl">BRANDING</h1>
+        <p class="p-info">
+          Find more information about our branding alongside a collection of resources and assets.
+        </p>
       </div>
-    
-      {#each cards as card}
-        <TeamCard info={card}
-        />
-        <br>
-      {/each}
-    </section>
+      <img src="/assets/figma-capy.svg" alt="Branding Badge" />
+    </div>
+
+    {#each cards as card}
+      <TeamCard info={card} />
+      <br />
+    {/each}
+  </section>
 
   <p>
     <a href="#top">Back to top</a> | <a href="/global.css">global.css</a>
   </p>
 </main>
-
 
 <style>
   .header {
@@ -78,7 +75,6 @@
   main p {
     margin: 1em 1em 1em 0; /* Match left margin of p */
   }
-
 
   .responsive-width {
     width: min(80ch, 80vw);

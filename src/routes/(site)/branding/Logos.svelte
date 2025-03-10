@@ -4,25 +4,17 @@
   export let logo = team_info.teamLogo;
 </script>
 
-<div class="logos-container">
-    <div class="logo-card">
-      <img src={logo.image} alt={logo.alt} />
-      <div class="logo-info">
-        <div class="downloads">
-          <a href={logo.svg} target="_blank" download>SVG <span>&#128190;</span></a>
-          <a href={logo.png} target="_blank" download>PNG <span>&#128190;</span></a>
-        </div>
-      </div>
+<div class="logo-card">
+  <img src={logo.image} alt={logo.alt} />
+  <div class="logo-info">
+    <div class="downloads">
+      <a href={logo.svg} target="_blank" download>SVG <span>&#128190;</span></a>
+      <a href={logo.png} target="_blank" download>PNG <span>&#128190;</span></a>
     </div>
+  </div>
 </div>
-<style>
-  .logos-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin: 20px 0;
-  }
 
+<style>
   .logo-card {
     display: flex;
     flex-direction: column;
@@ -30,17 +22,15 @@
     padding: 20px;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    background: #052155;
+    background: rgb(250, 249, 249);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    max-width: 200px;
+    height: 160px;
   }
 
-
   .logo-card:hover {
-    transform: translateY(-10px); 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    transform: translateY(-10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   }
 
   .logo-card img {
@@ -51,7 +41,7 @@
   }
 
   .logo-card:hover img {
-    transform: scale(1.1); 
+    transform: scale(1.1);
   }
 
   .logo-info {
@@ -67,6 +57,6 @@
   }
 
   .downloads a:hover {
-    color: #0056b3; 
+    color: #0056b3;
   }
 </style>
