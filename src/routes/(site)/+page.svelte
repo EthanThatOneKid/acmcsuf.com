@@ -4,6 +4,7 @@
   import Desc from './desc.svelte';
   import Teams from './teams.svelte';
   import Lucky from './lucky.svelte';
+  import FAQ from './faq.svelte';
   // import Blog from './blog.svelte';
 </script>
 
@@ -19,6 +20,7 @@
       "description": "The Association for Computing Machinery at California State University, Fullerton",
       "url": "https://acmcsuf.com/",
       "logo": "https://acmcsuf.com/favicon.png",
+      "image": "https://acmcsuf.com/assets/capy-power.svg",
       "email": "mailto:acmcsufullerton@gmail.com",
       "sameAs": [
         "https://fullerton.campuslabs.com/engage/organization/acm",
@@ -73,6 +75,14 @@
 
     <Spacing --min="120px" --med="175px" --max="200px" /> 
   </div> -->
+
+  <div class="section-container">
+    <Spacing --min="175px" --med="200px" --max="200px" />
+
+    <FAQ />
+
+    <Spacing --min="120px" --med="175px" --max="200px" />
+  </div>
 
   <div class="section-container">
     <Spacing --min="175px" --med="200px" --max="200px" />

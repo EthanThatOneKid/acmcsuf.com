@@ -89,6 +89,6 @@
     "description": "Node Buds team member.",
     "logoSrc": "/assets/nodebuds-logo-old.svg",
     "color": "var(--acm-red)",
-    "tiers": [26, 34]
+    "tiers": [26, 34, 36]
   }
 ]
