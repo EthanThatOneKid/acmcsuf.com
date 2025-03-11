@@ -15,5 +15,6 @@
 <style>
   .faq-title {
     text-align: center;
+    margin-block-end: 1.5rem;
   }
 </style>

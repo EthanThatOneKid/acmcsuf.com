@@ -11,20 +11,20 @@
 <style>
   .faq-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     max-width: 950px;
     text-align: left;
-    padding: 16px;
-    margin: 0px 45px;
+    padding: 12px;
+    margin: 0px 25px;
     gap: 16px;
-    justify-self: center;
   }
 
-  @media (max-width: 768px) {
+  @media (min-width: 768px) {
     .faq-container {
-      grid-template-columns: 1fr;
-      padding: 12px;
-      margin: 0px 25px;
+      grid-template-columns: 1fr 1fr;
+      padding: 16px;
+      margin: 0px 45px;
+      justify-self: center;
     }
   }
 </style>
