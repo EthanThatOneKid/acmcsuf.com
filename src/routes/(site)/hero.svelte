@@ -39,9 +39,9 @@
     shape="polygon"
   />
   <area
-    alt="Node buds Team"
-    title="Node Buds Team"
-    href="/teams#nodebuds"
+    alt="ICPC Team"
+    title="ICPC Team"
+    href="/teams#icpc"
     coords="80,290 40,330 80,370 120,330"
     shape="polygon"
   />
@@ -126,6 +126,20 @@
   section .hero-inner-container img {
     max-width: 90%;
     justify-self: center;
+    animation-name: spin;
+    animation-duration: 17s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
   }
 
   @media screen and (min-width: 1000px) {
