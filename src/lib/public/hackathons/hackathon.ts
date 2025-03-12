@@ -8,4 +8,10 @@ export interface Hackathon {
   location: string;
   theme: string;
   description: string;
+  directors: Director[];
+}
+
+export interface Director {
+  name: string;
+  picture: string;
 }

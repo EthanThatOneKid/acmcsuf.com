@@ -17,38 +17,9 @@
       <span>Explore the different <span class="acm-sky">teams</span> you can expect from us.</span>
     </div>
 
-    <div class="team-row1-container">
-      <!--Algo Header-->
-      <div class="hero-inner-container">
-        <a href="/teams#algo"><img src="/assets/algo-logo.svg" alt="Algo Team Badge" /></a>
-        <div class="size-md acm-heavy hero-text">
-          <span
-            >Refine your knowledge of <span class="acm-purple">Algorithms</span> used for FAANG interviews</span
-          >
-        </div>
-      </div>
-      <!--Dev Header-->
-      <div class="hero-inner-container">
-        <a href="/teams#dev"><img src="/assets/dev-logo.svg" alt="Dev Team Badge" /></a>
-        <div class="size-md acm-heavy hero-text">
-          <span><span class="acm-bluer">Develop</span> semester-long projects to show your mom</span
-          >
-        </div>
-      </div>
-      <!--Design Header-->
-      <div class="hero-inner-container">
-        <a href="/teams#design"><img src="/assets/design-logo.svg" alt="Design Team Badge" /></a>
-        <div class="size-md acm-heavy hero-text">
-          <span
-            >Learn to <span class="acm-pink">Design</span> UI/UX and web development material</span
-          >
-        </div>
-      </div>
-    </div>
-
-    <div class="team-row2-container">
+    <div class="team-container">
       <!--AI Header-->
-      <div class="hero-inner-container">
+      <div>
         <a href="/teams#ai"><img src="/assets/ai-logo.svg" alt="AI Team Badge" /></a>
         <div class="size-md acm-heavy hero-text">
           <span
@@ -56,18 +27,29 @@
           >
         </div>
       </div>
-      <!-- Game Dev -->
-      <div class="hero-inner-container">
-        <a href="/teams#gamedev"><img src="/assets/gamedev-logo.svg" alt="Game Dev Team Badge" /></a
-        >
+
+      <!--Algo Header-->
+      <div>
+        <a href="/teams#algo"><img src="/assets/algo-logo.svg" alt="Algo Team Badge" /></a>
         <div class="size-md acm-heavy hero-text">
           <span
-            >Level up your game development skills at the <span class="acm-red">Game Dev</span> hub</span
+            >Refine your knowledge of <span class="acm-purple">Algorithms</span> used for FAANG interviews</span
           >
         </div>
       </div>
-      <!-- OSS -->
-      <div class="hero-inner-container">
+
+      <!--Design Header-->
+      <div>
+        <a href="/teams#design"><img src="/assets/design-logo.svg" alt="Design Team Badge" /></a>
+        <div class="size-md acm-heavy hero-text">
+          <span
+            >Learn to <span class="acm-pink">Design</span> UI/UX and web development material</span
+          >
+        </div>
+      </div>
+
+      <!-- OSS Header-->
+      <div>
         <a href="/teams#oss"><img src="/assets/oss-logo.svg" alt="OSS Team Badge" /></a>
         <div class="size-md acm-heavy hero-text">
           <span
@@ -77,11 +59,53 @@
           >
         </div>
       </div>
-    </div>
+      <!--Dev Header-->
+      <div>
+        <a href="/teams#dev"><img src="/assets/dev-logo.svg" alt="Dev Team Badge" /></a>
+        <div class="size-md acm-heavy hero-text">
+          <span><span class="acm-bluer">Develop</span> semester-long projects to show your mom</span
+          >
+        </div>
+      </div>
+      <!-- Game Dev Header-->
+      <div>
+        <a href="/teams#gamedev"><img src="/assets/gamedev-logo.svg" alt="Game Dev Team Badge" /></a
+        >
+        <div class="size-md acm-heavy hero-text">
+          <span
+            >Level up your game development skills at the <span class="acm-red">Game Dev</span> hub</span
+          >
+        </div>
+      </div>
+      <!--ICPC Header-->
+      <div>
+        <a href="/teams#icpc"><img src="/assets/icpc-logo.svg" alt="ICPC Team Badge" /></a>
+        <div class="size-md acm-heavy hero-text">
+          <span
+            >Ready for a challenge? Scratch your competitive itch with the <span class="acm-orange"
+              >ICPC</span
+            > team</span
+          >
+        </div>
+      </div>
 
-    <div class="discover-button">
-      <AcmButton text="Discover more" link="/teams" redirect={true} />
+      <!-- NodeBuds Header-->
+      <div>
+        <a href="/teams#nodebuds"
+          ><img src="/assets/nodebuds-logo-old.svg" alt="Node Buds Team Badge" /></a
+        >
+        <div class="size-md acm-heavy hero-text">
+          <span
+            >Connect with <span class="acm-red">Node Buds</span> for mentorship, events, and friendships
+            in tech
+          </span>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <div class="discover-button">
+    <AcmButton text="Discover more" link="/teams" redirect={true} />
   </div>
 </section>
 
@@ -109,16 +133,10 @@
     text-align: center;
   }
 
-  section .hero-inner-container .team-row2-container {
-    justify-self: center;
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
   section .hero-inner-container img {
     display: grid;
-    width: 200px;
-    height: 200px;
+    width: 160px;
+    height: 160px;
     margin: 0 auto;
   }
 
@@ -129,6 +147,11 @@
   section .hero-inner-container .discover-button {
     display: grid;
     justify-self: center;
+  }
+
+  section .team-container .hero-text {
+    max-width: 35ch;
+    margin-inline: auto;
   }
 
   @media screen and (min-width: 480px) {
@@ -153,18 +176,26 @@
     }
   }
 
-  @media screen and (min-width: 768px) {
-    section .hero-inner-container .team-row1-container {
+  @media screen and (min-width: 640px) {
+    section .team-container {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      align-items: baseline;
+      grid-template-columns: 1fr 1fr;
       gap: 2em;
     }
+  }
 
-    section .hero-inner-container .team-row2-container {
+  @media screen and (min-width: 768px) {
+    section .team-container {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      align-items: baseline;
+      gap: 2em;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    section .team-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
       gap: 2em;
     }
   }
