@@ -119,7 +119,8 @@
       margin-right: 2vw;
     }
 
-    ul { // grid stlye
+    ul {
+      // grid stlye
       list-style: none;
       display: grid;
       grid-template-columns: repeat(3, 1fr); // 3 rows
@@ -128,17 +129,18 @@
       margin: 0 auto;
       border-radius: 3em;
       max-width: 1550px;
-      width: 90%; 
+      width: 90%;
 
       @media (max-width: 992px) {
-        grid-template-columns: repeat(2, 1fr); 
+        grid-template-columns: repeat(2, 1fr);
       }
 
       @media (max-width: 600px) {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
       }
 
-      li { // card style
+      li {
+        // card style
         cursor: pointer;
         background-color: rgba(56, 182, 255, 0.25);
         border-radius: 1em;
@@ -153,5 +155,4 @@
       }
     }
   }
-  
 </style>
