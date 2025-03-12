@@ -119,65 +119,39 @@
       margin-right: 2vw;
     }
 
-    ul {
+    ul { // grid stlye
       list-style: none;
-      padding: 3em 4em 2.5em;
-      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); // 3 rows
+      gap: 4em 3em; // gap between cards
+      padding: 2em 1em 2.5em 0em;
+      margin: 0 auto;
       border-radius: 3em;
-      width: min(1000px, 70vw);
+      max-width: 1550px;
+      width: 90%; 
 
-      li {
+      @media (max-width: 992px) {
+        grid-template-columns: repeat(2, 1fr); 
+      }
+
+      @media (max-width: 600px) {
+        grid-template-columns: 1fr; 
+      }
+
+      li { // card style
         cursor: pointer;
         background-color: rgba(56, 182, 255, 0.25);
         border-radius: 1em;
-        margin: 2em 0;
+        max-width: 500px;
+        box-shadow: 5px 5px 5px lightblue;
+        transition: 0.25s ease-in-out;
 
         &:hover {
           background-color: rgba(56, 182, 255, 0.5);
+          transform: scale(1.03);
         }
       }
     }
   }
-
-  @media (max-width: 600px) {
-    .main-header {
-      flex-direction: column;
-
-      div h2 {
-        text-align: center;
-      }
-    }
-
-    .subtitle {
-      text-align: center;
-      padding-top: 1em;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .main-header {
-      flex-direction: column;
-
-      div h2 {
-        text-align: center;
-      }
-    }
-
-    .subtitle {
-      text-align: center;
-      padding-top: 1em;
-    }
-  }
-
-  @media (max-width: 900px) {
-    section {
-      ul {
-        padding: 1em 2.5em;
-
-        li {
-          border-radius: 1.5em;
-        }
-      }
-    }
-  }
+  
 </style>
