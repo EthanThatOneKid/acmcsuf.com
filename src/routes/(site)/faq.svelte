@@ -8,13 +8,22 @@
 <div class="size-md">
   <h1 class="faq-title">Frequently Asked Questions</h1>
 </div>
-{#each faq as { question, answer } (question)}
-  <FAQ {question} {answer} />
-{/each}
+
+<section>
+  {#each faq as { question, answer } (question)}
+    <FAQ {question} {answer} />
+  {/each}
+</section>
 
 <style>
   .faq-title {
     text-align: center;
-    margin-block-end: 1.5rem;
+  }
+
+  section {
+    max-width: 950px;
+    margin-block-start: 2.5rem;
+    margin-inline: auto;
+    padding-inline: 2rem;
   }
 </style>
