@@ -87,6 +87,15 @@
     }
   }
 
+  .main-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+  }
+
   section {
     display: flex;
     flex-direction: row;
@@ -122,7 +131,6 @@
     ul {
       list-style: none;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
       gap: 4em 3em;
       padding: 2em 1em 2.5em 0;
       margin: 0 auto;
@@ -144,26 +152,53 @@
         }
       }
     }
-
   }
-    @media (max-width: 768px) {
-      section ul {
-        grid-template-columns: 1fr;
-      }
 
-      section ul li {
-        max-width: 350px;
-        margin: auto;
-      }
-    }
-    @media (min-width: 769px) and (max-width: 1024px) { 
-      section ul {
-        grid-template-columns: 1fr 1fr
-      }
+  .filter-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto;
+  }
 
-      section ul li {
-        max-width: 400px;
-        margin: auto;
-      }
+  @media (max-width: 1000px) { // phone
+    .main-header {
+      margin: auto;
     }
+    
+    .filter-container {
+      margin: auto;
+    }
+
+    section ul {
+      grid-template-columns: 1fr;
+    }
+
+    section ul li {
+      max-width: auto;
+      margin: auto;
+    }
+  }
+
+  @media (min-width: 1001px) and (max-width: 1024px) { // pad
+    section ul {
+      grid-template-columns: 1fr;
+    }
+
+    section ul li {
+      max-width: auto;
+      margin: auto;
+    }
+  }
+
+  @media (min-width: 1025px) { // computer but small window
+    section ul {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    section ul li {
+      max-width: auto;
+      margin: auto;
+    }
+  }
 </style>
