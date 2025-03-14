@@ -11,7 +11,7 @@
 
   async function filterPosts(event: CustomEvent) {
     selectedLabels = event.detail;
-
+    
     const pageURL = makeBlogPostsPageURL(selectedLabels);
     history.replaceState({}, '', pageURL);
 
@@ -19,6 +19,7 @@
     const target = new URL(PageDataURL, location.origin);
     const response = await fetch(target.toString());
     const blogOutput = await response.json();
+
     if (blogOutput.posts) data.posts = blogOutput.posts;
   }
 </script>
@@ -31,7 +32,6 @@
 
 <section class="main-header">
   <img src="/assets/readme-badge.svg" alt="README by acmCSUF" />
-
   <div>
     <h1 class="size-xxl">README</h1>
     <h2 class="size-md">by ACM at <b class="acm-blue">CSUF</b></h2>
@@ -40,9 +40,10 @@
 
 <section>
   <h2 class="subtitle acm-heavier size-md">
-    The official ACM at CSUF blog.<a href="/feed.xml"
-      ><img src="assets/feed-icon.svg" alt="RSS feed logo" /></a
-    >
+    The official ACM at CSUF blog.
+    <a href="/feed.xml">
+      <img src="assets/feed-icon.svg" alt="RSS feed logo" />
+    </a>
   </h2>
 </section>
 
@@ -75,7 +76,7 @@
   .subtitle {
     a {
       display: inline-block;
-      padding-left: 0em;
+      padding-left: 0;
       margin-top: 3vw;
       vertical-align: baseline;
 
@@ -114,33 +115,22 @@
       max-width: 200px;
       width: 100%;
       height: auto;
-
       margin-bottom: 8px;
       margin-right: 2vw;
     }
 
     ul {
-      // grid stlye
       list-style: none;
       display: grid;
-      grid-template-columns: repeat(3, 1fr); // 3 rows
-      gap: 4em 3em; // gap between cards
-      padding: 2em 1em 2.5em 0em;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4em 3em;
+      padding: 2em 1em 2.5em 0;
       margin: 0 auto;
       border-radius: 3em;
       max-width: 1550px;
       width: 90%;
 
-      @media (max-width: 992px) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      @media (max-width: 600px) {
-        grid-template-columns: 1fr;
-      }
-
       li {
-        // card style
         cursor: pointer;
         background-color: rgba(56, 182, 255, 0.25);
         border-radius: 1em;
@@ -154,5 +144,26 @@
         }
       }
     }
+
   }
+    @media (max-width: 768px) {
+      section ul {
+        grid-template-columns: 1fr;
+      }
+
+      section ul li {
+        max-width: 350px;
+        margin: auto;
+      }
+    }
+    @media (min-width: 769px) and (max-width: 1024px) { 
+      section ul {
+        grid-template-columns: 1fr 1fr
+      }
+
+      section ul li {
+        max-width: 400px;
+        margin: auto;
+      }
+    }
 </style>
