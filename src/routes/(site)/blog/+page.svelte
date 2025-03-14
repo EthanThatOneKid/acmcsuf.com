@@ -154,13 +154,6 @@
     }
   }
 
-  .filter-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: auto;
-  }
-
   section ul {
   list-style: none;
   display: grid;
