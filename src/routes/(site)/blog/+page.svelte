@@ -161,44 +161,37 @@
     margin: auto;
   }
 
-  @media (max-width: 1000px) { // phone
-    .main-header {
-      margin: auto;
-    }
-    
-    .filter-container {
-      margin: auto;
-    }
+  section ul {
+  list-style: none;
+  display: grid;
+  gap: 4em 3em;
+  padding: 2em 1em 2.5em 0;
+  margin: 0 auto;
+  border-radius: 3em;
+  max-width: 1550px;
+  width: 90%;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-content: center;
 
-    section ul {
-      grid-template-columns: 1fr;
-    }
+  li {
+    cursor: pointer;
+    background-color: rgba(56, 182, 255, 0.25);
+    border-radius: 1em;
+    max-width: 500px; 
+    box-shadow: 5px 5px 5px lightblue;
+    transition: 0.25s ease-in-out;
 
-    section ul li {
-      max-width: auto;
-      margin: auto;
+    &:hover {
+      background-color: rgba(56, 182, 255, 0.5);
+      transform: scale(1.03);
     }
   }
+}
 
-  @media (min-width: 1001px) and (max-width: 1024px) { // pad
-    section ul {
-      grid-template-columns: 1fr;
-    }
-
-    section ul li {
-      max-width: auto;
-      margin: auto;
-    }
+@media (min-width: 1025px) {
+  section ul {
+    grid-template-columns: repeat(3, minmax(250px, 1fr)); // max 3 cards in a row 
   }
+}
 
-  @media (min-width: 1025px) { // computer but small window
-    section ul {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    section ul li {
-      max-width: auto;
-      margin: auto;
-    }
-  }
 </style>
