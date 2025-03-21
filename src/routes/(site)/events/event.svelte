@@ -45,7 +45,8 @@
   tabindex="0"
 >
   <!-- Workaround for the top panel covering the event card's anchor. -->
-  <div class="anchor" id={info.id} bind:this={anchor} />
+  <div class="anchor" id={info.id} bind:this={anchor}></div>
+
   <details class="event-card" bind:this={details} class:highlighted={shown} role="region">
     <summary class="event-body">
       <div class="event-name">
