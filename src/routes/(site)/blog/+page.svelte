@@ -166,6 +166,9 @@
   @media (min-width: 851px) and (max-width: 1280px) {
     section ul {
       grid-template-columns: repeat(2, 1fr);
+    }
+
+    .blog-post {
       height: 430px;
     }
   }
