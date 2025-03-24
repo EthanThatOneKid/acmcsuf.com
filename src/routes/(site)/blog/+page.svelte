@@ -11,7 +11,7 @@
 
   async function filterPosts(event: CustomEvent) {
     selectedLabels = event.detail;
-    
+
     const pageURL = makeBlogPostsPageURL(selectedLabels);
     history.replaceState({}, '', pageURL);
 
@@ -154,24 +154,89 @@
     }
   }
 
-  section ul {
-  list-style: none;
-  display: grid;
-  gap: 4em 3em;
-  padding: 2em 1em 2.5em 0;
-  margin: 0 auto;
-  border-radius: 3em;
-  max-width: 1550px;
-  width: 90%;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  justify-content: center;
+  :global(.labelfield-container) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 100px;
+    justify-content: center;
+  }
 
-  li {
-    cursor: pointer;
+  section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0 24px;
+
+    * {
+      transition: 0.25s ease-in-out;
+    }
+
+    div {
+      h1 {
+        font-weight: 550;
+        height: 95px;
+        line-height: 100px;
+      }
+
+      h2 {
+        font-weight: 600;
+        margin-left: 5px;
+      }
+    }
+
+    img {
+      max-width: 200px;
+      width: 100%;
+      height: auto;
+      margin-bottom: 8px;
+      margin-right: 2vw;
+    }
+
+    ul {
+      list-style: none;
+      display: grid;
+      gap: 4em 3em;
+      padding: 2em 1em 2.5em 0;
+      margin: 0 auto;
+      border-radius: 3em;
+      width: 95%;
+      max-width: 1550px;
+      justify-items: center;
+      align-items: start;
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (min-width: 851px) and (max-width: 1280px) {
+    section ul {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1281px) {
+    section ul {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .blog-post {
+    width: 100%;
+    max-width: 100%;
+    min-height: 400px;
+    box-sizing: border-box;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  section ul li {
+    overflow: hidden;
+    height: auto;
     background-color: rgba(56, 182, 255, 0.25);
     border-radius: 1em;
-    max-width: 500px; 
+    max-width: 500px;
     box-shadow: 5px 5px 5px lightblue;
+    cursor: pointer;
     transition: 0.25s ease-in-out;
 
     &:hover {
@@ -179,12 +244,4 @@
       transform: scale(1.03);
     }
   }
-}
-
-@media (min-width: 1025px) {
-  section ul {
-    grid-template-columns: repeat(3, minmax(250px, 1fr)); // max 3 cards in a row 
-  }
-}
-
 </style>
