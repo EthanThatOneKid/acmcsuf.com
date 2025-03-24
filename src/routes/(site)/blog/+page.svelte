@@ -156,11 +156,6 @@
     transition: 0.25s ease-in-out;
   }
 
-  section ul li:hover {
-    background-color: rgba(56, 182, 255, 0.5);
-    transform: scale(1.03);
-  }
-
   @media (max-width: 850px) {
     .blog-post {
       height: auto;
@@ -169,15 +164,20 @@
   }
 
   @media (min-width: 851px) and (max-width: 1280px) {
-    .blog-post {
+    section ul {
       grid-template-columns: repeat(2, 1fr);
       height: 430px;
     }
   }
 
   @media (min-width: 1281px) {
-    .blog-post {
+    section ul {
       grid-template-columns: repeat(3, 1fr);
     }
+  }
+
+  section ul li:hover {
+    background-color: rgba(56, 182, 255, 0.5);
+    transform: scale(1.03);
   }
 </style>
