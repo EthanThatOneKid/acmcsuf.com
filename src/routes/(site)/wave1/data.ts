@@ -215,4 +215,23 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
       li('Attend weekly meetings and provide updates on projects'),
     ],
   },
+  {
+    title: 'Node Buds Team Lead',
+    teamColor: 'var(--acm-nodebuds-rgb)',
+    qualifications: [
+      li('Passion for mentorship and guiding beginners'),
+      li('Ability to work collaboratively and lead a team of "Bigs"'),
+      li('Strong organizational and communication skills'),
+      li('Experience or strong interest in a mentorship/Big role'),
+      li('Patient and empathetic approach to teaching and learning'),
+    ],
+    tools: ['Google Drive/Docs', 'Discord'],
+    responsibilities: [
+      li('Lead the planning and execution of the Node Buds Big/Little program'),
+      li('Recruit, onboard, and support Bigs within the program'),
+      li('Facilitate matching and communication between Bigs and Littles'),
+      li('Organize program sessions, workshops, or activities'),
+      li('Gather feedback and continuously improve the program structure and content'),
+    ],
+  },
 ];
