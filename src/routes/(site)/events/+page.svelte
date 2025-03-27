@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import type { PageData } from './$types';
   import Block from '$lib/components/block/block.svelte';
   import Spacing from '$lib/public/legacy/spacing.svelte';
@@ -6,10 +7,47 @@
   import EventList from './list.svelte';
 
   export let data: PageData;
+
+  let calendarContainer: HTMLDivElement | null = null;
+
+  onMount(async () => {
+    if (!calendarContainer) return;
+    
+    const { Calendar } = await import('@fullcalendar/core');
+    const dayGridPlugin = (await import('@fullcalendar/daygrid')).default;
+
+    // sample data
+    let data = {
+    events: [
+      { title: "Hackathon", start_date: "2025-04-10", end_date: "2025-04-11" },
+      { title: "Workshop", start_date: "2025-04-15" }
+    ]
+  };
+    
+    // Calendar
+    const calendar = new Calendar(calendarContainer, {
+      plugins: [dayGridPlugin],
+      initialView: 'dayGridMonth',
+      locale: 'en',
+      editable: false,
+      events: data.events.map(event => ({
+        title: event.title,
+        start: event.start_date, 
+        end: event.end_date,
+      })),
+      eventClick: (info) => {
+        alert(`Event: ${info.event.title}`);
+      }
+    });
+
+    calendar.render();
+  });
 </script>
 
 <svelte:head>
   <title>Events | ACM at CSUF</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fullcalendar/core/main.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid/main.min.css">
 </svelte:head>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
@@ -30,13 +68,16 @@
 
 <div class="main-header">
   <h2 class="size-lg acm-heavier">Upcoming Events</h2>
-  <img src="assets/bluecalendar.svg" alt="Blue Calender" />
+  <img src="assets/bluecalendar.svg" alt="Blue Calendar" />
 </div>
 
 <Spacing --med="16px" />
 
 {#if data.events.length > 0}
   <EventList events={data.events} />
+  
+  <!-- Add a Calendar View -->
+  <div bind:this={calendarContainer} class="calendar-container"></div>
 {:else}
   <EmptyContainer>
     <p slot="content">There are no events scheduled!</p>
@@ -59,6 +100,13 @@
       width: 30px;
       height: 30px;
     }
+  }
+
+  .calendar-container {
+    margin-top: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   p {
