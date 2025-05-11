@@ -182,6 +182,20 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
     ],
   },
   {
+    title: 'Node Buds Officer',
+    teamColor: 'var(--acm-nodebuds-rgb)',
+    qualifications: [
+      li('Interest in raising the next generation of ACM members'),
+      li('Interest in dedicating time to befriend and mentor assigned members'),
+      li('Represent and advocate diversity within the club'),
+    ],
+    tools: ['Discord'],
+    responsibilities: [
+      li('Participate in weekly Friday Node Buds meetings'),
+      li("Attend to assigned 'littles' and encourage involvement in ACM"),
+    ],
+  },
+  {
     title: 'Open Source Software Officer',
     teamColor: 'var(--acm-oss-rgb)',
     qualifications: [
