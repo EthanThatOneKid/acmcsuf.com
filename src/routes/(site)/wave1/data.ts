@@ -200,7 +200,7 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
     ],
   },
   {
-    title: 'Open Source Software Team Lead',
+    title: 'Open Source Team Lead',
     teamColor: 'var(--acm-oss-rgb)',
     qualifications: [
       li('Passion for web development and open source projects'),
@@ -210,7 +210,7 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
     ],
     tools: ['Google Drive/Docs', 'Discord', 'GitHub'],
     responsibilities: [
-      li('Work closely with the Webmaster to maintain the ACM website and OSS projects'),
+      li('Work closely with the Webmaster to maintain the ACM website and Open Source projects'),
       li('Understand the Git workflow and be able to teach it to others'),
       li('Attend weekly meetings and provide updates on projects'),
     ],
