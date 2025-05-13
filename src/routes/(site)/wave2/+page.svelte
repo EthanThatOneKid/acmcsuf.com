@@ -9,6 +9,12 @@
   import { POSITIONS } from './data';
 
   /**
+   * is_fall is true when it is fall semester
+   * includes secretary and event coordinator positions
+   */
+  let is_fall = true;
+
+  /**
    * positions is the list of position elements.
    */
   let positions: HTMLDialogElement[] | null = null;
@@ -92,10 +98,15 @@
     role="button"
     tabindex="0"
   >
-    <!--Don't incude seceratry and event coordinater in wave2 for spring-->
-    {#each POSITIONS.filter((position) => position.title !== 'Secretary' && position.title !== 'Event Coordinator') as position}
-      <PositionList data={[position]} />
-    {/each}
+    {#if is_fall}
+      {#each POSITIONS as position}
+        <PositionList data={[position]} />
+      {/each}
+    {:else}
+      {#each POSITIONS.filter((position) => position.title !== 'Secretary' && position.title !== 'Event Coordinator') as position}
+        <PositionList data={[position]} />
+      {/each}
+    {/if}
   </div>
 </section>
 
