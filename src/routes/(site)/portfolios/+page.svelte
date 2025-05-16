@@ -9,14 +9,14 @@
 
 <Spacing --min="175px" --med="200px" --max="200px" />
 
-<h1 class="size-xl">ACM Spring 2024 Portfolio-athon</h1>
+<h1 class="size-xl">Design Portfolio-athon | Spring 2024</h1>
 <p class="size-md">
   Check out our members' UI/UX design skills in this once-a-semester portfolio contest.
 </p>
 <ul>
   {#each portfolios as { title, url, imageURL }}
     <li>
-      <h2>{title}</h2>
+      <h2><span class="acm-pink">{title}</span> Portfolio</h2>
       <a href={url}><img src={imageURL} alt="{title} submission from Devpost" /></a>
     </li>
   {/each}
@@ -31,6 +31,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 1.5em;
   }
   ul > li {
     margin: 15px;
@@ -39,6 +40,7 @@
   }
 
   img {
+    height: 90%;
     width: 100%;
   }
 

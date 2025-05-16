@@ -6,12 +6,12 @@
       "S24": [{ "title": "Design Officer", "tier": 16 }],
       "F24": [
         { "title": "Webmaster", "tier": 2 },
-        { "title": "Open Source Software Co-TL", "tier": 33 },
+        { "title": "Open Source Co-TL", "tier": 33 },
         { "title": "Design Officer", "tier": 16 }
       ],
       "S25": [
         { "title": "Webmaster", "tier": 2 },
-        { "title": "Open Source Software Co-TL", "tier": 33 }
+        { "title": "Open Source Co-TL", "tier": 33 }
       ]
     },
     "discord": "@semsema"
@@ -155,11 +155,11 @@
       "S23": [{ "title": "Dev Officer", "tier": 19 }],
       "F23": [
         { "title": "Dev Officer", "tier": 19 },
-        { "title": "Open Source Software Officer", "tier": 33 }
+        { "title": "Open Source Officer", "tier": 33 }
       ],
       "S24": [
         { "title": "Dev Project Manager", "tier": 18 },
-        { "title": "Open Source Software Officer", "tier": 33 }
+        { "title": "Open Source Officer", "tier": 33 }
       ]
     }
   },
@@ -211,11 +211,11 @@
       ],
       "F23": [
         { "title": "Webmaster", "tier": 2 },
-        { "title": "Open Source Software TL", "tier": 32 }
+        { "title": "Open Source TL", "tier": 32 }
       ],
       "S24": [
         { "title": "Webmaster", "tier": 2 },
-        { "title": "Open Source Software TL", "tier": 32 }
+        { "title": "Open Source TL", "tier": 32 }
       ]
     }
   },
@@ -321,9 +321,9 @@
       "S24": [{ "title": "Algo Officer", "tier": 12 }],
       "F24": [
         { "title": "Algo Officer", "tier": 12 },
-        { "title": "Open Source Software Officer", "tier": 33 }
+        { "title": "Open Source Officer", "tier": 33 }
       ],
-      "S25": [{ "title": "Open Source Software Officer", "tier": 33 }]
+      "S25": [{ "title": "Open Source Officer", "tier": 33 }]
     },
     "discord": "@jerem2938"
   },
@@ -388,12 +388,12 @@
     "fullName": "Evan Jimenez",
     "picture": "evan-jimenez.webp",
     "positions": {
-      "S24": [{ "title": "Open Source Software Officer", "tier": 33 }],
+      "S24": [{ "title": "Open Source Officer", "tier": 33 }],
       "F24": [
         { "title": "Marketing Officer", "tier": 9 },
-        { "title": "Open Source Software Officer", "tier": 33 }
+        { "title": "Open Source Officer", "tier": 33 }
       ],
-      "S25": [{ "title": "Open Source Software Officer", "tier": 33 }]
+      "S25": [{ "title": "Open Source Officer", "tier": 33 }]
     },
     "discord": "@surrealreal_"
   },
@@ -703,9 +703,9 @@
     "fullName": "Tomas Oh",
     "picture": "tomas-oh.webp",
     "positions": {
-      "S24": [{ "title": "Open Source Software Officer", "tier": 33 }],
-      "F24": [{ "title": "Open Source Software Team Lead", "tier": 32 }],
-      "S25": [{ "title": "Open Source Software Team Lead", "tier": 32 }]
+      "S24": [{ "title": "Open Source Officer", "tier": 33 }],
+      "F24": [{ "title": "Open Source Team Lead", "tier": 32 }],
+      "S25": [{ "title": "Open Source Team Lead", "tier": 32 }]
     },
     "discord": "@chomacito"
   },
@@ -912,8 +912,8 @@
     "fullName": "James Owen Sterling",
     "picture": "james-owen-sterling.webp",
     "positions": {
-      "S24": [{ "title": "Open Source Software Officer", "tier": 33 }],
-      "F24": [{ "title": "Open Source Software Officer", "tier": 33 }]
+      "S24": [{ "title": "Open Source Officer", "tier": 33 }],
+      "F24": [{ "title": "Open Source Officer", "tier": 33 }]
     },
     "discord": "@typos."
   },
@@ -1011,8 +1011,8 @@
       "S22": [{ "title": "Vice President", "tier": 1 }],
       "F22": [{ "title": "President", "tier": 0 }],
       "S23": [{ "title": "President", "tier": 0 }],
-      "F23": [{ "title": "Open Source Software Co-TL", "tier": 32 }],
-      "S24": [{ "title": "Open Source Software Co-TL", "tier": 32 }]
+      "F23": [{ "title": "Open Source Co-TL", "tier": 32 }],
+      "S24": [{ "title": "Open Source Co-TL", "tier": 32 }]
     }
   },
   {
@@ -1121,8 +1121,8 @@
     "fullName": "Tyler Lui",
     "picture": "tyler-lui.webp",
     "positions": {
-      "F24": [{ "title": "Open Source Software Officer", "tier": 33 }],
-      "S25": [{ "title": "Open Source Software Officer", "tier": 33 }]
+      "F24": [{ "title": "Open Source Officer", "tier": 33 }],
+      "S25": [{ "title": "Open Source Officer", "tier": 33 }]
     },
     "discord": "@slat._"
   },
@@ -1181,8 +1181,8 @@
     "fullName": "Alexander Peras",
     "picture": "alexander-peras.webp",
     "positions": {
-      "F24": [{ "title": "Open Source Software Officer", "tier": 33 }],
-      "S25": [{ "title": "Open Source Software Officer", "tier": 33 }]
+      "F24": [{ "title": "Open Source Officer", "tier": 33 }],
+      "S25": [{ "title": "Open Source Officer", "tier": 33 }]
     },
     "discord": "@drafte"
   },
@@ -1249,7 +1249,7 @@
     "fullName": "Isla Kim",
     "picture": "isla-kim.webp",
     "positions": {
-      "S25": [{ "title": "Open Source Software Officer", "tier": 33 }]
+      "S25": [{ "title": "Open Source Officer", "tier": 33 }]
     },
     "discord": "@chanran_1229"
   },
@@ -1257,7 +1257,7 @@
     "fullName": "Siddharth Vasu",
     "picture": "siddharth-vasu.webp",
     "positions": {
-      "S25": [{ "title": "Open Source Software Officer", "tier": 33 }]
+      "S25": [{ "title": "Open Source Officer", "tier": 33 }]
     },
     "discord": "@prince_sidon"
   },
@@ -1265,7 +1265,7 @@
     "fullName": "Nestor Reategui",
     "picture": "nestor-reategui.webp",
     "positions": {
-      "S25": [{ "title": "Open Source Software Officer", "tier": 33 }]
+      "S25": [{ "title": "Open Source Officer", "tier": 33 }]
     },
     "discord": "@nestiray"
   },
@@ -1273,7 +1273,7 @@
     "fullName": "Joshua Holman",
     "picture": "joshua-holman.webp",
     "positions": {
-      "S25": [{ "title": "Open Source Software Officer", "tier": 33 }]
+      "S25": [{ "title": "Open Source Officer", "tier": 33 }]
     },
     "discord": "@thejolman"
   },

@@ -130,10 +130,10 @@
 
 <TeamSection info={TEAMS.oss} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
-    The <span class="acm-turquoise acm-heaviest">open source software</span> team is committed to
-    fostering collaboration and innovation in the tech community.
-    <span class="acm-turquoise acm-heaviest">OSS</span> actively contributes to ACM open source projects,
-    sharing their expertise and driving advancements in software development.
+    The <span class="acm-turquoise acm-heaviest">open source </span> team is committed to fostering
+    collaboration and innovation in the tech community.
+    <span class="acm-turquoise acm-heaviest">Open Source</span> actively contributes to ACM open source
+    projects, sharing their expertise and driving advancements in software development.
   </p>
 </TeamSection>
 
