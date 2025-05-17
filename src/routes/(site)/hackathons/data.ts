@@ -34,7 +34,12 @@ export default [
     theme: 'Party',
     description:
       'As Jacob and Sam approached their graduation dates, they transitioned the leadership role to Daniel "Anh Duy" Truong. The hackathon name was changed to "FullyHacks" starting with FullyHacks 2023. With the global pandemic starting to improve, FullyHacks 2023 became the first in-person hackathon event of the series.',
-    directors: [{ name: 'Daniel Truong', picture: '/people/daniel-truong.webp' }],
+    directors: [
+      {
+        name: 'Daniel Truong',
+        picture: '/people/daniel-truong.webp',
+      },
+    ],
   },
   {
     id: 'fullyhacks2024',

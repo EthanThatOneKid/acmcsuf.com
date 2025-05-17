@@ -4,13 +4,17 @@
  * @param shortlinks collection of shortlinks.
  * @returns computed destination url.
  */
-export function resolve<ID extends string>(url: URL, shortlinks: Record<ID, string>): URL {
+export function resolve<ID extends string>(
+  url: URL,
+  shortlinks: Record<ID, string>,
+): URL {
   const foundURL = findURL(url.pathname, shortlinks, url.origin);
   if (!foundURL) {
     return url;
   }
 
-  const { pathname, query: initialQuery, hash: initialHash, destination: dst } = foundURL;
+  const { pathname, query: initialQuery, hash: initialHash, destination: dst } =
+    foundURL;
   const hash = url.hash || initialHash || dst.hash;
   const query = combineQueries(dst.search, initialQuery, url.search);
   return new URL(`${dst.origin}${dst.pathname}${pathname}${query}${hash}`);
@@ -27,14 +31,14 @@ function findURL<ID extends string>(
   pathname: string,
   shortlinks: Record<ID, string>,
   destinationOrigin: string,
-  maxInternalRedirects = 256
+  maxInternalRedirects = 256,
 ): FoundURL {
   let initialId: ID | undefined;
   let initialHash: string | undefined;
   let initialQuery: string | undefined;
-  let relativePathname = '';
+  let relativePathname = "";
   while (maxInternalRedirects-- > 0) {
-    const hashIdx = pathname.lastIndexOf('#');
+    const hashIdx = pathname.lastIndexOf("#");
     if (hashIdx > -1) {
       if (initialHash === undefined) {
         initialHash = pathname.slice(hashIdx);
@@ -43,7 +47,7 @@ function findURL<ID extends string>(
       pathname = pathname.slice(0, hashIdx);
     }
 
-    const queryIdx = pathname.lastIndexOf('?');
+    const queryIdx = pathname.lastIndexOf("?");
     if (queryIdx > -1) {
       if (initialQuery === undefined) {
         initialQuery = pathname.slice(queryIdx);
@@ -54,7 +58,7 @@ function findURL<ID extends string>(
 
     let id = pathname.slice(1) as ID;
     while (id.length > 0 && !shortlinks[id]) {
-      const slashIndex = id.lastIndexOf('/');
+      const slashIndex = id.lastIndexOf("/");
       if (slashIndex === -1) {
         break;
       }
@@ -65,24 +69,24 @@ function findURL<ID extends string>(
     if (!shortlinks[id]) {
       return {
         pathname: relativePathname,
-        query: initialQuery || '',
-        hash: initialHash || '',
+        query: initialQuery || "",
+        hash: initialHash || "",
         destination: new URL(pathname, destinationOrigin),
       };
     }
 
-    if (shortlinks[id].startsWith('http')) {
+    if (shortlinks[id].startsWith("http")) {
       relativePathname = pathname.slice(id.length + 1) + relativePathname;
 
       return {
         pathname: relativePathname,
-        query: initialQuery || '',
-        hash: initialHash || '',
+        query: initialQuery || "",
+        hash: initialHash || "",
         destination: new URL(shortlinks[id]),
       };
     }
 
-    if (shortlinks[id].startsWith('/')) {
+    if (shortlinks[id].startsWith("/")) {
       relativePathname = pathname.slice(id.length + 1) + relativePathname;
       pathname = shortlinks[id];
 
@@ -94,7 +98,7 @@ function findURL<ID extends string>(
     }
   }
 
-  throw new Error('too many internal redirects');
+  throw new Error("too many internal redirects");
 }
 
 function combineQueries(baseQuery: string, ...queries: string[]): string {
@@ -108,5 +112,5 @@ function combineQueries(baseQuery: string, ...queries: string[]): string {
   }
 
   const query = baseQueryParams.toString();
-  return query.length > 0 ? `?${query}` : '';
+  return query.length > 0 ? `?${query}` : "";
 }

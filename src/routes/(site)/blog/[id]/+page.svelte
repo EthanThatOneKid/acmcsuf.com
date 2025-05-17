@@ -57,12 +57,13 @@
     </a>
   </p>
   <p>
-    {Temporal.Instant.from(data.post.createdAt).toLocaleString('en-US', {
-      calendar: 'gregory',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    })} •
+    {'' + // @ts-ignore
+      Temporal.Instant.from(data.post.createdAt).toLocaleString('en-US', {
+        calendar: 'gregory',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })} •
     {readingTime(data.post.html)} min read
   </p>
 

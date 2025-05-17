@@ -1,10 +1,10 @@
-import type { PageLoadEvent } from './$types';
-import type { BlogPost } from '$lib/public/blog/types';
-import { parseQuery } from '$lib/public/blog/utils';
-import { makeBlogPostsPageDataURL } from '$lib/public/blog/urls';
+import type { PageLoadEvent } from "./$types";
+import type { BlogPost } from "$lib/public/blog/types";
+import { parseQuery } from "$lib/public/blog/utils";
+import { makeBlogPostsPageDataURL } from "$lib/public/blog/urls";
 
 export async function load({ fetch, url }: PageLoadEvent) {
-  const query = parseQuery(url.searchParams.get('l') || '');
+  const query = parseQuery(url.searchParams.get("l") || "");
   const target = makeBlogPostsPageDataURL(query.labels ?? []);
 
   const response = await fetch(target);

@@ -1,4 +1,4 @@
-import { ALL, queryFromLabels } from './utils';
+import { ALL, queryFromLabels } from "./utils";
 
 export function makeBlogPostsPageDataURL(labels: string[]): string {
   const query = queryFromLabels(labels);
@@ -7,7 +7,7 @@ export function makeBlogPostsPageDataURL(labels: string[]): string {
 
 export function makeBlogPostsPageURL(labels: string[]): string {
   const query = queryFromLabels(labels);
-  return query === ALL ? '/blog' : `/blog?l=${query}`;
+  return query === ALL ? "/blog" : `/blog?l=${query}`;
 }
 
 export function makeBlogPostPageURL(id: number): string {

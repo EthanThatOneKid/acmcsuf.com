@@ -1,4 +1,4 @@
-import { default as cropperjs } from 'cropperjs';
+import { default as cropperjs } from "cropperjs";
 
 /**
  * Cropper is the type of the cropperjs instance.

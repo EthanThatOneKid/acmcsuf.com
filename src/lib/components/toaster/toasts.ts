@@ -1,5 +1,5 @@
-import { TEAMS } from '$lib/public/board/data';
-import { writable } from 'svelte/store';
+import { TEAMS } from "$lib/public/board/data";
+import { writable } from "svelte/store";
 
 const MAX_TOASTS = 4;
 const TOAST_TIMEOUT = 2e3;
@@ -7,8 +7,8 @@ const TOAST_TIMEOUT = 2e3;
 const numToasts = writable<number>(0);
 
 export enum ToastType {
-  Success = 'success',
-  Error = 'error',
+  Success = "success",
+  Error = "error",
 }
 
 export interface Toast {
@@ -24,7 +24,7 @@ export const toasts = writable<Toast[]>([]);
 
 function makeToast(
   id: number,
-  { content, type, dismissible, timeout, teamId }: Omit<Toast, 'id'>
+  { content, type, dismissible, timeout, teamId }: Omit<Toast, "id">,
 ): Required<Toast> {
   return {
     id,
@@ -36,9 +36,11 @@ function makeToast(
   };
 }
 
-export async function toast(contentOrProps: Toast['content'] | Omit<Toast, 'id'>): Promise<void> {
-  let props: Omit<Toast, 'id'>;
-  if (typeof contentOrProps == 'object') {
+export async function toast(
+  contentOrProps: Toast["content"] | Omit<Toast, "id">,
+): Promise<void> {
+  let props: Omit<Toast, "id">;
+  if (typeof contentOrProps == "object") {
     props = contentOrProps;
   } else {
     props = {
@@ -46,7 +48,7 @@ export async function toast(contentOrProps: Toast['content'] | Omit<Toast, 'id'>
     };
   }
 
-  if (typeof props.content == 'function') {
+  if (typeof props.content == "function") {
     try {
       props.content = await props.content();
     } catch (err) {

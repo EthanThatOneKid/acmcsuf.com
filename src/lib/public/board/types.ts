@@ -2,16 +2,15 @@
  * Term is a string that is used to identify a CSUF semester.
  */
 export enum Term {
-  Spring21 = 'S21',
-  Fall21 = 'F21',
-  Spring22 = 'S22',
-  Fall22 = 'F22',
-  Spring23 = 'S23',
-  Fall23 = 'F23',
-  Spring24 = 'S24',
-  Fall24 = 'F24',
-  Spring25 = 'S25',
-  Fall25 = 'F25',
+  Spring21 = "S21",
+  Fall21 = "F21",
+  Spring22 = "S22",
+  Fall22 = "F22",
+  Spring23 = "S23",
+  Fall23 = "F23",
+  Spring24 = "S24",
+  Fall24 = "F24",
+  Spring25 = "S25",
 }
 
 /**

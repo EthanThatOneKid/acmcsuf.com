@@ -1,4 +1,4 @@
-import { Term } from '../types';
+import { Term } from "../types";
 
 export const VISIBLE_TERMS = [
   Term.Fall25,

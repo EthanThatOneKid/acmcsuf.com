@@ -1,7 +1,10 @@
-import type { ClubEvent } from '$lib/public/events/event';
-import type { GCalEvent } from './gcal';
+import type { ClubEvent } from "$lib/public/events/event";
+import type { GCalEvent } from "./gcal";
 
-export function makeClubEvent(event: GCalEvent, refDate: Temporal.ZonedDateTime): ClubEvent | null {
+export function makeClubEvent(
+  event: GCalEvent,
+  refDate: Temporal.ZonedDateTime,
+): ClubEvent | null {
   if (
     event.summary == undefined ||
     event.location == undefined ||
@@ -15,18 +18,21 @@ export function makeClubEvent(event: GCalEvent, refDate: Temporal.ZonedDateTime)
 
   const dtStart = zonedDateTimeFromGCalDateTime(
     new Date(event.start.dateTime),
-    refDate.getTimeZone()
+    refDate.getTimeZone(),
   );
-  const dtEnd = zonedDateTimeFromGCalDateTime(new Date(event.end.dateTime), refDate.getTimeZone());
+  const dtEnd = zonedDateTimeFromGCalDateTime(
+    new Date(event.end.dateTime),
+    refDate.getTimeZone(),
+  );
   const date = dtStart.toString();
-  const month = dtStart.toLocaleString('en-US', { month: 'long' });
+  const month = dtStart.toLocaleString("en-US", { month: "long" });
   const day = dtStart.day;
   const startTime = dtStart
-    .toLocaleString('en-US', { hour: 'numeric', minute: 'numeric' })
-    .replace(' ', ' ');
+    .toLocaleString("en-US", { hour: "numeric", minute: "numeric" })
+    .replace(" ", " ");
   const endTime = dtEnd
-    .toLocaleString('en-US', { hour: 'numeric', minute: 'numeric' })
-    .replace(' ', ' ');
+    .toLocaleString("en-US", { hour: "numeric", minute: "numeric" })
+    .replace(" ", " ");
   const hasStarted = Temporal.ZonedDateTime.compare(refDate, dtStart) >= 0;
   const hasEnded = Temporal.ZonedDateTime.compare(refDate, dtEnd) >= 0;
 
@@ -40,9 +46,12 @@ export function makeClubEvent(event: GCalEvent, refDate: Temporal.ZonedDateTime)
   const recurring = (event?.recurrence?.length ?? 0) > 0;
   const summary = produceSummary(title, description, selfLink);
   const teamID =
-    (variables.get('ACM_TEAM') ?? variables.get('ACM_PATH'))?.toLowerCase().trim() ?? 'general';
+    (variables.get("ACM_TEAM") ?? variables.get("ACM_PATH"))?.toLowerCase()
+      .trim() ?? "general";
 
-  const thirdPartyCalendarLocation = location === 'Discord' ? selfLink : location;
+  const thirdPartyCalendarLocation = location === "Discord"
+    ? selfLink
+    : location;
   const thirdPartyCalendarArgs = [
     title,
     summary,
@@ -79,34 +88,34 @@ export function makeClubEvent(event: GCalEvent, refDate: Temporal.ZonedDateTime)
 
 export function parseDescription(
   content?: string,
-  varPrefix = 'ACM_'
+  varPrefix = "ACM_",
 ): {
   description: string;
   variables: Map<string, string>;
 } {
-  if (content === undefined) return { description: '', variables: new Map() };
+  if (content === undefined) return { description: "", variables: new Map() };
 
   const variables = new Map<string, string>();
 
-  let description = content.replace(/\\n/g, '<br>');
+  let description = content.replace(/\\n/g, "<br>");
 
   // Extract variables from the description until there are no more.
   while (description.includes(varPrefix)) {
     const start = description.indexOf(varPrefix);
-    const nextTag = description.indexOf('<', start);
-    const end =
-      nextTag > -1
-        ? nextTag // Stop at next HTML tag (e.g. '<br>')
-        : description.length; // Or stop at end of string
+    const nextTag = description.indexOf("<", start);
+    const end = nextTag > -1
+      ? nextTag // Stop at next HTML tag (e.g. '<br>')
+      : description.length; // Or stop at end of string
 
     const variable = description.substring(start, end);
 
-    const splitAt = variable.indexOf('=');
+    const splitAt = variable.indexOf("=");
     const key = variable.substring(0, splitAt).trim();
     const value = variable.substring(splitAt + 1);
 
     variables.set(key, value);
-    description = (description.substring(0, start) + description.substring(end)).trim();
+    description = (description.substring(0, start) + description.substring(end))
+      .trim();
   }
 
   description = replaceHtmlLinkTargets(description);
@@ -114,25 +123,28 @@ export function parseDescription(
   return { description, variables };
 }
 
-export function replaceHtmlLinkTargets(html: string, withTarget = '_blank'): string {
+export function replaceHtmlLinkTargets(
+  html: string,
+  withTarget = "_blank",
+): string {
   return html.replace(/<a\W.*?href=".*?".*?>/gm, (match: string): string => {
-    match = match.replace(/target=".*?"\W*/gm, '');
+    match = match.replace(/target=".*?"\W*/gm, "");
     return match.slice(0, match.length - 1) + ` target="${withTarget}">`;
   });
 }
 
 export function parseLocation(
   rawLocation?: string,
-  defaultLocation = 'TBD',
-  defaultLink = '/discord'
+  defaultLocation = "TBD",
+  defaultLink = "/discord",
 ): { location: string; meetingLink: string } {
-  rawLocation = rawLocation?.trim() ?? '';
+  rawLocation = rawLocation?.trim() ?? "";
 
-  if (rawLocation.includes('zoom.us')) {
-    return { location: 'Zoom', meetingLink: rawLocation };
+  if (rawLocation.includes("zoom.us")) {
+    return { location: "Zoom", meetingLink: rawLocation };
   }
 
-  if (rawLocation.startsWith('https://')) {
+  if (rawLocation.startsWith("https://")) {
     return { location: defaultLocation, meetingLink: rawLocation };
   }
 
@@ -144,28 +156,41 @@ export function parseLocation(
 }
 
 export function thirdPartyCalendarDateTimeFromZonedDateTime(
-  dt: Temporal.ZonedDateTimeLike
+  dt: Temporal.ZonedDateTimeLike,
 ): string {
-  const yyyyMMdd = [dt.year, dt.month, dt.day].map((d) => Number(d).toString().padStart(2, '0'));
-  const hhMMss = [dt.hour, dt.minute, dt.day].map((d) => Number(d).toString().padStart(2, '0'));
-  const yyyyMMddThhMMss = `${yyyyMMdd.join('')}T${hhMMss.join('')}`;
+  const yyyyMMdd = [dt.year, dt.month, dt.day].map((d) =>
+    Number(d).toString().padStart(2, "0")
+  );
+  const hhMMss = [dt.hour, dt.minute, dt.day].map((d) =>
+    Number(d).toString().padStart(2, "0")
+  );
+  const yyyyMMddThhMMss = `${yyyyMMdd.join("")}T${hhMMss.join("")}`;
   return yyyyMMddThhMMss;
 }
 
-export function makeEventLink(slug?: string, baseURL = 'https://acmcsuf.com/events') {
+export function makeEventLink(
+  slug?: string,
+  baseURL = "https://acmcsuf.com/events",
+) {
   if (slug === undefined) return baseURL;
-  return baseURL + '#' + slug;
+  return baseURL + "#" + slug;
 }
 
-export function makeEventId(title: string, date: Temporal.ZonedDateTime): string {
-  const normalizedTitle = title.replace(/[^\w\s-_]/g, '').replace(/(\s|-|_)+/g, '-');
+export function makeEventId(
+  title: string,
+  date: Temporal.ZonedDateTime,
+): string {
+  const normalizedTitle = title.replace(/[^\w\s-_]/g, "").replace(
+    /(\s|-|_)+/g,
+    "-",
+  );
   return [
     normalizedTitle,
     date.year,
-    date.toLocaleString('en-US', { month: 'long' }).toLowerCase(),
+    date.toLocaleString("en-US", { month: "long" }).toLowerCase(),
     date.day,
   ]
-    .join('-')
+    .join("-")
     .toLowerCase();
 }
 
@@ -174,18 +199,18 @@ export function makeGoogleCalendarLink(
   summary: string,
   location: string,
   startTime: Temporal.ZonedDateTime,
-  endTime: Temporal.ZonedDateTime
+  endTime: Temporal.ZonedDateTime,
 ) {
-  const url = new URL('https://calendar.google.com/calendar/render');
+  const url = new URL("https://calendar.google.com/calendar/render");
 
-  url.searchParams.set('action', 'TEMPLATE');
-  url.searchParams.set('text', title);
-  url.searchParams.set('details', summary);
-  url.searchParams.set('location', location);
+  url.searchParams.set("action", "TEMPLATE");
+  url.searchParams.set("text", title);
+  url.searchParams.set("details", summary);
+  url.searchParams.set("location", location);
 
   const dateOne = thirdPartyCalendarDateTimeFromZonedDateTime(startTime);
   const dateTwo = thirdPartyCalendarDateTimeFromZonedDateTime(endTime);
-  url.searchParams.set('dates', dateOne + '/' + dateTwo);
+  url.searchParams.set("dates", dateOne + "/" + dateTwo);
 
   return url;
 }
@@ -195,32 +220,49 @@ export function makeOutlookCalendarLink(
   summary: string,
   location: string,
   dtStart: Temporal.ZonedDateTime,
-  dtEnd: Temporal.ZonedDateTime
+  dtEnd: Temporal.ZonedDateTime,
 ) {
-  const url = new URL('https://outlook.live.com/calendar/0/deeplink/compose');
+  const url = new URL("https://outlook.live.com/calendar/0/deeplink/compose");
 
-  url.searchParams.set('path', '/calendar/action/compose');
-  url.searchParams.set('rru', 'addevent');
-  url.searchParams.set('startdt', thirdPartyCalendarDateTimeFromZonedDateTime(dtStart));
-  url.searchParams.set('enddt', thirdPartyCalendarDateTimeFromZonedDateTime(dtEnd));
-  url.searchParams.set('subject', title);
-  url.searchParams.set('body', summary);
-  url.searchParams.set('location', location);
+  url.searchParams.set("path", "/calendar/action/compose");
+  url.searchParams.set("rru", "addevent");
+  url.searchParams.set(
+    "startdt",
+    thirdPartyCalendarDateTimeFromZonedDateTime(dtStart),
+  );
+  url.searchParams.set(
+    "enddt",
+    thirdPartyCalendarDateTimeFromZonedDateTime(dtEnd),
+  );
+  url.searchParams.set("subject", title);
+  url.searchParams.set("body", summary);
+  url.searchParams.set("location", location);
 
   return url;
 }
 
-export function produceSummary(title: string, description: string, selfLink: string): string {
+export function produceSummary(
+  title: string,
+  description: string,
+  selfLink: string,
+): string {
   return description.length > 0
-    ? [title, '='.repeat(title.length), '', ...wrapText(description), '', selfLink].join('\n')
-    : title + ' — ' + selfLink;
+    ? [
+      title,
+      "=".repeat(title.length),
+      "",
+      ...wrapText(description),
+      "",
+      selfLink,
+    ].join("\n")
+    : title + " — " + selfLink;
 }
 
 export function wrapText(text: string, width = 100) {
   const lines: string[] = [];
 
   while (text.length > width) {
-    const index = text.lastIndexOf(' ', width);
+    const index = text.lastIndexOf(" ", width);
     if (index === -1) {
       lines.push(text.substring(0, width));
       text = text.substring(width);
@@ -236,7 +278,7 @@ export function wrapText(text: string, width = 100) {
 
 export function zonedDateTimeFromGCalDateTime(
   gcalDate: Date,
-  timeZone: Temporal.TimeZoneLike
+  timeZone: Temporal.TimeZoneLike,
 ): Temporal.ZonedDateTime {
   const dtGCal = gcalDate.toISOString();
 
@@ -250,8 +292,8 @@ export function zonedDateTimeFromGCalDateTime(
   };
 
   // dtGCAL is in terms of +00:00 when 'Z' is present
-  if (dtGCal.at(-1) === 'Z') {
-    options.timeZone = Temporal.TimeZone.from('+00:00');
+  if (dtGCal.at(-1) === "Z") {
+    options.timeZone = Temporal.TimeZone.from("+00:00");
     return Temporal.ZonedDateTime.from(options).withTimeZone(timeZone);
   }
 

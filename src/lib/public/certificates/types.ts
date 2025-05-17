@@ -90,7 +90,8 @@ export interface RepositoryCertificatePageData {
 /**
  * RepositoryCertificate is a certificate showing the accomplishments that a particular user has made in the duration of two releases.
  */
-export interface RepositoryCertificate extends Pick<ReleaseCertificate, 'merged' | 'user'> {
+export interface RepositoryCertificate
+  extends Pick<ReleaseCertificate, "merged" | "user"> {
   /**
    * repositoryName is the name of the repository.
    */

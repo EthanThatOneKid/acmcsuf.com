@@ -6,7 +6,7 @@
  * Licensed under MIT (https://github.com/primer/github-syntax-theme-generator/blob/master/LICENSE)
  */
 
-:global(html[data-theme='light']) {
+:global(html[data-theme="light"]) {
   --color-prettylights-syntax-comment: #6a737d;
   --color-prettylights-syntax-constant: #005cc5;
   --color-prettylights-syntax-entity: #6f42c1;
@@ -40,7 +40,7 @@
   --color-canvas-subtle: #eef1f3;
 }
 
-:global(html[data-theme='dark']) {
+:global(html[data-theme="dark"]) {
   --color-prettylights-syntax-comment: #8b949e;
   --color-prettylights-syntax-constant: #79c0ff;
   --color-prettylights-syntax-entity: #d2a8ff;
@@ -78,18 +78,26 @@
   color: var(--color-prettylights-syntax-comment);
 }
 
-:global(.pl-c1 /* constant, entity.name.constant, variable.other.constant, variable.language, support, meta.property-name, support.constant, support.variable, meta.module-reference, markup.raw, meta.diff.header, meta.output */,
-.pl-s .pl-v) /* string variable */ {
+:global(
+  .pl-c1
+  /* constant, entity.name.constant, variable.other.constant, variable.language, support, meta.property-name, support.constant, support.variable, meta.module-reference, markup.raw, meta.diff.header, meta.output */,
+  .pl-s .pl-v
+) /* string variable */ {
   color: var(--color-prettylights-syntax-constant);
 }
 
-:global(.pl-e /* entity */,
-.pl-en) /* entity.name */ {
+:global(
+  .pl-e /* entity */,
+  .pl-en
+) /* entity.name */ {
   color: var(--color-prettylights-syntax-entity);
 }
 
-:global(.pl-smi /* variable.parameter.function, storage.modifier.package, storage.modifier.import, storage.type.java, variable.other */,
-.pl-s .pl-s1) /* string source */ {
+:global(
+  .pl-smi
+  /* variable.parameter.function, storage.modifier.package, storage.modifier.import, storage.type.java, variable.other */,
+  .pl-s .pl-s1
+) /* string source */ {
   color: var(--color-prettylights-syntax-storage-modifier-import);
 }
 
@@ -101,22 +109,30 @@
   color: var(--color-prettylights-syntax-keyword);
 }
 
-:global(.pl-s /* string */,
-.pl-pds /* punctuation.definition.string, source.regexp, string.regexp.character-class */,
-.pl-s .pl-pse .pl-s1 /* string punctuation.section.embedded source */,
-.pl-sr /* string.regexp */,
-.pl-sr .pl-cce /* string.regexp constant.character.escape */,
-.pl-sr .pl-sre /* string.regexp source.ruby.embedded */,
-.pl-sr .pl-sra) /* string.regexp string.regexp.arbitrary-repitition */ {
+:global(
+  .pl-s /* string */,
+  .pl-pds
+  /* punctuation.definition.string, source.regexp, string.regexp.character-class */,
+  .pl-s .pl-pse .pl-s1 /* string punctuation.section.embedded source */,
+  .pl-sr /* string.regexp */,
+  .pl-sr .pl-cce /* string.regexp constant.character.escape */,
+  .pl-sr .pl-sre /* string.regexp source.ruby.embedded */,
+  .pl-sr .pl-sra
+) /* string.regexp string.regexp.arbitrary-repitition */ {
   color: var(--color-prettylights-syntax-string);
 }
 
-:global(.pl-v /* variable */,
-.pl-smw) /* sublimelinter.mark.warning */ {
+:global(
+  .pl-v /* variable */,
+  .pl-smw
+) /* sublimelinter.mark.warning */ {
   color: var(--color-prettylights-syntax-variable);
 }
 
-:global(.pl-bu) /* invalid.broken, invalid.deprecated, invalid.unimplemented, message.error, brackethighlighter.unmatched, sublimelinter.mark.error */ {
+:global(
+  .pl-bu
+) /* invalid.broken, invalid.deprecated, invalid.unimplemented, message.error, brackethighlighter.unmatched, sublimelinter.mark.error */
+{
   color: var(--color-prettylights-syntax-brackethighlighter-unmatched);
 }
 
@@ -131,7 +147,7 @@
 }
 
 :global(.pl-c2::before) /* carriage-return */ {
-  content: '^M';
+  content: "^M";
 }
 
 :global(.pl-sr .pl-cce) /* string.regexp constant.character.escape */ {
@@ -143,9 +159,11 @@
   color: var(--color-prettylights-syntax-markup-list);
 }
 
-:global(.pl-mh /* markup.heading */,
-.pl-mh .pl-en /* markup.heading entity.name */,
-.pl-ms) /* meta.separator */ {
+:global(
+  .pl-mh /* markup.heading */,
+  .pl-mh .pl-en /* markup.heading entity.name */,
+  .pl-ms
+) /* meta.separator */ {
   font-weight: bold;
   color: var(--color-prettylights-syntax-markup-heading);
 }
@@ -160,12 +178,18 @@
   color: var(--color-prettylights-syntax-markup-bold);
 }
 
-:global(.pl-md) /* markup.deleted, meta.diff.header.from-file, punctuation.definition.deleted */ {
+:global(
+  .pl-md
+) /* markup.deleted, meta.diff.header.from-file, punctuation.definition.deleted */
+{
   color: var(--color-prettylights-syntax-markup-deleted-text);
   background-color: var(--color-prettylights-syntax-markup-deleted-bg);
 }
 
-:global(.pl-mi1) /* markup.inserted, meta.diff.header.to-file, punctuation.definition.inserted */ {
+:global(
+  .pl-mi1
+) /* markup.inserted, meta.diff.header.to-file, punctuation.definition.inserted */
+{
   color: var(--color-prettylights-syntax-markup-inserted-text);
   background-color: var(--color-prettylights-syntax-markup-inserted-bg);
 }
@@ -185,7 +209,10 @@
   color: var(--color-prettylights-syntax-meta-diff-range);
 }
 
-:global(.pl-ba) /* brackethighlighter.tag, brackethighlighter.curly, brackethighlighter.round, brackethighlighter.square, brackethighlighter.angle, brackethighlighter.quote */ {
+:global(
+  .pl-ba
+) /* brackethighlighter.tag, brackethighlighter.curly, brackethighlighter.round, brackethighlighter.square, brackethighlighter.angle, brackethighlighter.quote */
+{
   color: var(--color-prettylights-syntax-brackethighlighter-angle);
 }
 

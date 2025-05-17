@@ -1,9 +1,9 @@
-import type { drive_v3 } from 'googleapis';
-import { google } from 'googleapis';
+import type { drive_v3 } from "googleapis";
+import { google } from "googleapis";
 
 export function getDrive(apiKey: string) {
   return google.drive({
-    version: 'v3',
+    version: "v3",
     auth: apiKey,
   });
 }
@@ -17,7 +17,7 @@ export async function listFiles(drive: drive_v3.Drive, id: string) {
       q: `'${id}' in parents`,
       pageToken,
       // https://developers.google.com/drive/api/guides/fields-parameter
-      fields: 'files(id, name, mimeType, webContentLink)',
+      fields: "files(id, name, mimeType, webContentLink)",
     });
     if (result.data?.files === undefined) {
       break;
