@@ -1,25 +1,30 @@
-import { doQuery } from '$lib/server/gql/github';
-import { getOfficerByGhUsername } from '$lib/public/board';
+import { doQuery } from "$lib/server/gql/github";
+import { getOfficerByGhUsername } from "$lib/public/board";
 import type {
-  RepositoryCertificate,
-  ReleaseCertificate,
-  PR,
-  RepositoryCertificatePageData,
-  ReleaseCertificatePageData,
   Issue,
-} from '$lib/public/certificates';
+  PR,
+  ReleaseCertificate,
+  ReleaseCertificatePageData,
+  RepositoryCertificate,
+  RepositoryCertificatePageData,
+} from "$lib/public/certificates";
 import type {
-  PRsResponse,
-  UserResponse,
-  ReleaseCertificateQuery,
-  RepositoryCertificateQuery,
-  PRsQuery,
-  ReleasesResponse,
-  ReleaseNode,
-  IssuesResponse,
   IssuesQuery,
-} from './gql';
-import { makeReleasesQuery, makePRsQuery, makeIssuesQuery, makeUserQuery } from './gql';
+  IssuesResponse,
+  PRsQuery,
+  PRsResponse,
+  ReleaseCertificateQuery,
+  ReleaseNode,
+  ReleasesResponse,
+  RepositoryCertificateQuery,
+  UserResponse,
+} from "./gql";
+import {
+  makeIssuesQuery,
+  makePRsQuery,
+  makeReleasesQuery,
+  makeUserQuery,
+} from "./gql";
 
 /**
  * getPRs retrieves a page of merged pull requests.
@@ -43,8 +48,8 @@ async function getPRs(q: PRsQuery): Promise<PR[]> {
             message: edge.node.commit.message,
             url: edge.node.commit.url,
           })),
-        })
-      )
+        }),
+      ),
     );
 
     // Check if there are more pages of pull requests.
@@ -78,8 +83,8 @@ export async function getIssues(q: IssuesQuery): Promise<Issue[]> {
           title: edge.node.title,
           number: edge.node.number,
           url: edge.node.url,
-        })
-      )
+        }),
+      ),
     );
 
     // Check if there are more pages of issues.
@@ -99,24 +104,24 @@ export async function getIssues(q: IssuesQuery): Promise<Issue[]> {
  * getReleaseCertificatePageData retrieves a certificate showing the relevant pull requests made by a particular user in the duration of two releases.
  */
 export async function getReleaseCertificatePageData(
-  q: ReleaseCertificateQuery
+  q: ReleaseCertificateQuery,
 ): Promise<ReleaseCertificatePageData> {
   const releaseData = await doQuery<ReleasesResponse>(
     makeReleasesQuery({
       owner: q.owner,
       name: q.name,
       username: q.username,
-    })
+    }),
   );
 
   if (!releaseData.user) {
-    throw new Error('User not found!');
+    throw new Error("User not found!");
   }
 
   // Get the start and end dates for the releases.
   const pair = findReleasePair(releaseData, q.release);
   if (!pair) {
-    throw new Error('Release not found');
+    throw new Error("Release not found");
   }
 
   const earlier = pair[0]?.createdAt;
@@ -142,8 +147,8 @@ export async function getReleaseCertificatePageData(
     },
     merged: prs,
     from: {
-      tagName: pair[0]?.tagName || 'The Beginning',
-      date: earlier || 'The Beginning',
+      tagName: pair[0]?.tagName || "The Beginning",
+      date: earlier || "The Beginning",
     },
     to: {
       tagName: pair[1].tagName,
@@ -169,13 +174,14 @@ export async function getReleaseCertificatePageData(
  */
 function findReleasePair(
   data: ReleasesResponse,
-  release: number | string
+  release: number | string,
 ): [ReleaseNode | undefined, ReleaseNode] | undefined {
   // Find the index of the release.
-  const index =
-    typeof release === 'number'
-      ? release
-      : data.repository.releases.edges.findIndex((edge) => edge.node.tagName === release);
+  const index = typeof release === "number"
+    ? release
+    : data.repository.releases.edges.findIndex((edge) =>
+      edge.node.tagName === release
+    );
   if (!Object.hasOwn(data.repository.releases.edges, index)) {
     return undefined;
   }
@@ -190,7 +196,7 @@ function findReleasePair(
  * getRepositoryCertificatePageData retrieves a certificate showing the relevant pull requests made by a particular user in the duration of two releases.
  */
 export async function getRepositoryCertificatePageData(
-  q: RepositoryCertificateQuery
+  q: RepositoryCertificateQuery,
 ): Promise<RepositoryCertificatePageData> {
   const [userData, issuesData, prsData] = await Promise.all([
     doQuery<UserResponse>(makeUserQuery(q.username)),

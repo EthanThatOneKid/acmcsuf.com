@@ -8,7 +8,7 @@ export interface CollagePageData {
 /**
  * VIEW_TYPES are the possible view types for a piece.
  */
-const VIEW_TYPES = ['normal', 'wide', 'tall', 'big'] as const;
+export const VIEW_TYPES = ['normal', 'wide', 'tall', 'big'] as const;
 
 /**
  * ViewType is a type for the view type of a piece.
