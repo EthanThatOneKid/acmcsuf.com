@@ -2,7 +2,6 @@
   import type { BlogPost } from '$lib/public/blog/types';
   import { makeBlogPostPageURL } from '$lib/public/blog/urls';
   import { readingTime } from '$lib/public/blog/utils';
-  import { Temporal } from 'temporal-polyfill';
   import Labels from '$lib/components/blog/labels.svelte';
   import { copy } from '$lib/public/copy/copy';
   import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
