@@ -2,7 +2,6 @@
   import type { PageData } from './$types';
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import { readingTime } from '$lib/public/blog/utils';
-  import { Temporal } from 'temporal-polyfill';
   import Labels from '$lib/components/blog/labels.svelte';
   import BlogBody from './blog-body.svelte';
   import { MetaTags } from 'svelte-meta-tags';

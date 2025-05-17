@@ -1,5 +1,4 @@
 import { test, expect, assert } from 'vitest';
-import { Temporal } from 'temporal-polyfill';
 import {
   makeEventId,
   parseDescription,

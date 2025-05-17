@@ -77,7 +77,6 @@
     "rrule": "^2.8.1",
     "rss": "^1.2.2",
     "svelte-confetti": "^2.3.1",
-    "svelte-meta-tags": "^4.2.0",
-    "temporal-polyfill": "^0.2.5"
+    "svelte-meta-tags": "^4.2.0"
   }
 }
