@@ -1,40 +1,40 @@
-import { test, expect } from 'vitest';
+import { expect, test } from "vitest";
 
-import type { ReleasesResponse } from './gql';
-import { makePRsQuery, makeReleasesQuery } from './gql';
+import type { ReleasesResponse } from "./gql";
+import { makePRsQuery, makeReleasesQuery } from "./gql";
 
-const TEST_OWNER = 'OWNER';
-const TEST_REPO_NAME = 'REPO_NAME';
-const TEST_USERNAME = 'USERNAME';
+const TEST_OWNER = "OWNER";
+const TEST_REPO_NAME = "REPO_NAME";
+const TEST_USERNAME = "USERNAME";
 const TEST_RELEASE_DATA: ReleasesResponse = {
   repository: {
     releases: {
       edges: [
         {
           node: {
-            tagName: 'v2.0.0',
-            name: 'v2.0.0',
-            createdAt: '2022-01-01T00:00:00Z',
+            tagName: "v2.0.0",
+            name: "v2.0.0",
+            createdAt: "2022-01-01T00:00:00Z",
           },
         },
         {
           node: {
-            name: 'v1.0.0',
-            tagName: 'v1.0.0',
-            createdAt: '2021-01-01T00:00:00Z',
+            name: "v1.0.0",
+            tagName: "v1.0.0",
+            createdAt: "2021-01-01T00:00:00Z",
           },
         },
       ],
     },
   },
   user: {
-    name: 'TEST_RELEASE_USER_NAME',
-    bioHTML: 'TEST_RELEASE_USER_BIO',
-    avatarUrl: 'TEST_RELEASE_USER_AVATAR_URL',
+    name: "TEST_RELEASE_USER_NAME",
+    bioHTML: "TEST_RELEASE_USER_BIO",
+    avatarUrl: "TEST_RELEASE_USER_AVATAR_URL",
   },
 };
 
-test('makeReleasesQuery', () => {
+test("makeReleasesQuery", () => {
   const query = makeReleasesQuery({
     owner: TEST_OWNER,
     name: TEST_REPO_NAME,
@@ -60,7 +60,7 @@ test('makeReleasesQuery', () => {
 }`);
 });
 
-test('makePRsQuery', () => {
+test("makePRsQuery", () => {
   const query = makePRsQuery({
     owner: TEST_OWNER,
     name: TEST_REPO_NAME,

@@ -1,7 +1,7 @@
-import type { RequestEvent } from '@sveltejs/kit';
-import type { RouteParams } from './$types';
-import { fetchBlogPosts } from '$lib/server/blog/posts';
-import { parseQuery } from '$lib/public/blog/utils';
+import type { RequestEvent } from "@sveltejs/kit";
+import type { RouteParams } from "./$types";
+import { fetchBlogPosts } from "$lib/server/blog/posts";
+import { parseQuery } from "$lib/public/blog/utils";
 
 /**
  * The server-side load function for the blog page.
@@ -16,6 +16,6 @@ export async function GET({ params }: RequestEvent<RouteParams>) {
 
   return new Response(JSON.stringify(output), {
     status: 200,
-    headers: { 'Content-Type': 'application/json' },
+    headers: { "Content-Type": "application/json" },
   });
 }

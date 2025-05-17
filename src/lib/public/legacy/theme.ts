@@ -1,17 +1,19 @@
-import { writable } from 'svelte/store';
+import { writable } from "svelte/store";
 
 export enum AcmTheme {
-  Light = 'light',
-  Dark = 'dark',
+  Light = "light",
+  Dark = "dark",
 }
 
-const ATTRIBUTE_KEY = 'data-theme';
+const ATTRIBUTE_KEY = "data-theme";
 
 function get(): AcmTheme {
   const savedValue = document.documentElement.getAttribute(ATTRIBUTE_KEY);
   if (savedValue === AcmTheme.Dark) return AcmTheme.Dark;
   if (savedValue === AcmTheme.Light) return AcmTheme.Light;
-  return matchMedia('(prefers-color-scheme: dark)').matches ? AcmTheme.Dark : AcmTheme.Light;
+  return matchMedia("(prefers-color-scheme: dark)").matches
+    ? AcmTheme.Dark
+    : AcmTheme.Light;
 }
 
 function save(value: AcmTheme) {
@@ -43,7 +45,9 @@ function createTheme(defaultValue = AcmTheme.Light) {
 
   function toggle() {
     update((value) => {
-      const nextValue = value === AcmTheme.Light ? AcmTheme.Dark : AcmTheme.Light;
+      const nextValue = value === AcmTheme.Light
+        ? AcmTheme.Dark
+        : AcmTheme.Light;
       save(nextValue);
       return nextValue;
     });

@@ -1,11 +1,11 @@
-import type { ClubEvent } from '$lib/public/events/event';
-import { calendar } from '@googleapis/calendar';
-import { makeClubEvent } from './event';
-import { GCAL_API_KEY, GCAL_ID } from '$lib/server/env';
+import type { ClubEvent } from "$lib/public/events/event";
+import { calendar } from "@googleapis/calendar";
+import { makeClubEvent } from "./event";
+import { GCAL_API_KEY, GCAL_ID } from "$lib/server/env";
 
 export function fromGCal(events: GCalEvent[]): ClubEvent[] {
   const sortedEvents: ClubEvent[] = [];
-  const refDate = Temporal.Now.zonedDateTimeISO('America/Los_Angeles');
+  const refDate = Temporal.Now.zonedDateTimeISO("America/Los_Angeles");
 
   for (const event of events) {
     const clubEvent = makeClubEvent(event, refDate);
@@ -19,7 +19,7 @@ export function fromGCal(events: GCalEvent[]): ClubEvent[] {
 
 export async function listUpcomingEvents() {
   const cal = calendar({
-    version: 'v3',
+    version: "v3",
     auth: GCAL_API_KEY,
   });
   return (
@@ -29,11 +29,14 @@ export async function listUpcomingEvents() {
         timeMin: new Date().toISOString(),
         maxResults: 100,
         singleEvents: true,
-        orderBy: 'startTime',
+        orderBy: "startTime",
         showDeleted: false,
       })
     )?.data?.items ?? []
   );
 }
 
-export type GCalEvent = Exclude<Awaited<ReturnType<typeof listUpcomingEvents>>, undefined>[number];
+export type GCalEvent = Exclude<
+  Awaited<ReturnType<typeof listUpcomingEvents>>,
+  undefined
+>[number];

@@ -1,8 +1,8 @@
 /**
  * https://github.com/Mitcheljager/svelte-confetti/issues/3#issuecomment-1556010092
  */
-declare module 'svelte-confetti' {
-  import { SvelteComponentTyped } from 'svelte';
+declare module "svelte-confetti" {
+  import { SvelteComponentTyped } from "svelte";
 
   declare const __propDef: {
     props: {

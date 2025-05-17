@@ -8,7 +8,10 @@ export async function GET() {
   const { posts } = await fetchBlogPosts();
   return new Response(makeRssFeed(posts), {
     status: 200,
-    headers: { 'Cache-Control': 'max-age=0, s-maxage=3600', 'Content-Type': 'application/xml' },
+    headers: {
+      'Cache-Control': 'max-age=0, s-maxage=3600',
+      'Content-Type': 'application/xml',
+    },
   });
 }
 
