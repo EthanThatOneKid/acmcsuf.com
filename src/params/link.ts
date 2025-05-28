@@ -1,5 +1,5 @@
-import type { ParamMatcher } from "@sveltejs/kit";
-import { LINKS } from "$lib/public/links";
+import type { ParamMatcher } from '@sveltejs/kit';
+import { LINKS } from '$lib/public/links';
 
 function makeLinkMatcher(): ParamMatcher {
   return (param: string): boolean => {
@@ -7,7 +7,7 @@ function makeLinkMatcher(): ParamMatcher {
       if (Object.hasOwn(LINKS, param)) {
         return true;
       }
-      param = param.slice(0, param.lastIndexOf("/"));
+      param = param.slice(0, param.lastIndexOf('/'));
     }
     return false;
   };

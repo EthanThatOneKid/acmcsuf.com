@@ -128,17 +128,17 @@ export function makePRsQuery({
    */
   const searchQuery = [
     `repo:${owner}/${name}`,
-    "is:pr",
-    "is:public",
+    'is:pr',
+    'is:public',
     `base:main`,
     `author:${username}`,
-    "sort:created-asc",
+    'sort:created-asc',
     startDate ? `merged:${startDate}..${endDate}` : `merged:<=${endDate}`,
-  ].join(" ");
+  ].join(' ');
   const cursorDef = cursor
     ? `
   after: "${cursor}"`
-    : "";
+    : '';
 
   return `{
   search(
@@ -231,16 +231,16 @@ export function makeIssuesQuery({
    */
   const searchQuery = [
     `repo:${owner}/${name}`,
-    "is:issue",
-    "is:public",
+    'is:issue',
+    'is:public',
     `author:${username}`,
-    "sort:created-asc",
+    'sort:created-asc',
     startDate ? `created:${startDate}..${endDate}` : `created:<=${endDate}`,
-  ].join(" ");
+  ].join(' ');
   const cursorDef = cursor
     ? `
   after: "${cursor}"`
-    : "";
+    : '';
 
   return `{
   search(

@@ -1,6 +1,6 @@
-import type { Officer, Team, Term, Tier } from "./types";
-import { OFFICERS_JSON, TEAMS_JSON, TIERS_JSON, VISIBLE_TERMS } from "./data";
-import { writable } from "svelte/store";
+import type { Officer, Team, Term, Tier } from './types';
+import { OFFICERS_JSON, TEAMS_JSON, TIERS_JSON, VISIBLE_TERMS } from './data';
+import { writable } from 'svelte/store';
 
 /**
  * termIndex is the index of the term to display in the board.
@@ -13,8 +13,8 @@ export const termIndex = writable<number>(0);
  */
 export function getPositionByTermIndex(
   officer: Officer,
-  termIndex: number,
-): Officer["positions"][Term] | undefined {
+  termIndex: number
+): Officer['positions'][Term] | undefined {
   return officer.positions[VISIBLE_TERMS[termIndex]];
 }
 
@@ -29,11 +29,7 @@ export function getTierByID(id: number): Tier | undefined {
  * getMembers returns a list of members that are associated with
  * the given term and tiers.
  */
-export function getMembers(
-  members: Officer[],
-  term: Term,
-  tierIDs?: number[],
-): Officer[] {
+export function getMembers(members: Officer[], term: Term, tierIDs?: number[]): Officer[] {
   if (!tierIDs) {
     return [];
   }
@@ -45,9 +41,7 @@ export function getMembers(
         return false;
       }
 
-      return tierIDs.some((tierID) =>
-        positions.some((position) => position.tier === tierID)
-      );
+      return tierIDs.some((tierID) => positions.some((position) => position.tier === tierID));
     })
     .sort((a, b) => {
       const aPositions = a.positions[term];
@@ -57,18 +51,10 @@ export function getMembers(
       }
 
       const aTier = getTierByID(
-        Math.min(
-          ...aPositions.map(({ tier }) => tier).filter((tier) =>
-            tierIDs.includes(tier)
-          ),
-        ),
+        Math.min(...aPositions.map(({ tier }) => tier).filter((tier) => tierIDs.includes(tier)))
       ) || { index: 0 };
       const bTier = getTierByID(
-        Math.min(
-          ...bPositions.map(({ tier }) => tier).filter((tier) =>
-            tierIDs.includes(tier)
-          ),
-        ),
+        Math.min(...bPositions.map(({ tier }) => tier).filter((tier) => tierIDs.includes(tier)))
       ) || { index: 0 };
       return aTier.index - bTier.index;
     });
@@ -86,8 +72,6 @@ export function getTeamByID(id: string): Team | undefined {
  */
 export function getOfficerByGhUsername(ghUsername: string): Officer | null {
   // get author by GitHub username
-  const officer = OFFICERS_JSON.find((o) =>
-    o.fullName !== undefined && o.fullName === ghUsername
-  );
+  const officer = OFFICERS_JSON.find((o) => o.fullName !== undefined && o.fullName === ghUsername);
   return officer ?? null;
 }

@@ -1,1 +1,1 @@
-export * from "./hackathon";
+export * from './hackathon';

@@ -1,4 +1,4 @@
-import type { BlogFetchOptions } from "./types";
+import type { BlogFetchOptions } from './types';
 
 interface WithLabels {
   labels: string[];
@@ -23,13 +23,13 @@ export function discernLabels(posts: WithLabels[]): string[] {
  */
 export function readingTime(blogContent: string, wpm = 225) {
   // Regex taken from https://stackoverflow.com/a/5002161 to parse out HTML tags
-  const text = blogContent.replace(/<\/?[^>]+(>|$)/, "").trim();
+  const text = blogContent.replace(/<\/?[^>]+(>|$)/, '').trim();
   return Math.ceil(text.split(/\s+/).length / wpm);
 }
 
-export const ALL = "all";
+export const ALL = 'all';
 
-export const LABEL_SEPARATOR = ";";
+export const LABEL_SEPARATOR = ';';
 
 export function parseQuery(query: string): BlogFetchOptions {
   if (query === ALL) return { labels: [] };

@@ -13,14 +13,14 @@ export interface QuizResponse {
 }
 
 export enum TeamMatch {
-  ALGO = "algo",
-  DEV = "dev",
-  DESIGN = "design",
-  AI = "ai",
-  OSS = "oss",
-  GAMEDEV = "gamedev",
-  ICPC = "icpc",
-  TEAMLESS = "N/A",
+  ALGO = 'algo',
+  DEV = 'dev',
+  DESIGN = 'design',
+  AI = 'ai',
+  OSS = 'oss',
+  GAMEDEV = 'gamedev',
+  ICPC = 'icpc',
+  TEAMLESS = 'N/A',
 }
 
 export interface Choice {

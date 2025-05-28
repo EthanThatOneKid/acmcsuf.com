@@ -1,9 +1,9 @@
-import type { QuizResponse } from "$lib/public/quiz/questions/types";
+import type { QuizResponse } from '$lib/public/quiz/questions/types';
 
 export class QuizStorage {
   constructor(
     private readonly storage: Storage = window.localStorage,
-    private readonly storageKey = "QUIZ_RESPONSES",
+    private readonly storageKey = 'QUIZ_RESPONSES'
   ) {}
 
   setResponses(responses: (QuizResponse | undefined)[]) {
