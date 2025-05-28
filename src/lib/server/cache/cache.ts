@@ -9,7 +9,7 @@ export class Cache<T> implements CacheInterface<T> {
   constructor(
     private data?: T,
     private lastUpdated = 0,
-    private expirationTimeout = EXPIRATION_TIMEOUT,
+    private expirationTimeout = EXPIRATION_TIMEOUT
   ) {}
 
   set(v: T, timestamp = Date.now()) {

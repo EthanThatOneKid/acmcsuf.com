@@ -1,11 +1,11 @@
-import { expect, test } from "vitest";
+import { expect, test } from 'vitest';
 
-import type { GCalEvent } from "./gcal";
-import { fromGCal } from "./gcal";
-import GCAL_EVENTS from "./data/gcal-events.json?raw";
-import CLUB_EVENTS from "./data/club-events.json?raw";
+import type { GCalEvent } from './gcal';
+import { fromGCal } from './gcal';
+import GCAL_EVENTS from './data/gcal-events.json?raw';
+import CLUB_EVENTS from './data/club-events.json?raw';
 
-test("transforms GCalEvent list to ClubEvent list", async () => {
+test('transforms GCalEvent list to ClubEvent list', async () => {
   const input = JSON.parse(GCAL_EVENTS) as GCalEvent[];
   const actual = fromGCal(input);
 
@@ -20,5 +20,5 @@ test("transforms GCalEvent list to ClubEvent list", async () => {
   //
   // Remember to comment out the above lines of code before committing.
 
-  expect(JSON.stringify(actual, null, 2) + "\n").toBe(CLUB_EVENTS);
+  expect(JSON.stringify(actual, null, 2) + '\n').toBe(CLUB_EVENTS);
 });

@@ -1,6 +1,6 @@
-import type { Handle } from "@sveltejs/kit";
-import { LINKS } from "$lib/public/links";
-import { resolve as resolveShortlink } from "$lib/server/links/resolve";
+import type { Handle } from '@sveltejs/kit';
+import { LINKS } from '$lib/public/links';
+import { resolve as resolveShortlink } from '$lib/server/links/resolve';
 
 export function shortener(): Handle {
   return async ({ event, resolve }) => {
@@ -8,7 +8,7 @@ export function shortener(): Handle {
       const url = new URL(event.request.url);
 
       // Pass to QR code generation endpoint.
-      if (url.pathname.toLowerCase().endsWith(".svg")) {
+      if (url.pathname.toLowerCase().endsWith('.svg')) {
         return resolve(event);
       }
 

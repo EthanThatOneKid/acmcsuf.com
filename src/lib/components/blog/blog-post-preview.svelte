@@ -44,9 +44,8 @@
     {@html post.html}
   </div>
   <p class="read-time">
-    {post.createdAt && // @ts-expect-error
-      Temporal.Instant.from(post.createdAt).toLocaleString('en-US', {
-        calendar: 'gregory',
+    {post.createdAt &&
+      new Date(post.createdAt).toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
         day: 'numeric',

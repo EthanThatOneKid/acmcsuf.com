@@ -1,1 +1,1 @@
-export default "url(/assets/happy-face.svg)";
+export default 'url(/assets/happy-face.svg)';

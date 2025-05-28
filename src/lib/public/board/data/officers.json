@@ -549,9 +549,7 @@
     "fullName": "Aaron Lieberman",
     "picture": "aaron-lieberman.webp",
     "positions": {
-      "S21": [
-        { "title": "Internal Vice President, Node Buds Officer", "tier": 1 }
-      ],
+      "S21": [{ "title": "Internal Vice President, Node Buds Officer", "tier": 1 }],
       "F21": [{ "title": "President, Node Buds Officer", "tier": 0 }],
       "S22": [{ "title": "President, Node Buds Officer", "tier": 0 }],
       "F22": [{ "title": "Special Events Team Lead", "tier": 24 }],
@@ -692,9 +690,7 @@
     "fullName": "Jacob Nguyen",
     "picture": "jacob-nguyen.webp",
     "positions": {
-      "S21": [
-        { "title": "President, Create Director, Node Buds Officer", "tier": 0 }
-      ],
+      "S21": [{ "title": "President, Create Director, Node Buds Officer", "tier": 0 }],
       "F22": [{ "title": "Treasurer", "tier": 4 }],
       "S23": [{ "title": "Treasurer", "tier": 4 }]
     }

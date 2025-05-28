@@ -6,7 +6,7 @@
  * Licensed under MIT (https://github.com/primer/github-syntax-theme-generator/blob/master/LICENSE)
  */
 
-:global(html[data-theme="light"]) {
+:global(html[data-theme='light']) {
   --color-prettylights-syntax-comment: #6a737d;
   --color-prettylights-syntax-constant: #005cc5;
   --color-prettylights-syntax-entity: #6f42c1;
@@ -40,7 +40,7 @@
   --color-canvas-subtle: #eef1f3;
 }
 
-:global(html[data-theme="dark"]) {
+:global(html[data-theme='dark']) {
   --color-prettylights-syntax-comment: #8b949e;
   --color-prettylights-syntax-constant: #79c0ff;
   --color-prettylights-syntax-entity: #d2a8ff;
@@ -131,8 +131,7 @@
 
 :global(
   .pl-bu
-) /* invalid.broken, invalid.deprecated, invalid.unimplemented, message.error, brackethighlighter.unmatched, sublimelinter.mark.error */
-{
+) /* invalid.broken, invalid.deprecated, invalid.unimplemented, message.error, brackethighlighter.unmatched, sublimelinter.mark.error */ {
   color: var(--color-prettylights-syntax-brackethighlighter-unmatched);
 }
 
@@ -147,7 +146,7 @@
 }
 
 :global(.pl-c2::before) /* carriage-return */ {
-  content: "^M";
+  content: '^M';
 }
 
 :global(.pl-sr .pl-cce) /* string.regexp constant.character.escape */ {
@@ -180,16 +179,14 @@
 
 :global(
   .pl-md
-) /* markup.deleted, meta.diff.header.from-file, punctuation.definition.deleted */
-{
+) /* markup.deleted, meta.diff.header.from-file, punctuation.definition.deleted */ {
   color: var(--color-prettylights-syntax-markup-deleted-text);
   background-color: var(--color-prettylights-syntax-markup-deleted-bg);
 }
 
 :global(
   .pl-mi1
-) /* markup.inserted, meta.diff.header.to-file, punctuation.definition.inserted */
-{
+) /* markup.inserted, meta.diff.header.to-file, punctuation.definition.inserted */ {
   color: var(--color-prettylights-syntax-markup-inserted-text);
   background-color: var(--color-prettylights-syntax-markup-inserted-bg);
 }
@@ -211,8 +208,7 @@
 
 :global(
   .pl-ba
-) /* brackethighlighter.tag, brackethighlighter.curly, brackethighlighter.round, brackethighlighter.square, brackethighlighter.angle, brackethighlighter.quote */
-{
+) /* brackethighlighter.tag, brackethighlighter.curly, brackethighlighter.round, brackethighlighter.square, brackethighlighter.angle, brackethighlighter.quote */ {
   color: var(--color-prettylights-syntax-brackethighlighter-angle);
 }
 
