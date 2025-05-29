@@ -2,7 +2,6 @@
   import type { BlogPost } from '$lib/public/blog/types';
   import { makeBlogPostPageURL } from '$lib/public/blog/urls';
   import { readingTime } from '$lib/public/blog/utils';
-  import { Temporal } from '@js-temporal/polyfill';
   import Labels from '$lib/components/blog/labels.svelte';
   import { copy } from '$lib/public/copy/copy';
   import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
@@ -12,51 +11,48 @@
 </script>
 
 <div class="post">
-  <a href={makeBlogPostPageURL(post.id)}>
-    <div class="author">
-      <a class="author-avatar" href={post.author.url}>
-        <img src={post.author.picture} alt="" />
-      </a>
-      <div>
-        <a href={post.author.url}
-          >{#if post.author.fullname}
-            {post.author.fullname}
-          {:else}
-            @{post.author.displayname}
-          {/if}</a
-        >
-      </div>
-      <button
-        class="clipboard-btn"
-        on:click|preventDefault={() => {
-          copy(
-            `${window.location.href}/${post.id}`,
-            'Copied post link to clipboard!',
-            'Failed to copy post link to clipboard!'
-          );
-        }}
-      >
-        <BwIcon src="/assets/copy-link.svg" alt="copy link" />
-      </button>
-    </div>
-    <a href={makeBlogPostPageURL(post.id)}>
-      <h2 class="acm-heavier">{post.title}</h2>
+  <div class="author">
+    <a class="author-avatar" href={post.author.url}>
+      <img src={post.author.picture} alt="" />
     </a>
-    <div class="markdown-body">
-      {@html post.html}
+    <div>
+      <a href={post.author.url}
+        >{#if post.author.fullname}
+          {post.author.fullname}
+        {:else}
+          @{post.author.displayname}
+        {/if}</a
+      >
     </div>
-    <p class="read-time">
-      {post.createdAt &&
-        Temporal.Instant.from(post.createdAt).toLocaleString('en-US', {
-          calendar: 'gregory',
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        })} •
-      {readingTime(post.html)} min read
-      <Labels data={post.labels} {selectedLabels} />
-    </p>
+    <button
+      class="clipboard-btn"
+      on:click|preventDefault={() => {
+        copy(
+          `${window.location.href}/${post.id}`,
+          'Copied post link to clipboard!',
+          'Failed to copy post link to clipboard!'
+        );
+      }}
+    >
+      <BwIcon src="/assets/copy-link.svg" alt="copy link" />
+    </button>
+  </div>
+  <a href={makeBlogPostPageURL(post.id)}>
+    <h2 class="acm-heavier">{post.title}</h2>
   </a>
+  <div class="markdown-body">
+    {@html post.html}
+  </div>
+  <p class="read-time">
+    {post.createdAt &&
+      new Date(post.createdAt).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })} •
+    {readingTime(post.html)} min read
+    <Labels data={post.labels} {selectedLabels} />
+  </p>
 </div>
 
 <style>

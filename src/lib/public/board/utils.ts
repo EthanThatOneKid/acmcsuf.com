@@ -1,5 +1,5 @@
-import type { Officer, Term, Tier, Team } from './types';
-import { VISIBLE_TERMS, TIERS_JSON, TEAMS_JSON, OFFICERS_JSON } from './data';
+import type { Officer, Team, Term, Tier } from './types';
+import { OFFICERS_JSON, TEAMS_JSON, TIERS_JSON, VISIBLE_TERMS } from './data';
 import { writable } from 'svelte/store';
 
 /**
