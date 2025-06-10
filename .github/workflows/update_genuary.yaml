@@ -22,6 +22,9 @@ jobs:
           CHANNEL_ID: ${{ secrets.GENUARY_CHANNEL_ID }}
           DISCORD_TOKEN: ${{ secrets.GENUARY_DISCORD_TOKEN }}
 
+      - name: Install dependencies
+        run: npm ci    
+
       - name: Transform Genuary data
         id: transform-genuary
         run: |
@@ -37,6 +40,11 @@ jobs:
           else
             echo "updated=1" >> $GITHUB_OUTPUT
           fi
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
 
       - name: Create pull request
         if: steps.transform-genuary.outputs.updated == 1
