@@ -1404,5 +1404,13 @@
       "F25": [{ "title": "Open Source Officer", "tier": 33 }]
     },
     "discord": "@yitzy_"
+  },
+  {
+    "fullName": "Lizbeth Arcos",
+    "picture": "lizbeth-arcos.webp",
+    "positions": {
+      "F25": [{ "title": "Event Coordinator", "tier": 6 }]
+    },
+    "discord": "@lalalaliz"
   }
 ]
