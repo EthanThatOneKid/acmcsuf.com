@@ -793,7 +793,8 @@
       "F23": [{ "title": "AI Officer", "tier": 21 }],
       "S24": [{ "title": "Dev Officer", "tier": 19 }],
       "F24": [{ "title": "President", "tier": 0 }],
-      "S25": [{ "title": "President", "tier": 0 }]
+      "S25": [{ "title": "President", "tier": 0 }],
+      "F25": [{ "title": "Node Buds Team Lead", "tier": 34 }]
     },
     "discord": "@jjoeldaniel"
   },
