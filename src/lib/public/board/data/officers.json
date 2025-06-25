@@ -1422,5 +1422,16 @@
       "F25": [{ "title": "Event Coordinator", "tier": 6 }]
     },
     "discord": "@lalalaliz"
+  },
+  {
+    "fullName": "Kelsey Tang",
+    "picture": "kelsey-tang.webp",
+    "positions": {
+      "F25": [
+        { "title": "Secretary", "tier": 5 },
+        { "title": "Node Buds Officer", "tier": 26 }
+      ]
+    },
+    "discord": "@dstrct9"
   }
 ]
