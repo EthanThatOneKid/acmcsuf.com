@@ -405,7 +405,8 @@
         { "title": "Marketing Officer", "tier": 9 },
         { "title": "Open Source Officer", "tier": 33 }
       ],
-      "S25": [{ "title": "Open Source Officer", "tier": 33 }]
+      "S25": [{ "title": "Open Source Officer", "tier": 33 }],
+      "F25": [{ "title": "Open Source Team Lead", "tier": 32 }]
     },
     "discord": "@surrealreal_"
   },
