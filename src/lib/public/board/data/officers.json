@@ -1375,10 +1375,14 @@
     "discord": "@teradyne_"
   },
   {
-    "fullName": "Angel Gaspar",
-    "picture": "angel-gaspar.webp",
+    "fullName": "Angel Daniel Gaspar",
+    "picture": "angel-daniel-gaspar.webp",
     "positions": {
-      "S25": [{ "title": "Marketing Officer", "tier": 9 }]
+      "S25": [{ "title": "Marketing Officer", "tier": 9 }],
+      "F25": [
+        { "title": "Marketing Team Lead", "tier": 8 },
+        { "title": "Design Officer", "tier": 16 }
+      ]
     },
     "discord": "@qasple"
   },
