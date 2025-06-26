@@ -1458,5 +1458,11 @@
       ]
     },
     "discord": "@sofa.gui9702"
+  },
+  {
+    "fullName": "Omar Rafiq",
+    "picture": "omar-rafiq.webp",
+    "positions": { "F25": [{ "title": "AI Officer", "tier": 21 }] },
+    "discord": "@dimesv2"
   }
 ]
