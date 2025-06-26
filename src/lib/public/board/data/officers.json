@@ -281,9 +281,13 @@
         { "title": "Marketing Team Lead", "tier": 8 },
         { "title": "Game Dev Officer", "tier": 23 },
         { "title": "Node Buds Officer", "tier": 26 }
+      ],
+      "F25": [
+        { "title": "President", "tier": 0 },
+        { "title": "Game Dev Officer", "tier": 23 }
       ]
     },
-    "discord": "@xnaym"
+    "discord": "@markgdev"
   },
   {
     "fullName": "Gabrielius Gintalas",
@@ -1259,7 +1263,11 @@
     "picture": "hannah-minji-park.webp",
     "positions": {
       "F24": [{ "title": "Marketing Officer", "tier": 9 }],
-      "S25": [{ "title": "Marketing Officer", "tier": 9 }]
+      "S25": [{ "title": "Marketing Officer", "tier": 9 }],
+      "F25": [
+        { "title": "AI Officer", "tier": 21 },
+        { "title": "Marketing Officer", "tier": 9 }
+      ]
     },
     "discord": "@wiseeisw_99756"
   },
@@ -1315,7 +1323,11 @@
     "fullName": "Christian Huerta",
     "picture": "christian-huerta.webp",
     "positions": {
-      "S25": [{ "title": "Design Officer", "tier": 16 }]
+      "S25": [{ "title": "Design Officer", "tier": 16 }],
+      "F25": [
+        { "title": "Design Team Lead", "tier": 13 },
+        { "title": "Dev Officer", "tier": 19 }
+      ]
     },
     "discord": "@swiftpup121"
   },
@@ -1396,7 +1408,8 @@
     "fullName": "Demi Chen",
     "picture": "demi-chen.webp",
     "positions": {
-      "S25": [{ "title": "Node Buds Officer", "tier": 26 }]
+      "S25": [{ "title": "Node Buds Officer", "tier": 26 }],
+      "F25": [{ "title": "Node Buds Officer", "tier": 26 }]
     },
     "discord": "@hungry52"
   },
@@ -1434,5 +1447,16 @@
       ]
     },
     "discord": "@dstrct9"
+  },
+  {
+    "fullName": "Sofia Guillen",
+    "picture": "sofia-guillen.webp",
+    "positions": {
+      "F25": [
+        { "title": "Design Officer", "tier": 16 },
+        { "title": "Marketing Officer", "tier": 9 }
+      ]
+    },
+    "discord": "@sofa.gui9702"
   }
 ]
