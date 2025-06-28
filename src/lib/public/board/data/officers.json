@@ -1074,7 +1074,8 @@
       "F23": [{ "title": "Algo Officer", "tier": 12 }],
       "S24": [{ "title": "Algo Officer", "tier": 12 }],
       "F24": [{ "title": "Algo Officer", "tier": 12 }],
-      "S25": [{ "title": "Algo Officer", "tier": 12 }]
+      "S25": [{ "title": "Algo Officer", "tier": 12 }],
+      "F25": [{ "title": "Algo Team Lead", "tier": 11 }]
     },
     "discord": "@cyrily"
   },
@@ -1135,7 +1136,8 @@
     "picture": "placeholder.webp",
     "positions": {
       "F24": [{ "title": "AI Officer", "tier": 21 }],
-      "S25": [{ "title": "AI Officer", "tier": 21 }]
+      "S25": [{ "title": "AI Officer", "tier": 21 }],
+      "F25": [{ "title": "AI Officer", "tier": 21 }]
     },
     "discord": "@python.programmer"
   },
@@ -1464,5 +1466,11 @@
     "picture": "omar-rafiq.webp",
     "positions": { "F25": [{ "title": "AI Officer", "tier": 21 }] },
     "discord": "@dimesv2"
+  },
+  {
+    "fullName": "Babiker Babiker",
+    "picture": "placeholder.webp",
+    "positions": { "F25": [{ "title": "Dev Team Lead", "tier": 17 }] },
+    "discord": "@8ab1ker"
   }
 ]
