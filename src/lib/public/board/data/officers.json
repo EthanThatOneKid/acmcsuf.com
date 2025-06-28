@@ -816,7 +816,8 @@
       "S25": [
         { "title": "Event Coordinator", "tier": 6 },
         { "title": "Node Buds Co-Team Lead", "tier": 36 }
-      ]
+      ],
+      "F25": [{ "title": "Vice President", "tier": 1 }]
     },
     "discord": "@meexy23"
   },
@@ -1285,7 +1286,8 @@
     "fullName": "Siddharth Vasu",
     "picture": "siddharth-vasu.webp",
     "positions": {
-      "S25": [{ "title": "Open Source Officer", "tier": 33 }]
+      "S25": [{ "title": "Open Source Officer", "tier": 33 }],
+      "F25": [{ "title": "Open Source Officer", "tier": 33 }]
     },
     "discord": "@prince_sidon"
   },
@@ -1309,7 +1311,8 @@
     "fullName": "Talhah Raheem",
     "picture": "talhah-raheem.webp",
     "positions": {
-      "S25": [{ "title": "Dev Officer", "tier": 19 }]
+      "S25": [{ "title": "Dev Officer", "tier": 19 }],
+      "F25": [{ "title": "Dev Officer", "tier": 19 }]
     },
     "discord": "@arrow5566"
   },
@@ -1472,5 +1475,16 @@
     "picture": "placeholder.webp",
     "positions": { "F25": [{ "title": "Dev Team Lead", "tier": 17 }] },
     "discord": "@8ab1ker"
+  },
+  {
+    "fullName": "Emily Tsai",
+    "picture": "emily-tsai.webp",
+    "positions": { 
+      "F25": [
+        { "title": "Node Buds Officer", "tier": 26 },
+        { "title": "Open Source Officer", "tier": 33 }
+      ] 
+    },
+    "discord": "@beeemi"
   }
 ]
