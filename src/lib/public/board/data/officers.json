@@ -140,7 +140,8 @@
       "S25": [
         { "title": "Marketing Officer", "tier": 9 },
         { "title": "Node Buds Officer", "tier": 26 }
-      ]
+      ],
+      "F25": [{ "title": "Node Buds Officer", "tier": 26 }]
     },
     "discord": "@ashleychan_"
   },
@@ -1479,12 +1480,29 @@
   {
     "fullName": "Emily Tsai",
     "picture": "emily-tsai.webp",
-    "positions": { 
+    "positions": {
       "F25": [
         { "title": "Node Buds Officer", "tier": 26 },
         { "title": "Open Source Officer", "tier": 33 }
-      ] 
+      ]
     },
     "discord": "@beeemi"
+  },
+  {
+    "fullName": "Lana Vu",
+    "picture": "lana-vu.webp",
+    "positions": {
+      "F25": [
+        { "title": "Design Officer", "tier": 16 },
+        { "title": "Marketing Officer", "tier": 9 }
+      ]
+    },
+    "discord": "@balencilana"
+  },
+  {
+    "fullName": "Eli Thomas",
+    "picture": "eli-thomas.webp",
+    "positions": { "F25": [{ "title": "Algo Officer", "tier": 12 }] },
+    "discord": "@eli.th"
   }
 ]
