@@ -115,17 +115,17 @@
     </p>
 
     <p class="size-sm">
-      <span class="acm-heaviest">Joel Daniel Rico (ACM President)</span>
+      <span class="acm-heaviest">Mark Garcia (ACM President)</span>
     </p>
     <ul>
-      <li>Discord: <code>jjoeldaniel</code></li>
+      <li>Discord: <code>markgdev</code></li>
     </ul>
 
     <p class="size-sm">
-      <span class="acm-heaviest">Esteban Escartin (ACM VP)</span>
+      <span class="acm-heaviest">Max Rivas (ACM VP)</span>
     </p>
     <ul>
-      <li>Discord: <code>pillo.</code></li>
+      <li>Discord: <code>meexy23</code></li>
     </ul>
   </div>
 </Block>

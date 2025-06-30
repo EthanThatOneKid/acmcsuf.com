@@ -182,7 +182,21 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
     ],
   },
   {
-    title: 'Open Source Software Officer',
+    title: 'Node Buds Officer',
+    teamColor: 'var(--acm-nodebuds-rgb)',
+    qualifications: [
+      li('Interest in raising the next generation of ACM members'),
+      li('Interest in dedicating time to befriend and mentor assigned members'),
+      li('Represent and advocate diversity within the club'),
+    ],
+    tools: ['Discord'],
+    responsibilities: [
+      li('Participate in weekly Friday Node Buds meetings'),
+      li("Attend to assigned 'littles' and encourage involvement in ACM"),
+    ],
+  },
+  {
+    title: 'Open Source Officer',
     teamColor: 'var(--acm-oss-rgb)',
     qualifications: [
       li('Interest in open source development and collaboration'),
@@ -193,14 +207,14 @@ export const POSITIONS: ClubPosition<keyof typeof TOOLS>[] = [
     tools: ['Google Drive/Docs', 'Discord', 'GitHub'],
     responsibilities: [
       li(
-        'Host weekly workshops on topics related to open source development along with the OSS president and Officers'
+        'Host weekly workshops on topics related to open source development along with the Open Source President and Officers'
       ),
       li(
         'Oversee and assist the development of semester-long open source projects that benefit the ACM community',
         [li('Research and evaluate relevant technologies used across projects (e.g. SvelteKit)')]
       ),
       li('Attend weekly meetings to prepare events, workshops, and discuss progress'),
-      li('Check Discord messages and respond to important OSS discussions daily'),
+      li('Check Discord messages and respond to important Open Source discussions daily'),
     ],
   },
 ];
