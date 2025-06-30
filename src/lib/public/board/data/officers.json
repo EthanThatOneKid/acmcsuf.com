@@ -1504,5 +1504,27 @@
     "picture": "eli-thomas.webp",
     "positions": { "F25": [{ "title": "Algo Officer", "tier": 12 }] },
     "discord": "@eli.th"
+  },
+  {
+    "fullName": "Yuriko Ysique Lopez",
+    "picture": "yuriko-ysique-lopez.webp",
+    "positions": { 
+      "F25": [
+        { "title": "Design Officer", "tier": 16 },
+        { "title": "Marketing Officer", "tier": 9 }
+      ] 
+    },
+    "discord": "@yuriko.lpz"
+  },
+  {
+    "fullName": "Daisy Martinez",
+    "picture": "daisy-martinez.webp",
+    "positions": { 
+      "F25": [
+        { "title": "Design Officer", "tier": 16 },
+        { "title": "Marketing Officer", "tier": 9 }
+      ] 
+    },
+    "discord": "@yuriko.lpz"
   }
 ]
