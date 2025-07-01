@@ -123,7 +123,8 @@
         { "title": "Algo Officer", "tier": 12 },
         { "title": "Node Buds Officer", "tier": 26 }
       ],
-      "S25": [{ "title": "Algo Officer", "tier": 12 }]
+      "S25": [{ "title": "Algo Officer", "tier": 12 }],
+      "F25": [{ "title": "Algo Officer", "tier": 12 }]
     },
     "discord": "@angellyn218"
   },
@@ -1157,7 +1158,8 @@
     "picture": "kenny-garcia.webp",
     "positions": {
       "F24": [{ "title": "AI Officer", "tier": 21 }],
-      "S25": [{ "title": "AI Officer", "tier": 21 }]
+      "S25": [{ "title": "AI Officer", "tier": 21 }],
+      "F25": [{ "title": "Dev Officer", "tier": 19 }]
     },
     "discord": "@kenny8092"
   },
@@ -1258,9 +1260,10 @@
       "S25": [
         { "title": "Algo Officer", "tier": 12 },
         { "title": "Marketing Officer", "tier": 9 }
-      ]
+      ],
+      "F25": [{ "title": "Algo Officer", "tier": 12 }]
     },
-    "discord": "@0100.1110"
+    "discord": "@baremetal_alchemist"
   },
   {
     "fullName": "Hannah Minji Park",
@@ -1508,23 +1511,47 @@
   {
     "fullName": "Yuriko Ysique Lopez",
     "picture": "yuriko-ysique-lopez.webp",
-    "positions": { 
+    "positions": {
       "F25": [
         { "title": "Design Officer", "tier": 16 },
         { "title": "Marketing Officer", "tier": 9 }
-      ] 
+      ]
     },
     "discord": "@yuriko.lpz"
   },
   {
     "fullName": "Daisy Martinez",
     "picture": "daisy-martinez.webp",
-    "positions": { 
+    "positions": {
       "F25": [
         { "title": "Design Officer", "tier": 16 },
         { "title": "Marketing Officer", "tier": 9 }
-      ] 
+      ]
     },
-    "discord": "@yuriko.lpz"
+    "discord": "@daisycalel"
+  },
+  {
+    "fullName": "Cassandra Santillano",
+    "picture": "cassandra-santillano.webp",
+    "positions": {
+      "F25": [{ "title": "Node Buds Officer", "tier": 26 }]
+    },
+    "discord": "@jumpingbean_12"
+  },
+  {
+    "fullName": "Hanz Eduardo De Dios",
+    "picture": "hanz-eduardo-de-dios.webp",
+    "positions": {
+      "F25": [{ "title": "Dev Officer", "tier": 19 }]
+    },
+    "discord": "@imonlaunchbrake"
+  },
+  {
+    "fullName": "Kai Llora",
+    "picture": "kai-llora.webp",
+    "positions": {
+      "F25": [{ "title": "AI Officer", "tier": 21 }]
+    },
+    "discord": "@kaillo_"
   }
 ]
