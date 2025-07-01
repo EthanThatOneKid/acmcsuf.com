@@ -1211,7 +1211,8 @@
     "picture": "alexander-peras.webp",
     "positions": {
       "F24": [{ "title": "Open Source Officer", "tier": 33 }],
-      "S25": [{ "title": "Open Source Officer", "tier": 33 }]
+      "S25": [{ "title": "Open Source Officer", "tier": 33 }],
+      "F25": [{ "title": "Open Source Officer", "tier": 33 }]
     },
     "discord": "@drafte"
   },
@@ -1237,7 +1238,8 @@
     "picture": "ahad-munir-ahmad.webp",
     "positions": {
       "F24": [{ "title": "Dev Project Manager", "tier": 18 }],
-      "S25": [{ "title": "Dev Officer", "tier": 19 }]
+      "S25": [{ "title": "Dev Officer", "tier": 19 }],
+      "F25": [{ "title": "Dev Officer", "tier": 19 }]
     },
     "discord": "@adj1200"
   },
@@ -1392,7 +1394,8 @@
     "fullName": "Madeline Savoiu",
     "picture": "madeline-savoiu.webp",
     "positions": {
-      "S25": [{ "title": "Marketing Officer", "tier": 9 }]
+      "S25": [{ "title": "Marketing Officer", "tier": 9 }],
+      "F25": [{ "title": "Marketing Officer", "tier": 9 }]
     },
     "discord": "@briuche"
   },
@@ -1400,7 +1403,8 @@
     "fullName": "Sachin Lodhi",
     "picture": "sachin-lodhi.webp",
     "positions": {
-      "S25": [{ "title": "AI Officer", "tier": 21 }]
+      "S25": [{ "title": "AI Officer", "tier": 21 }],
+      "F25": [{ "title": "AI Officer", "tier": 21 }]
     },
     "discord": "@teradyne_"
   },
@@ -1604,5 +1608,21 @@
       "F25": [{ "title": "AI Officer", "tier": 21 }]
     },
     "discord": "@random_c0de"
+  },
+  {
+    "fullName": "Jonathan Soo",
+    "picture": "placeholder.webp",
+    "positions": {
+      "F25": [{ "title": "Algo Officer", "tier": 12 }]
+    },
+    "discord": "@jonnie7728"
+  },
+  {
+    "fullName": "Homan Qiu",
+    "picture": "placeholder.webp",
+    "positions": {
+      "F25": [{ "title": "Game Dev Team Lead", "tier": 22 }]
+    },
+    "discord": "@non_fish"
   }
 ]
