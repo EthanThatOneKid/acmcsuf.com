@@ -1572,5 +1572,37 @@
       "F25": [{ "title": "Node Buds Officer", "tier": 26 }]
     },
     "discord": "@lupiters"
+  },
+  {
+    "fullName": "Aidan Joshi",
+    "picture": "aidan-joshi.webp",
+    "positions": {
+      "F25": [{ "title": "Marketing Officer", "tier": 9 }]
+    },
+    "discord": "@that.gunter"
+  },
+  {
+    "fullName": "Anderson Pham",
+    "picture": "anderson-pham.webp",
+    "positions": {
+      "F25": [{ "title": "Open Source Officer", "tier": 33 }]
+    },
+    "discord": "@levelbubble"
+  },
+  {
+    "fullName": "Adrian Vazquez",
+    "picture": "adrian-vazquez.webp",
+    "positions": {
+      "F25": [{ "title": "Dev Officer", "tier": 19 }]
+    },
+    "discord": "@adrian046196"
+  },
+  {
+    "fullName": "Dylan Geraci",
+    "picture": "dylan-geraci.webp",
+    "positions": {
+      "F25": [{ "title": "AI Officer", "tier": 21 }]
+    },
+    "discord": "@random_c0de"
   }
 ]
