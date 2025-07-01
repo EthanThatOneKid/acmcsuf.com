@@ -599,7 +599,8 @@
       "S25": [
         { "title": "Event Coordinator", "tier": 6 },
         { "title": "Node Buds Team Lead", "tier": 34 }
-      ]
+      ],
+      "F25": [{ "title": "Treasurer", "tier": 4 }]
     },
     "discord": "@evie724"
   },
@@ -1307,7 +1308,8 @@
     "fullName": "Joshua Holman",
     "picture": "joshua-holman.webp",
     "positions": {
-      "S25": [{ "title": "Open Source Officer", "tier": 33 }]
+      "S25": [{ "title": "Open Source Officer", "tier": 33 }],
+      "F25": [{ "title": "Open Source Officer", "tier": 33 }]
     },
     "discord": "@thejolman"
   },
@@ -1364,7 +1366,8 @@
     "fullName": "Nathan Choi",
     "picture": "nathan-choi.webp",
     "positions": {
-      "S25": [{ "title": "AI Officer", "tier": 21 }]
+      "S25": [{ "title": "AI Officer", "tier": 21 }],
+      "F25": [{ "title": "AI Officer", "tier": 21 }]
     },
     "discord": "@nchoi123"
   },
@@ -1553,5 +1556,21 @@
       "F25": [{ "title": "AI Officer", "tier": 21 }]
     },
     "discord": "@kaillo_"
+  },
+  {
+    "fullName": "Kassandra Sanchez",
+    "picture": "placeholder.webp",
+    "positions": {
+      "F25": [{ "title": "Marketing Officer", "tier": 9 }]
+    },
+    "discord": "@mikudayopain"
+  },
+  {
+    "fullName": "Lupita Jimenez",
+    "picture": "lupita-jimenez.webp",
+    "positions": {
+      "F25": [{ "title": "Node Buds Officer", "tier": 26 }]
+    },
+    "discord": "@lupiters"
   }
 ]
