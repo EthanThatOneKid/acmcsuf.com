@@ -1,5 +1,16 @@
 [
   {
+    "fullName": "Dianella Sy",
+    "picture": "dianella-sy.webp",
+    "positions": {
+      "F25": [
+        { "title": "Webmaster", "tier": 2 },
+        { "title": "Open Source Co-TL", "tier": 33 }
+      ]
+    },
+    "discord": "@diane11a"
+  },
+  {
     "fullName": "Sama Ahmed",
     "picture": "sama-ahmed.webp",
     "positions": {
@@ -12,7 +23,8 @@
       "S25": [
         { "title": "Webmaster", "tier": 2 },
         { "title": "Open Source Co-TL", "tier": 33 }
-      ]
+      ],
+      "F25": [{ "title": "Node Buds Officer", "tier": 26 }]
     },
     "discord": "@semsema"
   },
@@ -111,7 +123,8 @@
         { "title": "Algo Officer", "tier": 12 },
         { "title": "Node Buds Officer", "tier": 26 }
       ],
-      "S25": [{ "title": "Algo Officer", "tier": 12 }]
+      "S25": [{ "title": "Algo Officer", "tier": 12 }],
+      "F25": [{ "title": "Algo Officer", "tier": 12 }]
     },
     "discord": "@angellyn218"
   },
@@ -128,7 +141,8 @@
       "S25": [
         { "title": "Marketing Officer", "tier": 9 },
         { "title": "Node Buds Officer", "tier": 26 }
-      ]
+      ],
+      "F25": [{ "title": "Node Buds Officer", "tier": 26 }]
     },
     "discord": "@ashleychan_"
   },
@@ -269,9 +283,13 @@
         { "title": "Marketing Team Lead", "tier": 8 },
         { "title": "Game Dev Officer", "tier": 23 },
         { "title": "Node Buds Officer", "tier": 26 }
+      ],
+      "F25": [
+        { "title": "President", "tier": 0 },
+        { "title": "Game Dev Officer", "tier": 23 }
       ]
     },
-    "discord": "@xnaym"
+    "discord": "@markgdev"
   },
   {
     "fullName": "Gabrielius Gintalas",
@@ -393,7 +411,8 @@
         { "title": "Marketing Officer", "tier": 9 },
         { "title": "Open Source Officer", "tier": 33 }
       ],
-      "S25": [{ "title": "Open Source Officer", "tier": 33 }]
+      "S25": [{ "title": "Open Source Officer", "tier": 33 }],
+      "F25": [{ "title": "Open Source Team Lead", "tier": 32 }]
     },
     "discord": "@surrealreal_"
   },
@@ -580,7 +599,8 @@
       "S25": [
         { "title": "Event Coordinator", "tier": 6 },
         { "title": "Node Buds Team Lead", "tier": 34 }
-      ]
+      ],
+      "F25": [{ "title": "Treasurer", "tier": 4 }]
     },
     "discord": "@evie724"
   },
@@ -781,7 +801,8 @@
       "F23": [{ "title": "AI Officer", "tier": 21 }],
       "S24": [{ "title": "Dev Officer", "tier": 19 }],
       "F24": [{ "title": "President", "tier": 0 }],
-      "S25": [{ "title": "President", "tier": 0 }]
+      "S25": [{ "title": "President", "tier": 0 }],
+      "F25": [{ "title": "Node Buds Team Lead", "tier": 34 }]
     },
     "discord": "@jjoeldaniel"
   },
@@ -798,7 +819,8 @@
       "S25": [
         { "title": "Event Coordinator", "tier": 6 },
         { "title": "Node Buds Co-Team Lead", "tier": 36 }
-      ]
+      ],
+      "F25": [{ "title": "Vice President", "tier": 1 }]
     },
     "discord": "@meexy23"
   },
@@ -938,6 +960,10 @@
       "S25": [
         { "title": "Algo Officer", "tier": 12 },
         { "title": "AI Officer", "tier": 21 }
+      ],
+      "F25": [
+        { "title": "AI Team Lead", "tier": 20 },
+        { "title": "Algo Officer", "tier": 12 }
       ]
     },
     "discord": "@josu4412"
@@ -1052,7 +1078,8 @@
       "F23": [{ "title": "Algo Officer", "tier": 12 }],
       "S24": [{ "title": "Algo Officer", "tier": 12 }],
       "F24": [{ "title": "Algo Officer", "tier": 12 }],
-      "S25": [{ "title": "Algo Officer", "tier": 12 }]
+      "S25": [{ "title": "Algo Officer", "tier": 12 }],
+      "F25": [{ "title": "Algo Team Lead", "tier": 11 }]
     },
     "discord": "@cyrily"
   },
@@ -1113,7 +1140,8 @@
     "picture": "placeholder.webp",
     "positions": {
       "F24": [{ "title": "AI Officer", "tier": 21 }],
-      "S25": [{ "title": "AI Officer", "tier": 21 }]
+      "S25": [{ "title": "AI Officer", "tier": 21 }],
+      "F25": [{ "title": "AI Officer", "tier": 21 }]
     },
     "discord": "@python.programmer"
   },
@@ -1131,7 +1159,8 @@
     "picture": "kenny-garcia.webp",
     "positions": {
       "F24": [{ "title": "AI Officer", "tier": 21 }],
-      "S25": [{ "title": "AI Officer", "tier": 21 }]
+      "S25": [{ "title": "AI Officer", "tier": 21 }],
+      "F25": [{ "title": "Dev Officer", "tier": 19 }]
     },
     "discord": "@kenny8092"
   },
@@ -1182,7 +1211,8 @@
     "picture": "alexander-peras.webp",
     "positions": {
       "F24": [{ "title": "Open Source Officer", "tier": 33 }],
-      "S25": [{ "title": "Open Source Officer", "tier": 33 }]
+      "S25": [{ "title": "Open Source Officer", "tier": 33 }],
+      "F25": [{ "title": "Open Source Officer", "tier": 33 }]
     },
     "discord": "@drafte"
   },
@@ -1208,7 +1238,8 @@
     "picture": "ahad-munir-ahmad.webp",
     "positions": {
       "F24": [{ "title": "Dev Project Manager", "tier": 18 }],
-      "S25": [{ "title": "Dev Officer", "tier": 19 }]
+      "S25": [{ "title": "Dev Officer", "tier": 19 }],
+      "F25": [{ "title": "Dev Officer", "tier": 19 }]
     },
     "discord": "@adj1200"
   },
@@ -1232,16 +1263,21 @@
       "S25": [
         { "title": "Algo Officer", "tier": 12 },
         { "title": "Marketing Officer", "tier": 9 }
-      ]
+      ],
+      "F25": [{ "title": "Algo Officer", "tier": 12 }]
     },
-    "discord": "@0100.1110"
+    "discord": "@baremetal_alchemist"
   },
   {
     "fullName": "Hannah Minji Park",
     "picture": "hannah-minji-park.webp",
     "positions": {
       "F24": [{ "title": "Marketing Officer", "tier": 9 }],
-      "S25": [{ "title": "Marketing Officer", "tier": 9 }]
+      "S25": [{ "title": "Marketing Officer", "tier": 9 }],
+      "F25": [
+        { "title": "AI Officer", "tier": 21 },
+        { "title": "Marketing Officer", "tier": 9 }
+      ]
     },
     "discord": "@wiseeisw_99756"
   },
@@ -1257,7 +1293,8 @@
     "fullName": "Siddharth Vasu",
     "picture": "siddharth-vasu.webp",
     "positions": {
-      "S25": [{ "title": "Open Source Officer", "tier": 33 }]
+      "S25": [{ "title": "Open Source Officer", "tier": 33 }],
+      "F25": [{ "title": "Open Source Officer", "tier": 33 }]
     },
     "discord": "@prince_sidon"
   },
@@ -1273,7 +1310,8 @@
     "fullName": "Joshua Holman",
     "picture": "joshua-holman.webp",
     "positions": {
-      "S25": [{ "title": "Open Source Officer", "tier": 33 }]
+      "S25": [{ "title": "Open Source Officer", "tier": 33 }],
+      "F25": [{ "title": "Open Source Officer", "tier": 33 }]
     },
     "discord": "@thejolman"
   },
@@ -1281,7 +1319,8 @@
     "fullName": "Talhah Raheem",
     "picture": "talhah-raheem.webp",
     "positions": {
-      "S25": [{ "title": "Dev Officer", "tier": 19 }]
+      "S25": [{ "title": "Dev Officer", "tier": 19 }],
+      "F25": [{ "title": "Dev Officer", "tier": 19 }]
     },
     "discord": "@arrow5566"
   },
@@ -1297,7 +1336,11 @@
     "fullName": "Christian Huerta",
     "picture": "christian-huerta.webp",
     "positions": {
-      "S25": [{ "title": "Design Officer", "tier": 16 }]
+      "S25": [{ "title": "Design Officer", "tier": 16 }],
+      "F25": [
+        { "title": "Design Team Lead", "tier": 13 },
+        { "title": "Dev Officer", "tier": 19 }
+      ]
     },
     "discord": "@swiftpup121"
   },
@@ -1305,7 +1348,11 @@
     "fullName": "Timothy Ou",
     "picture": "timothy-ou.webp",
     "positions": {
-      "S25": [{ "title": "Marketing Officer", "tier": 9 }]
+      "S25": [{ "title": "Marketing Officer", "tier": 9 }],
+      "F25": [
+        { "title": "Marketing Officer", "tier": 9 },
+        { "title": "Open Source Officer", "tier": 33 }
+      ]
     },
     "discord": "@timothyou"
   },
@@ -1321,7 +1368,8 @@
     "fullName": "Nathan Choi",
     "picture": "nathan-choi.webp",
     "positions": {
-      "S25": [{ "title": "AI Officer", "tier": 21 }]
+      "S25": [{ "title": "AI Officer", "tier": 21 }],
+      "F25": [{ "title": "AI Officer", "tier": 21 }]
     },
     "discord": "@nchoi123"
   },
@@ -1337,7 +1385,8 @@
     "fullName": "Ender Batu Demirtaş",
     "picture": "ender-batu.webp",
     "positions": {
-      "S25": [{ "title": "AI Officer", "tier": 21 }]
+      "S25": [{ "title": "AI Officer", "tier": 21 }],
+      "F25": [{ "title": "AI Officer", "tier": 21 }]
     },
     "discord": "@rothchild"
   },
@@ -1345,7 +1394,8 @@
     "fullName": "Madeline Savoiu",
     "picture": "madeline-savoiu.webp",
     "positions": {
-      "S25": [{ "title": "Marketing Officer", "tier": 9 }]
+      "S25": [{ "title": "Marketing Officer", "tier": 9 }],
+      "F25": [{ "title": "Marketing Officer", "tier": 9 }]
     },
     "discord": "@briuche"
   },
@@ -1353,15 +1403,20 @@
     "fullName": "Sachin Lodhi",
     "picture": "sachin-lodhi.webp",
     "positions": {
-      "S25": [{ "title": "AI Officer", "tier": 21 }]
+      "S25": [{ "title": "AI Officer", "tier": 21 }],
+      "F25": [{ "title": "AI Officer", "tier": 21 }]
     },
     "discord": "@teradyne_"
   },
   {
-    "fullName": "Angel Gaspar",
-    "picture": "angel-gaspar.webp",
+    "fullName": "Angel Daniel Gaspar",
+    "picture": "angel-daniel-gaspar.webp",
     "positions": {
-      "S25": [{ "title": "Marketing Officer", "tier": 9 }]
+      "S25": [{ "title": "Marketing Officer", "tier": 9 }],
+      "F25": [
+        { "title": "Marketing Team Lead", "tier": 8 },
+        { "title": "Design Officer", "tier": 16 }
+      ]
     },
     "discord": "@qasple"
   },
@@ -1369,8 +1424,205 @@
     "fullName": "Demi Chen",
     "picture": "demi-chen.webp",
     "positions": {
-      "S25": [{ "title": "Node Buds Officer", "tier": 26 }]
+      "S25": [{ "title": "Node Buds Officer", "tier": 26 }],
+      "F25": [{ "title": "Node Buds Officer", "tier": 26 }]
     },
     "discord": "@hungry52"
+  },
+  {
+    "fullName": "Julie Yun",
+    "picture": "placeholder.webp",
+    "positions": {
+      "F25": [{ "title": "Marketing Officer", "tier": 9 }]
+    },
+    "discord": "@basicworm"
+  },
+  {
+    "fullName": "Eddie Cortes",
+    "picture": "eddie-cortes.webp",
+    "positions": {
+      "F25": [{ "title": "Open Source Officer", "tier": 33 }]
+    },
+    "discord": "@yitzy_"
+  },
+  {
+    "fullName": "Lizbeth Arcos",
+    "picture": "lizbeth-arcos.webp",
+    "positions": {
+      "F25": [{ "title": "Event Coordinator", "tier": 6 }]
+    },
+    "discord": "@lalalaliz"
+  },
+  {
+    "fullName": "Kelsey Tang",
+    "picture": "kelsey-tang.webp",
+    "positions": {
+      "F25": [
+        { "title": "Secretary", "tier": 5 },
+        { "title": "Node Buds Officer", "tier": 26 }
+      ]
+    },
+    "discord": "@dstrct9"
+  },
+  {
+    "fullName": "Sofia Guillen",
+    "picture": "sofia-guillen.webp",
+    "positions": {
+      "F25": [
+        { "title": "Design Officer", "tier": 16 },
+        { "title": "Marketing Officer", "tier": 9 }
+      ]
+    },
+    "discord": "@sofa.gui9702"
+  },
+  {
+    "fullName": "Omar Rafiq",
+    "picture": "omar-rafiq.webp",
+    "positions": { "F25": [{ "title": "AI Officer", "tier": 21 }] },
+    "discord": "@dimesv2"
+  },
+  {
+    "fullName": "Babiker Babiker",
+    "picture": "babiker-babiker.webp",
+    "positions": { "F25": [{ "title": "Dev Team Lead", "tier": 17 }] },
+    "discord": "@8ab1ker"
+  },
+  {
+    "fullName": "Emily Tsai",
+    "picture": "emily-tsai.webp",
+    "positions": {
+      "F25": [
+        { "title": "Node Buds Officer", "tier": 26 },
+        { "title": "Open Source Officer", "tier": 33 }
+      ]
+    },
+    "discord": "@beeemi"
+  },
+  {
+    "fullName": "Lana Vu",
+    "picture": "lana-vu.webp",
+    "positions": {
+      "F25": [
+        { "title": "Design Officer", "tier": 16 },
+        { "title": "Marketing Officer", "tier": 9 }
+      ]
+    },
+    "discord": "@balencilana"
+  },
+  {
+    "fullName": "Eli Thomas",
+    "picture": "eli-thomas.webp",
+    "positions": { "F25": [{ "title": "Algo Officer", "tier": 12 }] },
+    "discord": "@eli.th"
+  },
+  {
+    "fullName": "Yuriko Ysique Lopez",
+    "picture": "yuriko-ysique-lopez.webp",
+    "positions": {
+      "F25": [
+        { "title": "Design Officer", "tier": 16 },
+        { "title": "Marketing Officer", "tier": 9 }
+      ]
+    },
+    "discord": "@yuriko.lpz"
+  },
+  {
+    "fullName": "Daisy Martinez",
+    "picture": "daisy-martinez.webp",
+    "positions": {
+      "F25": [
+        { "title": "Design Officer", "tier": 16 },
+        { "title": "Marketing Officer", "tier": 9 }
+      ]
+    },
+    "discord": "@daisycalel"
+  },
+  {
+    "fullName": "Cassandra Santillano",
+    "picture": "cassandra-santillano.webp",
+    "positions": {
+      "F25": [{ "title": "Node Buds Officer", "tier": 26 }]
+    },
+    "discord": "@jumpingbean_12"
+  },
+  {
+    "fullName": "Hanz Eduardo De Dios",
+    "picture": "hanz-eduardo-de-dios.webp",
+    "positions": {
+      "F25": [{ "title": "Dev Officer", "tier": 19 }]
+    },
+    "discord": "@imonlaunchbrake"
+  },
+  {
+    "fullName": "Kai Llora",
+    "picture": "kai-llora.webp",
+    "positions": {
+      "F25": [{ "title": "AI Officer", "tier": 21 }]
+    },
+    "discord": "@kaillo_"
+  },
+  {
+    "fullName": "Kassandra Sanchez",
+    "picture": "placeholder.webp",
+    "positions": {
+      "F25": [{ "title": "Marketing Officer", "tier": 9 }]
+    },
+    "discord": "@mikudayopain"
+  },
+  {
+    "fullName": "Lupita Jimenez",
+    "picture": "lupita-jimenez.webp",
+    "positions": {
+      "F25": [{ "title": "Node Buds Officer", "tier": 26 }]
+    },
+    "discord": "@lupiters"
+  },
+  {
+    "fullName": "Aidan Joshi",
+    "picture": "aidan-joshi.webp",
+    "positions": {
+      "F25": [{ "title": "Marketing Officer", "tier": 9 }]
+    },
+    "discord": "@that.gunter"
+  },
+  {
+    "fullName": "Anderson Pham",
+    "picture": "anderson-pham.webp",
+    "positions": {
+      "F25": [{ "title": "Open Source Officer", "tier": 33 }]
+    },
+    "discord": "@levelbubble"
+  },
+  {
+    "fullName": "Adrian Vazquez",
+    "picture": "adrian-vazquez.webp",
+    "positions": {
+      "F25": [{ "title": "Dev Officer", "tier": 19 }]
+    },
+    "discord": "@adrian046196"
+  },
+  {
+    "fullName": "Dylan Geraci",
+    "picture": "dylan-geraci.webp",
+    "positions": {
+      "F25": [{ "title": "AI Officer", "tier": 21 }]
+    },
+    "discord": "@random_c0de"
+  },
+  {
+    "fullName": "Jonathan Soo",
+    "picture": "jonathan-soo.webp",
+    "positions": {
+      "F25": [{ "title": "Algo Officer", "tier": 12 }]
+    },
+    "discord": "@jonnie7728"
+  },
+  {
+    "fullName": "Homan Qiu",
+    "picture": "placeholder.webp",
+    "positions": {
+      "F25": [{ "title": "Game Dev Team Lead", "tier": 22 }]
+    },
+    "discord": "@non_fish"
   }
 ]
