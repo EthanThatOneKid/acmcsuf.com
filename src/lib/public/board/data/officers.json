@@ -1238,8 +1238,7 @@
     "picture": "ahad-munir-ahmad.webp",
     "positions": {
       "F24": [{ "title": "Dev Project Manager", "tier": 18 }],
-      "S25": [{ "title": "Dev Officer", "tier": 19 }],
-      "F25": [{ "title": "Dev Officer", "tier": 19 }]
+      "S25": [{ "title": "Dev Officer", "tier": 19 }]
     },
     "discord": "@adj1200"
   },
