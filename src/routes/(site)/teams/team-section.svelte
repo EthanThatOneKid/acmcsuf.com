@@ -54,14 +54,14 @@
         {#if info.id === 'general'}
           <source
             srcset={oldTerms.includes(term)
-              ? info.oldLogoSrc ?? generalLogoNoPreference
+              ? (info.oldLogoSrc ?? generalLogoNoPreference)
               : generalLogoNoPreference}
             media="(prefers-reduced-motion: no-preference)"
           />
         {/if}
 
         <img
-          src={oldTerms.includes(term) ? info.oldLogoSrc ?? info.logoSrc : info.logoSrc}
+          src={oldTerms.includes(term) ? (info.oldLogoSrc ?? info.logoSrc) : info.logoSrc}
           alt={`${info.title} Team Logo`}
         />
       </picture>

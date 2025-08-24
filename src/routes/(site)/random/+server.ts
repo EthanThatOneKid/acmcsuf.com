@@ -4,9 +4,7 @@ import type { RequestEvent } from '@sveltejs/kit';
  * The server-side load function for https://acmcsuf.com/random.
  */
 export async function GET({ url }: RequestEvent) {
-  const modules = Object.keys(
-    await import.meta.glob('../**/+page.svelte', { eager: true, as: 'raw' })
-  );
+  const modules = Object.keys(await import.meta.glob('../**/+page.svelte?raw', { eager: true }));
   const pages = getPages(modules);
   const randomPage = pages[~~(Math.random() * pages.length)];
   const destination = new URL(randomPage, url);
