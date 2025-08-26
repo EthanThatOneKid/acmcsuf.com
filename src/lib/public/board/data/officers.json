@@ -123,8 +123,7 @@
         { "title": "Algo Officer", "tier": 12 },
         { "title": "Node Buds Officer", "tier": 26 }
       ],
-      "S25": [{ "title": "Algo Officer", "tier": 12 }],
-      "F25": [{ "title": "Algo Officer", "tier": 12 }]
+      "S25": [{ "title": "Algo Officer", "tier": 12 }]
     },
     "discord": "@angellyn218"
   },
