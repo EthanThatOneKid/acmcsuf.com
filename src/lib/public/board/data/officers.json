@@ -1623,5 +1623,21 @@
       "F25": [{ "title": "Game Dev Team Lead", "tier": 22 }]
     },
     "discord": "@non_fish"
+  },
+  {
+    "fullName": "Shane Smeaton",
+    "picture": "shane-smeaton.webp",
+    "positions": {
+      "F25": [{ "title": "AI Officer", "tier": 21 }]
+    },
+    "discord": "@53np41_jaeger.00"
+  },
+  {
+    "fullName": "Maverick Malfavon",
+    "picture": "maverick-malfavon.webp",
+    "positions": {
+      "F25": [{ "title": "Game Dev Officer", "tier": 23 }]
+    },
+    "discord": "@mavreal"
   }
 ]
