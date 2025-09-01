@@ -39,9 +39,9 @@
     shape="polygon"
   />
   <area
-    alt="ICPC Team"
-    title="ICPC Team"
-    href="/teams#icpc"
+    alt="Node buds Team"
+    title="Node Buds Team"
+    href="/teams#nodebuds"
     coords="80,290 40,330 80,370 120,330"
     shape="polygon"
   />
