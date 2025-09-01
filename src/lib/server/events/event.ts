@@ -9,8 +9,7 @@ export function makeClubEvent(event: GCalEvent, refDate: Temporal.ZonedDateTime)
     event.start?.timeZone == undefined ||
     event.start.dateTime == undefined ||
     event.end?.timeZone == undefined ||
-    event.end.dateTime == undefined ||
-    event.description == undefined
+    event.end.dateTime == undefined
   ) {
     return null;
   }
@@ -34,7 +33,9 @@ export function makeClubEvent(event: GCalEvent, refDate: Temporal.ZonedDateTime)
 
   const { location, meetingLink } = parseLocation(event.location);
   const title = event.summary;
-  const { description, variables } = parseDescription(event.description);
+  const { description, variables } = parseDescription(
+    event.description || 'Event description is missing :('
+  );
   const id = makeEventId(title, dtStart);
   const selfLink = makeEventLink(id);
   const recurring = (event?.recurrence?.length ?? 0) > 0;
