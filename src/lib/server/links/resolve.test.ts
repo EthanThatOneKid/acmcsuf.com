@@ -1,4 +1,4 @@
-import { test, expect } from 'vitest';
+import { expect, test } from 'vitest';
 import { resolve } from './resolve';
 
 test('resolve resolves shortlinks', () => {
@@ -11,7 +11,10 @@ test('resolve resolves shortlinks', () => {
 
 test('resolve throws for circularly recursive shortlinks', () => {
   function testCircularShortlinks() {
-    return resolve(new URL('https://acmcsuf.com/zig'), { zig: '/zag', zag: '/zig' });
+    return resolve(new URL('https://acmcsuf.com/zig'), {
+      zig: '/zag',
+      zag: '/zig',
+    });
   }
 
   expect(testCircularShortlinks).toThrowError(/too many internal redirects/);
