@@ -213,7 +213,7 @@
       top: 0;
       right: 0;
       width: 0;
-      // background-color: var(--acm-abyss);
+      height: 100svh;
       background-color: var(--navbar-mobile-sidebar-bg);
       overflow: hidden;
       z-index: 9;
