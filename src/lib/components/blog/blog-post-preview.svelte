@@ -12,8 +12,7 @@
 </script>
 
 <div class="post">
-  <a href={makeBlogPostPageURL(post.id)}>
-    <div class="author">
+  <div class="author">
       <a class="author-avatar" href={post.author.url}>
         <img src={post.author.picture} alt="" />
       </a>
@@ -56,7 +55,6 @@
       {readingTime(post.html)} min read
       <Labels data={post.labels} {selectedLabels} />
     </p>
-  </a>
 </div>
 
 <style>

@@ -6,7 +6,7 @@ import type { RequestEvent } from '@sveltejs/kit';
  * Redirects to the latest year on file.
  */
 export async function GET({ url }: RequestEvent) {
-  const years = await import.meta.glob('./*/+page.svelte', { eager: true, as: 'raw' });
+  const years = await import.meta.glob('./*/+page.svelte', { eager: true, query: '?raw', import: 'default' });
   const latest = findLatest(Object.keys(years).map(fromKey));
   const destination = new URL(`/genuary/${latest}`, url);
   return Response.redirect(destination, 302);
