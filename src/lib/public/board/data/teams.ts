@@ -1,5 +1,5 @@
 import type { Team } from '$lib/public/board/types';
-import TEAMS_JSON from './teams.json';
+import TEAMS_JSON from './teams.json' with { type: 'json' };
 
 /** TEAMS is a map of internal teams by their name, {@link Team.id}. */
 export const TEAMS = [...TEAMS_JSON].reduce(

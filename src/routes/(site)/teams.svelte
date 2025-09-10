@@ -143,10 +143,7 @@
     transform: scale(1.2);
   }
 
-  section .hero-inner-container .discover-button {
-    display: grid;
-    justify-self: center;
-  }
+  
 
   section .team-container .hero-text {
     max-width: 35ch;
@@ -170,9 +167,7 @@
       text-align: start;
     }
 
-    section .hero-inner-container .hero-text .discover-button {
-      justify-self: center;
-    }
+    
   }
 
   @media screen and (min-width: 640px) {
