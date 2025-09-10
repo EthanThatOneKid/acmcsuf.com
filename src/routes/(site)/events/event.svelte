@@ -34,6 +34,11 @@
     }
     details.open = true;
   });
+
+  function handleClick() {
+    shown = !shown;
+    window.open(info.meetingLink, '_blank', 'noopener,noreferrer');
+  }
 </script>
 
 <div
@@ -67,16 +72,7 @@
         </time>
       </p>
 
-      <a
-        class="event-join size-sm"
-        href={info.meetingLink}
-        role="button"
-        target="_blank"
-        rel="noopener noreferrer"
-        on:click={(/* janky hack */) => {
-          shown = !shown;
-        }}>Join</a
-      >
+      <button class="event-join size-sm" on:click={handleClick}> Join </button>
     </summary>
 
     <noscript>
