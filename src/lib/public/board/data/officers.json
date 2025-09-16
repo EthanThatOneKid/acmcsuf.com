@@ -282,10 +282,7 @@
         { "title": "Game Dev Officer", "tier": 23 },
         { "title": "Node Buds Officer", "tier": 26 }
       ],
-      "F25": [
-        { "title": "President", "tier": 0 },
-        { "title": "Game Dev Officer", "tier": 23 }
-      ]
+      "F25": [{ "title": "President", "tier": 0 }]
     },
     "discord": "@markgdev"
   },
@@ -1261,7 +1258,10 @@
         { "title": "Algo Officer", "tier": 12 },
         { "title": "Marketing Officer", "tier": 9 }
       ],
-      "F25": [{ "title": "Algo Officer", "tier": 12 }]
+      "F25": [
+        { "title": "Algo Officer", "tier": 12 },
+        { "title": "Game Dev Officer", "tier": 23 }
+      ]
     },
     "discord": "@baremetal_alchemist"
   },
@@ -1336,7 +1336,9 @@
       "S25": [{ "title": "Design Officer", "tier": 16 }],
       "F25": [
         { "title": "Design Team Lead", "tier": 13 },
-        { "title": "Dev Officer", "tier": 19 }
+        { "title": "Dev Officer", "tier": 19 },
+        { "title": "Marketing Officer", "tier": 9 },
+        { "title": "Node Buds Officer", "tier": 26 }
       ]
     },
     "discord": "@swiftpup121"
@@ -1637,5 +1639,45 @@
       "F25": [{ "title": "Game Dev Officer", "tier": 23 }]
     },
     "discord": "@mavreal"
+  },
+  {
+    "fullName": "John Alora",
+    "picture": "john-alora.webp",
+    "positions": {
+      "F25": [{ "title": "Game Dev Officer", "tier": 23 }]
+    },
+    "discord": "@cedrix"
+  },
+  {
+    "fullName": "Alessandro Garcia",
+    "picture": "alessandro-garcia.webp",
+    "positions": {
+      "F25": [{ "title": "Game Dev Officer", "tier": 23 }]
+    },
+    "discord": "@acczelzz"
+  },
+  {
+    "fullName": "Ruman Saiyed",
+    "picture": "ruman-saiyed.webp",
+    "positions": {
+      "F25": [{ "title": "Game Dev Officer", "tier": 23 }]
+    },
+    "discord": "@biryani23"
+  },
+  {
+    "fullName": "William Lim",
+    "picture": "william-lim.webp",
+    "positions": {
+      "F25": [{ "title": "Game Dev Officer", "tier": 23 }]
+    },
+    "discord": "@bald0398"
+  },
+  {
+    "fullName": "Joshua Marquez",
+    "picture": "joshua-marquez.webp",
+    "positions": {
+      "F25": [{ "title": "Game Dev Officer", "tier": 23 }]
+    },
+    "discord": "@joshywatt"
   }
 ]
