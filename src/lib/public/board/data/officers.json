@@ -1261,7 +1261,7 @@
       "F25": [
         { "title": "Algo Officer", "tier": 12 },
         { "title": "Game Dev Officer", "tier": 23 },
-        { "title": "ICPC Lead", "tier": 34}
+        { "title": "ICPC Lead", "tier": 34 }
       ]
     },
     "discord": "@baremetal_alchemist"
