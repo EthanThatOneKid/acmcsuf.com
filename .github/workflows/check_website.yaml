@@ -47,6 +47,7 @@ jobs:
 
       # info: https://etok.codes/acmcsuf.com/blob/main/CONTRIBUTING.md#npm-bloat
       - name: Test Dependency Size
+        if: runner.os != 'Windows'
         run: npm run test:size
 
       - name: Transform Genuary Check Changes
