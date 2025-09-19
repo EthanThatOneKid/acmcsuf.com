@@ -46,7 +46,9 @@
     responses = [];
     index = 0;
     showResults = false;
-    quizStorage && quizStorage.clearResponses();
+    if (quizStorage) {
+      quizStorage.clearResponses();
+    }
   }
 
   function showTeamDetails(currentTeam: Team) {
@@ -59,21 +61,24 @@
   }
 
   function tallyResponses(responses: (QuizResponse | undefined)[]) {
-    return (responses ?? []).reduce((tallies, matches) => {
-      if (matches === undefined) {
-        return tallies;
-      }
-
-      for (let match of matches?.matches ?? []) {
-        match = match?.toLowerCase() as TeamMatch;
-        if (match && tallies[match]) {
-          tallies[match]++;
-        } else if (match) {
-          tallies[match] = 1;
+    return (responses ?? []).reduce(
+      (tallies, matches) => {
+        if (matches === undefined) {
+          return tallies;
         }
-      }
-      return tallies;
-    }, {} as Record<string, number>);
+
+        for (let match of matches?.matches ?? []) {
+          match = match?.toLowerCase() as TeamMatch;
+          if (match && tallies[match]) {
+            tallies[match]++;
+          } else if (match) {
+            tallies[match] = 1;
+          }
+        }
+        return tallies;
+      },
+      {} as Record<string, number>
+    );
   }
 
   function maxTallies(tallies: Record<string, number>) {
@@ -138,7 +143,9 @@
     answeredAllQuestions =
       responses?.length === data.questions.length && !responses.includes(undefined);
     // Updates local storage whenever `responses` changes.
-    quizStorage && responses && quizStorage.setResponses(responses);
+    if (quizStorage && responses) {
+      quizStorage.setResponses(responses);
+    }
   }
 
   onMount(() => {

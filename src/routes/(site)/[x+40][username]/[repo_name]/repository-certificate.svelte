@@ -105,7 +105,7 @@
               </summary>
 
               <ol>
-                {#each pr.commits as commit}
+                {#each pr.commits as commit (commit.url)}
                   <li>
                     <a href={commit.url} target="_blank" rel="noopener noreferrer">
                       {@html commit.message}

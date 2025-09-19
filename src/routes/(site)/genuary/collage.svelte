@@ -22,7 +22,7 @@
 
 <div class="grid-outer-wrapper">
   <div class="grid-inner-wrapper">
-    {#each data as d, i}
+    {#each data as d, i (d.src)}
       {@const alt = d.alt || d.src}
       {@const ext = d.src.split('.').pop()}
       <div class="artwork-container">
@@ -33,7 +33,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class:ribbon={d.during_challenge}
-          data-ribbon-text={'2023'}
+          data-ribbon-text="2023"
         >
           <Dialog>
             <Media data={d} slot="opener" rounded />

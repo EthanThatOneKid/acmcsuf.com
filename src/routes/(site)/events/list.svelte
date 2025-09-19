@@ -7,7 +7,7 @@
 
 <section>
   <div class="event-list-container">
-    {#each events as eventInfo}
+    {#each events as eventInfo (eventInfo.id)}
       <EventItem info={eventInfo} />
     {/each}
   </div>

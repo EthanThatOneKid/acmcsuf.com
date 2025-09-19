@@ -14,7 +14,7 @@
   <p>{data.description}</p>
   <h3>Directors</h3>
   <div class="directors-container">
-    {#each data.directors as director}
+    {#each data.directors as director (director.name)}
       <div class="director-card">
         <BoardMember src={director.picture} alt="{director.name}}" color="var(--acm-blue)" />
         <p class="names">{director.name}</p>

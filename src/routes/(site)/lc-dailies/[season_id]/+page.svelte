@@ -37,33 +37,37 @@
   <pre><code>{data.seasonText}</code></pre>
 
   <table>
-    <tr>
-      <th colspan="2">Data</th>
-    </tr>
-    <tr>
-      <td>Season ID</td>
-      <td
-        ><a href="https://lc-dailies.deno.dev/seasons/{data.season?.id}"
-          ><code>{data.season?.id}</code></a
-        ></td
-      >
-    </tr>
-    <tr>
-      <td>Start date</td>
-      <td>{data.season?.start_date}</td>
-    </tr>
-    <tr>
-      <td>Total players</td>
-      <td>{totalPlayers}</td>
-    </tr>
-    <tr>
-      <td>Total submissions</td>
-      <td>{totalSubmissions}</td>
-    </tr>
-    <tr>
-      <td>Last synced</td>
-      <td>{data.season?.synced_at ?? 'Never'}</td>
-    </tr>
+    <thead>
+      <tr>
+        <th colspan="2">Data</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Season ID</td>
+        <td
+          ><a href="https://lc-dailies.deno.dev/seasons/{data.season?.id}"
+            ><code>{data.season?.id}</code></a
+          ></td
+        >
+      </tr>
+      <tr>
+        <td>Start date</td>
+        <td>{data.season?.start_date}</td>
+      </tr>
+      <tr>
+        <td>Total players</td>
+        <td>{totalPlayers}</td>
+      </tr>
+      <tr>
+        <td>Total submissions</td>
+        <td>{totalSubmissions}</td>
+      </tr>
+      <tr>
+        <td>Last synced</td>
+        <td>{data.season?.synced_at ?? 'Never'}</td>
+      </tr>
+    </tbody>
   </table>
 </main>
 

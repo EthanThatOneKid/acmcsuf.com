@@ -6,7 +6,7 @@
   export let data: ClubPosition<keyof typeof TOOLS>[];
 </script>
 
-{#each data as position}
+{#each data as position (position.title)}
   <Position data={position} />
 {:else}
   <p>There are no open positions at this time.</p>

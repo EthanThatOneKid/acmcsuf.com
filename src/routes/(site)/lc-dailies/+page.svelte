@@ -36,7 +36,7 @@
   <h2>Seasons</h2>
 
   <ol>
-    {#each data.seasons as season}
+    {#each data.seasons as season (season.id)}
       <li id={season.id}>
         <a href="/lc-dailies/{season.id}">
           Season {season.id}
