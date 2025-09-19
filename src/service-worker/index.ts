@@ -1,6 +1,5 @@
 /// <reference lib="webworker" />
 /* eslint-disable no-var */
- 
 
 import { handleActivate } from './activate';
 import { handleInstall } from './install';

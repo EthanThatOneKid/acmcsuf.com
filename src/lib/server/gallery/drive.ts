@@ -11,7 +11,7 @@ export function getDrive(apiKey: string) {
 export async function listFiles(drive: drive_v3.Drive, id: string) {
   const files: drive_v3.Schema$File[] = [];
   let pageToken: string | undefined;
-   
+
   while (true) {
     const result = await drive.files.list({
       q: `'${id}' in parents`,
