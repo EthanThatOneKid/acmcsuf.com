@@ -2,7 +2,6 @@
   import type { PageData } from './$types';
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import { readingTime } from '$lib/public/blog/utils';
-  import { Temporal } from '@js-temporal/polyfill';
   import Labels from '$lib/components/blog/labels.svelte';
   import BlogBody from './blog-body.svelte';
   import { MetaTags } from 'svelte-meta-tags';
@@ -13,7 +12,7 @@
 <MetaTags
   openGraph={{
     title: data.post.title,
-    description: data.post.bodyText.substring(0, 165) + '...' ?? '',
+    description: data.post.bodyText.substring(0, 165) + '...',
     url: `https://acmcsuf.com${data.post.url}`,
     type: 'article',
     article: {
@@ -58,12 +57,13 @@
     </a>
   </p>
   <p>
-    {Temporal.Instant.from(data.post.createdAt).toLocaleString('en-US', {
-      calendar: 'gregory',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    })} •
+    {'' + // @ts-ignore
+      Temporal.Instant.from(data.post.createdAt).toLocaleString('en-US', {
+        calendar: 'gregory',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })} •
     {readingTime(data.post.html)} min read
   </p>
 

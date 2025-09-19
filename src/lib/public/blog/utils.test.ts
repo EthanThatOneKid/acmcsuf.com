@@ -1,4 +1,4 @@
-import { test, expect } from 'vitest';
+import { expect, test } from 'vitest';
 import { discernLabels, readingTime } from './utils';
 import { TXT_BEE_MOVIE, TXT_ENCHANTED_BY_TAYLOR_SWIFT } from './data';
 

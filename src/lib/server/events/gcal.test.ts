@@ -1,4 +1,4 @@
-import { test, expect } from 'vitest';
+import { expect, test } from 'vitest';
 
 import type { GCalEvent } from './gcal';
 import { fromGCal } from './gcal';
