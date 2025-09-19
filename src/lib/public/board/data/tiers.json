@@ -34,5 +34,6 @@
   "Community Manager": { "id": 30, "index": 1550 },
   "ICC Representative": { "id": 31, "index": 1600 },
   "Open Source Team Lead": { "id": 32, "index": 1650 },
-  "Open Source Officer": { "id": 33, "index": 1700 }
+  "Open Source Officer": { "id": 33, "index": 1700 },
+  "ICPC Lead": { "id": 34, "index": 1750 }
 }
