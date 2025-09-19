@@ -42,7 +42,7 @@
     </a>
 
     <div class="label-list">
-      {#each labels as label}
+      {#each labels as label (label)}
         <a
           href={makeBlogPostsPageURL([label])}
           class="label"

@@ -14,7 +14,7 @@
 
 {#if data.length > 0}
   <div class="labels">
-    {#each data as label}
+    {#each data as label (label)}
       <a
         href={makeBlogPostsPageURL([label])}
         class:selected={selectedLabels.includes(label)}

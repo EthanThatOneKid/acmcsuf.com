@@ -37,6 +37,7 @@ export default [
       "svelte/no-at-html-tags": "off",
       "@typescript-eslint/no-unused-vars": "error",
       "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+      "svelte/no-navigation-without-resolve": "off",
     },
   },
   {

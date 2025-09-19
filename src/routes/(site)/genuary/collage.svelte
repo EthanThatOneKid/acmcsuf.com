@@ -22,7 +22,7 @@
 
 <div class="grid-outer-wrapper">
   <div class="grid-inner-wrapper">
-    {#each data as d, i}
+    {#each data as d, i (d.src)}
       {@const alt = d.alt || d.src}
       {@const ext = d.src.split('.').pop()}
       <div class="artwork-container">

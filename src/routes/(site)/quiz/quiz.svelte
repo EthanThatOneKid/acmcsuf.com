@@ -46,7 +46,9 @@
     responses = [];
     index = 0;
     showResults = false;
-    quizStorage && quizStorage.clearResponses();
+    if (quizStorage) {
+      quizStorage.clearResponses();
+    }
   }
 
   function showTeamDetails(currentTeam: Team) {
@@ -138,7 +140,9 @@
     answeredAllQuestions =
       responses?.length === data.questions.length && !responses.includes(undefined);
     // Updates local storage whenever `responses` changes.
-    quizStorage && responses && quizStorage.setResponses(responses);
+    if (quizStorage && responses) {
+      quizStorage.setResponses(responses);
+    }
   }
 
   onMount(() => {
