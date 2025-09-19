@@ -143,8 +143,6 @@
     transform: scale(1.2);
   }
 
-  
-
   section .team-container .hero-text {
     max-width: 35ch;
     margin-inline: auto;
@@ -166,8 +164,6 @@
     section .hero-inner-container .hero-text {
       text-align: start;
     }
-
-    
   }
 
   @media screen and (min-width: 640px) {
