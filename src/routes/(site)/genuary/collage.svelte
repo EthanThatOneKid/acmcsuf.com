@@ -33,7 +33,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class:ribbon={d.during_challenge}
-          data-ribbon-text={'2023'}
+          data-ribbon-text="2023"
         >
           <Dialog>
             <Media data={d} slot="opener" rounded />

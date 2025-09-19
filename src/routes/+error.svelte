@@ -33,7 +33,7 @@
         <h1>404</h1>
         <h2>Can't find where you're going?</h2>
         <h2 class="gap">Head home!</h2>
-        <Button text={'Return to Home'} link={'/'} />
+        <Button text="Return to Home" link="/" />
       </div>
       <img src="/assets/capy-meme.svg" alt="404 - Page Not Found" />
     </div>
