@@ -44,7 +44,7 @@
     <div class="markdown-body">
       {@html post.html}
     </div>
-    <p class="read-time">
+    <div class="read-time">
       {post.createdAt &&
         Temporal.Instant.from(post.createdAt).toLocaleString('en-US', {
           calendar: 'gregory',
@@ -54,7 +54,7 @@
         })} •
       {readingTime(post.html)} min read
       <Labels data={post.labels} {selectedLabels} />
-    </p>
+    </div>
 </div>
 
 <style>
