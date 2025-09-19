@@ -6,20 +6,20 @@ type semesters = "fa24" | "sp25" | "fa25";
 type teams = "ai" | "algo" | "design" | "dev" | "gamedev" | "general" | "icpc" | "nodebud" | "oss"
 
 type Tables = {
-  [semester in semesters]: {
-    workshops: Workshops
-  };
+	[semester in semesters]: {
+		workshops: Workshops
+	};
 };
 
 type Workshops = {
-  [team in teams]: WorkshopInfo []
+	[team in teams]: WorkshopInfo[]
 }
 
 type WorkshopInfo = {
-  name: string,
-  team: string,
-  semester: string,
-  link: string
+	name: string,
+	team: string,
+	semester: string,
+	link: string
 }
 
 type linkKey = keyof typeof links;
@@ -27,65 +27,93 @@ type linkJson = typeof links;
 //type Tables = typeof tables;
 
 
-var currentTable : Tables = {
-  fa24: { workshops: {ai: [], algo: [], design: [], dev: [], gamedev: [], general: [], icpc: [], nodebud: [], oss: [] }},
-  sp25: { workshops: {ai: [], algo: [], design: [], dev: [], gamedev: [], general: [], icpc: [], nodebud: [], oss: [] }},
-  fa25: { workshops: {ai: [], algo: [], design: [], dev: [], gamedev: [], general: [], icpc: [], nodebud: [], oss: [] }},
+var currentTable: Tables = {
+	fa24: { workshops: { ai: [], algo: [], design: [], dev: [], gamedev: [], general: [], icpc: [], nodebud: [], oss: [] } },
+	sp25: { workshops: { ai: [], algo: [], design: [], dev: [], gamedev: [], general: [], icpc: [], nodebud: [], oss: [] } },
+	fa25: { workshops: { ai: [], algo: [], design: [], dev: [], gamedev: [], general: [], icpc: [], nodebud: [], oss: [] } },
 }
 
 
 function NewWorkshopTable() {
-  populateTables(links, currentTable)
+	populateTables(links, currentTable)
 }
 
 function clearTable(table: Tables): void {
-  for (const key in table) {
-    const curSemester = table[key as semesters] 
-      for (const key2 in curSemester.workshops) {
-        const k = key2 as keyof typeof curSemester.workshops;
-        curSemester.workshops[k].length = 0;
-    }
-  }
+	for (const key in table) {
+		const curSemester = table[key as semesters]
+		for (const key2 in curSemester.workshops) {
+			const k = key2 as keyof typeof curSemester.workshops;
+			curSemester.workshops[k].length = 0;
+		}
+	}
 }
 
 function populateTables(links: linkJson, table: Tables): Tables {
-  clearTable(table)
+	clearTable(table)
 
-  for (const key in links) {
-    const k = key as linkKey; 
-    var newWorkshop: WorkshopInfo = {
-      name: "",
-      team: "",
-      semester: "",
-      link: links[k]
-    };
+	for (const key in links) {
+		const k = key as linkKey;
+		var newWorkshop: WorkshopInfo = {
+			name: "",
+			team: "",
+			semester: "",
+			link: links[k]
+		};
 
-    
-    const result = parseWorkshop(key, newWorkshop)
-    if (typeof result == typeof newWorkshop) {
-      newWorkshop = result as typeof newWorkshop;
-      table[newWorkshop.semester as semesters].workshops[newWorkshop.team as teams].push(newWorkshop)
-     }
-  }
 
-  return table
+		const result = parseWorkshop(key, newWorkshop)
+		if (typeof result == typeof newWorkshop) {
+			newWorkshop = result as typeof newWorkshop;
+			table[newWorkshop.semester as semesters].workshops[newWorkshop.team as teams].push(newWorkshop)
+		}
+	}
+
+	return table
 }
 
 //svelte button calls this
-export function GetSemester(semester: string): Workshops{
-  return currentTable[semester as semesters].workshops
+export function GetSemester(semester: string): Workshops {
+	return currentTable[semester as semesters].workshops
 
 }
 
-// TODO: Study regex, find ways to parse the alieas
+//
+// Currently these are the formats I am aware of: 
+// Pattern 1: (team)/(workshop-title)-(semester)
+// Pattern 2: (team)/(semester)-(workshop-title)
+// Pattern 3: (team)-(workshop-title)-(semester)
+//
+// The following are parsed with regex as so: 
+// 	Pattern 1:
+//	 >----(\w)-----v          >-----[\w+-]------v                       
+//	|--------------|   '/'   |------------------|    '-'    |-----|	\w{2}   |-----|  \d{2}$  |------------------|
+//	| capture team | ------> | capture workshop | --------> |     | ------> |     | -------> | capture semester |
+//	|--------------|	 |------------------|           |-----|         |-----|          |------------------|
+//
+//	Pattern 2:
+//	 >----(\w)-----v                                                                  >-----[\w+-]------v
+//	|--------------|   '/'   |----| \w{2} |-----|  \d{2}  |------------------|  '-'  |------------------|
+//	| capture team | ------> |    | ----> |     | ------> | capture semester | ----> | capture workshop | 
+//	|--------------|	 |----|       |-----|         |------------------|       |------------------|
+//
+//	Pattern 3:
+//	 >----(\w)-----v          >-----[\w+-]------v                       
+//	|--------------|   '-'   |------------------|    '-'    |-----|	\w{2}   |-----|  \d{2}$  |------------------|
+//	| capture team | ------> | capture workshop | --------> |     | ------> |     | -------> | capture semester |
+//	|--------------|	 |------------------|           |-----|         |-----|          |------------------|
 function parseWorkshop(key: string, ws: WorkshopInfo): WorkshopInfo | null {
-  // Currently these are the formats I am aware of: 
-  // (team)/(workshop-title)-(semester)
-  // (team)/(semester)-(workshop-title)
-  // (team)-(workshop-title)-(semester)
+	// p shorthand for pattern
 
-  const format1regex = '(A-Za-z)/'
-  return null
+	const format1regex = '(^\w+)+\/+([\w+-]+)+-(\w{2}\d{2}$)'
+	const p1 = new RegExp(format1regex)
+
+	const format2regex = '(^\w+)+\/(\w{2}\d{2})+-([\w+-]+$)'
+	const p2 = new RegExp(format2regex)
+
+	const format3regex = '(^\w+)+-([\w+-]+)+-(\w{2}\d{2}$)'
+	const p3 = new RegExp(format3regex)
+
+	return null
 }
 
 
