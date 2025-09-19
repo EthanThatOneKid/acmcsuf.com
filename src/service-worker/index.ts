@@ -1,6 +1,6 @@
 /// <reference lib="webworker" />
 /* eslint-disable no-var */
-/* eslint-disable @typescript-eslint/naming-convention */
+ 
 
 import { handleActivate } from './activate';
 import { handleInstall } from './install';
