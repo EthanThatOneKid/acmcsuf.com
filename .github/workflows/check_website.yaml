@@ -12,7 +12,9 @@ on:
 
 jobs:
   website_check:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
       - name: Checkout
