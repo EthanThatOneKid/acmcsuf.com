@@ -6,6 +6,10 @@
   "type": "module",
   "homepage": "https://acmcsuf.com/",
   "author": "EthanThatOneKid (https://etok.codes/)",
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.5.1"
+  },
   "repository": {
     "url": "git+https://github.com/EthanThatOneKid/acmcsuf.com.git"
   },
