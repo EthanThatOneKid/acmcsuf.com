@@ -20,11 +20,11 @@
 
 <section class="sitemap-body">
   <div class="column">
-    {#each Object.entries(SITEMAP) as [category, items]}
+    {#each Object.entries(SITEMAP) as [category, items] (category)}
       <div class="category">
         <h2>{category}</h2>
         <ul>
-          {#each items as item}
+          {#each items as item (item.link)}
             <li>
               <a href={item.link}>{item.title}</a>
             </li>

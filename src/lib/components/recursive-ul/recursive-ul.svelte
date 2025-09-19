@@ -5,7 +5,7 @@
 </script>
 
 <ul class="recursive-ul">
-  {#each data as item}
+  {#each data as item, i (i)}
     <li class="recursive-ul__item">
       {@html item.html}
       {#if item.children}
