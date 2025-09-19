@@ -1259,9 +1259,9 @@
         { "title": "Marketing Officer", "tier": 9 }
       ],
       "F25": [
+        { "title": "ICPC Lead", "tier": 34 },
         { "title": "Algo Officer", "tier": 12 },
-        { "title": "Game Dev Officer", "tier": 23 },
-        { "title": "ICPC Lead", "tier": 34 }
+        { "title": "Game Dev Officer", "tier": 23 }
       ]
     },
     "discord": "@baremetal_alchemist"
