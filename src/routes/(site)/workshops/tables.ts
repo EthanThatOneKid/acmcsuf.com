@@ -101,19 +101,77 @@ export function GetSemester(semester: string): Workshops {
 //	|--------------|   '-'   |------------------|    '-'    |-----|	\w{2}   |-----|  \d{2}$  |------------------|
 //	| capture team | ------> | capture workshop | --------> |     | ------> |     | -------> | capture semester |
 //	|--------------|	     |------------------|           |-----|         |-----|          |------------------|
+//
+//	Key: \w = any letter A-Z, \w+- = any word followed by a dash, \w{2} = two letters, \d{2} = two numbers, $ = end of string 
 function parseWorkshop(key: string, ws: WorkshopInfo): WorkshopInfo | null {
-	// p shorthand for pattern
 
-	const format1regex = '(^\w+)+\/+([\w+-]+)+-(\w{2}\d{2}$)'
-	const p1 = new RegExp(format1regex)
+	let match: RegExpMatchArray | null;
 
-	const format2regex = '(^\w+)+\/(\w{2}\d{2})+-([\w+-]+$)'
-	const p2 = new RegExp(format2regex)
+	const pattern1regex = /(^\w+)+\/+([\w+-]+)+-(\w{2}\d{2}$)/
 
-	const format3regex = '(^\w+)+-([\w+-]+)+-(\w{2}\d{2}$)'
-	const p3 = new RegExp(format3regex)
+	match = key.match(pattern1regex);
+	if (match) {
+		const name = getWorkshopTitle(links[key]);
+		if (!name) {
+			ws.name = match[2];
+		} else {
+			ws.name = name;
+		}
+		ws.team = match[1];
+		ws.link = links[key];
+		ws.semester = match[3];
+	}
+
+
+	const pattern2regex = /(^\w+)+\/(\w{2}\d{2})+-([\w+-]+$)/
+
+	match = key.match(pattern1regex);
+	if (match) {
+		const name = getWorkshopTitle(links[key]);
+		if (!name) {
+			ws.name = match[3];
+		} else {
+			ws.name = name;
+		}
+		ws.team = match[1];
+		ws.link = links[key];
+		ws.semester = match[2];
+	}
+
+	const pattern3regex = /(^\w+)+-([\w+-]+)+-(\w{2}\d{2}$)/
+
+	match = key.match(pattern1regex);
+	if (match) {
+		const name = getWorkshopTitle(links[key]);
+		if (!name) {
+			ws.name = match[2];
+		} else {
+			ws.name = name;
+		}
+		ws.team = match[1];
+		ws.link = links[key];
+		ws.semester = match[3];
+	}
+
+
 
 	return null
+}
+
+// Evan pointed out that some workshop names may be inaccurate according to shorter, as an example:
+// oss/fa25-1st where the real name is: Open Source Team FA25: First Contributions
+async function getWorkshopTitle(url: string): Promise<string | null> {
+	const res = await fetch(url);
+	const html = await res.text();
+
+	// Regex to get anything in <title>This page's title</title>. Written with Google slies html title in mind
+	const getTitle = /<title>(.*?)<\/title>/i;
+
+	const name = html.match(getTitle);
+
+
+	return name;
+
 }
 
 
