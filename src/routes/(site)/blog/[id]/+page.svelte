@@ -13,7 +13,7 @@
 <MetaTags
   openGraph={{
     title: data.post.title,
-    description: data.post.bodyText.substring(0, 165) + '...' ?? '',
+    description: data.post.bodyText.substring(0, 165) + '...',
     url: `https://acmcsuf.com${data.post.url}`,
     type: 'article',
     article: {

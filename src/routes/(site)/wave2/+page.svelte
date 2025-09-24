@@ -99,11 +99,11 @@
     tabindex="0"
   >
     {#if is_fall}
-      {#each POSITIONS as position}
+      {#each POSITIONS as position (position.title)}
         <PositionList data={[position]} />
       {/each}
     {:else}
-      {#each POSITIONS.filter((position) => position.title !== 'Secretary' && position.title !== 'Event Coordinator') as position}
+      {#each POSITIONS.filter((position) => position.title !== 'Secretary' && position.title !== 'Event Coordinator') as position (position.title)}
         <PositionList data={[position]} />
       {/each}
     {/if}
