@@ -26,13 +26,13 @@ Once all checks have been passed, the preview site gets promoted to production.
 ---
 
 Maintained with 💖 by [**acmcsuf.com hub**][team_doc]  
-Current webmaster: [Dianella](webmaster_url)
+Current webmaster: [**dianella sy**](webmaster_url)
 
 [node_download]: https://nodejs.org/en/download/
 [github_action_deploy]: .github/workflows/deploy.yaml
 [demo_url]: https://acmcsuf.com/
 [acm_officers]: https://acmcsuf.com/teams/
-[webmaster_url]: https://github.com/EthanThatOneKid/
+[webmaster_url]: https://github.com/dianellasy/
 [dev_server]: http://localhost:3000/
 [netlify_dashboard]: https://app.netlify.com/sites/acmcsuf
 [team_doc]: https://docs.google.com/document/d/11GoIBTAAnIOgmWuG1TsgXUE3MMkweQ8V6bB9TbrY0Hs/edit?usp=sharing
