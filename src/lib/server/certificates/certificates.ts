@@ -1,25 +1,25 @@
 import { doQuery } from '$lib/server/gql/github';
 import { getOfficerByGhUsername } from '$lib/public/board';
 import type {
-  RepositoryCertificate,
-  ReleaseCertificate,
-  PR,
-  RepositoryCertificatePageData,
-  ReleaseCertificatePageData,
   Issue,
+  PR,
+  ReleaseCertificate,
+  ReleaseCertificatePageData,
+  RepositoryCertificate,
+  RepositoryCertificatePageData,
 } from '$lib/public/certificates';
 import type {
-  PRsResponse,
-  UserResponse,
-  ReleaseCertificateQuery,
-  RepositoryCertificateQuery,
-  PRsQuery,
-  ReleasesResponse,
-  ReleaseNode,
-  IssuesResponse,
   IssuesQuery,
+  IssuesResponse,
+  PRsQuery,
+  PRsResponse,
+  ReleaseCertificateQuery,
+  ReleaseNode,
+  ReleasesResponse,
+  RepositoryCertificateQuery,
+  UserResponse,
 } from './gql';
-import { makeReleasesQuery, makePRsQuery, makeIssuesQuery, makeUserQuery } from './gql';
+import { makeIssuesQuery, makePRsQuery, makeReleasesQuery, makeUserQuery } from './gql';
 
 /**
  * getPRs retrieves a page of merged pull requests.

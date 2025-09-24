@@ -30,7 +30,10 @@ export async function fetchBlogPosts(options?: BlogFetchOptions): Promise<BlogOu
 
     const response = await fetch(API_URL, {
       method: 'POST',
-      headers: { Authorization: `token ${GH_ACCESS_TOKEN}`, 'Content-Type': 'application/json' },
+      headers: {
+        Authorization: `token ${GH_ACCESS_TOKEN}`,
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({ query: gql(GH_DISCUSSION_CATEGORY_ID) }),
     });
 

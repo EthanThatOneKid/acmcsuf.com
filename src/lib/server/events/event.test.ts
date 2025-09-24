@@ -1,17 +1,21 @@
-import { test, expect, assert } from 'vitest';
-import { Temporal } from '@js-temporal/polyfill';
+import { assert, expect, test } from 'vitest';
 import {
   makeEventId,
-  parseDescription,
   makeEventLink,
-  wrapText,
+  parseDescription,
   replaceHtmlLinkTargets,
+  wrapText,
 } from './event';
 
 test('makes id of simple event details', () => {
   const actual = makeEventId(
     'test-event',
-    Temporal.ZonedDateTime.from({ timeZone: 'UTC', year: 2000, month: 1, day: 1 })
+    Temporal.ZonedDateTime.from({
+      timeZone: 'UTC',
+      year: 2000,
+      month: 1,
+      day: 1,
+    })
   );
   const expected = 'test-event-2000-january-1';
   expect(actual).toBe(expected);
@@ -20,7 +24,12 @@ test('makes id of simple event details', () => {
 test('makes id of capitalized event details', () => {
   const actual = makeEventId(
     'Test Event',
-    Temporal.ZonedDateTime.from({ timeZone: 'UTC', year: 2000, month: 1, day: 1 })
+    Temporal.ZonedDateTime.from({
+      timeZone: 'UTC',
+      year: 2000,
+      month: 1,
+      day: 1,
+    })
   );
   const expected = 'test-event-2000-january-1';
   expect(actual).toBe(expected);
@@ -62,8 +71,8 @@ test('wraps long text into lines broken at column 100 3 times', () => {
 });
 
 test('replaces link targets with "_blank" in HTML string', () => {
-  const actual =
-    replaceHtmlLinkTargets(`<a title="example" target="_self"  href="https://example.com/">Example Link</a>
+  const actual = replaceHtmlLinkTargets(
+    `<a title="example" target="_self"  href="https://example.com/">Example Link</a>
   <a title="example" target="_self"href="https://example.com/">Example Link</a>
   <a target="_self" title="example" href="https://example.com/">Example Link</a>
   <a title="example" target="_self" target="poggers" target="not poggers"  href="https://example.com/">Example Link</a>
@@ -76,9 +85,10 @@ test('replaces link targets with "_blank" in HTML string', () => {
   <a title="example" target="_self" href="https://example.com/">
   <a title="example" target="_blank" href="https://example.com/">
   <article href="https://example.com/">example</article>
-  example`);
-  expect(actual)
-    .toBe(`<a title="example" href="https://example.com/" target="_blank">Example Link</a>
+  example`
+  );
+  expect(actual).toBe(
+    `<a title="example" href="https://example.com/" target="_blank">Example Link</a>
   <a title="example" href="https://example.com/" target="_blank">Example Link</a>
   <a title="example" href="https://example.com/" target="_blank">Example Link</a>
   <a title="example" href="https://example.com/" target="_blank">Example Link</a>
@@ -91,5 +101,6 @@ test('replaces link targets with "_blank" in HTML string', () => {
   <a title="example" href="https://example.com/" target="_blank">
   <a title="example" href="https://example.com/" target="_blank">
   <article href="https://example.com/">example</article>
-  example`);
+  example`
+  );
 });

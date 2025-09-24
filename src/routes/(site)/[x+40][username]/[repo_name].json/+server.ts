@@ -1,10 +1,10 @@
 import type { RequestEvent } from '@sveltejs/kit';
 import type { RouteParams } from './$types';
 import {
-  getRepositoryCertificatePageData,
   cachedPageData,
-  makeCacheKey,
   getReleaseCertificatePageData,
+  getRepositoryCertificatePageData,
+  makeCacheKey,
 } from '$lib/server/certificates';
 import { LATEST } from '$lib/public/certificates';
 

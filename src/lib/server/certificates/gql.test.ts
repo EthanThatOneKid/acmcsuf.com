@@ -1,4 +1,4 @@
-import { test, expect } from 'vitest';
+import { expect, test } from 'vitest';
 
 import type { ReleasesResponse } from './gql';
 import { makePRsQuery, makeReleasesQuery } from './gql';

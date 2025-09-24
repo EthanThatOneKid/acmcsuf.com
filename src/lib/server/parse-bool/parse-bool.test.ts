@@ -1,4 +1,4 @@
-import { test, expect } from 'vitest';
+import { expect, test } from 'vitest';
 import { parseBool } from './parse-bool';
 
 const TRUTHY_INPUT_DATA = ['tRuThY sTrInG', 'TRUE', String(true), String(1)];

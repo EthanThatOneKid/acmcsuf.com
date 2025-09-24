@@ -1,5 +1,4 @@
 import type { ClubEvent } from '$lib/public/events/event';
-import { Temporal } from '@js-temporal/polyfill';
 import type { GCalEvent } from './gcal';
 
 export function makeClubEvent(event: GCalEvent, refDate: Temporal.ZonedDateTime): ClubEvent | null {

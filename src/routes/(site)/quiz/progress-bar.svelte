@@ -4,7 +4,8 @@
 </script>
 
 <div class="progress-bar" style={`--color-fill: ${fillColor}`}>
-  <div class="progress-fill" style={`--progress-status: ${progress}%`} />
+  <div class="progress-fill" style={`--progress-status: ${progress}%`}></div>
+
   <h3>{progress.toFixed(0)}%</h3>
 </div>
 
