@@ -21,7 +21,7 @@
 </Block>
 
 <ul>
-  {#each ENTRIES as { day, imageSrc, discordUsername, prompt }}
+  {#each ENTRIES as { day, imageSrc, discordUsername, prompt } (imageSrc)}
     <li>
       <img src={imageSrc} alt="Design by @{discordUsername} day {day}" />
       <h2>Day {day} by <span class="acm-pink">@{discordUsername}</span></h2>
