@@ -19,6 +19,18 @@
   const formattedTerms = VISIBLE_TERMS.map(formatTerm);
   let currentFormattedTerm = formattedTerms[$termIndex];
   $: $termIndex = formattedTerms.indexOf(currentFormattedTerm);
+
+  function handleIconClick (event) {
+    event.preventDefault();
+    const link = event.currentTarget;
+    const iconId = new URL(link.href).hash.replace('#', '');
+    const teamName = document.getElementById(iconId);
+    window.scrollTo({
+      top: teamName?.offsetTop,
+      behavior: 'smooth'
+    })
+
+  }
 </script>
 
 <Spacing --min="175px" --med="200px" --max="200px" />
@@ -43,6 +55,73 @@
     <img src="/assets/capy-read.svg" alt="Chip the Capybara reading a book" />
   </div>
   <Spacing --min="100px" --med="125px" --max="125px" />
+</section>
+
+<Spacing --min="175px" --med="200px" --max="200px" />
+
+<section class="icon-container">
+  <div class="icon-inner-container">
+    <div class="icon">
+      <a href="#general" on:click={handleIconClick}>
+        <img src="/assets/general-logo.svg" alt="acm-logo" width="125px" height="125xp">
+      </a>
+      <caption>General</caption>
+    </div>
+    <div class="icon">
+      <a href="#ai" on:click={handleIconClick}>
+        <img src="/assets/ai-logo.svg" alt="ai-logo" width="125px" height="125xp">
+      </a>
+      <caption>AI</caption>
+    </div>
+    <div class="icon">
+      <a href="#algo" on:click={handleIconClick}>
+        <img src="/assets/algo-logo.svg" alt="algo-logo" width="125px" height="125xp">
+      </a>
+      <caption>Algo</caption>
+    </div>
+    <div class="icon">
+      <a href="#design" on:click={handleIconClick}>
+        <img src="/assets/design-logo.svg" alt="design-logo" width="125px" height="125xp">
+      </a>
+      <caption>Design</caption>
+    </div>
+    <div class="icon">
+      <a href="#dev" on:click={handleIconClick}>
+        <img src="/assets/dev-logo.svg" alt="dev-logo" width="125px" height="125xp">
+      </a>
+      <caption>Dev</caption>
+    </div>
+    <div class="icon">
+      <a href="#gamedev" on:click={handleIconClick}>
+        <img src="/assets/gamedev-logo.svg" alt="gamedev-logo" width="125px" height="125xp">
+      </a>
+      <caption>Gamedev</caption>
+    </div>
+    <div class="icon">
+      <a href="#icpc" on:click={handleIconClick}>
+        <img src="/assets/icpc-logo.svg" alt="icpc-logo" width="125px" height="125xp">
+      </a>
+      <caption>ICPC</caption>
+    </div>
+    <div class="icon">
+      <a href="#marketing" on:click={handleIconClick}>
+        <img src="/assets/marketing-logo.svg" alt="marketing-logo" width="125px" height="125xp">
+      </a>
+      <caption>Marketing</caption>
+    </div>
+    <div class="icon">
+      <a href="#nodebuds" on:click={handleIconClick}>
+        <img src="/assets/nodebuds-logo-old.svg" alt="nodebuds-logo" width="125px" height="125xp">
+      </a>
+      <caption>Nodebuds</caption>
+    </div>
+    <div class="icon">
+      <a href="#oss" on:click={handleIconClick}>
+        <img src="/assets/oss-logo.svg" alt="oss-logo" width="125px" height="125xp">
+      </a>
+      <caption>Open Source</caption>
+    </div>
+  </div>
 </section>
 
 <TeamSection info={TEAMS.general} term={VISIBLE_TERMS[$termIndex]}>
@@ -179,6 +258,12 @@
   section .hero-inner-container img {
     max-width: clamp(20rem, 17.342rem + 10.13vw, 30rem);
     justify-self: center;
+  }
+
+  section .icon-inner-container {
+    display: grid;
+    grid-template-columns: 5fr 5fr 5fr 5fr 5fr;
+    grid-template-rows: 3fr 3fr 3fr;
   }
 
   @media screen and (min-width: 1000px) {
