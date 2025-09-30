@@ -23,9 +23,11 @@
     </p>
 
     <table>
-      {#each data.colors as color (color.id)}
-        <Color data={color} />
-      {/each}
+      <tbody>
+        {#each data.colors as color (color.id)}
+          <Color data={color} />
+        {/each}
+      </tbody>
     </table>
   </section>
 
