@@ -1,7 +1,9 @@
 <script lang="ts">
   import Spacing from "../../../lib/public/legacy/spacing.svelte";
-
+  import { NewWorkshopTable } from "./tables.ts"
   const semesters = ["Fall 2025"];
+
+  NewWorkshopTable();
 
 </script>
 
@@ -23,12 +25,12 @@
         <th>Series</th>
         <th>Workshops</th>
       </tr>
-      {#each semesters as semester}
+      <!--{#each semesters as semester}
       <tr>
         <td {My route goes here}>{semester}</td>
         <td>10</td>
       </tr>
-      {/each}
+      {/each}-->
     </tbody>
   </div>
 
