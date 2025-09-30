@@ -71,6 +71,7 @@
   "dependencies": {
     "@googleapis/calendar": "^7.0.0",
     "cropperjs": "^1.5.13",
+    "css-tree": "^3.1.0",
     "googleapis": "^134.0.0",
     "html-to-text": "^9.0.5",
     "lc-dailies": "github:acmcsufoss/lc-dailies#npm",
