@@ -40,7 +40,7 @@ type linkKey = keyof typeof links;
 type linkJson = typeof links;
 //type Tables = typeof tables;
 
-
+// Our table var that the sevelt will access
 export var currentTable: Tables = {
 	fa24: { workshops: { ai: [], algo: [], design: [], dev: [], gamedev: [], general: [], icpc: [], nodebuds: [], oss: [] } },
 	sp25: { workshops: { ai: [], algo: [], design: [], dev: [], gamedev: [], general: [], icpc: [], nodebuds: [], oss: [] } },
@@ -59,6 +59,7 @@ export function NewWorkshopTable() {
 	})
 }
 
+// Clears the table
 function clearTable(table: Tables): Tables {
 	for (const key in table) {
 		const curSemester = table[key as semesters]
@@ -72,17 +73,13 @@ function clearTable(table: Tables): Tables {
 
 
 
-//svelte button calls this
-export function GetSemester(semester: string): Workshops {
-	return currentTable[semester as semesters].workshops
-
-}
-
 //
 // Currently these are the formats I am aware of:
 // Pattern 1: (team)/(workshop-title)-(semester)
 // Pattern 2: (team)/(semester)-(workshop-title)
 // Pattern 3: (team)-(workshop-title)-(semester)
+// Pattern 4: (sem)-(team)-(workshop) -- Need to implement
+// Pattern 5: (team)-(sem)-(workshop) -- Need to implement
 //
 // (might remove the following comment, its a bit of work to maintain)
 // The following are parsed with regex as so:
@@ -217,7 +214,7 @@ const getWorkshopTitle = async (url: string): Promise<string | null> => {
 	}
 }
 
-
+// Function to populate the workshop table.
 const populateTables = async (links: linkJson, table: Tables): Promise<Tables> => {
 	clearTable(table);
 
@@ -243,7 +240,7 @@ const populateTables = async (links: linkJson, table: Tables): Promise<Tables> =
 	return table;
 }
 
-
+// log table
 function outputTable(table: Tables) {
 	console.log(table)
 }
