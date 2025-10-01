@@ -218,7 +218,10 @@ const getWorkshopTitle = async (url: string): Promise<string | null> => {
 const populateTables = async (links: linkJson, table: Tables): Promise<Tables> => {
 	clearTable(table);
 
-	for (const key in links) {
+
+	// Make a list of promises and execute them all at the same time, previously with a for loop it took 1:02 minutes to load tables :D
+	//  (vs about 2 seconds with await promise all)
+	const tasks = Object.keys(links).map(async (key) => {
 		const k = key as linkKey;
 		var newWorkshop: WorkshopInfo = {
 			name: "",
@@ -236,13 +239,13 @@ const populateTables = async (links: linkJson, table: Tables): Promise<Tables> =
 				table[newWorkshop.semester as semesters].workshops[newWorkshop.team as teams].push(newWorkshop)
 			}
 		}
-	}
+	});
+
+	await Promise.all(tasks);
 	return table;
 }
-
 // log table
 function outputTable(table: Tables) {
 	console.log(table)
 }
-
 
