@@ -24,13 +24,9 @@ RUN apt-get update -qq && \
 COPY .npmrc package-lock.json package.json ./
 RUN npm ci --include=dev
 
-ENV DEBUG_FLAG_ENABLED=0
-ENV GH_DISCUSSION_CATEGORY_ID="DIC_kwDOE7ysSc4CAC0o"
-ENV GCAL_ID=""
-ENV GDRIVE_GALLERY_FOLDER_ID=""
-
 # Copy application code
 COPY . .
+COPY .env.example .env
 
 # Build application
 RUN npm run build
