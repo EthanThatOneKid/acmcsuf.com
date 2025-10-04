@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Branding } from '$lib/public/branding';
-  import Logo from './logos.svelte';
+  import Logo from './Logos.svelte';
   export let info: Branding;
 </script>
 

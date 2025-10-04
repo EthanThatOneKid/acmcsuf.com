@@ -76,14 +76,10 @@
     margin: 1em 1em 1em 0; /* Match left margin of p */
   }
 
-  .responsive-width {
-    width: min(80ch, 80vw);
-    margin: 0 auto;
-  }
-
   @media (max-width: 480px) {
     .responsive-width {
-      width: 100%;
+      width: 92%;
+      padding-left: 1%;
     }
   }
 
