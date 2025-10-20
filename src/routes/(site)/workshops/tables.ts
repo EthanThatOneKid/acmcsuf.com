@@ -1,4 +1,5 @@
-//import { links } from '../../../lib/public/index.ts'; -- Needs allowImportingTsExtensions enabled to import ts vars so I will comment this for now.
+/*
+// import { links } from '../../../lib/public/index.ts'; -- Needs allowImportingTsExtensions enabled to import ts vars so I will comment this for now.
 import { default as links } from '$lib/public/links/links.json' assert {type: 'json'};
 
 export let wsTables: Tables;
@@ -13,7 +14,8 @@ const teamsMap = ["ai", "algo", "design", "dev", "gamedev", "general", "icpc", "
 
 // Semester shortcut, in the case of f25 -> fa25
 const sSc = new Map<string, string>();
-sSc.set("s25", "sp26");
+sSc.set("f24", "fa24");
+sSc.set("s25", "sp25");
 sSc.set("f25", "fa25");
 sSc.set("s26", "sp26");
 
@@ -49,15 +51,8 @@ export var currentTable: Tables = {
 
 // ----------------------------------------------------------
 
-// If there is a better way to initalize the table, please feel free to implement it!
-export function NewWorkshopTable() {
-	let workshopTable = populateTables(links, currentTable)
-	workshopTable.then((res) => {
-		outputTable(res);
-	}).catch(() => {
-		console.log("error loading workshop table")
-	})
-}
+
+
 
 // Clears the table
 function clearTable(table: Tables): Tables {
@@ -110,7 +105,7 @@ const parseWorkshop = async (key: string, ws: WorkshopInfo): Promise<WorkshopInf
 	const pattern1regex = /(^\w+)+\/+([\w+-]+)+-([A-Za-z]{1,2}\d{2}$)/
 
 	match = key.match(pattern1regex);
-	console.log(key, "| 1 |", match)
+	//console.log(key, "| 1 |", match)
 	if (match) {
 		const name = await getWorkshopTitle(links[key]);
 
@@ -125,6 +120,7 @@ const parseWorkshop = async (key: string, ws: WorkshopInfo): Promise<WorkshopInf
 
 		var sem = match[3];
 		if (sSc.has(sem)) {
+			// TODO: fix "Advanced Algorithms: Dijkstra&#39;s & A*" <- This
 			sem = sSc.get(sem)?.replace(/[-]/g, " ") as string;
 		}
 		ws.semester = sem as semesters;
@@ -140,7 +136,7 @@ const parseWorkshop = async (key: string, ws: WorkshopInfo): Promise<WorkshopInf
 	const pattern2regex = /(^\w+)+\/([A-Za-z]{1,2}\d{2})+-([\w+-]+$)/
 
 	match = key.match(pattern2regex);
-	console.log(key, "| 2 |", match)
+	//console.log(key, "| 2 |", match)
 	if (match) {
 		const name = await getWorkshopTitle(links[key]);
 
@@ -170,7 +166,7 @@ const parseWorkshop = async (key: string, ws: WorkshopInfo): Promise<WorkshopInf
 	const pattern3regex = /(^\w+)+-([\w+-]+)+-([A-Za-z]{1,2}\d{2}$)/
 
 	match = key.match(pattern3regex);
-	console.log(key, "| 3 |", match)
+	//console.log(key, "| 3 |", match)
 	if (match) {
 		const name = await getWorkshopTitle(links[key])
 		if ((name) && (name !== "Page Not Found")) {
@@ -192,22 +188,85 @@ const parseWorkshop = async (key: string, ws: WorkshopInfo): Promise<WorkshopInf
 		return ws;
 	}
 
+
+	// ------- Pattern 4 -------
+	const pattern4regex = /(^\w+)+-([A-Za-z]{1,2}\d{2}$)+-([\w+-]+$)/
+
+	match = key.match(pattern4regex);
+	//console.log(key, "| 4 |", match)
+	if (match) {
+		const name = await getWorkshopTitle(links[key])
+		if ((name) && (name !== "Page Not Found")) {
+			ws.name = name;
+		} else {
+			ws.name = match[3];
+		}
+
+		ws.team = match[1] as teams;
+		ws.link = links[key];
+		var sem = match[2];
+		if (sSc.has(sem)) {
+			sem = sSc.get(sem)?.replace(/[-]/g, " ") as string;
+		}
+		ws.semester = sem as semesters;
+		if ((!teamsMap.includes(ws.team as teams)) || (!semestersMap.includes(ws.semester as semesters))) {
+			return null;
+		}
+		return ws;
+	}
+
+
+	// ------- Pattern 5 -------
+	const pattern5regex = /(^[A-Za-z]{1,2}\d{2}$)+-(\w+)+-([\w+-]+$)/
+
+	match = key.match(pattern5regex);
+	//console.log(key, "| 5 |", match)
+	if (match) {
+		const name = await getWorkshopTitle(links[key])
+		if ((name) && (name !== "Page Not Found")) {
+			ws.name = name;
+		} else {
+			ws.name = match[3];
+		}
+
+		ws.team = match[2] as teams;
+		ws.link = links[key];
+		var sem = match[1];
+		if (sSc.has(sem)) {
+			sem = sSc.get(sem)?.replace(/[-]/g, " ") as string;
+		}
+		ws.semester = sem as semesters;
+		if ((!teamsMap.includes(ws.team as teams)) || (!semestersMap.includes(ws.semester as semesters))) {
+			return null;
+		}
+		return ws;
+	}
+
+
 	return null;
 };
 
 // Evan pointed out that some workshop names may be inaccurate according to shorter, as an example:
 // oss/fa25-1st where the real name is: Open Source Team FA25: First Contributions
 const getWorkshopTitle = async (url: string): Promise<string | null> => {
-	console.log("Start promise");
-	const res = await fetch(url);
+	//console.log("Start promise");
+	//console.log("Static:", url.includes("/static"));
+
+	//
+	// Note: No figma or codepen fetches should be made, they are incredibally expensive
+	if (url.includes("figma") || url.includes("codepen")) {
+		return null;
+	}
+
+	const res = await fetch(url);//.replace(/\/static/, ""));
 	const html = await res.text();
 
 	// Regex to get anything in <title>This page's title</title>. Written with Google slies html title in mind
 	const getTitle = /<title>(.*)<\/title>/i;
 	const name = html.match(getTitle);
 
-	console.log(name[1]);
 	if (name) {
+		//console.log(name[1]);
 		return name[1].replace(/&amp;/g, "&").replace(/\s*-\sGoogle Slides$/, "");
 	} else {
 		return null;
@@ -249,3 +308,8 @@ function outputTable(table: Tables) {
 	console.log(table)
 }
 
+export const NewWorkshopTable = (async () => {
+	console.log("Starting tables");
+	return await populateTables(links, currentTable);
+});
+*/

@@ -1,9 +1,30 @@
 <script lang="ts">
+import { onMount } from "svelte";
   import Spacing from "../../../lib/public/legacy/spacing.svelte";
-  import { NewWorkshopTable } from "./tables.ts"
+import { NewWorkshopTable } from "./tablesv2.ts";
   const semesters = ["Fall 2025"];
+let table; 
+console.log("Mounting");
+/*onMount(async () => {
+	try {
+		const { NewWorkshopTable } = await import("./tables");
+		console.log("Mount");
+		table = await NewWorkshopTable();
+		console.log("loaded table:", table);
+	} catch (err) {
+		console.error("onmount error", err);
+	}
+});
+*/
 
-  NewWorkshopTable();
+const loadTable = () => {
+	console.log("Mount");
+	table = NewWorkshopTable();
+	console.log("Loaded table");
+}
+
+loadTable();
+console.log(table);
 
 </script>
 
@@ -16,8 +37,6 @@
 
 <div class="workshops">
   <h1>Workshops</h1>
-  <!--<h2>{semester}</h2>-->
-  <button>Fall 2025</button>
   <div>
     <h2>General</h2>
     <tbody>
