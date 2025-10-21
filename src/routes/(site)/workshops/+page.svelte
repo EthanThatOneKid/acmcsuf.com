@@ -1,29 +1,36 @@
 <script lang="ts">
 import { onMount } from "svelte";
   import Spacing from "../../../lib/public/legacy/spacing.svelte";
-import { NewWorkshopTable } from "./tablesv2.ts";
+import { NewWorkshopTable } from "./tables.ts";
   const semesters = ["Fall 2025"];
-let table; 
+// let table; 
 console.log("Mounting");
-/*onMount(async () => {
-	try {
-		const { NewWorkshopTable } = await import("./tables");
-		console.log("Mount");
-		table = await NewWorkshopTable();
-		console.log("loaded table:", table);
-	} catch (err) {
-		console.error("onmount error", err);
-	}
-});
-*/
 
-const loadTable = () => {
-	console.log("Mount");
-	table = NewWorkshopTable();
-	console.log("Loaded table");
-}
+const table = NewWorkshopTable()
+.then((tab) => {
+  console.log(tab);
+})
+.catch(() => {
+  console.log("error with tables");
+})
+// onMount(async () => {
+// 	try {
+// 		console.log("Mount");
+// 		table = await NewWorkshopTable();
+// 		console.log("loaded table:", table);
+// 	} catch (err) {
+// 		console.error("onmount error", err);
+// 	}
+// });
 
-loadTable();
+
+// const loadTable = () => {
+// 	console.log("Mount");
+// 	table = NewWorkshopTable();
+// 	console.log("Loaded table");
+// }
+
+// loadTable();
 console.log(table);
 
 </script>
@@ -39,18 +46,20 @@ console.log(table);
   <h1>Workshops</h1>
   <div>
     <h2>General</h2>
-    <tbody>
-      <tr>
-        <th>Series</th>
-        <th>Workshops</th>
-      </tr>
-      <!--{#each semesters as semester}
-      <tr>
-        <td {My route goes here}>{semester}</td>
-        <td>10</td>
-      </tr>
-      {/each}-->
-    </tbody>
+    <table>
+      <tbody>
+        <tr>
+          <th>Series</th>
+          <th>Workshops</th>
+        </tr>
+        <!--{#each semesters as semester}
+        <tr>
+          <td {My route goes here}>{semester}</td>
+          <td>10</td>
+        </tr>
+        {/each}-->
+      </tbody>
+  </table>
   </div>
 
   <div>
