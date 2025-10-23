@@ -54,10 +54,8 @@
     </div>
     <img src="/assets/capy-read.svg" alt="Chip the Capybara reading a book" />
   </div>
-  <Spacing --min="100px" --med="125px" --max="125px" />
+  <Spacing --min="75px" --med="100px" --max="100px" />
 </section>
-
-<Spacing --min="175px" --med="200px" --max="200px" />
 
 <section class="icon-container">
   <div class="icon-inner-container">
@@ -65,64 +63,67 @@
       <a href="#general" on:click={handleIconClick}>
         <img src="/assets/general-logo.svg" alt="acm-logo" width="125px" height="125xp">
       </a>
-      <caption>General</caption>
+      <caption class="acm-heaviest">General</caption>
     </div>
     <div class="icon">
       <a href="#ai" on:click={handleIconClick}>
         <img src="/assets/ai-logo.svg" alt="ai-logo" width="125px" height="125xp">
       </a>
-      <caption>AI</caption>
+      <caption class="acm-heaviest">AI</caption>
     </div>
     <div class="icon">
       <a href="#algo" on:click={handleIconClick}>
         <img src="/assets/algo-logo.svg" alt="algo-logo" width="125px" height="125xp">
       </a>
-      <caption>Algo</caption>
+      <caption class="acm-heaviest">Algo</caption>
     </div>
     <div class="icon">
       <a href="#design" on:click={handleIconClick}>
         <img src="/assets/design-logo.svg" alt="design-logo" width="125px" height="125xp">
       </a>
-      <caption>Design</caption>
+      <caption class="acm-heaviest">Design</caption>
     </div>
     <div class="icon">
       <a href="#dev" on:click={handleIconClick}>
         <img src="/assets/dev-logo.svg" alt="dev-logo" width="125px" height="125xp">
       </a>
-      <caption>Dev</caption>
+      <caption class="acm-heaviest">Dev</caption>
     </div>
     <div class="icon">
       <a href="#gamedev" on:click={handleIconClick}>
         <img src="/assets/gamedev-logo.svg" alt="gamedev-logo" width="125px" height="125xp">
       </a>
-      <caption>Gamedev</caption>
+      <caption class="acm-heaviest">Gamedev</caption>
     </div>
     <div class="icon">
       <a href="#icpc" on:click={handleIconClick}>
         <img src="/assets/icpc-logo.svg" alt="icpc-logo" width="125px" height="125xp">
       </a>
-      <caption>ICPC</caption>
+      <caption class="acm-heaviest">ICPC</caption>
     </div>
     <div class="icon">
       <a href="#marketing" on:click={handleIconClick}>
         <img src="/assets/marketing-logo.svg" alt="marketing-logo" width="125px" height="125xp">
       </a>
-      <caption>Marketing</caption>
+      <caption class="acm-heaviest">Marketing</caption>
     </div>
     <div class="icon">
       <a href="#nodebuds" on:click={handleIconClick}>
         <img src="/assets/nodebuds-logo-old.svg" alt="nodebuds-logo" width="125px" height="125xp">
       </a>
-      <caption>Nodebuds</caption>
+      <caption class="acm-heaviest">Nodebuds</caption>
     </div>
     <div class="icon">
       <a href="#oss" on:click={handleIconClick}>
         <img src="/assets/oss-logo.svg" alt="oss-logo" width="125px" height="125xp">
       </a>
-      <caption>Open Source</caption>
+      <caption class="acm-heaviest">Open Source</caption>
     </div>
   </div>
+  <Spacing --min="100px" --med="125px" --max="125px" />
 </section>
+
+
 
 <TeamSection info={TEAMS.general} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
@@ -263,7 +264,36 @@
   section .icon-inner-container {
     display: grid;
     grid-template-columns: 5fr 5fr 5fr 5fr 5fr;
-    grid-template-rows: 3fr 3fr 3fr;
+    grid-template-rows: 3fr 3fr;
+    column-gap: 50px;
+    row-gap: 30px;
+  }
+
+  section .icon-inner-container .icon {
+    display: grid;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+  }
+
+  section .icon-inner-container .icon a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  section .icon-inner-container .icon a :hover {
+    cursor: pointer;
+    filter: brightness(130%);
+  }
+
+  section .icon-inner-container .icon caption {
+    width: 135px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   @media screen and (min-width: 1000px) {
