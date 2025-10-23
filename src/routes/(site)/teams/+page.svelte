@@ -287,6 +287,10 @@
     filter: brightness(130%);
   }
 
+  section .icon-inner-container .icon a :active {
+    filter: brightness(155%);
+  }
+
   section .icon-inner-container .icon caption {
     width: 135px;
     height: 50px;
