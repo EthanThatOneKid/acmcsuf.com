@@ -1,3 +1,4 @@
+/*
 // import { links } from '../../../lib/public/index.ts'; -- Needs allowImportingTsExtensions enabled to import ts vars so I will comment this for now.
 import { default as links } from '$lib/public/links/links.json' assert {type: 'json'};
 
@@ -74,7 +75,7 @@ const getWorkshopTitle = async (url: string): Promise<string | null> => {
 	//console.log("Start promise");
 	//console.log("Static:", url.includes("/static"));
 
-	return null;
+	//return null;
 	//
 	// Note: No figma or codepen fetches should be made, they are incredibally expensive
 	if (url.includes("figma") || url.includes("codepen")) {
@@ -146,11 +147,11 @@ const parseWorkshop = async (key: string, ws: WorkshopInfo): Promise<WorkshopInf
 	for (const regxp of workshopRegexs) {
 		const match = key.match(regxp);
 		if (!match) continue;
-	
+
 
 		switch (regxp) {
 			case workshopRegexs[0]:
-				var name = await getWorkshopTitle(links[key as linkKey]); 
+				var name = await getWorkshopTitle(links[key as linkKey]);
 
 				if ((name) && (name !== "Page Not Found")) {
 					ws.name = name;
@@ -195,7 +196,7 @@ const parseWorkshop = async (key: string, ws: WorkshopInfo): Promise<WorkshopInf
 				if ((!teamsMap.includes(ws.team as teams)) || (!semestersMap.includes(ws.semester as semesters))) {
 					return null;
 				}
-				return ws;		
+				return ws;
 
 			case workshopRegexs[2]:
 				var name = await getWorkshopTitle(links[key as linkKey])
@@ -301,3 +302,4 @@ export const NewWorkshopTable = async () => {
 	console.log("Starting tables");
 	return await populateTables(links, currentTable);
 };
+*/

@@ -1,37 +1,10 @@
 <script lang="ts">
-import { onMount } from "svelte";
-  import Spacing from "../../../lib/public/legacy/spacing.svelte";
-import { NewWorkshopTable } from "./tables.ts";
-  const semesters = ["Fall 2025"];
-// let table; 
-console.log("Mounting");
-
-const table = NewWorkshopTable()
-.then((tab) => {
-  console.log(tab);
-})
-.catch(() => {
-  console.log("error with tables");
-})
-// onMount(async () => {
-// 	try {
-// 		console.log("Mount");
-// 		table = await NewWorkshopTable();
-// 		console.log("loaded table:", table);
-// 	} catch (err) {
-// 		console.error("onmount error", err);
-// 	}
-// });
+//import WSTable from './wstable.svelte';
+  import WSTable from "$lib/components/workshop/wstable.svelte";
+  import Spacing from "$lib/public/legacy/spacing.svelte";
 
 
-// const loadTable = () => {
-// 	console.log("Mount");
-// 	table = NewWorkshopTable();
-// 	console.log("Loaded table");
-// }
 
-// loadTable();
-console.log(table);
 
 </script>
 
@@ -43,53 +16,34 @@ console.log(table);
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <div class="workshops">
-  <h1>Workshops</h1>
-  <div>
-    <h2>General</h2>
-    <table>
-      <tbody>
-        <tr>
-          <th>Series</th>
-          <th>Workshops</th>
-        </tr>
-        <!--{#each semesters as semester}
-        <tr>
-          <td {My route goes here}>{semester}</td>
-          <td>10</td>
-        </tr>
-        {/each}-->
-      </tbody>
-  </table>
-  </div>
-
-  <div>
-    <h2>AI</h2>
-    
-  </div>
-
-  <div>
-    <h2>Algo</h2>
-    
-  </div>
-
-  <div>
-    <h2>Design</h2>
-    
-  </div>
-
-  <div>
-    <h2>Dev</h2>
-    
-  </div>
-
-  <div>
-    <h2>Game Dev</h2>
-    
-  </div>
-
-  <div>
-    <h2>ICPC</h2>
-    
-  </div>
-
+  <h1 id="header">Workshops</h1>
+  <div id="wscontainer">
+	<p><span id="wsdesc">Workshops are a great way to learn new skills and meet new people. Here are the workshops we have hosted over the semesters!</span></p>
+	<WSTable team="general" display="General" />
+	<WSTable team="ai" display="AI"/>
+	<WSTable team="algo" display="Algo"/>
+	<WSTable team="design" display="Design" />
+	<WSTable team="dev" display="Dev"/>
+	<WSTable team="gamedev" display="Game Dev"/>
+	<WSTable team="icpc" display="ICPC"/>
+	<WSTable team="nodebuds" display="Nodebuds"/>
+	<WSTable team="oss" display="Open Source Software"/>
 </div>
+</div>
+
+<style>
+#header {
+	text-align: center;
+}
+	
+#wsdesc {
+	margin-bottom: 40px;
+}
+#wscontainer{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 30px;
+}
+</style>

@@ -1,0 +1,39 @@
+<script lang="ts">
+	import { page } from '$app/stores';
+  	import WSDisplay from "$lib/components/workshop/wsdisplay.svelte";
+	import Spacing from "$lib/public/legacy/spacing.svelte";
+
+	 let team = $page.params.team;
+	let semester = $page.params.semester;
+
+</script>
+
+<svelte:head>
+  <title>Workshops | ACM at CSUF</title>
+</svelte:head>
+
+
+<Spacing --min="175px" --med="200px" --max="200px" />
+
+<div class="workshops">
+	<WSDisplay team={team} sem={semester} />
+</div>
+
+<style>
+#header {
+	text-align: center;
+}
+	
+#wsdesc {
+	margin-bottom: 40px;
+}
+#wscontainer{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 30px;
+}
+</style>
+
+
