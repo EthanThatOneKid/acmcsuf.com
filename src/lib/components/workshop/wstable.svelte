@@ -28,10 +28,13 @@
 				<th>Workshops</th>
 			</tr>
 		{#each Object.entries(workshopsBySemester) as [semester, workshops]}
-			<tr>
-			  <th><a class="semes" href={`./workshops/${team}/${semester}`}>{sSc.get(semester)}</a></th>
-			<th>{workshops.length}</th>
-			</tr>
+			{#if workshops.length > 0}
+			
+				<tr>
+				  <th><a class="semes" href={`./workshops/${team}/${semester}`}>{sSc.get(semester)}</a></th>
+				<th>{workshops.length}</th>
+				</tr>
+			{/if}
 		{/each}
 		</table>
 	</div>
