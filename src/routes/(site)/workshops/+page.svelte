@@ -1,49 +1,49 @@
 <script lang="ts">
-//import WSTable from './wstable.svelte';
-  import WSTable from "$lib/components/workshop/wstable.svelte";
-  import Spacing from "$lib/public/legacy/spacing.svelte";
-
-
-
-
+  //import WSTable from './wstable.svelte';
+  import WSTable from '$lib/components/workshop/wstable.svelte';
+  import Spacing from '$lib/public/legacy/spacing.svelte';
 </script>
 
 <svelte:head>
   <title>Workshops | ACM at CSUF</title>
 </svelte:head>
 
-
 <Spacing --min="175px" --med="200px" --max="200px" />
 
 <div class="workshops">
   <h1 id="header">Workshops</h1>
   <div id="wscontainer">
-	<p><span id="wsdesc">Workshops are a great way to learn new skills and meet new people. Here are the workshops we have hosted over the semesters!</span></p>
-	<WSTable team="general" display="General" />
-	<WSTable team="ai" display="AI"/>
-	<WSTable team="algo" display="Algo"/>
-	<WSTable team="design" display="Design" />
-	<WSTable team="dev" display="Dev"/>
-	<WSTable team="gamedev" display="Game Dev"/>
-	<WSTable team="icpc" display="ICPC"/>
-	<WSTable team="nodebuds" display="Nodebuds"/>
-	<WSTable team="oss" display="Open Source Software"/>
-</div>
+    <p>
+      <span id="wsdesc"
+        >Workshops are a great way to learn new skills and meet new people. Here are the workshops
+        we have hosted over the semesters!</span
+      >
+    </p>
+    <WSTable team="general" display="General" />
+    <WSTable team="ai" display="AI" />
+    <WSTable team="algo" display="Algo" />
+    <WSTable team="design" display="Design" />
+    <WSTable team="dev" display="Dev" />
+    <WSTable team="gamedev" display="Game Dev" />
+    <WSTable team="icpc" display="ICPC" />
+    <WSTable team="nodebuds" display="Nodebuds" />
+    <WSTable team="oss" display="Open Source Software" />
+  </div>
 </div>
 
 <style>
-#header {
-	text-align: center;
-}
-	
-#wsdesc {
-	margin-bottom: 40px;
-}
-#wscontainer{
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	padding-bottom: 30px;
-}
+  #header {
+    text-align: center;
+  }
+
+  #wsdesc {
+    margin-bottom: 40px;
+  }
+  #wscontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+  }
 </style>
