@@ -1,16 +1,16 @@
 <script lang="ts">
-  export let team: string;
+
+  import type { teams, WorkshopInfo } from './dummytable';
+  import { NewWorkshopTable } from './dummytable';
+  import { sSc, colorMap } from './wscommon';
+
+  export let team: teams;
   export let display: string;
-
-  import type { WorkshopInfo } from './dummytable.ts';
-  import { NewWorkshopTable } from './dummytable.ts';
-  import { sSc, colorMap } from './wscommon.ts';
-
   let workshopsBySemester: Record<string, WorkshopInfo[]> = {};
 
   NewWorkshopTable()
     .then((tab) => {
-      workshopsBySemester = tab[team].workshops;
+      workshopsBySemester = tab[team as teams].workshops;
     })
     .catch((err) => {
       console.log("Error loading table:", err);
@@ -23,19 +23,21 @@
 	<h2><a href={`https://acmcsuf.com/teams#${team}`}><strong style={`color: ${colorMap.get(team)}`}>{display}</strong></a> Workshops</h2>
 	<div id='wsTable'>
 		<table>
-			<tr>
-				<th>Series</th>
-				<th>Workshops</th>
-			</tr>
-		{#each Object.entries(workshopsBySemester) as [semester, workshops]}
-			{#if workshops.length > 0}
-			
+			<tbody>
 				<tr>
-				  <th><a class="semes" href={`./workshops/${team}/${semester}`}>{sSc.get(semester)}</a></th>
-				<th>{workshops.length}</th>
+					<th>Series</th>
+					<th>Workshops</th>
 				</tr>
-			{/if}
-		{/each}
+			{#each Object.entries(workshopsBySemester) as [semester, workshops]}
+				{#if workshops.length > 0}
+				
+					<tr>
+					  <th><a class="semes" href={`./workshops/${team}/${semester}`}>{sSc.get(semester)}</a></th>
+					<th>{workshops.length}</th>
+					</tr>
+				{/if}
+			{/each}
+			</tbody>
 		</table>
 	</div>
 </div>

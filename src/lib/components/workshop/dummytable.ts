@@ -4,9 +4,9 @@
 //
 // NOTE : THIS WILL BE UPDATED MANUALLY UNTIL WE HAVE A WAY TO DO IT DYNAMICALLY, MOST LIKELY THROUGH BOT
 //
-import { default as links } from '$lib/public/links/links.json' assert {type: 'json'};
-type semesters = "fa24" | "sp25" | "fa25";
-type teams = "ai" | "algo" | "design" | "dev" | "gamedev" | "general" | "icpc" | "nodebuds" | "oss";
+//import { default as links } from '$lib/public/links/links.json' assert {type: 'json'};
+export type semesters = "fa24" | "sp25" | "fa25";
+export type teams = "ai" | "algo" | "design" | "dev" | "gamedev" | "general" | "icpc" | "nodebuds" | "oss";
 
 // Maps for validation
 const semestersMap = ["fa24", "sp25", "fa25"] as const;
@@ -31,15 +31,15 @@ type Workshops = {
 	[sem in semesters]: WorkshopInfo[]
 }
 
-type WorkshopInfo = {
+export type WorkshopInfo = {
 	name: string,
 	team: string,
 	semester: string,
 	link: string
 }
 
-type linkKey = keyof typeof links;
-type linkJson = typeof links;
+//type linkKey = keyof typeof links;
+//type linkJson = typeof links;
 //type Tables = typeof tables;
 
 export var currentTable: Tables = {

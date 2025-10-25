@@ -1,16 +1,18 @@
 <script lang="ts">
-	export let team: string;
-	export let sem: string;
 
-	  import type { WorkshopInfo } from "./dummytable.ts";
-	  import { NewWorkshopTable } from "./dummytable.ts";
-	  import { tSc, sSc, colorMap } from './wscommon.ts';
+	  import type { semesters, teams, WorkshopInfo } from './dummytable';
+	  import { NewWorkshopTable } from "./dummytable";
+	  import { tSc, sSc, colorMap } from './wscommon';
 
-	  let workshopsBySemester: Record<string, WorkshopInfo> = {};
+	export let team: teams;
+	export let sem: semesters;
+	  let workshopsBySemester: WorkshopInfo[] = []; //= new Map();
 
 	  NewWorkshopTable()
 	    .then((tab) => {
-	      workshopsBySemester = tab[team].workshops[sem];
+
+	      //workshopsBySemester = tab[team as teams].workshops[sem as semesters];
+		workshopsBySemester = tab[team as teams].workshops[sem as semesters];
 	    })
 	    .catch((err) => {
 	      console.log("Error loading table:", err);
@@ -23,16 +25,18 @@
 	<h1><a href={`https://acmcsuf.com/teams#${team}`}><strong style={`color: ${colorMap.get(team)}`}>{tSc.get(team)}</strong></a> {sSc.get(sem)}</h1>
 	<div id='wsTable'>
 		<table>
-			<tr>
-				<th>Name</th>
-				<th>Link</th>
-			</tr>
-		{#each Object.entries(workshopsBySemester) as [name, data]}
-			<tr>
-			  <th>{data["name"]}</th>
-			  <th><a class="semes" href={data["link"]}>{data["link"]}</a></th>
-			</tr>
-		{/each}
+			<tbody>
+				<tr>
+					<th>Name</th>
+					<th>Link</th>
+				</tr>
+			{#each Object.entries(workshopsBySemester) as [name, data]}
+				<tr>
+				  <th>{data["name"]}</th>
+				  <th><a class="semes" href={data["link"]}>{data["link"]}</a></th>
+				</tr>
+			{/each}
+			</tbody>
 		</table>
 	</div>
 	<p><a href='../../workshops'> ↩  Back to Workshops</a></p>
