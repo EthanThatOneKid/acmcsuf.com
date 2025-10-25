@@ -1,4 +1,4 @@
-import { parse } from 'css';
+import { parse } from 'css-tree';
 
 export function parseGlobalCSS(source) {
   const ast = parse(source);
