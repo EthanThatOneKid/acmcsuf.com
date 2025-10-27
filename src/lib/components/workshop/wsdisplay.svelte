@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { semesters, teams, WorkshopInfo } from './dummytable';
+  import type { semesters, teams, WorkshopInfo } from './table';
   import { NewWorkshopTable } from './table';
   import { tSc, sSc, colorMap } from './wscommon';
 
