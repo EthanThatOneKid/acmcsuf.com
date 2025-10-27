@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { semesters, teams, WorkshopInfo } from './dummytable';
-  import { NewWorkshopTable } from './dummytable';
+  import { NewWorkshopTable } from './table';
   import { tSc, sSc, colorMap } from './wscommon';
 
   export let team: teams;
