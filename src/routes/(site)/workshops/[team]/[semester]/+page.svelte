@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import type { semesters, teams } from '$lib/components/workshop/dummytable';
+  import type { semesters, teams } from '$lib/components/workshop/table';
   import WSDisplay from '$lib/components/workshop/wsdisplay.svelte';
   import Spacing from '$lib/public/legacy/spacing.svelte';
 
