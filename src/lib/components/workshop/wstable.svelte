@@ -62,7 +62,6 @@
   #container table {
     width: 100%;
     border-collapse: collapse;
-    color: #778087;
   }
 
   #container th,
@@ -77,12 +76,10 @@
 
   #container tbody th:first-child {
     font-weight: 700;
-    color: #333;
   }
 
   #container a {
     cursor: pointer;
-    color: #ff2e88;
     text-decoration: none;
     border-bottom: 1px solid #ff2e88;
   }
