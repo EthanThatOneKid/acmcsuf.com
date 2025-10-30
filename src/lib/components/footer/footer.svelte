@@ -33,9 +33,7 @@
     </div>
 
     <div class="legal">
-      <h3 class="acm-heavier size-md">
-        &copy; 2025 ACM Chapter at CSUF
-      </h3>
+      <h3 class="acm-heavier size-md">&copy; 2025 ACM Chapter at CSUF</h3>
 
       <a
         href="mailto:acmcsufullerton@gmail.com"
