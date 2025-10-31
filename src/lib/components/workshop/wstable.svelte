@@ -48,6 +48,7 @@
 <style>
   /* shoutout to Ethan for the css */
   :global(#container) {
+    overflow: hidden;
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 15px;
@@ -67,8 +68,8 @@
   #container th,
   #container td {
     border: 1px solid #ccc;
-    padding-right: 60px;
-    padding-left: 60px;
+    padding-right: 20px;
+    padding-left: 20px;
     padding-bottom: 15px;
     padding-top: 15px;
     vertical-align: top;
