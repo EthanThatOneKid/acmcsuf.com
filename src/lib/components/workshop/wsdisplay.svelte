@@ -28,7 +28,11 @@
     <table>
       <tbody>
         <tr>
-          <th>Workshop</th>
+          {#if workshopsBySemester.length > 1}
+            <th>Workshops</th>
+          {:else}
+            <th>Workshop</th>
+          {/if}
         </tr>
         {#each Object.entries(workshopsBySemester) as [key, data] (key)}
           <tr>
