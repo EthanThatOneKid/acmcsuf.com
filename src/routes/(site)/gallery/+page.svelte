@@ -24,7 +24,7 @@
       height="480"
       allow="autoplay"
       loading="lazy"
-    ></iframe>
+    />
   {/each}
 </section>
 
