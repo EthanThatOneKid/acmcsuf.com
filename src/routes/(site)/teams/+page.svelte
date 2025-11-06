@@ -283,11 +283,12 @@
 
   section .team-icons-inner-container a :hover {
     cursor: pointer;
-    filter: brightness(115%);
+    transform: scale(1.06) rotateZ(1.2deg);
+    filter:brightness(110%);
   }
 
   section .team-icons-inner-container .icon a :active {
-    filter: brightness(125%);
+    filter: brightness(115%);
   }
 
   section .team-icons-inner-container .icon a img {
