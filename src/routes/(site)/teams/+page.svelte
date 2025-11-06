@@ -283,7 +283,7 @@
 
   section .team-icons-inner-container a :hover {
     cursor: pointer;
-    transform: scale(1.06) rotateZ(1.2deg);
+    transform: scale(1.07);
     filter:brightness(110%);
   }
 
