@@ -57,8 +57,8 @@
   <Spacing --min="75px" --med="100px" --max="100px" />
 </section>
 
-<section class="icon-container">
-  <div class="icon-inner-container">
+<section class="team-container">
+  <div class="team-icons-inner-container">
     <div class="icon">
       <a href="#general" on:click={handleIconClick}>
         <img src="/assets/general-logo.svg" alt="acm-logo" width="125px" height="125xp">
@@ -122,8 +122,6 @@
   </div>
   <Spacing --min="100px" --med="125px" --max="125px" />
 </section>
-
-
 
 <TeamSection info={TEAMS.general} term={VISIBLE_TERMS[$termIndex]}>
   <p slot="content" class="size-md">
@@ -261,38 +259,44 @@
     justify-self: center;
   }
 
-  section .icon-inner-container {
+  section .team-icons-inner-container{
     display: grid;
-    grid-template-columns: 5fr 5fr 5fr 5fr 5fr;
-    grid-template-rows: 3fr 3fr;
+    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
     column-gap: 50px;
     row-gap: 30px;
+    justify-content: center;
+    padding: 10px;
   }
 
-  section .icon-inner-container .icon {
+  section .team-icons-inner-container .icon {
     display: grid;
     align-items: center;
     text-align: center;
     padding: 10px;
   }
 
-  section .icon-inner-container .icon a {
+  section .team-icons-inner-container .icon a {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  section .icon-inner-container .icon a :hover {
+  section .team-icons-inner-container a :hover {
     cursor: pointer;
-    filter: brightness(130%);
+    filter: brightness(115%);
   }
 
-  section .icon-inner-container .icon a :active {
-    filter: brightness(155%);
+  section .team-icons-inner-container .icon a :active {
+    filter: brightness(125%);
   }
 
-  section .icon-inner-container .icon caption {
-    width: 135px;
+  section .team-icons-inner-container .icon a img {
+    width: 100%;
+    height: auto;
+  }
+
+  section .team-icons-inner-container .icon caption {
+    width: auto;
     height: 50px;
     display: flex;
     justify-content: center;
@@ -323,6 +327,10 @@
 
     section .hero-inner-container .hero-text p {
       margin: 0;
+    }
+
+    section .team-icons-inner-container{
+      grid-template-columns: repeat(5, minmax(125px, 1fr));
     }
   }
 
