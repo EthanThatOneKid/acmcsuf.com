@@ -366,18 +366,6 @@ export const currentTable: Tables = {
     workshops: {
       fa24: [
         {
-          name: 'Creative Coding',
-          team: 'design',
-          semester: 'fa24',
-          link: 'https://docs.google.com/presentation/d/1Lu3VB9-bwqYoLHq0FqfFz6xZb-14RkYePsQAzVPocEs/edit?usp=sharing',
-        },
-        {
-          name: 'Creative Coding',
-          team: 'design',
-          semester: 'fa24',
-          link: 'https://docs.google.com/presentation/d/1Lu3VB9-bwqYoLHq0FqfFz6xZb-14RkYePsQAzVPocEs/edit?usp=sharing',
-        },
-        {
           name: 'How To Win A Designathon',
           team: 'design',
           semester: 'fa24',
@@ -396,7 +384,20 @@ export const currentTable: Tables = {
           link: 'https://docs.google.com/presentation/d/1sSt-9x4lqql2_bR-WsF9JENSEu8CW32TJXZDXPunIZE/edit?usp=sharing',
         },
       ],
-      sp25: [],
+      sp25: [
+        {
+          name: 'Creative Coding',
+          team: 'design',
+          semester: 'sp25',
+          link: 'https://docs.google.com/presentation/d/1yS2GMoBsx-QfVmLvVYo-tm3OxaQ_at-gMxOEkBZ9S5I/edit?usp=sharing',
+        },
+        {
+          name: 'Creative Coding',
+          team: 'design',
+          semester: 'sp25',
+          link: 'https://docs.google.com/presentation/d/1yS2GMoBsx-QfVmLvVYo-tm3OxaQ_at-gMxOEkBZ9S5I/edit?usp=sharing',
+        },
+      ],
       fa25: [
         {
           name: 'Mobile Design',
