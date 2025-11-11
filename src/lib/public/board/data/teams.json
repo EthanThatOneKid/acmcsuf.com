@@ -69,8 +69,8 @@
   },
   {
     "id": "oss",
-    "title": "Open Source Software",
-    "description": "Open Source Software team member. We create and maintain open source projects pertaining to ACM at CSUF.",
+    "title": "Open Source",
+    "description": "Open Source team member. We create and maintain open source projects pertaining to ACM at CSUF.",
     "logoSrc": "/assets/oss-logo.svg",
     "color": "var(--acm-turquoise)",
     "tiers": [32, 33]
@@ -89,6 +89,6 @@
     "description": "Node Buds team member.",
     "logoSrc": "/assets/nodebuds-logo-old.svg",
     "color": "var(--acm-red)",
-    "tiers": [26, 34]
+    "tiers": [26, 34, 36]
   }
 ]

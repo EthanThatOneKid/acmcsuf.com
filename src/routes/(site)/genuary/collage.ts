@@ -33,13 +33,8 @@ export function pageDataFrom(pieces: CollagePiece[]): CollagePageData {
   return {
     pieces: pieces.map(({ src, alt, view, during_challenge }) => {
       const data: CollagePiece = { src, alt, during_challenge };
-      switch (view) {
-        case 'normal':
-        case 'wide':
-        case 'tall':
-        case 'big': {
-          data.view = view;
-        }
+      if (view && VIEW_TYPES.includes(view)) {
+        data.view = view;
       }
 
       return data;

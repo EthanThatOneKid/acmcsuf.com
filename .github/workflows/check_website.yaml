@@ -12,29 +12,20 @@ on:
 
 jobs:
   website_check:
-    runs-on: ubuntu-latest
-
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [20.x]
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Set up SvelteKit on Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - name: Set up SvelteKit on Node.js
+        uses: actions/setup-node@v5
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version-file: '.nvmrc'
           cache: 'npm'
-
-      - name: Cache Dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ github.event.pull_request.number }}-
 
       - name: Install Dependencies
         run: npm ci
@@ -56,10 +47,12 @@ jobs:
 
       # info: https://etok.codes/acmcsuf.com/blob/main/CONTRIBUTING.md#npm-bloat
       - name: Test Dependency Size
+        if: runner.os != 'Windows'
         run: npm run test:size
 
       - name: Transform Genuary Check Changes
         id: transform-genuary-check-changes
+        shell: bash
         run: |
           if git diff --exit-code --quiet scripts/transform-genuary; then
             echo "updated=0" >> $GITHUB_OUTPUT;

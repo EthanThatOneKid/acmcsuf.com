@@ -6,6 +6,10 @@
   "type": "module",
   "homepage": "https://acmcsuf.com/",
   "author": "EthanThatOneKid (https://etok.codes/)",
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.5.1"
+  },
   "repository": {
     "url": "git+https://github.com/EthanThatOneKid/acmcsuf.com.git"
   },
@@ -40,28 +44,29 @@
     "generate:colors": "node scripts/generate-colors/index.js"
   },
   "devDependencies": {
+    "@eslint/js": "^9.35.0",
     "@size-limit/file": "^8.2.6",
-    "@sveltejs/adapter-auto": "^2.0.0",
-    "@sveltejs/kit": "^1.20.4",
+    "@sveltejs/adapter-auto": "^6.1.0",
+    "@sveltejs/kit": "^2.37.0",
     "@types/html-to-text": "^9.0.1",
     "@types/qrcode": "^1.5.1",
     "@types/rss": "^0.0.30",
-    "@typescript-eslint/eslint-plugin": "^5.45.0",
-    "@typescript-eslint/parser": "^5.45.0",
     "css": "^3.0.0",
-    "eslint": "^8.28.0",
+    "eslint": "^9.35.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-svelte": "^2.30.0",
-    "prettier": "^2.8.0",
-    "prettier-plugin-svelte": "^2.10.1",
+    "eslint-plugin-svelte": "^3.12.3",
+    "globals": "^16.4.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-svelte": "^3.4.0",
     "sass": "^1.63.6",
     "size-limit": "^8.2.6",
-    "svelte": "^4.0.0",
-    "svelte-check": "^3.4.3",
+    "svelte": "^5.39.2",
+    "svelte-check": "^4.3.1",
     "tslib": "^2.4.1",
     "typescript": "^5.0.0",
-    "vite": "^4.3.6",
-    "vitest": "^0.32.2"
+    "typescript-eslint": "^8.44.0",
+    "vite": "^7.1.4",
+    "vitest": "^3.2.4"
   },
   "dependencies": {
     "@googleapis/calendar": "^7.0.0",
@@ -74,7 +79,7 @@
     "qrcode": "^1.5.3",
     "rrule": "^2.7.2",
     "rss": "^1.2.2",
-    "svelte-confetti": "^1.2.4",
-    "svelte-meta-tags": "^2.8.0"
+    "svelte-confetti": "^2.3.2",
+    "svelte-meta-tags": "^4.4.1"
   }
 }

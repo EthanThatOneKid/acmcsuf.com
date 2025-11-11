@@ -12,8 +12,22 @@
   const generalLogoNoPreference = '/assets/general-logo.gif';
   const permanentTeamIDs = ['general', 'icpc', 'oss'];
   const oldTerms = [Term.Fall21, Term.Spring21, Term.Spring22];
-  const nodebudsTerms = [Term.Fall21, Term.Spring21, Term.Spring22, Term.Fall24];
-  const gamedevTerms = [Term.Spring23, Term.Fall23, Term.Spring24, Term.Fall24];
+  const nodebudsTerms = [
+    Term.Fall21,
+    Term.Spring21,
+    Term.Spring22,
+    Term.Fall24,
+    Term.Spring25,
+    Term.Fall25,
+  ];
+  const gamedevTerms = [
+    Term.Spring23,
+    Term.Fall23,
+    Term.Spring24,
+    Term.Fall24,
+    Term.Spring25,
+    Term.Fall25,
+  ];
   $: skip =
     (members.length === 0 && !permanentTeamIDs.includes(info?.id)) ||
     (info?.id === 'nodebuds' && !nodebudsTerms.includes(term)) ||
@@ -40,14 +54,14 @@
         {#if info.id === 'general'}
           <source
             srcset={oldTerms.includes(term)
-              ? info.oldLogoSrc ?? generalLogoNoPreference
+              ? (info.oldLogoSrc ?? generalLogoNoPreference)
               : generalLogoNoPreference}
             media="(prefers-reduced-motion: no-preference)"
           />
         {/if}
 
         <img
-          src={oldTerms.includes(term) ? info.oldLogoSrc ?? info.logoSrc : info.logoSrc}
+          src={oldTerms.includes(term) ? (info.oldLogoSrc ?? info.logoSrc) : info.logoSrc}
           alt={`${info.title} Team Logo`}
         />
       </picture>

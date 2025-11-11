@@ -20,43 +20,17 @@
   {:else}
     <h1>{team.title} <span>Team</span></h1>
     <p>{report.blurb}</p>
-    {#if team.title === 'AI'}
-      <div>
-        <h2 class="large-screen-display">Stay Tuned for Events</h2>
-        <h2 class="mobile-screen-display">Coming Soon</h2>
-        <img src={team.logoSrc} alt="img" />
-      </div>
-    {:else}
-      <h2 class="large-screen-display">Previous Projects and Workshops</h2>
-      <h2 class="mobile-screen-display">Previous Events</h2>
-      <div class="image-layout">
-        {#each report.workshopPictures as picture (picture)}
-          <img src={picture} alt={picture} class="team-pictures" />
-        {/each}
-      </div>
-    {/if}
+    <div class="image-layout">
+      {#each report.workshopPictures as picture (picture)}
+        <img src={picture} alt={picture} class="team-pictures" />
+      {/each}
+    </div>
     <h2>Get Started Now</h2>
     <h4>{report.blurbRecommend}</h4>
-    <ul>
-      {#each report.recommendations as recommendation (recommendation)}
-        <li>
-          <a href={recommendation.link} target="_blank" rel="noopener noreferrer"
-            >{recommendation.title}</a
-          >
-        </li>
-      {/each}
-    </ul>
   {/if}
 </section>
 
 <style lang="scss">
-  .large-screen-display {
-    display: block;
-  }
-  .mobile-screen-display {
-    display: none;
-  }
-
   .container {
     --quiz-bg: rgba(102, 102, 102, 0.274);
     width: 450px;
@@ -70,7 +44,7 @@
   }
 
   h1 {
-    font-size: 64px;
+    font-size: 50px;
     color: var(--team-color);
   }
 
@@ -128,23 +102,7 @@
     border: var(--team-color) 3px solid;
   }
 
-  ul {
-    list-style: none;
-    font-style: italic;
-    font-weight: 600;
-  }
-
-  a {
-    color: var(--team-color);
-  }
-
   @media screen and (max-width: 740px) {
-    .large-screen-display {
-      display: none;
-    }
-    .mobile-screen-display {
-      display: block;
-    }
     .container {
       width: 325px;
     }
