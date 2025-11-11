@@ -6,6 +6,7 @@
   import Labels from '$lib/components/blog/labels.svelte';
   import BlogBody from './blog-body.svelte';
   import { MetaTags } from 'svelte-meta-tags';
+  import { UTTERANCES_SCRIPT } from './utterances';
 
   export let data: PageData;
 </script>
@@ -78,6 +79,8 @@
       ></small
     >
   </div>
+
+  {@html UTTERANCES_SCRIPT}
 
   <Spacing />
 </section>
