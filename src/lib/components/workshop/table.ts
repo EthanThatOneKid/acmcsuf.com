@@ -372,6 +372,12 @@ export const currentTable: Tables = {
     workshops: {
       fa24: [
         {
+          name: 'Creative Coding',
+          team: 'design',
+          semester: 'fa24',
+          link: 'https://docs.google.com/presentation/d/1Lu3VB9-bwqYoLHq0FqfFz6xZb-14RkYePsQAzVPocEs/edit?usp=sharing',
+        },
+        {
           name: 'How To Win A Designathon',
           team: 'design',
           semester: 'fa24',
@@ -391,12 +397,6 @@ export const currentTable: Tables = {
         },
       ],
       sp25: [
-        {
-          name: 'Creative Coding',
-          team: 'design',
-          semester: 'sp25',
-          link: 'https://docs.google.com/presentation/d/1yS2GMoBsx-QfVmLvVYo-tm3OxaQ_at-gMxOEkBZ9S5I/edit?usp=sharing',
-        },
         {
           name: 'Creative Coding',
           team: 'design',
