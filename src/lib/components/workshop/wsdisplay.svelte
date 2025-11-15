@@ -28,13 +28,15 @@
     <table>
       <tbody>
         <tr>
-          <th>Name</th>
-          <th>Link</th>
+          {#if workshopsBySemester.length > 1}
+            <th>Workshops</th>
+          {:else}
+            <th>Workshop</th>
+          {/if}
         </tr>
         {#each Object.entries(workshopsBySemester) as [key, data] (key)}
           <tr>
-            <th>{data['name']}</th>
-            <th><a class="semes" href={data['link']}>{data['link']}</a></th>
+            <th><a class="semes" href={data['link']}>{data['name']}</a></th>
           </tr>
         {/each}
       </tbody>
@@ -46,6 +48,7 @@
 <style>
   /* shoutout to Ethan for the css */
   :global(#container) {
+    overflow: hidden;
     padding: 30px;
   }
 
