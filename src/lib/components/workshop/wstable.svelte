@@ -31,7 +31,7 @@
         </tr>
         {#each Object.entries(workshopsBySemester) as [semester, workshops] (semester)}
           {#if workshops.length > 0}
-            <tr>
+            <tr style={`--team-color: ${colorMap.get(team)}`}>
               <th
                 ><a class="semes" href={`./workshops/${team}/${semester}`}>{sSc.get(semester)}</a
                 ></th
@@ -67,6 +67,7 @@
 
   #container th,
   #container td {
+    color: var(--team-color);
     border: 1px solid #ccc;
     padding-right: 20px;
     padding-left: 20px;
@@ -81,12 +82,13 @@
 
   #container a {
     cursor: pointer;
+    color: var(--team-color);
     text-decoration: none;
     border-bottom: 1px solid #ff2e88;
   }
 
   #container a:hover {
-    background-color: #ff2e88;
+    background-color: var(--team-color);
     color: #fff;
   }
 </style>

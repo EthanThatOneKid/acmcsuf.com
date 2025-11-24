@@ -17,7 +17,7 @@
     });
 </script>
 
-<div id="container">
+<div id="container" style={`--team-color: ${colorMap.get(team)}`}>
   <h1>
     <a href={`https://acmcsuf.com/teams#${team}`}
       ><strong style={`color: ${colorMap.get(team)}`}>{tSc.get(team)}</strong></a
@@ -42,7 +42,9 @@
       </tbody>
     </table>
   </div>
-  <p><a href="../../workshops"> ↩ Back to Workshops</a></p>
+  <div id="return">
+    <p><a href="../../workshops"> ↩ Back to Workshops</a></p>
+  </div>
 </div>
 
 <style>
@@ -73,15 +75,18 @@
     font-weight: 700;
   }
 
+  #return {
+    margin-top: 20px;
+  }
   #container a {
     cursor: pointer;
-    color: #ff2e88;
+    color: var(--team-color);
     text-decoration: none;
     border-bottom: 1px solid #ff2e88;
   }
 
   #container a:hover {
-    background-color: #ff2e88;
+    background-color: var(--team-color);
     color: #fff;
   }
 </style>

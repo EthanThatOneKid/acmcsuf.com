@@ -13,12 +13,12 @@
 <div class="workshops">
   <h1 id="header">Workshops</h1>
   <div id="wscontainer">
-    <p>
-      <span id="wsdesc">
+    <div id="wsdesc">
+      <p>
         Workshops are a great way to learn new skills and meet new people. Here are the workshops we
-        have hosted over the semesters!</span
-      >
-    </p>
+        have hosted over the semesters!
+      </p>
+    </div>
     <WSTable team="general" display="General" />
     <WSTable team="ai" display="AI" />
     <WSTable team="algo" display="Algo" />
@@ -41,7 +41,9 @@
 
   #wsdesc {
     text-align: center;
-    margin-bottom: 40px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
   }
   #wscontainer {
     display: flex;
