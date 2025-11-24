@@ -14,13 +14,13 @@
 <main class="responsive-width">
   <section id="top">
     <div class="header">
+      <img src="/assets/figma-capy.svg" alt="Branding Badge" />
       <div class="header-content">
         <h1 class="size-xl">BRANDING</h1>
         <p class="p-info">
           Find more information about our branding alongside a collection of resources and assets.
         </p>
       </div>
-      <img src="/assets/figma-capy.svg" alt="Branding Badge" />
     </div>
 
     {#each cards as card}
@@ -37,11 +37,12 @@
 <style>
   .header {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start; /* Align items to the top */
+    flex-direction: row-reverse;
+    align-items: center; /* Align items to the top */
     justify-content: space-between; /* Ensure the image stays on the right */
     gap: 20px; /* Optional: Space between title section and image */
     width: 100%;
+    margin-bottom: 10%;
   }
 
   .header-content {
@@ -51,7 +52,7 @@
   }
 
   .header h1 {
-    margin: 0;
+    margin-top: 10%;
     text-align: left;
   }
 
@@ -74,13 +75,6 @@
 
   main p {
     margin: 1em 1em 1em 0; /* Match left margin of p */
-  }
-
-  @media (max-width: 480px) {
-    .responsive-width {
-      width: 92%;
-      padding-left: 1%;
-    }
   }
 
   p {
@@ -111,5 +105,39 @@
 
   main:hover {
     color: var(--acm-blue);
+  }
+
+  @media (max-width: 480px) {
+    .responsive-width {
+      width: 92%;
+      padding-left: 2%;
+      padding-right: 2%;
+    }
+
+    .header {
+      flex-direction: column;
+      margin-bottom: 0px;
+    }
+
+    .header-content {
+      max-width: 100%;
+    }
+
+    .header h1 {
+      margin-top: 0px;
+      text-align: center;
+    }
+
+    .p-info {
+      margin-top: 10px;
+      text-align: center;
+      margin-bottom: 20%;
+    }
+
+    .header img {
+      align-self: center;
+      max-width: 40%;
+      margin-bottom: 5%;
+    }
   }
 </style>

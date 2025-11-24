@@ -5,7 +5,6 @@
 </script>
 
 <h2>{info.title} Team Assets</h2>
-<p>{info.description}</p>
 
 <div class="assets-container">
   <div>
@@ -63,5 +62,6 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
     margin-bottom: 60px;
+    margin-top: 10px;
   }
 </style>

@@ -59,4 +59,10 @@
   .downloads a:hover {
     color: #0056b3;
   }
+
+  @media (max-width: 480px) {
+    .downloads a {
+      display: flex;
+    }
+  }
 </style>
