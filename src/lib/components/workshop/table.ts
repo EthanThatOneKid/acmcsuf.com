@@ -152,6 +152,12 @@ export const currentTable: Tables = {
           link: 'https://docs.google.com/presentation/d/1R9Y2l1qlA4ScCU2cbiHoAP7pmjX9p2Een9bCMjL3Kfw/edit',
         },
         {
+          name: 'acmAI: Explainable AI',
+          team: 'ai',
+          semester: 'fa25',
+          link: 'https://docs.google.com/presentation/d/1VWE-AbBp9oDmRESRnxdV8YZ7bETcL2qeVmMJGCStDQQ/edit?usp=sharing',
+        },
+        {
           name: 'acmAI: Voice AI & Generative Audio',
           team: 'ai',
           semester: 'fa25',
@@ -500,6 +506,12 @@ export const currentTable: Tables = {
       ],
       fa25: [
         {
+          name: 'CI/CD DevOps Workshop',
+          team: 'dev',
+          semester: 'fa25',
+          link: 'https://docs.google.com/presentation/d/1C632d55AysW2eW7ZXK-L_cBoPajhovluJeB1i_efxWQ/edit?usp=sharing',
+        },
+        {
           name: 'Intro To React Workshop',
           team: 'dev',
           semester: 'fa25',
@@ -833,6 +845,18 @@ export const currentTable: Tables = {
         },
       ],
       fa25: [
+        {
+          name: 'Open Source Team FA25: Advanced Git',
+          team: 'oss',
+          semester: 'fa25',
+          link: 'https://docs.google.com/presentation/d/1YmP0HlpIAbcvttx4jy1VK_yuFAudqTviOYl673oSYPE/edit?usp=drivesdk',
+        },
+        {
+          name: 'Open Source Team FA25: Applied Algorithms',
+          team: 'oss',
+          semester: 'fa25',
+          link: 'https://docs.google.com/presentation/d/17u9VipAwwBxPZ80PknDPiMGmQ0W3V8mOP06bceFxFWM/edit?usp=drivesdk',
+        },
         {
           name: 'Open Source Team FA25: Consuming HTTP APIs',
           team: 'oss',
