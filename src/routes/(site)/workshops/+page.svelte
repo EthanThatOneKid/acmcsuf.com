@@ -54,4 +54,11 @@
     align-items: center;
     padding-bottom: 30px;
   }
+
+  @media screen and (max-width: 768px) {
+    #wsdesc {
+      margin-right: 40px;
+      margin-left: 40px;
+    }
+  }
 </style>
