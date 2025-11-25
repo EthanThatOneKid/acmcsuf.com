@@ -24,7 +24,7 @@
     >
     {sSc.get(sem)}
   </h1>
-<p>Select a workshop to view it!</p>
+  <p>Select a workshop to view it!</p>
   <div id="wsTable">
     <table>
       <tbody>
@@ -57,7 +57,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-	  
   }
 
   #container h2 {
@@ -66,7 +65,7 @@
   }
 
   #container p {
-	  margin-bottom: 20px;
+    margin-bottom: 20px;
   }
 
   #container table {

@@ -16,7 +16,7 @@
     <div id="wsdesc">
       <p>
         Workshops are a great way to learn new skills and meet new people. Here are the workshops we
-        have hosted over the semesters! To view a team's workshops, select a semester from below. 
+        have hosted over the semesters! To view a team's workshops, select a semester from below.
       </p>
     </div>
     <WSTable team="general" display="General" />

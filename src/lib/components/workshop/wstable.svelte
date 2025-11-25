@@ -51,8 +51,8 @@
     overflow: hidden;
     padding-top: 15px;
     padding-bottom: 25px;
-	margin-left: 30px;
-	  margin-right: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
   }
 
   #container h2 {
@@ -62,8 +62,7 @@
 
   #container table {
     border-collapse: collapse;
-	  table-layout: fixed;
-
+    table-layout: fixed;
   }
 
   #container th,
@@ -71,7 +70,7 @@
     color: var(--team-color);
     border: 1px solid #ccc;
     vertical-align: top;
-	  width: 220px;
+    width: 220px;
     padding-bottom: 15px;
     padding-top: 15px;
   }
@@ -91,5 +90,4 @@
     color: #fff;
     border-bottom: 1px solid #ff2e88;
   }
-
 </style>

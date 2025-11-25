@@ -23,10 +23,10 @@
     text-align: center;
   }
   #workshops {
-	  display: flex;
-	  flex-direction: column;
-	  justify-content: center;
-	  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   #wsdesc {
     margin-bottom: 40px;
