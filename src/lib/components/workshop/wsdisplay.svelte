@@ -93,8 +93,6 @@
   }
 
   #container a:hover {
-    background-color: var(--team-color);
-    color: #fff;
     border-bottom: 1px solid #ff2e88;
   }
 </style>
