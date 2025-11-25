@@ -47,12 +47,12 @@
 
 <style>
   /* shoutout to Ethan for the css */
-  :global(#container) {
+  #container {
     overflow: hidden;
-    padding-left: 50px;
-    padding-right: 50px;
     padding-top: 15px;
     padding-bottom: 25px;
+	margin-left: 30px;
+	  margin-right: 30px;
   }
 
   #container h2 {
@@ -61,19 +61,19 @@
   }
 
   #container table {
-    width: 100%;
     border-collapse: collapse;
+	  table-layout: fixed;
+
   }
 
   #container th,
   #container td {
     color: var(--team-color);
     border: 1px solid #ccc;
-    padding-right: 20px;
-    padding-left: 20px;
+    vertical-align: top;
+	  width: 220px;
     padding-bottom: 15px;
     padding-top: 15px;
-    vertical-align: top;
   }
 
   #container tbody th:first-child {
@@ -84,11 +84,12 @@
     cursor: pointer;
     color: var(--team-color);
     text-decoration: none;
-    border-bottom: 1px solid #ff2e88;
   }
 
   #container a:hover {
     background-color: var(--team-color);
     color: #fff;
+    border-bottom: 1px solid #ff2e88;
   }
+
 </style>

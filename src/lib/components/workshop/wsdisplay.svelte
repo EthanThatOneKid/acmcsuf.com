@@ -24,6 +24,7 @@
     >
     {sSc.get(sem)}
   </h1>
+<p>Select a workshop to view it!</p>
   <div id="wsTable">
     <table>
       <tbody>
@@ -49,9 +50,14 @@
 
 <style>
   /* shoutout to Ethan for the css */
-  :global(#container) {
+  #container {
     overflow: hidden;
     padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	  
   }
 
   #container h2 {
@@ -59,8 +65,11 @@
     line-height: 1.3em;
   }
 
+  #container p {
+	  margin-bottom: 20px;
+  }
+
   #container table {
-    width: 100%;
     border-collapse: collapse;
   }
 
@@ -82,11 +91,11 @@
     cursor: pointer;
     color: var(--team-color);
     text-decoration: none;
-    border-bottom: 1px solid #ff2e88;
   }
 
   #container a:hover {
     background-color: var(--team-color);
     color: #fff;
+    border-bottom: 1px solid #ff2e88;
   }
 </style>
