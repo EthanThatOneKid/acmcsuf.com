@@ -14,7 +14,7 @@
 
 <Spacing --min="175px" --med="200px" --max="200px" />
 
-<div class="workshops">
+<div id="workshops">
   <WSDisplay {team} sem={semester} />
 </div>
 
@@ -22,7 +22,12 @@
   #header {
     text-align: center;
   }
-
+  #workshops {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   #wsdesc {
     margin-bottom: 40px;
   }
