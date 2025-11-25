@@ -26,8 +26,8 @@
     <table>
       <tbody>
         <tr>
-          <th>Series</th>
-          <th>Workshops</th>
+          <th>Semesters</th>
+          <th># of Workshops</th>
         </tr>
         {#each Object.entries(workshopsBySemester) as [semester, workshops] (semester)}
           {#if workshops.length > 0}
@@ -86,8 +86,6 @@
   }
 
   #container a:hover {
-    background-color: var(--team-color);
-    color: #fff;
     border-bottom: 1px solid #ff2e88;
   }
 </style>

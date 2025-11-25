@@ -16,8 +16,10 @@
     <div id="wsdesc">
       <p>
         Workshops are a great way to learn new skills and meet new people. Here are the workshops we
-        have hosted over the semesters! To view a team's workshops, select a semester from below.
+        have hosted over the semesters!
       </p>
+      <br />
+      <p>To view a team's workshops, select a semester from below.</p>
     </div>
     <WSTable team="general" display="General" />
     <WSTable team="ai" display="AI" />
@@ -41,8 +43,8 @@
 
   #wsdesc {
     text-align: center;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin-right: 100px;
+    margin-left: 100px;
     margin-bottom: 20px;
   }
   #wscontainer {
