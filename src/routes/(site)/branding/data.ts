@@ -192,7 +192,7 @@ export default [
     teamColor: {
       name: 'OS Green',
       hex: '#13d4b1',
-      rgb: '19, 212, 177)',
+      rgb: '19, 212, 177',
     },
   },
 ] as const satisfies Branding[];

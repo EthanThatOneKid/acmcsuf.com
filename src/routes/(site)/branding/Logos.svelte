@@ -28,12 +28,14 @@
     border-radius: 8px;
     background: rgb(250, 249, 249);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
     height: 160px;
   }
 
   .logo-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   }
 
