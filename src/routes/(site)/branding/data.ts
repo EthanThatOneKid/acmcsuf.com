@@ -190,7 +190,7 @@ export default [
       png: '/assets/oss-logo.png',
     },
     teamColor: {
-      name: 'OSS Green',
+      name: 'OS Green',
       hex: '#13d4b1',
       rgb: '19, 212, 177)',
     },
