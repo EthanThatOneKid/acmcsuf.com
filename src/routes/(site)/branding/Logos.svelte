@@ -75,7 +75,7 @@
     color: #0056b3;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
     .downloads a {
       display: flex;
     }
