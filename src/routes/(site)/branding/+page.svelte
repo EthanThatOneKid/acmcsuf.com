@@ -23,7 +23,7 @@
       </div>
     </div>
 
-    {#each cards as card}
+    {#each cards as card (card.title)}
       <TeamCard info={card} />
       <br />
     {/each}
