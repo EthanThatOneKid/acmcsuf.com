@@ -77,5 +77,8 @@
     .downloads a {
       display: flex;
     }
+    .logo-card img {
+      margin-bottom: 11px;
+    }
   }
 </style>
