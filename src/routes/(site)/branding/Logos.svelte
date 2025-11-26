@@ -5,11 +5,15 @@
 </script>
 
 <div class="logo-card">
-  <img src={logo.image} alt={logo.alt} />
+  <img class="team-logo" src={logo.image} alt={logo.alt} />
   <div class="logo-info">
     <div class="downloads">
-      <a href={logo.svg} target="_blank" download>SVG <span>&#128190;</span></a>
-      <a href={logo.png} target="_blank" download>PNG <span>&#128190;</span></a>
+      <a href={logo.svg} target="_blank" download
+        >SVG <img src="/assets/download-icon.png" alt="download=icon" /></a
+      >
+      <a href={logo.png} target="_blank" download
+        >PNG <img src="/assets/download-icon.png" alt="download=icon" /></a
+      >
     </div>
   </div>
 </div>
@@ -40,7 +44,7 @@
     transition: transform 0.3s ease;
   }
 
-  .logo-card:hover img {
+  .logo-card:hover .team-logo {
     transform: scale(1.1);
   }
 
@@ -49,11 +53,20 @@
   }
 
   .downloads a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     margin: 0 10px;
     text-decoration: none;
     color: #007bff;
     font-weight: bold;
     transition: color 0.3s ease;
+  }
+
+  .downloads a img {
+    width: 1em;
+    height: 1em;
+    transform: translateY(6px);
   }
 
   .downloads a:hover {
