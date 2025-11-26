@@ -128,6 +128,12 @@ export const currentTable: Tables = {
           link: 'https://docs.google.com/document/d/10_wRMQRA6H-kZaWf3rbA27fL6Y3D80PHefeEAaEc-Xo/edit?usp=drivesdk',
         },
         {
+          name: 'Sentiment analysis acmAI',
+          team: 'ai',
+          semester: 'fa25',
+          link: 'https://docs.google.com/presentation/d/14BLW5dkwS8fynHk6Da0IkLoka2wMY2LoUje7fQUHT4g/edit',
+        },
+        {
           name: 'THINKING WITH DATA',
           team: 'ai',
           semester: 'fa25',
@@ -144,6 +150,12 @@ export const currentTable: Tables = {
           team: 'ai',
           semester: 'fa25',
           link: 'https://docs.google.com/presentation/d/1R9Y2l1qlA4ScCU2cbiHoAP7pmjX9p2Een9bCMjL3Kfw/edit',
+        },
+        {
+          name: 'acmAI: Explainable AI',
+          team: 'ai',
+          semester: 'fa25',
+          link: 'https://docs.google.com/presentation/d/1VWE-AbBp9oDmRESRnxdV8YZ7bETcL2qeVmMJGCStDQQ/edit?usp=sharing',
         },
         {
           name: 'acmAI: Voice AI & Generative Audio',
@@ -372,12 +384,6 @@ export const currentTable: Tables = {
           link: 'https://docs.google.com/presentation/d/1Lu3VB9-bwqYoLHq0FqfFz6xZb-14RkYePsQAzVPocEs/edit?usp=sharing',
         },
         {
-          name: 'Creative Coding',
-          team: 'design',
-          semester: 'fa24',
-          link: 'https://docs.google.com/presentation/d/1Lu3VB9-bwqYoLHq0FqfFz6xZb-14RkYePsQAzVPocEs/edit?usp=sharing',
-        },
-        {
           name: 'How To Win A Designathon',
           team: 'design',
           semester: 'fa24',
@@ -396,7 +402,14 @@ export const currentTable: Tables = {
           link: 'https://docs.google.com/presentation/d/1sSt-9x4lqql2_bR-WsF9JENSEu8CW32TJXZDXPunIZE/edit?usp=sharing',
         },
       ],
-      sp25: [],
+      sp25: [
+        {
+          name: 'Creative Coding',
+          team: 'design',
+          semester: 'sp25',
+          link: 'https://docs.google.com/presentation/d/1yS2GMoBsx-QfVmLvVYo-tm3OxaQ_at-gMxOEkBZ9S5I/edit?usp=sharing',
+        },
+      ],
       fa25: [
         {
           name: 'Mobile Design',
@@ -493,6 +506,12 @@ export const currentTable: Tables = {
       ],
       fa25: [
         {
+          name: 'CI/CD DevOps Workshop',
+          team: 'dev',
+          semester: 'fa25',
+          link: 'https://docs.google.com/presentation/d/1C632d55AysW2eW7ZXK-L_cBoPajhovluJeB1i_efxWQ/edit?usp=sharing',
+        },
+        {
           name: 'Intro To React Workshop',
           team: 'dev',
           semester: 'fa25',
@@ -515,6 +534,12 @@ export const currentTable: Tables = {
           team: 'dev',
           semester: 'fa25',
           link: 'https://docs.google.com/presentation/d/1JP2M1CTjpAg9U2cYbvpCCWKVgriZN7PEA666WBJiss0/edit?usp=sharing',
+        },
+        {
+          name: 'Intro to SQL FA2025',
+          team: 'dev',
+          semester: 'fa25',
+          link: 'https://docs.google.com/presentation/d/1CtAUS03JpiozrEiP2iL-gfCnEFd8o4zK6IPSRaX87jY/edit?usp=sharing',
         },
         {
           name: 'JavaScript & Chill',
@@ -821,6 +846,18 @@ export const currentTable: Tables = {
       ],
       fa25: [
         {
+          name: 'Open Source Team FA25: Advanced Git',
+          team: 'oss',
+          semester: 'fa25',
+          link: 'https://docs.google.com/presentation/d/1YmP0HlpIAbcvttx4jy1VK_yuFAudqTviOYl673oSYPE/edit?usp=drivesdk',
+        },
+        {
+          name: 'Open Source Team FA25: Applied Algorithms',
+          team: 'oss',
+          semester: 'fa25',
+          link: 'https://docs.google.com/presentation/d/17u9VipAwwBxPZ80PknDPiMGmQ0W3V8mOP06bceFxFWM/edit?usp=drivesdk',
+        },
+        {
           name: 'Open Source Team FA25: Consuming HTTP APIs',
           team: 'oss',
           semester: 'fa25',
@@ -843,6 +880,12 @@ export const currentTable: Tables = {
           team: 'oss',
           semester: 'fa25',
           link: 'https://docs.google.com/presentation/d/1teyEFpxhccS_T-JzuoJm5gqnK15rHs3W3aWjH7CCzFk/edit?usp=sharing',
+        },
+        {
+          name: 'Open Source Team FA25: Intro to Rust',
+          team: 'oss',
+          semester: 'fa25',
+          link: 'https://docs.google.com/presentation/d/1N4Cz8INddKBMVAHYF-0VBE7jci0-h3gdTWO46PQwe0c/edit?usp=drivesdk',
         },
         {
           name: 'Open Source Team FA25: Intro to Sveltekit',

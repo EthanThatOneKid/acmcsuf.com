@@ -17,36 +17,46 @@
     });
 </script>
 
-<div id="container">
+<div id="container" style={`--team-color: ${colorMap.get(team)}`}>
   <h1>
     <a href={`https://acmcsuf.com/teams#${team}`}
       ><strong style={`color: ${colorMap.get(team)}`}>{tSc.get(team)}</strong></a
     >
     {sSc.get(sem)}
   </h1>
+  <p>Select a workshop to view it!</p>
   <div id="wsTable">
     <table>
       <tbody>
         <tr>
-          <th>Name</th>
-          <th>Link</th>
+          {#if workshopsBySemester.length > 1}
+            <th>Workshops</th>
+          {:else}
+            <th>Workshop</th>
+          {/if}
         </tr>
         {#each Object.entries(workshopsBySemester) as [key, data] (key)}
           <tr>
-            <th>{data['name']}</th>
-            <th><a class="semes" href={data['link']}>{data['link']}</a></th>
+            <th><a class="semes" href={data['link']}>{data['name']}</a></th>
           </tr>
         {/each}
       </tbody>
     </table>
   </div>
-  <p><a href="../../workshops"> ↩ Back to Workshops</a></p>
+  <div id="return">
+    <p><a href="../../workshops"> ↩ Back to Workshops</a></p>
+  </div>
 </div>
 
 <style>
   /* shoutout to Ethan for the css */
-  :global(#container) {
+  #container {
+    overflow: hidden;
     padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   #container h2 {
@@ -54,8 +64,11 @@
     line-height: 1.3em;
   }
 
+  #container p {
+    margin-bottom: 20px;
+  }
+
   #container table {
-    width: 100%;
     border-collapse: collapse;
   }
 
@@ -70,15 +83,16 @@
     font-weight: 700;
   }
 
+  #return {
+    margin-top: 20px;
+  }
   #container a {
     cursor: pointer;
-    color: #ff2e88;
+    color: var(--team-color);
     text-decoration: none;
-    border-bottom: 1px solid #ff2e88;
   }
 
   #container a:hover {
-    background-color: #ff2e88;
-    color: #fff;
+    border-bottom: 1px solid #ff2e88;
   }
 </style>
