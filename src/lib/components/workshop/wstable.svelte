@@ -26,12 +26,12 @@
     <table>
       <tbody>
         <tr>
-          <th>Series</th>
-          <th>Workshops</th>
+          <th>Semesters</th>
+          <th># of Workshops</th>
         </tr>
         {#each Object.entries(workshopsBySemester) as [semester, workshops] (semester)}
           {#if workshops.length > 0}
-            <tr>
+            <tr style={`--team-color: ${colorMap.get(team)}`}>
               <th
                 ><a class="semes" href={`./workshops/${team}/${semester}`}>{sSc.get(semester)}</a
                 ></th
@@ -47,11 +47,12 @@
 
 <style>
   /* shoutout to Ethan for the css */
-  :global(#container) {
-    padding-left: 50px;
-    padding-right: 50px;
+  #container {
+    overflow: hidden;
     padding-top: 15px;
     padding-bottom: 25px;
+    margin-left: 30px;
+    margin-right: 30px;
   }
 
   #container h2 {
@@ -60,18 +61,18 @@
   }
 
   #container table {
-    width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
   }
 
   #container th,
   #container td {
+    color: var(--team-color);
     border: 1px solid #ccc;
-    padding-right: 60px;
-    padding-left: 60px;
+    vertical-align: top;
+    width: 220px;
     padding-bottom: 15px;
     padding-top: 15px;
-    vertical-align: top;
   }
 
   #container tbody th:first-child {
@@ -80,12 +81,11 @@
 
   #container a {
     cursor: pointer;
+    color: var(--team-color);
     text-decoration: none;
-    border-bottom: 1px solid #ff2e88;
   }
 
   #container a:hover {
-    background-color: #ff2e88;
-    color: #fff;
+    border-bottom: 1px solid #ff2e88;
   }
 </style>
