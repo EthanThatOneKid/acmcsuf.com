@@ -116,7 +116,7 @@ const siteMap: SiteMap = {
       id: 'brandingpage',
       title: 'Branding',
       link: 'branding',
-    }
+    },
   ],
   Policies: [
     {
