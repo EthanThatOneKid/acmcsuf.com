@@ -112,6 +112,11 @@ const siteMap: SiteMap = {
       title: 'Workshops',
       link: 'workshops',
     },
+    {
+      id: 'brandingpage',
+      title: 'Branding',
+      link: 'branding',
+    },
   ],
   Policies: [
     {
