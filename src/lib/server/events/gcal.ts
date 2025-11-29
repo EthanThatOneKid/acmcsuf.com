@@ -1,4 +1,4 @@
-import { Temporal } from '@js-temporal/polyfill';
+import { Temporal } from "temporal-polyfill";
 import type { ClubEvent } from '$lib/public/events/event';
 import { calendar } from '@googleapis/calendar';
 import { makeClubEvent } from './event';
