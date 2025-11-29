@@ -8,6 +8,7 @@
 
   export let team: Team | undefined = undefined;
   export let placeholderPicture: string | undefined = undefined;
+  export let term: Term;
   export let filter: (officer: Officer) => boolean;
 
   /**
@@ -104,7 +105,7 @@
 
     <div class="officer-list">
       {#each filteredOfficers as officer ($termIndex + officer.fullName)}
-        <OfficerProfile info={officer} {team} {placeholderPicture} />
+        <OfficerProfile info={officer} {team} {placeholderPicture} {term} />
       {/each}
     </div>
   </div>
