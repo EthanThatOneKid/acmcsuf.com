@@ -47,7 +47,6 @@
   }, officerPosition);
 
   function displayDiscord() {
-    console.log(oldTerms.includes(term), ' | ', term);
     return !oldTerms.includes(term);
   }
 </script>
