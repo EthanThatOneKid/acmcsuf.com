@@ -51,12 +51,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 12em;
+    transform: translateY(3em);
   }
 
   .capy-solo img {
     position: absolute;
-    width: 150px;
-    height: 150px;
+    width: 9em;
+    height: 9em;
     transform: translate(-56%, -50%);
   }
 
@@ -95,6 +97,7 @@
     grid-template-columns: 1fr;
     align-items: center;
     gap: 1em;
+    /* margin-bottom: 5em; */
   }
 
   section .hero-inner-container .hero-text {
@@ -171,6 +174,10 @@
       width: 5em;
       height: 5em;
     }
+
+    /* .orbit-container {
+      transform: translateY(-5em)
+    } */
 
     @keyframes spin {
       0% {
