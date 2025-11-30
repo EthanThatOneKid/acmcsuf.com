@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Officer, Team } from '$lib/public/board/types';
+  import { Term } from '$lib/public/board';
   import { termIndex, getPositionByTermIndex } from '$lib/public/board/utils';
   import BoardMember from '$lib/components/board-member/board-member.svelte';
   import { TEAMS } from '$lib/public/board/data/teams';
@@ -7,12 +8,22 @@
 
   export let info: Officer;
   export let team: Team | undefined = undefined;
+  export let term: Term;
   export let placeholderPicture = 'placeholder.webp';
 
   const officerName = info.fullName ?? '';
   const officerPicture = info.picture ?? placeholderPicture;
   const alt = `Image of ${officerName}.`;
   const officerDiscord = info.discord ?? '';
+  const oldTerms = [
+    Term.Fall21,
+    Term.Spring21,
+    Term.Spring22,
+    Term.Fall22,
+    Term.Spring23,
+    Term.Fall23,
+    Term.Spring24,
+  ];
 
   $: officerPosition =
     getPositionByTermIndex(info, $termIndex)
@@ -34,6 +45,10 @@
 
     return s.replace(t.title, `<a style="color:${t.color}" href="#${t.id}">${t.title}</a>`);
   }, officerPosition);
+
+  function displayDiscord() {
+    return !oldTerms.includes(term);
+  }
 </script>
 
 <div class="officer-container">
@@ -41,12 +56,14 @@
   <div>
     <h3 class="acm-heavier">{officerName}</h3>
     <p class="acm-heavy">{@html titleHTML}</p>
-    <button
-      class="discord-color size-sm"
-      on:click={() => copyDiscord()}
-      title="Click to copy the discord username to your clipboard."
-      aria-label="Click to copy the discord username to your clipboard.">{officerDiscord}</button
-    >
+    {#if displayDiscord()}
+      <button
+        class="discord-color size-sm"
+        on:click={() => copyDiscord()}
+        title="Click to copy the discord username to your clipboard."
+        aria-label="Click to copy the discord username to your clipboard.">{officerDiscord}</button
+      >
+    {/if}
   </div>
 </div>
 

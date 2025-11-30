@@ -14,7 +14,7 @@
   Check out our members' UI/UX design skills in this once-a-semester portfolio contest.
 </p>
 <ul>
-  {#each portfolios as { title, url, imageURL }}
+  {#each portfolios as { title, url, imageURL } (url)}
     <li>
       <h2><span class="acm-pink">{title}</span> Portfolio</h2>
       <a href={url}><img src={imageURL} alt="{title} submission from Devpost" /></a>
