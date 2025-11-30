@@ -5,7 +5,7 @@ import type { RequestEvent } from '@sveltejs/kit';
  */
 export async function GET({ url }: RequestEvent) {
   const modules = Object.keys(
-    await import.meta.glob('../**/+page.svelte', { eager: true, as: 'raw' })
+    await import.meta.glob('../**/+page.svelte', { eager: true, query: '?raw', import: 'default' })
   );
   const pages = getPages(modules);
   const randomPage = pages[~~(Math.random() * pages.length)];

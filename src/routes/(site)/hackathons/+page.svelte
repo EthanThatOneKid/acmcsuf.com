@@ -14,7 +14,7 @@
   <h1>Hackathons</h1>
 
   <div>
-    {#each HACKATHONS as hackathon}
+    {#each HACKATHONS as hackathon (hackathon.id)}
       <Hackathon data={hackathon} />
     {/each}
   </div>

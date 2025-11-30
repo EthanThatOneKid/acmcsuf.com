@@ -1,5 +1,5 @@
 import type { ClubEvent } from '$lib/public/events/event';
-import { Temporal } from '@js-temporal/polyfill';
+import { Temporal } from 'temporal-polyfill';
 import type { GCalEvent } from './gcal';
 
 export function makeClubEvent(event: GCalEvent, refDate: Temporal.ZonedDateTime): ClubEvent | null {
@@ -9,17 +9,14 @@ export function makeClubEvent(event: GCalEvent, refDate: Temporal.ZonedDateTime)
     event.start?.timeZone == undefined ||
     event.start.dateTime == undefined ||
     event.end?.timeZone == undefined ||
-    event.end.dateTime == undefined ||
-    event.description == undefined
+    event.end.dateTime == undefined
   ) {
     return null;
   }
 
-  const dtStart = zonedDateTimeFromGCalDateTime(
-    new Date(event.start.dateTime),
-    refDate.getTimeZone()
-  );
-  const dtEnd = zonedDateTimeFromGCalDateTime(new Date(event.end.dateTime), refDate.getTimeZone());
+  const dtStart = zonedDateTimeFromGCalDateTime(new Date(event.start.dateTime), refDate.timeZoneId);
+
+  const dtEnd = zonedDateTimeFromGCalDateTime(new Date(event.end.dateTime), refDate.timeZoneId);
   const date = dtStart.toString();
   const month = dtStart.toLocaleString('en-US', { month: 'long' });
   const day = dtStart.day;
@@ -34,7 +31,9 @@ export function makeClubEvent(event: GCalEvent, refDate: Temporal.ZonedDateTime)
 
   const { location, meetingLink } = parseLocation(event.location);
   const title = event.summary;
-  const { description, variables } = parseDescription(event.description);
+  const { description, variables } = parseDescription(
+    event.description || 'Event description is missing :('
+  );
   const id = makeEventId(title, dtStart);
   const selfLink = makeEventLink(id);
   const recurring = (event?.recurrence?.length ?? 0) > 0;
@@ -251,7 +250,7 @@ export function zonedDateTimeFromGCalDateTime(
 
   // dtGCAL is in terms of +00:00 when 'Z' is present
   if (dtGCal.at(-1) === 'Z') {
-    options.timeZone = Temporal.TimeZone.from('+00:00');
+    options.timeZone = '+00:00';
     return Temporal.ZonedDateTime.from(options).withTimeZone(timeZone);
   }
 

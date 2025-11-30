@@ -53,8 +53,7 @@
         <a href="/teams#oss"><img src="/assets/oss-logo.svg" alt="OSS Team Badge" /></a>
         <div class="size-md acm-heavy hero-text">
           <span
-            >Take off into the world of collaborative <span class="acm-turquoise"
-              >Open Source Software</span
+            >Take off into the world of collaborative <span class="acm-turquoise">Open Source</span
             ></span
           >
         </div>
@@ -144,11 +143,6 @@
     transform: scale(1.2);
   }
 
-  section .hero-inner-container .discover-button {
-    display: grid;
-    justify-self: center;
-  }
-
   section .team-container .hero-text {
     max-width: 35ch;
     margin-inline: auto;
@@ -169,10 +163,6 @@
 
     section .hero-inner-container .hero-text {
       text-align: start;
-    }
-
-    section .hero-inner-container .hero-text .discover-button {
-      justify-self: center;
     }
   }
 
