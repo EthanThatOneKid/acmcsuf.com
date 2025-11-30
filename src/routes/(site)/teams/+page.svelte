@@ -20,13 +20,13 @@
   let currentFormattedTerm = formattedTerms[$termIndex];
   $: $termIndex = formattedTerms.indexOf(currentFormattedTerm);
 
-  function handleIconClick(event) {
+  function handleIconClick(event: MouseEvent) {
     event.preventDefault();
-    const link = event.currentTarget;
+    const link = event.currentTarget as HTMLAnchorElement;
     const iconId = new URL(link.href).hash.replace('#', '');
     const teamName = document.getElementById(iconId);
     window.scrollTo({
-      top: teamName?.offsetTop,
+      top: teamName?.offsetTop ?? 0,
       behavior: 'smooth',
     });
   }
@@ -62,61 +62,61 @@
       <a href="#general" on:click={handleIconClick}>
         <img src="/assets/general-logo.svg" alt="acm-logo" width="125px" height="125px" />
       </a>
-      <caption class="acm-heaviest">General</caption>
+      <p class="acm-heaviest">General</p>
     </div>
     <div class="icon">
       <a href="#ai" on:click={handleIconClick}>
         <img src="/assets/ai-logo.svg" alt="ai-logo" width="125px" height="125px" />
       </a>
-      <caption class="acm-heaviest">AI</caption>
+      <p class="acm-heaviest">AI</p>
     </div>
     <div class="icon">
       <a href="#algo" on:click={handleIconClick}>
         <img src="/assets/algo-logo.svg" alt="algo-logo" width="125px" height="125p" />
       </a>
-      <caption class="acm-heaviest">Algo</caption>
+      <p class="acm-heaviest">Algo</p>
     </div>
     <div class="icon">
       <a href="#design" on:click={handleIconClick}>
         <img src="/assets/design-logo.svg" alt="design-logo" width="125px" height="125px" />
       </a>
-      <caption class="acm-heaviest">Design</caption>
+      <p class="acm-heaviest">Design</p>
     </div>
     <div class="icon">
       <a href="#dev" on:click={handleIconClick}>
         <img src="/assets/dev-logo.svg" alt="dev-logo" width="125px" height="125px" />
       </a>
-      <caption class="acm-heaviest">Dev</caption>
+      <p class="acm-heaviest">Dev</p>
     </div>
     <div class="icon">
       <a href="#gamedev" on:click={handleIconClick}>
         <img src="/assets/gamedev-logo.svg" alt="gamedev-logo" width="125px" height="125px" />
       </a>
-      <caption class="acm-heaviest">Gamedev</caption>
+      <p class="acm-heaviest">Game Dev</p>
     </div>
     <div class="icon">
       <a href="#icpc" on:click={handleIconClick}>
         <img src="/assets/icpc-logo.svg" alt="icpc-logo" width="125px" height="125px" />
       </a>
-      <caption class="acm-heaviest">ICPC</caption>
+      <p class="acm-heaviest">ICPC</p>
     </div>
     <div class="icon">
       <a href="#marketing" on:click={handleIconClick}>
         <img src="/assets/marketing-logo.svg" alt="marketing-logo" width="100px" height="100px" />
       </a>
-      <caption class="acm-heaviest">Marketing</caption>
+      <p class="acm-heaviest">Marketing</p>
     </div>
     <div class="icon">
       <a href="#nodebuds" on:click={handleIconClick}>
         <img src="/assets/nodebuds-logo-old.svg" alt="nodebuds-logo" width="100px" height="100px" />
       </a>
-      <caption class="acm-heaviest">Nodebuds</caption>
+      <p class="acm-heaviest">Node Buds</p>
     </div>
     <div class="icon">
       <a href="#oss" on:click={handleIconClick}>
         <img src="/assets/oss-logo.svg" alt="oss-logo" width="100px" height="100px" />
       </a>
-      <caption class="acm-heaviest">Open Source</caption>
+      <p class="acm-heaviest">Open Source</p>
     </div>
   </div>
   <Spacing --min="100px" --med="125px" --max="125px" />
@@ -283,7 +283,7 @@
   section .team-icons-inner-container .general :hover {
     cursor: pointer;
     transform: scale(1.07);
-    filter:brightness(97%);
+    filter: brightness(97%);
   }
 
   section .team-icons-inner-container a :hover {
@@ -297,24 +297,23 @@
   }
 
   @media (prefers-color-scheme: dark) {
-    
-    [data-theme="dark"] section .team-icons-inner-container .ai :hover {
+    [data-theme='dark'] section .team-icons-inner-container .ai :hover {
       cursor: pointer;
       transform: scale(1.07);
-      filter:brightness(105%);
+      filter: brightness(105%);
     }
 
-    [data-theme="dark"] section .team-icons-inner-container a :hover {
+    [data-theme='dark'] section .team-icons-inner-container a :hover {
       cursor: pointer;
       transform: scale(1.07);
-      filter:brightness(110%);
-    }
-
-    [data-theme="dark"] section .team-icons-inner-container .icon .ai :active {
       filter: brightness(110%);
     }
 
-    [data-theme="dark"] section .team-icons-inner-container .icon a :active {
+    [data-theme='dark'] section .team-icons-inner-container .icon .ai :active {
+      filter: brightness(110%);
+    }
+
+    [data-theme='dark'] section .team-icons-inner-container .icon a :active {
       filter: brightness(120%);
     }
   }
@@ -324,7 +323,7 @@
     height: auto;
   }
 
-  section .team-icons-inner-container .icon caption {
+  section .team-icons-inner-container .icon p {
     width: auto;
     height: 50px;
     display: flex;
