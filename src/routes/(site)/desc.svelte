@@ -10,9 +10,7 @@
 
       <div class="sponsor-section">
         <h1 class="sponsor-title size-md">Sponsored by</h1>
-        <div class="sponsor-logo">
-          <img src="/sponsors/google-logo.png" alt="Google Logo" />
-        </div>
+        <img src="/sponsors/google-logo.png" class="sponsor-logo" alt="Google Logo" />
       </div>
     </div>
   </div>
@@ -23,66 +21,75 @@
     display: grid;
   }
 
-  section .desc-inner-container {
+  .desc-inner-container {
     display: grid;
     grid-template-columns: 1fr;
     align-items: center;
     gap: 1em;
   }
 
-  section .desc-inner-container .desc-text {
+  .desc-text {
     display: grid;
     align-items: center;
     text-align: center;
   }
 
-  section .desc-inner-container .desc-text p {
-    /*margin: 1em;*/
+  .desc-text p {
+    margin: 1em;
     font-size: var(--size-md);
   }
 
-  section .desc-inner-container img {
+  .desc-inner-container img {
     max-width: clamp(20rem, 17.342rem + 10.13vw, 30rem);
     justify-self: center;
   }
 
-  @media screen and (min-width: 768px) {
+  .sponsor-section {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    margin-top: 1em;
+    gap: 0.5em;
+  }
+
+  .sponsor-logo {
+    height: auto;
+    width: 80px;
+    margin-bottom: 1em;
+  }
+
+  @media (min-width: 768px) {
     section {
-      display: grid;
       place-items: center;
-      align-items: center;
       max-width: 1280px;
       margin: 0 auto;
     }
 
-    section .desc-inner-container {
-      display: grid;
+    .desc-inner-container {
       grid-template-columns: 1fr 1fr;
-      align-items: center;
       gap: 4em;
     }
 
-    section .desc-inner-container .desc-text {
+    .desc-text {
       text-align: start;
       margin: 3%;
     }
 
-    section .desc-inner-container .desc-text p {
-      font-size: var(--size-lg);
+    .desc-text p {
+      margin: 0;
       margin-top: 3%;
+      font-size: var(--size-lg);
     }
 
-    section .desc-inner-container .sponsor-section {
+    .sponsor-section {
       display: flex;
       align-items: center;
-      gap: 0.5em;
       margin-top: 2em;
     }
 
-    section .desc-inner-container .sponsor-section .sponsor-logo img {
+    .sponsor-logo {
       width: 110px;
-      height: auto;
-      justify-self: center;
+      margin-bottom: 0;
     }
   }
 </style>
