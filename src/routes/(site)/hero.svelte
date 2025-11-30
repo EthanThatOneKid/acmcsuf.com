@@ -18,7 +18,8 @@
   <div class="hero-inner-container">
     <div class="hero-text">
       <h1 class="acm-heavier size-xl">
-        <span>We are the largest</span> <span class="multicolor-text">Computer Science</span>
+        <span>We are the largest</span>
+        <span class="multicolor-text">Computer Science</span>
         <span>community at CSUF</span>
       </h1>
       <div class="join-button">
@@ -46,48 +47,6 @@
 </section>
 
 <style>
-  .orbit-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 12em;
-    transform: translateY(3em);
-  }
-
-  .capy-solo img {
-    position: absolute;
-    width: 9em;
-    height: 9em;
-    transform: translate(-56%, -50%);
-  }
-
-  .orbit {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 3em;
-    height: 3em;
-    transform-origin: center center;
-    animation: spin 72s linear infinite;
-  }
-
-  .orbit img {
-    width: 100%;
-    height: 100%;
-    transform: translate(-50%, -50%);
-  }
-
-  @keyframes spin {
-    0% {
-      transform: rotate(calc(var(--i) * 36deg)) translate(110px) rotate(calc(-1 * var(--i) * 36deg));
-    }
-    100% {
-      transform: rotate(calc(var(--i) * 36deg + 360deg)) translate(110px)
-        rotate(calc(-1 * (var(--i) * 36deg + 360deg)));
-    }
-  }
-
   section {
     display: grid;
   }
@@ -97,7 +56,6 @@
     grid-template-columns: 1fr;
     align-items: center;
     gap: 1em;
-    /* margin-bottom: 5em; */
   }
 
   section .hero-inner-container .hero-text {
@@ -139,7 +97,48 @@
     animation-timing-function: linear;
   }
 
-  /* mobile view adjustments */
+  section .orbit-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 12em;
+    transform: translateY(3em);
+  }
+
+  section .capy-solo img {
+    position: absolute;
+    width: 9em;
+    height: 9em;
+    transform: translate(-56%, -50%);
+  }
+
+  section .orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3em;
+    height: 3em;
+    transform-origin: center center;
+    animation: spin 72s linear infinite;
+  }
+
+  section .orbit img {
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(calc(var(--i) * 36deg)) translate(110px) rotate(calc(-1 * var(--i) * 36deg));
+    }
+    100% {
+      transform: rotate(calc(var(--i) * 36deg + 360deg)) translate(110px)
+        rotate(calc(-1 * (var(--i) * 36deg + 360deg)));
+    }
+  }
+
   @media screen and (min-width: 1000px) {
     section {
       display: grid;
@@ -164,33 +163,29 @@
       justify-self: start;
     }
 
-    .capy-solo img {
-      width: 250px;
-      height: 250px;
+    section .capy-solo img {
+      width: 15em;
+      height: 15em;
       transform: translate(-56%, -50%);
     }
 
-    .orbit {
+    section .orbit {
       width: 5em;
       height: 5em;
     }
 
-    /* .orbit-container {
-      transform: translateY(-5em)
-    } */
+    section .orbit-container {
+      transform: translateY(0em);
+      height: 0;
+    }
 
     @keyframes spin {
       0% {
-        transform:
-          rotate(calc(var(--i) * 36deg))
-          translate(180px)
-          rotate(calc(var(--i) * -36deg));
+        transform: rotate(calc(var(--i) * 36deg)) translate(180px) rotate(calc(var(--i) * -36deg));
       }
 
       100% {
-        transform:
-          rotate(calc(var(--i) * 36deg + 360deg))
-          translate(180px)
+        transform: rotate(calc(var(--i) * 36deg + 360deg)) translate(180px)
           rotate(calc((var(--i) * -36deg) - 360deg));
       }
     }
