@@ -7,6 +7,13 @@
         We are a chapter club of the Association for Computing Machinery organization. Our goal is
         to expose passionate people of all levels to grow their skills in a collaborative community.
       </p>
+
+      <div class="sponsor-section">
+        <h1 class="sponsor-title size-md">Sponsored by</h1>
+        <div class="sponsor-logo">
+          <img src="/sponsors/google-logo.png" alt="Google Logo" />
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -30,7 +37,7 @@
   }
 
   section .desc-inner-container .desc-text p {
-    margin: 1em;
+    /*margin: 1em;*/
     font-size: var(--size-md);
   }
 
@@ -62,7 +69,20 @@
 
     section .desc-inner-container .desc-text p {
       font-size: var(--size-lg);
-      margin: 3%;
+      margin-top: 3%;
+    }
+
+    section .desc-inner-container .sponsor-section {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      margin-top: 2em;
+    }
+
+    section .desc-inner-container .sponsor-section .sponsor-logo img {
+      width: 110px;
+      height: auto;
+      justify-self: center;
     }
   }
 </style>
