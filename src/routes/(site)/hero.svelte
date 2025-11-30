@@ -37,7 +37,7 @@
 
       {#each badges as badge, i}
         <div class="orbit" style="--i:{i}">
-          <a title={badge.title} href={badge.href}>
+          <a title={badge.title} href={badge.href} data-sveltekit-reload>
             <img src={badge.src} alt="{badge.title} Badge" />
           </a>
         </div>
