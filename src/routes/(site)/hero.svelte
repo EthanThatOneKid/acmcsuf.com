@@ -91,10 +91,6 @@
   section .hero-inner-container {
     max-width: 90%;
     justify-self: center;
-    animation-name: spin;
-    animation-duration: 17s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
   }
 
   section .orbit-container {
