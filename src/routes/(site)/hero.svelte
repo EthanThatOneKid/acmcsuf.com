@@ -136,6 +136,7 @@
     animation-timing-function: linear;
   }
 
+  /* mobile view adjustments */
   @media screen and (min-width: 1000px) {
     section {
       display: grid;
@@ -173,12 +174,17 @@
 
     @keyframes spin {
       0% {
-        transform: rotate(calc(var(--i) * 36deg)) translate(180px)
-          rotate(calc(-1 * var(--i) * 36deg));
+        transform:
+          rotate(calc(var(--i) * 36deg))
+          translate(180px)
+          rotate(calc(var(--i) * -36deg));
       }
+
       100% {
-        transform: rotate(calc(var(--i) * 36deg + 360deg)) translate(180px)
-          rotate(calc(-1 * (var(--i) * 36deg + 360deg)));
+        transform:
+          rotate(calc(var(--i) * 36deg + 360deg))
+          translate(180px)
+          rotate(calc((var(--i) * -36deg) - 360deg));
       }
     }
   }
