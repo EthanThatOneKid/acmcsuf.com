@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { onMount, mount } from 'svelte';
   import BwIcon from '$lib/components/bw-icon/bw-icon.svelte';
   import { copy } from '$lib/public/copy/copy';
 
@@ -17,7 +17,7 @@
         copy(codeBlock.textContent ?? '', 'Code copied to clipboard', 'Failed to copy code');
       });
 
-      new BwIcon({
+      mount(BwIcon, {
         target: copyBtn,
         props: {
           src: '/assets/copy-text.svg',

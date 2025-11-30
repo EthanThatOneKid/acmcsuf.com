@@ -107,6 +107,16 @@ const siteMap: SiteMap = {
       title: 'Random',
       link: 'random',
     },
+    {
+      id: 'workshopspage',
+      title: 'Workshops',
+      link: 'workshops',
+    },
+    {
+      id: 'brandingpage',
+      title: 'Branding',
+      link: 'branding',
+    },
   ],
   Policies: [
     {

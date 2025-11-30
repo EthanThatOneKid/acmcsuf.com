@@ -6,7 +6,6 @@
     { title: 'Source Code', path: '/code' },
     { title: 'Report a Bug', path: '/bug' },
     { title: 'Sitemap', path: '/sitemap' },
-    { title: 'COVID-19 Policy', path: '/covid-19' },
     { title: 'Privacy Policy', path: '/privacy' },
   ];
 
@@ -34,9 +33,7 @@
     </div>
 
     <div class="legal">
-      <h3 class="acm-heavier size-md">
-        &copy; 2025 ACM Chapter at <span class="acm-heaviest">CSUF</span>
-      </h3>
+      <h3 class="acm-heavier size-md">&copy; 2025 ACM Chapter at CSUF</h3>
 
       <a
         href="mailto:acmcsufullerton@gmail.com"
@@ -99,8 +96,7 @@
         flex-direction: column;
         gap: 4px;
 
-        h3,
-        h3 span {
+        h3 {
           color: var(--perma-light);
         }
       }
