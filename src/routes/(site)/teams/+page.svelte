@@ -60,61 +60,61 @@
 <section class="team-container">
   <div class="team-icons-inner-container">
     <div class="icon">
-      <a href="#general" on:click={handleIconClick}>
+      <a class="general" href="#general" on:click={handleIconClick}>
         <img src="/assets/general-logo.svg" alt="acm-logo" width="125px" height="125px">
       </a>
       <caption class="acm-heaviest">General</caption>
     </div>
     <div class="icon">
-      <a href="#ai" on:click={handleIconClick}>
+      <a class="ai" href="#ai" on:click={handleIconClick}>
         <img src="/assets/ai-logo.svg" alt="ai-logo" width="125px" height="125px">
       </a>
       <caption class="acm-heaviest">AI</caption>
     </div>
     <div class="icon">
-      <a href="#algo" on:click={handleIconClick}>
+      <a class="algo" href="#algo" on:click={handleIconClick}>
         <img src="/assets/algo-logo.svg" alt="algo-logo" width="125px" height="125p">
       </a>
       <caption class="acm-heaviest">Algo</caption>
     </div>
     <div class="icon">
-      <a href="#design" on:click={handleIconClick}>
+      <a class="design" href="#design" on:click={handleIconClick}>
         <img src="/assets/design-logo.svg" alt="design-logo" width="125px" height="125px">
       </a>
       <caption class="acm-heaviest">Design</caption>
     </div>
     <div class="icon">
-      <a href="#dev" on:click={handleIconClick}>
+      <a class="dev" href="#dev" on:click={handleIconClick}>
         <img src="/assets/dev-logo.svg" alt="dev-logo" width="125px" height="125px">
       </a>
       <caption class="acm-heaviest">Dev</caption>
     </div>
     <div class="icon">
-      <a href="#gamedev" on:click={handleIconClick}>
+      <a class="gamedev" href="#gamedev" on:click={handleIconClick}>
         <img src="/assets/gamedev-logo.svg" alt="gamedev-logo" width="125px" height="125px">
       </a>
       <caption class="acm-heaviest">Gamedev</caption>
     </div>
     <div class="icon">
-      <a href="#icpc" on:click={handleIconClick}>
+      <a class="icpc" href="#icpc" on:click={handleIconClick}>
         <img src="/assets/icpc-logo.svg" alt="icpc-logo" width="125px" height="125px">
       </a>
       <caption class="acm-heaviest">ICPC</caption>
     </div>
     <div class="icon">
-      <a href="#marketing" on:click={handleIconClick}>
+      <a class="marketing" href="#marketing" on:click={handleIconClick}>
         <img src="/assets/marketing-logo.svg" alt="marketing-logo" width="100px" height="100px">
       </a>
       <caption class="acm-heaviest">Marketing</caption>
     </div>
     <div class="icon">
-      <a href="#nodebuds" on:click={handleIconClick}>
+      <a class="nodebuds" href="#nodebuds" on:click={handleIconClick}>
         <img src="/assets/nodebuds-logo-old.svg" alt="nodebuds-logo" width="100px" height="100px">
       </a>
       <caption class="acm-heaviest">Nodebuds</caption>
     </div>
     <div class="icon">
-      <a href="#oss" on:click={handleIconClick}>
+      <a class="oss" href="#oss" on:click={handleIconClick}>
         <img src="/assets/oss-logo.svg" alt="oss-logo" width="100px" height="100px">
       </a>
       <caption class="acm-heaviest">Open Source</caption>
@@ -281,14 +281,47 @@
     align-items: center;
   }
 
+  section .team-icons-inner-container .general :hover {
+    cursor: pointer;
+    transform: scale(1.07);
+    filter:brightness(97%);
+  }
+
   section .team-icons-inner-container a :hover {
     cursor: pointer;
     transform: scale(1.07);
-    filter:brightness(110%);
+    filter:brightness(95%);
+  }
+
+  section .team-icons-inner-container .icon .general :active {
+    filter: brightness(93%);
   }
 
   section .team-icons-inner-container .icon a :active {
-    filter: brightness(120%);
+    filter: brightness(90%);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    
+    [data-theme="dark"] section .team-icons-inner-container .ai :hover {
+      cursor: pointer;
+      transform: scale(1.07);
+      filter:brightness(105%);
+    }
+
+    [data-theme="dark"] section .team-icons-inner-container a :hover {
+      cursor: pointer;
+      transform: scale(1.07);
+      filter:brightness(110%);
+    }
+
+    [data-theme="dark"] section .team-icons-inner-container .icon .ai :active {
+      filter: brightness(110%);
+    }
+
+    [data-theme="dark"] section .team-icons-inner-container .icon a :active {
+      filter: brightness(120%);
+    }
   }
 
   section .team-icons-inner-container .icon a img {
