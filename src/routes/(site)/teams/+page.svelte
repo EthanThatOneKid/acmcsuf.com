@@ -59,61 +59,61 @@
 <section class="team-container">
   <div class="team-icons-inner-container">
     <div class="icon">
-      <a href="#general" on:click={handleIconClick}>
+      <a href="#general" class="general" on:click={handleIconClick}>
         <img src="/assets/general-logo.svg" alt="acm-logo" width="125px" height="125px" />
       </a>
       <p class="acm-heaviest">General</p>
     </div>
     <div class="icon">
-      <a href="#ai" on:click={handleIconClick}>
+      <a href="#ai" class="ai" on:click={handleIconClick}>
         <img src="/assets/ai-logo.svg" alt="ai-logo" width="125px" height="125px" />
       </a>
       <p class="acm-heaviest">AI</p>
     </div>
     <div class="icon">
-      <a href="#algo" on:click={handleIconClick}>
+      <a href="#algo" class="algo" on:click={handleIconClick}>
         <img src="/assets/algo-logo.svg" alt="algo-logo" width="125px" height="125p" />
       </a>
       <p class="acm-heaviest">Algo</p>
     </div>
     <div class="icon">
-      <a href="#design" on:click={handleIconClick}>
+      <a href="#design" class="design" on:click={handleIconClick}>
         <img src="/assets/design-logo.svg" alt="design-logo" width="125px" height="125px" />
       </a>
       <p class="acm-heaviest">Design</p>
     </div>
     <div class="icon">
-      <a href="#dev" on:click={handleIconClick}>
+      <a href="#dev" class="dev" on:click={handleIconClick}>
         <img src="/assets/dev-logo.svg" alt="dev-logo" width="125px" height="125px" />
       </a>
       <p class="acm-heaviest">Dev</p>
     </div>
     <div class="icon">
-      <a href="#gamedev" on:click={handleIconClick}>
+      <a href="#gamedev" class="gamedev" on:click={handleIconClick}>
         <img src="/assets/gamedev-logo.svg" alt="gamedev-logo" width="125px" height="125px" />
       </a>
       <p class="acm-heaviest">Game Dev</p>
     </div>
     <div class="icon">
-      <a href="#icpc" on:click={handleIconClick}>
+      <a href="#icpc" class="icpc" on:click={handleIconClick}>
         <img src="/assets/icpc-logo.svg" alt="icpc-logo" width="125px" height="125px" />
       </a>
       <p class="acm-heaviest">ICPC</p>
     </div>
     <div class="icon">
-      <a href="#marketing" on:click={handleIconClick}>
+      <a href="#marketing" class="marketing" on:click={handleIconClick}>
         <img src="/assets/marketing-logo.svg" alt="marketing-logo" width="100px" height="100px" />
       </a>
       <p class="acm-heaviest">Marketing</p>
     </div>
     <div class="icon">
-      <a href="#nodebuds" on:click={handleIconClick}>
+      <a href="#nodebuds" class="nodebuds" on:click={handleIconClick}>
         <img src="/assets/nodebuds-logo-old.svg" alt="nodebuds-logo" width="100px" height="100px" />
       </a>
       <p class="acm-heaviest">Node Buds</p>
     </div>
     <div class="icon">
-      <a href="#oss" on:click={handleIconClick}>
+      <a href="#oss" class="oss" on:click={handleIconClick}>
         <img src="/assets/oss-logo.svg" alt="oss-logo" width="100px" height="100px" />
       </a>
       <p class="acm-heaviest">Open Source</p>
@@ -289,10 +289,14 @@
   section .team-icons-inner-container a :hover {
     cursor: pointer;
     transform: scale(1.07);
-    filter: brightness(110%);
+    filter: brightness(95%);
   }
 
-  section .team-icons-inner-container .icon a :active {
+  section .team-icons-inner-container .general :active {
+    filter: brightness(92%);
+  }
+
+  section .team-icons-inner-container a :active {
     filter: brightness(90%);
   }
 
