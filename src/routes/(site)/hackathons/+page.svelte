@@ -5,7 +5,7 @@
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import type { Hackathon as HackathonType } from '$lib/public/hackathons';
 
-  // Extract year from date string
+  // Extract year from date string (e.g., "April 2025" -> 2025)
   function getYear(dateStr: string): number {
     const match = dateStr.match(/\d{4}/);
     return match ? parseInt(match[0]) : 0;
@@ -39,7 +39,7 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Scroll to year function scrolls to first hackathon of that year
+  // Scroll to year function - scrolls to first hackathon of that year
   function scrollToYear(year: number) {
     const hackathons = hackathonsByYear[year];
     if (hackathons && hackathons.length > 0) {
@@ -74,7 +74,7 @@
     id="year-{year}"
     class="year-section"
     class:first-section={index === 0}
-    class:alt-bg={index % 2 === 1}
+    class:alt-bg={index % 2 === 0}
   >
     <div class="year-section-content">
       <!-- Show header only in the first section -->
