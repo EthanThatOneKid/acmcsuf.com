@@ -89,8 +89,8 @@
 
           <nav class="year-nav">
             {#each years as navYear (navYear)}
-              <button 
-                class="year-pill" 
+              <button
+                class="year-pill"
                 on:click={() => scrollToYear(navYear)}
                 aria-label="Jump to {navYear} hackathons"
               >
