@@ -44,7 +44,7 @@
 
 <style>
   .hackathon {
-    scroll-margin-top: 100px;
+    scroll-margin-top: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -92,7 +92,6 @@
     transition:
       transform 0.3s ease,
       box-shadow 0.3s ease;
-    cursor: pointer;
   }
 
   .hackathon-image-wrapper:hover {

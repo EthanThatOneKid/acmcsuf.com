@@ -4,7 +4,7 @@
   import HACKATHONS from './data';
   import type { Hackathon as HackathonType } from '$lib/public/hackathons';
 
-  // Extract year from date string (e.g., "April 2025" -> 2025)
+  // Extract year from date string
   function getYear(dateStr: string): number {
     const match = dateStr.match(/\d{4}/);
     return match ? parseInt(match[0]) : 0;
@@ -38,11 +38,15 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Scroll to year function
+  // Scroll to year function scrolls to first hackathon of that year
   function scrollToYear(year: number) {
-    const element = document.getElementById(`year-${year}`);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    const hackathons = hackathonsByYear[year];
+    if (hackathons && hackathons.length > 0) {
+      const firstHackathon = hackathons[0];
+      const element = document.getElementById(firstHackathon.id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   }
 
@@ -77,9 +81,9 @@
         <header class="page-header">
           <h1><span class="title-accent">ACM</span> at CSUF Hackathons</h1>
           <p class="page-caption">
-            Journey through our annual hackathons and see how it all started. 
-            Open to students from all colleges and universities as we support 
-            and motivate the next generation of builders.
+            Journey through our annual hackathons and see how it all started. Open to students from
+            all colleges and universities as we support and motivate the next generation of
+            builders.
           </p>
 
           <nav class="year-nav">
