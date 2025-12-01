@@ -14,7 +14,7 @@
   const sortedHackathons: HackathonType[] = [...HACKATHONS].sort(
     (a, b) => getYear(b.date) - getYear(a.date)
   );
-  
+
   // Group hackathons by year
   const hackathonsByYear: Record<number, HackathonType[]> = {};
   for (const hackathon of sortedHackathons) {
@@ -47,9 +47,9 @@
   }
 
   onMount(() => {
-    const handleScroll = () => {
+    function handleScroll() {
       showBackToTop = window.scrollY > 500;
-    };
+    }
 
     window.addEventListener('scroll', handleScroll);
 
@@ -65,10 +65,10 @@
 
 <!-- Year sections with alternating backgrounds -->
 {#each years as year, index (year)}
-  <section 
+  <section
     id="year-{year}"
-    class="year-section" 
-    class:first-section={index === 0} 
+    class="year-section"
+    class:first-section={index === 0}
     class:alt-bg={index % 2 === 1}
   >
     <div class="year-section-content">
@@ -77,22 +77,21 @@
         <header class="page-header">
           <h1><span class="title-accent">ACM</span> at CSUF Hackathons</h1>
           <p class="page-caption">
-            Check out our yearly hackathons. They are open to students from all colleges and universities.
+            Journey through our annual hackathons and see how it all started. 
+            Open to students from all colleges and universities as we support 
+            and motivate the next generation of builders.
           </p>
-          
+
           <nav class="year-nav">
             {#each years as navYear (navYear)}
-              <button 
-                class="year-pill"
-                on:click={() => scrollToYear(navYear)}
-              >
+              <button class="year-pill" on:click={() => scrollToYear(navYear)}>
                 {navYear}
               </button>
             {/each}
           </nav>
         </header>
       {/if}
-      
+
       <div class="hackathons-grid">
         {#each hackathonsByYear[year] as hackathon (hackathon.id)}
           <Hackathon data={hackathon} />
@@ -102,8 +101,8 @@
   </section>
 {/each}
 
-<button 
-  class="back-to-top" 
+<button
+  class="back-to-top"
   class:visible={showBackToTop}
   on:click={scrollToTop}
   aria-label="Back to top"

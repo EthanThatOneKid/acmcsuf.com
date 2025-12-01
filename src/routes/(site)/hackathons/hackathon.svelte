@@ -6,11 +6,11 @@
 
   // Theme emoji mapping based on theme name
   const themeEmojiMap: Record<string, string> = {
-    'Camping': '🏕️',
-    'Cyberpunk': '🤖',
-    'Party': '🎉',
-    'Neon': '💜',
-    'Space': '🚀',
+    Camping: '🏕️',
+    Cyberpunk: '🤖',
+    Party: '🎉',
+    Neon: '💜',
+    Space: '🚀',
   };
 
   $: themeEmoji = themeEmojiMap[data.theme] || '🎭';
@@ -18,7 +18,7 @@
 
 <section class="hackathon" id={data.id}>
   <h2><a href="#{data.id}">{data.title}</a></h2>
-  
+
   <div class="hackathon-meta">
     <span>📅 {data.date}</span>
     <span>📍 {data.location}</span>
@@ -35,7 +35,7 @@
   <div class="directors-container">
     {#each data.directors as director (director.name)}
       <div class="director-card">
-        <BoardMember src={director.picture} alt="{director.name}" color="var(--acm-blue)" />
+        <BoardMember src={director.picture} alt={director.name} color="var(--acm-blue)" />
         <p class="names">{director.name}</p>
       </div>
     {/each}
@@ -89,7 +89,9 @@
     height: 560px;
     overflow: hidden;
     border-radius: 16px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
     cursor: pointer;
   }
 
