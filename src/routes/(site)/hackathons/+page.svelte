@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import Hackathon from './hackathon.svelte';
   import HACKATHONS from './data';
+  import Spacing from '$lib/public/legacy/spacing.svelte';
   import type { Hackathon as HackathonType } from '$lib/public/hackathons';
 
   // Extract year from date string
@@ -104,6 +105,8 @@
     </div>
   </section>
 {/each}
+
+<Spacing --min="100px" --med="125px" --max="125px" />
 
 <button
   class="back-to-top"
