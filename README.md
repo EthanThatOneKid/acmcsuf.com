@@ -26,7 +26,7 @@ Once all checks have been passed, the preview site gets promoted to production.
 ---
 
 Maintained with 💖 by [**acmcsuf.com hub**][team_doc]  
-Current Webmaster: [**Dianella Sy**](webmaster_url)
+Current Webmaster: [**Dianella Sy**][webmaster_url]
 
 [node_download]: https://nodejs.org/en/download/
 [github_action_deploy]: .github/workflows/deploy.yaml

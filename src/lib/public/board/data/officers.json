@@ -1260,8 +1260,7 @@
       ],
       "F25": [
         { "title": "ICPC Lead", "tier": 27 },
-        { "title": "Algo Officer", "tier": 12 },
-        { "title": "Game Dev Officer", "tier": 23 }
+        { "title": "Algo Officer", "tier": 12 }
       ]
     },
     "discord": "@baremetal_alchemist"
@@ -1491,7 +1490,7 @@
     "picture": "emily-tsai.webp",
     "positions": {
       "F25": [
-        { "title": "Node Buds Officer", "tier": 26 },
+        { "title": "Node Buds Co-Team Lead", "tier": 36 },
         { "title": "Open Source Officer", "tier": 33 }
       ]
     },
@@ -1660,7 +1659,10 @@
     "fullName": "William Lim",
     "picture": "william-lim.webp",
     "positions": {
-      "F25": [{ "title": "Game Dev Officer", "tier": 23 }]
+      "F25": [
+        { "title": "Game Dev Officer", "tier": 23 },
+        { "title": "Algo Officer", "tier": 12 }
+      ]
     },
     "discord": "@bald0398"
   },
