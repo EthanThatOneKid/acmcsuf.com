@@ -9,7 +9,7 @@
   <ul>
     {#each data.members as member (member.fullName + data.term)}
       <li>
-        <OfficerProfile info={member} team={data.team} />
+        <OfficerProfile info={member} team={data.team} term={data.term} />
       </li>
     {/each}
   </ul>
