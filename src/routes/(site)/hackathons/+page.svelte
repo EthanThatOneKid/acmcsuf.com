@@ -77,9 +77,9 @@
         <header class="page-header">
           <h1><span class="title-accent">ACM</span> at CSUF Hackathons</h1>
           <p class="page-caption">
-            Journey through our annual hackathons and see how it all started. 
-            Open to students from all colleges and universities as we support 
-            and motivate the next generation of builders.
+            Journey through our annual hackathons and see how it all started. Open to students from
+            all colleges and universities as we support and motivate the next generation of
+            builders.
           </p>
 
           <nav class="year-nav">
