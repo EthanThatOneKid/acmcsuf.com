@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import ScrollToTop from '$lib/components/scroll-to-top/scroll.svelte';
   import Hackathon from './hackathon.svelte';
   import HACKATHONS from './data';
   import Spacing from '$lib/public/legacy/spacing.svelte';
@@ -31,14 +31,6 @@
     .map(Number)
     .sort((a, b) => b - a);
 
-  // Back to top button visibility
-  let showBackToTop = false;
-
-  // Scroll to top function
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
   // Scroll to year function - scrolls to first hackathon of that year
   function scrollToYear(year: number) {
     const hackathons = hackathonsByYear[year];
@@ -50,18 +42,6 @@
       }
     }
   }
-
-  onMount(() => {
-    function handleScroll() {
-      showBackToTop = window.scrollY > 500;
-    }
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  });
 </script>
 
 <svelte:head>
@@ -112,14 +92,7 @@
 
 <Spacing --min="100px" --med="125px" --max="125px" />
 
-<button
-  class="back-to-top"
-  class:visible={showBackToTop}
-  on:click={scrollToTop}
-  aria-label="Back to top"
->
-  ↑
-</button>
+<ScrollToTop />
 
 <style>
   .page-header {
@@ -205,37 +178,6 @@
     grid-column: 1 / -1;
   }
 
-  /* Back to top button */
-  .back-to-top {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: #00b0ff;
-    color: white;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 176, 255, 0.4);
-    z-index: 1000;
-  }
-
-  .back-to-top:hover {
-    background: #00c8ff;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 176, 255, 0.5);
-  }
-
-  .back-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-  }
-
   @media (max-width: 1024px) {
     .hackathons-grid {
       grid-template-columns: 1fr;
@@ -268,14 +210,6 @@
 
     .year-section.first-section {
       padding-top: 150px;
-    }
-
-    .back-to-top {
-      bottom: 1.5rem;
-      right: 1.5rem;
-      width: 45px;
-      height: 45px;
-      font-size: 1.25rem;
     }
   }
 </style>
