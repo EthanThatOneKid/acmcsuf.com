@@ -108,6 +108,7 @@
   @media (max-width: 768px) {
     .hackathon {
       padding: 1rem;
+      scroll-margin-top: 100px;
     }
     .hackathon-meta {
       flex-direction: column;
@@ -123,6 +124,12 @@
     }
     .directors-container {
       gap: 20px;
+    }
+  }
+
+  @media (max-width: 1024px) and (min-width: 769px) {
+    .hackathon {
+      scroll-margin-top: 120px;
     }
   }
 </style>
