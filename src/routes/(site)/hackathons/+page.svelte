@@ -38,7 +38,15 @@
       const firstHackathon = hackathons[0];
       const element = document.getElementById(firstHackathon.id);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        const navbarHeight = 80;
+        const extraPadding = 20;
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - navbarHeight - extraPadding;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
       }
     }
   }
