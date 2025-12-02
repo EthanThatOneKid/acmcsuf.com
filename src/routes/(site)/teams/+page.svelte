@@ -58,66 +58,95 @@
 
 <section class="team-container">
   <div class="team-icons-inner-container">
-    <div class="icon">
-      <a href="#general" class="general" on:click={handleIconClick}>
-        <img src="/assets/general-logo.svg" alt="acm-logo" width="125px" height="125px" />
-      </a>
-      <p class="acm-heaviest">General</p>
-    </div>
-    <div class="icon">
-      <a href="#ai" class="ai" on:click={handleIconClick}>
-        <img src="/assets/ai-logo.svg" alt="ai-logo" width="125px" height="125px" />
-      </a>
-      <p class="acm-heaviest">AI</p>
-    </div>
-    <div class="icon">
-      <a href="#algo" class="algo" on:click={handleIconClick}>
-        <img src="/assets/algo-logo.svg" alt="algo-logo" width="125px" height="125p" />
-      </a>
-      <p class="acm-heaviest">Algo</p>
-    </div>
-    <div class="icon">
-      <a href="#design" class="design" on:click={handleIconClick}>
-        <img src="/assets/design-logo.svg" alt="design-logo" width="125px" height="125px" />
-      </a>
-      <p class="acm-heaviest">Design</p>
-    </div>
-    <div class="icon">
-      <a href="#dev" class="dev" on:click={handleIconClick}>
-        <img src="/assets/dev-logo.svg" alt="dev-logo" width="125px" height="125px" />
-      </a>
-      <p class="acm-heaviest">Dev</p>
-    </div>
-    <div class="icon">
-      <a href="#gamedev" class="gamedev" on:click={handleIconClick}>
-        <img src="/assets/gamedev-logo.svg" alt="gamedev-logo" width="125px" height="125px" />
-      </a>
-      <p class="acm-heaviest">Game Dev</p>
-    </div>
-    <div class="icon">
-      <a href="#icpc" class="icpc" on:click={handleIconClick}>
-        <img src="/assets/icpc-logo.svg" alt="icpc-logo" width="125px" height="125px" />
-      </a>
-      <p class="acm-heaviest">ICPC</p>
-    </div>
-    <div class="icon">
-      <a href="#marketing" class="marketing" on:click={handleIconClick}>
-        <img src="/assets/marketing-logo.svg" alt="marketing-logo" width="100px" height="100px" />
-      </a>
-      <p class="acm-heaviest">Marketing</p>
-    </div>
-    <div class="icon">
-      <a href="#nodebuds" class="nodebuds" on:click={handleIconClick}>
-        <img src="/assets/nodebuds-logo-old.svg" alt="nodebuds-logo" width="100px" height="100px" />
-      </a>
-      <p class="acm-heaviest">Node Buds</p>
-    </div>
-    <div class="icon">
-      <a href="#oss" class="oss" on:click={handleIconClick}>
-        <img src="/assets/oss-logo.svg" alt="oss-logo" width="100px" height="100px" />
-      </a>
-      <p class="acm-heaviest">Open Source</p>
-    </div>
+    <a
+      href="#general"
+      class="icon icon"
+      on:click={handleIconClick}
+      style="background-color: var(--acm-blue)"
+    >
+      <p>General</p>
+    </a>
+
+    <a
+      href="#ai"
+      class="icon icon"
+      on:click={handleIconClick}
+      style="background-color: var(--acm-emerald)"
+    >
+      <p>AI</p>
+    </a>
+
+    <a
+      href="#algo"
+      class="icon icon"
+      on:click={handleIconClick}
+      style="background-color: var(--acm-purple)"
+    >
+      <p>Algo</p>
+    </a>
+
+    <a
+      href="#design"
+      class="icon icon"
+      on:click={handleIconClick}
+      style="background-color: var(--acm-pink)"
+    >
+      <p>Design</p>
+    </a>
+
+    <a
+      href="#dev"
+      class="icon"
+      on:click={handleIconClick}
+      style="background-color: var(--acm-bluer)"
+    >
+      <p>Dev</p>
+    </a>
+
+    <a
+      href="#gamedev"
+      class="icon"
+      on:click={handleIconClick}
+      style="background-color: var(--acm-red)"
+    >
+      <p>Game Dev</p>
+    </a>
+
+    <a
+      href="#icpc"
+      class="icon"
+      on:click={handleIconClick}
+      style="background-color: var(--acm-orange)"
+    >
+      <p>ICPC</p>
+    </a>
+
+    <a
+      href="#marketing"
+      class="icon"
+      on:click={handleIconClick}
+      style="background-color: var(--acm-blush)"
+    >
+      <p>Marketing</p>
+    </a>
+
+    <a
+      href="#nodebuds"
+      class="icon"
+      on:click={handleIconClick}
+      style="background-color: var(--acm-red)"
+    >
+      <p>Node Buds</p>
+    </a>
+
+    <a
+      href="#oss"
+      class="icon"
+      on:click={handleIconClick}
+      style="background-color: var(--acm-turquoise)"
+    >
+      <p>Open Source</p>
+    </a>
   </div>
   <Spacing --min="100px" --med="125px" --max="125px" />
 </section>
@@ -226,10 +255,6 @@
 <Spacing --min="100px" --med="125px" --max="125px" />
 
 <style>
-  p {
-    align-self: start;
-  }
-
   section {
     display: grid;
   }
@@ -260,87 +285,33 @@
 
   section .team-icons-inner-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
-    column-gap: 50px;
-    row-gap: 30px;
+    grid-template-columns: repeat(2, 120px);
+    column-gap: 45px;
+    row-gap: 20px;
     justify-content: center;
+    justify-items: center;
+  }
+
+  .icon {
+    width: 120px;
+    height: 20px;
+    border-radius: 10px;
     padding: 10px;
-  }
-
-  section .team-icons-inner-container .icon {
-    display: grid;
-    align-items: center;
-    text-align: center;
-    padding: 10px;
-  }
-
-  section .team-icons-inner-container .icon a {
     display: flex;
-    justify-content: center;
     align-items: center;
-  }
-
-  section .team-icons-inner-container .general :hover {
-    cursor: pointer;
-    transform: scale(1.07);
-    filter: brightness(97%);
-  }
-
-  section .team-icons-inner-container a :hover {
-    cursor: pointer;
-    transform: scale(1.07);
-    filter: brightness(95%);
-  }
-
-  section .team-icons-inner-container .general :active {
-    filter: brightness(92%);
-  }
-
-  section .team-icons-inner-container a :active {
-    filter: brightness(90%);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    [data-theme='dark'] section .team-icons-inner-container .ai :hover {
-      cursor: pointer;
-      transform: scale(1.07);
-      filter: brightness(105%);
-    }
-
-    [data-theme='dark'] section .team-icons-inner-container a :hover {
-      cursor: pointer;
-      transform: scale(1.07);
-      filter: brightness(110%);
-    }
-
-    [data-theme='dark'] section .team-icons-inner-container .icon .ai :active {
-      filter: brightness(110%);
-    }
-
-    [data-theme='dark'] section .team-icons-inner-container .icon a :active {
-      filter: brightness(120%);
-    }
-  }
-
-  section .team-icons-inner-container .icon a img {
-    width: 100%;
-    height: auto;
-  }
-
-  section .team-icons-inner-container .icon p {
-    width: auto;
-    height: 50px;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    text-align: center;
+    text-decoration: none;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 999px) {
+    section .team-icons-inner-container {
+      grid-template-columns: repeat(4, 120px);
+    }
   }
 
   @media screen and (min-width: 1000px) {
     section {
-      display: grid;
       place-items: center;
-      align-items: center;
       max-width: 1280px;
       margin: 0 auto;
     }
@@ -362,7 +333,24 @@
     }
 
     section .team-icons-inner-container {
-      grid-template-columns: repeat(5, minmax(125px, 1fr));
+      grid-template-columns: repeat(5, 140px);
+      column-gap: 40px;
+    }
+
+    section .team-icons-inner-container a:hover {
+      cursor: pointer;
+      transform: scale(1.07);
+      filter: brightness(95%);
+    }
+
+    .icon {
+      width: 140px;
+      height: 15px;
+    }
+
+    .icon p {
+      color: white;
+      margin: 0;
     }
   }
 

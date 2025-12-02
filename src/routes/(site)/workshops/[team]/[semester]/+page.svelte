@@ -17,25 +17,3 @@
 <div id="workshops">
   <WSDisplay {team} sem={semester} />
 </div>
-
-<style>
-  #header {
-    text-align: center;
-  }
-  #workshops {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  #wsdesc {
-    margin-bottom: 40px;
-  }
-  #wscontainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 30px;
-  }
-</style>

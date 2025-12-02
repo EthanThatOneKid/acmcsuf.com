@@ -27,7 +27,7 @@
 <nav>
   <input type="checkbox" id="navToggle" class="toggle" bind:this={checkbox} />
 
-  <div class="backdrop" on:click={handleClose} on:keypress={handleClose} role="presentation" />
+  <div class="backdrop" on:click={handleClose} on:keypress={handleClose} role="presentation"></div>
 
   <div class="container">
     <div class="logo-container">
@@ -75,9 +75,9 @@
   </div>
 
   <label for="navToggle" class="menu">
-    <div class="menuLine" />
-    <div class="menuLine" />
-    <div class="menuLine" />
+    <div class="menuLine"></div>
+    <div class="menuLine"></div>
+    <div class="menuLine"></div>
   </label>
 </nav>
 
