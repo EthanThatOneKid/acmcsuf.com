@@ -302,6 +302,10 @@
     justify-content: center;
     text-decoration: none;
   }
+  .icon p {
+    color: white;
+    margin: 0;
+  }
 
   @media screen and (min-width: 768px) and (max-width: 999px) {
     section .team-icons-inner-container {
@@ -346,11 +350,6 @@
     .icon {
       width: 140px;
       height: 15px;
-    }
-
-    .icon p {
-      color: white;
-      margin: 0;
     }
   }
 
