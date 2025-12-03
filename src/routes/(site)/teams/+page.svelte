@@ -5,6 +5,7 @@
   import Spacing from '$lib/public/legacy/spacing.svelte';
   import TeamSection from './team-section.svelte';
   import Select from '$lib/components/select/select.svelte';
+  import ScrollToTop from '$lib/components/scroll-to-top/scroll.svelte';
 
   /**
    * @param termCode ex: `F21`, `S22`, etc.
@@ -224,6 +225,8 @@
 </TeamSection>
 
 <Spacing --min="100px" --med="125px" --max="125px" />
+
+<ScrollToTop />
 
 <style>
   p {

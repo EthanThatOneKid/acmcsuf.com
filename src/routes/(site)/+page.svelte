@@ -5,7 +5,7 @@
   import Teams from './teams.svelte';
   import Lucky from './lucky.svelte';
   import FAQ from './faq.svelte';
-  // import Blog from './blog.svelte';
+  import ScrollToTop from '$lib/components/scroll-to-top/scroll.svelte';
 </script>
 
 <svelte:head>
@@ -100,6 +100,8 @@
     <Spacing --min="75px" --med="100px" --max="120px" />
   </div> -->
 </div>
+
+<ScrollToTop />
 
 <style>
   .section-container {
