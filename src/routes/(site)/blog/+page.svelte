@@ -4,6 +4,7 @@
   import LabelField from './labelfield.svelte';
   import { makeBlogPostsPageDataURL, makeBlogPostsPageURL } from '$lib/public/blog/urls';
   import BlogPostPreview from '$lib/components/blog/blog-post-preview.svelte';
+  import ScrollToTop from '$lib/components/scroll-to-top/scroll.svelte';
 
   export let data: PageData;
 
@@ -71,6 +72,8 @@
 {/if}
 
 <Spacing --min="40px" --med="95px" --max="120px" />
+
+<ScrollToTop />
 
 <style lang="scss">
   .subtitle {

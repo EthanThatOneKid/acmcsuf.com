@@ -49,6 +49,11 @@ const siteMap: SiteMap = {
       title: 'Temp-apps',
       link: 'temp-apps',
     },
+    {
+      id: 'brandingpage',
+      title: 'Branding',
+      link: 'branding',
+    },
   ],
   'Showcase Pages': [
     {
@@ -111,11 +116,6 @@ const siteMap: SiteMap = {
       id: 'workshopspage',
       title: 'Workshops',
       link: 'workshops',
-    },
-    {
-      id: 'brandingpage',
-      title: 'Branding',
-      link: 'branding',
     },
   ],
   Policies: [
