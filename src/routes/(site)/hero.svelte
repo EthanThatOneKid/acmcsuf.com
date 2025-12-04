@@ -49,6 +49,7 @@
 <style>
   section {
     display: grid;
+    --radius: 110px;
   }
 
   section .hero-inner-container {
@@ -127,10 +128,11 @@
 
   @keyframes spin {
     0% {
-      transform: rotate(calc(var(--i) * 36deg)) translate(110px) rotate(calc(-1 * var(--i) * 36deg));
+      transform: rotate(calc(var(--i) * 36deg)) translate(var(--radius))
+        rotate(calc(-1 * var(--i) * 36deg));
     }
     100% {
-      transform: rotate(calc(var(--i) * 36deg + 360deg)) translate(110px)
+      transform: rotate(calc(var(--i) * 36deg + 360deg)) translate(var(--radius))
         rotate(calc(-1 * (var(--i) * 36deg + 360deg)));
     }
   }
@@ -140,6 +142,7 @@
       display: grid;
       place-items: center;
       align-items: center;
+      --radius: 180px;
     }
 
     section .hero-inner-container {
@@ -177,11 +180,12 @@
 
     @keyframes spin {
       0% {
-        transform: rotate(calc(var(--i) * 36deg)) translate(180px) rotate(calc(var(--i) * -36deg));
+        transform: rotate(calc(var(--i) * 36deg)) translate(var(--radius))
+          rotate(calc(var(--i) * -36deg));
       }
 
       100% {
-        transform: rotate(calc(var(--i) * 36deg + 360deg)) translate(180px)
+        transform: rotate(calc(var(--i) * 36deg + 360deg)) translate(var(--radius))
           rotate(calc((var(--i) * -36deg) - 360deg));
       }
     }
