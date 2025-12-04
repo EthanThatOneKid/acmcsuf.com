@@ -128,7 +128,8 @@
 
   @keyframes spin {
     0% {
-      transform: rotate(calc(var(--i) * 36deg)) translate(var(--radius)) rotate(calc(-1 * var(--i) * 36deg));
+      transform: rotate(calc(var(--i) * 36deg)) translate(var(--radius))
+        rotate(calc(-1 * var(--i) * 36deg));
     }
     100% {
       transform: rotate(calc(var(--i) * 36deg + 360deg)) translate(var(--radius))
@@ -179,7 +180,8 @@
 
     @keyframes spin {
       0% {
-        transform: rotate(calc(var(--i) * 36deg)) translate(var(--radius)) rotate(calc(var(--i) * -36deg));
+        transform: rotate(calc(var(--i) * 36deg)) translate(var(--radius))
+          rotate(calc(var(--i) * -36deg));
       }
 
       100% {
