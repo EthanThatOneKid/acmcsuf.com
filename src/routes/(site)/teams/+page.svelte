@@ -21,15 +21,24 @@
   let currentFormattedTerm = formattedTerms[$termIndex];
   $: $termIndex = formattedTerms.indexOf(currentFormattedTerm);
 
-  function handleIconClick(event: MouseEvent) {
-    event.preventDefault();
-    const link = event.currentTarget as HTMLAnchorElement;
-    const iconId = new URL(link.href).hash.replace('#', '');
-    const teamName = document.getElementById(iconId);
-    window.scrollTo({
-      top: teamName?.offsetTop ?? 0,
-      behavior: 'smooth',
-    });
+  function handleIconClick(e: MouseEvent) {
+    // event.preventDefault();
+    // const link = event.currentTarget as HTMLAnchorElement;
+    // const iconId = new URL(link.href).hash.replace('#', '');
+    // const teamName = document.getElementById(iconId);
+    // window.scrollTo({
+    //   top: teamName.offsetTop,
+    //   behavior: 'smooth',
+    // });
+    e.preventDefault();
+    const icon = e.currentTarget as HTMLAnchorElement;
+    const link = icon.getAttribute('href');
+    if (!link) return;
+    const element = document.querySelector(link);
+    if (!element) return;
+    element.scrollIntoView({
+      behavior: 'smooth'
+    })
   }
 </script>
 
