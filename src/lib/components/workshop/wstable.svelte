@@ -66,7 +66,7 @@
   }
 
   #container th,
-  #container td {
+  #container tr {
     color: var(--team-color);
     border: 1px solid #ccc;
     vertical-align: top;

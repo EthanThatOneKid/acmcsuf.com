@@ -34,9 +34,6 @@
 </div>
 
 <style>
-  body {
-    overflow: hidden;
-  }
   #header {
     text-align: center;
   }
