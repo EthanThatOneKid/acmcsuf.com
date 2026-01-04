@@ -46,6 +46,7 @@
   }
 
   .team-logo {
+    min-width: 100px;
     max-width: 33%;
     max-height: auto;
     height: auto;
@@ -84,10 +85,7 @@
 
   @media (max-width: 768px) {
     .downloads a {
-      display: flex;
-    }
-    .logo-card img {
-      margin-bottom: 11px;
+      margin: 5px;
     }
   }
 </style>
