@@ -41,12 +41,14 @@
     "format": "prettier --write .",
     "host": "npm run all && npm run preview",
     "all": "npm run lint && npm run format && npm run check && npm run build && npm t",
-    "generate:colors": "node scripts/generate-colors/index.js"
+    "generate:colors": "node scripts/generate-colors/index.js",
+    "deploy": "npm run build && wrangler deploy"
   },
   "devDependencies": {
     "@eslint/js": "^9.35.0",
     "@size-limit/file": "^8.2.6",
     "@sveltejs/adapter-auto": "^6.1.0",
+    "@sveltejs/adapter-cloudflare": "^7.2.4",
     "@sveltejs/kit": "^2.37.0",
     "@types/html-to-text": "^9.0.1",
     "@types/qrcode": "^1.5.1",
