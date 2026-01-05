@@ -41,7 +41,8 @@
     "format": "prettier --write .",
     "host": "npm run all && npm run preview",
     "all": "npm run lint && npm run format && npm run check && npm run build && npm t",
-    "generate:colors": "node scripts/generate-colors/index.js"
+    "generate:colors": "node scripts/generate-colors/index.js",
+    "deploy": "npm run build && wrangler deploy"
   },
   "devDependencies": {
     "@eslint/js": "^9.35.0",
