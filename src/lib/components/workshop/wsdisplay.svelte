@@ -59,7 +59,7 @@
     align-items: center;
   }
 
-  #container h2 {
+  #container h1 {
     margin-bottom: 1rem;
     line-height: 1.3em;
   }
@@ -73,7 +73,7 @@
   }
 
   #container th,
-  #container td {
+  #container tr {
     border: 1px solid #ccc;
     padding: 10px;
     vertical-align: top;
